@@ -1,0 +1,515 @@
+<resources>
+    <string name="undefined">Undefined</string>
+    
+    <string name="fmm_repository">FMM Repository</string>
+    <string name="fmm__template">Template</string>
+    <string name="fmm_access__private">\u0020\u0020\u0020Private</string>
+    <string name="fmm_access__shared">\u0020\u0020\u0020Shared</string>
+    <string name="fmm_access__team">\u0020\u0020\u0020Team</string>
+    <string name="fmm__selection_explanation">Each organization creates and maintains their own\nFlywheel Management Model (FMM)\n\nAn FMM is created with an access scope\nof <b>private</b>, <b>shared</b> or <b>team</b>.</string>
+    <string name="fmm__management_explanation">Each organization creates and maintains their own\nFlywheel Management Model (FMM)\n\nAn FMM is created with an access scope of <b>private</b>, <b>shared</b> or <b>team</b>.\n\nInformation from an FMM Configuration is used to connect to a specific FMM.</string>
+    <string name="fmm__repository_scope">Repository Scope</string>
+    <string name="fmm__access_scope">Access Scope</string>
+    <string name="fmm__access_scope__explanation">The access scope of a Flywheel Management Model (FMM)\ndetermines whether and how it is shared.</string>
+    <string name="fmm__access_scope__private__explanation">- Data is only stored on this Android device.\n- No one else can see the FMM.</string>
+    <string name="fmm__access_scope__shared__explanation">- Data is stored in a Dropbox folder which may be shared.\n- Only one person at a time may access the FMM.</string>
+    <string name="fmm__access_scope__team__explanation">- Data is stored in the \'cloud\'.\n- Anyone who is given access to the FMM can see\n\u0020\u0020\u0020and (optionally) modify data.</string>
+    <string name="fmm_template__explanation__existing_private">Model on an existing FMM\nthat is stored on this Android device.</string>
+    <string name="fmm_template__explanation__existing_shared">Model on an existing shared FMM.</string>
+    <string name="fmm_template__explanation__existing_team">Model on an existing team FMM.</string>
+    <string name="fmm_template__assets">\u0020\u0020\u0020FlywheelMS template library.</string>
+    <string name="fmm_template__explanation__assets">Model on a standard FlywheelMS template.</string>
+    <string name="fmm_template__cloud">\u0020\u0020\u0020FlywheelMS template cloud.</string>
+    <string name="fmm_template__explanation__cloud">Model on a \'cloud\' template.</string>
+    
+    <string name="fmm_node">FMM Node</string>
+    <string name="fmm_node_id">FMM Node ID</string>
+    <string name="fmm_node__glyph">FMM Node Glyph</string>
+
+    <string name="fmm_frame">Frame</string>
+    <string name="fmm_frame__commitment">Commitment</string>
+    <string name="fmm_frame__commitment__abreviated">Commit</string>
+    <string name="fmm_frame__context">Context</string>
+    <string name="fmm_frame__quality">Quality</string>
+    <string name="fmm_frame__fse">F S E</string>
+    <string name="fmm_frame__teams">Teams</string>
+    <string name="fmm_frame__tribkn">TribKn</string>
+    <string name="fmm_frame__velocity">Velocity</string>
+    
+    <string name="fmm_perspective">Perspective</string>
+    <string name="fmm_perspective__analysis">Analysis</string>
+    <string name="fmm_perspective__budgeting">Budgeting</string>
+    <string name="fmm_perspective__commitments">Commitments</string>
+    <string name="fmm_perspective__community">Community</string>
+    <string name="fmm_perspective__completion">Completion</string>
+    <string name="fmm_perspective__confirmed_commitments">Confirmed Commitments</string>
+    <string name="fmm_perspective__declined_commitments">Proposed and Declined Commitments</string>
+    <string name="fmm_perspective__deckangl">DecKanGl&#8482;</string>
+    <string name="fmm_perspective__facilitation_issues">Facilitation Issues</string>
+    <string name="fmm_perspective__flywheel_team">Flywheel Team</string>
+    <string name="fmm_perspective__functional_team">Functional Team</string>
+    <string name="fmm_perspective__governance">Governance</string>
+    <string name="fmm_perspective__governance_team">Governance Team</string>
+    <string name="fmm_perspective__history">History</string>
+    <string name="fmm_perspective__notes">Notes</string>
+    <string name="fmm_perspective__proposed_commitments">Proposed Commitments</string>
+    <string name="fmm_perspective__service_delivery">Service Delivery</string>
+    <string name="fmm_perspective__strategic_planning">Strategic Planning</string>
+    <string name="fmm_perspective__strategy_team">Strategy Team</string>
+    <string name="fmm_perspective__story">Story</string>
+    <string name="fmm_perspective__suggested_commitments">Suggested Commitments</string>
+    <string name="fmm_perspective__tribkn">TribKn&#8482;</string>
+    <string name="fmm_perspective__withdrawn_commitments">Confirmed and Withdrawn Commitments</string>
+    <string name="fmm_perspective__work_breakdown">Work Breakdown</string>
+    <string name="fmm_perspective__work_planning">Work Planning</string>
+    
+
+    <string name="todo__commitments">Commitments</string>
+    
+    <string name="assignment_commitment_type__none">None</string>
+    <string name="assignment_commitment_type__none__description">No commitment.</string>
+    <string name="assignment_commitment_type__suggested">Suggested</string>
+    <string name="assignment_commitment_type__suggested__description">Just a suggestion, or merely an example, but no commitment requested at this time.</string>
+    <string name="assignment_commitment_type__proposed">Proposed</string>
+    <string name="assignment_commitment_type__proposed__description">This assignment has been proposed, but not yet confirmed or declined.</string>
+    <string name="assignment_commitment_type__confirmed">Confirmed</string>
+    <string name="assignment_commitment_type__confirmed__description">This assignment has been confirmed by the CommunityMember or his Sponsor.</string>
+    <string name="assignment_commitment_type__declined">Declined</string>
+    <string name="assignment_commitment_type__declined__description">A proposed assignment has been declined by the CommunityMember or his Sponsor.</string>
+    <string name="assignment_commitment_type__withdrawn">Withdrawn</string>
+    <string name="assignment_commitment_type__withdrawn__description">A confirmed commitment has been withdrawn by the CommunityMember or his Sponsor.</string>
+    <string name="assignment_commitment_type__unavailable">Unavailable</string>
+    <string name="assignment_commitment_type__unavailable__description">The CommunityMember or his Sponsor have indicated that the CommunityMember is unavailable for this proposed assignment.</string>
+    
+    <string name="community_member">Community Member</string>
+    <string name="community_member_status__active">Active</string>
+    <string name="community_member_status__active__description">Actively working in the Community.</string>
+    <string name="community_member_status__inactive">Inactive</string>
+    <string name="community_member_status__inactive__description">Not actively working in the Community.</string>
+    <string name="community_member_status__on_vacation">On Vacation</string>
+    <string name="community_member_status__on_vacation__description">Currently on Vacation from the work of the Community.</string>
+    <string name="community_member_status__on_leave">On Leave</string>
+    <string name="community_member_status__on_leave__description">Currently on Leave from the work of the Community.</string>
+    
+    <string name="completion_commitment_type__suggested">Suggested</string>
+    <string name="completion_commitment_type__suggested__description">A commitment to complete this work has been suggested.</string>
+    <string name="completion_commitment_type__proposed">Proposed</string>
+    <string name="completion_commitment_type__proposed__description">A commitment to complete this work has been proposed.</string>
+    <string name="completion_commitment_type__confirmed">Confirmed</string>
+    <string name="completion_commitment_type__confirmed__description">A commitment to complete this work has been confirmed.</string>
+    <string name="completion_commitment_type__none">None</string>
+    <string name="completion_commitment_type__none__description">There is no commitment to complete this work.</string>
+    <string name="completion_commitment_type__withdrawn">Withdrawn</string>
+    <string name="completion_commitment_type__withdrawn__description">A proposed commitment to complete this work has been withdrawn.</string>
+    <string name="completion_commitment_type__declined">Declined</string>
+    <string name="completion_commitment_type__declined__description">A proposed commitment to complete this work has been declined.</string>
+    <string name="completion_commitment_type__canceled">Canceled</string>
+    <string name="completion_commitment_type__canceled__description">A previous commitment to complete this work has been canceled.</string>
+    
+    <string name="governance_role__sponsor">Sponsor</string>
+    <string name="governance_role__sponsor__description">Community Member with the authority to allocate time, budget and resources.</string>
+    <string name="governance_role__facilitator">Facilitator</string>
+    <string name="governance_role__facilitator__description">Community Member responsible for completion.</string>
+    <string name="governance_role__customer">Customer</string>
+    <string name="governance_role__customer__description">Community Member who must accept the finished product before it can be marked complete.</string>
+    <string name="governance_role__administrator">Administrator</string>
+    <string name="governance_role__administrator__description">Community Member who provides administrative support.</string>
+    
+    <string name="issue_status__proposed">Proposed</string>
+    <string name="issue_status__proposed__description">Recognition and escalation of this issue has been proposed.</string>
+    <string name="issue_status__confirmed">Confirmed</string>
+    <string name="issue_status__confirmed__description">Recognition and escalation of this issue has been confirmed.</string>
+    <string name="issue_status__withdrawn">Withdrawn</string>
+    <string name="issue_status__withdrawn__description">A proposed facilitation issue has been withdrawn.</string>
+    <string name="issue_status__dismissed">Dismissed</string>
+    <string name="issue_status__dismissed__description">The need for recognition and excalation of this issue has been dismissed.</string>
+    <string name="issue_status__resolved">Resolved</string>
+    <string name="issue_status__resolved__description">This facilitation issue has been resolved.</string>
+    
+    <string name="lock_type__budget">Budget Lock</string>
+    <string name="lock_type__budget__description">Both the estimated work effort and the budgeted work effort have been locked.</string>
+    <string name="lock_type__node">Node Lock</string>
+    <string name="lock_type__node__description">Everything in this node (with the possible exception of Notes) has been locked.</string>
+    <string name="lock_type__story">Story Lock</string>
+    <string name="lock_type__story__description">The story cannot be modified.</string>
+    <string name="lock_type__notes">Notes Lock</string>
+    <string name="lock_type__notes__description">The notes cannot be modified.</string>
+    <string name="lock_type__fiscal_years">Fiscal Years Lock</string>
+    <string name="lock_type__fiscal_years__description">Fiscal Years cannot be added, deleted or re-sequenced.  Headlines for Fiscal Years cannot be modified.</string>
+    <string name="lock_type__project_assets">Project Assets Lock</string>
+    <string name="lock_type__project_assets__description">Project Assets cannot be added, deleted or re-sequenced.  Headlines for Project Assets cannot be modified.</string>
+    <string name="lock_type__service_requests">Service Requests Lock</string>
+    <string name="lock_type__service_requests__description">Service Requests cannot be added or deleted.  They may be re-sequenced.  Headlines for Service Requests cannot be modified.</string>
+    <string name="lock_type__strategic_milestones">Strategic Milestones Lock</string>
+    <string name="lock_type__strategic_milestones__description">Strategic Milestones cannot be added, deleted, or re-sequenced.  Headlines for Strategic Milestones cannot be modified.</string>
+    <string name="lock_type__flywheel_milestones">Flywheel Milestones Lock</string>
+    <string name="lock_type__flywheel_milestones__description">Flywheel Milestones cannot be added, deleted, or re-sequenced.  Headlines for Flywheel Milestones cannot be modified.</string>
+    <string name="lock_type__work_packages">Work Packages Lock</string>
+    <string name="lock_type__work_packages__description">Work Packages cannot be added, deleted or re-sequenced.  Headlines for Work Packages cannot be modified.</string>
+    <string name="lock_type__work_plans">Work Plans Lock</string>
+    <string name="lock_type__work_plans__description">Work Plans cannot be added, deleted or re-sequenced.  Headlines for Work Plans cannot be modified.</string>
+    <string name="lock_type__work_tasks">Work Tasks Lock</string>
+    <string name="lock_type__work_tasks__description">Work Tasks cannot be added or deleted.  They may be re-sequenced.  Headlines for Work Tasks cannot be modified.</string>
+    
+    <string name="organization_participation__full">Full Participation</string>
+    <string name="organization_participation__full__description">Full participation in the organization\'s FlywheelMS activities.</string>
+    <string name="organization_participation__customer">Customer Participation</string>
+    <string name="organization_participation__customer__description">Participate in the organization FlywheelMS activities as a customer only.</string>
+    <string name="organization_participation__observer">Observer</string>
+    <string name="organization_participation__observer__description">Only observe this organization\'s FlywheelMS activities.</string>
+    <string name="organization_participation__external">External Participant</string>
+    <string name="organization_participation__external__description">Participant who does not have direct access to this organization\'s FlywheelMS activities.</string>
+    
+    <string name="tribkn_quality_metric__child_fractals">Child Fractals</string>
+    <string name="tribkn_quality_metric__child_fractals__description">Quality of the child fractals.</string>
+    <string name="tribkn_quality_metric__completion">Completion</string>
+    <string name="tribkn_quality_metric__completion__description">Quality of the completion status.</string>
+    <string name="tribkn_quality_metric__facilitation_issue">Facilitation Issue</string>
+    <string name="tribkn_quality_metric__facilitation_issue__description">Quality of the associated facilitation issue(s).</string>
+    <string name="tribkn_quality_metric__facilitator">Facilitator</string>
+    <string name="tribkn_quality_metric__facilitator__description">Quality of the completion facilitation.</string>
+    <string name="tribkn_quality_metric__flywheel_commitment">Flywheel Work Package Commitment</string>
+    <string name="tribkn_quality_metric__flywheel_commitment__description">Quality of the Flywheel Work Package commitments.</string>
+    <string name="tribkn_quality_metric__governance">Governance</string>
+    <string name="tribkn_quality_metric__governance__description">Quality of the governance.</string>
+    <string name="tribkn_quality_metric__parent_fractals">Parent Fractals</string>
+    <string name="tribkn_quality_metric__parent_fractals__description">Quality of the parent fractals.</string>
+    <string name="tribkn_quality_metric__sequence">Sequence</string>
+    <string name="tribkn_quality_metric__sequence__description">Quality of the sequence.</string>
+    <string name="tribkn_quality_metric__story">Story</string>
+    <string name="tribkn_quality_metric__story__description">Quality of the story.</string>
+    <string name="tribkn_quality_metric__strategic_commitment">Strategic Commitment</string>
+    <string name="tribkn_quality_metric__strategic_commitment__description">Quality of the strategic commitment.</string>
+    <string name="tribkn_quality_metric__work_task_budget">Work Task Budget</string>
+    <string name="tribkn_quality_metric__work_task_budget__description">Quality of the Work Task Budget.</string>
+    <string name="tribkn_quality_metric__work_team">Work Team</string>
+    <string name="tribkn_quality_metric__work_team__description">Quality of the work team.</string>
+    
+    <string name="tribkn_quality__normalized_description__at_risk">At Risk</string>
+    <string name="tribkn_quality__normalized_description__confirmed">Confirmed</string>
+    <string name="tribkn_quality__normalized_description__excessive">Excessive</string>
+    <string name="tribkn_quality__normalized_description__facilitation_issue">Facilitation Issue</string>
+    <string name="tribkn_quality__normalized_description__future">Future</string>
+    <string name="tribkn_quality__normalized_description__good">Good</string>
+    <string name="tribkn_quality__normalized_description__inactive">Inactive</string>
+    <string name="tribkn_quality__normalized_description__incomplete">Incomplete</string>
+    <string name="tribkn_quality__normalized_description__missed">Missed</string>
+    <string name="tribkn_quality__normalized_description__modified_since_confirmed">Modified Since Confirmed</string>
+    <string name="tribkn_quality__normalized_description__multiple_specified">Multiple Specified</string>
+    <string name="tribkn_quality__normalized_description__not_applicable">N\/A</string>
+    <string name="tribkn_quality__normalized_description__none">None</string>
+    <string name="tribkn_quality__normalized_description__not_enabled">Not Enabled</string>
+    <string name="tribkn_quality__normalized_description__not_scheduled">Not Scheduled</string>
+    <string name="tribkn_quality__normalized_description__one_specified">One Specified</string>
+    <string name="tribkn_quality__normalized_description__over_budget">Over Budget</string>
+    <string name="tribkn_quality__normalized_description__past_due">Past Due</string>
+    <string name="tribkn_quality__normalized_description__proposed">Proposed</string>
+    <string name="tribkn_quality__normalized_description__suggested">Suggested</string>
+    <string name="tribkn_quality__normalized_description__swag">SWAG</string>
+    <string name="tribkn_quality__normalized_description__unconfirmed">Unconfirmed</string>
+    <string name="tribkn_quality__normalized_description__unspecified">Unspecified</string>
+    
+    <string name="team_member_status__active">Active</string>
+    <string name="team_member_status__active__description">Actively working with the team.</string>
+    <string name="team_member_status__inactive">Inactive</string>
+    <string name="team_member_status__inactive__description">Not actively working with the team.</string>
+    
+    <string name="governance_participation_type__none">None</string>
+    <string name="governance_participation_type__none__description">No participation in the governance process.</string>
+    <string name="governance_participation_type__required">Required</string>
+    <string name="governance_participation_type__required__description">Required participation in the governance process.</string>
+    <string name="governance_participation_type__optional">Optional</string>
+    <string name="governance_participation_type__optional__description">Optional participation in the governance process.</string>
+    
+    
+    <string name="fmm_node_definition__administrator">Administrator</string>
+    <string name="fmm_node_definition__assignment_commitment_type__label_text">Assignment Commitment Type</string>
+    <string name="fmm_node_definition__bookshelf__label_text">Bookshelf</string>
+    <string name="fmm_node_definition__bookshelf_link_to_notebook__label_text">Bookshelf Link To Notebook</string>
+    <string name="fmm_node_definition__customer">Customer</string>
+    <string name="fmm_node_definition__community_member__label_text">Community Member</string>
+    <string name="fmm_node_definition__community_member_flywheel_team_governance_authority__label_text">Community Member Flywheel Team Governance Authority</string>
+    <string name="fmm_node_definition__community_member_organization_governance_authority__label_text">Community Member Organization Governance Authority</string>
+    <string name="fmm_node_definition__community_member_status__label_text">Community Member Status</string>
+    <string name="fmm_node_definition__completable_work_status__label_text">Work Status</string>
+    <string name="fmm_node_definition__completion_commitment_type__label_text">Completion Commitment Type</string>
+    <string name="fmm_node_definition__discussion_topic__label_text">Discussion Topic</string>
+    <string name="fmm_node_definition__discussion_topic_link_to_node_frag_audit_block__label_text">Discussion Topic Link To Item</string>
+    <string name="fmm_node_definition__facilitator">Facilitator</string>
+    <string name="fmm_node_definition__facilitation_issue__label_text">Facilitation Issue</string>
+    <string name="fmm_node_definition__facilitation_issue_link_to_work_task__label_text">Facilitation Issue Link To Work Task</string>
+    <string name="fmm_node_definition__fiscal_year__label_text">Fiscal Year</string>
+    <string name="fmm_node_definition__flywheel_commitment__label_text">Flywheel Commitment</string>
+    <string name="fmm_node_definition__flywheel_milestone__label_text">Flywheel Milestone</string>
+    <string name="fmm_node_definition__flywheel_team__label_text">Flywheel Team</string>
+    <string name="fmm_node_definition__flywheel_team_community_member__label_text">Flywheel Team Community Member</string>
+    <string name="fmm_node_definition__flywheel_team_work_task_budget__label_text">Flywheel Team Work Task Budget</string>
+    <string name="fmm_node_definition__frag_lock__label_text">Frag Lock</string>
+    <string name="fmm_node_definition__fse_document__label_text">Flywheel Story Document</string>
+    <string name="fmm_node_definition__fse_paragraph__label_text">Flywheel Story Paragraph</string>
+    <string name="fmm_node_definition__functional_team__label_text">Functional Team</string>
+    <string name="fmm_node_definition__functional_team_community_member__label_text">Functional Team Community Member</string>
+    <string name="fmm_node_definition__governance_participation_type__label_text">Governance Participation Type</string>
+    <string name="fmm_node_definition__governance_role__label_text">Governance Role</string>
+    <string name="fmm_node_definition__governance_satisfaction__label_text">Governance Satisfaction</string>
+    <string name="fmm_node_definition__governance_target__label_text">Governance Target</string>
+    <string name="fmm_node_definition__completion_node_trash__label_text">Completion Node Trash</string>
+    <string name="fmm_node_definition__issue_status__label_text">Issue Status</string>
+    <string name="fmm_node_definition__lock_config__label_text">Lock Config</string>
+    <string name="fmm_node_definition__lock_type__label_text">Lock Type</string>
+    <string name="fmm_node_definition__node_frag__audit_block__label_text">Audit Block</string>
+    <string name="fmm_node_definition__node_frag__completion__label_text">Completion</string>
+    <string name="fmm_node_definition__node_frag__fse_document__label_text">FSE Document</string>
+    <string name="fmm_node_definition__node_frag__governance__label_text">Governance</string>
+    <string name="fmm_node_definition__node_frag__history__label_text">History</string>
+    <string name="fmm_node_definition__node_frag__tribkn_quality__label_text">TribKn Quality</string>
+    <string name="fmm_node_definition__node_frag__work_task_budget__label_text">Work Task Budget</string>
+    <string name="fmm_node_definition__notebook__label_text">Notebook</string>
+    <string name="fmm_node_definition__notebook_link_to_discussion_topic__label_text">Notebook Link To Discussion Topic</string>
+    <string name="fmm_node_definition__organization__label_text">Organization</string>
+    <string name="fmm_node_definition__organization_community_member__label_text">Organization Community Member</string>
+    <string name="fmm_node_definition__organization_governance_target__label_text">Organization Governance Target</string>
+    <string name="fmm_node_definition__organization_lock_config__label_text">Organization Lock Config</string>
+    <string name="fmm_node_definition__organization_participation__label_text">Organization Participation</string>
+    <string name="fmm_node_definition__portfolio__label_text">Portfolio</string>
+    <string name="fmm_node_definition__portfolio_linkto_project__label_text">Portfolio Link To Project</string>
+    <string name="fmm_node_definition__project__label_text">Project</string>
+    <string name="fmm_node_definition__project_asset__label_text">Project Asset</string>
+    <string name="fmm_node_definition__project_asset_link_to_work_package__label_text">Project Asset Link To Work Package</string>
+    <string name="fmm_node_definition__project_link_to_project_asset__label_text">Project Link To Project Asset</string>
+    <string name="fmm_node_definition__fmm_configuration__label_text">FMM Configuration</string>
+    <string name="fmm_node_definition__service_delivery_commitment__label_text">Service Delivery Commitment</string>
+    <string name="fmm_node_definition__service_offering__label_text">Service Offering</string>
+    <string name="fmm_node_definition__service_offering_sla__label_text">Service Offering SLA</string>
+    <string name="fmm_node_definition__service_request__label_text">Service Request</string>
+    <string name="fmm_node_definition__service_request_link_to_work_task__label_text">Service Request Link To Work Task</string>
+    <string name="fmm_node_definition__service_request_triage_log__label_text">Service Request Triage Log</string>
+    <string name="fmm_node_definition__sponsor">Sponsor</string>
+    <string name="fmm_node_definition__strategic_commitment__label_text">Strategic Commitment</string>
+    <string name="fmm_node_definition__strategic_milestone__label_text">Strategic Milestone</string>
+    <string name="fmm_node_definition__strategy_team__label_text">Strategy Team</string>
+    <string name="fmm_node_definition__strategy_team_community_member__label_text">Strategy Team Community Member</string>
+    <string name="fmm_node_definition__team_member_status__label_text">Team Member Status</string>
+    <string name="fmm_node_definition__tribkn_element__label_text">TribKn&#8482; Element</string>
+    <string name="fmm_node_definition__tribkn_quality_enumeration__label_text">TribKn&#8482; Quality Enumeration</string>
+    <string name="fmm_node_definition__tribkn_quality_normalized_description__label_text">TribKn&#8482; Quality Normalized Description</string>
+    <string name="fmm_node_definition__work_package__label_text">Work Package</string>
+    <string name="fmm_node_definition__work_package_link_to_work_task__label_text">Work Package Link To Work Task</string>
+    <string name="fmm_node_definition__work_plan__label_text">Work Plan</string>
+    <string name="fmm_node_definition__work_task__label_text">Work Task</string>
+    <string name="fmm_node_definition__work_task_assignment__label_text">Work Task Assignment</string>
+    
+    <string name="fmm_event__publish_pdf__label_text">Publish PDF</string>
+    
+    <string name="work_status__not_started">Not Started</string>
+    <string name="work_status__not_started__description">Not a single Work Task has been Started</string>
+    <string name="work_status__started">Started</string>
+    <string name="work_status__started__description">At least one Work Task has been Started</string>
+    <string name="work_status__work_ready_for_review">Ready For Review</string>
+    <string name="work_status__work_ready_for_review__description">All Work is Ready For Review</string>
+    <string name="work_status__work_complete">Complete</string>
+    <string name="work_status__work_complete__description">All Work is Complete</string>
+    <string name="work_status__on_hold">On Hold</string>
+    <string name="work_status__on_hold__description">Work On Hold</string>
+    
+    <string name="decorator__facilitator__no_facilitator">No Facilitator</string>
+    <string name="decorator__facilitator__inactive_facilitator">Inactive Facilitator</string>
+    <string name="decorator__facilitator__suggested_facilitator">Suggested Facilitator</string>
+    <string name="decorator__facilitator__proposed_facilitator">Proposed Facilitator</string>
+    <string name="decorator__facilitator__confirmed">Confirmed Facilitator</string>
+    <string name="decorator__facilitator__unknown_quality">Unspecified Quality</string>
+    <string name="decorator__facilitator__not_applicable">Not App0licable</string>
+    <string name="decorator__facilitator__not_enabled">Not Enabled</string>
+    
+    <string name="decorator__facilitation_issue__proposed">Proposed Issue</string>
+    <string name="decorator__facilitation_issue__confirmed">Confirmed Issue</string>
+    <string name="decorator__facilitation_issue__none">No Facilitation Issues</string>
+    <string name="decorator__facilitation_issue__unknown_quality">Unspecified Quality</string>
+    <string name="decorator__facilitation_issue__not_applicable">Not Applicable</string>
+    <string name="decorator__facilitation_issue__not_enabled">Not Enabled</string>
+    
+    <string name="decorator__child_fractals__none">No Child Fractals</string>
+    <string name="decorator__child_fractals__swag">Child Fractals SWAG</string>
+    <string name="decorator__child_fractals__suggested">Suggested Child Fractals</string>
+    <string name="decorator__child_fractals__proposed">Proposed Child Fractals</string>
+    <string name="decorator__child_fractals__confirmed">Confirmed Child Fractals</string>
+    <string name="decorator__child_fractals__excessive">Confirmed Excessive Child Fractals</string>
+    <string name="decorator__child_fractals__unknown_quality">Unspecified Quality</string>
+    <string name="decorator__child_fractals__not_applicable">Not Applicable</string>
+    <string name="decorator__child_fractals__not_enabled">Not Enabled</string>
+    
+    <string name="decorator__flywheel_commitment__none">No Completion Commitment</string>
+    <string name="decorator__flywheel_commitment__suggested">Suggested Completion Commitment</string>
+    <string name="decorator__flywheel_commitment__proposed">Proposed Completion Commitment</string>
+    <string name="decorator__flywheel_commitment__confirmed">Confirmed Completion Commitment</string>
+    <string name="decorator__flywheel_commitment__future">Future Completion Commitment</string>
+    <string name="decorator__flywheel_commitment__missed">Missed Completion Commitment</string>
+    <string name="decorator__flywheel_commitment__unknown_quality">Unspecified Quality</string>
+    <string name="decorator__flywheel_commitment__not_applicable">Not Applicable</string>
+    <string name="decorator__flywheel_commitment__not_enabled">Not Enabled</string>
+    
+    <string name="decorator__completion_progress__past_due">Completion Past Due</string>
+    <string name="decorator__completion_progress__at_risk">Timely Completion At Risk</string>
+    <string name="decorator__completion_progress__unconfirmed">Unconfirmed Completion</string>
+    <string name="decorator__completion_progress__not_scheduled">Completion Not Scheduled</string>
+    <string name="decorator__completion_progress__no_issues">No Issues</string>
+    <string name="decorator__completion_progress__unknown_quality">Unspecified Quality</string>
+    <string name="decorator__completion_progress__not_applicable">Not Applicable</string>
+    <string name="decorator__completion_progress__not_enabled">Not Enabled</string>
+    
+    <string name="decorator__governance__none">No Governance</string>
+    <string name="decorator__governance__suggested">Suggested Governance</string>
+    <string name="decorator__governance__proposed">Proposed Governance</string>
+    <string name="decorator__governance__incomplete">Incomplete Confirmed Governance</string>
+    <string name="decorator__governance__confirmed">Confirmed Governance</string>
+    <string name="decorator__governance__inactive">Inactive Confirmed Governance</string>
+    <string name="decorator__governance__unknown_quality">Unspecified Quality</string>
+    <string name="decorator__governance__not_applicable">Not Applicable</string>
+    <string name="decorator__governance__not_enabled">Not Enabled</string>
+    
+    <string name="decorator__parent_fractals__none">No Parent Fractals</string>
+    <string name="decorator__parent_fractals__swag">Parent Fractals SWAG</string>
+    <string name="decorator__parent_fractals__suggested">Suggested Parent Fractals</string>
+    <string name="decorator__parent_fractals__proposed">Proposed Parent Fractals</string>
+    <string name="decorator__parent_fractals__one">One Confirmed Parent Fractal</string>
+    <string name="decorator__parent_fractals__multiple">Multiple Confirmed Parent Fractals</string>
+    <string name="decorator__parent_fractals__unknown_quality">Unspecified Quality</string>
+    <string name="decorator__parent_fractals__not_applicable">Not Applicable</string>
+    <string name="decorator__parent_fractals__not_enabled">Not Enabled</string>
+    
+    <string name="decorator__sequence__none">No Sequence</string>
+    <string name="decorator__sequence__swag">Sequence SWAG</string>
+    <string name="decorator__sequence__suggested">Suggested Sequence</string>
+    <string name="decorator__sequence__proposed">Proposed Sequence</string>
+    <string name="decorator__sequence__confirmed">Confirmed Sequence</string>
+    <string name="decorator__sequence__modified_since_confirmed">Sequence Modified Since Confirmed</string>
+    <string name="decorator__sequence__unknown_quality">Unspecified Quality</string>
+    <string name="decorator__sequence__not_applicable">Not Applicable</string>
+    <string name="decorator__sequence__not_enabled">Not Enabled</string>
+    
+    <string name="decorator__story__none">No Story</string>
+    <string name="decorator__story__swag">Story SWAG</string>
+    <string name="decorator__story__suggested">Suggested Story</string>
+    <string name="decorator__story__proposed">Proposed Story</string>
+    <string name="decorator__story__confirmed">Confirmed Story</string>
+    <string name="decorator__story__modified_since_confirmed">Story Modified Since Confirmed</string>
+    <string name="decorator__story__unknown_quality">Unspecified Quality</string>
+    <string name="decorator__story__not_applicable">Not Applicable</string>
+    <string name="decorator__story__not_enabled">Not Enabled</string>
+    
+    <string name="decorator__strategic_commitment__none">No Strategic Commitment</string>
+    <string name="decorator__strategic_commitment__suggested">Suggested Strategic Commitment</string>
+    <string name="decorator__strategic_commitment__proposed">Proposed Strategic Commitment</string>
+    <string name="decorator__strategic_commitment__confirmed">Confirmed Strategic Commitment</string>
+    <string name="decorator__strategic_commitment__future">Future Strategic Commitment</string>
+    <string name="decorator__strategic_commitment__missed">Missed Strategic Commitment</string>
+    <string name="decorator__strategic_commitment__unknown_quality">Unspecified Quality</string>
+    <string name="decorator__strategic_commitment__not_applicable">Not Applicable</string>
+    <string name="decorator__strategic_commitment__not_enabled">Not Enabled</string>
+    
+    <string name="decorator__task_budget__none">No Task Budget</string>
+    <string name="decorator__task_budget__swag">Task Budget SWAG</string>
+    <string name="decorator__task_budget__suggested">Suggested Task Budget</string>
+    <string name="decorator__task_budget__proposed">Proposed Task Budget</string>
+    <string name="decorator__task_budget__confirmed">Confirmed Task Budget</string>
+    <string name="decorator__task_budget__over_budget">Over Task Budget</string>
+    <string name="decorator__task_budget__unknown_quality">Unspecified Quality</string>
+    <string name="decorator__task_budget__not_applicable">Not Applicable</string>
+    <string name="decorator__task_budget__not_enabled">Not Enabled</string>
+    
+    <string name="decorator__work_team__none">No Work Team</string>
+    <string name="decorator__work_team__swag">Work Team SWAG</string>
+    <string name="decorator__work_team__suggested">Suggested Work Team</string>
+    <string name="decorator__work_team__proposed">Proposed Work Team</string>
+    <string name="decorator__work_team__confirmed">Confirmed Work Team</string>
+    <string name="decorator__work_team__inactive">Inactive Confirmed Work Team Member(s)</string>
+    <string name="decorator__work_team__unknown_quality">Unspecified Quality</string>
+    <string name="decorator__work_team__not_applicable">Not Applicable</string>
+    <string name="decorator__work_team__not_enabled">Not Enabled</string>
+    
+    <!-- attributes -->
+    
+    <string name="audit_block__created_by">Created By</string>
+    <string name="audit_block__created_timestamp">Created Timestamp</string>
+    <string name="audit_block__last_updated_by">Last Updated By</string>
+    <string name="audit_block__last_updated_timestamp">Last Updated Timestamp</string>
+    <string name="audit_block__locked_by">Locked By</string>
+    <string name="audit_block__locked_timestamp">Locked Timestamp</string>
+    <string name="audit_block__locked_status">Lock Status</string>
+    <string name="audit_block__transaction_count">Transaction Count</string>
+    
+    <string name="community_member__name">Community Member</string>
+    
+    <string name="governance__role">Role</string>
+    
+    <string name="governance__generic_commitment_type">Commitment Type</string>
+    <string name="governance__generic_commitment_timestamp">Commitment Timestamp</string>
+    <string name="governance__generic_proposed_by">Proposed By</string>
+    <string name="governance__generic_proposed_timestamp">Proposed Timestamp</string>
+    <string name="governance__generic_locked_by">Locked By</string>
+    <string name="governance__generic_locked_timestamp">Locked Timestamp</string>
+    
+    <string name="governance__sponsor">Sponsor</string>
+    <string name="governance__sponsor_commitment_type">Sponsor Commitment Type</string>
+    <string name="governance__sponsor_commitment_timestamp">Sponsor Commitment Timestamp</string>
+    <string name="governance__sponsor_proposed_by">Sponsor Proposed By</string>
+    <string name="governance__sponsor_proposed_timestamp">Sponsor Proposed Timestamp</string>
+    <string name="governance__sponsor_locked_by">Sponsor Locked By</string>
+    <string name="governance__sponsor_locked_timestamp">Sponsor Locked Timestamp</string>
+    
+    <string name="governance__customer">Customer</string>
+    <string name="governance__customer_commitment_type">Customer Commitment Type</string>
+    <string name="governance__customer_commitment_timestamp">Customer Commitment Timestamp</string>
+    <string name="governance__customer_proposed_by">Customer Proposed By</string>
+    <string name="governance__customer_proposed_timestamp">Customer Proposed Timestamp</string>
+    <string name="governance__customer_locked_by">Customer Locked By</string>
+    <string name="governance__customer_locked_timestamp">Customer Locked Timestamp</string>
+    
+    <string name="governance__facilitator">Facilitator</string>
+    <string name="governance__facilitator_commitment_type">Facilitator Commitment Type</string>
+    <string name="governance__facilitator_commitment_timestamp">Facilitator Commitment Timestamp</string>
+    <string name="governance__facilitator_proposed_by">Facilitator Proposed By</string>
+    <string name="governance__facilitator_proposed_timestamp">Facilitator Proposed Timestamp</string>
+    <string name="governance__facilitator_locked_by">Facilitator Locked By</string>
+    <string name="governance__facilitator_locked_timestamp">Facilitator Locked Timestamp</string>
+    
+    <string name="governance__administrator">Administrator</string>
+    <string name="governance__administrator_commitment_type">Administrator Commitment Type</string>
+    <string name="governance__administrator_commitment_timestamp">Administrator Commitment Timestamp</string>
+    <string name="governance__administrator_proposed_by">Administrator Proposed By</string>
+    <string name="governance__administrator_proposed_timestamp">Administrator Proposed Timestamp</string>
+    <string name="governance__administrator_locked_by">Administrator Locked By</string>
+    <string name="governance__administrator_locked_timestamp">Administrator Locked Timestamp</string>
+    
+    <string name="governance_satisfaction__0__name">0</string>
+    <string name="governance_satisfaction__0__description">Not yet rated.</string>
+    <string name="governance_satisfaction__1__name">1</string>
+    <string name="governance_satisfaction__1__description">One of the worst experiences of my life.</string>
+    <string name="governance_satisfaction__2__name">2</string>
+    <string name="governance_satisfaction__2__description">A complete disaster.</string>
+    <string name="governance_satisfaction__3__name">3</string>
+    <string name="governance_satisfaction__3__description">We barely got out alive.</string>
+    <string name="governance_satisfaction__4__name">4</string>
+    <string name="governance_satisfaction__4__description">This was brutal.</string>
+    <string name="governance_satisfaction__5__name">5</string>
+    <string name="governance_satisfaction__5__description">This was disappointing.</string>
+    <string name="governance_satisfaction__6__name">6</string>
+    <string name="governance_satisfaction__6__description">We can do better.</string>
+    <string name="governance_satisfaction__7__name">7</string>
+    <string name="governance_satisfaction__7__description">This was a solid effort.</string>
+    <string name="governance_satisfaction__8__name">8</string>
+    <string name="governance_satisfaction__8__description">I am proud of this outcome.</string>
+    <string name="governance_satisfaction__9__name">9</string>
+    <string name="governance_satisfaction__9__description">Met all expectations.</string>
+    <string name="governance_satisfaction__10__name">10</string>
+    <string name="governance_satisfaction__10__description">Exceeded all expectations.</string>
+    
+    <!-- generic -->
+    
+    <string name="commitment">Commitment</string>
+    <string name="headline">Headline</string>
+    <string name="headline__story_hint">Every story needs a headline&#8230;</string>
+    <string name="name">Name</string>
+    <string name="lock_status">Lock Status</string>
+
+</resources>

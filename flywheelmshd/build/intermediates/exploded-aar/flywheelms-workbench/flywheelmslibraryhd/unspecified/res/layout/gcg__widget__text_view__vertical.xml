@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/GcgWidgetRowVertical" >
+    
+    <TextView
+        android:id="@+id/widget_label"
+        style="@style/GcgWidgetLabelHorizontalContainer"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:id="@+id/widget_data"
+        style="@style/GcgWidgetData"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="0dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/widget_label"
+        android:background="@drawable/gcg__background_state_list__text_view" />
+
+</RelativeLayout>
+<!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/layout/gcg__widget__text_view__vertical.xml -->

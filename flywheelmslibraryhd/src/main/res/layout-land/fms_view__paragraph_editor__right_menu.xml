@@ -1,0 +1,251 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/gcg__thumbpad__right"
+    android:layout_width="@dimen/right_menu__width"
+    android:layout_height="match_parent" >
+
+    <include
+        android:id="@+id/fdk__right_keypad__container"
+        layout="@layout/fdk__right_keypad__container" />
+
+    <RelativeLayout
+        android:id="@+id/fdk__right_keypad_peer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/fse__right_menu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/menu_background"
+            android:orientation="vertical" >
+
+            <Spinner
+                android:id="@+id/fse__right_menu__heading_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/menu__label_height"
+                android:background="@drawable/spinnable_menu_background__right__1_of_5"
+                android:gravity="right"
+                android:spinnerMode="dropdown" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/menu_background"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/right_menu__filler"
+                    android:layout_width="6dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"
+                    android:background="@drawable/right_menu__filler_1" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/menu_background"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical" >
+
+                    <FrameLayout
+                        android:id="@+id/fse__right_menu__content_frame"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/gcg__floating_thumb_menu__height" >
+
+                        <RelativeLayout
+                            android:id="@+id/fse__style_menu__body"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_horizontal" >
+
+                            <com.flywheelms.library.fse.widget.FseParagraphStyleIndentButton
+                                android:id="@+id/style_indent_button"
+                                android:layout_width="70dp"
+                                android:layout_height="50dp"
+                                android:layout_alignParentTop="true"
+                                android:layout_marginBottom="24dp"
+                                android:layout_marginTop="15dp" />
+
+                            <com.flywheelms.library.fse.widget.FseParagraphStyleOutdentButton
+                                android:id="@+id/style_outdent_button"
+                                android:layout_width="70dp"
+                                android:layout_height="50dp"
+                                android:layout_below="@id/style_indent_button"
+                                android:layout_marginBottom="24dp" />
+
+                            <com.flywheelms.library.fse.widget.FseParagraphStylePromoteButton
+                                android:id="@+id/style_promote_button"
+                                android:layout_width="70dp"
+                                android:layout_height="50dp"
+                                android:layout_below="@id/style_outdent_button"
+                                android:layout_marginBottom="24dp" />
+
+                            <com.flywheelms.library.fse.widget.FseParagraphStyleDemoteButton
+                                android:id="@+id/style_demote_button"
+                                android:layout_width="70dp"
+                                android:layout_height="50dp"
+                                android:layout_below="@id/style_promote_button" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/fse__sequence_menu__body"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_horizontal"
+                            android:orientation="horizontal"
+                            android:visibility="invisible" >
+
+                            <com.flywheelms.library.fse.widget.FseParagraphSequenceUpButton
+                                android:id="@+id/sequence_up_button"
+                                android:layout_width="80dp"
+                                android:layout_height="50dp"
+                                android:layout_alignParentTop="true"
+                                android:layout_marginBottom="40dp"
+                                android:layout_marginTop="20dp" />
+
+                            <com.flywheelms.library.fse.widget.FseParagraphSequenceDownButton
+                                android:id="@+id/sequence_down_button"
+                                android:layout_width="80dp"
+                                android:layout_height="50dp"
+                                android:layout_below="@id/sequence_up_button" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/fse__number_menu__body"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_horizontal"
+                            android:orientation="horizontal"
+                            android:visibility="invisible" >
+
+                            <Button
+                                android:id="@+id/number__bullet__button"
+                                android:layout_width="80dp"
+                                android:layout_height="65dp"
+                                android:layout_alignParentTop="true"
+                                android:layout_marginBottom="8dp"
+                                android:background="@color/transparent"
+                                android:drawableStart="@drawable/button_state_list__list_bullet__gray"
+                                android:padding="@dimen/padding_medium" />
+
+                            <Button
+                                android:id="@+id/number__numbered__button"
+                                android:layout_width="80dp"
+                                android:layout_height="65dp"
+                                android:layout_below="@id/number__bullet__button"
+                                android:layout_marginBottom="8dp"
+                                android:background="@color/transparent"
+                                android:drawableStart="@drawable/button_state_list__list_number__gray"
+                                android:padding="@dimen/padding_medium" />
+
+                            <Button
+                                android:id="@+id/number__alpha__button"
+                                android:layout_width="80dp"
+                                android:layout_height="65dp"
+                                android:layout_below="@id/number__numbered__button"
+                                android:layout_marginBottom="8dp"
+                                android:background="@color/transparent"
+                                android:drawableStart="@drawable/button_state_list__list_alpha__gray"
+                                android:padding="@dimen/padding_medium" />
+
+                            <Button
+                                android:id="@+id/fse_number__roman__button"
+                                android:layout_width="80dp"
+                                android:layout_height="65dp"
+                                android:layout_below="@id/number__alpha__button"
+                                android:layout_marginBottom="8dp"
+                                android:background="@color/transparent"
+                                android:drawableStart="@drawable/button_state_list__list_roman__gray"
+                                android:padding="@dimen/padding_medium" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/fse__insert_menu__body"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_horizontal"
+                            android:orientation="horizontal"
+                            android:visibility="invisible" >
+
+                            <Button
+                                android:id="@+id/insert__hyper_link__button"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:layout_marginBottom="9dp"
+                                android:background="@color/transparent"
+                                android:drawableStart="@drawable/fse_insert__hyper_link__button"
+                                android:padding="@dimen/padding_medium" />
+
+                            <Button
+                                android:id="@+id/insert__drawing_pad__button"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/insert__hyper_link__button"
+                                android:layout_marginBottom="9dp"
+                                android:background="@color/transparent"
+                                android:drawableStart="@drawable/fse_insert__drawing_pad__button"
+                                android:padding="@dimen/padding_medium" />
+
+                            <Button
+                                android:id="@+id/insert__image__button"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/insert__drawing_pad__button"
+                                android:background="@color/transparent"
+                                android:drawableStart="@drawable/fse_insert__image__button"
+                                android:padding="@dimen/padding_medium" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/fse__lock_menu__body"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_horizontal"
+                            android:orientation="horizontal"
+                            android:visibility="invisible" >
+
+                            <com.flywheelms.library.fse.widget.FseParagraphLockButton
+                                android:id="@+id/lock__lock__button"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:layout_marginBottom="9dp"
+                                android:layout_marginTop="10dp"
+                                android:background="@color/transparent"
+                                android:padding="@dimen/padding_medium" />
+
+                            <com.flywheelms.library.fse.widget.FseParagraphUnlockButton
+                                android:id="@+id/lock__unlock__button"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/lock__lock__button"
+                                android:layout_marginTop="22dp"
+                                android:background="@color/transparent"
+                                android:padding="@dimen/padding_medium" />
+
+		                    <Button
+		                        android:id="@+id/lock__history__button"
+		                        android:layout_width="wrap_content"
+		                        android:layout_height="wrap_content"
+		                        android:layout_marginTop="33dp"
+                                android:layout_below="@id/lock__unlock__button"
+		                        android:background="@drawable/fse__paragraph_history"
+		                        android:padding="@dimen/padding_medium" />
+                        </RelativeLayout>
+                    </FrameLayout>
+
+                    <com.flywheelms.library.fse.widget.FseMultiShiftButton
+                        android:id="@+id/multi_shift__right_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="15dp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+</FrameLayout>

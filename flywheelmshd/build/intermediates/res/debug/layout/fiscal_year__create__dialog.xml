@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:gcg="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="25dp"
+        android:gravity="left"
+        android:orientation="vertical"
+        android:background="@color/gcg__dialog__background" >
+
+        <com.flywheelms.library.fms.widget.text_view.FmmNodeTypeWidgetTextView
+            android:id="@+id/fmm_node__type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            gcg:labelWidth="150" />
+
+        <com.flywheelms.library.fms.widget.spinner.FiscalYearForCreateWidgetSpinner
+            android:id="@+id/fiscal_year"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            gcg:labelWidth="150"
+            gcg:zoomable="false" />
+
+        <CheckBox
+            android:id="@+id/edit_new_fiscal_year"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginLeft="50dp"
+            android:checked="true"
+            android:text="@string/edit_new_fiscal_year" />
+    </LinearLayout>
+
+    <include layout="@layout/gcg__button_panel__cancel_ok_apply" />
+
+</LinearLayout><!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/layout/fiscal_year__create__dialog.xml --><!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmshd/build/intermediates/exploded-aar/flywheelms-workbench/flywheelmslibraryhd/unspecified/res/layout/fiscal_year__create__dialog.xml -->

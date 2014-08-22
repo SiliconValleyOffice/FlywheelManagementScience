@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <integer name="JUNK">6</integer>
+    
+    
+    <integer name="decorator__facilitator__no_facilitator__quality_index">-10</integer>
+    <integer name="decorator__facilitator__inactive_facilitator__quality_index">-8</integer>
+    <integer name="decorator__facilitator__suggested_facilitator__quality_index">-6</integer>
+    <integer name="decorator__facilitator__proposed_facilitator__quality_index">-2</integer>
+    <integer name="decorator__facilitator__confirmed__quality_index">10</integer>
+    <integer name="decorator__facilitator__unknown_quality__quality_index">-10</integer>
+    <integer name="decorator__facilitator__not_applicable__quality_index">0</integer>
+    <integer name="decorator__facilitator__not_enabled__quality_index">0</integer>
+    
+    <integer name="decorator__facilitation_issue__proposed__quality_index">-5</integer>
+    <integer name="decorator__facilitation_issue__confirmed__quality_index">-20</integer>
+    <integer name="decorator__facilitation_issue__none__quality_index">0</integer>
+    <integer name="decorator__facilitation_issue__unknown_quality__quality_index">-10</integer>
+    <integer name="decorator__facilitation_issue__not_applicable__quality_index">0</integer>
+    <integer name="decorator__facilitation_issue__not_enabled__quality_index">0</integer>
+    
+    <integer name="decorator__child_fractals__none__quality_index">-10</integer>
+    <integer name="decorator__child_fractals__swag__quality_index">-7</integer>
+    <integer name="decorator__child_fractals__suggested__quality_index">-4</integer>
+    <integer name="decorator__child_fractals__proposed__quality_index">-2</integer>
+    <integer name="decorator__child_fractals__confirmed__quality_index">10</integer>
+    <integer name="decorator__child_fractals__excessive__quality_index">-5</integer>
+    <integer name="decorator__child_fractals__unknown_quality__quality_index">-10</integer>
+    <integer name="decorator__child_fractals__not_applicable__quality_index">0</integer>
+    <integer name="decorator__child_fractals__not_enabled__quality_index">0</integer>
+    
+    <integer name="decorator__flywheel_commitment__none__quality_index">-50</integer>
+    <integer name="decorator__flywheel_commitment__suggested__quality_index">-20</integer>
+    <integer name="decorator__flywheel_commitment__proposed__quality_index">-10</integer>
+    <integer name="decorator__flywheel_commitment__confirmed__quality_index">20</integer>
+    <integer name="decorator__flywheel_commitment__future__quality_index">5</integer>
+    <integer name="decorator__flywheel_commitment__missed__quality_index">-40</integer>
+    <integer name="decorator__flywheel_commitment__unknown_quality__quality_index">-10</integer>
+    <integer name="decorator__flywheel_commitment__not_applicable__quality_index">0</integer>
+    <integer name="decorator__flywheel_commitment__not_enabled__quality_index">0</integer>
+    
+    <integer name="decorator__completion_progress__past_due__quality_index">-40</integer>
+    <integer name="decorator__completion_progress__at_risk__quality_index">-20</integer>
+    <integer name="decorator__completion_progress__unconfirmed__quality_index">-10</integer>
+    <integer name="decorator__completion_progress__not_scheduled__quality_index">-50</integer>
+    <integer name="decorator__completion_progress__no_issues__quality_index">10</integer>
+    <integer name="decorator__completion_progress__unknown_quality__quality_index">-10</integer>
+    <integer name="decorator__completion_progress__not_applicable__quality_index">0</integer>
+    <integer name="decorator__completion_progress__not_enabled__quality_index">0</integer>
+    
+    <integer name="decorator__governance__none__quality_index">-50</integer>
+    <integer name="decorator__governance__suggested__quality_index">-20</integer>
+    <integer name="decorator__governance__proposed__quality_index">-15</integer>
+    <integer name="decorator__governance__incomplete__quality_index">-10</integer>
+    <integer name="decorator__governance__confirmed__quality_index">20</integer>
+    <integer name="decorator__governance__inactive__quality_index">-10</integer>
+    <integer name="decorator__governance__unknown_quality__quality_index">-10</integer>
+    <integer name="decorator__governance__not_applicable__quality_index">0</integer>
+    <integer name="decorator__governance__not_enabled__quality_index">0</integer>
+    
+    <integer name="decorator__parent_fractals__none__quality_index">-10</integer>
+    <integer name="decorator__parent_fractals__swag__quality_index">-7</integer>
+    <integer name="decorator__parent_fractals__suggested__quality_index">-4</integer>
+    <integer name="decorator__parent_fractals__proposed__quality_index">-2</integer>
+    <integer name="decorator__parent_fractals__one__quality_index">10</integer>
+    <integer name="decorator__parent_fractals__multiple__quality_index">15</integer>
+    <integer name="decorator__parent_fractals__unknown_quality__quality_index">-10</integer>
+    <integer name="decorator__parent_fractals__not_applicable__quality_index">0</integer>
+    <integer name="decorator__parent_fractals__not_enabled__quality_index">0</integer>
+    
+    <integer name="decorator__story__none__quality_index">-50</integer>
+    <integer name="decorator__story__swag__quality_index">-25</integer>
+    <integer name="decorator__story__suggested__quality_index">-15</integer>
+    <integer name="decorator__story__proposed__quality_index">-10</integer>
+    <integer name="decorator__story__confirmed__quality_index">50</integer>
+    <integer name="decorator__story__modified_since_confirmed__quality_index">-15</integer>
+    <integer name="decorator__story__unknown_quality__quality_index">-10</integer>
+    <integer name="decorator__story__not_applicable__quality_index">0</integer>
+    <integer name="decorator__story__not_enabled__quality_index">0</integer>
+    
+    <integer name="decorator__sequence__none__quality_index">-50</integer>
+    <integer name="decorator__sequence__swag__quality_index">-25</integer>
+    <integer name="decorator__sequence__suggested__quality_index">-15</integer>
+    <integer name="decorator__sequence__proposed__quality_index">-10</integer>
+    <integer name="decorator__sequence__confirmed__quality_index">50</integer>
+    <integer name="decorator__sequence__modified_since_confirmed__quality_index">-15</integer>
+    <integer name="decorator__sequence__unknown_quality__quality_index">-10</integer>
+    <integer name="decorator__sequence__not_applicable__quality_index">0</integer>
+    <integer name="decorator__sequence__not_enabled__quality_index">0</integer>
+    
+    <integer name="decorator__strategic_commitment__none__quality_index">-50</integer>
+    <integer name="decorator__strategic_commitment__suggested__quality_index">-20</integer>
+    <integer name="decorator__strategic_commitment__proposed__quality_index">-10</integer>
+    <integer name="decorator__strategic_commitment__confirmed__quality_index">20</integer>
+    <integer name="decorator__strategic_commitment__future__quality_index">-10</integer>
+    <integer name="decorator__strategic_commitment__missed__quality_index">-40</integer>
+    <integer name="decorator__strategic_commitment__unknown_quality__quality_index">-10</integer>
+    <integer name="decorator__strategic_commitment__not_applicable__quality_index">0</integer>
+    <integer name="decorator__strategic_commitment__not_enabled__quality_index">0</integer>
+    
+    <integer name="decorator__task_budget__none__quality_index">-50</integer>
+    <integer name="decorator__task_budget__swag__quality_index">-25</integer>
+    <integer name="decorator__task_budget__suggested__quality_index">-15</integer>
+    <integer name="decorator__task_budget__proposed__quality_index">-5</integer>
+    <integer name="decorator__task_budget__confirmed__quality_index">40</integer>
+    <integer name="decorator__task_budget__over_budget__quality_index">-10</integer>
+    <integer name="decorator__task_budget__unknown_quality__quality_index">-10</integer>
+    <integer name="decorator__task_budget__not_applicable__quality_index">0</integer>
+    <integer name="decorator__task_budget__not_enabled__quality_index">0</integer>
+    
+    <integer name="decorator__work_team__none__quality_index">-50</integer>
+    <integer name="decorator__work_team__swag__quality_index">-25</integer>
+    <integer name="decorator__work_team__suggested__quality_index">-15</integer>
+    <integer name="decorator__work_team__proposed__quality_index">-5</integer>
+    <integer name="decorator__work_team__confirmed__quality_index">30</integer>
+    <integer name="decorator__work_team__inactive__quality_index">-5</integer>
+    <integer name="decorator__work_team__unknown_quality__quality_index">-10</integer>
+    <integer name="decorator__work_team__not_applicable__quality_index">0</integer>
+    <integer name="decorator__work_team__not_enabled__quality_index">0</integer>
+    
+</resources>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/gcg__dialog__background"
+    android:orientation="vertical" >
+    
+    <TextView 
+        android:id="@+id/fse__target_transaction_summary__text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+    	android:layout_marginLeft="30dp" />
+    
+    <CheckBox 
+        android:id="@+id/fse__story__checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+    	android:layout_marginLeft="30dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="15dp"
+        android:checked="true"
+        android:textColor="@color/gcg__widget_label__text_color"
+        android:text="@string/fse__document_section__story" />
+    
+    <CheckBox 
+        android:id="@+id/fse__notes__checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+    	android:layout_marginLeft="30dp"
+        android:layout_marginBottom="30dp"
+        android:checked="true"
+        android:textColor="@color/gcg__widget_label__text_color"
+        android:text="@string/fse__document_section__notes" />
+        
+</LinearLayout>

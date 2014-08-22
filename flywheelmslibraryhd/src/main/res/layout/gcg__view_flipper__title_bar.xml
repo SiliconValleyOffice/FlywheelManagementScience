@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/gcg__title_strip__background"
+    android:orientation="horizontal" >
+
+    <Button
+        android:id="@+id/view_flipper_view__title__prev"
+        style="@style/FlipPageTitleDim"
+        android:layout_gravity="left"
+        android:paddingLeft="12dp"
+        android:background="@drawable/gcg__background_state_list__null_21"
+        android:text="Previous" />
+
+    <TextView
+        android:id="@+id/view_flipper_view__title"
+        style="@style/FlipPageTitle"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="100"
+        android:text="Title" />
+
+    <Button
+        android:id="@+id/view_flipper_view__title__next"
+        style="@style/FlipPageTitleDim"
+        android:layout_gravity="right"
+        android:paddingRight="12dp"
+        android:background="@drawable/gcg__background_state_list__null_21"
+        android:text="Next" />
+
+</LinearLayout>

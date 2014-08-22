@@ -1,0 +1,52 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/right_menu__width"
+    android:layout_height="@dimen/fdk__keypad__height"
+    android:background="@color/fdk__keypad__background"
+    android:gravity="top|right"
+    android:orientation="vertical" >
+
+    <com.flywheelms.library.fdk.widget.FdkKeypadButton
+        android:id="@+id/fdk__button__delete_all"
+        android:layout_width="@dimen/fdk__key__width"
+        android:layout_height="@dimen/fdk__key__height"
+		android:background="@drawable/fdk__button_state_list__delete_all"
+        android:layout_marginTop="@dimen/fdk__top_key__margin_top" />
+    
+    <TextView
+        android:layout_width="@dimen/fdk__key__width"
+        android:layout_height="@dimen/fdk__key__height"
+        android:layout_marginTop="@dimen/fdk__key__margin_top" />
+    
+    <TextView
+        android:layout_width="@dimen/fdk__key__width"
+        android:layout_height="@dimen/fdk__key__height"
+        android:layout_marginTop="@dimen/fdk__key__margin_top" />
+    
+    <TextView
+        android:layout_width="@dimen/fdk__key__width"
+        android:layout_height="@dimen/fdk__key__height"
+        android:layout_marginTop="@dimen/fdk__key__margin_top" />
+
+    <com.flywheelms.library.fdk.widget.FdkKeypadButton
+        android:id="@+id/fdk__button__cursor_down"
+        android:layout_width="@dimen/fdk__key__width"
+        android:layout_height="@dimen/fdk__key__height"
+        android:layout_marginTop="@dimen/fdk__key__margin_top"
+        android:background="@drawable/fdk__button_state_list__cursor_down__only" />
+        
+
+    <com.flywheelms.library.fdk.widget.FdkKeypadButton
+        android:id="@+id/fdk__button__cursor_right"
+        android:layout_width="@dimen/fdk__key__width"
+        android:layout_height="@dimen/fdk__key__height"
+		android:background="@drawable/fdk__button_state_list__cursor_right"
+        android:layout_marginTop="@dimen/fdk__key__margin_top" />
+
+    <com.flywheelms.library.fdk.widget.FdkMultiShiftButton
+        android:id="@+id/multi_shift__right_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="13dp"
+        android:layout_marginTop="@dimen/fdk__key__margin_top" />
+    
+  </LinearLayout>

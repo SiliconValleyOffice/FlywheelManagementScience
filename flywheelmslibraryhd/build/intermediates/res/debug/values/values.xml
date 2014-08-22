@@ -1,0 +1,1864 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fms__arrays.xml -->
+    <eat-comment />
+
+    <string-array name="context__strategic_planning__right_menu__heading_array">
+        <item>Show</item>
+        <item>Governance</item>
+        <item>Work Status</item>
+        <item>Team</item>
+    </string-array>
+    <string-array name="fms_node_activity__left_menu__heading_array">
+        <item>F S E</item>
+        <item>TribKn</item>
+        <item>Context</item>
+    </string-array>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fse__arrays.xml -->
+    <eat-comment />
+
+    <string-array name="fse__left_menu__heading_array">
+        <item>Storage</item>
+        <item>Share</item>
+        <item>Import</item>
+    </string-array>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fms__arrays.xml -->
+    <eat-comment />
+
+    <array name="fse__paragraph__edit_scope__array">
+        <item>@drawable/ic_launcher</item>
+    </array>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fse__arrays.xml -->
+    <eat-comment />
+
+    <string-array name="fse__right_menu__heading_array">
+        <item>Style</item>
+        <item>Sequence</item>
+        <item>Number</item>
+        <item>Insert</item>
+        <item>Lock</item>
+    </string-array>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fms__strings.xml -->
+    <eat-comment />
+
+    <string-array name="perspective__right_menu__headings">
+        <item>Show</item>
+        <item>Filter</item>
+    </string-array>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/x11__colors.xml -->
+    <eat-comment />
+
+    <color name="AliceBlue">#F0F8FF</color>
+    <color name="AntiqueWhite">#FAEBD7</color>
+    <color name="Aqua">#00FFFF</color>
+    <color name="Aquamarine">#7FFFD4</color>
+    <color name="Azure">#F0FFFF</color>
+    <color name="Beige">#F5F5DC</color>
+    <color name="Bisque">#FFE4C4</color>
+    <color name="Black">#000000</color>
+    <color name="BlanchedAlmond">#FFEBCD</color>
+    <color name="Blue">#0000FF</color>
+    <color name="BlueViolet">#8A2BE2</color>
+    <color name="Brown">#A52A2A</color>
+    <color name="BurlyWood">#DEB887</color>
+    <color name="CadetBlue">#5F9EA0</color>
+    <color name="Chartreuse">#7FFF00</color>
+    <color name="Chocolate">#D2691E</color>
+    <color name="Coral">#FF7F50</color>
+    <color name="CornflowerBlue">#6495ED</color>
+    <color name="Cornsilk">#FFF8DC</color>
+    <color name="Crimson">#DC143C</color>
+    <color name="Cyan">#00FFFF</color>
+    <color name="DarkBlue">#00008B</color>
+    <color name="DarkCyan">#008B8B</color>
+    <color name="DarkGoldenrod">#B8860B</color>
+    <color name="DarkGray">#A9A9A9</color>
+    <color name="DarkGreen">#006400</color>
+    <color name="DarkKhaki">#BDB76B</color>
+    <color name="DarkMagenta">#8B008B</color>
+    <color name="DarkOliveGreen">#556B2F</color>
+    <color name="DarkOrange">#FF8C00</color>
+    <color name="DarkOrchid">#9932CC</color>
+    <color name="DarkRed">#8B0000</color>
+    <color name="DarkSalmon">#E9967A</color>
+    <color name="DarkSeaGreen">#8FBC8F</color>
+    <color name="DarkSlateBlue">#483D8B</color>
+    <color name="DarkSlateGray">#2F4F4F</color>
+    <color name="DarkTurquoise">#00CED1</color>
+    <color name="DarkViolet">#9400D3</color>
+    <color name="DeepPink">#FF1493</color>
+    <color name="DeepSkyBlue">#00BFFF</color>
+    <color name="DimGray">#696969</color>
+    <color name="DodgerBlue">#1E90FF</color>
+    <color name="FireBrick">#B22222</color>
+    <color name="FloralWhite">#FFFAF0</color>
+    <color name="ForestGreen">#228B22</color>
+    <color name="Fuchsia">#FF00FF</color>
+    <color name="Gainsboro">#DCDCDC</color>
+    <color name="GhostWhite">#F8F8FF</color>
+    <color name="Gold">#FFD700</color>
+    <color name="Goldenrod">#DAA520</color>
+    <color name="Gray">#808080</color>
+    <color name="Green">#008000</color>
+    <color name="GreenYellow">#ADFF2F</color>
+    <color name="Honeydew">#F0FFF0</color>
+    <color name="HotPink">#FF69B4</color>
+    <color name="IndianRed">#CD5C5C</color>
+    <color name="Indigo">#4B0082</color>
+    <color name="Ivory">#FFFFF0</color>
+    <color name="Khaki">#F0E68C</color>
+    <color name="Lavender">#E6E6FA</color>
+    <color name="LavenderBlush">#FFF0F5</color>
+    <color name="LawnGreen">#7CFC00</color>
+    <color name="LemonChiffon">#FFFACD</color>
+    <color name="LightBlue">#ADD8E6</color>
+    <color name="LightCoral">#F08080</color>
+    <color name="LightCyan">#E0FFFF</color>
+    <color name="LightGoldenrodYellow">#FAFAD2</color>
+    <color name="LightGreen">#90EE90</color>
+    <color name="LightGrey">#D3D3D3</color>
+    <color name="LightPink">#FFB6C1</color>
+    <color name="LightSalmon">#FFA07A</color>
+    <color name="LightSeaGreen">#20B2AA</color>
+    <color name="LightSkyBlue">#87CEFA</color>
+    <color name="LightSlateGray">#778899</color>
+    <color name="LightSteelBlue">#B0C4DE</color>
+    <color name="LightYellow">#FFFFE0</color>
+    <color name="Lime">#00FF00</color>
+    <color name="LimeGreen">#32CD32</color>
+    <color name="Linen">#FAF0E6</color>
+    <color name="Magenta">#FF00FF</color>
+    <color name="Maroon">#800000</color>
+    <color name="MediumAquamarine">#66CDAA</color>
+    <color name="MediumBlue">#0000CD</color>
+    <color name="MediumOrchid">#BA55D3</color>
+    <color name="MediumPurple">#9370DB</color>
+    <color name="MediumSeaGreen">#3CB371</color>
+    <color name="MediumSlateBlue">#7B68EE</color>
+    <color name="MediumSpringGreen">#00FA9A</color>
+    <color name="MediumTurquoise">#48D1CC</color>
+    <color name="MediumVioletRed">#C71585</color>
+    <color name="MidnightBlue">#191970</color>
+    <color name="MintCream">#F5FFFA</color>
+    <color name="MistyRose">#FFE4E1</color>
+    <color name="Moccasin">#FFE4B5</color>
+    <color name="NavajoWhite">#FFDEAD</color>
+    <color name="Navy">#000080</color>
+    <color name="OldLace">#FDF5E6</color>
+    <color name="Olive">#808000</color>
+    <color name="OliveDrab">#6B8E23</color>
+    <color name="Orange">#FFA500</color>
+    <color name="OrangeRed">#FF4500</color>
+    <color name="Orchid">#DA70D6</color>
+    <color name="PaleGoldenrod">#EEE8AA</color>
+    <color name="PaleGreen">#98FB98</color>
+    <color name="PaleTurquoise">#AFEEEE</color>
+    <color name="PaleVioletRed">#DB7093</color>
+    <color name="PapayaWhip">#FFEFD5</color>
+    <color name="PeachPuff">#FFDAB9</color>
+    <color name="Peru">#CD853F</color>
+    <color name="Pink">#FFC0CB</color>
+    <color name="Plum">#DDA0DD</color>
+    <color name="PowderBlue">#B0E0E6</color>
+    <color name="Purple">#800080</color>
+    <color name="Red">#FF0000</color>
+    <color name="RosyBrown">#BC8F8F</color>
+    <color name="RoyalBlue">#4169E1</color>
+    <color name="SaddleBrown">#8B4513</color>
+    <color name="Salmon">#FA8072</color>
+    <color name="SandyBrown">#F4A460</color>
+    <color name="SeaGreen">#2E8B57</color>
+    <color name="Seashell">#FFF5EE</color>
+    <color name="Sienna">#A0522D</color>
+    <color name="Silver">#C0C0C0</color>
+    <color name="SkyBlue">#87CEEB</color>
+    <color name="SlateBlue">#6A5ACD</color>
+    <color name="SlateGray">#708090</color>
+    <color name="Snow">#FFFAFA</color>
+    <color name="SpringGreen">#00FF7F</color>
+    <color name="SteelBlue">#4682B4</color>
+    <color name="Tan">#D2B48C</color>
+    <color name="Teal">#008080</color>
+    <color name="Thistle">#D8BFD8</color>
+    <color name="Tomato">#FF6347</color>
+    <color name="Turquoise">#40E0D0</color>
+    <color name="Violet">#EE82EE</color>
+    <color name="Wheat">#F5DEB3</color>
+    <color name="White">#FFFFFF</color>
+    <color name="WhiteSmoke">#F5F5F5</color>
+    <color name="Yellow">#FFFF00</color>
+    <color name="YellowGreen">#9ACD32</color>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fms__colors.xml -->
+    <eat-comment />
+
+    <color name="activity_background">#bdb4a5</color>
+    <color name="alternate_tab_background">#8c8672</color>
+    <color name="alternate_toolbar_background">#d5d2c5</color>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/w3c__colors.xml -->
+    <eat-comment />
+
+    <color name="aqua">#00FFFF</color>
+    <color name="black">#000000</color>
+    <color name="blue">#0000FF</color>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fms__colors.xml -->
+    <eat-comment />
+
+    <color name="button_background">#706458</color>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/deckangl__colors.xml -->
+    <eat-comment />
+
+    <color name="canvas__annotation_background">#d5d2c5</color>
+    <color name="canvas__decorator_background">#d5d1c3</color>
+    <color name="canvas__decorator_background__light_alpha">#a0d5d1c3</color>
+    <color name="canvas__decorator_background__medium_alpha">#d2d5d1c3</color>
+    <color name="canvas__noun_background">#e3e3d4</color>
+    <color name="canvas__transparent_background">#00000000</color>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/gcg__colors.xml -->
+    <eat-comment />
+
+    <color name="divine_white">#eeeede</color>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fms__colors.xml -->
+    <eat-comment />
+
+    <color name="expander_control_background">#a69e87</color>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fdk__colors.xml -->
+    <eat-comment />
+
+    <color name="fdk__host_filler__background">#82768b</color>
+    <color name="fdk__keypad__background">#70498b</color>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/gcg__colors.xml -->
+    <eat-comment />
+
+    <color name="fms__wizard_step_1__background">#eeeede</color>
+    <color name="fms__wizard_step_2__background">#fff1ab</color>
+    <color name="fms__wizard_step_3__background">#bdc7ff</color>
+    <color name="fms__wizard_step_4__background">#7b7b7b</color>
+    <color name="fms__wizard_step__background__last">#acc2ac</color>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fse__colors.xml -->
+    <eat-comment />
+
+    <color name="fse__document_background">#fffecc</color>
+    <color name="fse__document_text">#575346</color>
+    <color name="fse__paragraph_markup__numbering">#8a2be2</color>
+    <color name="fse__paragraph_spinner__focus">#ffd687</color>
+    <color name="fse__paragraph_spinner__focus__locked">#51c458</color>
+    <color name="fse__paragraph_spinner__focus_lost">@color/sand_dollar</color>
+    <color name="fse__paragraph_spinner__focus_lost__locked">#a0d9a4</color>
+    <color name="fse__paragraph_spinner__text_color__blue">#0000ff</color>
+    <color name="fse__paragraph_spinner__text_color__gray">#3b3b3b</color>
+    <color name="fse__paragraph_spinner__text_color__green">#00a200</color>
+    <color name="fse__paragraph_spinner__text_color__orange">#d38400</color>
+    <color name="fse__paragraph_spinner__text_color__pink">#cc01ff</color>
+    <color name="fse__paragraph_spinner__text_color__yellow">#b8b700</color>
+    <color name="fse__paragraph_strip">#d6d2c4</color>
+    <color name="fse__story_widget__background">#fffee2</color>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/w3c__colors.xml -->
+    <eat-comment />
+
+    <color name="fuchsia">#FF00FF</color>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/gcg__colors.xml -->
+    <eat-comment />
+
+    <color name="gcg__activity_background_1">#acc2ac</color>
+    <color name="gcg__activity_background_2">#ffcebd</color>
+    <color name="gcg__activity_background_3">#bdc7ff</color>
+    <color name="gcg__activity_background_4">#7b7b7b</color>
+    <color name="gcg__activity_background_5">#bdffff</color>
+    <color name="gcg__activity_highlight">#ff01dbce</color>
+    <color name="gcg__alert">#fcb2a9</color>
+    <color name="gcg__application_context__activity_separator">#424265</color>
+    <color name="gcg__application_context__background">#1a1a58</color>
+    <color name="gcg__application_context__perspective_context__background">#1f4e91</color>
+    <color name="gcg__application_context__perspective_context_separator">#ffffff</color>
+    <color name="gcg__button_not_selected">#abd1ff</color>
+    <color name="gcg__button_panel__background">#696969</color>
+    <color name="gcg__button_selected">#eeeede</color>
+    <color name="gcg__data_source__text">#ffff82</color>
+    <color name="gcg__dialog__background">#dedede</color>
+    <color name="gcg__dialog__horizontal_navigation__background">#9cd1e5</color>
+    <color name="gcg__dialog__horizontal_navigation_buttons__background">#6698aa</color>
+    <color name="gcg__dialog_info__background">#cedfe5</color>
+    <color name="gcg__dialog_info__border">#808080</color>
+    <color name="gcg__dialog_info__text">#4c4c4c</color>
+    <color name="gcg__frame__text">#ffac61</color>
+    <color name="gcg__frame_menu__spacer_backbround__default_curtain">#8c8672</color>
+    <color name="gcg__group_box__background">#bdb4a5</color>
+    <color name="gcg__group_box__border_1">#eeeede</color>
+    <color name="gcg__group_box__border_2">#b7af95</color>
+    <color name="gcg__group_box__border_3">#8c8672</color>
+    <color name="gcg__group_box__heading__background_1">#ffffff</color>
+    <color name="gcg__group_box__heading__background_2">#b7af95</color>
+    <color name="gcg__group_box__heading__background_3">#b7af95</color>
+    <color name="gcg__group_box__heading__text_1">#383836</color>
+    <color name="gcg__group_box__heading__text_2">#ffffff</color>
+    <color name="gcg__group_box__heading__text_3">#383836</color>
+    <color name="gcg__list__background">#f5f5f5</color>
+    <color name="gcg__list__item_divider">#FFA500</color>
+    <color name="gcg__perspective__background">#d5d2c5</color>
+    <color name="gcg__shift_button__background">#800080</color>
+    <color name="gcg__table__row_divider">#FFA500</color>
+    <color name="gcg__table_heading__background">#265fb2</color>
+    <color name="gcg__table_heading__text">#ffffff</color>
+    <color name="gcg__thumb_menu__background">#B2C7E4</color>
+    <color name="gcg__thumb_menu__heading__shadow">#2862b2</color>
+    <color name="gcg__thumb_menu__heading__text">#ffffff</color>
+    <color name="gcg__title_strip__background">#337ee5</color>
+    <color name="gcg__title_strip__text">#ffff57</color>
+    <color name="gcg__title_strip__text_dim">#adcb8f</color>
+    <color name="gcg__tree_view__background">#eeeede</color>
+    <color name="gcg__tree_view__node_filler_line">#85bad4</color>
+    <color name="gcg__tree_view__node_headline_text">#2e2e2e</color>
+    <color name="gcg__tree_view__node_summary_text">#1E90FF</color>
+    <color name="gcg__widget_data__background_color">#eeeede</color>
+    <color name="gcg__widget_data__background_color__disabled">#d5d2c5</color>
+    <color name="gcg__widget_data__background_color__invalid_data">#ffafaf</color>
+    <color name="gcg__widget_data__text_color">#2b2b2b</color>
+    <color name="gcg__widget_label__text_color">#2b2bFF</color>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/w3c__colors.xml -->
+    <eat-comment />
+
+    <color name="gray">#808080</color>
+    <color name="green">#008000</color>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fms__colors.xml -->
+    <eat-comment />
+
+    <color name="home_view_brown">#bdb4a5</color>
+    <color name="inactive_tab_background">#8b91a4</color>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fse__colors.xml -->
+    <eat-comment />
+
+    <color name="light_blue">#B2C7E4</color>
+    <color name="light_green">#C1FFBA</color>
+    <color name="light_grey">#DEDEDE</color>
+    <color name="light_yellow">#F5FDA9</color>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/w3c__colors.xml -->
+    <eat-comment />
+
+    <color name="lime">#00FF00</color>
+    <color name="maroon">#800000</color>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fms__colors.xml -->
+    <eat-comment />
+
+    <color name="menu_background">#b2c7e4</color>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/w3c__colors.xml -->
+    <eat-comment />
+
+    <color name="navy">#000080</color>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/gcg__colors.xml -->
+    <eat-comment />
+
+    <color name="near_black">#2b2b2b</color>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/w3c__colors.xml -->
+    <eat-comment />
+
+    <color name="olive">#808000</color>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fms__colors.xml -->
+    <eat-comment />
+
+    <color name="perspective_button_focused">#00ff00</color>
+    <color name="perspective_button_not_focused">#ff0000</color>
+    <color name="perspective_button_pressed">#0000ff</color>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fse__colors.xml -->
+    <eat-comment />
+
+    <color name="perspective_menu_strip_background">#fbf0d9</color>
+    <color name="perspective_menu_strip_text">#ffffff</color>
+    <color name="perspective_title_strip_background">#337ee5</color>
+    <color name="perspective_title_strip_shadow">#2862b2</color>
+    <color name="perspective_title_strip_text">#ffff57</color>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fms__colors.xml -->
+    <eat-comment />
+
+    <color name="perspective_tree_background">#eeeede</color>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/gcg__colors.xml -->
+    <eat-comment />
+
+    <color name="portobello">#8c8672</color>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/w3c__colors.xml -->
+    <eat-comment />
+
+    <color name="purple">#800080</color>
+    <color name="red">#FF0000</color>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fms__colors.xml -->
+    <eat-comment />
+
+    <color name="repository_tree_background">#a4a4a4</color>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/gcg__colors.xml -->
+    <eat-comment />
+
+    <color name="sand_dollar">#d5d2c5</color>
+    <color name="sands_of_time">#b7af95</color>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fms__colors.xml -->
+    <eat-comment />
+
+    <color name="section_body_background">#d5d2c5</color>
+    <color name="section_heading_background">#b7af95</color>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/gcg__colors.xml -->
+    <eat-comment />
+
+    <color name="sepia">#fbf0d9</color>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/w3c__colors.xml -->
+    <eat-comment />
+
+    <color name="silver">#C0C0C0</color>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fms__colors.xml -->
+    <eat-comment />
+
+    <color name="story_contents">#ffffff</color>
+    <color name="story_editor_fragment">#6a87b5</color>
+    <color name="tab_background">#7b99b4</color>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/w3c__colors.xml -->
+    <eat-comment />
+
+    <color name="teal">#008080</color>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fms__colors.xml -->
+    <eat-comment />
+
+    <color name="toolbar_background">#9fb5c9</color>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fse__colors.xml -->
+    <eat-comment />
+
+    <color name="transparent">#00FFFFFF</color>
+    <color name="transparent_blue">#190000FF</color>
+    <color name="transparent_white">#80FFFFFF</color>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/w3c__colors.xml -->
+    <eat-comment />
+
+    <color name="white">#FFFFFF</color>
+    <color name="yellow">#FFFF00</color>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fms__attrs.xml -->
+    <eat-comment />
+
+    <declare-styleable name="FmsGovernance">
+        <attr name="governanceRole" format="string" />
+    </declare-styleable>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/gcg__attrs.xml -->
+    <eat-comment />
+
+    <declare-styleable name="GcgComponent">
+        <attr name="thumbPad" format="string" />
+    </declare-styleable>
+    <declare-styleable name="GcgFile">
+        <attr name="fileNameExtension" format="string" />
+        <attr name="minimumBaseFileNameLength" format="integer" />
+    </declare-styleable>
+    <declare-styleable name="GcgGroupBox">
+        <attr name="borderStyle" format="integer" />
+        <attr name="headingText" format="string" />
+        <attr name="headingBackground" format="color" />
+        <attr name="headingGravity" format="string" />
+    </declare-styleable>
+    <declare-styleable name="GcgIncrementalStateButton">
+        <attr name="numberOfStates" format="integer" />
+        <attr name="initialState" format="integer" />
+        <attr name="buttonLabel" format="string" />
+    </declare-styleable>
+    <declare-styleable name="GcgLabel">
+        <attr name="labelWidth" format="integer" />
+        <attr name="labelPrefix" format="string" />
+        <attr name="labelSuffix" format="string" />
+        <attr name="secondaryLabel" format="string" />
+        <attr name="labelText" format="string" />
+        <attr name="labelHint" format="string" />
+        <attr name="noLabel" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="GcgPerspectiveMenuButton">
+        <attr name="frameNumber" format="integer" />
+        <attr name="perspectiveNumber" format="integer" />
+        <attr name="buttonSelectedBackground" format="integer" />
+        <attr name="buttonNotSelectedBackground" format="integer" />
+    </declare-styleable>
+    <declare-styleable name="GcgSpinnner">
+        <attr name="filterParameterRequired" format="boolean" />
+        <attr name="filterId" format="integer" />
+    </declare-styleable>
+    <declare-styleable name="GcgTabContainer">
+        <attr name="tabAlignment" format="string" />
+        <attr name="customTabbedLayout" format="integer" />
+        <attr name="initialTabSelection" format="integer" />
+    </declare-styleable>
+    <declare-styleable name="GcgWidget">
+        <attr name="containerLayout" format="string" />
+        <attr name="scrollableContent" format="boolean" />
+        <attr name="transparentBackground" format="boolean" />
+        <attr name="onClick" format="string" />
+        <attr name="onLongClick" format="string" />
+        <attr name="inputEnabled" format="boolean" />
+        <attr name="fdkCursorEnabled" format="boolean" />
+        <attr name="requestCode" format="integer" />
+        <attr name="requestCode2" format="integer" />
+        <attr name="minimumDataLength" format="integer" />
+        <attr name="inputRequired" format="boolean" />
+        <attr name="enableCopyButton" format="boolean" />
+        <attr name="deferDataInitialization" format="boolean" />
+        <attr name="zoomable" format="boolean" />
+    </declare-styleable>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/gcg__tree_view__attrs.xml -->
+    <eat-comment />
+
+    <declare-styleable name="TreeViewList">
+        <attr name="collapsible" format="boolean" />
+        <attr name="src_expanded" format="reference|color" />
+        <attr name="src_collapsed" format="reference|color" />
+        <attr name="indent_width" format="dimension" />
+        <attr name="handle_trackball_press" format="boolean" />
+        <attr name="indicator_gravity">
+
+            <!-- Push object to the top of its container, not changing its size. -->
+            <flag name="top" value="0x30" />
+            <!-- Push object to the bottom of its container, not changing its size. -->
+            <flag name="bottom" value="0x50" />
+            <!-- Push object to the left of its container, not changing its size. -->
+            <flag name="left" value="0x03" />
+            <!-- Push object to the right of its container, not changing its size. -->
+            <flag name="right" value="0x05" />
+            <!-- Place object in the vertical center of its container, not changing its size. -->
+            <flag name="center_vertical" value="0x10" />
+            <!-- Grow the vertical size of the object if needed so it completely fills its container. -->
+            <flag name="fill_vertical" value="0x70" />
+            <!-- Place object in the horizontal center of its container, not changing its size. -->
+            <flag name="center_horizontal" value="0x01" />
+            <!-- Grow the horizontal size of the object if needed so it completely fills its container. -->
+            <flag name="fill_horizontal" value="0x07" />
+            <!-- Place the object in the center of its container in both the vertical and horizontal axis, not changing its size. -->
+            <flag name="center" value="0x11" />
+            <!-- Grow the horizontal and vertical size of the object if needed so it completely fills its container. -->
+            <flag name="fill" value="0x77" />
+            <!--
+                 Additional option that can be set to have the top and/or bottom edges of the child clipped to its container's bounds.
+				The clip will be based on the vertical gravity: a top gravity will clip the bottom edge, a bottom gravity will clip the top
+				edge, and neither will clip both edges.
+            -->
+            <flag name="clip_vertical" value="0x80" />
+            <!--
+                 Additional option that can be set to have the left and/or right edges of the child clipped to its container's bounds.
+				The clip will be based on the horizontal gravity: a left gravity will clip the right edge, a right gravity will clip the
+				left edge, and neither will clip both edges.
+            -->
+            <flag name="clip_horizontal" value="0x08" />
+        </attr>
+        <attr name="indicator_background" format="reference|color" />
+        <attr name="row_background" format="reference|color" />
+    </declare-styleable>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fms__dimens.xml -->
+    <eat-comment />
+
+    <dimen name="audit_block_view__height">275dp</dimen>
+    <dimen name="audit_block_view__width">350dp</dimen>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/deckangl__dimens.xml -->
+    <eat-comment />
+
+    <dimen name="canvas_zone__bottom__height">5dp</dimen>
+    <dimen name="canvas_zone__bottom__width">16dp</dimen>
+    <dimen name="canvas_zone__bottom_corner__width">8dp</dimen>
+    <dimen name="canvas_zone__left__height">19dp</dimen>
+    <dimen name="canvas_zone__left__width">6dp</dimen>
+    <dimen name="canvas_zone__left_corner__height">7dp</dimen>
+    <dimen name="canvas_zone__left_middle__height">7dp</dimen>
+    <dimen name="canvas_zone__noun__height">16dp</dimen>
+    <dimen name="canvas_zone__noun__width">16dp</dimen>
+    <dimen name="canvas_zone__right__height">19dp</dimen>
+    <dimen name="canvas_zone__right__width">6dp</dimen>
+    <dimen name="canvas_zone__right_corner__height">7dp</dimen>
+    <dimen name="canvas_zone__right_middle__height">7dp</dimen>
+    <dimen name="canvas_zone__top__height">5dp</dimen>
+    <dimen name="canvas_zone__top__width">16dp</dimen>
+    <dimen name="canvas_zone__top_corner__width">8dp</dimen>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fms__dimens.xml -->
+    <eat-comment />
+
+    <dimen name="community_member__width">157dp</dimen>
+    <dimen name="community_member__width_compressed">140dp</dimen>
+    <dimen name="data__minimum_padding_before_drawable">3dp</dimen>
+    <dimen name="data__minimum_padding_before_text">3dp</dimen>
+    <dimen name="data__standard_padding_before_drawable">3dp</dimen>
+    <dimen name="data__standard_padding_before_text">8dp</dimen>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/deckangl__dimens.xml -->
+    <eat-comment />
+
+    <dimen name="deckangl_glyph__height">32dp</dimen>
+    <dimen name="deckangl_glyph__width">32dp</dimen>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fms__dimens.xml -->
+    <eat-comment />
+
+    <dimen name="edit_glyph_spacer__width">35dp</dimen>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fdk__dimens.xml -->
+    <eat-comment />
+
+    <dimen name="fdk__key__height">50dp</dimen>
+    <dimen name="fdk__key__margin_top">12dp</dimen>
+    <dimen name="fdk__key__width">85dp</dimen>
+    <dimen name="fdk__keypad__height">450dp</dimen>
+    <dimen name="fdk__thumbpad__width">100dp</dimen>
+    <dimen name="fdk__top_key__margin_top">8dp</dimen>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fms__dimens.xml -->
+    <eat-comment />
+
+    <dimen name="fms_headline__width">614dp</dimen>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fse__dimens.xml -->
+    <eat-comment />
+
+    <dimen name="font_size_base">8sp</dimen>
+    <dimen name="fse__paragraph_menu__content_modification_state__width">32dp</dimen>
+    <dimen name="fse__paragraph_menu__spinner__width">55dp</dimen>
+    <dimen name="fse__paragraph_menu__spinner__width2">64dp</dimen>
+    <dimen name="fse__paragraph_menu__vertical_markup__width">4dp</dimen>
+    <dimen name="fse__paragraph_menu__vertical_markup_bordered__width">5dp</dimen>
+    <dimen name="fse__paragraph_menu__width">113dp</dimen>
+    <dimen name="fse__participation_timestamp__width">140dp</dimen>
+    <dimen name="fse__tab_navigation__width">720dp</dimen>
+    <dimen name="fse__tab_navigation__width_portrait">600dp</dimen>
+    <dimen name="fse__transaction_community_member__width">160dp</dimen>
+    <dimen name="fse__transaction_number__width">42dp</dimen>
+    <dimen name="fse__transaction_timestamp__width">100dp</dimen>
+    <dimen name="fse__transaction_type__width">85dp</dimen>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/gcg__dimens.xml -->
+    <eat-comment />
+
+    <dimen name="gcg__button__height">50dp</dimen>
+    <dimen name="gcg__button__minimum_width">50dp</dimen>
+    <dimen name="gcg__floating_thumb_menu__height">295dp</dimen>
+    <dimen name="gcg__group_box__heading__height">26dp</dimen>
+    <dimen name="gcg__group_box__heading__text_size">16sp</dimen>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fms__dimens.xml -->
+    <eat-comment />
+
+    <dimen name="gcg__left_menu__subpanel__width">87dp</dimen>
+    <dimen name="gcg__left_menu__width">93dp</dimen>
+    <dimen name="governance__commitment__width">80dp</dimen>
+    <dimen name="governance__community_member__width">135dp</dimen>
+    <dimen name="governance__lock_status__width">70dp</dimen>
+    <dimen name="governance__role__width">80dp</dimen>
+    <dimen name="governance__timestamp__width">108dp</dimen>
+    <dimen name="group_box__height__noun_status">180dp</dimen>
+    <dimen name="group_box__height__tribkn_decorators">288dp</dimen>
+    <dimen name="group_box__padding_bottom">0dp</dimen>
+    <dimen name="group_box__padding_left">4dp</dimen>
+    <dimen name="group_box__padding_right">4dp</dimen>
+    <dimen name="group_box__padding_top">0dp</dimen>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fse__dimens.xml -->
+    <eat-comment />
+
+    <dimen name="height_titlebar">32dp</dimen>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fms__dimens.xml -->
+    <eat-comment />
+
+    <dimen name="left_menu__button__margin">0.0dp</dimen>
+    <dimen name="left_menu__button_height">36dp</dimen>
+    <dimen name="left_menu__button_width">57dp</dimen>
+    <dimen name="left_menu__label_width">72dp</dimen>
+    <dimen name="menu__label_height">34dp</dimen>
+    <dimen name="menu_button__bottom_margin">13dp</dimen>
+    <dimen name="menu_button__corner_radius">12dp</dimen>
+    <dimen name="padding_after_drawable">6dip</dimen>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fse__dimens.xml -->
+    <eat-comment />
+
+    <dimen name="padding_extra_small">2dp</dimen>
+    <dimen name="padding_large">16dp</dimen>
+    <dimen name="padding_medium">8dp</dimen>
+    <dimen name="padding_small">4dp</dimen>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fms__dimens.xml -->
+    <eat-comment />
+
+    <dimen name="pager_title__strip_height">15dp</dimen>
+    <dimen name="perspective_filter__button___width">115dp</dimen>
+    <dimen name="right_menu__label_width">80dp</dimen>
+    <dimen name="right_menu__subpanel__width">88dp</dimen>
+    <dimen name="right_menu__top_margin">65dp</dimen>
+    <dimen name="right_menu__width">94dp</dimen>
+    <dimen name="show__panel__top_margin">25dp</dimen>
+    <dimen name="show_button__bottom_margin">40dp</dimen>
+    <dimen name="table_heading__height">34dp</dimen>
+    <dimen name="timestamp__width">110dp</dimen>
+    <dimen name="timestamp__width_compressed">105dp</dimen>
+    <dimen name="view_padding_0">0dp</dimen>
+    <dimen name="view_padding_1">1dp</dimen>
+    <dimen name="view_padding_10">10dp</dimen>
+    <dimen name="view_padding_11">11dp</dimen>
+    <dimen name="view_padding_12">12dp</dimen>
+    <dimen name="view_padding_2">2dp</dimen>
+    <dimen name="view_padding_3">3dp</dimen>
+    <dimen name="view_padding_4">4dp</dimen>
+    <dimen name="view_padding_5">5dp</dimen>
+    <dimen name="view_padding_6">6dp</dimen>
+    <dimen name="view_padding_7">7dp</dimen>
+    <dimen name="view_padding_8">8dp</dimen>
+    <dimen name="view_padding_9">9dp</dimen>
+    <dimen name="widget__label__height">44dp</dimen>
+    <dimen name="widget__label__padding_bottom">2dp</dimen>
+    <dimen name="widget__label__padding_right">7dp</dimen>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fse__dimens.xml -->
+    <eat-comment />
+
+    <dimen name="width_sidebar">32dp</dimen>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fmm__integers.xml -->
+    <eat-comment />
+
+    <integer name="JUNK">6</integer>
+    <integer name="decorator__child_fractals__confirmed__quality_index">10</integer>
+    <integer name="decorator__child_fractals__excessive__quality_index">-5</integer>
+    <integer name="decorator__child_fractals__none__quality_index">-10</integer>
+    <integer name="decorator__child_fractals__not_applicable__quality_index">0</integer>
+    <integer name="decorator__child_fractals__not_enabled__quality_index">0</integer>
+    <integer name="decorator__child_fractals__proposed__quality_index">-2</integer>
+    <integer name="decorator__child_fractals__suggested__quality_index">-4</integer>
+    <integer name="decorator__child_fractals__swag__quality_index">-7</integer>
+    <integer name="decorator__child_fractals__unknown_quality__quality_index">-10</integer>
+    <integer name="decorator__completion_progress__at_risk__quality_index">-20</integer>
+    <integer name="decorator__completion_progress__no_issues__quality_index">10</integer>
+    <integer name="decorator__completion_progress__not_applicable__quality_index">0</integer>
+    <integer name="decorator__completion_progress__not_enabled__quality_index">0</integer>
+    <integer name="decorator__completion_progress__not_scheduled__quality_index">-50</integer>
+    <integer name="decorator__completion_progress__past_due__quality_index">-40</integer>
+    <integer name="decorator__completion_progress__unconfirmed__quality_index">-10</integer>
+    <integer name="decorator__completion_progress__unknown_quality__quality_index">-10</integer>
+    <integer name="decorator__facilitation_issue__confirmed__quality_index">-20</integer>
+    <integer name="decorator__facilitation_issue__none__quality_index">0</integer>
+    <integer name="decorator__facilitation_issue__not_applicable__quality_index">0</integer>
+    <integer name="decorator__facilitation_issue__not_enabled__quality_index">0</integer>
+    <integer name="decorator__facilitation_issue__proposed__quality_index">-5</integer>
+    <integer name="decorator__facilitation_issue__unknown_quality__quality_index">-10</integer>
+    <integer name="decorator__facilitator__confirmed__quality_index">10</integer>
+    <integer name="decorator__facilitator__inactive_facilitator__quality_index">-8</integer>
+    <integer name="decorator__facilitator__no_facilitator__quality_index">-10</integer>
+    <integer name="decorator__facilitator__not_applicable__quality_index">0</integer>
+    <integer name="decorator__facilitator__not_enabled__quality_index">0</integer>
+    <integer name="decorator__facilitator__proposed_facilitator__quality_index">-2</integer>
+    <integer name="decorator__facilitator__suggested_facilitator__quality_index">-6</integer>
+    <integer name="decorator__facilitator__unknown_quality__quality_index">-10</integer>
+    <integer name="decorator__flywheel_commitment__confirmed__quality_index">20</integer>
+    <integer name="decorator__flywheel_commitment__future__quality_index">5</integer>
+    <integer name="decorator__flywheel_commitment__missed__quality_index">-40</integer>
+    <integer name="decorator__flywheel_commitment__none__quality_index">-50</integer>
+    <integer name="decorator__flywheel_commitment__not_applicable__quality_index">0</integer>
+    <integer name="decorator__flywheel_commitment__not_enabled__quality_index">0</integer>
+    <integer name="decorator__flywheel_commitment__proposed__quality_index">-10</integer>
+    <integer name="decorator__flywheel_commitment__suggested__quality_index">-20</integer>
+    <integer name="decorator__flywheel_commitment__unknown_quality__quality_index">-10</integer>
+    <integer name="decorator__governance__confirmed__quality_index">20</integer>
+    <integer name="decorator__governance__inactive__quality_index">-10</integer>
+    <integer name="decorator__governance__incomplete__quality_index">-10</integer>
+    <integer name="decorator__governance__none__quality_index">-50</integer>
+    <integer name="decorator__governance__not_applicable__quality_index">0</integer>
+    <integer name="decorator__governance__not_enabled__quality_index">0</integer>
+    <integer name="decorator__governance__proposed__quality_index">-15</integer>
+    <integer name="decorator__governance__suggested__quality_index">-20</integer>
+    <integer name="decorator__governance__unknown_quality__quality_index">-10</integer>
+    <integer name="decorator__parent_fractals__multiple__quality_index">15</integer>
+    <integer name="decorator__parent_fractals__none__quality_index">-10</integer>
+    <integer name="decorator__parent_fractals__not_applicable__quality_index">0</integer>
+    <integer name="decorator__parent_fractals__not_enabled__quality_index">0</integer>
+    <integer name="decorator__parent_fractals__one__quality_index">10</integer>
+    <integer name="decorator__parent_fractals__proposed__quality_index">-2</integer>
+    <integer name="decorator__parent_fractals__suggested__quality_index">-4</integer>
+    <integer name="decorator__parent_fractals__swag__quality_index">-7</integer>
+    <integer name="decorator__parent_fractals__unknown_quality__quality_index">-10</integer>
+    <integer name="decorator__sequence__confirmed__quality_index">50</integer>
+    <integer name="decorator__sequence__modified_since_confirmed__quality_index">-15</integer>
+    <integer name="decorator__sequence__none__quality_index">-50</integer>
+    <integer name="decorator__sequence__not_applicable__quality_index">0</integer>
+    <integer name="decorator__sequence__not_enabled__quality_index">0</integer>
+    <integer name="decorator__sequence__proposed__quality_index">-10</integer>
+    <integer name="decorator__sequence__suggested__quality_index">-15</integer>
+    <integer name="decorator__sequence__swag__quality_index">-25</integer>
+    <integer name="decorator__sequence__unknown_quality__quality_index">-10</integer>
+    <integer name="decorator__story__confirmed__quality_index">50</integer>
+    <integer name="decorator__story__modified_since_confirmed__quality_index">-15</integer>
+    <integer name="decorator__story__none__quality_index">-50</integer>
+    <integer name="decorator__story__not_applicable__quality_index">0</integer>
+    <integer name="decorator__story__not_enabled__quality_index">0</integer>
+    <integer name="decorator__story__proposed__quality_index">-10</integer>
+    <integer name="decorator__story__suggested__quality_index">-15</integer>
+    <integer name="decorator__story__swag__quality_index">-25</integer>
+    <integer name="decorator__story__unknown_quality__quality_index">-10</integer>
+    <integer name="decorator__strategic_commitment__confirmed__quality_index">20</integer>
+    <integer name="decorator__strategic_commitment__future__quality_index">-10</integer>
+    <integer name="decorator__strategic_commitment__missed__quality_index">-40</integer>
+    <integer name="decorator__strategic_commitment__none__quality_index">-50</integer>
+    <integer name="decorator__strategic_commitment__not_applicable__quality_index">0</integer>
+    <integer name="decorator__strategic_commitment__not_enabled__quality_index">0</integer>
+    <integer name="decorator__strategic_commitment__proposed__quality_index">-10</integer>
+    <integer name="decorator__strategic_commitment__suggested__quality_index">-20</integer>
+    <integer name="decorator__strategic_commitment__unknown_quality__quality_index">-10</integer>
+    <integer name="decorator__task_budget__confirmed__quality_index">40</integer>
+    <integer name="decorator__task_budget__none__quality_index">-50</integer>
+    <integer name="decorator__task_budget__not_applicable__quality_index">0</integer>
+    <integer name="decorator__task_budget__not_enabled__quality_index">0</integer>
+    <integer name="decorator__task_budget__over_budget__quality_index">-10</integer>
+    <integer name="decorator__task_budget__proposed__quality_index">-5</integer>
+    <integer name="decorator__task_budget__suggested__quality_index">-15</integer>
+    <integer name="decorator__task_budget__swag__quality_index">-25</integer>
+    <integer name="decorator__task_budget__unknown_quality__quality_index">-10</integer>
+    <integer name="decorator__work_team__confirmed__quality_index">30</integer>
+    <integer name="decorator__work_team__inactive__quality_index">-5</integer>
+    <integer name="decorator__work_team__none__quality_index">-50</integer>
+    <integer name="decorator__work_team__not_applicable__quality_index">0</integer>
+    <integer name="decorator__work_team__not_enabled__quality_index">0</integer>
+    <integer name="decorator__work_team__proposed__quality_index">-5</integer>
+    <integer name="decorator__work_team__suggested__quality_index">-15</integer>
+    <integer name="decorator__work_team__swag__quality_index">-25</integer>
+    <integer name="decorator__work_team__unknown_quality__quality_index">-10</integer>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fms__integers.xml -->
+    <eat-comment />
+
+    <integer name="page_flip_duration">600</integer>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fms__request_codes.xml -->
+    <eat-comment />
+
+    <integer name="request_code__android_contact_editor__administrator">104</integer>
+    <integer name="request_code__android_contact_editor__customer">102</integer>
+    <integer name="request_code__android_contact_editor__facilitator">103</integer>
+    <integer name="request_code__android_contact_editor__organization">105</integer>
+    <integer name="request_code__android_contact_editor__sponsor">101</integer>
+    <integer name="request_code__android_contact_picker__administrator">104</integer>
+    <integer name="request_code__android_contact_picker__customer">102</integer>
+    <integer name="request_code__android_contact_picker__facilitator">103</integer>
+    <integer name="request_code__android_contact_picker__organization">105</integer>
+    <integer name="request_code__android_contact_picker__sponsor">101</integer>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fse__strings.xml -->
+    <eat-comment />
+
+    <string name="_1">1</string>
+    <string name="_2">2</string>
+    <string name="_3">3</string>
+    <string name="_4">4</string>
+    <string name="_5">5</string>
+    <string name="_6">6</string>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fms__strings.xml -->
+    <eat-comment />
+
+    <string name="about_flywheel_ms">About FlywheelMS™</string>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fse__strings.xml -->
+    <eat-comment />
+
+    <string name="app_name">Flywheel Story Editor™</string>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fmm__strings.xml -->
+    <eat-comment />
+
+    <string name="assignment_commitment_type__confirmed">Confirmed</string>
+    <string name="assignment_commitment_type__confirmed__description">This assignment has been confirmed by the CommunityMember or his Sponsor.</string>
+    <string name="assignment_commitment_type__declined">Declined</string>
+    <string name="assignment_commitment_type__declined__description">A proposed assignment has been declined by the CommunityMember or his Sponsor.</string>
+    <string name="assignment_commitment_type__none">None</string>
+    <string name="assignment_commitment_type__none__description">No commitment.</string>
+    <string name="assignment_commitment_type__proposed">Proposed</string>
+    <string name="assignment_commitment_type__proposed__description">This assignment has been proposed, but not yet confirmed or declined.</string>
+    <string name="assignment_commitment_type__suggested">Suggested</string>
+    <string name="assignment_commitment_type__suggested__description">Just a suggestion, or merely an example, but no commitment requested at this time.</string>
+    <string name="assignment_commitment_type__unavailable">Unavailable</string>
+    <string name="assignment_commitment_type__unavailable__description">The CommunityMember or his Sponsor have indicated that the CommunityMember is unavailable for this proposed assignment.</string>
+    <string name="assignment_commitment_type__withdrawn">Withdrawn</string>
+    <string name="assignment_commitment_type__withdrawn__description">A confirmed commitment has been withdrawn by the CommunityMember or his Sponsor.</string>
+    <string name="audit_block__created_by">Created By</string>
+    <string name="audit_block__created_timestamp">Created Timestamp</string>
+    <string name="audit_block__last_updated_by">Last Updated By</string>
+    <string name="audit_block__last_updated_timestamp">Last Updated Timestamp</string>
+    <string name="audit_block__locked_by">Locked By</string>
+    <string name="audit_block__locked_status">Lock Status</string>
+    <string name="audit_block__locked_timestamp">Locked Timestamp</string>
+    <string name="audit_block__transaction_count">Transaction Count</string>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fms__strings.xml -->
+    <eat-comment />
+
+    <string name="browser_activity__fse_history"><b>FSE Document History</b>   <font fgcolor="#ff01dbce">browser</font></string>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fmm__strings.xml -->
+    <eat-comment />
+
+    <string name="commitment">Commitment</string>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fms__strings.xml -->
+    <eat-comment />
+
+    <string name="commitments__confirmed">Confirmed Commitments</string>
+    <string name="commitments__confirmed_and_withdrawn">Confirmed and Withdrawn Commitments</string>
+    <string name="commitments__proposed">Proposed Commitments</string>
+    <string name="commitments__proposed_and_declined">Proposed and Declined Commitments</string>
+    <string name="commitments__suggested">Suggested Commitments</string>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fmm__strings.xml -->
+    <eat-comment />
+
+    <string name="community_member">Community Member</string>
+    <string name="community_member__name">Community Member</string>
+    <string name="community_member_status__active">Active</string>
+    <string name="community_member_status__active__description">Actively working in the Community.</string>
+    <string name="community_member_status__inactive">Inactive</string>
+    <string name="community_member_status__inactive__description">Not actively working in the Community.</string>
+    <string name="community_member_status__on_leave">On Leave</string>
+    <string name="community_member_status__on_leave__description">Currently on Leave from the work of the Community.</string>
+    <string name="community_member_status__on_vacation">On Vacation</string>
+    <string name="community_member_status__on_vacation__description">Currently on Vacation from the work of the Community.</string>
+    <string name="completion_commitment_type__canceled">Canceled</string>
+    <string name="completion_commitment_type__canceled__description">A previous commitment to complete this work has been canceled.</string>
+    <string name="completion_commitment_type__confirmed">Confirmed</string>
+    <string name="completion_commitment_type__confirmed__description">A commitment to complete this work has been confirmed.</string>
+    <string name="completion_commitment_type__declined">Declined</string>
+    <string name="completion_commitment_type__declined__description">A proposed commitment to complete this work has been declined.</string>
+    <string name="completion_commitment_type__none">None</string>
+    <string name="completion_commitment_type__none__description">There is no commitment to complete this work.</string>
+    <string name="completion_commitment_type__proposed">Proposed</string>
+    <string name="completion_commitment_type__proposed__description">A commitment to complete this work has been proposed.</string>
+    <string name="completion_commitment_type__suggested">Suggested</string>
+    <string name="completion_commitment_type__suggested__description">A commitment to complete this work has been suggested.</string>
+    <string name="completion_commitment_type__withdrawn">Withdrawn</string>
+    <string name="completion_commitment_type__withdrawn__description">A proposed commitment to complete this work has been withdrawn.</string>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fms__strings.xml -->
+    <eat-comment />
+
+    <string name="context">Context</string>
+    <string name="create__fmm_repository__do_it_now__wizard_step">Summary</string>
+    <string name="create__fmm_repository__fmm_template__summary_box">Step 2 - FMM Template</string>
+    <string name="create__fmm_repository__fmm_template__wizard_step">FMM Template</string>
+    <string name="create__fmm_repository__governance__summary_box">Step 4 - Governance</string>
+    <string name="create__fmm_repository__governance__wizard_step">Governance</string>
+    <string name="create__fmm_repository__headline__summary_box">Step 1 - Headline &amp; Service Provider</string>
+    <string name="create__fmm_repository__headline__wizard_step">Headline &amp; Service Provider</string>
+    <string name="create__fmm_repository__organization__retain_community">retain Community from template</string>
+    <string name="create__fmm_repository__organization__retain_headline">use Organization Headline from template</string>
+    <string name="create__fmm_repository__organization__summary_box">Step 3 - Organization &amp; Community</string>
+    <string name="create__fmm_repository__organization__wizard_step">Organization &amp; Community</string>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/deckangl__strings.xml -->
+    <eat-comment />
+
+    <string name="deckangl__decorator_color__blue">Blue</string>
+    <string name="deckangl__decorator_color__disabled">Disabled</string>
+    <string name="deckangl__decorator_color__gray">Gray</string>
+    <string name="deckangl__decorator_color__green">Green</string>
+    <string name="deckangl__decorator_color__orange">Orange</string>
+    <string name="deckangl__decorator_color__pink">Pink</string>
+    <string name="deckangl__decorator_color__red">Red</string>
+    <string name="deckangl__decorator_color__transparent">Transparent</string>
+    <string name="deckangl__decorator_color__yellow">Yellow</string>
+    <string name="deckangl__glyph_size">Size</string>
+    <string name="deckangl__glyph_size__annotated__small">Annotated</string>
+    <string name="deckangl__glyph_size__large">Large</string>
+    <string name="deckangl__glyph_size__medium">Medium</string>
+    <string name="deckangl__glyph_size__small">Small</string>
+    <string name="deckangl__glyph_size__tiny">Tiny</string>
+    <string name="deckangl__glyph_zone__bottom">End Zone</string>
+    <string name="deckangl__glyph_zone__bottom__left">Bottom Zone - Left</string>
+    <string name="deckangl__glyph_zone__bottom__middle">Bottom Zone - Middle</string>
+    <string name="deckangl__glyph_zone__bottom__right">Bottom Zone - Right</string>
+    <string name="deckangl__glyph_zone__left">Strategic Zone</string>
+    <string name="deckangl__glyph_zone__left__bottom">Left Zone - Bottom</string>
+    <string name="deckangl__glyph_zone__left__middle">Left Zone - Middle</string>
+    <string name="deckangl__glyph_zone__left__top">Left Zone - Top</string>
+    <string name="deckangl__glyph_zone__right">Tactical Zone</string>
+    <string name="deckangl__glyph_zone__right__bottom">Right Zone - Bottom</string>
+    <string name="deckangl__glyph_zone__right__middle">Right Zone - Middle</string>
+    <string name="deckangl__glyph_zone__right__top">Right Zone - Top</string>
+    <string name="deckangl__glyph_zone__top">Leadership Zone</string>
+    <string name="deckangl__glyph_zone__top__left">Top Zone - Left</string>
+    <string name="deckangl__glyph_zone__top__middle">Top Zone - Middle</string>
+    <string name="deckangl__glyph_zone__top__right">Top Zone - Right</string>
+    <string name="deckangl__language_element__decorated_noun">Decorated Noun</string>
+    <string name="deckangl__language_element__noun">Noun</string>
+    <string name="deckangl__language_element__noun_quality_metric">Noun Quality Metric</string>
+    <string name="deckangl__language_element__noun_status">Noun Status</string>
+    <string name="deckangl__noun">Noun</string>
+    <string name="deckangl__noun_quality">Noun Quality</string>
+    <string name="deckangl__noun_quality_index">Noun Quality Index</string>
+    <string name="deckangl__noun_state">Noun State</string>
+    <string name="deckangl__quality_decorators">Noun Quality Decorators</string>
+    <string name="deckangl__status_color__gray">Gray</string>
+    <string name="deckangl__status_color__green">Green</string>
+    <string name="deckangl__status_color__orange">Orange</string>
+    <string name="deckangl__status_color__pink">Pink</string>
+    <string name="deckangl__status_color__yellow">Yellow</string>
+    <string name="deckangl_tm">DecKanGL™</string>
+    <string name="deckangl_tm__annotated_glyph">DecKanGL™ Annotated Glyph</string>
+    <string name="deckangl_tm__dictionary">DecKanGL™ Dictionary</string>
+    <string name="deckangl_tm__glyph">DecKanGL™ Glyph</string>
+    <string name="deckangl_tm__glyph_navigation">DecKanGL™ Glyph Navigation</string>
+    <string name="deckangl_tm__noun">DecKanGL™ Noun</string>
+    <string name="deckangl_tm__noun_quality__decorators">DecKanGL™ Noun Quality Decorators</string>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fmm__strings.xml -->
+    <eat-comment />
+
+    <string name="decorator__child_fractals__confirmed">Confirmed Child Fractals</string>
+    <string name="decorator__child_fractals__excessive">Confirmed Excessive Child Fractals</string>
+    <string name="decorator__child_fractals__none">No Child Fractals</string>
+    <string name="decorator__child_fractals__not_applicable">Not Applicable</string>
+    <string name="decorator__child_fractals__not_enabled">Not Enabled</string>
+    <string name="decorator__child_fractals__proposed">Proposed Child Fractals</string>
+    <string name="decorator__child_fractals__suggested">Suggested Child Fractals</string>
+    <string name="decorator__child_fractals__swag">Child Fractals SWAG</string>
+    <string name="decorator__child_fractals__unknown_quality">Unspecified Quality</string>
+    <string name="decorator__completion_progress__at_risk">Timely Completion At Risk</string>
+    <string name="decorator__completion_progress__no_issues">No Issues</string>
+    <string name="decorator__completion_progress__not_applicable">Not Applicable</string>
+    <string name="decorator__completion_progress__not_enabled">Not Enabled</string>
+    <string name="decorator__completion_progress__not_scheduled">Completion Not Scheduled</string>
+    <string name="decorator__completion_progress__past_due">Completion Past Due</string>
+    <string name="decorator__completion_progress__unconfirmed">Unconfirmed Completion</string>
+    <string name="decorator__completion_progress__unknown_quality">Unspecified Quality</string>
+    <string name="decorator__facilitation_issue__confirmed">Confirmed Issue</string>
+    <string name="decorator__facilitation_issue__none">No Facilitation Issues</string>
+    <string name="decorator__facilitation_issue__not_applicable">Not Applicable</string>
+    <string name="decorator__facilitation_issue__not_enabled">Not Enabled</string>
+    <string name="decorator__facilitation_issue__proposed">Proposed Issue</string>
+    <string name="decorator__facilitation_issue__unknown_quality">Unspecified Quality</string>
+    <string name="decorator__facilitator__confirmed">Confirmed Facilitator</string>
+    <string name="decorator__facilitator__inactive_facilitator">Inactive Facilitator</string>
+    <string name="decorator__facilitator__no_facilitator">No Facilitator</string>
+    <string name="decorator__facilitator__not_applicable">Not App0licable</string>
+    <string name="decorator__facilitator__not_enabled">Not Enabled</string>
+    <string name="decorator__facilitator__proposed_facilitator">Proposed Facilitator</string>
+    <string name="decorator__facilitator__suggested_facilitator">Suggested Facilitator</string>
+    <string name="decorator__facilitator__unknown_quality">Unspecified Quality</string>
+    <string name="decorator__flywheel_commitment__confirmed">Confirmed Completion Commitment</string>
+    <string name="decorator__flywheel_commitment__future">Future Completion Commitment</string>
+    <string name="decorator__flywheel_commitment__missed">Missed Completion Commitment</string>
+    <string name="decorator__flywheel_commitment__none">No Completion Commitment</string>
+    <string name="decorator__flywheel_commitment__not_applicable">Not Applicable</string>
+    <string name="decorator__flywheel_commitment__not_enabled">Not Enabled</string>
+    <string name="decorator__flywheel_commitment__proposed">Proposed Completion Commitment</string>
+    <string name="decorator__flywheel_commitment__suggested">Suggested Completion Commitment</string>
+    <string name="decorator__flywheel_commitment__unknown_quality">Unspecified Quality</string>
+    <string name="decorator__governance__confirmed">Confirmed Governance</string>
+    <string name="decorator__governance__inactive">Inactive Confirmed Governance</string>
+    <string name="decorator__governance__incomplete">Incomplete Confirmed Governance</string>
+    <string name="decorator__governance__none">No Governance</string>
+    <string name="decorator__governance__not_applicable">Not Applicable</string>
+    <string name="decorator__governance__not_enabled">Not Enabled</string>
+    <string name="decorator__governance__proposed">Proposed Governance</string>
+    <string name="decorator__governance__suggested">Suggested Governance</string>
+    <string name="decorator__governance__unknown_quality">Unspecified Quality</string>
+    <string name="decorator__parent_fractals__multiple">Multiple Confirmed Parent Fractals</string>
+    <string name="decorator__parent_fractals__none">No Parent Fractals</string>
+    <string name="decorator__parent_fractals__not_applicable">Not Applicable</string>
+    <string name="decorator__parent_fractals__not_enabled">Not Enabled</string>
+    <string name="decorator__parent_fractals__one">One Confirmed Parent Fractal</string>
+    <string name="decorator__parent_fractals__proposed">Proposed Parent Fractals</string>
+    <string name="decorator__parent_fractals__suggested">Suggested Parent Fractals</string>
+    <string name="decorator__parent_fractals__swag">Parent Fractals SWAG</string>
+    <string name="decorator__parent_fractals__unknown_quality">Unspecified Quality</string>
+    <string name="decorator__sequence__confirmed">Confirmed Sequence</string>
+    <string name="decorator__sequence__modified_since_confirmed">Sequence Modified Since Confirmed</string>
+    <string name="decorator__sequence__none">No Sequence</string>
+    <string name="decorator__sequence__not_applicable">Not Applicable</string>
+    <string name="decorator__sequence__not_enabled">Not Enabled</string>
+    <string name="decorator__sequence__proposed">Proposed Sequence</string>
+    <string name="decorator__sequence__suggested">Suggested Sequence</string>
+    <string name="decorator__sequence__swag">Sequence SWAG</string>
+    <string name="decorator__sequence__unknown_quality">Unspecified Quality</string>
+    <string name="decorator__story__confirmed">Confirmed Story</string>
+    <string name="decorator__story__modified_since_confirmed">Story Modified Since Confirmed</string>
+    <string name="decorator__story__none">No Story</string>
+    <string name="decorator__story__not_applicable">Not Applicable</string>
+    <string name="decorator__story__not_enabled">Not Enabled</string>
+    <string name="decorator__story__proposed">Proposed Story</string>
+    <string name="decorator__story__suggested">Suggested Story</string>
+    <string name="decorator__story__swag">Story SWAG</string>
+    <string name="decorator__story__unknown_quality">Unspecified Quality</string>
+    <string name="decorator__strategic_commitment__confirmed">Confirmed Strategic Commitment</string>
+    <string name="decorator__strategic_commitment__future">Future Strategic Commitment</string>
+    <string name="decorator__strategic_commitment__missed">Missed Strategic Commitment</string>
+    <string name="decorator__strategic_commitment__none">No Strategic Commitment</string>
+    <string name="decorator__strategic_commitment__not_applicable">Not Applicable</string>
+    <string name="decorator__strategic_commitment__not_enabled">Not Enabled</string>
+    <string name="decorator__strategic_commitment__proposed">Proposed Strategic Commitment</string>
+    <string name="decorator__strategic_commitment__suggested">Suggested Strategic Commitment</string>
+    <string name="decorator__strategic_commitment__unknown_quality">Unspecified Quality</string>
+    <string name="decorator__task_budget__confirmed">Confirmed Task Budget</string>
+    <string name="decorator__task_budget__none">No Task Budget</string>
+    <string name="decorator__task_budget__not_applicable">Not Applicable</string>
+    <string name="decorator__task_budget__not_enabled">Not Enabled</string>
+    <string name="decorator__task_budget__over_budget">Over Task Budget</string>
+    <string name="decorator__task_budget__proposed">Proposed Task Budget</string>
+    <string name="decorator__task_budget__suggested">Suggested Task Budget</string>
+    <string name="decorator__task_budget__swag">Task Budget SWAG</string>
+    <string name="decorator__task_budget__unknown_quality">Unspecified Quality</string>
+    <string name="decorator__work_team__confirmed">Confirmed Work Team</string>
+    <string name="decorator__work_team__inactive">Inactive Confirmed Work Team Member(s)</string>
+    <string name="decorator__work_team__none">No Work Team</string>
+    <string name="decorator__work_team__not_applicable">Not Applicable</string>
+    <string name="decorator__work_team__not_enabled">Not Enabled</string>
+    <string name="decorator__work_team__proposed">Proposed Work Team</string>
+    <string name="decorator__work_team__suggested">Suggested Work Team</string>
+    <string name="decorator__work_team__swag">Work Team SWAG</string>
+    <string name="decorator__work_team__unknown_quality">Unspecified Quality</string>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fms__strings.xml -->
+    <eat-comment />
+
+    <string name="discussion_topic__delete">Delete the Discussion Topic</string>
+    <string name="discussion_topic__delete__plural">Delete the Discussion Topics</string>
+    <string name="discussion_topic__disposition">Disposition of Discussion Topic</string>
+    <string name="discussion_topic__disposition__plural">Disposition of Discussion Topics</string>
+    <string name="discussion_topic__move">Move the Discussion Topic</string>
+    <string name="discussion_topic__move__plural">Move the Discussion Topics</string>
+    <string name="edit_new_fiscal_year">Edit new Fiscal Year</string>
+    <string name="edit_new_headline_node">Edit new headline node</string>
+    <string name="editor_activity__community_member"><b>Community Member</b>   <font fgcolor="#ff01dbce">editor</font></string>
+    <string name="editor_activity__fiscal_year"><b>Fiscal Year</b>   <font fgcolor="#ff01dbce">editor</font></string>
+    <string name="editor_activity__project_asset"><b>Project Asset</b>   <font fgcolor="#ff01dbce">editor</font></string>
+    <string name="editor_activity__strategic_milestone"><b>Strategic Milestone</b>   <font fgcolor="#ff01dbce">editor</font></string>
+    <string name="empty_string"></string>
+    <string name="expand_collapse_tree_node">Expand/Collapse Tree Node</string>
+    <string name="filter_id__no_filter">No Filter</string>
+    <string name="filter_id__orphan_nodes__primary_parent">orphan_nodes__primary_parent</string>
+    <string name="filter_id__orphan_nodes__secondary_parent">orphan_nodes__secondary_parent</string>
+    <string name="filter_id__primary_parent">primary_parent</string>
+    <string name="filter_id__primary_parent__primary_child__move_target">primary_parent__primary_child__move_target</string>
+    <string name="filter_id__primary_parent__primary_child__primary_child__move_target">primary_parent__primary_child__primary_child__move_target</string>
+    <string name="filter_id__primary_parent__primary_child__primary_child__primary_child__move_target">primary_parent__primary_child__primary_child__primary_child__move_target</string>
+    <string name="filter_id__primary_parent__secondary_child__move_target">primary_parent__secondary_child__move_target</string>
+    <string name="filter_id__primary_parent__secondary_child__primary_child__move_target">primary_parent__secondary_child__primary_child__move_target</string>
+    <string name="filter_id__primary_parent__secondary_child__secondary_child__move_target">primary_parent__secondary_child__secondary_child__move_target</string>
+    <string name="filter_id__secondary_parent">secondary_parent</string>
+    <string name="filter_id__secondary_parent__primary_child__move_target">secondary_parent__primary_child__move_target</string>
+    <string name="filter_id__secondary_parent__secondary_child__move_target">secondary_parent__secondary_child__move_target</string>
+    <string name="flywheel_milestone__delete">Delete the Flywheel Milestone</string>
+    <string name="flywheel_milestone__delete__plural">Delete the Flywheel Milestones</string>
+    <string name="flywheel_milestone__disposition">Disposition of Flywheel Milestone</string>
+    <string name="flywheel_milestone__disposition__plural">Disposition of Flywheel Milestones</string>
+    <string name="flywheel_milestone__move">Move the Flywheel Milestone</string>
+    <string name="flywheel_milestone__move__plural">Move the Flywheel Milestones</string>
+    <string name="flywheel_ms">FlywheelMS™</string>
+    <string name="flywheel_navigation">FlywheelMS™ Navigation</string>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fmm__strings.xml -->
+    <eat-comment />
+
+    <string name="fmm__access_scope">Access Scope</string>
+    <string name="fmm__access_scope__explanation">The access scope of a Flywheel Management Model (FMM)\ndetermines whether and how it is shared.</string>
+    <string name="fmm__access_scope__private__explanation">- Data is only stored on this Android device.\n- No one else can see the FMM.</string>
+    <string name="fmm__access_scope__shared__explanation">- Data is stored in a Dropbox folder which may be shared.\n- Only one person at a time may access the FMM.</string>
+    <string name="fmm__access_scope__team__explanation">- Data is stored in the \'cloud\'.\n- Anyone who is given access to the FMM can see\n\u0020\u0020\u0020and (optionally) modify data.</string>
+    <string name="fmm__management_explanation">Each organization creates and maintains their own\nFlywheel Management Model (FMM)\n\nAn FMM is created with an access scope of <b>private</b>, <b>shared</b> or <b>team</b>.\n\nInformation from an FMM Configuration is used to connect to a specific FMM.</string>
+    <string name="fmm__repository_scope">Repository Scope</string>
+    <string name="fmm__selection_explanation">Each organization creates and maintains their own\nFlywheel Management Model (FMM)\n\nAn FMM is created with an access scope\nof <b>private</b>, <b>shared</b> or <b>team</b>.</string>
+    <string name="fmm__template">Template</string>
+    <string name="fmm_access__private">\u0020\u0020\u0020Private</string>
+    <string name="fmm_access__shared">\u0020\u0020\u0020Shared</string>
+    <string name="fmm_access__team">\u0020\u0020\u0020Team</string>
+    <string name="fmm_event__publish_pdf__label_text">Publish PDF</string>
+    <string name="fmm_frame">Frame</string>
+    <string name="fmm_frame__commitment">Commitment</string>
+    <string name="fmm_frame__commitment__abreviated">Commit</string>
+    <string name="fmm_frame__context">Context</string>
+    <string name="fmm_frame__fse">F S E</string>
+    <string name="fmm_frame__quality">Quality</string>
+    <string name="fmm_frame__teams">Teams</string>
+    <string name="fmm_frame__tribkn">TribKn</string>
+    <string name="fmm_frame__velocity">Velocity</string>
+    <string name="fmm_node">FMM Node</string>
+    <string name="fmm_node__glyph">FMM Node Glyph</string>
+    <string name="fmm_node_definition__administrator">Administrator</string>
+    <string name="fmm_node_definition__assignment_commitment_type__label_text">Assignment Commitment Type</string>
+    <string name="fmm_node_definition__bookshelf__label_text">Bookshelf</string>
+    <string name="fmm_node_definition__bookshelf_link_to_notebook__label_text">Bookshelf Link To Notebook</string>
+    <string name="fmm_node_definition__community_member__label_text">Community Member</string>
+    <string name="fmm_node_definition__community_member_flywheel_team_governance_authority__label_text">Community Member Flywheel Team Governance Authority</string>
+    <string name="fmm_node_definition__community_member_organization_governance_authority__label_text">Community Member Organization Governance Authority</string>
+    <string name="fmm_node_definition__community_member_status__label_text">Community Member Status</string>
+    <string name="fmm_node_definition__completable_work_status__label_text">Work Status</string>
+    <string name="fmm_node_definition__completion_commitment_type__label_text">Completion Commitment Type</string>
+    <string name="fmm_node_definition__completion_node_trash__label_text">Completion Node Trash</string>
+    <string name="fmm_node_definition__customer">Customer</string>
+    <string name="fmm_node_definition__discussion_topic__label_text">Discussion Topic</string>
+    <string name="fmm_node_definition__discussion_topic_link_to_node_frag_audit_block__label_text">Discussion Topic Link To Item</string>
+    <string name="fmm_node_definition__facilitation_issue__label_text">Facilitation Issue</string>
+    <string name="fmm_node_definition__facilitation_issue_link_to_work_task__label_text">Facilitation Issue Link To Work Task</string>
+    <string name="fmm_node_definition__facilitator">Facilitator</string>
+    <string name="fmm_node_definition__fiscal_year__label_text">Fiscal Year</string>
+    <string name="fmm_node_definition__flywheel_commitment__label_text">Flywheel Commitment</string>
+    <string name="fmm_node_definition__flywheel_milestone__label_text">Flywheel Milestone</string>
+    <string name="fmm_node_definition__flywheel_team__label_text">Flywheel Team</string>
+    <string name="fmm_node_definition__flywheel_team_community_member__label_text">Flywheel Team Community Member</string>
+    <string name="fmm_node_definition__flywheel_team_work_task_budget__label_text">Flywheel Team Work Task Budget</string>
+    <string name="fmm_node_definition__fmm_configuration__label_text">FMM Configuration</string>
+    <string name="fmm_node_definition__frag_lock__label_text">Frag Lock</string>
+    <string name="fmm_node_definition__fse_document__label_text">Flywheel Story Document</string>
+    <string name="fmm_node_definition__fse_paragraph__label_text">Flywheel Story Paragraph</string>
+    <string name="fmm_node_definition__functional_team__label_text">Functional Team</string>
+    <string name="fmm_node_definition__functional_team_community_member__label_text">Functional Team Community Member</string>
+    <string name="fmm_node_definition__governance_participation_type__label_text">Governance Participation Type</string>
+    <string name="fmm_node_definition__governance_role__label_text">Governance Role</string>
+    <string name="fmm_node_definition__governance_satisfaction__label_text">Governance Satisfaction</string>
+    <string name="fmm_node_definition__governance_target__label_text">Governance Target</string>
+    <string name="fmm_node_definition__issue_status__label_text">Issue Status</string>
+    <string name="fmm_node_definition__lock_config__label_text">Lock Config</string>
+    <string name="fmm_node_definition__lock_type__label_text">Lock Type</string>
+    <string name="fmm_node_definition__node_frag__audit_block__label_text">Audit Block</string>
+    <string name="fmm_node_definition__node_frag__completion__label_text">Completion</string>
+    <string name="fmm_node_definition__node_frag__fse_document__label_text">FSE Document</string>
+    <string name="fmm_node_definition__node_frag__governance__label_text">Governance</string>
+    <string name="fmm_node_definition__node_frag__history__label_text">History</string>
+    <string name="fmm_node_definition__node_frag__tribkn_quality__label_text">TribKn Quality</string>
+    <string name="fmm_node_definition__node_frag__work_task_budget__label_text">Work Task Budget</string>
+    <string name="fmm_node_definition__notebook__label_text">Notebook</string>
+    <string name="fmm_node_definition__notebook_link_to_discussion_topic__label_text">Notebook Link To Discussion Topic</string>
+    <string name="fmm_node_definition__organization__label_text">Organization</string>
+    <string name="fmm_node_definition__organization_community_member__label_text">Organization Community Member</string>
+    <string name="fmm_node_definition__organization_governance_target__label_text">Organization Governance Target</string>
+    <string name="fmm_node_definition__organization_lock_config__label_text">Organization Lock Config</string>
+    <string name="fmm_node_definition__organization_participation__label_text">Organization Participation</string>
+    <string name="fmm_node_definition__portfolio__label_text">Portfolio</string>
+    <string name="fmm_node_definition__portfolio_linkto_project__label_text">Portfolio Link To Project</string>
+    <string name="fmm_node_definition__project__label_text">Project</string>
+    <string name="fmm_node_definition__project_asset__label_text">Project Asset</string>
+    <string name="fmm_node_definition__project_asset_link_to_work_package__label_text">Project Asset Link To Work Package</string>
+    <string name="fmm_node_definition__project_link_to_project_asset__label_text">Project Link To Project Asset</string>
+    <string name="fmm_node_definition__service_delivery_commitment__label_text">Service Delivery Commitment</string>
+    <string name="fmm_node_definition__service_offering__label_text">Service Offering</string>
+    <string name="fmm_node_definition__service_offering_sla__label_text">Service Offering SLA</string>
+    <string name="fmm_node_definition__service_request__label_text">Service Request</string>
+    <string name="fmm_node_definition__service_request_link_to_work_task__label_text">Service Request Link To Work Task</string>
+    <string name="fmm_node_definition__service_request_triage_log__label_text">Service Request Triage Log</string>
+    <string name="fmm_node_definition__sponsor">Sponsor</string>
+    <string name="fmm_node_definition__strategic_commitment__label_text">Strategic Commitment</string>
+    <string name="fmm_node_definition__strategic_milestone__label_text">Strategic Milestone</string>
+    <string name="fmm_node_definition__strategy_team__label_text">Strategy Team</string>
+    <string name="fmm_node_definition__strategy_team_community_member__label_text">Strategy Team Community Member</string>
+    <string name="fmm_node_definition__team_member_status__label_text">Team Member Status</string>
+    <string name="fmm_node_definition__tribkn_element__label_text">TribKn™ Element</string>
+    <string name="fmm_node_definition__tribkn_quality_enumeration__label_text">TribKn™ Quality Enumeration</string>
+    <string name="fmm_node_definition__tribkn_quality_normalized_description__label_text">TribKn™ Quality Normalized Description</string>
+    <string name="fmm_node_definition__work_package__label_text">Work Package</string>
+    <string name="fmm_node_definition__work_package_link_to_work_task__label_text">Work Package Link To Work Task</string>
+    <string name="fmm_node_definition__work_plan__label_text">Work Plan</string>
+    <string name="fmm_node_definition__work_task__label_text">Work Task</string>
+    <string name="fmm_node_definition__work_task_assignment__label_text">Work Task Assignment</string>
+    <string name="fmm_node_id">FMM Node ID</string>
+    <string name="fmm_perspective">Perspective</string>
+    <string name="fmm_perspective__analysis">Analysis</string>
+    <string name="fmm_perspective__budgeting">Budgeting</string>
+    <string name="fmm_perspective__commitments">Commitments</string>
+    <string name="fmm_perspective__community">Community</string>
+    <string name="fmm_perspective__completion">Completion</string>
+    <string name="fmm_perspective__confirmed_commitments">Confirmed Commitments</string>
+    <string name="fmm_perspective__deckangl">DecKanGl™</string>
+    <string name="fmm_perspective__declined_commitments">Proposed and Declined Commitments</string>
+    <string name="fmm_perspective__facilitation_issues">Facilitation Issues</string>
+    <string name="fmm_perspective__flywheel_team">Flywheel Team</string>
+    <string name="fmm_perspective__functional_team">Functional Team</string>
+    <string name="fmm_perspective__governance">Governance</string>
+    <string name="fmm_perspective__governance_team">Governance Team</string>
+    <string name="fmm_perspective__history">History</string>
+    <string name="fmm_perspective__notes">Notes</string>
+    <string name="fmm_perspective__proposed_commitments">Proposed Commitments</string>
+    <string name="fmm_perspective__service_delivery">Service Delivery</string>
+    <string name="fmm_perspective__story">Story</string>
+    <string name="fmm_perspective__strategic_planning">Strategic Planning</string>
+    <string name="fmm_perspective__strategy_team">Strategy Team</string>
+    <string name="fmm_perspective__suggested_commitments">Suggested Commitments</string>
+    <string name="fmm_perspective__tribkn">TribKn™</string>
+    <string name="fmm_perspective__withdrawn_commitments">Confirmed and Withdrawn Commitments</string>
+    <string name="fmm_perspective__work_breakdown">Work Breakdown</string>
+    <string name="fmm_perspective__work_planning">Work Planning</string>
+    <string name="fmm_repository">FMM Repository</string>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fms__strings.xml -->
+    <eat-comment />
+
+    <string name="fmm_repository__management">Manage FMM Configurations</string>
+    <string name="fmm_repository__scope_selection">Create FMM - Access Scope Selection</string>
+    <string name="fmm_repository__selection">FMM Selection</string>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fmm__strings.xml -->
+    <eat-comment />
+
+    <string name="fmm_template__assets">\u0020\u0020\u0020FlywheelMS template library.</string>
+    <string name="fmm_template__cloud">\u0020\u0020\u0020FlywheelMS template cloud.</string>
+    <string name="fmm_template__explanation__assets">Model on a standard FlywheelMS template.</string>
+    <string name="fmm_template__explanation__cloud">Model on a \'cloud\' template.</string>
+    <string name="fmm_template__explanation__existing_private">Model on an existing FMM\nthat is stored on this Android device.</string>
+    <string name="fmm_template__explanation__existing_shared">Model on an existing shared FMM.</string>
+    <string name="fmm_template__explanation__existing_team">Model on an existing team FMM.</string>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fms__strings.xml -->
+    <eat-comment />
+
+    <string name="fms__adopt_orphan">Adopt Orphan</string>
+    <string name="fms__cancel">Cancel</string>
+    <string name="fms__create">Create</string>
+    <string name="fms__delete">Delete</string>
+    <string name="fms__edit_headline">Edit Headline</string>
+    <string name="fms__empty_string"></string>
+    <string name="fms__move">Move</string>
+    <string name="fms__ok">OK</string>
+    <string name="fms__orphan">Orphan</string>
+    <string name="fms__revert_ok_cancel_dialog__title">Revert All Data Modifications</string>
+    <string name="fms__save_data_changes">Save Data Changes</string>
+    <string name="fms__save_gui_preferences">GUI Preferences</string>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fse__strings.xml -->
+    <eat-comment />
+
+    <string name="fse__collaborator_summmary__heading">Collaborator Summary</string>
+    <string name="fse__document">FSE Document</string>
+    <string name="fse__document_body__heading">Body</string>
+    <string name="fse__document_section__community">Community</string>
+    <string name="fse__document_section__heading">Section</string>
+    <string name="fse__document_section__history">History</string>
+    <string name="fse__document_section__notes">Notes</string>
+    <string name="fse__document_section__story">Story</string>
+    <string name="fse__document_section__tribkn">TribKn</string>
+    <string name="fse__document_transaction">FSE Transaction</string>
+    <string name="fse__document_transaction_type">FSE Transaction Type</string>
+    <string name="fse__first_contribution_timestamp__heading">First Contribution</string>
+    <string name="fse__history_browser">FSE Document History Browser</string>
+    <string name="fse__last_contribution_timestamp__heading">Last Contribution</string>
+    <string name="fse__left_menu__heading">Storage</string>
+    <string name="fse__paragraph_history">FSE Paragraph History</string>
+    <string name="fse__paragraph_menu__heading">Paragraph</string>
+    <string name="fse__revert__ok_cancel__title">Revert to an Earlier Document Version</string>
+    <string name="fse__sequence_menu__heading">Sequence</string>
+    <string name="fse__style_menu__heading">Style</string>
+    <string name="fse__transaction_community_member__heading">Community Member</string>
+    <string name="fse__transaction_number__heading">#</string>
+    <string name="fse__transaction_paragraphs_deleted__heading">Deleted</string>
+    <string name="fse__transaction_paragraphs_deleted__heading_abreviated">Del</string>
+    <string name="fse__transaction_paragraphs_locked__heading">Locked</string>
+    <string name="fse__transaction_paragraphs_modified__heading">Modified</string>
+    <string name="fse__transaction_paragraphs_modified__heading_abreviated">Mod</string>
+    <string name="fse__transaction_paragraphs_new__heading">New</string>
+    <string name="fse__transaction_paragraphs_unchanged__heading">Unchanged</string>
+    <string name="fse__transaction_paragraphs_unlocked__heading">Unlocked</string>
+    <string name="fse__transaction_timestamp__heading">Timestamp</string>
+    <string name="fse__transaction_type__heading">Tran Type</string>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/gcg__strings.xml -->
+    <eat-comment />
+
+    <string name="gcg__action__zoom">Zoom</string>
+    <string name="gcg__action__zoom_browser">Zoom Browser</string>
+    <string name="gcg__android_contacts__select">select Android contacts</string>
+    <string name="gcg__application_context__activity_separator">;&lt;;></string>
+    <string name="gcg__application_context__perspective_context_separator"> :::: </string>
+    <string name="gcg__button_label__apply">Apply</string>
+    <string name="gcg__button_label__cancel">Cancel</string>
+    <string name="gcg__button_label__ok">OK</string>
+    <string name="gcg__configuration_wrench">Configuration Wrench</string>
+    <string name="gcg__data_changes__always_save">For the remainder of this session, automatically save data\r\nchanges.</string>
+    <string name="gcg__data_changes__not_resolved">There are data changes which must be\r\nresolved before proceeding.</string>
+    <string name="gcg__error"><font color="#FF0000">Error</font></string>
+    <string name="gcg__history_browser">History Browser</string>
+    <string name="gcg__lock_management">Lock Management</string>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fmm__strings.xml -->
+    <eat-comment />
+
+    <string name="governance__administrator">Administrator</string>
+    <string name="governance__administrator_commitment_timestamp">Administrator Commitment Timestamp</string>
+    <string name="governance__administrator_commitment_type">Administrator Commitment Type</string>
+    <string name="governance__administrator_locked_by">Administrator Locked By</string>
+    <string name="governance__administrator_locked_timestamp">Administrator Locked Timestamp</string>
+    <string name="governance__administrator_proposed_by">Administrator Proposed By</string>
+    <string name="governance__administrator_proposed_timestamp">Administrator Proposed Timestamp</string>
+    <string name="governance__customer">Customer</string>
+    <string name="governance__customer_commitment_timestamp">Customer Commitment Timestamp</string>
+    <string name="governance__customer_commitment_type">Customer Commitment Type</string>
+    <string name="governance__customer_locked_by">Customer Locked By</string>
+    <string name="governance__customer_locked_timestamp">Customer Locked Timestamp</string>
+    <string name="governance__customer_proposed_by">Customer Proposed By</string>
+    <string name="governance__customer_proposed_timestamp">Customer Proposed Timestamp</string>
+    <string name="governance__facilitator">Facilitator</string>
+    <string name="governance__facilitator_commitment_timestamp">Facilitator Commitment Timestamp</string>
+    <string name="governance__facilitator_commitment_type">Facilitator Commitment Type</string>
+    <string name="governance__facilitator_locked_by">Facilitator Locked By</string>
+    <string name="governance__facilitator_locked_timestamp">Facilitator Locked Timestamp</string>
+    <string name="governance__facilitator_proposed_by">Facilitator Proposed By</string>
+    <string name="governance__facilitator_proposed_timestamp">Facilitator Proposed Timestamp</string>
+    <string name="governance__generic_commitment_timestamp">Commitment Timestamp</string>
+    <string name="governance__generic_commitment_type">Commitment Type</string>
+    <string name="governance__generic_locked_by">Locked By</string>
+    <string name="governance__generic_locked_timestamp">Locked Timestamp</string>
+    <string name="governance__generic_proposed_by">Proposed By</string>
+    <string name="governance__generic_proposed_timestamp">Proposed Timestamp</string>
+    <string name="governance__role">Role</string>
+    <string name="governance__sponsor">Sponsor</string>
+    <string name="governance__sponsor_commitment_timestamp">Sponsor Commitment Timestamp</string>
+    <string name="governance__sponsor_commitment_type">Sponsor Commitment Type</string>
+    <string name="governance__sponsor_locked_by">Sponsor Locked By</string>
+    <string name="governance__sponsor_locked_timestamp">Sponsor Locked Timestamp</string>
+    <string name="governance__sponsor_proposed_by">Sponsor Proposed By</string>
+    <string name="governance__sponsor_proposed_timestamp">Sponsor Proposed Timestamp</string>
+    <string name="governance_participation_type__none">None</string>
+    <string name="governance_participation_type__none__description">No participation in the governance process.</string>
+    <string name="governance_participation_type__optional">Optional</string>
+    <string name="governance_participation_type__optional__description">Optional participation in the governance process.</string>
+    <string name="governance_participation_type__required">Required</string>
+    <string name="governance_participation_type__required__description">Required participation in the governance process.</string>
+    <string name="governance_role__administrator">Administrator</string>
+    <string name="governance_role__administrator__description">Community Member who provides administrative support.</string>
+    <string name="governance_role__customer">Customer</string>
+    <string name="governance_role__customer__description">Community Member who must accept the finished product before it can be marked complete.</string>
+    <string name="governance_role__facilitator">Facilitator</string>
+    <string name="governance_role__facilitator__description">Community Member responsible for completion.</string>
+    <string name="governance_role__sponsor">Sponsor</string>
+    <string name="governance_role__sponsor__description">Community Member with the authority to allocate time, budget and resources.</string>
+    <string name="governance_satisfaction__0__description">Not yet rated.</string>
+    <string name="governance_satisfaction__0__name">0</string>
+    <string name="governance_satisfaction__10__description">Exceeded all expectations.</string>
+    <string name="governance_satisfaction__10__name">10</string>
+    <string name="governance_satisfaction__1__description">One of the worst experiences of my life.</string>
+    <string name="governance_satisfaction__1__name">1</string>
+    <string name="governance_satisfaction__2__description">A complete disaster.</string>
+    <string name="governance_satisfaction__2__name">2</string>
+    <string name="governance_satisfaction__3__description">We barely got out alive.</string>
+    <string name="governance_satisfaction__3__name">3</string>
+    <string name="governance_satisfaction__4__description">This was brutal.</string>
+    <string name="governance_satisfaction__4__name">4</string>
+    <string name="governance_satisfaction__5__description">This was disappointing.</string>
+    <string name="governance_satisfaction__5__name">5</string>
+    <string name="governance_satisfaction__6__description">We can do better.</string>
+    <string name="governance_satisfaction__6__name">6</string>
+    <string name="governance_satisfaction__7__description">This was a solid effort.</string>
+    <string name="governance_satisfaction__7__name">7</string>
+    <string name="governance_satisfaction__8__description">I am proud of this outcome.</string>
+    <string name="governance_satisfaction__8__name">8</string>
+    <string name="governance_satisfaction__9__description">Met all expectations.</string>
+    <string name="governance_satisfaction__9__name">9</string>
+    <string name="headline">Headline</string>
+    <string name="headline__story_hint">Every story needs a headline…</string>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/strings.xml -->
+    <eat-comment />
+
+    <string name="hello_world">Hello world!</string>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fse__strings.xml -->
+    <eat-comment />
+
+    <string name="hint_edit_text">Type here.</string>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fmm__strings.xml -->
+    <eat-comment />
+
+    <string name="issue_status__confirmed">Confirmed</string>
+    <string name="issue_status__confirmed__description">Recognition and escalation of this issue has been confirmed.</string>
+    <string name="issue_status__dismissed">Dismissed</string>
+    <string name="issue_status__dismissed__description">The need for recognition and excalation of this issue has been dismissed.</string>
+    <string name="issue_status__proposed">Proposed</string>
+    <string name="issue_status__proposed__description">Recognition and escalation of this issue has been proposed.</string>
+    <string name="issue_status__resolved">Resolved</string>
+    <string name="issue_status__resolved__description">This facilitation issue has been resolved.</string>
+    <string name="issue_status__withdrawn">Withdrawn</string>
+    <string name="issue_status__withdrawn__description">A proposed facilitation issue has been withdrawn.</string>
+    <string name="lock_status">Lock Status</string>
+    <string name="lock_type__budget">Budget Lock</string>
+    <string name="lock_type__budget__description">Both the estimated work effort and the budgeted work effort have been locked.</string>
+    <string name="lock_type__fiscal_years">Fiscal Years Lock</string>
+    <string name="lock_type__fiscal_years__description">Fiscal Years cannot be added, deleted or re-sequenced.  Headlines for Fiscal Years cannot be modified.</string>
+    <string name="lock_type__flywheel_milestones">Flywheel Milestones Lock</string>
+    <string name="lock_type__flywheel_milestones__description">Flywheel Milestones cannot be added, deleted, or re-sequenced.  Headlines for Flywheel Milestones cannot be modified.</string>
+    <string name="lock_type__node">Node Lock</string>
+    <string name="lock_type__node__description">Everything in this node (with the possible exception of Notes) has been locked.</string>
+    <string name="lock_type__notes">Notes Lock</string>
+    <string name="lock_type__notes__description">The notes cannot be modified.</string>
+    <string name="lock_type__project_assets">Project Assets Lock</string>
+    <string name="lock_type__project_assets__description">Project Assets cannot be added, deleted or re-sequenced.  Headlines for Project Assets cannot be modified.</string>
+    <string name="lock_type__service_requests">Service Requests Lock</string>
+    <string name="lock_type__service_requests__description">Service Requests cannot be added or deleted.  They may be re-sequenced.  Headlines for Service Requests cannot be modified.</string>
+    <string name="lock_type__story">Story Lock</string>
+    <string name="lock_type__story__description">The story cannot be modified.</string>
+    <string name="lock_type__strategic_milestones">Strategic Milestones Lock</string>
+    <string name="lock_type__strategic_milestones__description">Strategic Milestones cannot be added, deleted, or re-sequenced.  Headlines for Strategic Milestones cannot be modified.</string>
+    <string name="lock_type__work_packages">Work Packages Lock</string>
+    <string name="lock_type__work_packages__description">Work Packages cannot be added, deleted or re-sequenced.  Headlines for Work Packages cannot be modified.</string>
+    <string name="lock_type__work_plans">Work Plans Lock</string>
+    <string name="lock_type__work_plans__description">Work Plans cannot be added, deleted or re-sequenced.  Headlines for Work Plans cannot be modified.</string>
+    <string name="lock_type__work_tasks">Work Tasks Lock</string>
+    <string name="lock_type__work_tasks__description">Work Tasks cannot be added or deleted.  They may be re-sequenced.  Headlines for Work Tasks cannot be modified.</string>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fse__strings.xml -->
+    <eat-comment />
+
+    <string name="menu_settings">Settings</string>
+    <string name="modification_markup_legend">Modification Markup Legend</string>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fmm__strings.xml -->
+    <eat-comment />
+
+    <string name="name">Name</string>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fms__strings.xml -->
+    <eat-comment />
+
+    <string name="not_implemented">Feature not yet implemented.</string>
+    <string name="notebook__delete">Delete the Notebook</string>
+    <string name="notebook__delete__plural">Delete the Notebooks</string>
+    <string name="notebook__disposition">Disposition of Notebook</string>
+    <string name="notebook__disposition__plural">Disposition of Notebooks</string>
+    <string name="notebook__move">Move the Notebook</string>
+    <string name="notebook__move__plural">Move the Notebooks</string>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fmm__strings.xml -->
+    <eat-comment />
+
+    <string name="organization_participation__customer">Customer Participation</string>
+    <string name="organization_participation__customer__description">Participate in the organization FlywheelMS activities as a customer only.</string>
+    <string name="organization_participation__external">External Participant</string>
+    <string name="organization_participation__external__description">Participant who does not have direct access to this organization\'s FlywheelMS activities.</string>
+    <string name="organization_participation__full">Full Participation</string>
+    <string name="organization_participation__full__description">Full participation in the organization\'s FlywheelMS activities.</string>
+    <string name="organization_participation__observer">Observer</string>
+    <string name="organization_participation__observer__description">Only observe this organization\'s FlywheelMS activities.</string>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fse__strings.xml -->
+    <eat-comment />
+
+    <string name="paragraph__edit_scope">Paragraph Edit Scope</string>
+    <string name="pdf_enhancements">PDF Enhancements</string>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fms__strings.xml -->
+    <eat-comment />
+
+    <string name="picker_activity__community_member"><b>Community Member</b>   <font fgcolor="#ff01dbce">picker</font></string>
+    <string name="picker_activity__fiscal_year"><b>Fiscal Year</b>   <font fgcolor="#ff01dbce">picker</font></string>
+    <string name="picker_activity__project_asset"><b>Project Asset</b>   <font fgcolor="#ff01dbce">picker</font></string>
+    <string name="picker_activity__strategic_milestone"><b>Strategic Milestone</b>   <font fgcolor="#ff01dbce">picker</font></string>
+    <string name="project_asset__delete">Delete the Project Asset</string>
+    <string name="project_asset__delete__plural">Delete the Project Assets</string>
+    <string name="project_asset__disposition">Disposition of Project Asset</string>
+    <string name="project_asset__disposition__plural">Disposition of Project Assets</string>
+    <string name="project_asset__move">Move the Project Asset</string>
+    <string name="project_asset__move__plural">Move the Project Assets</string>
+    <string name="publish_pdf">Publish PDF</string>
+    <string name="publish_pdf__content_selection__wizard_step">Step 1 - PDF Content</string>
+    <string name="publish_pdf__destination__wizard_step">Step 2 - PDF Destination</string>
+    <string name="publish_pdf__do_it_now__wizard_step">Step 3 - Publish PDF</string>
+    <string name="recalc_fmm">Recalc FMM</string>
+    <string name="repository_configuration">FMM Configuration</string>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fse__strings.xml -->
+    <eat-comment />
+
+    <string name="storage__revert">Revert</string>
+    <string name="storage__save">Save</string>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fms__strings.xml -->
+    <eat-comment />
+
+    <string name="strategic_milestone__delete">Delete the Strategic Milestone</string>
+    <string name="strategic_milestone__delete__plural">Delete the Strategic Milestones</string>
+    <string name="strategic_milestone__disposition">Disposition of Strategic Milestone</string>
+    <string name="strategic_milestone__disposition__plural">Disposition of Strategic Milestones</string>
+    <string name="strategic_milestone__move">Move the Strategic Milestone</string>
+    <string name="strategic_milestone__move__plural">Move the Strategic Milestones</string>
+    <string name="strategic_milestone__target_date__edit">Edit Target Date</string>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fse__strings.xml -->
+    <eat-comment />
+
+    <string name="style__heading1">Heading 1</string>
+    <string name="style__heading2">Heading 2</string>
+    <string name="style__heading3">Heading 3</string>
+    <string name="style__heading4">Heading 4</string>
+    <string name="style__heading5">Heading 5</string>
+    <string name="style__heading6">Heading 6</string>
+    <string name="style__normal1">Normal 1</string>
+    <string name="style__normal2">Normal 2</string>
+    <string name="style__normal3">Normal 3</string>
+    <string name="style__normal4">Normal 4</string>
+    <string name="style__normal5">Normal 5</string>
+    <string name="style__normal6">Normal 6</string>
+    <string name="style__title1">Title 1</string>
+    <string name="style__title2">Title 2</string>
+    <string name="table_of_contents">Table of Contents</string>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fmm__strings.xml -->
+    <eat-comment />
+
+    <string name="team_member_status__active">Active</string>
+    <string name="team_member_status__active__description">Actively working with the team.</string>
+    <string name="team_member_status__inactive">Inactive</string>
+    <string name="team_member_status__inactive__description">Not actively working with the team.</string>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fms__strings.xml -->
+    <eat-comment />
+
+    <string name="teams__flywheel">Flywheel Teams</string>
+    <string name="teams__flywheel__abreviated">Flywheel</string>
+    <string name="teams__functional">Functional Teams</string>
+    <string name="teams__functional__abreviated">Functional</string>
+    <string name="teams__governance">Governance Teams</string>
+    <string name="teams__governance__abreviated">Governance</string>
+    <string name="teams__strategic">Strategic Teams</string>
+    <string name="teams__strategic__abreviated">Strategic</string>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fse__strings.xml -->
+    <eat-comment />
+
+    <string name="textEditor_buttonLabel_heading">Heading</string>
+    <string name="textEditor_buttonLabel_normal">Normal</string>
+    <string name="textEditor_buttonLabel_title">Title</string>
+    <string name="title_activity_main">MainActivity</string>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fmm__strings.xml -->
+    <eat-comment />
+
+    <string name="todo__commitments">Commitments</string>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fms__strings.xml -->
+    <eat-comment />
+
+    <string name="tree_node__analysis">Analysis</string>
+    <string name="tree_node__commitments">Commitments</string>
+    <string name="tree_node__community">Community</string>
+    <string name="tree_node__governance">Governance</string>
+    <string name="tree_node__strategic_planning">Strategic Planning</string>
+    <string name="tree_node__work_breakdown">Work Breakdown</string>
+    <string name="tree_node__work_planning">Work Planning</string>
+    <string name="tribkn">TribKn™</string>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fmm__strings.xml -->
+    <eat-comment />
+
+    <string name="tribkn_quality__normalized_description__at_risk">At Risk</string>
+    <string name="tribkn_quality__normalized_description__confirmed">Confirmed</string>
+    <string name="tribkn_quality__normalized_description__excessive">Excessive</string>
+    <string name="tribkn_quality__normalized_description__facilitation_issue">Facilitation Issue</string>
+    <string name="tribkn_quality__normalized_description__future">Future</string>
+    <string name="tribkn_quality__normalized_description__good">Good</string>
+    <string name="tribkn_quality__normalized_description__inactive">Inactive</string>
+    <string name="tribkn_quality__normalized_description__incomplete">Incomplete</string>
+    <string name="tribkn_quality__normalized_description__missed">Missed</string>
+    <string name="tribkn_quality__normalized_description__modified_since_confirmed">Modified Since Confirmed</string>
+    <string name="tribkn_quality__normalized_description__multiple_specified">Multiple Specified</string>
+    <string name="tribkn_quality__normalized_description__none">None</string>
+    <string name="tribkn_quality__normalized_description__not_applicable">N\/A</string>
+    <string name="tribkn_quality__normalized_description__not_enabled">Not Enabled</string>
+    <string name="tribkn_quality__normalized_description__not_scheduled">Not Scheduled</string>
+    <string name="tribkn_quality__normalized_description__one_specified">One Specified</string>
+    <string name="tribkn_quality__normalized_description__over_budget">Over Budget</string>
+    <string name="tribkn_quality__normalized_description__past_due">Past Due</string>
+    <string name="tribkn_quality__normalized_description__proposed">Proposed</string>
+    <string name="tribkn_quality__normalized_description__suggested">Suggested</string>
+    <string name="tribkn_quality__normalized_description__swag">SWAG</string>
+    <string name="tribkn_quality__normalized_description__unconfirmed">Unconfirmed</string>
+    <string name="tribkn_quality__normalized_description__unspecified">Unspecified</string>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fms__strings.xml -->
+    <eat-comment />
+
+    <string name="tribkn_quality__service_delivery">Service Delivery</string>
+    <string name="tribkn_quality__strategic_planning">Strategic Planning</string>
+    <string name="tribkn_quality__work_breakdown">Work Breakdown</string>
+    <string name="tribkn_quality__work_planning">Work Planning</string>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fmm__strings.xml -->
+    <eat-comment />
+
+    <string name="tribkn_quality_metric__child_fractals">Child Fractals</string>
+    <string name="tribkn_quality_metric__child_fractals__description">Quality of the child fractals.</string>
+    <string name="tribkn_quality_metric__completion">Completion</string>
+    <string name="tribkn_quality_metric__completion__description">Quality of the completion status.</string>
+    <string name="tribkn_quality_metric__facilitation_issue">Facilitation Issue</string>
+    <string name="tribkn_quality_metric__facilitation_issue__description">Quality of the associated facilitation issue(s).</string>
+    <string name="tribkn_quality_metric__facilitator">Facilitator</string>
+    <string name="tribkn_quality_metric__facilitator__description">Quality of the completion facilitation.</string>
+    <string name="tribkn_quality_metric__flywheel_commitment">Flywheel Work Package Commitment</string>
+    <string name="tribkn_quality_metric__flywheel_commitment__description">Quality of the Flywheel Work Package commitments.</string>
+    <string name="tribkn_quality_metric__governance">Governance</string>
+    <string name="tribkn_quality_metric__governance__description">Quality of the governance.</string>
+    <string name="tribkn_quality_metric__parent_fractals">Parent Fractals</string>
+    <string name="tribkn_quality_metric__parent_fractals__description">Quality of the parent fractals.</string>
+    <string name="tribkn_quality_metric__sequence">Sequence</string>
+    <string name="tribkn_quality_metric__sequence__description">Quality of the sequence.</string>
+    <string name="tribkn_quality_metric__story">Story</string>
+    <string name="tribkn_quality_metric__story__description">Quality of the story.</string>
+    <string name="tribkn_quality_metric__strategic_commitment">Strategic Commitment</string>
+    <string name="tribkn_quality_metric__strategic_commitment__description">Quality of the strategic commitment.</string>
+    <string name="tribkn_quality_metric__work_task_budget">Work Task Budget</string>
+    <string name="tribkn_quality_metric__work_task_budget__description">Quality of the Work Task Budget.</string>
+    <string name="tribkn_quality_metric__work_team">Work Team</string>
+    <string name="tribkn_quality_metric__work_team__description">Quality of the work team.</string>
+    <string name="undefined">Undefined</string>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fms__strings.xml -->
+    <eat-comment />
+
+    <string name="use_this_as_the_default">Use this as the default and do not ask again</string>
+    <string name="velocity__budgeting">Budgeting</string>
+    <string name="velocity__completion">Completion</string>
+    <string name="velocity__governance">Governance</string>
+    <string name="velocity__story">Story</string>
+    <string name="velocity__work_breakdown">Work Breakdown</string>
+    <string name="velocity__work_planning">Work Planning</string>
+    <string name="wizard_activity__create__fmm_repository"><b>Create FMM</b>   <font fgcolor="#ff01dbce">wizard</font></string>
+    <string name="wizard_activity__publish_pdf"><b>Publish PDF</b>   <font fgcolor="#ff01dbce">wizard</font></string>
+    <string name="work_package__delete">Delete the Work Package</string>
+    <string name="work_package__delete__plural">Delete the Work Packages</string>
+    <string name="work_package__disposition">Disposition of Work Package</string>
+    <string name="work_package__disposition__plural">Disposition of Work Packages</string>
+    <string name="work_package__move">Move the Work Package</string>
+    <string name="work_package__move__plural">Move the Work Packages</string>
+    <string name="work_plan__delete">Delete the Work Plan</string>
+    <string name="work_plan__delete__plural">Delete the Work Plans</string>
+    <string name="work_plan__disposition">Disposition of Work Plan</string>
+    <string name="work_plan__disposition__plural">Disposition of Work Plans</string>
+    <string name="work_plan__move">Move the Work Plan</string>
+    <string name="work_plan__move__plural">Move the Work Plans</string>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fmm__strings.xml -->
+    <eat-comment />
+
+    <string name="work_status__not_started">Not Started</string>
+    <string name="work_status__not_started__description">Not a single Work Task has been Started</string>
+    <string name="work_status__on_hold">On Hold</string>
+    <string name="work_status__on_hold__description">Work On Hold</string>
+    <string name="work_status__started">Started</string>
+    <string name="work_status__started__description">At least one Work Task has been Started</string>
+    <string name="work_status__work_complete">Complete</string>
+    <string name="work_status__work_complete__description">All Work is Complete</string>
+    <string name="work_status__work_ready_for_review">Ready For Review</string>
+    <string name="work_status__work_ready_for_review__description">All Work is Ready For Review</string>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fms__strings.xml -->
+    <eat-comment />
+
+    <string name="work_task__delete">Delete the Work Task</string>
+    <string name="work_task__delete__plural">Delete the Work Tasks</string>
+    <string name="work_task__disposition">Disposition of Work Task</string>
+    <string name="work_task__disposition__plural">Disposition of Work Tasks</string>
+    <string name="work_task__move">Move the Work Task</string>
+    <string name="work_task__move__plural">Move the Work Tasks</string>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/fse__styles.xml -->
+    <eat-comment />
+
+    <style name="AppTheme" parent="android:Theme.Light">
+        <item name="android:textSize">@dimen/font_size_base</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:background">#D1D4FF</item>
+    </style>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/gcg__styles.xml -->
+    <eat-comment />
+
+    <style name="FlipPageTitle">
+        <item name="android:layout_height">24dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/gcg__title_strip__text</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">12.0dp</item>
+    </style>
+
+    <style name="FlipPageTitleDim" parent="FlipPageTitle">
+        <item name="android:textColor">@color/gcg__title_strip__text_dim</item>
+        <item name="android:layout_width">150dp</item>
+    </style>
+
+    <style name="GcgButtonRowHorizontal">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">55dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingRight">8dp</item>
+        <item name="android:paddingBottom">7dp</item>
+        <item name="android:background">@color/gcg__button_panel__background</item>
+    </style>
+
+    <style name="GcgWidgetData">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">20dp</item>
+        <item name="android:gravity">left|center_vertical</item>
+        <item name="android:paddingLeft">3dp</item>
+        <item name="android:paddingTop">2dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">16.0dp</item>
+        <item name="android:lines">1</item>
+    </style>
+
+    <style name="GcgWidgetDataMenuContainer">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">left|bottom</item>
+        <item name="android:paddingLeft">5dp</item>
+        <item name="android:paddingTop">1dp</item>
+        <item name="android:paddingBottom">4dp</item>
+        <item name="android:textColor">@color/gcg__widget_label__text_color</item>
+        <item name="android:textSize">14.0dp</item>
+    </style>
+
+    <style name="GcgWidgetLabelHorizontalContainer">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">right|center_vertical</item>
+        <item name="android:textColor">@color/gcg__widget_label__text_color</item>
+        <item name="android:textSize">16.0dp</item>
+    </style>
+
+    <style name="GcgWidgetRowHorizontal">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:layout_marginRight">5dp</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="GcgWidgetRowVertical">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:layout_marginRight">5dp</item>
+        <item name="android:gravity">left</item>
+    </style>
+
+    <style name="GroupBoxLabel" parent="@android:style/TextAppearance.Small">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:layout_marginTop">0dp</item>
+        <item name="android:background">@color/portobello</item>
+        <item name="android:textColor">@color/divine_white</item>
+    </style>
+
+    <style name="GroupLabel" parent="@android:style/TextAppearance.Small">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:layout_marginTop">0dp</item>
+        <item name="android:textColor">@color/portobello</item>
+    </style>
+
+    <style name="NodeData" parent="@android:style/TextAppearance.Small">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">left</item>
+        <item name="android:paddingLeft">@dimen/data__minimum_padding_before_text</item>
+        <item name="android:paddingBottom">@dimen/widget__label__padding_bottom</item>
+        <item name="android:textColor">@color/gcg__widget_data__text_color</item>
+        <item name="android:textSize">16.0dp</item>
+    </style>
+
+    <style name="NodeDataWithDrawable" parent="@style/NodeData">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:drawablePadding">@dimen/widget__label__padding_right</item>
+    </style>
+
+    <style name="NodeLabel" parent="@android:style/TextAppearance.Small">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">right|bottom</item>
+        <item name="android:layout_gravity">right</item>
+        <item name="android:paddingRight">@dimen/widget__label__padding_right</item>
+        <item name="android:paddingBottom">@dimen/widget__label__padding_bottom</item>
+        <item name="android:textColor">@color/gcg__widget_label__text_color</item>
+        <item name="android:textSize">16.0dp</item>
+    </style>
+
+    <style name="NodeLabelSmall" parent="@android:style/TextAppearance.Small">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">right|bottom</item>
+        <item name="android:layout_gravity">right</item>
+        <item name="android:paddingRight">@dimen/widget__label__padding_right</item>
+        <item name="android:paddingBottom">@dimen/widget__label__padding_bottom</item>
+        <item name="android:textColor">@color/gcg__widget_label__text_color</item>
+        <item name="android:textSize">12.0dp</item>
+    </style>
+
+    <style name="TableColumnHeading" parent="@android:style/TextAppearance.Small">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:paddingBottom">4dp</item>
+        <item name="android:paddingTop">3dp</item>
+        <item name="android:background">@color/gcg__table_heading__background</item>
+        <item name="android:textColor">@color/gcg__table_heading__text</item>
+        <item name="android:textSize">12.0dp</item>
+    </style>
+
+    <style name="TableDataEvenColumn" parent="@android:style/TextAppearance.Small">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:paddingBottom">1dp</item>
+        <item name="android:paddingTop">3dp</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:background">@color/gcg__tree_view__background</item>
+        <item name="android:textColor">@color/gcg__widget_data__text_color</item>
+        <item name="android:textSize">14.0dp</item>
+    </style>
+
+    <style name="TableDataOddColumn" parent="TableDataEvenColumn">
+        <item name="android:background">@color/sand_dollar</item>
+    </style>
+
+    <style name="WidgetDataWithDrawableHorizontalContainer" parent="@style/GcgWidgetData">
+        <item name="android:drawablePadding">@dimen/widget__label__padding_right</item>
+    </style>
+    <!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/values/gcg__tree_view__styles.xml -->
+    <eat-comment />
+
+    <style name="treeViewRowStyle" parent="@android:attr/listViewStyle">
+        <item name="android:background">@android:color/white</item>
+    </style>
+
+</resources>

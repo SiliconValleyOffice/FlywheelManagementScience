@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.flywheelms.fwb"
+    android:versionCode="1"
+    android:versionName="0.1" android:installLocation="auto">
+
+    <uses-sdk
+        android:minSdkVersion="16"
+        android:targetSdkVersion="19" />
+    
+    	<uses-permission android:name="android.permission.RECORD_AUDIO" />
+		<uses-permission android:name="android.permission.BLUETOOTH" />
+		<uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+		<uses-permission android:name="android.permission.INTERNET" />
+		<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+		<uses-permission android:name="android.permission.READ_CONTACTS" />
+    	<uses-permission android:name="android.permission.EDIT_CONTACTS" />
+
+    <application
+        android:name="com.flywheelms.fwb.FmsWorkbench"
+        android:icon="@drawable/flywheel_ms"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme"
+        android:windowSoftInputMode="adjustNothing"
+        android:allowBackup="true"  >
+        
+        <activity
+            android:name=".activity.WorkbenchActivity"
+            android:label="@string/workbench_activity"
+            android:windowSoftInputMode="adjustPan"
+       		android:configChanges="keyboardHidden|keyboard"
+            android:screenOrientation="sensorLandscape" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name="com.flywheelms.library.fms.activity.DecKanGlDictionaryActivity"
+            android:label="@string/deckangl_tm__dictionary"
+            android:icon="@drawable/fms_activity__deckangl_dictionary"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
+       		android:configChanges="keyboardHidden|keyboard"
+            android:screenOrientation="sensorLandscape" >
+        </activity>
+        
+        <activity
+            android:name="com.flywheelms.library.fms.activity.CreateFmmWizard"
+            android:label="@string/wizard_activity__create__fmm_repository"
+            android:icon="@drawable/fmm_repository"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
+       		android:configChanges="keyboardHidden|keyboard"
+            android:screenOrientation="sensorLandscape" />
+        
+        <activity
+            android:name="com.flywheelms.library.fms.activity.FiscalYearEditorActivity"
+            android:label="@string/editor_activity__fiscal_year"
+            android:icon="@drawable/fms_activity__fiscal_year"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
+       		android:configChanges="keyboardHidden|keyboard"
+            android:screenOrientation="sensorLandscape" />
+        
+        <activity
+            android:name="com.flywheelms.library.fms.activity.StrategicMilestoneEditorActivity"
+            android:label="@string/editor_activity__strategic_milestone"
+            android:icon="@drawable/fms_activity__strategic_milestone"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
+       		android:configChanges="keyboardHidden|keyboard"
+            android:screenOrientation="sensorLandscape" />
+        
+        <activity
+            android:name="com.flywheelms.library.fms.activity.ProjectAssetEditorActivity"
+            android:label="@string/editor_activity__project_asset"
+            android:icon="@drawable/fms_activity__project_asset"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
+       		android:configChanges="keyboardHidden|keyboard"
+            android:screenOrientation="sensorLandscape" />
+        
+        <activity
+            android:name="com.flywheelms.library.fms.activity.PdfPublicationWizard"
+            android:label="@string/wizard_activity__publish_pdf"
+            android:icon="@drawable/pdf_publication"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
+       		android:configChanges="keyboardHidden|keyboard"
+            android:screenOrientation="sensorLandscape" />
+        
+        <activity
+            android:name="com.flywheelms.library.fms.activity.CommunityMemberPickerActivity"
+            android:label="@string/picker_activity__community_member"
+            android:icon="@drawable/community_member__unknown"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
+       		android:configChanges="keyboardHidden|keyboard"
+            android:screenOrientation="sensorLandscape" />
+        
+        <activity
+            android:name="com.flywheelms.library.fms.activity.CommunityMemberEditorActivity"
+            android:label="@string/editor_activity__community_member"
+            android:icon="@drawable/community_member__32"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
+       		android:configChanges="keyboardHidden|keyboard"
+            android:screenOrientation="sensorLandscape" />
+        
+        <activity
+            android:name="com.flywheelms.library.fse.activity.FseDocumentHistoryBrowserActivity"
+            android:label="@string/browser_activity__fse_history"
+            android:icon="@drawable/fse__document_history"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
+       		android:configChanges="keyboardHidden|keyboard"
+            android:screenOrientation="sensorLandscape" />
+        
+    </application>
+
+</manifest>

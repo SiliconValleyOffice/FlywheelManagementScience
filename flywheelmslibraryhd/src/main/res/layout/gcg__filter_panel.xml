@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:gcg="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/sand_dollar"
+    android:orientation="vertical"
+    android:paddingRight="10dp" >
+
+    <CheckBox
+        android:id="@+id/filter_headlines__checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:text="Filter Headlines" />
+
+    <com.flywheelms.library.gcg.widget.edit_text.GcgWidgetGenericEditText
+        android:id="@+id/filter_criteria"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="18dp"
+        android:layout_marginTop="5dp"
+        gcg:inputEnabled="false"
+        gcg:inputRequired="true"
+        gcg:labelText="Containing"
+        gcg:labelWidth="155"
+        gcg:minimumDataLength="2" />
+
+</LinearLayout>

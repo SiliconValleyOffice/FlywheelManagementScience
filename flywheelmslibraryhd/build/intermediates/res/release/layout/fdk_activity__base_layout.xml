@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal" >
+
+        <FrameLayout
+            android:id="@+id/gcg__thumbpad__left"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" >
+
+            <!-- add left menu at run time -->
+
+            <include
+                android:id="@+id/fdk__left_keypad__container"
+                layout="@layout/fdk__left_keypad__container" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/fdk__activity__body"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0"
+            android:background="@color/portobello"
+            android:orientation="vertical" >
+
+            <!-- add activity body at run time -->
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/gcg__thumbpad__right"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" >
+
+            <!-- add right menu at run time -->
+
+            <include
+                android:id="@+id/fdk__right_keypad__container"
+                layout="@layout/fdk__right_keypad__container" />
+        </FrameLayout>
+    </LinearLayout>
+
+</LinearLayout><!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/layout/fdk_activity__base_layout.xml -->

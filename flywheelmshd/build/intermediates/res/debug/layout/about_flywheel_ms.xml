@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/gcg__dialog__background" >
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/black"
+        android:textSize="28sp"
+        android:text="@string/community_edition" />
+    
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/Red"
+        android:textStyle="bold"
+        android:textSize="38sp"
+        android:text="@string/danger" />
+    
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="25dp"
+        android:textColor="@color/Blue"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:text="@string/science_project" />
+
+</LinearLayout>
+<!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmshd/src/main/res/layout/about_flywheel_ms.xml -->

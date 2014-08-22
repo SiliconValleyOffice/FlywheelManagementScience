@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/GcgWidgetRowHorizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_vertical" >
+
+    <RelativeLayout
+        android:id="@+id/headline__zoom__layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:paddingLeft="10dp" >
+
+        <Button
+            android:id="@+id/headline__zoom__button"
+            android:layout_width="39dp"
+            android:layout_height="29dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/gcg__button_state_list__action__zoom__wide"
+            android:contentDescription="Zoom Headline"
+            android:scaleType="center" />
+
+        <TextView
+            android:id="@+id/widget_label"
+            style="@style/GcgWidgetLabelHorizontalContainer"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/widget_fdk_cursor"
+        android:layout_width="6dp"
+        android:layout_height="35dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:background="@color/Orange"
+        android:visibility="invisible" />
+
+    <com.flywheelms.library.gcg.widget.GcgSpinner
+        android:id="@+id/widget_spinner"
+        style="@style/GcgWidgetData"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="0dp"
+        android:layout_toLeftOf="@id/widget_fdk_cursor"
+        android:layout_toRightOf="@id/headline__zoom__layout" />
+
+</RelativeLayout>

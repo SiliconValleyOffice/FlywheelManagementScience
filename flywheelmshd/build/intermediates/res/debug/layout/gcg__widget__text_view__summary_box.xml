@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:gcg="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <com.flywheelms.library.gcg.container.GcgContainerGroupBoxLinear
+        android:id="@+id/group_box__left"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="left|top"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/widget_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/sands_of_time"
+            android:gravity="center_horizontal"
+            android:textColor="@color/gcg__group_box__heading__text_3" />
+
+        <TextView
+            android:id="@+id/widget_data"
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:gravity="top|left"
+            android:background="@drawable/gcg__text_view"
+            android:scrollbars="vertical"
+            android:fadeScrollbars="false"
+            android:scrollbarAlwaysDrawVerticalTrack="false"
+            android:lines="18"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:singleLine="false" />
+    </com.flywheelms.library.gcg.container.GcgContainerGroupBoxLinear>
+
+</LinearLayout><!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/layout/gcg__widget__text_view__summary_box.xml --><!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmshd/build/intermediates/exploded-aar/flywheelms-workbench/flywheelmslibraryhd/unspecified/res/layout/gcg__widget__text_view__summary_box.xml -->

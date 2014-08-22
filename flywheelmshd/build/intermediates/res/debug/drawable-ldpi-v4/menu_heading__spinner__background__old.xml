@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+	<item>
+		<shape xmlns:android="http://schemas.android.com/apk/res/android"
+		    android:shape="rectangle" >
+		   	<solid android:color="@color/gcg__title_strip__background" />
+		   	<stroke android:width="1dp"
+		   	    android:color="#595959"/>
+		</shape>
+	</item>
+	<item android:bottom="1dp"
+	    android:right="1dp">
+		<shape xmlns:android="http://schemas.android.com/apk/res/android"
+		    android:shape="rectangle" >
+		   	<solid android:color="@color/gcg__thumb_menu__heading__shadow" />
+		</shape>
+	</item>
+
+</layer-list>
+
+<!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmshd/src/main/res/drawable-ldpi/menu_heading__spinner__background__old.xml -->

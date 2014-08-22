@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/gcg__navigation_first__touch" android:state_pressed="true"/>
+    <item android:drawable="@drawable/gcg__navigation_first__disabled" android:state_enabled="false"/>
+    <item android:drawable="@drawable/gcg__navigation_first"/>    
+</selector>
+<!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/drawable/gcg__button_state_list__navigate_to_beginning.xml --><!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmshd/build/intermediates/exploded-aar/flywheelms-workbench/flywheelmslibraryhd/unspecified/res/drawable/gcg__button_state_list__navigate_to_beginning.xml -->

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <com.flywheelms.library.fms.wizard_step_flipper.CreateFmmWizardStepFlipper
+        android:id="@+id/gcg__wizard__step_flipper"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <!-- page 1 -->
+        <com.flywheelms.library.fms.wizard_step_flipper.step.CreateFmmHeadlineWizardStepView
+            android:id="@+id/wizard_step__headline"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <!-- page 5 -->
+        <com.flywheelms.library.fms.wizard_step_flipper.step.CreateFmmDoItNowWizardStepView
+            android:id="@+id/wizard_step__summary"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <!-- page 4 -->
+        <com.flywheelms.library.fms.wizard_step_flipper.step.CreateFmmGovernanceWizardStepView
+            android:id="@+id/wizard_step__governance"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <!-- page 3 -->
+        <com.flywheelms.library.fms.wizard_step_flipper.step.CreateFmmOrganizationWizardStepView
+            android:id="@+id/wizard_step__organization"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <!-- page 2 -->
+        <com.flywheelms.library.fms.wizard_step_flipper.step.CreateFmmChooseTemplateWizardStepView
+            android:id="@+id/wizard_step__fmm_template"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        
+    </com.flywheelms.library.fms.wizard_step_flipper.CreateFmmWizardStepFlipper>    
+
+</LinearLayout>

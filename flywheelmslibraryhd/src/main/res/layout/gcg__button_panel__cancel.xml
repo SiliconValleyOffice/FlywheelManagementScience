@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/GcgButtonRowHorizontal" >
+
+    <Button
+        android:id="@+id/button__cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/gcg__button__height"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/gcg__button_state_list__button_background"
+        android:text="@string/gcg__button_label__cancel" />
+
+</RelativeLayout>

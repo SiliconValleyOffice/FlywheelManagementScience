@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:gcg="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp"
+    android:background="@drawable/gcg__tab_view_border__black"
+    android:gravity="left"
+    android:orientation="vertical"
+    android:paddingBottom="0dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="0dp" >
+
+    <com.flywheelms.library.gcg.widget.GcgWidgetZoomableHeading
+        android:id="@+id/disposition__heading"
+        style="@style/GcgWidgetLabelHorizontalContainer"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="0dp"
+        android:gravity="center_horizontal"
+        android:paddingTop="0dp"
+        android:text="@string/work_package__disposition__plural" />
+
+    <RadioGroup
+        android:id="@+id/disposition__choice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <RadioButton
+            android:id="@+id/choice__delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <RadioButton
+            android:id="@+id/choice__orphan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <RadioButton
+            android:id="@+id/choice__move"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RadioGroup>
+
+    <com.flywheelms.library.fms.widget.spinner.FiscalYearWidgetSpinner
+        android:id="@+id/disposition_target__grandparent__spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        gcg:labelWidth="180"
+        gcg:filterId="@string/filter_id__primary_parent__primary_child__primary_child__primary_child__move_target"
+        gcg:deferDataInitialization="true" />
+    
+    <com.flywheelms.library.fms.widget.spinner.StrategicMilestoneWidgetSpinner
+        android:id="@+id/disposition_target__parent__spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        gcg:labelWidth="195"
+        gcg:filterId="@string/filter_id__primary_parent__primary_child__primary_child__move_target"
+        gcg:deferDataInitialization="true" />
+    
+    <com.flywheelms.library.fms.widget.spinner.ProjectAssetWidgetSpinner
+        android:id="@+id/disposition_target__spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        gcg:labelWidth="195"
+        gcg:filterId="@string/filter_id__secondary_parent__primary_child__move_target"
+        gcg:deferDataInitialization="true" />
+
+    <com.flywheelms.library.fms.widget.spinner.SequencePositionWidgetSpinner
+        android:id="@+id/list_position__spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        gcg:labelWidth="195" />
+
+</LinearLayout><!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/layout/work_package__disposition.xml -->

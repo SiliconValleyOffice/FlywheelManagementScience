@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/gcg_wizard__navigation_bar"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/sands_of_time"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/navigate_left_button"
+            android:layout_width="64dp"
+            android:layout_height="32dp"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/gcg__button_state_list__navigate_left" />
+
+        <TextView
+            android:id="@+id/navigation_position"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_weight="1.0"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:paddingLeft="230dp"
+            android:paddingRight="230dp"
+            android:background="@color/portobello"
+            android:gravity="center"
+            android:textColor="@color/yellow"
+            android:text="Step  0  of  0" />
+
+        <Button
+            android:id="@+id/navigate_right_button"
+            android:layout_width="64dp"
+            android:layout_height="32dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/gcg__button_state_list__navigate_right" />
+    </LinearLayout>

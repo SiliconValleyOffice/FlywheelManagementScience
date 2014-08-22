@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/GcgWidgetRowHorizontal" >
+
+    <RelativeLayout
+        android:id="@+id/label__container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:gravity="right"
+        android:paddingLeft="10dp" >
+
+        <Button
+            android:id="@+id/copy_button"
+            android:layout_width="27dp"
+            android:layout_height="21dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/gcg__button_state_list__action__copy__wide"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/widget_label"
+            style="@style/GcgWidgetLabelHorizontalContainer"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/copy_button" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/widget_data"
+        style="@style/GcgWidgetData"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/label__container"
+        android:background="@drawable/gcg__null_drawable"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:paddingBottom="0dp"
+        android:paddingTop="0dp" />
+
+</RelativeLayout>

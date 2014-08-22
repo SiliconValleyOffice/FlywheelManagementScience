@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:gcg="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <include layout="@layout/gcg__horizontal_node_navigation__dialog_panel" />
+
+    <com.flywheelms.library.gcg.container.GcgContainerTabbedLayout
+        android:id="@+id/tabbed_layout"
+        android:layout_width="match_parent"
+        android:layout_height="350dp" >
+        
+    </com.flywheelms.library.gcg.container.GcgContainerTabbedLayout>
+
+</LinearLayout>

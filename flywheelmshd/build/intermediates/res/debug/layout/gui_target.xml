@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/gui_target"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginTop="15dp"
+    android:background="@drawable/group_box__background_1"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/group_box__padding_bottom"
+    android:paddingLeft="@dimen/group_box__padding_left"
+    android:paddingRight="@dimen/group_box__padding_right"
+    android:paddingTop="@dimen/group_box__padding_top" >
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal" >
+
+        <TextView
+            style="@style/GroupLabel"
+            android:text="Target" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/row__a1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:paddingBottom="15dp"
+        android:paddingLeft="12dp"
+        android:paddingRight="8dp"
+        android:paddingTop="15dip" >
+
+        <TextView
+            android:id="@+id/activity_name__data"
+            style="@style/NodeLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/row__a2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:paddingBottom="15dp"
+        android:paddingLeft="12dp"
+        android:paddingRight="8dp" >
+
+        <TextView
+            android:id="@+id/target_detail__data"
+            style="@style/NodeLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal" />
+    </TableRow>
+
+</TableLayout><!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/layout/gui_target.xml --><!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmshd/build/intermediates/exploded-aar/flywheelms-workbench/flywheelmslibraryhd/unspecified/res/layout/gui_target.xml -->

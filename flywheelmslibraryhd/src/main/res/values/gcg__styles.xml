@@ -1,0 +1,161 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="GroupLabel" parent="@android:style/TextAppearance.Small">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:layout_marginTop">0dp</item>
+        <item name="android:textColor">@color/portobello</item>
+    </style>
+    
+    <style name="GroupBoxLabel" parent="@android:style/TextAppearance.Small">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:layout_marginTop">0dp</item>
+        <item name="android:background">@color/portobello</item>
+        <item name="android:textColor">@color/divine_white</item>
+    </style>
+    
+    <style name="NodeLabelSmall" parent="@android:style/TextAppearance.Small">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">right|bottom</item>
+        <item name="android:layout_gravity">right</item>
+        <item name="android:paddingRight">@dimen/widget__label__padding_right</item>
+        <item name="android:paddingBottom">@dimen/widget__label__padding_bottom</item>
+        <item name="android:textColor">@color/gcg__widget_label__text_color</item>
+        <item name="android:textSize">12.0dp</item>
+    </style>
+    
+    <style name="NodeLabel" parent="@android:style/TextAppearance.Small">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">right|bottom</item>
+        <item name="android:layout_gravity">right</item>
+        <item name="android:paddingRight">@dimen/widget__label__padding_right</item>
+        <item name="android:paddingBottom">@dimen/widget__label__padding_bottom</item>
+        <item name="android:textColor">@color/gcg__widget_label__text_color</item>
+        <item name="android:textSize">16.0dp</item>
+    </style>
+    
+    <style name="NodeData" parent="@android:style/TextAppearance.Small">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">left</item>
+        <item name="android:paddingLeft">@dimen/data__minimum_padding_before_text</item>
+        <item name="android:paddingBottom">@dimen/widget__label__padding_bottom</item>
+        <item name="android:textColor">@color/gcg__widget_data__text_color</item>
+        <item name="android:textSize">16.0dp</item>
+    </style>
+    
+    <style name="NodeDataWithDrawable" parent="@style/NodeData">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:drawablePadding">@dimen/widget__label__padding_right</item>
+    </style>
+    
+    <style name="GcgWidgetRowHorizontal">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:layout_marginRight">5dp</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+    
+    <style name="GcgWidgetRowVertical">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:layout_marginRight">5dp</item>
+        <item name="android:gravity">left</item>
+    </style>
+    
+    <style name="GcgButtonRowHorizontal">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">55dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingRight">8dp</item>
+        <item name="android:paddingBottom">7dp</item>
+        <item name="android:background">@color/gcg__button_panel__background</item>
+    </style>
+    
+    <style name="GcgWidgetLabelHorizontalContainer">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">right|center_vertical</item>
+        <item name="android:textColor">@color/gcg__widget_label__text_color</item>
+        <item name="android:textSize">16.0dp</item>
+    </style>
+    
+    <style name="GcgWidgetData">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">20dp</item>
+        <item name="android:gravity">left|center_vertical</item>
+        <item name="android:paddingLeft">3dp</item>
+        <item name="android:paddingTop">2dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">16.0dp</item>
+        <item name="android:lines">1</item>
+    </style>
+    
+    <style name="GcgWidgetDataMenuContainer">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">left|bottom</item>
+        <item name="android:paddingLeft">5dp</item>
+        <item name="android:paddingTop">1dp</item>
+        <item name="android:paddingBottom">4dp</item>
+        <item name="android:textColor">@color/gcg__widget_label__text_color</item>
+        <item name="android:textSize">14.0dp</item>
+    </style>
+    
+    <style name="WidgetDataWithDrawableHorizontalContainer" parent="@style/GcgWidgetData">
+        <item name="android:drawablePadding">@dimen/widget__label__padding_right</item>
+    </style>
+    
+    <style name="TableColumnHeading" parent="@android:style/TextAppearance.Small">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:paddingBottom">4dp</item>
+        <item name="android:paddingTop">3dp</item>
+        <item name="android:background">@color/gcg__table_heading__background</item>
+        <item name="android:textColor">@color/gcg__table_heading__text</item>
+        <item name="android:textSize">12.0dp</item>
+    </style>
+    
+    <style name="TableDataEvenColumn" parent="@android:style/TextAppearance.Small">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:paddingBottom">1dp</item>
+        <item name="android:paddingTop">3dp</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:background">@color/gcg__tree_view__background</item>
+        <item name="android:textColor">@color/gcg__widget_data__text_color</item>
+        <item name="android:textSize">14.0dp</item>
+    </style>
+    
+    <style name="TableDataOddColumn" parent="TableDataEvenColumn">
+        <item name="android:background">@color/sand_dollar</item>
+    </style>
+    
+    <style name="FlipPageTitle">
+        <item name="android:layout_height">24dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/gcg__title_strip__text</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">12.0dp</item>
+    </style>
+    
+    <style name="FlipPageTitleDim" parent="FlipPageTitle">
+        <item name="android:textColor">@color/gcg__title_strip__text_dim</item>
+        <item name="android:layout_width">150dp</item>
+    </style>
+
+</resources>

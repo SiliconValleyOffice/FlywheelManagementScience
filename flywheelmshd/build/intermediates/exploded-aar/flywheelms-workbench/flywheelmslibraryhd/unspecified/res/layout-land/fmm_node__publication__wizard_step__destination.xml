@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:gcg="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_vertical"
+    android:background="@color/fms__wizard_step_2__background"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/gcg_view_flipper__title_bar__include"
+        layout="@layout/gcg__view_flipper__title_bar" />
+
+    <LinearLayout
+        android:id="@+id/wizard_step_body__wrapper"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="20dp"
+        android:layout_weight="1.0"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TableLayout
+                android:id="@+id/pdf_destination__file_storage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="11dp"
+                android:background="@drawable/group_box__background_1"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/group_box__padding_bottom"
+                android:paddingLeft="@dimen/group_box__padding_left"
+                android:paddingRight="@dimen/group_box__padding_right"
+                android:paddingTop="@dimen/group_box__padding_top" >
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal" >
+
+                    <TextView
+                        style="@style/GroupLabel"
+                        android:text="File Storage" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/row__a1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="8dp"
+                    android:paddingTop="5dp" >
+
+                    <TextView
+                        android:id="@+id/file_storage__android__label"
+                        style="@style/NodeLabel"
+                        android:drawableLeft="@drawable/android__32"
+                        android:drawablePadding="6dp"
+                        android:paddingLeft="10dp"
+                        android:text="Android - downloads directory"
+                        android:textColor="@color/black" />
+
+                    <CheckBox
+                        android:id="@+id/file_storage__android__check_box"
+                        android:layout_gravity="bottom"
+                        android:checked="true"
+                        android:enabled="false" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="8dp" >
+
+                    <TextView
+                        android:id="@+id/file_name__data"
+                        style="@style/NodeLabel" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/row__a2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="8dp"
+                    android:paddingTop="5dip" >
+
+                    <TextView
+                        android:id="@+id/file_storage__dropbox__label"
+                        style="@style/NodeLabel"
+                        android:drawableLeft="@drawable/dropbox__32"
+                        android:drawablePadding="6dp"
+                        android:paddingLeft="10dp"
+                        android:text="DropBox"
+                        android:textColor="@color/black" />
+
+                    <CheckBox
+                        android:id="@+id/file_storage__dropbox__check_box"
+                        android:layout_gravity="bottom"
+                        android:checked="false"
+                        android:enabled="true" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:paddingBottom="15dp"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="8dp" >
+
+                    <EditText
+                        android:id="@+id/dropbox_directory__data"
+                        style="@style/NodeData"
+                        android:background="@color/WhiteSmoke"
+                        android:hint="choose a subdirectory" />
+                </TableRow>
+            </TableLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/gui_preferences"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="bottom"
+                    android:layout_marginLeft="30dp"
+                    android:background="@drawable/gcg__button_state_list__gui_preferences" />
+
+                <TableLayout
+                    android:id="@+id/pdf_destination__printer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginLeft="80dp"
+                    android:background="@drawable/group_box__background_1"
+                    android:orientation="vertical"
+                    android:paddingBottom="@dimen/group_box__padding_bottom"
+                    android:paddingLeft="@dimen/group_box__padding_left"
+                    android:paddingRight="@dimen/group_box__padding_right"
+                    android:paddingTop="@dimen/group_box__padding_top" >
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal" >
+
+                        <TextView
+                            style="@style/GroupLabel"
+                            android:text="Print" />
+                    </TableRow>
+
+                    <TableRow
+                        android:id="@+id/row__b1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:paddingBottom="5dp"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="8dp"
+                        android:paddingTop="5dip" >
+
+                        <TextView
+                            android:id="@+id/printer__label"
+                            style="@style/NodeLabel"
+                            android:drawableLeft="@drawable/printer"
+                            android:drawablePadding="6dp"
+                            android:paddingLeft="10dp"
+                            android:text="HP ePrint" />
+
+                        <CheckBox
+                            android:id="@+id/printer__check_box"
+                            android:layout_gravity="bottom"
+                            android:checked="false"
+                            android:enabled="true" />
+                    </TableRow>
+                </TableLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <TableLayout
+            android:id="@+id/pdf_destination__email_recipients"
+            android:layout_width="550dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="11dp"
+            android:background="@drawable/group_box__background_1"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/group_box__padding_bottom"
+            android:paddingLeft="@dimen/group_box__padding_left"
+            android:paddingRight="@dimen/group_box__padding_right"
+            android:paddingTop="@dimen/group_box__padding_top" >
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal" >
+
+                <TextView
+                    style="@style/GroupLabel"
+                    android:text="Email Recipients" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left" >
+
+                <TableLayout
+                    android:id="@+id/pdf_destination__android_recipients"
+                    android:layout_width="260dp"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="0dp" >
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:paddingBottom="2dp"
+                        android:paddingLeft="2dp"
+                        android:paddingTop="8dp" >
+
+                        <com.flywheelms.library.gcg.widget.list_view.AndroidContactsWidgetListView
+                            android:id="@+id/android_contacts__widget"
+                            android:layout_width="255dp"
+                            android:layout_height="173dp"
+                            gcg:containerLayout="vertical" />
+                    </TableRow>
+                </TableLayout>
+
+                <TableLayout
+                    android:id="@+id/pdf_destination__flywheel_recipients"
+                    android:layout_width="260dp"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="0dp" >
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:paddingBottom="2dp"
+                        android:paddingLeft="2dp"
+                        android:paddingTop="8dp" >
+
+                        <com.flywheelms.library.fms.widget.list_view.CommunityMemberWidgetListView
+                            android:id="@+id/community_members__widget"
+                            android:layout_width="255dp"
+                            android:layout_height="173dp"
+                            gcg:containerLayout="vertical" />
+                    </TableRow>
+                </TableLayout>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="left|bottom" >
+
+                <EditText
+                    android:id="@+id/email_message_body__data"
+                    style="@style/NodeData"
+                    android:layout_width="250dp"
+                    android:layout_height="64dp"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginLeft="17dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_span="3"
+                    android:background="@color/WhiteSmoke"
+                    android:fadeScrollbars="false"
+                    android:hint="email message body"
+                    android:paddingTop="4dp"
+                    android:scrollbars="vertical" />
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+
+    <include
+        android:id="@+id/gcg_wizard__navigation_bar__include"
+        layout="@layout/gcg__wizard__navigation_bar" />
+
+</LinearLayout><!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/layout-land/fmm_node__publication__wizard_step__destination.xml -->

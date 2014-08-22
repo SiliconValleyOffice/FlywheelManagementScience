@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/GcgWidgetRowVertical" >
+
+    <TextView
+        android:id="@+id/widget_label"
+        style="@style/GcgWidgetLabelHorizontalContainer"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" />
+
+    <ScrollView
+        android:id="@+id/widget_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/widget_label"
+        android:layout_marginLeft="0dp"
+        android:fillViewport="true"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:scrollbarFadeDuration="9999999"
+        android:scrollbars="vertical"
+        android:smoothScrollbar="true" >
+
+        <TextView
+            android:id="@+id/widget_data"
+            style="@style/GcgWidgetData"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gcg__background_state_list__text_view" />
+    </ScrollView>
+
+</RelativeLayout><!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/layout/gcg__widget__text_view__vertical__scrollable.xml --><!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmshd/build/intermediates/exploded-aar/flywheelms-workbench/flywheelmslibraryhd/unspecified/res/layout/gcg__widget__text_view__vertical__scrollable.xml -->

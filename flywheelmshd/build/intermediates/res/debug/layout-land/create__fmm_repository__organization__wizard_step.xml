@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:gcg="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fms__wizard_step_1__background"
+    android:clickable="true"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/gcg_view_flipper__title_bar__include"
+        layout="@layout/gcg__view_flipper__title_bar" />
+
+    <RelativeLayout
+        android:id="@+id/wizard_step_body__wrapper"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.0" >
+        
+        <CheckBox
+            android:id="@+id/use_template__organization_headline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_alignParentLeft="true"
+            android:enabled="false"
+            android:text="@string/create__fmm_repository__organization__retain_headline" />
+
+        <com.flywheelms.library.fms.widget.edit_text.OrganizationHeadlineWidgetEditText
+            android:id="@+id/headline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/use_template__organization_headline"
+            android:layout_marginLeft="13dp"
+            gcg:labelHint="Organization"
+            gcg:labelWidth="175"
+            gcg:fdkCursorEnabled="true" />
+        
+        <CheckBox
+            android:id="@+id/use_template__community"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/headline"
+            android:layout_marginTop="30dp"
+            android:enabled="false"
+            android:checked="true"
+            android:text="retain Community from template" />
+        
+        <com.flywheelms.library.gcg.widget.list_view.AndroidContactsWidgetListView
+            android:id="@+id/android_contacts__widget"
+            android:layout_width="match_parent"
+            android:layout_height="210dp"
+            android:layout_below="@id/use_template__community"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="19dp"
+            gcg:containerLayout="vertical"
+            gcg:secondaryLabel="Community Members"
+            gcg:labelWidth="175"
+            gcg:requestCode="@integer/request_code__android_contact_picker__organization"
+            gcg:requestCode2="@integer/request_code__android_contact_editor__organization" />
+        
+    </RelativeLayout>
+
+    <include
+        android:id="@+id/gcg_wizard__navigation_bar__include"
+        layout="@layout/gcg__wizard__navigation_bar" />
+
+</LinearLayout>
+<!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/layout-land/create__fmm_repository__organization__wizard_step.xml --><!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmshd/build/intermediates/exploded-aar/flywheelms-workbench/flywheelmslibraryhd/unspecified/res/layout-land/create__fmm_repository__organization__wizard_step.xml -->

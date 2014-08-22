@@ -1,0 +1,120 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fse__scrollable_document"
+    android:layout_width="0dp"
+    android:layout_height="match_parent"
+    android:layout_weight="1"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/fse__scrollable_document__headings"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/menu__label_height"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/fse__paragraph_menu__heading"
+            android:layout_width="@dimen/fse__paragraph_menu__width"
+            android:layout_height="match_parent"
+            android:background="@drawable/menu_heading__background"
+            android:gravity="center_horizontal"
+            android:paddingTop="4dp"
+            android:text="@string/fse__paragraph_menu__heading"
+            android:textColor="@color/gcg__thumb_menu__heading__text"
+            android:textSize="16.0dp"
+            android:textStyle="bold" />
+
+	    <LinearLayout
+	        android:id="@+id/fse__document_body__heading_group"
+	        android:layout_width="0dp"
+	        android:layout_weight="1"
+	        android:layout_height="@dimen/menu__label_height"
+	        android:gravity="center_horizontal"
+	        android:background="@drawable/menu_heading__background"
+	        android:orientation="horizontal" >
+	
+	        <TextView
+		        android:id="@+id/fse__document_body__heading"
+		        android:layout_width="wrap_content"
+		        android:layout_height="match_parent"
+		        android:gravity="center_horizontal"
+		        android:paddingTop="1dp"
+		        android:text="@string/fse__document_body__heading"
+		        android:textColor="@color/gcg__thumb_menu__heading__text"
+            android:textSize="16.0dp"
+            android:textStyle="bold" />
+	        
+	        <ImageView
+		        android:id="@+id/fse__document_body__heading__paragraph_style_status"
+		        android:layout_width="wrap_content"
+		        android:layout_height="match_parent"
+		        android:paddingLeft="30dp"
+		        android:src="@drawable/gcg__null_drawable_32"
+		        android:contentDescription="Style Status" />
+	        
+	        <ImageView
+		        android:id="@+id/fse__document_body__heading__paragraph_content_status"
+		        android:layout_width="wrap_content"
+		        android:layout_height="match_parent"
+		        android:paddingLeft="30dp"
+		        android:src="@drawable/gcg__null_drawable_15"
+		        android:contentDescription="Content Status" />
+	        
+	        <ImageView
+		        android:id="@+id/fse__document_body__heading__paragraph_lock_status"
+		        android:layout_width="wrap_content"
+		        android:layout_height="match_parent"
+		        android:paddingLeft="30dp"
+		        android:src="@drawable/gcg__null_drawable_32"
+		        android:contentDescription="Locks Status" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/fse__document__scrollview__frame"
+        android:layout_width="match_parent"
+        android:layout_height="745dp"
+        android:background="@color/portobello" >
+
+        <LinearLayout
+            android:id="@+id/fse__document__scrollview__background"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:id="@+id/fse__paragraph_menu__spacer"
+                android:layout_width="@dimen/fse__paragraph_menu__width"
+                android:layout_height="match_parent"
+                android:layout_margin="0dp"
+                android:background="@color/sand_dollar"
+                android:orientation="vertical" />
+
+            <LinearLayout
+                android:id="@+id/fse__edit_text__spacer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0dp"
+                android:background="@color/gcg__tree_view__background"
+                android:orientation="vertical" />
+        </LinearLayout>
+
+        <ScrollView
+            android:id="@+id/fse__document__scrollview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fadeScrollbars="false"
+            tools:ignore="UselessParent" >
+
+            <com.flywheelms.library.fse.views.FseParagraphEditor
+                android:id="@+id/fse__paragraph_editor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </ScrollView>
+    </FrameLayout>
+    
+	<include
+	    layout="@layout/fse__document_section__tab_button_row" />
+
+</LinearLayout>

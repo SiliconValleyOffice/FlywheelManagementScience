@@ -1,0 +1,12 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+    
+    <item
+        android:id="@+id/action__browse"
+        android:title="Browse"
+		tools:ignore="HardcodedText"/>
+    <item
+        android:id="@+id/action__revert"
+        android:title="Revert to This Row"
+		tools:ignore="HardcodedText"/>
+    
+</menu> 

@@ -1,0 +1,130 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fms_activity__layout_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/sands_of_time"
+    android:orientation="vertical" >
+
+    <include layout="@layout/gcg__horizontal_node_navigation_panel" />
+
+    <TextView
+        android:id="@+id/navigation_context_divider"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/portobello" />
+
+    <LinearLayout
+        android:id="@+id/fms_node_activity__content_body"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:baselineAligned="false"
+        android:orientation="horizontal" >
+
+        <include
+            android:id="@+id/gcg__thumbpad__left"
+            layout="@layout/fmm_node__editor__left_thumbpad" />
+
+        <FrameLayout
+            android:id="@+id/view_pager_frame"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+
+            <TextView
+                android:id="@+id/gcg__activity_curtain"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/portobello"
+                android:visibility="gone" />
+
+            <com.flywheelms.library.fse.perspective_flipper.FsePerspectiveFlipper
+                android:id="@+id/fse_frame__perspective_flipper"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <!-- page 1 -->
+
+                <com.flywheelms.library.fse.perspective_flipper.perspective.FseDocumentSectionStoryPerspective
+                    android:id="@+id/fse_perspective__story"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <!-- page 4 -->
+
+                <com.flywheelms.library.fse.perspective_flipper.perspective.FseDocumentSectionCommunityPerspective
+                    android:id="@+id/fse_perspective__collaborators"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <!-- page 3 -->
+
+                <com.flywheelms.library.fse.perspective_flipper.perspective.FseDocumentSectionHistoryPerspective
+                    android:id="@+id/fse_perspective__history"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <!-- page 2 -->
+
+                <com.flywheelms.library.fse.perspective_flipper.perspective.FseDocumentSectionNotesPerspective
+                    android:id="@+id/fse_perspective__notes"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </com.flywheelms.library.fse.perspective_flipper.FsePerspectiveFlipper>
+
+            <com.flywheelms.library.fms.perspective_flipper.TribKnPerspectiveFlipper
+                android:id="@+id/tribkn_frame__perspective_flipper"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="invisible" >
+
+                <com.flywheelms.library.fms.perspective_flipper.perspective.FmsDecKanGlPerspective
+                    android:id="@+id/tribkn_frame__deckangl"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <com.flywheelms.library.fms.perspective_flipper.perspective.FmsCommunityPerspective
+                    android:id="@+id/tribkn_frame__community"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <com.flywheelms.library.fms.perspective_flipper.perspective.FmsCommitmentsPerspective
+                    android:id="@+id/tribkn_frame__commitments"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <com.flywheelms.library.fms.perspective_flipper.perspective.FmsGovernancePerspective
+                    android:id="@+id/tribkn_frame__governance"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </com.flywheelms.library.fms.perspective_flipper.TribKnPerspectiveFlipper>
+
+            <com.flywheelms.library.fms.perspective_flipper.ContextPerspectiveFlipper
+                android:id="@+id/context_frame__perspective_flipper"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="invisible" >
+
+                <com.flywheelms.library.fms.perspective_flipper.perspective.FmsStrategicPlanningPerspective
+                    android:id="@+id/context_frame__strategic_planning"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <com.flywheelms.library.fms.perspective_flipper.perspective.FmsAnalysisPerspective
+                    android:id="@+id/context_frame__analysis"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <com.flywheelms.library.fms.perspective_flipper.perspective.FmsWorkPlanningPerspective
+                    android:id="@+id/context_frame__work_planning"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <com.flywheelms.library.fms.perspective_flipper.perspective.FmsWorkBreakdownPerspective
+                    android:id="@+id/context_frame__work_breakdown"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </com.flywheelms.library.fms.perspective_flipper.ContextPerspectiveFlipper>
+        </FrameLayout>
+    </LinearLayout>
+
+</LinearLayout><!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/layout-land/fmm_node__editor__activity.xml -->

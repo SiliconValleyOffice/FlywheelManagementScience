@@ -1,0 +1,30 @@
+<FrameLayout
+	xmlns:tools="http://schemas.android.com/tools"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fse__document_section_tabs__frame"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/portobello" >
+    
+	<include
+	    android:id="@+id/document_section__tribkn_view"
+	    layout="@layout/fse__tribkn__view" />
+    
+	<include
+	    android:id="@+id/document_section__audit_view"
+	    layout="@layout/fse__collaborators__view" />
+    
+	<include
+	    android:id="@+id/document_section__collaborators_view"
+	    layout="@layout/fse__history__view" />
+    
+	<include
+	    android:id="@+id/document_section__story_view"
+	    layout="@layout/fse__paragraph_editor" />
+    
+	<include
+	    android:id="@+id/document_section__notes_view"
+	    layout="@layout/fse__paragraph_editor" />
+    
+</FrameLayout>
+<!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/layout/fse__document_view.xml -->

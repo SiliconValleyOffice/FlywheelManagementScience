@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:gcg="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fms__wizard_step_1__background"
+    android:clickable="true"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/gcg_view_flipper__title_bar__include"
+        layout="@layout/gcg__view_flipper__title_bar" />
+
+    <LinearLayout
+        android:id="@+id/wizard_step_body__wrapper"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.0"
+        android:orientation="vertical" >
+        
+        <CheckBox
+            android:id="@+id/use_template__governance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:enabled="false"
+            android:text="use Governance from template" />
+        
+        <com.flywheelms.library.gcg.widget.chooser_result.AndroidContactWidgetPickerResult
+        	android:id="@+id/node_picker__sponsor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="45dp"
+            gcg:labelWidth="185"
+            gcg:labelHint="FMM"
+            gcg:labelText="Sponsor"
+            gcg:inputRequired="true"
+            gcg:requestCode="@integer/request_code__android_contact_picker__sponsor"
+            gcg:requestCode2="@integer/request_code__android_contact_editor__sponsor" />
+        
+        <com.flywheelms.library.gcg.widget.chooser_result.AndroidContactWidgetPickerResult
+        	android:id="@+id/node_picker__customer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            gcg:labelWidth="185"
+            gcg:labelHint="FMM"
+            gcg:labelText="Customer"
+            gcg:inputRequired="true"
+            gcg:requestCode="@integer/request_code__android_contact_picker__customer"
+            gcg:requestCode2="@integer/request_code__android_contact_editor__customer" />
+        
+        <com.flywheelms.library.gcg.widget.chooser_result.AndroidContactWidgetPickerResult
+        	android:id="@+id/node_picker__facilitator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            gcg:labelWidth="185"
+            gcg:labelHint="FMM"
+            gcg:labelText="Facilitator"
+            gcg:inputRequired="true"
+            gcg:requestCode="@integer/request_code__android_contact_picker__facilitator"
+            gcg:requestCode2="@integer/request_code__android_contact_editor__facilitator" />
+        
+        <com.flywheelms.library.gcg.widget.chooser_result.AndroidContactWidgetPickerResult
+        	android:id="@+id/node_picker__administrator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            gcg:labelWidth="185"
+            gcg:labelHint="FMM"
+            gcg:labelText="Administrator"
+            gcg:inputRequired="false"
+            gcg:requestCode="@integer/request_code__android_contact_picker__administrator"
+            gcg:requestCode2="@integer/request_code__android_contact_editor__administrator" />
+        
+    </LinearLayout>
+
+    <include
+        android:id="@+id/gcg_wizard__navigation_bar__include"
+        layout="@layout/gcg__wizard__navigation_bar" />
+
+</LinearLayout><!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/layout-land/create__fmm_repository__governance__wizard_step.xml --><!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmshd/build/intermediates/exploded-aar/flywheelms-workbench/flywheelmslibraryhd/unspecified/res/layout-land/create__fmm_repository__governance__wizard_step.xml -->

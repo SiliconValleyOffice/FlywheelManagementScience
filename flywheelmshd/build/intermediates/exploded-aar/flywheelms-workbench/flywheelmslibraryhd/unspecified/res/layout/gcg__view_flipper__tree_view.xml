@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/gcg_view_flipper__body"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gcg__tree_view__background"
+    android:baselineAligned="false"
+    android:orientation="horizontal" >
+
+    <LinearLayout
+        android:id="@+id/gcg_view_flipper__title_bar__container"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="100"
+        android:orientation="vertical"
+        tools:ignore="UselessParent" >
+
+        <include
+            android:id="@+id/gcg_view_flipper__title_bar__include"
+            layout="@layout/gcg__view_flipper__title_bar" />
+
+        <com.flywheelms.library.gcg.treeview.GcgTreeView
+            xmlns:treeView="http://com.flywheelms.library.fwb.treeview"
+            android:id="@+id/gcg_tree_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbarAlwaysDrawVerticalTrack="true"
+            android:scrollbarFadeDuration="9999999"
+            android:scrollbars="vertical"
+            android:smoothScrollbar="true"
+            treeView:indicator_gravity="right|center_vertical" />
+
+        <TextView
+            android:id="@+id/gcg_tree_view__background_menu_target"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.0"
+            tools:ignore="NestedWeights" />
+
+    </LinearLayout>
+
+    <!-- add right menu child at run time, if applicable -->
+
+</LinearLayout><!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/layout/gcg__view_flipper__tree_view.xml -->

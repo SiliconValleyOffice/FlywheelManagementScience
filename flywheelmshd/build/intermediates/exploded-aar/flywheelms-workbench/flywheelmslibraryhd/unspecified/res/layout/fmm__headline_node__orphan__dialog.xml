@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:gcg="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/gcg__dialog__background"
+        android:gravity="left"
+        android:orientation="vertical"
+        android:paddingLeft="25dp"
+        android:paddingRight="15dp" >
+
+        <com.flywheelms.library.fms.widget.text_view.FmmNodeTypeWidgetTextView
+            android:id="@+id/fmm_node__type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp" />
+
+        <com.flywheelms.library.fms.widget.text_view.HeadlineWidgetTextView
+            android:id="@+id/headline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="54dp"
+            android:layout_marginBottom="10dp" />
+    </LinearLayout>
+
+    <include layout="@layout/gcg__button_panel__cancel_ok" />
+
+</LinearLayout><!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/layout/fmm__headline_node__orphan__dialog.xml -->

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="95dp"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_marginTop="7dp" >
+
+    <TextView
+        android:id="@+id/widget_data"
+        style="@style/GcgWidgetDataMenuContainer"
+        android:layout_width="match_parent"
+        android:layout_height="23dp"
+        android:lines="1"
+        android:background="@drawable/gcg__background_state_list__text_view" />
+
+</RelativeLayout><!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/layout/gcg__widget__text_view__menu_parameter.xml -->

@@ -1,0 +1,149 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fse__left_menu_include"
+    android:layout_width="@dimen/gcg__left_menu__width"
+    android:layout_height="match_parent"
+    android:background="@color/fdk__keypad__background" >
+	    
+    <include
+    	android:id="@+id/fdk__left_keypad__container"
+        layout="@layout/fdk__left_keypad__widget_input__paragraph" />
+
+	<LinearLayout
+	    android:id="@+id/fse__left_menu_layout"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="vertical" >
+	
+	    <Spinner
+	        android:id="@+id/frame_spinner"
+	        android:layout_width="match_parent"
+	        android:layout_height="@dimen/menu__label_height"
+	        android:layout_marginBottom="8dp"
+	        android:background="@drawable/spinnable_menu_background__left__1_of_3"
+	        android:gravity="left"
+	        android:spinnerMode="dropdown"
+	        android:textColor="@color/White"
+	        android:textSize="14.0dp" />
+	
+	    <FrameLayout
+	        android:id="@+id/fse__left_menu__options_frame"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content" >
+	
+	        <LinearLayout
+	            android:id="@+id/fse__storage_menu__body"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:gravity="center_horizontal"
+	            android:orientation="vertical" >
+	
+	            <Button
+	                android:id="@+id/storage__save_document__button"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_marginTop="22dp"
+	                android:layout_marginBottom="28dp"
+	                android:background="@color/transparent"
+	                android:drawableStart="@drawable/document__save__button"
+	                android:paddingLeft="2dp" />
+	
+	            <Button
+	                android:id="@+id/storage__new_document__button"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_marginBottom="34dp"
+	                android:background="@color/transparent"
+	                android:drawableStart="@drawable/document__new__button"
+	                android:paddingLeft="2dp" />
+	
+	            <Button
+	                android:id="@+id/storage__open_document__button"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_marginBottom="28dp"
+	                android:background="@color/transparent"
+	                android:drawableStart="@drawable/document__open__button"
+	                android:paddingLeft="2dp" />
+	
+	            <Button
+	                android:id="@+id/storage__revert_document__button"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:background="@color/transparent"
+	                android:drawableStart="@drawable/document__revert__button"
+	                android:paddingLeft="2dp" />
+	        </LinearLayout>
+	
+	        <LinearLayout
+	            android:id="@+id/fse__share_menu__body"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:gravity="center_horizontal"
+	            android:orientation="vertical" >
+	
+	            <Button
+	                android:id="@+id/share__email__button"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_marginBottom="28dp"
+	                android:layout_marginTop="30dp"
+	                android:background="@color/transparent"
+	                android:drawableStart="@drawable/share__email__button"
+	                android:paddingLeft="2dp" />
+	
+	            <Button
+	                android:id="@+id/share__sms__button"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_marginBottom="28dp"
+	                android:layout_marginTop="10dp"
+	                android:background="@color/transparent"
+	                android:drawableStart="@drawable/share__sms__button"
+	                android:paddingLeft="2dp" />
+	
+	            <Button
+	                android:id="@+id/share__pdf__button"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:background="@color/transparent"
+	                android:drawableStart="@drawable/share__pdf__button"
+	                android:paddingLeft="2dp" />
+	
+	            <Button
+	                android:id="@+id/share__print__button"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_marginTop="28dp"
+	                android:background="@color/transparent"
+	                android:drawableStart="@drawable/share__print__button"
+	                android:paddingLeft="2dp" />
+	        </LinearLayout>
+	
+	        <LinearLayout
+	            android:id="@+id/fse__import_menu__body"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:gravity="center_horizontal"
+	            android:orientation="vertical" >
+	
+	            <Button
+	                android:id="@+id/import__text_file__button"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_marginBottom="28dp"
+	                android:layout_marginTop="30dp"
+	                android:background="@color/transparent"
+	                android:drawableStart="@drawable/import__text_file__button"
+	                android:paddingLeft="2dp" />
+	
+	            <Button
+	                android:id="@+id/import__flywheel_story__button"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:background="@color/transparent"
+	                android:drawableStart="@drawable/import__flywheel_story__button"
+	                android:paddingLeft="2dp" />
+	        </LinearLayout>
+	    </FrameLayout>
+	</LinearLayout>
+</FrameLayout><!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/layout-land/fse__left_menu.xml -->

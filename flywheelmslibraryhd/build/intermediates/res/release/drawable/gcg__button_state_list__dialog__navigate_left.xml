@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/gcg__navigation_left__dialog__touch" android:state_pressed="true"/>
+    <item android:drawable="@drawable/gcg__navigation_left__disabled" android:state_enabled="false"/>
+    <item android:drawable="@drawable/gcg__navigation_left__dialog"/>    
+</selector>
+<!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/drawable/gcg__button_state_list__dialog__navigate_left.xml -->

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:gcg="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp"
+    android:background="@color/sand_dollar"
+    android:gravity="left"
+    android:orientation="vertical"
+    android:paddingBottom="10dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="4dp" >
+
+    <TextView
+        android:id="@+id/disposition__heading"
+        style="@style/GcgWidgetLabelHorizontalContainer"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="0dp"
+        android:gravity="center_horizontal"
+        android:paddingTop="0dp"
+        android:text="@string/flywheel_milestone__disposition__plural" />
+
+    <RadioGroup
+        android:id="@+id/disposition__choice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <RadioButton
+            android:id="@+id/choice__delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/flywheel_milestone__delete__plural" />
+
+        <RadioButton
+            android:id="@+id/choice__move"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/flywheel_milestone__move__plural" />
+    </RadioGroup>
+
+    <com.flywheelms.library.fms.widget.spinner.FiscalYearWidgetSpinner
+        android:id="@+id/disposition_target__spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="83dp" />
+
+    <com.flywheelms.library.fms.widget.spinner.SequencePositionWidgetSpinner
+        android:id="@+id/list_position__spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="29dp" />
+
+</LinearLayout><!-- From: file:/home/sstamps/AndroidDevevlopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/layout/flywheel_milestone__disposition.xml -->

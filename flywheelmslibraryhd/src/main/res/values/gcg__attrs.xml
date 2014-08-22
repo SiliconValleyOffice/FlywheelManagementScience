@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+    xmlns:gcg="http://schemas.android.com/apk/res-auto"
+-->
+<resources>
+    
+    <declare-styleable name="GcgLabel">
+        <attr name="labelWidth" format="integer" />
+        <attr name="labelPrefix" format="string" />
+        <attr name="labelSuffix" format="string" />
+        <attr name="secondaryLabel" format="string" />
+        <attr name="labelText" format="string" />
+        <attr name="labelHint" format="string" />
+        <attr name="noLabel" format="boolean" />
+    </declare-styleable>
+    
+    <declare-styleable name="GcgWidget">
+        <attr name="containerLayout" format="string" />
+        <attr name="scrollableContent" format="boolean" />
+        <attr name="transparentBackground" format="boolean" />
+        <attr name="onClick" format="string" />
+        <attr name="onLongClick" format="string" />
+        <attr name="inputEnabled" format="boolean" />
+        <attr name="fdkCursorEnabled" format="boolean" />
+        <attr name="requestCode" format="integer" />
+        <attr name="requestCode2" format="integer" />
+        <attr name="minimumDataLength" format="integer" />
+        <attr name="inputRequired" format="boolean" />
+        <attr name="enableCopyButton" format="boolean" />
+        <attr name="deferDataInitialization" format="boolean" />
+        <attr name="zoomable" format="boolean" />
+    </declare-styleable>
+    
+    <declare-styleable name="GcgPerspectiveMenuButton">
+        <attr name="frameNumber" format="integer" />
+        <attr name="perspectiveNumber" format="integer" />
+        <attr name="buttonSelectedBackground" format="integer" />
+        <attr name="buttonNotSelectedBackground" format="integer" />
+    </declare-styleable>
+    
+    <declare-styleable name="GcgIncrementalStateButton">
+        <attr name="numberOfStates" format="integer" />
+        <attr name="initialState" format="integer" />
+        <attr name="buttonLabel" format="string" />
+    </declare-styleable>
+    
+    <declare-styleable name="GcgFile">
+        <attr name="fileNameExtension" format="string" />
+        <attr name="minimumBaseFileNameLength" format="integer" />
+    </declare-styleable>
+    
+    <declare-styleable name="GcgGroupBox">
+        <attr name="borderStyle" format="integer" />
+        <attr name="headingText" format="string" />
+        <attr name="headingBackground" format="color" />
+        <attr name="headingGravity" format="string" />
+    </declare-styleable>
+    
+    <declare-styleable name="GcgComponent">
+        <attr name="thumbPad" format="string" />
+    </declare-styleable>
+    
+    <declare-styleable name="GcgTabContainer">
+        <attr name="tabAlignment" format="string" />
+        <attr name="customTabbedLayout" format="integer" />
+        <attr name="initialTabSelection" format="integer" />
+    </declare-styleable>
+    
+    <declare-styleable name="GcgSpinnner">
+        <attr name="filterParameterRequired" format="boolean" />
+        <attr name="filterId" format="integer" />
+    </declare-styleable>
+    
+</resources>

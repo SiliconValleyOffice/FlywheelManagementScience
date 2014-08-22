@@ -1,0 +1,182 @@
+<resources>
+    
+    <string name="fms__empty_string"></string>
+    
+    <string name="expand_collapse_tree_node">Expand/Collapse Tree Node</string>
+
+    <string-array name="perspective__right_menu__headings">
+        <item>Show</item>
+        <item>Filter</item>
+    </string-array>
+    
+    <string name="about_flywheel_ms">About FlywheelMS&#8482;</string>
+    <string name="flywheel_ms">FlywheelMS&#8482;</string>
+    <string name="flywheel_navigation">FlywheelMS&#8482; Navigation</string>
+    <string name="tribkn">TribKn&#8482;</string>
+    <string name="context">Context</string>
+    <string name="recalc_fmm">Recalc FMM</string>
+    
+    <string name="fms__cancel">Cancel</string>
+    <string name="fms__create">Create</string>
+    <string name="fms__delete">Delete</string>
+    <string name="fms__edit_headline">Edit Headline</string>
+    <string name="fms__move">Move</string>
+    <string name="fms__orphan">Orphan</string>
+    <string name="fms__adopt_orphan">Adopt Orphan</string>
+    <string name="fms__ok">OK</string>
+    
+    <string name="empty_string"></string>
+
+    <string name="not_implemented">Feature not yet implemented.</string>
+    
+    <string name="repository_configuration">FMM Configuration</string>
+    <string name="fmm_repository__selection">FMM Selection</string>
+    <string name="fmm_repository__management">Manage FMM Configurations</string>
+    <string name="fmm_repository__scope_selection">Create FMM - Access Scope Selection</string>
+    
+    <string name="use_this_as_the_default">Use this as the default and do not ask again</string>
+    <string name="edit_new_headline_node">Edit new headline node</string>
+    <string name="edit_new_fiscal_year">Edit new Fiscal Year</string>
+    
+    <string name="tree_node__governance">Governance</string>
+    <string name="tree_node__community">Community</string>
+    <string name="tree_node__commitments">Commitments</string>
+    <string name="tree_node__analysis">Analysis</string>
+    <string name="tree_node__strategic_planning">Strategic Planning</string>
+    <string name="tree_node__work_breakdown">Work Breakdown</string>
+    <string name="tree_node__work_planning">Work Planning</string>
+    
+    <string name="publish_pdf">Publish PDF</string>
+    <string name="publish_pdf__content_selection__wizard_step">Step 1 - PDF Content</string>
+    <string name="publish_pdf__destination__wizard_step">Step 2 - PDF Destination</string>
+    <string name="publish_pdf__do_it_now__wizard_step">Step 3 - Publish PDF</string>
+
+    <string name="fms__save_gui_preferences">GUI Preferences</string>
+    <string name="fms__save_data_changes">Save Data Changes</string>
+
+    <string name="velocity__completion">Completion</string>
+    <string name="velocity__governance">Governance</string>
+    <string name="velocity__story">Story</string>
+    <string name="velocity__work_breakdown">Work Breakdown</string>
+    <string name="velocity__budgeting">Budgeting</string>
+    <string name="velocity__work_planning">Work Planning</string>
+
+    <string name="tribkn_quality__strategic_planning">Strategic Planning</string>
+    <string name="tribkn_quality__work_breakdown">Work Breakdown</string>
+    <string name="tribkn_quality__work_planning">Work Planning</string>
+    <string name="tribkn_quality__service_delivery">Service Delivery</string>
+
+    <string name="teams__strategic">Strategic Teams</string>
+    <string name="teams__strategic__abreviated">Strategic</string>
+    <string name="teams__flywheel">Flywheel Teams</string>
+    <string name="teams__flywheel__abreviated">Flywheel</string>
+    <string name="teams__functional">Functional Teams</string>
+    <string name="teams__functional__abreviated">Functional</string>
+    <string name="teams__governance">Governance Teams</string>
+    <string name="teams__governance__abreviated">Governance</string>
+
+    <string name="commitments__confirmed">Confirmed Commitments</string>
+    <string name="commitments__confirmed_and_withdrawn">Confirmed and Withdrawn Commitments</string>
+    <string name="commitments__proposed">Proposed Commitments</string>
+    <string name="commitments__proposed_and_declined">Proposed and Declined Commitments</string>
+    <string name="commitments__suggested">Suggested Commitments</string>
+
+    <string name="editor_activity__fiscal_year"><b>Fiscal Year</b> &#160; <font fgcolor="#ff01dbce">editor</font></string>
+    <string name="picker_activity__fiscal_year"><b>Fiscal Year</b> &#160; <font fgcolor="#ff01dbce">picker</font></string>
+    <string name="editor_activity__strategic_milestone"><b>Strategic Milestone</b> &#160; <font fgcolor="#ff01dbce">editor</font></string>
+    <string name="picker_activity__strategic_milestone"><b>Strategic Milestone</b> &#160; <font fgcolor="#ff01dbce">picker</font></string>
+    <string name="editor_activity__project_asset"><b>Project Asset</b> &#160; <font fgcolor="#ff01dbce">editor</font></string>
+    <string name="picker_activity__project_asset"><b>Project Asset</b> &#160; <font fgcolor="#ff01dbce">picker</font></string>
+    <string name="editor_activity__community_member"><b>Community Member</b> &#160; <font fgcolor="#ff01dbce">editor</font></string>
+    <string name="picker_activity__community_member"><b>Community Member</b> &#160; <font fgcolor="#ff01dbce">picker</font></string>
+    <string name="wizard_activity__publish_pdf"><b>Publish PDF</b> &#160; <font fgcolor="#ff01dbce">wizard</font></string>
+    <string name="browser_activity__fse_history"><b>FSE Document History</b> &#160; <font fgcolor="#ff01dbce">browser</font></string>
+
+    <string name="fms__revert_ok_cancel_dialog__title">Revert All Data Modifications</string>
+
+    <string name="wizard_activity__create__fmm_repository"><b>Create FMM</b> &#160; <font fgcolor="#ff01dbce">wizard</font></string>
+    <string name="create__fmm_repository__headline__wizard_step">Headline &amp; Service Provider</string>
+    <string name="create__fmm_repository__fmm_template__wizard_step">FMM Template</string>
+    <string name="create__fmm_repository__organization__wizard_step">Organization &amp; Community</string>
+    <string name="create__fmm_repository__organization__retain_community">retain Community from template</string>
+    <string name="create__fmm_repository__organization__retain_headline">use Organization Headline from template</string>
+    <string name="create__fmm_repository__governance__wizard_step">Governance</string>
+    <string name="create__fmm_repository__do_it_now__wizard_step">Summary</string>
+
+    <string name="create__fmm_repository__headline__summary_box">Step 1 - Headline &amp; Service Provider</string>
+    <string name="create__fmm_repository__fmm_template__summary_box">Step 2 - FMM Template</string>
+    <string name="create__fmm_repository__organization__summary_box">Step 3 - Organization &amp; Community</string>
+    <string name="create__fmm_repository__governance__summary_box">Step 4 - Governance</string>
+
+    <string name="discussion_topic__delete">Delete the Discussion Topic</string>
+    <string name="discussion_topic__delete__plural">Delete the Discussion Topics</string>
+    <string name="discussion_topic__move">Move the Discussion Topic</string>
+    <string name="discussion_topic__move__plural">Move the Discussion Topics</string>
+    <string name="discussion_topic__disposition">Disposition of Discussion Topic</string>
+    <string name="discussion_topic__disposition__plural">Disposition of Discussion Topics</string>
+
+    <string name="flywheel_milestone__delete">Delete the Flywheel Milestone</string>
+    <string name="flywheel_milestone__delete__plural">Delete the Flywheel Milestones</string>
+    <string name="flywheel_milestone__move">Move the Flywheel Milestone</string>
+    <string name="flywheel_milestone__move__plural">Move the Flywheel Milestones</string>
+    <string name="flywheel_milestone__disposition">Disposition of Flywheel Milestone</string>
+    <string name="flywheel_milestone__disposition__plural">Disposition of Flywheel Milestones</string>
+
+    <string name="notebook__delete">Delete the Notebook</string>
+    <string name="notebook__delete__plural">Delete the Notebooks</string>
+    <string name="notebook__move">Move the Notebook</string>
+    <string name="notebook__move__plural">Move the Notebooks</string>
+    <string name="notebook__disposition">Disposition of Notebook</string>
+    <string name="notebook__disposition__plural">Disposition of Notebooks</string>
+
+    <string name="project_asset__delete">Delete the Project Asset</string>
+    <string name="project_asset__delete__plural">Delete the Project Assets</string>
+    <string name="project_asset__move">Move the Project Asset</string>
+    <string name="project_asset__move__plural">Move the Project Assets</string>
+    <string name="project_asset__disposition">Disposition of Project Asset</string>
+    <string name="project_asset__disposition__plural">Disposition of Project Assets</string>
+
+    <string name="strategic_milestone__delete">Delete the Strategic Milestone</string>
+    <string name="strategic_milestone__delete__plural">Delete the Strategic Milestones</string>
+    <string name="strategic_milestone__move">Move the Strategic Milestone</string>
+    <string name="strategic_milestone__move__plural">Move the Strategic Milestones</string>
+    <string name="strategic_milestone__disposition">Disposition of Strategic Milestone</string>
+    <string name="strategic_milestone__disposition__plural">Disposition of Strategic Milestones</string>
+    <string name="strategic_milestone__target_date__edit">Edit Target Date</string>
+
+    <string name="work_package__delete">Delete the Work Package</string>
+    <string name="work_package__delete__plural">Delete the Work Packages</string>
+    <string name="work_package__move">Move the Work Package</string>
+    <string name="work_package__move__plural">Move the Work Packages</string>
+    <string name="work_package__disposition">Disposition of Work Package</string>
+    <string name="work_package__disposition__plural">Disposition of Work Packages</string>
+
+    <string name="work_plan__delete">Delete the Work Plan</string>
+    <string name="work_plan__delete__plural">Delete the Work Plans</string>
+    <string name="work_plan__move">Move the Work Plan</string>
+    <string name="work_plan__move__plural">Move the Work Plans</string>
+    <string name="work_plan__disposition">Disposition of Work Plan</string>
+    <string name="work_plan__disposition__plural">Disposition of Work Plans</string>
+
+    <string name="work_task__delete">Delete the Work Task</string>
+    <string name="work_task__delete__plural">Delete the Work Tasks</string>
+    <string name="work_task__move">Move the Work Task</string>
+    <string name="work_task__move__plural">Move the Work Tasks</string>
+    <string name="work_task__disposition">Disposition of Work Task</string>
+    <string name="work_task__disposition__plural">Disposition of Work Tasks</string>
+
+    <string name="filter_id__no_filter">No Filter</string>
+    <string name="filter_id__primary_parent">primary_parent</string>
+    <string name="filter_id__primary_parent__primary_child__move_target">primary_parent__primary_child__move_target</string>
+    <string name="filter_id__primary_parent__primary_child__primary_child__move_target">primary_parent__primary_child__primary_child__move_target</string>
+    <string name="filter_id__primary_parent__primary_child__primary_child__primary_child__move_target">primary_parent__primary_child__primary_child__primary_child__move_target</string>
+    <string name="filter_id__primary_parent__secondary_child__move_target">primary_parent__secondary_child__move_target</string>
+    <string name="filter_id__primary_parent__secondary_child__primary_child__move_target">primary_parent__secondary_child__primary_child__move_target</string>
+    <string name="filter_id__primary_parent__secondary_child__secondary_child__move_target">primary_parent__secondary_child__secondary_child__move_target</string>
+    <string name="filter_id__secondary_parent">secondary_parent</string>
+    <string name="filter_id__secondary_parent__primary_child__move_target">secondary_parent__primary_child__move_target</string>
+    <string name="filter_id__secondary_parent__secondary_child__move_target">secondary_parent__secondary_child__move_target</string>
+    <string name="filter_id__orphan_nodes__primary_parent">orphan_nodes__primary_parent</string>
+    <string name="filter_id__orphan_nodes__secondary_parent">orphan_nodes__secondary_parent</string>
+    
+</resources>
