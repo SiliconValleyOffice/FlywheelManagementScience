@@ -156,7 +156,7 @@ public class GcgWidgetDatePicker extends GcgWidgetTextView {
 		setSelectedDate(GcgDateHelper.getYear(anOriginalDate), GcgDateHelper.getMonth(anOriginalDate) - 1, GcgDateHelper.getDay(anOriginalDate));
 	}
 
-	public boolean isMustBeDifferentFromOriginal() {
+	public boolean mustBeDifferentFromOriginal() {
 		return this.mustBeDifferentFromOriginal;
 	}
 

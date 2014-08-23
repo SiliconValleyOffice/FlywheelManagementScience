@@ -60,6 +60,7 @@ public class GcgTreeNodeInfo implements Serializable {
     private boolean visible;
     private final boolean withChildren;
     private boolean expanded;
+    private boolean hasSecondaryHeadline = false;
     private DecKanGlDecoratedGlyphSize decKanGlGlyphSize;
     private FmmPerspective fmmPerspective;
 
@@ -203,4 +204,11 @@ public class GcgTreeNodeInfo implements Serializable {
 				DecKanGlDecoratedGlyphSize.MEDIUM : DecKanGlDecoratedGlyphSize.SMALL;
 	}
 
+    public boolean hasSecondaryHeadline() {
+        return this.hasSecondaryHeadline;
+    }
+
+    public void setHasSecondaryHeadline(boolean hasSecondaryHeadline) {
+        this.hasSecondaryHeadline = hasSecondaryHeadline;
+    }
 }
