@@ -1,0 +1,6 @@
+The original icon (idea_old) was only 15 x 16 pixels.
+Even when an extra column was added on the RH side, it still appears distorted in TreePad. This can be restored to normal by making the top LH pixel transparent instead of black; however, this makes the appearance asymmetric.
+
+Two solutions:
+1) remove all rays from the original icon (idea_l_off);
+2) shift the whole image one column to the right (idea_r). Use the latter to display rays.

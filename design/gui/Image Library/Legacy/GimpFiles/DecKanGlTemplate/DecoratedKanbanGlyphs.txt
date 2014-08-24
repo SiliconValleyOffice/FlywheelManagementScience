@@ -1,0 +1,46 @@
+
+Decorator strategy:
+- only decorate exceptions
+- 'cleaner' (fewer decorators) kanbans indicate a higher-quality object
+
+States for:
+- Story
+- List
+
+Common 'content' states:
+- empty
+- partial
+- ready
+- locked
+
+'budget' states unique to Lists:
+- Under budget
+- No Slack
+- Over budget
+   ===================================
+   
+    UnlockedGovernance
+
+    UnlockedGovernanceNoStory
+    UnlockedGovernanceNoStoryUnlockedList
+    UnlockedGovernanceNoStoryUnlockedListNoSlack
+
+    UnlockedGovernanceUnlockedStory
+    UnlockedGovernanceUnlockedStoryUnlockedList
+    UnlockedGovernanceUnlockedStoryUnlockedListNoSlack
+
+    UnlockedGovernanceUnlockedList
+    UnlockedGovernanceUnlockedListNoSlack
+
+    NoStory
+
+    NoStoryUnlockedList
+    NoStoryUnlockedListNoSlack
+
+    UnlockedStory
+
+    UnlockedStoryUnlockedList
+    UnlockedStoryUnlockedListNoSlack
+    
+    UnlockedList
+    UnlockedListNoSlack
