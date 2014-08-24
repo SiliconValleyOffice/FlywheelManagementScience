@@ -75,6 +75,7 @@ public class StrategicMilestoneTargetDateEditDialog extends FmsCancelOkDialog {
 	protected FmmNodeTypeWidgetTextView fmmNodeTypeWidget;
 	protected HeadlineWidgetTextView headlineWidget;
 	protected TargetDateWidgetTextView originalTargetDateString;
+	protected RadioButton noTargetDateChoice;
 	protected RadioButton monthEndChoice;
 	protected GcgWidgetMonthSpinner monthSpinner;
 	protected RadioButton specificDateChoice;
@@ -136,12 +137,12 @@ public class StrategicMilestoneTargetDateEditDialog extends FmsCancelOkDialog {
 		this.datePicker = (GcgWidgetDatePicker) this.dialogBodyView.findViewById(R.id.gcg__date_chooser);
 		this.datePicker.setGcgActivity(this.gcgActivity);
 		this.datePicker.setOnSetTextListener(new GcgOnSetTextListener() {
-			
-			@Override
-			public void onSetText(GcgWidget aGcgWidget, String aTextString) {
-				manageButtonState();
-			}
-		} );
+
+            @Override
+            public void onSetText(GcgWidget aGcgWidget, String aTextString) {
+                manageButtonState();
+            }
+        });
 		this.datePicker.setEnabled(false);
 		this.enableReversePlanningCheckBox = (CheckBox) this.dialogBodyView.findViewById(R.id.enable_reverse_planning);
 		this.enableReversePlanningCheckBox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
@@ -151,7 +152,13 @@ public class StrategicMilestoneTargetDateEditDialog extends FmsCancelOkDialog {
 					StrategicMilestoneTargetDateEditDialog.this.updateReversePlanningOptions();
 			}
 		});
-		updateReversePlanningOptions();
+		this.noTargetDateChoice = (RadioButton) this.dialogBodyView.findViewById(R.id.choice__no_target_date);
+        this.noTargetDateChoice.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                StrategicMilestoneTargetDateEditDialog.this.manageButtonState();
+            }
+        });
 		this.monthEndChoice = (RadioButton) this.dialogBodyView.findViewById(R.id.choice__month_end);
 		this.monthEndChoice.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 			
@@ -177,8 +184,9 @@ public class StrategicMilestoneTargetDateEditDialog extends FmsCancelOkDialog {
 				}
 			}
 		});
+        updateReversePlanningOptions();
 		if(this.strategicMilestone.getTargetMonthEnd() != 0) {
-			this.monthSpinner.setSelection(this.strategicMilestone.getTargetMonthEnd() - 1);
+			this.monthSpinner.setClosestMonthSelection(this.strategicMilestone.getTargetMonthEnd());
 		} else if(! this.strategicMilestone.getTargetDate().equals(GcgDateHelper.NULL_DATE)) {
 			this.datePicker.setOriginalDate(this.strategicMilestone.getTargetDate(), true);
 			this.datePicker.setEnabled(true);
@@ -187,7 +195,7 @@ public class StrategicMilestoneTargetDateEditDialog extends FmsCancelOkDialog {
 		manageButtonState();
 	}
 
-	private void updateReversePlanningOptions() {
+    private void updateReversePlanningOptions() {
 		if(this.enableReversePlanningCheckBox.isChecked()) {
 			this.datePicker.setYearRange(this.strategicMilestone.getFiscalYear().getYearAsInt());
 			this.monthSpinner.setMonthRangeAll();
@@ -202,8 +210,9 @@ public class StrategicMilestoneTargetDateEditDialog extends FmsCancelOkDialog {
 		if(this.buttonOk == null) {
 			return;
 		}
-		this.buttonOk.setVisibility(this.specificDateChoice.isChecked() && ! this.datePicker.isMinimumInput() ?
-				View.INVISIBLE : View.VISIBLE );
+        boolean validTargetDate = ! (this.specificDateChoice.isChecked() && ! this.datePicker.isMinimumInput());
+		this.buttonOk.setVisibility(this.noTargetDateChoice.isChecked() || validTargetDate ?
+				View.VISIBLE : View.INVISIBLE );
 	}
 
 	@Override
@@ -220,8 +229,11 @@ public class StrategicMilestoneTargetDateEditDialog extends FmsCancelOkDialog {
 	}
 
 	private void updateTargetDate() {
-		if(this.monthEndChoice.isChecked()) {
-			this.strategicMilestone.setTargetMonthEnd(this.monthSpinner.getSelectedItemPosition() + 1);
+        if(this.noTargetDateChoice.isChecked()) {
+            this.strategicMilestone.setTargetMonthEnd(0);
+            this.strategicMilestone.setTargetDate(GcgDateHelper.NULL_DATE);
+        } else if(this.monthEndChoice.isChecked()) {
+			this.strategicMilestone.setTargetMonthEnd(this.monthSpinner.getSelectedMonthNumber());
 			this.strategicMilestone.setTargetDate(GcgDateHelper.NULL_DATE);
 		} else {
 			this.strategicMilestone.setTargetMonthEnd(0);

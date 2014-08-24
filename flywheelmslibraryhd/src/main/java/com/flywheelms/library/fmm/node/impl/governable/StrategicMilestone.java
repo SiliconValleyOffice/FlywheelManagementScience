@@ -91,6 +91,7 @@ public class StrategicMilestone extends FmmCompletableNodeImpl implements Compar
 	private FiscalYear fiscalYear;
 	private int targetMonthEnd = 0;
 	private Date targetDate = GcgDateHelper.NULL_DATE;
+    private boolean targetIsReversePlanning = false;
 	private ArrayList<ProjectAsset> projectAssetList;
 	
 	// create a new Strategic Milestone
@@ -349,4 +350,19 @@ public class StrategicMilestone extends FmmCompletableNodeImpl implements Compar
         return getTargetDateString();
     }
 
+    public boolean targetIsReversePlanning() {
+        return this.targetIsReversePlanning;
+    }
+
+    public void setTargetIsReversePlanning(boolean bTargetIsReversePlanning) {
+        this.targetIsReversePlanning = bTargetIsReversePlanning;
+    }
+
+    public void setTargetIsReversePlanning(int bTargetIsReversePlanningInt) {
+        this.targetIsReversePlanning = bTargetIsReversePlanningInt == 0 ? false : true;
+    }
+
+    public int targetIsReversePlanningAsInt() {
+        return this.targetIsReversePlanning ? 1 : 0;
+    }
 }

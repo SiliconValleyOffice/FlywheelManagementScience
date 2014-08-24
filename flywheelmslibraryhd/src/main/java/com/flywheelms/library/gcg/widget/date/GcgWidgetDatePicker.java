@@ -43,9 +43,6 @@
 
 package com.flywheelms.library.gcg.widget.date;
 
-import java.util.Date;
-import java.util.GregorianCalendar;
-
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.util.AttributeSet;
@@ -55,6 +52,9 @@ import android.widget.DatePicker;
 import com.flywheelms.library.R;
 import com.flywheelms.library.gcg.GcgActivity;
 import com.flywheelms.library.gcg.widget.GcgWidgetTextView;
+
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 // com.flywheelms.library.gcg.widget.date.GcgWidgetDatePicker
 public class GcgWidgetDatePicker extends GcgWidgetTextView {

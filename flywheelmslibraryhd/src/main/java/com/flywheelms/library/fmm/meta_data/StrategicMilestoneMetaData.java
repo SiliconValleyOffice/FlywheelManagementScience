@@ -48,6 +48,7 @@ public class StrategicMilestoneMetaData extends CompletableNodeMetaData {
 	public static final String column_FISCAL_YEAR_ID = "FiscalYear__id";
 	public static final String column_TARGET_MONTH_END = "target_month_end";
 	public static final String column_TARGET_DATE = "target_date";
+	public static final String column_TARGET_IS_REVERSE_PLANNING = "target_is_reverse_planning";
 	public static final String child_fractals_PROJECT_ASSET = "ProjectAsset_list";
 	
 	public static void init() { return; }

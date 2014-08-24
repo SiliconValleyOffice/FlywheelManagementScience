@@ -43,14 +43,14 @@
 
 package com.flywheelms.library.fms.widget.list_view;
 
-import java.util.ArrayList;
-
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.PopupMenu;
 
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
@@ -58,8 +58,11 @@ import com.flywheelms.library.fmm.repository.FmmAccessScope;
 import com.flywheelms.library.fmm.repository.FmmConfiguration;
 import com.flywheelms.library.fms.helper.FmmConfigurationHelper;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
+import com.flywheelms.library.fms.popup_menu.FmmPopupBuilder;
 import com.flywheelms.library.fms.widget.FmsWidgetListView;
 import com.flywheelms.library.gcg.GcgApplication;
+
+import java.util.ArrayList;
 
 public class FmmConfigurationWidgetListView extends FmsWidgetListView <FmmConfiguration> {
 	
@@ -154,5 +157,23 @@ public class FmmConfigurationWidgetListView extends FmsWidgetListView <FmmConfig
 		this.accessScope = anAccessScope;
 		updateListData();
 	}
+
+    protected PopupMenu getListViewBackgroundPopupMenu(View aView) {
+        PopupMenu thePopupMenu = new PopupMenu(getContext(), aView);
+        // TODO - conditional for API 19 and above
+//		PopupMenu thePopupMenu = new PopupMenu(getContext(), aView, Gravity.CENTER | Gravity,LEFT);  // target API 19
+        thePopupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+
+            @Override
+            public boolean onMenuItemClick(MenuItem aMenuItem) {
+                if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__CREATE_FMM_CONFIGURATION)) {
+                    FmmConfigurationWidgetListView.this.launchObjectAddActivity();
+                }
+                return true;
+            }
+        });
+        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_FMM_CONFIGURATION);
+        return thePopupMenu;
+    }
 
 }

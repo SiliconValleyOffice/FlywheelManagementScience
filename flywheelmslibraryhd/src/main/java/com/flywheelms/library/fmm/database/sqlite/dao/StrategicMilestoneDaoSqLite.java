@@ -43,8 +43,6 @@
 
 package com.flywheelms.library.fmm.database.sqlite.dao;
 
-import java.util.HashMap;
-
 import android.content.ContentValues;
 import android.database.Cursor;
 
@@ -53,6 +51,8 @@ import com.flywheelms.library.fmm.meta_data.IdNodeMetaData;
 import com.flywheelms.library.fmm.meta_data.StrategicMilestoneMetaData;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.governable.StrategicMilestone;
+
+import java.util.HashMap;
 
 public class StrategicMilestoneDaoSqLite extends CompletableNodeDaoSqLite<StrategicMilestone> {
 
@@ -77,6 +77,7 @@ public class StrategicMilestoneDaoSqLite extends CompletableNodeDaoSqLite<Strate
 		putColumnIndexMapEntry(this.columnIndexMap, aCursor, CompletableNodeMetaData.column_SEQUENCE);
 		putColumnIndexMapEntry(this.columnIndexMap, aCursor, StrategicMilestoneMetaData.column_TARGET_MONTH_END);
 		putColumnIndexMapEntry(this.columnIndexMap, aCursor, StrategicMilestoneMetaData.column_TARGET_DATE);
+		putColumnIndexMapEntry(this.columnIndexMap, aCursor, StrategicMilestoneMetaData.column_TARGET_IS_REVERSE_PLANNING);
 	}
 
 	@Override
@@ -86,6 +87,7 @@ public class StrategicMilestoneDaoSqLite extends CompletableNodeDaoSqLite<Strate
 		aStrategicMilestone.setSequence(aCursor.getInt(aHashMap.get(CompletableNodeMetaData.column_SEQUENCE)));
 		aStrategicMilestone.setTargetMonthEnd(aCursor.getInt(aHashMap.get(StrategicMilestoneMetaData.column_TARGET_MONTH_END)));
 		aStrategicMilestone.setTargetDate(aCursor.getLong(aHashMap.get(StrategicMilestoneMetaData.column_TARGET_DATE)));
+		aStrategicMilestone.setTargetIsReversePlanning(aCursor.getInt(aHashMap.get(StrategicMilestoneMetaData.column_TARGET_IS_REVERSE_PLANNING)));
 	}
 
 	@Override
@@ -95,6 +97,7 @@ public class StrategicMilestoneDaoSqLite extends CompletableNodeDaoSqLite<Strate
 		theContentValues.put(CompletableNodeMetaData.column_SEQUENCE, aStrategicMilestone.getSequence());
 		theContentValues.put(StrategicMilestoneMetaData.column_TARGET_MONTH_END, aStrategicMilestone.getTargetMonthEnd());
 		theContentValues.put(StrategicMilestoneMetaData.column_TARGET_DATE, aStrategicMilestone.getTargetDateFormattedUtcLong());
+		theContentValues.put(StrategicMilestoneMetaData.column_TARGET_IS_REVERSE_PLANNING, aStrategicMilestone.targetIsReversePlanningAsInt());
 		return theContentValues;
 	}
 

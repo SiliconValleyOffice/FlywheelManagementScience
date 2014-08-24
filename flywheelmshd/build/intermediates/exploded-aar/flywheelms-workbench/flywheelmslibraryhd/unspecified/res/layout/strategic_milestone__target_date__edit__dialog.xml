@@ -10,7 +10,6 @@
         android:id="@+id/fmm_node__type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
         gcg:labelWidth="180" />
 
     <com.flywheelms.library.fms.widget.text_view.HeadlineWidgetTextView
@@ -46,6 +45,14 @@
             android:layout_height="wrap_content" >
 
             <RadioButton
+                android:id="@+id/choice__no_target_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:checked="false"
+                android:text="No Target Date" />
+
+            <RadioButton
                 android:id="@+id/choice__month_end"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -79,7 +86,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:text="Enable Reverse Planning" />
     </com.flywheelms.library.gcg.container.GcgContainerGroupBoxLinear>
 

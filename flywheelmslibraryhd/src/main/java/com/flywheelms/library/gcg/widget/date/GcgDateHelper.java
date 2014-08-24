@@ -43,6 +43,12 @@
 
 package com.flywheelms.library.gcg.widget.date;
 
+import android.annotation.SuppressLint;
+import android.content.ContentValues;
+
+import com.flywheelms.library.gcg.interfaces.GcgGuiable;
+import com.flywheelms.library.gcg.interfaces.GcgGuiableImpl;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -51,12 +57,6 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Locale;
 import java.util.TimeZone;
-
-import android.annotation.SuppressLint;
-import android.content.ContentValues;
-
-import com.flywheelms.library.gcg.interfaces.GcgGuiable;
-import com.flywheelms.library.gcg.interfaces.GcgGuiableImpl;
 
 @SuppressLint("SimpleDateFormat")
 public class GcgDateHelper {

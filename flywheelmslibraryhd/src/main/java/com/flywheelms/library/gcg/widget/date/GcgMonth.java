@@ -43,13 +43,13 @@
 
 package com.flywheelms.library.gcg.widget.date;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
 import android.graphics.drawable.Drawable;
 
 import com.flywheelms.library.gcg.interfaces.GcgGuiable;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class GcgMonth implements GcgGuiable {
 	

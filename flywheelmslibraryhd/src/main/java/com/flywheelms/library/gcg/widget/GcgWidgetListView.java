@@ -43,8 +43,6 @@
 
 package com.flywheelms.library.gcg.widget;
 
-import java.util.ArrayList;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.TypedArray;
@@ -69,10 +67,13 @@ import com.flywheelms.library.gcg.GcgActivity;
 import com.flywheelms.library.gcg.GcgApplication;
 import com.flywheelms.library.gcg.helper.GcgHelper;
 
+import java.util.ArrayList;
+
 public abstract class GcgWidgetListView <T> extends LinearLayout {
 
 	private static final int resource_id_ADD_BUTTON = R.id.widget__add__button;
 	private static final int resource_id_LIST_VIEW = R.id.widget__list_view;
+	private static final int resource_id_LIST_VIEW_BACKGROUND = R.id.widget__list_view__background_menu_target;
 	private static final int resource_id_WIDGET_LABEL = R.id.widget__label;
 	private static final int resource_id_SUPPLEMENTAL_LABEL = R.id.widget__supplemental_label;
 	protected GcgActivity gcgActivity;
@@ -197,52 +198,70 @@ public abstract class GcgWidgetListView <T> extends LinearLayout {
 		this.listView.setAdapter(this.arrayAdapter);
 		this.listView.setOnItemLongClickListener(new OnItemLongClickListener() {
 
-			@Override
-			public boolean onItemLongClick(AdapterView<?> anAdapterView, View aListViewItemView, int aListViewItemPosition, long anItemId) {
-				GcgWidgetListView.this.listItemView = aListViewItemView;
-				GcgWidgetListView.this.listItemView.setBackgroundColor(
-						GcgWidgetListView.this.getResources().getColor(R.color.light_blue) );
-				GcgWidgetListView.this.listItemPosition = aListViewItemPosition;
-				aListViewItemView.setSelected(true);
-				PopupMenu thePopupMenu = new PopupMenu(getContext(), aListViewItemView);
-				thePopupMenu.getMenuInflater().inflate(getPopupMenuResourceId(), thePopupMenu.getMenu());
-				thePopupMenu.setOnMenuItemClickListener(new OnMenuItemClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> anAdapterView, View aListViewItemView, int aListViewItemPosition, long anItemId) {
+                GcgWidgetListView.this.listItemView = aListViewItemView;
+                GcgWidgetListView.this.listItemView.setBackgroundColor(
+                        GcgWidgetListView.this.getResources().getColor(R.color.light_blue));
+                GcgWidgetListView.this.listItemPosition = aListViewItemPosition;
+                aListViewItemView.setSelected(true);
+                PopupMenu thePopupMenu = new PopupMenu(getContext(), aListViewItemView);
+                thePopupMenu.getMenuInflater().inflate(getPopupMenuResourceId(), thePopupMenu.getMenu());
+                thePopupMenu.setOnMenuItemClickListener(new OnMenuItemClickListener() {
 
-					@Override
-					public boolean onMenuItemClick(MenuItem aSelectedMenuItem) {
-						onPopupMenu(aSelectedMenuItem);
-						return true;
-					}
-				});
-				thePopupMenu.setOnDismissListener(new OnDismissListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem aSelectedMenuItem) {
+                        onPopupMenu(aSelectedMenuItem);
+                        return true;
+                    }
+                });
+                thePopupMenu.setOnDismissListener(new OnDismissListener() {
 
-					@Override
-					public void onDismiss(PopupMenu menu) {
-						GcgWidgetListView.this.listItemView.setBackgroundColor(
-								GcgWidgetListView.this.getResources().getColor(R.color.transparent) );
-					}
-				});
-				thePopupMenu.show();
-				return true;
-			}
-		});
+                    @Override
+                    public void onDismiss(PopupMenu menu) {
+                        GcgWidgetListView.this.listItemView.setBackgroundColor(
+                                GcgWidgetListView.this.getResources().getColor(R.color.transparent));
+                    }
+                });
+                thePopupMenu.show();
+                return true;
+            }
+        });
 		this.listView.setOnItemClickListener(new OnItemClickListener() {
 
-			@Override
-			public void onItemClick(AdapterView<?> anAdapterView, View aListViewItemView, int aListViewItemPosition, long anItemId) {
-				T theObject = GcgWidgetListView.this.objectList.get(aListViewItemPosition);
-				launchObjectEditorActivity(theObject);
-			}
-		});
+            @Override
+            public void onItemClick(AdapterView<?> anAdapterView, View aListViewItemView, int aListViewItemPosition, long anItemId) {
+                T theObject = GcgWidgetListView.this.objectList.get(aListViewItemPosition);
+                launchObjectEditorActivity(theObject);
+            }
+        });
+        TextView theListViewBackgroundMenuTarget = (TextView) findViewById(GcgWidgetListView.resource_id_LIST_VIEW_BACKGROUND);
+        if(theListViewBackgroundMenuTarget != null) {
+            theListViewBackgroundMenuTarget.setOnLongClickListener(new OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View aView) {
+                    PopupMenu thePopupMenu = GcgWidgetListView.this.getListViewBackgroundPopupMenu(aView);
+                    if (thePopupMenu != null) {
+                        thePopupMenu.show();
+                        return true;
+                    }
+                    return false;
+                }
+            });
+        }
 		this.objectAddButton = (Button) findViewById(resource_id_ADD_BUTTON);
         this.objectAddButton.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				launchObjectAddActivity();
-			}
-		});
+
+            @Override
+            public void onClick(View v) {
+                launchObjectAddActivity();
+            }
+        });
 	}
+
+    protected PopupMenu getListViewBackgroundPopupMenu(View aView) {
+        return null;
+    }
 	
 	protected int getPopupMenuResourceId() {
 		return R.menu.edit_remove__item;

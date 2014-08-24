@@ -111,6 +111,8 @@ public class FmmPopupBuilder {
 	public static final String menu_item__EDIT_HEADLINE = "Edit Headline...";
 	public static final String menu_item__EDIT_STRATEGIC_MILESTONE_TARGET_DATE = "Edit Target Date...";
 
+	public static final String menu_item__CREATE_FMM_CONFIGURATION = "Create FMM Configuration...";
+
 	public static PopupMenu createPopupMenu(
 			FmmHeadlineNodePopupListener aNodePopupListener,
 			GcgTreeNodeInfo aLaunchTreeNodeInfo,

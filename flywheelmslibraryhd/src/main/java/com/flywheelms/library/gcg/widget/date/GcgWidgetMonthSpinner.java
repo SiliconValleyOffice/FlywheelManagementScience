@@ -43,13 +43,13 @@
 
 package com.flywheelms.library.gcg.widget.date;
 
-import java.util.ArrayList;
-
 import android.content.Context;
 import android.util.AttributeSet;
 
 import com.flywheelms.library.gcg.interfaces.GcgGuiable;
 import com.flywheelms.library.gcg.widget.GcgWidgetSpinner;
+
+import java.util.ArrayList;
 
 // com.flywheelms.library.gcg.widget.date.GcgWidgetMonthSpinner
 public class GcgWidgetMonthSpinner extends GcgWidgetSpinner {
@@ -83,6 +83,10 @@ public class GcgWidgetMonthSpinner extends GcgWidgetSpinner {
 		return GcgMonth.getObjectForName(super.getSelectedItem().getDataText());
 	}
 
+    public int getSelectedMonthNumber() {
+        return GcgMonth.getObjectForName(super.getSelectedItem().getDataText()).getMonthNumber();
+    }
+
 	public void setMonthRangeAll() {
 		updateSpinnerData();
 	}
@@ -101,6 +105,15 @@ public class GcgWidgetMonthSpinner extends GcgWidgetSpinner {
 		}
 	}
 
+    private void setSelectedMonth(int aMonthNumber) {
+        for(GcgGuiable theGuiable : this.gcgGuiableList) {
+            if(GcgMonth.getObjectForName(theGuiable.getDataText()).getMonthNumber() == aMonthNumber) {
+                this.spinner.setSelection(this.gcgGuiableList.indexOf(theGuiable));
+                break;
+            }
+        }
+    }
+
 	public void setMonthRangeYearRemaining(int aYear) {
 		ArrayList<GcgGuiable> theGuiableList = new ArrayList<GcgGuiable>();
 		if(aYear == GcgDateHelper.getCurrentYear()) {
@@ -111,5 +124,18 @@ public class GcgWidgetMonthSpinner extends GcgWidgetSpinner {
 		}
 		updateSpinnerData(theGuiableList);
 	}
-	
+
+    public void setClosestMonthSelection(int aMonthNumber) {
+        GcgMonth theGcgMonth = GcgMonth.getObjectForName(this.gcgGuiableList.get(0).getDataText());
+        int theFirstMonthInList = theGcgMonth.getMonthNumber();
+        theGcgMonth = GcgMonth.getObjectForName(this.gcgGuiableList.get(this.gcgGuiableList.size() - 1).getDataText());
+        int theLastMonthInList = theGcgMonth.getMonthNumber();
+        if(aMonthNumber < theFirstMonthInList) {
+            setSelectedMonth(theFirstMonthInList);
+        } else if(aMonthNumber > theLastMonthInList) {
+            setSelectedMonth(theLastMonthInList);
+        } else {
+            setSelectedMonth(aMonthNumber);
+        }
+    }
 }
