@@ -318,10 +318,10 @@ public abstract class GcgTreeViewAdapter extends BaseAdapter implements FmmHeadl
     private static void setRowHeight(LinearLayout aRowLayout,GcgTreeNodeInfo aTreeNodeInfo) {
 		ImageView theImageView = (ImageView) aRowLayout.findViewById(R.id.tree_node__expander_image);
         int theRowHeight = 0;
-        if(aTreeNodeInfo.hasSecondaryHeadline()) {
+        if(aTreeNodeInfo.getDecKanGlGlyphSize() == DecKanGlDecoratedGlyphSize.MEDIUM) {
             theRowHeight = 60;
         } else {
-            theRowHeight = aTreeNodeInfo.getDecKanGlGlyphSize() == DecKanGlDecoratedGlyphSize.SMALL ? 45 : 60;
+            theRowHeight = aTreeNodeInfo.hasSecondaryHeadline() ? 50 : 45;
         }
 		android.view.ViewGroup.LayoutParams theLayoutParams = theImageView.getLayoutParams();
 		theLayoutParams.height = GcgHelper.getPixelsForDp(GcgApplication.getContext(), theRowHeight);
