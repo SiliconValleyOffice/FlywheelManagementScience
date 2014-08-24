@@ -43,10 +43,6 @@
 
 package com.flywheelms.library.fmm.persistence;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Date;
-
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -118,6 +114,10 @@ import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmNode;
 import com.flywheelms.library.fmm.repository.FmmConfiguration;
 import com.flywheelms.library.gcg.widget.date.GcgDateHelper;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Date;
 
 public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDelegate {
 
@@ -1705,6 +1705,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 		ContentValues theContentValues = new ContentValues();
 		theContentValues.put(StrategicMilestoneMetaData.column_TARGET_MONTH_END, aStrategicMilestone.getTargetMonthEnd());
 		theContentValues.put(StrategicMilestoneMetaData.column_TARGET_DATE, aStrategicMilestone.getTargetDateFormattedUtcLong());
+		theContentValues.put(StrategicMilestoneMetaData.column_TARGET_IS_REVERSE_PLANNING, aStrategicMilestone.targetIsReversePlanningAsInt());
 		boolean theBoolean = getSqLiteDatabase().update(
 				FmmNodeDefinition.STRATEGIC_MILESTONE.getClassName(),
 				theContentValues,

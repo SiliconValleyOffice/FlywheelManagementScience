@@ -192,6 +192,7 @@ public class StrategicMilestoneTargetDateEditDialog extends FmsCancelOkDialog {
 			this.datePicker.setEnabled(true);
 			this.specificDateChoice.setChecked(true);
 		}
+        this.enableReversePlanningCheckBox.setChecked(this.strategicMilestone.targetIsReversePlanning());
 		manageButtonState();
 	}
 
@@ -239,6 +240,7 @@ public class StrategicMilestoneTargetDateEditDialog extends FmsCancelOkDialog {
 			this.strategicMilestone.setTargetMonthEnd(0);
 			this.strategicMilestone.setTargetDate(this.datePicker.getSelectedDate());
 		}
+        this.strategicMilestone.setTargetIsReversePlanning(this.enableReversePlanningCheckBox.isChecked());
 		if(FmmDatabaseMediator.getActiveMediator().updateTargetDate(this.strategicMilestone, true)) {
 			if(this.treeViewAdapter != null) {
 				this.treeViewAdapter.updateSecondaryHeadline(this.strategicMilestone.getTargetDateString());
