@@ -43,13 +43,13 @@
 
 package com.flywheelms.library.gcg.treeview.node;
 
-import java.io.Serializable;
-import java.util.UUID;
-
 import android.graphics.Bitmap;
 
 import com.flywheelms.library.deckangl.enumerator.DecKanGlDecoratedGlyphSize;
 import com.flywheelms.library.fmm.context.FmmPerspective;
+
+import java.io.Serializable;
+import java.util.UUID;
 
 public class GcgTreeNodeInfo implements Serializable {
 	
@@ -60,7 +60,6 @@ public class GcgTreeNodeInfo implements Serializable {
     private boolean visible;
     private final boolean withChildren;
     private boolean expanded;
-    private boolean hasSecondaryHeadline = false;
     private DecKanGlDecoratedGlyphSize decKanGlGlyphSize;
     private FmmPerspective fmmPerspective;
 
@@ -205,10 +204,7 @@ public class GcgTreeNodeInfo implements Serializable {
 	}
 
     public boolean hasSecondaryHeadline() {
-        return this.hasSecondaryHeadline;
+        return this.targetObject.hasSecondaryHeadline();
     }
 
-    public void setHasSecondaryHeadline(boolean hasSecondaryHeadline) {
-        this.hasSecondaryHeadline = hasSecondaryHeadline;
-    }
 }

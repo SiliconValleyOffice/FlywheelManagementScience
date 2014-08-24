@@ -43,8 +43,6 @@
 
 package com.flywheelms.library.fms.treeview.filter;
 
-import java.util.ArrayList;
-
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -74,13 +72,15 @@ import com.flywheelms.library.fms.dialog.ProjectAssetMoveDialog;
 import com.flywheelms.library.fms.dialog.ProjectAssetOrphanDialog;
 import com.flywheelms.library.fms.dialog.StrategicMilestoneAdoptOrphanProjectAssetDialog;
 import com.flywheelms.library.fms.dialog.StrategicMilestoneDeleteDialog;
-import com.flywheelms.library.fms.dialog.StrategicMilestoneTargetDateEditDialog;
 import com.flywheelms.library.fms.dialog.StrategicMilestoneMoveDialog;
+import com.flywheelms.library.fms.dialog.StrategicMilestoneTargetDateEditDialog;
 import com.flywheelms.library.fms.popup_menu.FmmPopupBuilder;
 import com.flywheelms.library.gcg.GcgApplication;
 import com.flywheelms.library.gcg.treeview.GcgTreeViewAdapter;
 import com.flywheelms.library.gcg.treeview.GcgTreeViewMediator;
 import com.flywheelms.library.gcg.treeview.node.GcgTreeNodeInfo;
+
+import java.util.ArrayList;
 
 public class FmsTreeViewAdapter extends GcgTreeViewAdapter {
 
@@ -161,6 +161,14 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter {
         final TextView theTreeNodeHeadlineView =
         	(TextView) aRowLayout.findViewById(R.id.tree_node_headline);
         theTreeNodeHeadlineView.setText(aTreeNodeInfo.getTargetObject().getHeadline());
+        final TextView theTreeNodeSecondaryHeadlineView =
+                (TextView) aRowLayout.findViewById(R.id.tree_node_secondary_headline);
+        if(aTreeNodeInfo.getTargetObject().hasSecondaryHeadline()) {
+            theTreeNodeSecondaryHeadlineView.setVisibility(View.VISIBLE);
+            theTreeNodeSecondaryHeadlineView.setText(aTreeNodeInfo.getTargetObject().getSecondaryHeadline());
+        } else {
+            theTreeNodeSecondaryHeadlineView.setVisibility(View.GONE);
+        }
         buildNodeSummary(aTreeNodeInfo, aRowLayout);
         buildNodeQuality(aTreeNodeInfo, aRowLayout);
         if(showNodeQuality(aTreeNodeInfo) || aTreeNodeInfo.hasChildren()) {

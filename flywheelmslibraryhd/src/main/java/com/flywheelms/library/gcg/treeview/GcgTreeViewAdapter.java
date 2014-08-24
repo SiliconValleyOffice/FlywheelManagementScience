@@ -43,11 +43,6 @@
 
 package com.flywheelms.library.gcg.treeview;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-
 import android.database.DataSetObserver;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
@@ -74,6 +69,11 @@ import com.flywheelms.library.gcg.GcgApplication;
 import com.flywheelms.library.gcg.helper.GcgHelper;
 import com.flywheelms.library.gcg.treeview.interfaces.GcgTreeViewParent;
 import com.flywheelms.library.gcg.treeview.node.GcgTreeNodeInfo;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
 
 public abstract class GcgTreeViewAdapter extends BaseAdapter implements FmmHeadlineNodePopupListener {
 	
@@ -317,7 +317,12 @@ public abstract class GcgTreeViewAdapter extends BaseAdapter implements FmmHeadl
 
     private static void setRowHeight(LinearLayout aRowLayout,GcgTreeNodeInfo aTreeNodeInfo) {
 		ImageView theImageView = (ImageView) aRowLayout.findViewById(R.id.tree_node__expander_image);
-		int theRowHeight = aTreeNodeInfo.getDecKanGlGlyphSize() == DecKanGlDecoratedGlyphSize.SMALL ? 45 : 60;
+        int theRowHeight = 0;
+        if(aTreeNodeInfo.hasSecondaryHeadline()) {
+            theRowHeight = 60;
+        } else {
+            theRowHeight = aTreeNodeInfo.getDecKanGlGlyphSize() == DecKanGlDecoratedGlyphSize.SMALL ? 45 : 60;
+        }
 		android.view.ViewGroup.LayoutParams theLayoutParams = theImageView.getLayoutParams();
 		theLayoutParams.height = GcgHelper.getPixelsForDp(GcgApplication.getContext(), theRowHeight);
 		theImageView.setLayoutParams(theLayoutParams);

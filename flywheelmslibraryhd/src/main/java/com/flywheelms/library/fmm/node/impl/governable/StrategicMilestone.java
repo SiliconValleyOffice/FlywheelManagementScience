@@ -43,15 +43,6 @@
 
 package com.flywheelms.library.fmm.node.impl.governable;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Date;
-import java.util.HashMap;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.content.Intent;
 
 import com.flywheelms.library.deckangl.enumerator.DecKanGlDecoratorCanvasLocation;
@@ -83,6 +74,15 @@ import com.flywheelms.library.gcg.GcgActivity;
 import com.flywheelms.library.gcg.widget.date.GcgDateHelper;
 import com.flywheelms.library.gcg.widget.date.GcgMonth;
 import com.flywheelms.library.util.JsonHelper;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Date;
+import java.util.HashMap;
 
 public class StrategicMilestone extends FmmCompletableNodeImpl implements Comparable<StrategicMilestone>{
 	
@@ -338,5 +338,15 @@ public class StrategicMilestone extends FmmCompletableNodeImpl implements Compar
 	public boolean hasTargetDate() {
 		return this.targetMonthEnd != 0 || ! this.targetDate.equals(GcgDateHelper.NULL_DATE);
 	}
+
+    @Override
+    public boolean hasSecondaryHeadline() {
+        return hasTargetDate();
+    }
+
+    @Override
+    public String getSecondaryHeadline() {
+        return getTargetDateString();
+    }
 
 }

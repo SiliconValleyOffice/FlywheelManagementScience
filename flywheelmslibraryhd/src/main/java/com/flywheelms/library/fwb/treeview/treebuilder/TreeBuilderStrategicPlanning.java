@@ -59,7 +59,7 @@ public class TreeBuilderStrategicPlanning extends GcgTreeBuilder {
 			GcgTreeNodeTargetObject theTreeNodeTargetObject, boolean bHasChildren, FmmPerspective anFmmPerspective) {
 		GcgTreeNodeInfo theTreeNodeInfo =
 				new GcgTreeNodeInfo(theTreeNodeTargetObject, 0, bHasChildren, anFmmPerspective);
-		this.treeStateManager.addAfterChild(theTreeNodeInfo, null, null);
+		this.treeViewMediator.addAfterChild(theTreeNodeInfo, null, null);
         setLastAdded(theTreeNodeInfo, 0);
 		return theTreeNodeInfo;
 	}
@@ -75,7 +75,7 @@ public class TreeBuilderStrategicPlanning extends GcgTreeBuilder {
 				theLevel,
 				bHasChildren,
 				anFmmPerspective);
-		this.treeStateManager.addAfterChild(theTreeNodeInfo, theParentTreeNodeInfo, null);
+		this.treeViewMediator.addAfterChild(theTreeNodeInfo, theParentTreeNodeInfo, null);
         setLastAdded(theTreeNodeInfo, theLevel);
 		return theTreeNodeInfo;
 	}

@@ -48,23 +48,22 @@ import com.flywheelms.library.gcg.treeview.node.GcgTreeNodeInfo;
 
 public class GcgTreeBuilder {
 
-    protected final GcgTreeViewMediator treeStateManager;
-
+    protected final GcgTreeViewMediator treeViewMediator;
     private GcgTreeNodeInfo lastAddedTreeNodeInfo = null;
     private int lastLevel = -1;
 
     public GcgTreeBuilder(final GcgTreeViewMediator aTreeStateManager) {
-        this.treeStateManager = aTreeStateManager;
+        this.treeViewMediator = aTreeStateManager;
     }
 
     public void clear() {
-    	this.treeStateManager.clearTree();
+    	this.treeViewMediator.clearTree();
     }
 
     public synchronized void addRelation(final GcgTreeNodeInfo aParentTreeNodeInfo, final GcgTreeNodeInfo aChildTreeNodeInfo) {
-        this.treeStateManager.addAfterChild(aChildTreeNodeInfo, aParentTreeNodeInfo, null);
+        this.treeViewMediator.addAfterChild(aChildTreeNodeInfo, aParentTreeNodeInfo, null);
         this.lastAddedTreeNodeInfo = aChildTreeNodeInfo;
-        this.lastLevel = this.treeStateManager.getLevel(aChildTreeNodeInfo);
+        this.lastLevel = this.treeViewMediator.getLevel(aChildTreeNodeInfo);
     }
 
     public synchronized void sequentiallyAddNextNode(final GcgTreeNodeInfo aTreeNodeInfo, final int aLevel ) {
@@ -81,12 +80,12 @@ public class GcgTreeBuilder {
     }
 
     private GcgTreeNodeInfo findParentAtLevel(final GcgTreeNodeInfo aTreeNodeInfo, final int aLevelToFind) {
-        GcgTreeNodeInfo parent = this.treeStateManager.getParent(aTreeNodeInfo);
+        GcgTreeNodeInfo parent = this.treeViewMediator.getParent(aTreeNodeInfo);
         while (parent != null) {
-            if (this.treeStateManager.getLevel(parent) == aLevelToFind) {
+            if (this.treeViewMediator.getLevel(parent) == aLevelToFind) {
                 break;
             }
-            parent = this.treeStateManager.getParent(parent);
+            parent = this.treeViewMediator.getParent(parent);
         }
         return parent;
     }
@@ -96,13 +95,13 @@ public class GcgTreeBuilder {
             throw new TreeConfigurationException("Trying to add new TreeNodeInfo " + aChildTreeNodeInfo
                     + " to top level with level != 0 (" + level + ")");
         }
-        if (aParentTreeNodeInfo != null && this.treeStateManager.getLevel(aParentTreeNodeInfo) != level - 1) {
+        if (aParentTreeNodeInfo != null && this.treeViewMediator.getLevel(aParentTreeNodeInfo) != level - 1) {
             throw new TreeConfigurationException("Trying to add new TreeNodeInfo " + aChildTreeNodeInfo
                     + " <" + level + "> to " + aParentTreeNodeInfo + " <"
-                    + this.treeStateManager.getLevel(aParentTreeNodeInfo)
+                    + this.treeViewMediator.getLevel(aParentTreeNodeInfo)
                     + ">. The difference in levels up is bigger than 1.");
         }
-        this.treeStateManager.addAfterChild(aChildTreeNodeInfo, aParentTreeNodeInfo, null);
+        this.treeViewMediator.addAfterChild(aChildTreeNodeInfo, aParentTreeNodeInfo, null);
         setLastAdded(aChildTreeNodeInfo, level);
     }
 

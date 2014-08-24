@@ -38,8 +38,6 @@
 
 package com.flywheelms.library.gcg.treeview.node;
 
-import java.io.Serializable;
-
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 
@@ -48,6 +46,8 @@ import com.flywheelms.library.deckangl.enumerator.DecKanGlNounStateDrawableSize;
 import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.enumerator.CompletableWorkStatus;
+
+import java.io.Serializable;
 
 public interface GcgTreeNodeTargetObject extends Serializable {
 	
@@ -60,6 +60,10 @@ public interface GcgTreeNodeTargetObject extends Serializable {
 	public Bitmap getDecKanGlBitmap(DecKanGlDecoratedGlyphSize aGlyphSize);
 	
 	public String getHeadline();
+
+    public boolean hasSecondaryHeadline();
+
+    public String getSecondaryHeadline();
 	
 	boolean hasNodeSummary(FmmPerspective anFmmPerspective);
 	

@@ -43,13 +43,6 @@
 
 package com.flywheelms.library.fmm.node.impl.headline;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.HashMap;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 
@@ -92,6 +85,13 @@ import com.flywheelms.library.fms.helper.FmsActivityHelper;
 import com.flywheelms.library.fse.model.FseDocument;
 import com.flywheelms.library.gcg.GcgActivity;
 import com.flywheelms.library.gcg.treeview.node.GcgTreeNodeTargetObject;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public abstract class FmmHeadlineNodeImpl extends FmmHistoryNodeImpl
 		implements FmmHeadlineNode, GcgTreeNodeTargetObject, FmsDecKanGlNoun {
@@ -579,5 +579,9 @@ public abstract class FmmHeadlineNodeImpl extends FmmHistoryNodeImpl
 	
 	@Override
 	public String getTargetDateString() { return ""; }
+
+    public boolean hasSecondaryHeadline() { return false; }
+
+    public String getSecondaryHeadline() { return ""; }
 
 }
