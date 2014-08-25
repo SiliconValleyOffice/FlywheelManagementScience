@@ -62,8 +62,8 @@ import com.flywheelms.library.fms.preferences.GuiPreferencesBundle;
 import com.flywheelms.library.fms.tree_view_flipper.tree_view.FmsPerspectiveFlipperTreeView;
 import com.flywheelms.library.fms.treeview.FmsTreeViewMediatorMemoryResident;
 import com.flywheelms.library.fms.treeview.filter.FmsTreeViewAdapter;
-import com.flywheelms.library.fms.treeview.filter.StrategicPlanningTreeFilter;
-import com.flywheelms.library.fwb.treeview.treebuilder.TreeBuilderStrategicPlanning;
+import com.flywheelms.library.fms.treeview.filter.WorkBreakdownTreeFilter;
+import com.flywheelms.library.fwb.treeview.treebuilder.TreeBuilderFmsPerspective;
 import com.flywheelms.library.gcg.interfaces.GcgPerspective;
 import com.flywheelms.library.gcg.treeview.GcgTreeViewAdapter;
 import com.flywheelms.library.gcg.treeview.GcgTreeViewMediator;
@@ -112,8 +112,8 @@ public class FwbContextWorkBreakdownPerspective extends FmsPerspectiveFlipperTre
 	@Override
 	protected GcgTreeViewMediator createGcgTreeViewMediator() {
         GcgTreeViewMediator theTreeContentMediator =
-                new FmsTreeViewMediatorMemoryResident(new StrategicPlanningTreeFilter(this));
-        final TreeBuilderStrategicPlanning theTreeBuilder = new TreeBuilderStrategicPlanning(theTreeContentMediator);
+                new FmsTreeViewMediatorMemoryResident(new WorkBreakdownTreeFilter(this));
+        final TreeBuilderFmsPerspective theTreeBuilder = new TreeBuilderFmsPerspective(theTreeContentMediator);
         Collection<Portfolio> thePortfolioCollection = FmmDatabaseMediator.getActiveMediator().getPortfolioList(
                 FmmDatabaseMediator.getActiveMediator().getFmmOwner() );
         for(Portfolio thePortfolio : thePortfolioCollection) {

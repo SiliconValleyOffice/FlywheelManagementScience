@@ -1,4 +1,4 @@
-/* @(#)TreeBuilderStrategicPlanning.java
+/* @(#)TreeBuilderFmsPerspective.java
 ** 
 ** Copyright (C) 2012 by Steven D. Stamps
 **
@@ -49,9 +49,9 @@ import com.flywheelms.library.gcg.treeview.GcgTreeViewMediator;
 import com.flywheelms.library.gcg.treeview.node.GcgTreeNodeInfo;
 import com.flywheelms.library.gcg.treeview.node.GcgTreeNodeTargetObject;
 
-public class TreeBuilderStrategicPlanning extends GcgTreeBuilder {
+public class TreeBuilderFmsPerspective extends GcgTreeBuilder {
 
-	public TreeBuilderStrategicPlanning(GcgTreeViewMediator aTreeStateManager) {
+	public TreeBuilderFmsPerspective(GcgTreeViewMediator aTreeStateManager) {
 		super(aTreeStateManager);
 	}
 

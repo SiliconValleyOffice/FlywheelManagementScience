@@ -6,6 +6,6 @@ CREATE TABLE `FiscalYear` (
   `year_number` YEAR NOT NULL ,
   PRIMARY KEY (`_id`) ,
   CONSTRAINT `fk_FiscalYear_Organization1`
-    FOREIGN KEY (`Organization__id` )
-    REFERENCES `FmsOrganization` (`_id` ) );
+    FOREIGN KEY (`Organization__id`)
+    REFERENCES `FmsOrganization` (`_id`) );
     

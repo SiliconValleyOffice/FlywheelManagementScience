@@ -63,7 +63,7 @@ import com.flywheelms.library.fms.tree_view_flipper.tree_view.FmsPerspectiveFlip
 import com.flywheelms.library.fms.treeview.FmsTreeViewMediatorMemoryResident;
 import com.flywheelms.library.fms.treeview.filter.FmsTreeViewAdapter;
 import com.flywheelms.library.fms.treeview.filter.StrategicPlanningTreeFilter;
-import com.flywheelms.library.fwb.treeview.treebuilder.TreeBuilderStrategicPlanning;
+import com.flywheelms.library.fwb.treeview.treebuilder.TreeBuilderFmsPerspective;
 import com.flywheelms.library.gcg.interfaces.GcgPerspective;
 import com.flywheelms.library.gcg.treeview.GcgTreeViewAdapter;
 import com.flywheelms.library.gcg.treeview.GcgTreeViewMediator;
@@ -106,7 +106,7 @@ public class FwbContextStrategicPlanningPerspective extends FmsPerspectiveFlippe
 	protected GcgTreeViewMediator createGcgTreeViewMediator() {
 		GcgTreeViewMediator theTreeContentMediator =
 				new FmsTreeViewMediatorMemoryResident(new StrategicPlanningTreeFilter(this));
-		final TreeBuilderStrategicPlanning theTreeBuilder = new TreeBuilderStrategicPlanning(theTreeContentMediator);
+		final TreeBuilderFmsPerspective theTreeBuilder = new TreeBuilderFmsPerspective(theTreeContentMediator);
 		Collection<FiscalYear> theFiscalYearCollection = FmmDatabaseMediator.getActiveMediator().getFiscalYearList(
 				FmmDatabaseMediator.getActiveMediator().getFmmOwner() );
 		for(FiscalYear theFiscalYear : theFiscalYearCollection) {

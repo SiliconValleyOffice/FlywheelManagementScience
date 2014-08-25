@@ -892,14 +892,12 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	}
 
 
-
-
     //////  Node - PORTFOLIO  ////////////////////////////////////////////////////////////////////////////////
 
     @SuppressWarnings("resource")
     @Override
     public ArrayList<Portfolio> dbListPortfolio(FmsOrganization anOrganization, Portfolio aPortfolioException) {
-        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.FISCAL_YEAR.getName() +
+        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.PORTFOLIO.getName() +
                 " WHERE " + PortfolioMetaData.column_ORGANIZATION_ID + " = '" + anOrganization.getNodeIdString() + "'";
         if(aPortfolioException != null) {
             theRawQuery += " AND " + IdNodeMetaData.column_ID + " != '" + aPortfolioException.getNodeIdString() + "'";
@@ -908,6 +906,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
         Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
         return PortfolioDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
     }
+
 
     //////  Node - PROJECT  ////////////////////////////////////////////////////////////////////////////////
 
