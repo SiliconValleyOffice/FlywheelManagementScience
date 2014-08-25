@@ -321,7 +321,7 @@ public abstract class GcgTreeViewAdapter extends BaseAdapter implements FmmHeadl
         if(aTreeNodeInfo.getDecKanGlGlyphSize() == DecKanGlDecoratedGlyphSize.MEDIUM) {
             theRowHeight = 60;
         } else {
-            theRowHeight = aTreeNodeInfo.hasSecondaryHeadline() ? 50 : 45;
+            theRowHeight = aTreeNodeInfo.hasSecondaryHeadline() ? 55 : 45;
         }
 		android.view.ViewGroup.LayoutParams theLayoutParams = theImageView.getLayoutParams();
 		theLayoutParams.height = GcgHelper.getPixelsForDp(GcgApplication.getContext(), theRowHeight);

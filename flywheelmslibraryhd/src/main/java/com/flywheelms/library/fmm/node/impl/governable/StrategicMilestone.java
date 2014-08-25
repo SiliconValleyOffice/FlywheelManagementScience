@@ -327,12 +327,15 @@ public class StrategicMilestone extends FmmCompletableNodeImpl implements Compar
 	
 	@Override
 	public String getTargetDateString() {
-		String theString = "No target date";
+		String theString = "";
 		if(this.targetMonthEnd == 0) {
 			theString = GcgDateHelper.getGuiDateString3(this.targetDate);
 		} else {
 			theString = GcgMonth.getMonthForNumber(this.targetMonthEnd).getMonthName() + " month end";
 		}
+        if(targetIsReversePlanning && theString.length() > 0) {
+            theString = "** " + theString;
+        }
 		return theString;
 	}
 	
