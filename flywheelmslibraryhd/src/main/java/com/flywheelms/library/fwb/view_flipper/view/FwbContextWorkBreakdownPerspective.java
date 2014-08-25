@@ -51,12 +51,25 @@ import android.widget.PopupMenu;
 import android.widget.PopupMenu.OnMenuItemClickListener;
 
 import com.flywheelms.library.R;
+import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.context.FmmPerspective;
+import com.flywheelms.library.fmm.node.impl.governable.Portfolio;
+import com.flywheelms.library.fmm.node.impl.governable.Project;
+import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
 import com.flywheelms.library.fms.helper.FmsHelpIndex;
+import com.flywheelms.library.fms.popup_menu.FmmPopupBuilder;
+import com.flywheelms.library.fms.preferences.GuiPreferencesBundle;
 import com.flywheelms.library.fms.tree_view_flipper.tree_view.FmsPerspectiveFlipperTreeView;
+import com.flywheelms.library.fms.treeview.FmsTreeViewMediatorMemoryResident;
+import com.flywheelms.library.fms.treeview.filter.FmsTreeViewAdapter;
+import com.flywheelms.library.fms.treeview.filter.StrategicPlanningTreeFilter;
+import com.flywheelms.library.fwb.treeview.treebuilder.TreeBuilderStrategicPlanning;
 import com.flywheelms.library.gcg.interfaces.GcgPerspective;
 import com.flywheelms.library.gcg.treeview.GcgTreeViewAdapter;
 import com.flywheelms.library.gcg.treeview.GcgTreeViewMediator;
+import com.flywheelms.library.gcg.treeview.node.GcgTreeNodeInfo;
+
+import java.util.Collection;
 
 public class FwbContextWorkBreakdownPerspective extends FmsPerspectiveFlipperTreeView {
 	
@@ -72,6 +85,8 @@ public class FwbContextWorkBreakdownPerspective extends FmsPerspectiveFlipperTre
 	@Override
 	public void guiPreferencesApply() {
 		// TODO - get rid of this over ride when class is fully implemented - SDS
+//        getTreeViewAdapter().applyShowCollapseToTreeLevel(getShowCollapseToTreeLevel());
+//        getTreeStateMediator().refreshViews();
 	}
 
 	@Override
@@ -84,33 +99,83 @@ public class FwbContextWorkBreakdownPerspective extends FmsPerspectiveFlipperTre
 		return FmsHelpIndex.PERSPECTIVE__CONTEXT__WORK_BREAKDOWN;
 	}
 
-	@Override
-	protected void initRightMenu() {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    protected int getRightMenuHeadingArrayResourceId() {
+        return R.array.context__work_breakdown__right_menu__heading_array;
+    }
+
+    @Override
+    protected int getRightMenuLayoutResourceId() {
+        return R.layout.context__work_breakdown__right_menu;
+    }
 
 	@Override
 	protected GcgTreeViewMediator createGcgTreeViewMediator() {
-		// TODO Auto-generated method stub
-		return null;
+        GcgTreeViewMediator theTreeContentMediator =
+                new FmsTreeViewMediatorMemoryResident(new StrategicPlanningTreeFilter(this));
+        final TreeBuilderStrategicPlanning theTreeBuilder = new TreeBuilderStrategicPlanning(theTreeContentMediator);
+        Collection<Portfolio> thePortfolioCollection = FmmDatabaseMediator.getActiveMediator().getPortfolioList(
+                FmmDatabaseMediator.getActiveMediator().getFmmOwner() );
+        for(Portfolio thePortfolio : thePortfolioCollection) {
+            Collection<Project> theProjectCollection =
+                    FmmDatabaseMediator.getActiveMediator().getProjectList(thePortfolio);
+            GcgTreeNodeInfo thePortfolioTreeNodeInfo = theTreeBuilder.addTopNode(
+                    thePortfolio, theProjectCollection.size()>0, FmmPerspective.WORK_BREAKDOWN );
+            for(Project theProject : theProjectCollection) {
+                Collection<ProjectAsset> theProjectAssetCollection =
+                        FmmDatabaseMediator.getActiveMediator().listProjectAsset(theProject);
+                GcgTreeNodeInfo theProjectTreeNodeInfo = theTreeBuilder.addChildNode(
+                        theProject, theProjectAssetCollection.size()>0, thePortfolioTreeNodeInfo, FmmPerspective.WORK_BREAKDOWN);
+                for(ProjectAsset theProjectAsset : theProjectAssetCollection) {
+                    theTreeBuilder.addLeafNode(
+                            theProjectAsset, theProjectTreeNodeInfo, FmmPerspective.WORK_BREAKDOWN);
+                }
+            }
+        }
+        return theTreeContentMediator;
 	}
 
 	@Override
 	protected PopupMenu getTreeViewBackgroundPopupMenu(View aView, final GcgTreeViewAdapter aTreeViewAdapter) {
-		PopupMenu thePopupMenu = new PopupMenu(getContext(), aView);
-		thePopupMenu.setOnMenuItemClickListener(new OnMenuItemClickListener() {
-			
-			@Override
-			public boolean onMenuItemClick(MenuItem aMenuItem) {
-//				if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__CREATE_FISCAL_YEAR)) {
-//					aTreeViewAdapter.createFiscalYear();
-//				}
-				return true;
-			}
-		});
-//		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_FISCAL_YEAR);
-		return thePopupMenu;
+        PopupMenu thePopupMenu = new PopupMenu(getContext(), aView);
+        // TODO - conditional for API 19 and above
+//		PopupMenu thePopupMenu = new PopupMenu(getContext(), aView, Gravity.CENTER | Gravity,LEFT);  // target API 19
+        thePopupMenu.setOnMenuItemClickListener(new OnMenuItemClickListener() {
+
+            @Override
+            public boolean onMenuItemClick(MenuItem aMenuItem) {
+                if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__CREATE_PORTFOLIO)) {
+                    ((FmsTreeViewAdapter) aTreeViewAdapter).createPortfolio();
+                }
+                return true;
+            }
+        });
+        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_PORTFOLIO);
+        return thePopupMenu;
 	}
+
+    @Override
+    public String getPreferencesBundleNameShowMenu() {
+        return GuiPreferencesBundle.FWB__CONTEXT__WORK_BREAKDOWN__SHOW.getKey();
+    }
+
+    @Override
+    public String getPreferencesBundleNameGovernanceMenu() {
+        return GuiPreferencesBundle.FWB__CONTEXT__WORK_BREAKDOWN__GOVERNANCE.getKey();
+    }
+
+    @Override
+    public String getPreferencesBundleNameWorkStatusMenu() {
+        return GuiPreferencesBundle.FWB__CONTEXT__WORK_BREAKDOWN__WORK_STATUS.getKey();
+    }
+
+    @Override
+    public String getPreferencesBundleNameTeamMenu() {
+        return GuiPreferencesBundle.FWB__CONTEXT__WORK_BREAKDOWN__TEAM.getKey();
+    }
+
+    protected void initWorkStatusMenu() {
+        return;
+    }
 
 }

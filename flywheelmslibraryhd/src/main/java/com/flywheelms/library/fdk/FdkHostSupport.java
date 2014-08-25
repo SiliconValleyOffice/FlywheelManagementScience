@@ -747,13 +747,24 @@ public class FdkHostSupport implements FdkHost {
 	
 	public void dispatchDeleteAll(AlertDialog anAlertDialog) {
 		this.fdkKeyboard.setFirstMultiShiftState();
-		dispatchAltKeyEvent(anAlertDialog, KeyEvent.KEYCODE_DPAD_LEFT);
-		anAlertDialog.dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_SHIFT_LEFT));
-		anAlertDialog.dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_ALT_LEFT));
-		dispatchKeyEventDownUp(anAlertDialog, KeyEvent.KEYCODE_DPAD_RIGHT);
-		anAlertDialog.dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_ALT_LEFT));
-		anAlertDialog.dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_SHIFT_LEFT));
-		dispatchKeyEventDownUp(anAlertDialog, KeyEvent.KEYCODE_DEL);
+//		dispatchAltKeyEvent(anAlertDialog, KeyEvent.KEYCODE_DPAD_LEFT);
+//		anAlertDialog.dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_SHIFT_LEFT));
+//		anAlertDialog.dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_ALT_LEFT));
+//		dispatchKeyEventDownUp(anAlertDialog, KeyEvent.KEYCODE_DPAD_RIGHT);
+//		anAlertDialog.dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_ALT_LEFT));
+//		anAlertDialog.dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_SHIFT_LEFT));
+//		dispatchKeyEventDownUp(anAlertDialog, KeyEvent.KEYCODE_DEL);
+
+        // TODO - HACK ALERT !!!
+        for(int theIndex = 0; theIndex < 500; ++theIndex) {
+            dispatchKeyEventDownUp(anAlertDialog, KeyEvent.KEYCODE_DPAD_LEFT);
+        }
+        anAlertDialog.dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_SHIFT_LEFT));
+        for(int theIndex = 0; theIndex < 500; ++theIndex) {
+            dispatchKeyEventDownUp(anAlertDialog, KeyEvent.KEYCODE_DPAD_RIGHT);
+        }
+        anAlertDialog.dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_SHIFT_LEFT));
+        dispatchKeyEventDownUp(anAlertDialog, KeyEvent.KEYCODE_DEL);
 	}
 
 	public static void dispatchDeleteWord(View aView) {

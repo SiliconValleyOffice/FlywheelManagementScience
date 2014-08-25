@@ -1,4 +1,4 @@
-/* @(#)GcgPerspectiveFlipperTreeView.java
+/* @(#)PortfolioMetaData.java
 ** 
 ** Copyright (C) 2012 by Steven D. Stamps
 **
@@ -41,27 +41,12 @@
 ** <http://www.gnu.org/licenses/gpl-3.0.html>.
 */
 
-package com.flywheelms.library.gcg.viewflipper;
+package com.flywheelms.library.fmm.meta_data;
 
-import android.content.Context;
-import android.util.AttributeSet;
+public class PortfolioMetaData extends HeadlineNodeMetaData {
 
-import com.flywheelms.library.gcg.interfaces.GcgGuiable;
-import com.flywheelms.library.gcg.interfaces.GcgPerspectiveView;
+	public static final String column_ORGANIZATION_ID = "Organization__id";
 
-import java.util.ArrayList;
-
-public abstract class GcgPerspectiveFlipperTreeView extends GcgViewFlipperTreeView implements GcgPerspectiveView {
-	
-	protected ArrayList<GcgGuiable> perspectiveContext = new ArrayList<GcgGuiable>();
-
-	public GcgPerspectiveFlipperTreeView(Context aContext, AttributeSet anAttributeSet) {
-		super(aContext, anAttributeSet);
-	}
-	
-	@Override
-	public ArrayList<GcgGuiable> getPerspectiveContextGuiableList() {
-		return this.perspectiveContext;
-	}
+	public static void init() { return; }
 
 }

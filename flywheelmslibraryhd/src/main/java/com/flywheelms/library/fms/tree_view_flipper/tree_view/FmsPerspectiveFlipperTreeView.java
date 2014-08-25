@@ -43,9 +43,6 @@
 
 package com.flywheelms.library.fms.tree_view_flipper.tree_view;
 
-import java.util.ArrayList;
-import java.util.Collections;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.AttributeSet;
@@ -87,6 +84,9 @@ import com.flywheelms.library.gcg.preferences.GcgPreferencesHelper;
 import com.flywheelms.library.gcg.treeview.GcgTreeViewAdapter;
 import com.flywheelms.library.gcg.treeview.node.GcgTreeNodeInfo;
 import com.flywheelms.library.gcg.viewflipper.GcgPerspectiveFlipperTreeView;
+
+import java.util.ArrayList;
+import java.util.Collections;
 
 public abstract class FmsPerspectiveFlipperTreeView extends GcgPerspectiveFlipperTreeView implements FmsTreeViewParent {
 
@@ -148,8 +148,8 @@ public abstract class FmsPerspectiveFlipperTreeView extends GcgPerspectiveFlippe
 				R.id.work_status__menu_body,
 				R.id.team__menu_body};
 		this.rightMenuLayout = (LinearLayout) inflate(getGcgActivity(), getRightMenuLayoutResourceId(), null);
-		LinearLayout theViewFlipperBody = (LinearLayout) getGcgActivity().findViewById(R.id.gcg_view_flipper__body);
-		theViewFlipperBody.addView(this.rightMenuLayout, new LayoutParams(android.view.ViewGroup.LayoutParams.WRAP_CONTENT, android.view.ViewGroup.LayoutParams.MATCH_PARENT));
+//		LinearLayout theViewFlipperBody = (LinearLayout) getGcgActivity().findViewById(R.id.gcg_view_flipper__body);
+//		theViewFlipperBody.addView(this.rightMenuLayout, new LayoutParams(android.view.ViewGroup.LayoutParams.WRAP_CONTENT, android.view.ViewGroup.LayoutParams.MATCH_PARENT));
 		this.rightSpinnableMenu = new GcgSpinnableMenu(
 				getContext(),
 				this.rightMenuLayout,
@@ -250,7 +250,7 @@ public abstract class FmsPerspectiveFlipperTreeView extends GcgPerspectiveFlippe
 				return true;
 			}
 		});
-		this.showMenuGuiPreferencesButton = (Button) findViewById(R.id.gui_preferences__show);
+		this.showMenuGuiPreferencesButton = (Button) this.rightMenuLayout.findViewById(R.id.gui_preferences__show);
 		this.showMenuGuiPreferencesButton.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -295,7 +295,7 @@ public abstract class FmsPerspectiveFlipperTreeView extends GcgPerspectiveFlippe
 //				getTreeViewAdapter().refresh();
 			}
 		});
-		this.sponsorWidget = (SponsorNicknameWidgetTextView) findViewById(R.id.governance_text__sponsor);
+		this.sponsorWidget = (SponsorNicknameWidgetTextView) this.rightMenuLayout.findViewById(R.id.governance_text__sponsor);
 		this.sponsorWidget.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -316,7 +316,7 @@ public abstract class FmsPerspectiveFlipperTreeView extends GcgPerspectiveFlippe
 //				getTreeViewAdapter().refresh();
 			}
 		});
-		this.facilitatorWidget = (FacilitatorNicknameWidgetTextView) findViewById(R.id.governance_text__facilitator);
+		this.facilitatorWidget = (FacilitatorNicknameWidgetTextView) this.rightMenuLayout.findViewById(R.id.governance_text__facilitator);
 		this.facilitatorWidget.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -337,7 +337,7 @@ public abstract class FmsPerspectiveFlipperTreeView extends GcgPerspectiveFlippe
 //				getTreeViewAdapter().refresh();
 			}
 		});
-		this.customerWidget = (CustomerNicknameWidgetTextView) findViewById(R.id.governance_text__customer);
+		this.customerWidget = (CustomerNicknameWidgetTextView) this.rightMenuLayout.findViewById(R.id.governance_text__customer);
 		this.customerWidget.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -349,7 +349,7 @@ public abstract class FmsPerspectiveFlipperTreeView extends GcgPerspectiveFlippe
 						"Customer" );
 			}
 		});
-		this.governanceMenuGuiPreferencesButton = (Button) findViewById(R.id.gui_preferences__governance);
+		this.governanceMenuGuiPreferencesButton = (Button) this.rightMenuLayout.findViewById(R.id.gui_preferences__governance);
 		this.governanceMenuGuiPreferencesButton.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -444,7 +444,7 @@ public abstract class FmsPerspectiveFlipperTreeView extends GcgPerspectiveFlippe
 				return;
 			}
 		});
-		this.workStatusMenuGuiPreferencesButton = (Button) findViewById(R.id.gui_preferences__work_status);
+		this.workStatusMenuGuiPreferencesButton = (Button) this.rightMenuLayout.findViewById(R.id.gui_preferences__work_status);
 		this.workStatusMenuGuiPreferencesButton.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -543,7 +543,7 @@ public abstract class FmsPerspectiveFlipperTreeView extends GcgPerspectiveFlippe
 				return;
 			}
 		});
-		this.teamMenuGuiPreferencesButton = (Button) findViewById(R.id.gui_preferences__team);
+		this.teamMenuGuiPreferencesButton = (Button) this.rightMenuLayout.findViewById(R.id.gui_preferences__team);
 //		this.teamMenuGuiPreferencesButton.setOnTouchListener(new OnTouchListener() {
 //			
 //			@Override

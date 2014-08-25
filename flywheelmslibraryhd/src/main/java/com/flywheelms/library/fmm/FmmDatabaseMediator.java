@@ -42,12 +42,6 @@
 
 package com.flywheelms.library.fmm;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Date;
-import java.util.HashMap;
-
 import com.flywheelms.library.fca.FlywheelCommunityAuthentication;
 import com.flywheelms.library.fmm.helper.FmmHelper;
 import com.flywheelms.library.fmm.meta_data.CommunityMemberMetaData;
@@ -88,6 +82,7 @@ import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
 import com.flywheelms.library.fmm.node.impl.governable.FlywheelMilestone;
 import com.flywheelms.library.fmm.node.impl.governable.FlywheelTeam;
 import com.flywheelms.library.fmm.node.impl.governable.FmsOrganization;
+import com.flywheelms.library.fmm.node.impl.governable.Portfolio;
 import com.flywheelms.library.fmm.node.impl.governable.Project;
 import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
 import com.flywheelms.library.fmm.node.impl.governable.StrategicMilestone;
@@ -111,6 +106,12 @@ import com.flywheelms.library.fmm.persistence.PersistenceTechnologyDelegate;
 import com.flywheelms.library.fmm.repository.FmmConfiguration;
 import com.flywheelms.library.fse.model.FseDocument;
 import com.flywheelms.library.gcg.widget.date.GcgDateHelper;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Date;
+import java.util.HashMap;
 
 /*
  * An instance of FmmDatabaseMediator is created for each configured Repository Service.
@@ -643,11 +644,31 @@ public class FmmDatabaseMediator {
 		return isSuccess;
 	}
 
-	//////  Node - FISCAL YEAR  ////////////////////////////////////////////////////////////////////////////////
+	//////  Node - PORTFOLIO  ////////////////////////////////////////////////////////////////////////////////
 
-	public ArrayList<FiscalYear> getFiscalYearList(FmsOrganization anOrganization) {
-		return getFiscalYearList(anOrganization, null);
+	public ArrayList<Portfolio> getPortfolioList(FmsOrganization anOrganization) {
+		return getPortfolioList(anOrganization, null);
 	}
+
+    public ArrayList<Portfolio> getPortfolioList(FmsOrganization anOrganization, Portfolio aPortfolioException) {
+        return this.persistenceTechnologyDelegate.dbListPortfolio(anOrganization, aPortfolioException);
+    }
+
+    //////  Node - PROJECT  ////////////////////////////////////////////////////////////////////////////////
+
+    public ArrayList<Project> getProjectList(Portfolio aPortfolio) {
+        return getProjectList(aPortfolio, null);
+    }
+
+    public ArrayList<Project> getProjectList(Portfolio aPortfolio, Project aProjectException) {
+        return this.persistenceTechnologyDelegate.dbListProject(aPortfolio, aProjectException);
+    }
+
+    //////  Node - FISCAL YEAR  ////////////////////////////////////////////////////////////////////////////////
+
+    public ArrayList<FiscalYear> getFiscalYearList(FmsOrganization anOrganization) {
+        return getFiscalYearList(anOrganization, null);
+    }
 
 	public ArrayList<FiscalYear> getFiscalYearList(FmsOrganization anOrganization, FiscalYear aFiscalYearException) {
 		return this.persistenceTechnologyDelegate.dbListFiscalYear(anOrganization, aFiscalYearException);

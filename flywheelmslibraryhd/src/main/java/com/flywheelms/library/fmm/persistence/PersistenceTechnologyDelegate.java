@@ -43,9 +43,6 @@
 
 package com.flywheelms.library.fmm.persistence;
 
-import java.util.ArrayList;
-import java.util.Collection;
-
 import com.flywheelms.library.fmm.node.impl.commitment.StrategicCommitment;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.enumerator.GovernanceRole;
@@ -55,6 +52,7 @@ import com.flywheelms.library.fmm.node.impl.governable.CommunityMember;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
 import com.flywheelms.library.fmm.node.impl.governable.FlywheelTeam;
 import com.flywheelms.library.fmm.node.impl.governable.FmsOrganization;
+import com.flywheelms.library.fmm.node.impl.governable.Portfolio;
 import com.flywheelms.library.fmm.node.impl.governable.Project;
 import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
 import com.flywheelms.library.fmm.node.impl.governable.StrategicMilestone;
@@ -71,6 +69,9 @@ import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragTribKnQuality;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragWorkTaskBudget;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.fmm.repository.FmmConfiguration;
+
+import java.util.ArrayList;
+import java.util.Collection;
 
 public abstract class PersistenceTechnologyDelegate {
 	
@@ -181,6 +182,20 @@ public abstract class PersistenceTechnologyDelegate {
 	public abstract boolean dbDeleteCompletionNodeTrash(CompletionNodeTrash aCompletionNodeTrash, boolean bAtomicTransaction);
 	
 
+	//////  Node - PORTFOLIO  ////////////////////////////////////////////////////////////////////////////////
+
+    public abstract ArrayList<Portfolio> dbListPortfolio(FmsOrganization anOrganization, Portfolio aPortfolioException);
+
+	//////  Node - PROJECT  ////////////////////////////////////////////////////////////////////////////////
+
+    public abstract ArrayList<Project> dbListProject(Portfolio aPortfolio);
+
+    public abstract ArrayList<Project> dbListProject(Portfolio aPortfolio, Project aProjectException);
+
+    public abstract ArrayList<Project> dbListProject(String aPortfolioId);
+
+    public abstract ArrayList<Project> dbListProject(String aPortfolioId, String aProjectExceptionId);
+    
 	//////  Node - FISCAL YEAR  ////////////////////////////////////////////////////////////////////////////////
 
 	public abstract ArrayList<FiscalYear> dbListFiscalYear(FmsOrganization anOrganization, FiscalYear aFiscalYearException);
@@ -637,5 +652,4 @@ public abstract class PersistenceTechnologyDelegate {
 		public abstract boolean dbUpdateWorkTask(WorkTask aWorkTask, boolean bAtomicTransaction);
 		
 		public abstract boolean dbDeleteWorkTask(WorkTask aWorkTask, boolean bAtomicTransaction);
-		
-	}
+}

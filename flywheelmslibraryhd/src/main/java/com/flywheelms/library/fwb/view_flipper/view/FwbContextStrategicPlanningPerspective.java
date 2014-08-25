@@ -43,8 +43,6 @@
 
 package com.flywheelms.library.fwb.view_flipper.view;
 
-import java.util.Collection;
-
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MenuItem;
@@ -71,6 +69,8 @@ import com.flywheelms.library.gcg.treeview.GcgTreeViewAdapter;
 import com.flywheelms.library.gcg.treeview.GcgTreeViewMediator;
 import com.flywheelms.library.gcg.treeview.node.GcgTreeNodeInfo;
 
+import java.util.Collection;
+
 public class FwbContextStrategicPlanningPerspective extends FmsPerspectiveFlipperTreeView {
 
 	@Override
@@ -91,6 +91,16 @@ public class FwbContextStrategicPlanningPerspective extends FmsPerspectiveFlippe
 	protected String getHelpContextUrlString() {
 		return FmsHelpIndex.PERSPECTIVE__CONTEXT__STRATEGIC_PLANNING;
 	}
+
+    @Override
+    protected int getRightMenuHeadingArrayResourceId() {
+        return R.array.context__strategic_planning__right_menu__heading_array;
+    }
+
+    @Override
+    protected int getRightMenuLayoutResourceId() {
+        return R.layout.context__strategic_planning__right_menu;
+    }
 
 	@Override
 	protected GcgTreeViewMediator createGcgTreeViewMediator() {
@@ -155,21 +165,6 @@ public class FwbContextStrategicPlanningPerspective extends FmsPerspectiveFlippe
 	@Override
 	public String getPreferencesBundleNameTeamMenu() {
 		return GuiPreferencesBundle.FWB__CONTEXT__STRATEGIC_PLANNING__TEAM.getKey();
-	}
-
-	@Override
-	protected int getRightMenuHeadingArrayResourceId() {
-		return R.array.context__strategic_planning__right_menu__heading_array;
-	}
-
-//	@Override
-//	protected int getRightMenuHeadingSpinnerResourceId() {
-//		return R.id.strategy__right_menu__heading_spinner;
-//	}
-
-	@Override
-	protected int getRightMenuLayoutResourceId() {
-		return R.layout.context__strategic_planning__right_menu;
 	}
 
 }

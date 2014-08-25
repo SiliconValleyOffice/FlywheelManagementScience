@@ -43,15 +43,6 @@
 
 package com.flywheelms.library.fms.helper;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Hashtable;
-import java.util.Iterator;
-import java.util.Map;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-
 import android.content.ContentUris;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
@@ -74,6 +65,15 @@ import com.flywheelms.library.fse.activity.FseDocumentHistoryBrowserActivity;
 import com.flywheelms.library.gcg.GcgActivity;
 import com.flywheelms.library.gcg.GcgApplication;
 import com.flywheelms.library.gcg.helper.GcgHelper;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.Map;
 
 public class FmsActivityHelper {
 
@@ -210,7 +210,7 @@ public class FmsActivityHelper {
 		theIntent.putExtra(bundle_key__INITIAL_WHERE_CLAUSE, aWhereClause);
 		theIntent.putExtra(bundle_key__NODE_ID_EXLUSION_LIST, aNodeIdExclusionList);
 		theIntent.putExtra(bundle_key__LIST_ACTION_LABEL, aListActionLabel);
-		aParentActivity.startActivityForResult(theIntent, FmmNodeDefinition.COMMUNITY_MEMBER.getNodePickerActivityRequestCode());
+		aParentActivity.startActivityForResult(theIntent, anFmmNodeDefinition.getNodePickerActivityRequestCode());
 	}
 
 	public static void startPdfPublicationWizard(

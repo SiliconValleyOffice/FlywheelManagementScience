@@ -439,6 +439,15 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter {
 		getGcgActivity().startDialog(new FiscalYearDeleteDialog(getGcgActivity(), this, aFiscalYearHeadlineNode));
 	}
 
+    public void createPortfolio() {
+//        this.getGcgActivity().startDialog(new PortfolioCreateDialog(getGcgActivity(), this));
+    }
+
+    // logical validation of this operation was already done in FmmPopupBuilder
+    private void deletePortfolio(FmmHeadlineNode aPortfolioHeadlineNode) {
+//        getGcgActivity().startDialog(new PortfolioDeleteDialog(getGcgActivity(), this, aPortfolioHeadlineNode));
+    }
+
 	// logical validation of this operation was already done in FmmPopupBuilder
 	private void createFmmHeadlineNode(
 			FmmNodeDefinition anFmmNodeDefinition,

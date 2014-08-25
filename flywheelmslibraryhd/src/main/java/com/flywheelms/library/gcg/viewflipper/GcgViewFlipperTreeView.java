@@ -109,9 +109,9 @@ public abstract class GcgViewFlipperTreeView extends GcgViewFlipperView implemen
 	}
 	
 	private void initializeTreeView() {
-		this.treeView = (GcgTreeView) findViewById(R.id.gcg_tree_view);
 		this.treeViewAdapter = newTreeViewAdapter();
-		this.treeView.setAdapter(this.treeViewAdapter);
+//        this.treeView = (GcgTreeView) findViewById(R.id.gcg_tree_view);
+//        this.treeView.setAdapter(this.treeViewAdapter);
 		TextView theTreeViewBackgroundMenuTarget = (TextView) findViewById(R.id.gcg_tree_view__background_menu_target);
 		theTreeViewBackgroundMenuTarget.setOnClickListener(new OnClickListener() {
 			
@@ -206,5 +206,19 @@ public abstract class GcgViewFlipperTreeView extends GcgViewFlipperView implemen
 	public GcgTreeNodeInfo getFirstVisibleTreeNodeInfo() {
 		return this.treeViewAdapter.getVisibleTreeNodeInfo(getFirstPosition());
 	}
+
+    protected void activateView() {
+        super.activateView();
+        this.treeView = (GcgTreeView) findViewById(R.id.gcg_tree_view);
+        this.treeView.setAdapter(this.treeViewAdapter);
+        if(this.rightMenuLayout != null) {
+            LinearLayout theViewFlipperBody = (LinearLayout) getGcgActivity().findViewById(R.id.gcg_view_flipper__body);
+            LinearLayout theExistingTreeViewRightMenu = (LinearLayout) getGcgActivity().findViewById(R.id.tree_view__right_menu);
+            if(theExistingTreeViewRightMenu != null) {
+                theViewFlipperBody.removeView(theExistingTreeViewRightMenu);
+            }
+            theViewFlipperBody.addView(this.rightMenuLayout, new LayoutParams(android.view.ViewGroup.LayoutParams.WRAP_CONTENT, android.view.ViewGroup.LayoutParams.MATCH_PARENT));
+        }
+    }
 
 }

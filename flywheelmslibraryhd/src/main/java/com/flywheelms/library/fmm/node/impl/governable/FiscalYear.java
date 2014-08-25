@@ -43,16 +43,6 @@
 
 package com.flywheelms.library.fmm.node.impl.governable;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import android.content.Intent;
-
 import com.flywheelms.library.deckangl.enumerator.DecKanGlDecoratorCanvasLocation;
 import com.flywheelms.library.deckangl.interfaces.DecKanGlDecorator;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
@@ -70,7 +60,6 @@ import com.flywheelms.library.fmm.deckangl.FmsDecoratorStrategicCommitment;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorWorkTaskBudget;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorWorkTeam;
 import com.flywheelms.library.fmm.meta_data.FiscalYearMetaData;
-import com.flywheelms.library.fmm.meta_data.SequencedLinkNodeMetaData;
 import com.flywheelms.library.fmm.node.FmmHeadlineNodeShallow;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.completable.FmmCompletableNodeImpl;
@@ -81,9 +70,18 @@ import com.flywheelms.library.fms.helper.FmsActivityHelper;
 import com.flywheelms.library.gcg.GcgActivity;
 import com.flywheelms.library.util.JsonHelper;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+
 public class FiscalYear extends FmmCompletableNodeImpl implements Comparable<FiscalYear> {
 	
 	private static final long serialVersionUID = -2661300227094514671L;
+    public static final String SERIALIZATION_FORMAT_VERSION = "0.1";
 	private String organizationNodeIdString;
 	private FmsOrganization organization;
 	private int year = 0;
@@ -115,17 +113,16 @@ public class FiscalYear extends FmmCompletableNodeImpl implements Comparable<Fis
 	@Override
 	public void setSequence(int aSequence) {  /*  N/A  */  }
 	
-	public FiscalYear(String aExistingNodeIdString) {
+	public FiscalYear(String anExistingNodeIdString) {
 		super(NodeId.hydrate(
 				FiscalYear.class,
-				aExistingNodeIdString ));
+				anExistingNodeIdString ));
 	}
 	
 	public FiscalYear(JSONObject aJsonObject) {
 		super(FiscalYear.class, aJsonObject);
 		try {
 			validateSerializationFormatVersion(aJsonObject.getString(JsonHelper.key__SERIALIZATION_FORMAT_VERSION));
-			setSequence(aJsonObject.getInt(SequencedLinkNodeMetaData.column_SEQUENCE));
 			setOrganizationNodeIdString(aJsonObject.getString(FiscalYearMetaData.column_ORGANIZATION_ID));
 			setYear(aJsonObject.getString(FiscalYearMetaData.column_YEAR_NUMBER));
 		} catch (JSONException e) {
@@ -133,6 +130,32 @@ public class FiscalYear extends FmmCompletableNodeImpl implements Comparable<Fis
 			e.printStackTrace();
 		}
 	}
+
+    @Override
+    public JSONObject getJsonObject() {
+        JSONObject theJsonObject = super.getJsonObject();
+        try {
+            theJsonObject.put(JsonHelper.key__SERIALIZATION_FORMAT_VERSION, SERIALIZATION_FORMAT_VERSION);
+            theJsonObject.put(FiscalYearMetaData.column_ORGANIZATION_ID, getOrganizationNodeIdString());
+            theJsonObject.put(FiscalYearMetaData.column_YEAR_NUMBER, getYearString());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return theJsonObject;
+    }
+
+    public JSONArray getStrategicMilestoneNodeIdStringJsonArray() {
+        JSONArray theJsonArray = new JSONArray();
+        for(StrategicMilestone theStrategicMilestone : getStrategicMilestoneList()) {
+            theJsonArray.put(theStrategicMilestone.getNodeIdString());
+        }
+        return theJsonArray;
+    }
+
+    @Override
+    public FiscalYear getClone() {
+        return new FiscalYear(getJsonObject());
+    }
 
 	public void setStrategicMilestoneList(JSONArray aJsonArray) {
 		this.strategicMilestoneList = new ArrayList<StrategicMilestone>();
@@ -240,38 +263,8 @@ public class FiscalYear extends FmmCompletableNodeImpl implements Comparable<Fis
 		return theGreenCount;
 	}
 	
-	public static final String SERIALIZATION_FORMAT_VERSION = "0.1";
-	
-	@Override
-	public JSONObject getJsonObject() {
-		JSONObject theJsonObject = super.getJsonObject();
-		try {
-			theJsonObject.put(JsonHelper.key__SERIALIZATION_FORMAT_VERSION, SERIALIZATION_FORMAT_VERSION);
-			theJsonObject.put(SequencedLinkNodeMetaData.column_SEQUENCE, getSequence());
-			theJsonObject.put(FiscalYearMetaData.column_ORGANIZATION_ID, getOrganizationNodeIdString());
-			theJsonObject.put(FiscalYearMetaData.column_YEAR_NUMBER, getYearString());
-		} catch (JSONException e) {
-			e.printStackTrace();
-		}
-		return theJsonObject;
-	}
-
-	public JSONArray getStrategicMilestoneNodeIdStringJsonArray() {
-		JSONArray theJsonArray = new JSONArray();
-		for(StrategicMilestone theStrategicMilestone : getStrategicMilestoneList()) {
-			theJsonArray.put(theStrategicMilestone.getNodeIdString());
-		}
-		return theJsonArray;
-	}
-
-	@Override
-	public FiscalYear getClone() {
-		return new FiscalYear(getJsonObject());
-	}
-	
-	/////////////////////////////////////////////////
-	//////  TEMPORARY  //////////////////////////
-
+	/////////////////////////////////////////////////////////////////////////
+	//////  TEMPORARY for development scaffolding  //////////////////////////
 	@Override
 	public HashMap<DecKanGlDecoratorCanvasLocation, DecKanGlDecorator> getUpdatedDecKanGlDecoratorMap() {
 		HashMap<DecKanGlDecoratorCanvasLocation, DecKanGlDecorator> theDecKanGlDecoratorMap =
@@ -327,17 +320,18 @@ public class FiscalYear extends FmmCompletableNodeImpl implements Comparable<Fis
 	public static void startNodePickerActivity(GcgActivity anActivity, ArrayList<String> aNodeIdExclusionList, String aWhereClause, String aListActionLabel) {
 		FmsActivityHelper.startHeadlineNodePickerActivity(anActivity, FmmNodeDefinition.FISCAL_YEAR, aNodeIdExclusionList, aWhereClause, aListActionLabel);
 	}
-	
-	public static FiscalYear getFmmConfiguration(Intent anIntent) {
-		return FmmDatabaseMediator.getActiveMediator().getFiscalYear(NodeId.getNodeIdString(anIntent));
-	}
 
-	public int getFlywheelTempo() {
-		return this.flywheelTempo;
-	}
+    // TODO - junk???
+//	public static FiscalYear getFmmConfiguration(Intent anIntent) {
+//		return FmmDatabaseMediator.getActiveMediator().getFiscalYear(NodeId.getNodeIdString(anIntent));
+//	}
 
-	public void setFlywheelTempo(int flywheelTempo) {
-		this.flywheelTempo = flywheelTempo;
-	}
+//	public int getFlywheelTempo() {
+//		return this.flywheelTempo;
+//	}
+//
+//	public void setFlywheelTempo(int flywheelTempo) {
+//		this.flywheelTempo = flywheelTempo;
+//	}
 	
 }

@@ -31,7 +31,8 @@
         <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:paddingRight="4dp" >
+            android:paddingRight="4dp"
+            android:paddingLeft="0dp" >
 
             <RelativeLayout
                 android:id="@+id/show_menu__body"
@@ -226,7 +227,7 @@
                         android:background="@color/RoyalBlue" />
 
                     <CheckBox
-                        android:id="@+id/work_status__strategic_milestone__checkbox"
+                        android:id="@+id/work_status__project__checkbox"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="1dp"
@@ -235,14 +236,14 @@
                         android:textColor="@color/DarkSlateGray" />
 
                     <com.flywheelms.library.fms.widget.spinner.CompletableWorkStatusWidgetSpinner
-                        android:id="@+id/work_status__strategic_milestone__spinner"
+                        android:id="@+id/work_status__project__spinner"
                         android:layout_width="70dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="30dp"
                         gcg:containerLayout="menu_parameter" />
 
                     <TextView
-                        android:id="@+id/work_status_divider__strategic_milestone"
+                        android:id="@+id/work_status_divider__project"
                         android:layout_width="115dp"
                         android:layout_height="1dp"
                         android:layout_marginTop="10dp"

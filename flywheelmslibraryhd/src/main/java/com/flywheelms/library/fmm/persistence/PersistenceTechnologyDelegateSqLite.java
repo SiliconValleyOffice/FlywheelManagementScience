@@ -63,6 +63,7 @@ import com.flywheelms.library.fmm.database.sqlite.dao.NodeFragTribKnQualityDaoSq
 import com.flywheelms.library.fmm.database.sqlite.dao.NodeFragWorkTaskBudgetDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.OrganizationCommunityMemberDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.PdfPublicationDaoSqLite;
+import com.flywheelms.library.fmm.database.sqlite.dao.PortfolioDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.ProjectAssetDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.ProjectDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.StrategicCommitmentDaoSqLite;
@@ -82,6 +83,7 @@ import com.flywheelms.library.fmm.meta_data.NodeFragFseDocumentMetaData;
 import com.flywheelms.library.fmm.meta_data.NodeFragMetaData;
 import com.flywheelms.library.fmm.meta_data.OrganizationCommunityMemberMetaData;
 import com.flywheelms.library.fmm.meta_data.PdfPublicationMetaData;
+import com.flywheelms.library.fmm.meta_data.PortfolioMetaData;
 import com.flywheelms.library.fmm.meta_data.ProjectAssetMetaData;
 import com.flywheelms.library.fmm.meta_data.SequencedLinkNodeMetaData;
 import com.flywheelms.library.fmm.meta_data.StrategicCommitmentMetaData;
@@ -96,6 +98,7 @@ import com.flywheelms.library.fmm.node.impl.governable.CommunityMember;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
 import com.flywheelms.library.fmm.node.impl.governable.FlywheelTeam;
 import com.flywheelms.library.fmm.node.impl.governable.FmsOrganization;
+import com.flywheelms.library.fmm.node.impl.governable.Portfolio;
 import com.flywheelms.library.fmm.node.impl.governable.Project;
 import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
 import com.flywheelms.library.fmm.node.impl.governable.StrategicMilestone;
@@ -888,9 +891,58 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
     	return deleteRowFromSimpleIdTable(aCompletionNodeTrash.getNodeIdString(), FmmNodeDefinition.COMPLETION_NODE_TRASH, bAtomicTransaction);
 	}
 
-	
-	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	//////  Node - FISCAL YEAR  /////////////////////////////////////////////////////////////////////////////////////
+
+
+
+    //////  Node - PORTFOLIO  ////////////////////////////////////////////////////////////////////////////////
+
+    @SuppressWarnings("resource")
+    @Override
+    public ArrayList<Portfolio> dbListPortfolio(FmsOrganization anOrganization, Portfolio aPortfolioException) {
+        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.FISCAL_YEAR.getName() +
+                " WHERE " + PortfolioMetaData.column_ORGANIZATION_ID + " = '" + anOrganization.getNodeIdString() + "'";
+        if(aPortfolioException != null) {
+            theRawQuery += " AND " + IdNodeMetaData.column_ID + " != '" + aPortfolioException.getNodeIdString() + "'";
+        }
+        theRawQuery += " ORDER BY " + HeadlineNodeMetaData.column_HEADLINE;
+        Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
+        return PortfolioDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
+    }
+
+    //////  Node - PROJECT  ////////////////////////////////////////////////////////////////////////////////
+
+    @Override
+    public ArrayList<Project> dbListProject(Portfolio aPortfolio) {
+        return dbListProject(aPortfolio.getNodeIdString(), null);
+    }
+
+    @Override
+    public ArrayList<Project> dbListProject(Portfolio aPortfolio, Project aProjectException) {
+        return dbListProject(aPortfolio.getNodeIdString(), aProjectException == null ? null : aProjectException.getNodeIdString());
+    }
+
+    @Override
+    public ArrayList<Project> dbListProject(String aPortfolioId) {
+        return dbListProject(aPortfolioId, null);
+    }
+
+    @SuppressWarnings("resource")
+    @Override
+    public ArrayList<Project> dbListProject(String aPortfolioId, String aProjectExceptionId) {
+//        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.STRATEGIC_MILESTONE.getName() +
+//                " WHERE " + ProjectMetaData.column_PORTFOLIO_ID + " = '" + aPortfolioId + "'";
+//        if(aProjectExceptionId != null) {
+//            theRawQuery += " AND " + IdNodeMetaData.column_ID + " != '" + aProjectExceptionId + "'";
+//        }
+//        theRawQuery += " ORDER BY " + CompletableNodeMetaData.column_SEQUENCE + " ASC";
+//        Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
+//        return ProjectDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
+        return new ArrayList<Project>();
+    }
+
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////  Node - FISCAL YEAR  /////////////////////////////////////////////////////////////////////////////////////
 
 	@SuppressWarnings("resource")
 	@Override
