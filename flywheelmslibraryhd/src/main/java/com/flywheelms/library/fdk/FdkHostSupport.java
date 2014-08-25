@@ -43,9 +43,6 @@
 
 package com.flywheelms.library.fdk;
 
-import java.util.ArrayList;
-import java.util.Locale;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.bluetooth.BluetoothAdapter;
@@ -78,6 +75,9 @@ import com.flywheelms.library.gcg.GcgApplication;
 import com.flywheelms.library.gcg.helper.GcgHelper;
 import com.flywheelms.library.gcg.interfaces.GcgGuiable;
 import com.flywheelms.library.gcg.widget.GcgWidgetSpinner;
+
+import java.util.ArrayList;
+import java.util.Locale;
 
 public class FdkHostSupport implements FdkHost {
 
@@ -706,13 +706,43 @@ public class FdkHostSupport implements FdkHost {
 
 	public void dispatchDeleteAll(Activity anActivity) {
 		this.fdkKeyboard.setFirstMultiShiftState();
-		dispatchAltKeyEvent(anActivity, KeyEvent.KEYCODE_DPAD_LEFT);
-		anActivity.dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_SHIFT_LEFT));
-		anActivity.dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_ALT_LEFT));
-		dispatchKeyEventDownUp(anActivity, KeyEvent.KEYCODE_DPAD_RIGHT);
-		anActivity.dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_ALT_LEFT));
-		anActivity.dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_SHIFT_LEFT));
-		dispatchKeyEventDownUp(anActivity, KeyEvent.KEYCODE_DEL);
+        // TODO - why doesn't option 1 or 2 work ???
+        // Option 1
+//        anActivity.dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_ALT_LEFT));
+//        dispatchKeyEventDownUp(anActivity, KeyEvent.KEYCODE_DPAD_LEFT);
+//        anActivity.dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_SHIFT_LEFT));
+//        dispatchKeyEventDownUp(anActivity, KeyEvent.KEYCODE_DPAD_RIGHT);
+//        anActivity.dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_SHIFT_LEFT));
+//        anActivity.dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_ALT_LEFT));
+//        dispatchKeyEventDownUp(anActivity, KeyEvent.KEYCODE_DEL);
+        // Option 2
+//        anActivity.dispatchKeyEvent(new KeyEvent(0, 0,
+//                KeyEvent.ACTION_DOWN,
+//                KeyEvent.KEYCODE_DPAD_LEFT, 0,
+//                KeyEvent.META_ALT_ON) );
+//        anActivity.dispatchKeyEvent(new KeyEvent(0, 0,
+//                KeyEvent.ACTION_UP,
+//                KeyEvent.KEYCODE_DPAD_LEFT, 0,
+//                KeyEvent.META_ALT_ON) );
+//        anActivity.dispatchKeyEvent(new KeyEvent(0, 0,
+//                KeyEvent.ACTION_DOWN,
+//                KeyEvent.KEYCODE_DPAD_RIGHT, 0,
+//                KeyEvent.META_SHIFT_ON|KeyEvent.META_ALT_ON) );
+//        anActivity.dispatchKeyEvent(new KeyEvent(0, 0,
+//                KeyEvent.ACTION_UP,
+//                KeyEvent.KEYCODE_DPAD_RIGHT, 0,
+//                KeyEvent.META_SHIFT_ON|KeyEvent.META_ALT_ON) );
+//        dispatchKeyEventDownUp(anActivity, KeyEvent.KEYCODE_DEL);
+        // TODO - HACK ALERT !!!
+        for(int theIndex = 0; theIndex < 500; ++theIndex) {
+            dispatchKeyEventDownUp(anActivity, KeyEvent.KEYCODE_DPAD_LEFT);
+        }
+        anActivity.dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_SHIFT_LEFT));
+        for(int theIndex = 0; theIndex < 500; ++theIndex) {
+            dispatchKeyEventDownUp(anActivity, KeyEvent.KEYCODE_DPAD_RIGHT);
+        }
+        anActivity.dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_SHIFT_LEFT));
+        dispatchKeyEventDownUp(anActivity, KeyEvent.KEYCODE_DEL);
 	}
 	
 	public void dispatchDeleteAll(AlertDialog anAlertDialog) {
