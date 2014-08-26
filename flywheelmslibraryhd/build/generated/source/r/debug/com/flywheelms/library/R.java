@@ -1622,9 +1622,9 @@ containing a value of this type.
         public static int fmm_repository__scope__private=0x7f020311;
         public static int fmm_repository__scope__shared=0x7f020312;
         public static int fmm_repository__scope__team=0x7f020313;
-        public static int fms__dialog__fiscal_year__32=0x7f020314;
-        public static int fms__dialog__project_asset__move=0x7f020315;
-        public static int fms__dialog__strategic_milestone__32=0x7f020316;
+        public static int fms_dialog__fiscal_year =0x7f020314;
+        public static int fms_dialog__project_asset__move =0x7f020315;
+        public static int fms_dialog__strategic_milestone =0x7f020316;
         public static int fms__project_asset__32=0x7f020317;
         public static int fms__strategic_milestone__32=0x7f020318;
         public static int fms__tree_view__node_summary__transparent_spacer=0x7f020319;

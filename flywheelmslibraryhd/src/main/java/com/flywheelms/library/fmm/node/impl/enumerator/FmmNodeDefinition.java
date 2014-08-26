@@ -43,12 +43,6 @@
 
 package com.flywheelms.library.fmm.node.impl.enumerator;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Hashtable;
-
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 
@@ -116,6 +110,12 @@ import com.flywheelms.library.fse.model.FseDocumentTransaction;
 import com.flywheelms.library.fse.model.FseDocumentTransactionType;
 import com.flywheelms.library.fse.model.FseParagraph;
 import com.flywheelms.library.gcg.GcgApplication;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Hashtable;
 
 public enum FmmNodeDefinition implements FmmEnumNode {
 
@@ -324,7 +324,7 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     		R.drawable.fmm_noun__fiscal_year__gray,
     		0,
     		R.drawable.fms_activity__fiscal_year,
-    		R.drawable.fms__dialog__fiscal_year__32,
+    		R.drawable.fms_dialog__fiscal_year,
     		new HashMap<FmmNodeGlyphType, Integer>(),
     		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // tiny drawables
     		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // small drawables
@@ -799,8 +799,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     		R.string.fmm_node_definition__portfolio__label_text,
     		R.drawable.fmm_noun__portfolio__gray,
     		0,
-    		R.drawable.gcg__unspecified_glyph,
-    		R.drawable.gcg__unspecified_glyph,
+            R.drawable.fms_activity__portfolio,
+            R.drawable.fms_dialog__portfolio,
     		new HashMap<FmmNodeGlyphType, Integer>(),
     		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // tiny drawables
     		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // small drawables
@@ -1118,10 +1118,12 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 					FmmNodeDefinition.FLYWHEEL_TEAM,
 					FmmNodeDefinition.FISCAL_YEAR,
 					FmmNodeDefinition.STRATEGIC_MILESTONE,
+					FmmNodeDefinition.PORTFOLIO,
 					FmmNodeDefinition.PROJECT,
 					FmmNodeDefinition.PROJECT_ASSET,
 					FmmNodeDefinition.STRATEGIC_COMMITMENT,
-					FmmNodeDefinition.WORK_PACKAGE ) );
+					FmmNodeDefinition.WORK_PACKAGE,
+                    FmmNodeDefinition.WORK_TASK) );
 	
 	private static final HashMap<String, FmmNodeDefinition> NODE_TYPE_CODE_MAP = new HashMap<String, FmmNodeDefinition>();
 	static {
