@@ -58,7 +58,7 @@ import com.flywheelms.library.gcg.GcgActivity;
 import com.flywheelms.library.gcg.helper.GcgHelper;
 import com.flywheelms.library.gcg.treeview.GcgTreeViewAdapter;
 
-public class PortfolioCreateDialog extends FmsCancelOkApplyDialog {
+public class PortfolioCreateDialog extends FmsCancelOkApplyFdkDialog {
 
 	GcgTreeViewAdapter treeViewAdapter;
 	protected FmmNodeTypeWidgetTextView fmmNodeTypeWidget;
@@ -68,6 +68,9 @@ public class PortfolioCreateDialog extends FmsCancelOkApplyDialog {
 	public PortfolioCreateDialog(GcgActivity aLibraryActivity, GcgTreeViewAdapter aTreeViewAdapter) {
 		super(aLibraryActivity, FmmNodeDefinition.PORTFOLIO);
 		this.treeViewAdapter = aTreeViewAdapter;
+        initializeDialogBodyLate();
+        initFdkHostSupport();
+        manageButtonState();
 	}
 
 	@Override
@@ -76,12 +79,16 @@ public class PortfolioCreateDialog extends FmsCancelOkApplyDialog {
 	}
 
     @Override
-    protected int getDialogBodyLayoutResourceId() {
+    protected int getCustomDialogContentsResourceId() {
         return R.layout.portfolio__create__dialog;
     }
 
-	@Override
-	protected void initializeDialogBody() {
+    @Override
+    protected void initializeDialogBody() {
+        return;
+    }
+
+    protected void initializeDialogBodyLate() {
 		super.initializeDialogBody();
 		this.fmmNodeTypeWidget = (FmmNodeTypeWidgetTextView) this.dialogBodyView.findViewById(R.id.fmm_node__type);
 		this.fmmNodeTypeWidget.setText(this.fmmNodeDefinition.getLabelTextResourceId());
@@ -108,6 +115,9 @@ public class PortfolioCreateDialog extends FmsCancelOkApplyDialog {
 
 	@Override
 	protected void manageButtonState() {
+        if(this.buttonApply == null) {  // to support late initialization
+            return;
+        }
         this.buttonApply.setVisibility(isMinimumInput() ? View.VISIBLE : View.INVISIBLE);
         this.buttonOk.setVisibility(isMinimumInput() ? View.VISIBLE : View.INVISIBLE);
 	}
@@ -140,4 +150,10 @@ public class PortfolioCreateDialog extends FmsCancelOkApplyDialog {
 		this.gcgActivity.stopDialog();
 	}
 
+    @Override
+    public void initFdkDictationResultsConsumerMap() {
+        addFdkDictationResultsConsumer(this.headlineWidget);
+        this.currentFdkDictationResultsConsumer = this.headlineWidget;
+        fdkFocusConsumer(this.currentFdkDictationResultsConsumer);
+    }
 }

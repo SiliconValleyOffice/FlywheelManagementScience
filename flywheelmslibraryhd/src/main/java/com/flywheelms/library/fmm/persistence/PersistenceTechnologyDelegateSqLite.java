@@ -902,7 +902,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
         if(aPortfolioException != null) {
             theRawQuery += " AND " + IdNodeMetaData.column_ID + " != '" + aPortfolioException.getNodeIdString() + "'";
         }
-        theRawQuery += " ORDER BY " + HeadlineNodeMetaData.column_HEADLINE;
+        theRawQuery += " ORDER BY LOWER(" + HeadlineNodeMetaData.column_HEADLINE + ") ASC";
         Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
         return PortfolioDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
     }

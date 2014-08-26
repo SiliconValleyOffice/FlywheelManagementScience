@@ -180,7 +180,7 @@ public class HeadlineNodeCreateDialog extends FmsCancelOkApplyFdkDialog {
 
 	@Override
 	protected void manageButtonState() {
-		if(this.buttonOk == null) {
+		if(this.buttonOk == null) {  // to support late initialization
 			return;
 		}
 		this.buttonOk.setVisibility(this.headlineWidget.isMinimumInput() ? View.VISIBLE : View.INVISIBLE);
