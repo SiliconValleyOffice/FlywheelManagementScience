@@ -108,4 +108,42 @@ public class FmmHeadlineNodePopupMenu extends PopupMenu {
 		});
 	}
 
+    public FmmHeadlineNodePopupMenu(
+            FmmHeadlineNodePopupListener aNodePopupListener,
+            final View aView,
+            FmmHeadlineNode aHeadlineNode,
+            FmmHeadlineNode aParentHeadlineNode,
+            final GcgTreeNodeInfo aLaunchTreeNodeInfo,
+            int aLaunchNodeChildNodeCount ) {
+        super(aView.getContext(), aView);
+        this.launchHeadlineNode = aHeadlineNode;
+        this.parentHeadlineNode = aParentHeadlineNode;
+        this.launchTreeNodeInfo = aLaunchTreeNodeInfo;
+        this.launchNodeSequence = 0;
+        this.launchNodeChildCount = aLaunchNodeChildNodeCount;
+        this.fmmNodePopupListener = aNodePopupListener;
+        this.setOnMenuItemClickListener(new OnMenuItemClickListener() {
+
+            @Override
+            public boolean onMenuItemClick(MenuItem aMenuItem) {
+                FmmHeadlineNodePopupMenu.this.fmmNodePopupListener.onPopupMenuItemClick(
+                        aView,
+                        aMenuItem,
+                        FmmHeadlineNodePopupMenu.this.launchHeadlineNode,
+                        FmmHeadlineNodePopupMenu.this.parentHeadlineNode,
+                        FmmHeadlineNodePopupMenu.this.launchTreeNodeInfo,
+                        FmmHeadlineNodePopupMenu.this.launchNodeSequence,
+                        FmmHeadlineNodePopupMenu.this.launchNodeChildCount );
+                return true;
+            }
+        });
+        this.setOnDismissListener(new OnDismissListener() {
+
+            @Override
+            public void onDismiss(PopupMenu menu) {
+                FmmHeadlineNodePopupMenu.this.fmmNodePopupListener.resetRowBackground(aView);
+            }
+        });
+    }
+
 }

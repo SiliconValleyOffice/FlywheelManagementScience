@@ -129,11 +129,19 @@ public class FmmPopupBuilder {
 		FmmHeadlineNode theParentHeadlineNode = (FmmHeadlineNode) aParentTreeNodeInfo.getTargetObject();
 		switch (theLaunchHeadlineNode.getFmmNodeDefinition()) {
 		case FISCAL_YEAR:
-			return createFiscalYearPopupMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, aLauncNodeSequence, aLaunchNodeChildCount);
+			return createFiscalYearPopupMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, aLaunchNodeChildCount);
 		case PROJECT_ASSET:
 			return createProjectAssetPopupMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, bCanMove, bCanOrphan, bCanSequenceDown, bCanSequenceUp, aLauncNodeSequence, aLaunchNodeChildCount);
 		case STRATEGIC_MILESTONE:
 			return createStrategicMilestonePopupMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, bCanMove, bCanOrphan, bCanSequenceDown, bCanSequenceUp, aLauncNodeSequence, aLaunchNodeChildCount);
+        case PORTFOLIO:
+            return createPortfolioPopupMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, aLaunchNodeChildCount);
+        case PROJECT:
+            return createProjectPopupMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, bCanMove, bCanOrphan, bCanSequenceDown, bCanSequenceUp, aLauncNodeSequence, aLaunchNodeChildCount);
+        case WORK_PACKAGE:
+            return createWorkPackagePopupMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, bCanMove, bCanOrphan, bCanSequenceDown, bCanSequenceUp, aLauncNodeSequence, aLaunchNodeChildCount);
+        case WORK_TASK:
+            return createWorkTaskPopupMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, bCanMove, bCanOrphan, bCanSequenceDown, bCanSequenceUp, aLauncNodeSequence, aLaunchNodeChildCount);
 		default:
 			return null;
 		}
@@ -146,10 +154,9 @@ public class FmmPopupBuilder {
 			FmmHeadlineNode aParentHeadlineNode,
 			View aView,
 			boolean bCanDelete,
-			int aLaunchNodeSequence,
 			int aLaunchNodeChildCount ) {
 		FmmHeadlineNodePopupMenu thePopupMenu = new FmmHeadlineNodePopupMenu(
-				aNodePopupListener, aView, aLaunchHeadlineNode, aParentHeadlineNode, aLaunchTreeNodeInfo, aLaunchNodeSequence, aLaunchNodeChildCount );
+				aNodePopupListener, aView, aLaunchHeadlineNode, aParentHeadlineNode, aLaunchTreeNodeInfo, aLaunchNodeChildCount );
 		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_FISCAL_YEAR);
 		if(bCanDelete) {
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__DELETE_FISCAL_YEAR);
@@ -194,6 +201,26 @@ public class FmmPopupBuilder {
 		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__ADOPT_ORPHAN_PROJECT_ASSET);
 		return thePopupMenu;
 	}
+
+    private static PopupMenu createPortfolioPopupMenu(
+            FmmHeadlineNodePopupListener aNodePopupListener,
+            GcgTreeNodeInfo aLaunchTreeNodeInfo,
+            FmmHeadlineNode aLaunchHeadlineNode,
+            FmmHeadlineNode aParentHeadlineNode,
+            View aView,
+            boolean bCanDelete,
+            int aLaunchNodeChildCount ) {
+        FmmHeadlineNodePopupMenu thePopupMenu = new FmmHeadlineNodePopupMenu(
+                aNodePopupListener, aView, aLaunchHeadlineNode, aParentHeadlineNode, aLaunchTreeNodeInfo, aLaunchNodeChildCount );
+        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_PORTFOLIO);
+        if(bCanDelete) {
+            thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__DELETE_PORTFOLIO);
+        }
+        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_HEADLINE);
+        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_PROJECT);
+        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__ADOPT_ORPHAN_PROJECT);
+        return thePopupMenu;
+    }
 
 	private static PopupMenu createProjectPopupMenu(
 			FmmHeadlineNodePopupListener aNodePopupListener,
