@@ -907,6 +907,12 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
         return PortfolioDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
     }
 
+    @Override
+    public boolean dbInsertPortfolio(Portfolio aPortfolio, boolean bAtomicTransaction) {
+        return insertSimpleIdTable(
+                aPortfolio, PortfolioDaoSqLite.getInstance(), bAtomicTransaction);
+    }
+
 
     //////  Node - PROJECT  ////////////////////////////////////////////////////////////////////////////////
 

@@ -130,7 +130,12 @@ public abstract class FmsDialog {
 
 	protected abstract int getDialogTitleStringResourceId();
 
-	protected abstract int getDialogTitleIconResourceId();
+    protected int getDialogTitleIconResourceId() {
+        if(this.fmmNodeDefinition != null) {
+            return this.fmmNodeDefinition.getDialogDrawableResourceId();
+        }
+        return 0;
+    }
 
 	protected View inflateDialogBody(int aLayoutResourceId) {
 		LayoutInflater theLayoutInflater = LayoutInflater.from(this.gcgActivity);

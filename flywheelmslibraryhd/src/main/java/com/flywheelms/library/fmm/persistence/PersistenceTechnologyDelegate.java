@@ -186,6 +186,8 @@ public abstract class PersistenceTechnologyDelegate {
 
     public abstract ArrayList<Portfolio> dbListPortfolio(FmsOrganization anOrganization, Portfolio aPortfolioException);
 
+    public abstract boolean dbInsertPortfolio(Portfolio aPortfolio, boolean bAtomicTransaction);
+
 	//////  Node - PROJECT  ////////////////////////////////////////////////////////////////////////////////
 
     public abstract ArrayList<Project> dbListProject(Portfolio aPortfolio);

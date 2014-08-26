@@ -654,6 +654,28 @@ public class FmmDatabaseMediator {
         return this.persistenceTechnologyDelegate.dbListPortfolio(anOrganization, aPortfolioException);
     }
 
+    public Portfolio createPortfolio(String aHeadline) {
+        Portfolio thePortfoliPortfolio = new Portfolio(
+                new NodeId(FmmNodeDefinition.PORTFOLIO.getNodeTypeCode()),
+                aHeadline,
+                FmmDatabaseMediator.getActiveMediator().getFmmOwner() );
+        return FmmDatabaseMediator.getActiveMediator().newPortfolio(thePortfoliPortfolio, true) ?
+                thePortfoliPortfolio : null;
+    }
+
+    public boolean newPortfolio(Portfolio aPortfolio, boolean bAtomicTransaction) {
+        if(bAtomicTransaction) {
+            startTransaction();
+        }
+        boolean isSuccess = this.persistenceTechnologyDelegate.dbInsertPortfolio(aPortfolio, bAtomicTransaction) &&
+                newCompletionNode(aPortfolio) &&
+                newNodeFragTribKnQuality(aPortfolio) != null;
+        if(bAtomicTransaction) {
+            endTransaction(isSuccess);
+        }
+        return isSuccess;
+    }
+
     //////  Node - PROJECT  ////////////////////////////////////////////////////////////////////////////////
 
     public ArrayList<Project> getProjectList(Portfolio aPortfolio) {
@@ -2166,5 +2188,4 @@ public class FmmDatabaseMediator {
 		}
 		return isSuccess;
 	}
-
 }

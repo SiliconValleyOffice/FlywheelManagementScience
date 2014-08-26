@@ -66,6 +66,7 @@ import com.flywheelms.library.fms.dialog.FiscalYearCreateDialog;
 import com.flywheelms.library.fms.dialog.FiscalYearDeleteDialog;
 import com.flywheelms.library.fms.dialog.HeadlineNodeCreateDialog;
 import com.flywheelms.library.fms.dialog.HeadlineNodeHeadlineEditDialog;
+import com.flywheelms.library.fms.dialog.PortfolioCreateDialog;
 import com.flywheelms.library.fms.dialog.ProjectAssetAdoptOrphanWorkPackageDialog;
 import com.flywheelms.library.fms.dialog.ProjectAssetDeleteDialog;
 import com.flywheelms.library.fms.dialog.ProjectAssetMoveDialog;
@@ -349,15 +350,24 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter {
 					aLaunchNodeCount );
 		} else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__DELETE_STRATEGIC_MILESTONE)) {
 			deleteStrategicMilestone(aLaunchHeadlineNode);
-		} else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__EDIT_STRATEGIC_MILESTONE_TARGET_DATE)) {
-			editStrategicMilestoneTargetDate(aLaunchHeadlineNode);
+        } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__EDIT_STRATEGIC_MILESTONE_TARGET_DATE)) {
+            editStrategicMilestoneTargetDate(aLaunchHeadlineNode);
+        } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__CREATE_PORTFOLIO)) {
+            createFmmHeadlineNode(
+                    FmmNodeDefinition.PORTFOLIO,
+                    aLaunchHeadlineNode,
+                    aParentHeadlineNode,
+                    aLaunchNodeSequence,
+                    aLaunchNodeCount);
+        } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__DELETE_PORTFOLIO)) {
+            deletePortfolio(aLaunchHeadlineNode);
 		} else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__CREATE_PROJECT_ASSET)) {
 			createFmmHeadlineNode(
-					FmmNodeDefinition.PROJECT_ASSET,
-					aLaunchHeadlineNode,
-					aParentHeadlineNode,
-					aLaunchNodeSequence,
-					aLaunchNodeCount );
+                    FmmNodeDefinition.PROJECT_ASSET,
+                    aLaunchHeadlineNode,
+                    aParentHeadlineNode,
+                    aLaunchNodeSequence,
+                    aLaunchNodeCount);
 		} else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__DELETE_PROJECT_ASSET)) {
 			deleteProjectAsset(aLaunchHeadlineNode);
 		} else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__ORPHAN_PROJECT_ASSET)) {
@@ -366,11 +376,11 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter {
 			adoptOrphanProjectAsset(aLaunchHeadlineNode);
 		} else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__CREATE_WORK_PACKAGE)) {
 			createFmmHeadlineNode(
-					FmmNodeDefinition.WORK_PACKAGE,
-					aLaunchHeadlineNode,
-					aParentHeadlineNode,
-					aLaunchNodeSequence,
-					aLaunchNodeCount );
+                    FmmNodeDefinition.WORK_PACKAGE,
+                    aLaunchHeadlineNode,
+                    aParentHeadlineNode,
+                    aLaunchNodeSequence,
+                    aLaunchNodeCount);
 		} else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__DELETE_WORK_PACKAGE)) {
 			deleteWorkPackage(aLaunchHeadlineNode);
 		} else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__ADOPT_ORPHAN_WORK_PACKAGE)) {
@@ -440,7 +450,7 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter {
 	}
 
     public void createPortfolio() {
-//        this.getGcgActivity().startDialog(new PortfolioCreateDialog(getGcgActivity(), this));
+        this.getGcgActivity().startDialog(new PortfolioCreateDialog(getGcgActivity(), this));
     }
 
     // logical validation of this operation was already done in FmmPopupBuilder

@@ -98,15 +98,10 @@ public class HeadlineNodeCreateDialog extends FmsCancelOkApplyFdkDialog {
 		manageButtonState();
 	}
 
-	@Override
-	protected int getDialogTitleStringResourceId() {
-		return R.string.fms__create;
-	}
-
-	@Override
-	protected int getDialogTitleIconResourceId() {
-		return this.fmmNodeDefinition.getDialogDrawableResourceId();
-	}
+    @Override
+    protected int getDialogTitleStringResourceId() {
+        return R.string.fms__create;
+    }
 
 	@Override
 	protected int getCustomDialogContentsResourceId() {
@@ -127,16 +122,13 @@ public class HeadlineNodeCreateDialog extends FmsCancelOkApplyFdkDialog {
 
 			@Override
 			public void onTextChanged(CharSequence s, int start, int before, int count) {
-				// TODO Auto-generated method stub
-
-			}
+                return;
+            }
 
 			@Override
-			public void beforeTextChanged(CharSequence s, int start, int count,
-					int after) {
-				// TODO Auto-generated method stub
-
-			}
+			public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                return;
+            }
 
 			@Override
 			public void afterTextChanged(Editable s) {

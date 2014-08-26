@@ -1,4 +1,4 @@
-/* @(#)FiscalYearCreateDialog.java
+/* @(#)PortfolioCreateDialog.java
 ** 
 ** Copyright (C) 2012 by Steven D. Stamps
 **
@@ -43,28 +43,30 @@
 
 package com.flywheelms.library.fms.dialog;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.CheckBox;
 
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
-import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
-import com.flywheelms.library.fms.widget.spinner.FiscalYearForCreateWidgetSpinner;
+import com.flywheelms.library.fmm.node.impl.governable.Portfolio;
+import com.flywheelms.library.fms.widget.edit_text.HeadlineWidgetEditText;
 import com.flywheelms.library.fms.widget.text_view.FmmNodeTypeWidgetTextView;
 import com.flywheelms.library.gcg.GcgActivity;
 import com.flywheelms.library.gcg.helper.GcgHelper;
 import com.flywheelms.library.gcg.treeview.GcgTreeViewAdapter;
 
-public class FiscalYearCreateDialog extends FmsCancelOkApplyDialog {
+public class PortfolioCreateDialog extends FmsCancelOkApplyDialog {
 
 	GcgTreeViewAdapter treeViewAdapter;
 	protected FmmNodeTypeWidgetTextView fmmNodeTypeWidget;
-	protected FiscalYearForCreateWidgetSpinner fiscalYearWidget;
-	protected CheckBox editNewFiscalYear;
+    protected HeadlineWidgetEditText headlineWidget;
+	protected CheckBox editNewPortfolio;
 
-	public FiscalYearCreateDialog(GcgActivity aLibraryActivity, GcgTreeViewAdapter aTreeViewAdapter) {
-		super(aLibraryActivity, FmmNodeDefinition.FISCAL_YEAR);
+	public PortfolioCreateDialog(GcgActivity aLibraryActivity, GcgTreeViewAdapter aTreeViewAdapter) {
+		super(aLibraryActivity, FmmNodeDefinition.PORTFOLIO);
 		this.treeViewAdapter = aTreeViewAdapter;
 	}
 
@@ -75,7 +77,7 @@ public class FiscalYearCreateDialog extends FmsCancelOkApplyDialog {
 
     @Override
     protected int getDialogBodyLayoutResourceId() {
-        return R.layout.fiscal_year__create__dialog;
+        return R.layout.portfolio__create__dialog;
     }
 
 	@Override
@@ -83,47 +85,58 @@ public class FiscalYearCreateDialog extends FmsCancelOkApplyDialog {
 		super.initializeDialogBody();
 		this.fmmNodeTypeWidget = (FmmNodeTypeWidgetTextView) this.dialogBodyView.findViewById(R.id.fmm_node__type);
 		this.fmmNodeTypeWidget.setText(this.fmmNodeDefinition.getLabelTextResourceId());
-		this.fiscalYearWidget = (FiscalYearForCreateWidgetSpinner) this.dialogBodyView.findViewById(R.id.fiscal_year);
-		this.editNewFiscalYear = (CheckBox) this.dialogBodyView.findViewById(R.id.edit_new_fiscal_year);
+        this.headlineWidget = (HeadlineWidgetEditText) this.dialogBodyView.findViewById(R.id.headline);
+        this.headlineWidget.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                return;
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                return;
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                PortfolioCreateDialog.this.manageButtonState();
+            }
+        });
+		this.editNewPortfolio = (CheckBox) this.dialogBodyView.findViewById(R.id.edit_new_portfolio);
 	}
 
 	@Override
 	protected void manageButtonState() {
-		this.buttonApply.setVisibility(isMinimumInput() ? View.VISIBLE : View.INVISIBLE);
-		this.buttonOk.setVisibility(isMinimumInput() ? View.VISIBLE : View.INVISIBLE);
+        this.buttonApply.setVisibility(isMinimumInput() ? View.VISIBLE : View.INVISIBLE);
+        this.buttonOk.setVisibility(isMinimumInput() ? View.VISIBLE : View.INVISIBLE);
 	}
 
 	protected boolean isMinimumInput() {
-		return this.fiscalYearWidget.getCount() > 0;
+        return this.headlineWidget.isMinimumInput();
 	}
 
 	@Override
 	protected void onClickButtonApply() {
-		FiscalYear theFiscalYear =
-				FmmDatabaseMediator.getActiveMediator().createFiscalYear(this.fiscalYearWidget.getData().getDataText());
-		if(theFiscalYear != null) {
-			this.treeViewAdapter.addNewHeadlineNode(theFiscalYear);
-			GcgHelper.makeToast(this.fmmNodeTypeWidget.getText() + " created: " + this.fiscalYearWidget.getData().getDataText());
-			this.fiscalYearWidget.removeCurrentSpinnerSelection();
-			manageButtonState();
-		} else {
-			GcgHelper.makeToast("ERROR:  Unable to create " + this.fmmNodeTypeWidget.getText() + " " + this.fiscalYearWidget.getData().getDataText());
-		}
+        createPortfolio();
+        this.headlineWidget.setText("");
 	}
 
-	@Override
+    private void createPortfolio() {
+        Portfolio thePortfolio =
+                FmmDatabaseMediator.getActiveMediator().createPortfolio(this.headlineWidget.getData());
+        if(thePortfolio != null) {
+            this.treeViewAdapter.addNewHeadlineNode(thePortfolio);
+            GcgHelper.makeToast(this.fmmNodeTypeWidget.getText() + " created: " + this.headlineWidget.getData());
+            manageButtonState();
+        } else {
+            GcgHelper.makeToast("ERROR:  Unable to create " + this.fmmNodeTypeWidget.getText() + " " + this.headlineWidget.getData());
+        }
+    }
+
+    @Override
 	protected void onClickButtonOk() {
-		FiscalYear theFiscalYear =
-				FmmDatabaseMediator.getActiveMediator().createFiscalYear(this.fiscalYearWidget.getData().getDataText()); 
-		if(theFiscalYear != null) {
-			this.treeViewAdapter = this.treeViewAdapter.addNewHeadlineNode(theFiscalYear);
-			GcgHelper.makeToast(this.fmmNodeTypeWidget.getText() + " created: " + this.fiscalYearWidget.getData().getDataText());
-			if(this.editNewFiscalYear.isChecked()) {
-				this.treeViewAdapter.editTreeNode(theFiscalYear);
-			}
-		} else {
-			GcgHelper.makeToast("ERROR:  Unable to create " + this.fmmNodeTypeWidget.getText() + " " + this.fiscalYearWidget.getData().getDataText());
-		}
+        createPortfolio();
 		this.gcgActivity.stopDialog();
 	}
 
