@@ -86,21 +86,18 @@ public class Portfolio extends FmmCompletableNodeImpl {
     private FmsOrganization organization;
     private ArrayList<Project> projectList;
 
-    // create a new Fiscal Year
     public Portfolio(String anExistingNodeIdString) {
         super(NodeId.hydrate(
-                FiscalYear.class,
+                Portfolio.class,
                 anExistingNodeIdString));
     }
 
-    // create a new Fiscal Year
     public Portfolio(NodeId aNodeId, String aHeadline, String anOrganizationNodeIdString) {
         super(aNodeId);
         setHeadline(aHeadline);
         setOrganizationNodeIdString(anOrganizationNodeIdString);
     }
 
-    // create a new Fiscal Year
     public Portfolio(NodeId aNodeId, String aHeadline, FmsOrganization anOrganization) {
         super(aNodeId);
         setHeadline(aHeadline);

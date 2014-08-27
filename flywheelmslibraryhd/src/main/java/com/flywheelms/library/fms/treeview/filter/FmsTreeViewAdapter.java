@@ -67,6 +67,7 @@ import com.flywheelms.library.fms.dialog.FiscalYearDeleteDialog;
 import com.flywheelms.library.fms.dialog.HeadlineNodeCreateDialog;
 import com.flywheelms.library.fms.dialog.HeadlineNodeHeadlineEditDialog;
 import com.flywheelms.library.fms.dialog.PortfolioCreateDialog;
+import com.flywheelms.library.fms.dialog.PortfolioDeleteDialog;
 import com.flywheelms.library.fms.dialog.ProjectAssetAdoptOrphanWorkPackageDialog;
 import com.flywheelms.library.fms.dialog.ProjectAssetDeleteDialog;
 import com.flywheelms.library.fms.dialog.ProjectAssetMoveDialog;
@@ -353,12 +354,7 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter {
         } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__EDIT_STRATEGIC_MILESTONE_TARGET_DATE)) {
             editStrategicMilestoneTargetDate(aLaunchHeadlineNode);
         } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__CREATE_PORTFOLIO)) {
-            createFmmHeadlineNode(
-                    FmmNodeDefinition.PORTFOLIO,
-                    aLaunchHeadlineNode,
-                    aParentHeadlineNode,
-                    aLaunchNodeSequence,
-                    aLaunchNodeCount);
+            createPortfolio();
         } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__DELETE_PORTFOLIO)) {
             deletePortfolio(aLaunchHeadlineNode);
 		} else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__CREATE_PROJECT_ASSET)) {
@@ -455,7 +451,7 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter {
 
     // logical validation of this operation was already done in FmmPopupBuilder
     private void deletePortfolio(FmmHeadlineNode aPortfolioHeadlineNode) {
-//        getGcgActivity().startDialog(new PortfolioDeleteDialog(getGcgActivity(), this, aPortfolioHeadlineNode));
+        getGcgActivity().startDialog(new PortfolioDeleteDialog(getGcgActivity(), this, aPortfolioHeadlineNode));
     }
 
 	// logical validation of this operation was already done in FmmPopupBuilder

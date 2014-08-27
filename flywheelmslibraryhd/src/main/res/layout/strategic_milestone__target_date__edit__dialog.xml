@@ -78,6 +78,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="6dp"
+                android:layout_marginBottom="15dp"
                 gcg:noLabel="true" />
         </RadioGroup>
 
@@ -86,7 +87,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="15dp"
             android:text="Enable Reverse Planning" />
     </com.flywheelms.library.gcg.container.GcgContainerGroupBoxLinear>
 

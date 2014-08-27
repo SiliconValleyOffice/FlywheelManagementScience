@@ -105,6 +105,7 @@ import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.fmm.persistence.PersistenceTechnologyDelegate;
 import com.flywheelms.library.fmm.repository.FmmConfiguration;
 import com.flywheelms.library.fse.model.FseDocument;
+import com.flywheelms.library.gcg.interfaces.GcgGuiable;
 import com.flywheelms.library.gcg.widget.date.GcgDateHelper;
 
 import java.util.ArrayList;
@@ -654,6 +655,14 @@ public class FmmDatabaseMediator {
         return this.persistenceTechnologyDelegate.dbListPortfolio(anOrganization, aPortfolioException);
     }
 
+    public ArrayList<? extends GcgGuiable> listPortfolioForProjectAssetMoveTarget(FmsOrganization anFmsOrganization, Project aProjectException) {
+        return this.persistenceTechnologyDelegate.dbListPortfolioForProjectAssetMoveTarget(anFmsOrganization, aProjectException);
+    }
+
+    public ArrayList<? extends GcgGuiable> listPortfolioForWorkPackageMoveTarget(FmsOrganization anFmsOrganization, ProjectAsset aProjectAssetException) {
+        return this.persistenceTechnologyDelegate.dbListPortfolioForWorkPackageMoveTarget(anFmsOrganization, aProjectAssetException);
+    }
+
     public Portfolio createPortfolio(String aHeadline) {
         Portfolio thePortfoliPortfolio = new Portfolio(
                 new NodeId(FmmNodeDefinition.PORTFOLIO.getNodeTypeCode()),
@@ -674,6 +683,26 @@ public class FmmDatabaseMediator {
             endTransaction(isSuccess);
         }
         return isSuccess;
+    }
+
+    public boolean deletePortfolio(Portfolio aPortfolio, boolean bAtomicTransaction) {
+            if(bAtomicTransaction) {
+                startTransaction();
+            }
+            deleteCompletableNode(aPortfolio);
+            boolean isSuccess = this.persistenceTechnologyDelegate.dbDeletePortfolio(aPortfolio, false);
+            if(bAtomicTransaction) {
+                endTransaction(isSuccess);
+            }
+            return isSuccess;
+        }
+
+    public boolean deleteProjectsForPortfolio(String nodeIdString, boolean b) {
+        return true;
+    }
+
+    public boolean moveAllProjectsToPortfolio(String nodeIdString, String nodeIdString1, boolean b) {
+        return true;
     }
 
     //////  Node - PROJECT  ////////////////////////////////////////////////////////////////////////////////
@@ -2188,4 +2217,5 @@ public class FmmDatabaseMediator {
 		}
 		return isSuccess;
 	}
+
 }

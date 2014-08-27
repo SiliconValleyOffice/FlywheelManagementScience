@@ -2248,7 +2248,7 @@ containing a value of this type.
         public static int action__revert=0x7f0702c4;
         public static int activity_name__data=0x7f07027b;
         public static int activity_status_indicator=0x7f0702c2;
-        public static int adoption_candidate__spinner=0x7f0702a6;
+        public static int adoption_candidate__spinner=0x7f0702a7;
         public static int android_contacts__widget=0x7f070051;
         public static int annotated_deckangl=0x7f070059;
         public static int audit_block__created_by__data=0x7f070148;
@@ -2286,7 +2286,7 @@ containing a value of this type.
         public static int choice__month_end=0x7f0702b2;
         public static int choice__move=0x7f0700ac;
         public static int choice__no_target_date=0x7f0702b1;
-        public static int choice__orphan=0x7f0702a7;
+        public static int choice__orphan=0x7f0702a5;
         public static int choice__specific_date=0x7f0702b4;
         public static int clip_horizontal=0x7f07000b;
         public static int clip_vertical=0x7f07000a;
@@ -2637,7 +2637,7 @@ containing a value of this type.
         public static int governance_text__customer=0x7f07001d;
         public static int governance_text__facilitator=0x7f07001a;
         public static int governance_text__sponsor=0x7f070017;
-        public static int group_box__adoption_candidate=0x7f0702a5;
+        public static int group_box__adoption_candidate=0x7f0702a6;
         public static int group_box__facilitator=0x7f070270;
         public static int group_box__left=0x7f07003d;
         public static int group_box__parent_node=0x7f0700b5;
@@ -3244,18 +3244,19 @@ containing a value of this type.
         public static int perspective__right_menu__service=0x7f0300af;
         public static int perspective__right_menu__strategy=0x7f0300b0;
         public static int portfolio__create__dialog=0x7f0300b1;
-        public static int project_asset__adoption_into__strategic_milestone=0x7f0300b2;
-        public static int project_asset__disposition=0x7f0300b3;
-        public static int project_asset__move=0x7f0300b4;
-        public static int save_changes_dialog=0x7f0300b5;
-        public static int spinnable_menu__heading__left=0x7f0300b6;
-        public static int spinnable_menu__heading__right=0x7f0300b7;
-        public static int story__zoom_panel=0x7f0300b8;
-        public static int strategic_milestone__disposition=0x7f0300b9;
-        public static int strategic_milestone__move=0x7f0300ba;
-        public static int strategic_milestone__target_date__edit__dialog=0x7f0300bb;
-        public static int work_package__adoption_into__project_asset=0x7f0300bc;
-        public static int work_package__disposition=0x7f0300bd;
+        public static int project__disposition=0x7f0300b2;
+        public static int project_asset__adoption_into__strategic_milestone=0x7f0300b3;
+        public static int project_asset__disposition=0x7f0300b4;
+        public static int project_asset__move=0x7f0300b5;
+        public static int save_changes_dialog=0x7f0300b6;
+        public static int spinnable_menu__heading__left=0x7f0300b7;
+        public static int spinnable_menu__heading__right=0x7f0300b8;
+        public static int story__zoom_panel=0x7f0300b9;
+        public static int strategic_milestone__disposition=0x7f0300ba;
+        public static int strategic_milestone__move=0x7f0300bb;
+        public static int strategic_milestone__target_date__edit__dialog=0x7f0300bc;
+        public static int work_package__adoption_into__project_asset=0x7f0300bd;
+        public static int work_package__disposition=0x7f0300be;
     }
     public static final class menu {
         public static int activity_main=0x7f0c0000;

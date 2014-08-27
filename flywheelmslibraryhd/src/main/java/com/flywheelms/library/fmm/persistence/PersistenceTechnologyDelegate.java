@@ -184,9 +184,21 @@ public abstract class PersistenceTechnologyDelegate {
 
 	//////  Node - PORTFOLIO  ////////////////////////////////////////////////////////////////////////////////
 
+    public abstract ArrayList<Portfolio> dbListPortfolio(FmsOrganization anOrganization);
+
     public abstract ArrayList<Portfolio> dbListPortfolio(FmsOrganization anOrganization, Portfolio aPortfolioException);
 
     public abstract boolean dbInsertPortfolio(Portfolio aPortfolio, boolean bAtomicTransaction);
+
+    public abstract int dbCountPortfolioForProjectAssetMoveTarget(FmsOrganization anFmsOrganization, Project aProjectException);
+
+    public abstract ArrayList<Portfolio> dbListPortfolioForProjectAssetMoveTarget(FmsOrganization anFmsOrganization, Project aProjectException);
+
+    public abstract int dbCountPortfolioForWorkPackageMoveTarget(FmsOrganization anFmsOrganization, ProjectAsset aProjectAssetException);
+
+    public abstract ArrayList<Portfolio> dbListPortfolioForWorkPackageMoveTarget(FmsOrganization anFmsOrganization, ProjectAsset aProjectAssetException);
+
+    public abstract boolean dbDeletePortfolio(Portfolio aPortfolio, boolean bAtomicTransaction);
 
 	//////  Node - PROJECT  ////////////////////////////////////////////////////////////////////////////////
 
@@ -654,4 +666,5 @@ public abstract class PersistenceTechnologyDelegate {
 		public abstract boolean dbUpdateWorkTask(WorkTask aWorkTask, boolean bAtomicTransaction);
 		
 		public abstract boolean dbDeleteWorkTask(WorkTask aWorkTask, boolean bAtomicTransaction);
+
 }

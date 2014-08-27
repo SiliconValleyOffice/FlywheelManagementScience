@@ -247,4 +247,7 @@ public class GcgDateHelper {
 		return getMonth(getCurrentDateTime());
 	}
 
+    public static int getDayOfYear(Date aDate) {
+        return Integer.decode(new SimpleDateFormat("D", Locale.US).format(aDate));
+    }
 }

@@ -43,8 +43,6 @@
 
 package com.flywheelms.library.fms.widget.spinner;
 
-import java.util.ArrayList;
-
 import android.content.Context;
 import android.util.AttributeSet;
 
@@ -56,6 +54,8 @@ import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
 import com.flywheelms.library.fmm.node.impl.governable.StrategicMilestone;
 import com.flywheelms.library.fms.widget.FmmHeadlineNodeWidgetSpinner;
 import com.flywheelms.library.gcg.interfaces.GcgGuiable;
+
+import java.util.ArrayList;
 
 public class FiscalYearWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 	
@@ -72,11 +72,6 @@ public class FiscalYearWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 	@Override
 	protected String getLabelText() {
 		return FmmNodeDefinition.FISCAL_YEAR.getLabelText();
-	}
-
-	@Override
-	public void setup() {
-		super.setup();
 	}
 
 	// filter_id__PRIMARY_PARENT
@@ -101,8 +96,7 @@ public class FiscalYearWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 		return FmmDatabaseMediator.getActiveMediator().getFiscalYearList(
 				FmmDatabaseMediator.getActiveMediator().getFmmOwner(), this.fiscalYearException );
 	}
-	
-	// filter_id__PRIMARY_PARENT__PRIMARY_CHILD__PRIMARY_CHILD__MOVE_TARGET
+
 	public void updateSpinnerData(StrategicMilestone aStrategicMilestoneException) {
 		this.strategicMilestoneException = aStrategicMilestoneException;
 		super.updateSpinnerData();

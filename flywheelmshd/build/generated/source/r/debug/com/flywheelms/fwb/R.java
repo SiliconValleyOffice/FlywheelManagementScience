@@ -2293,7 +2293,7 @@ containing a value of this type.
         public static final int action__switch_fmm_repository=0x7f070308;
         public static final int activity_name__data=0x7f07027c;
         public static final int activity_status_indicator=0x7f070303;
-        public static final int adoption_candidate__spinner=0x7f0702a9;
+        public static final int adoption_candidate__spinner=0x7f0702aa;
         public static final int android_contacts__widget=0x7f070051;
         public static final int annotated_deckangl=0x7f070059;
         public static final int audit_block__created_by__data=0x7f070149;
@@ -2331,7 +2331,7 @@ containing a value of this type.
         public static final int choice__month_end=0x7f0702b5;
         public static final int choice__move=0x7f0700ad;
         public static final int choice__no_target_date=0x7f0702b4;
-        public static final int choice__orphan=0x7f0702aa;
+        public static final int choice__orphan=0x7f0702a8;
         public static final int choice__specific_date=0x7f0702b7;
         public static final int clip_horizontal=0x7f07000b;
         public static final int clip_vertical=0x7f07000a;
@@ -2722,7 +2722,7 @@ containing a value of this type.
         public static final int governance_text__customer=0x7f07001d;
         public static final int governance_text__facilitator=0x7f07001a;
         public static final int governance_text__sponsor=0x7f070017;
-        public static final int group_box__adoption_candidate=0x7f0702a8;
+        public static final int group_box__adoption_candidate=0x7f0702a9;
         public static final int group_box__facilitator=0x7f070271;
         public static final int group_box__left=0x7f07003d;
         public static final int group_box__parent_node=0x7f0700b6;
@@ -3358,20 +3358,21 @@ containing a value of this type.
         public static final int perspective__right_menu__service=0x7f0300b3;
         public static final int perspective__right_menu__strategy=0x7f0300b4;
         public static final int portfolio__create__dialog=0x7f0300b5;
-        public static final int project_asset__adoption_into__strategic_milestone=0x7f0300b6;
-        public static final int project_asset__disposition=0x7f0300b7;
-        public static final int project_asset__move=0x7f0300b8;
-        public static final int save_changes_dialog=0x7f0300b9;
-        public static final int spinnable_menu__heading__left=0x7f0300ba;
-        public static final int spinnable_menu__heading__right=0x7f0300bb;
-        public static final int story__zoom_panel=0x7f0300bc;
-        public static final int strategic_milestone__disposition=0x7f0300bd;
-        public static final int strategic_milestone__move=0x7f0300be;
-        public static final int strategic_milestone__target_date__edit__dialog=0x7f0300bf;
-        public static final int work_package__adoption_into__project_asset=0x7f0300c0;
-        public static final int work_package__disposition=0x7f0300c1;
-        public static final int workbench__frame_spinner__layout=0x7f0300c2;
-        public static final int workbench__left_thumbpad=0x7f0300c3;
+        public static final int project__disposition=0x7f0300b6;
+        public static final int project_asset__adoption_into__strategic_milestone=0x7f0300b7;
+        public static final int project_asset__disposition=0x7f0300b8;
+        public static final int project_asset__move=0x7f0300b9;
+        public static final int save_changes_dialog=0x7f0300ba;
+        public static final int spinnable_menu__heading__left=0x7f0300bb;
+        public static final int spinnable_menu__heading__right=0x7f0300bc;
+        public static final int story__zoom_panel=0x7f0300bd;
+        public static final int strategic_milestone__disposition=0x7f0300be;
+        public static final int strategic_milestone__move=0x7f0300bf;
+        public static final int strategic_milestone__target_date__edit__dialog=0x7f0300c0;
+        public static final int work_package__adoption_into__project_asset=0x7f0300c1;
+        public static final int work_package__disposition=0x7f0300c2;
+        public static final int workbench__frame_spinner__layout=0x7f0300c3;
+        public static final int workbench__left_thumbpad=0x7f0300c4;
     }
     public static final class menu {
         public static final int activity_main=0x7f0c0000;

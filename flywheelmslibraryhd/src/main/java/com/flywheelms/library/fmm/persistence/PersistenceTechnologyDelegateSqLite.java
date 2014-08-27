@@ -894,6 +894,11 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
     //////  Node - PORTFOLIO  ////////////////////////////////////////////////////////////////////////////////
 
+    @Override
+    public ArrayList<Portfolio> dbListPortfolio(FmsOrganization anOrganization) {
+        return dbListPortfolio(anOrganization, null);
+    }
+
     @SuppressWarnings("resource")
     @Override
     public ArrayList<Portfolio> dbListPortfolio(FmsOrganization anOrganization, Portfolio aPortfolioException) {
@@ -911,6 +916,49 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
     public boolean dbInsertPortfolio(Portfolio aPortfolio, boolean bAtomicTransaction) {
         return insertSimpleIdTable(
                 aPortfolio, PortfolioDaoSqLite.getInstance(), bAtomicTransaction);
+    }
+
+    // TODO - should use MOVE_TARGET view and not include confirmed or proposed completions
+    @Override
+    public int dbCountPortfolioForProjectAssetMoveTarget(FmsOrganization anFmsOrganization, Project aProjectException) {
+//        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.FISCAL_YEAR.getName() +
+//                " WHERE " + FiscalYearMetaData.column_ORGANIZATION_ID + " = '" + anOrganization.getNodeIdString() + "'";
+//        if(aFiscalYearException != null) {
+//            theRawQuery += " AND " + IdNodeMetaData.column_ID + " != '" + aFiscalYearException.getNodeIdString() + "'";
+//        }
+//        theRawQuery += " ORDER BY " + FiscalYearMetaData.column_YEAR_NUMBER;
+//        return countRows(theRawQuery);
+        return dbListPortfolio(anFmsOrganization).size();
+    }
+
+    // TODO - should use MOVE_TARGET view and not include confirmed or proposed completions
+    @SuppressWarnings("resource")
+    @Override
+    public ArrayList<Portfolio> dbListPortfolioForProjectAssetMoveTarget(FmsOrganization anFmsOrganization, Project aProjectException) {
+//        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.PORTFOLIO.getName() +
+//                " WHERE " + PortfolioMetaData.column_ORGANIZATION_ID + " = '" + anOrganization.getNodeIdString() + "'";
+//        if(aProjectException != null) {
+//            theRawQuery += " AND " + IdNodeMetaData.column_ID + " != '" + aPortfolioException.getNodeIdString() + "'";
+//        }
+//        theRawQuery += " ORDER BY LOWER(" + HeadlineNodeMetaData.column_HEADLINE + ") ASC";
+//        Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
+//        return PortfolioDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
+        return dbListPortfolio(anFmsOrganization);
+    }
+
+    @Override
+    public int dbCountPortfolioForWorkPackageMoveTarget(FmsOrganization anFmsOrganization, ProjectAsset aProjectAssetException) {
+        return dbListPortfolio(anFmsOrganization).size();
+    }
+
+    @Override
+    public ArrayList<Portfolio> dbListPortfolioForWorkPackageMoveTarget(FmsOrganization anFmsOrganization, ProjectAsset aProjectAssetException) {
+        return dbListPortfolio(anFmsOrganization);
+    }
+
+    @Override
+    public boolean dbDeletePortfolio(Portfolio aPortfolio, boolean bAtomicTransaction) {
+        return deleteRowFromSimpleIdTable(aPortfolio.getNodeIdString(), FmmNodeDefinition.PORTFOLIO, bAtomicTransaction);
     }
 
 

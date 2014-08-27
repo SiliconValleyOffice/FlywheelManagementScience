@@ -67,6 +67,8 @@ import com.flywheelms.library.gcg.widget.date.GcgDateHelper;
 import com.flywheelms.library.gcg.widget.date.GcgWidgetDatePicker;
 import com.flywheelms.library.gcg.widget.date.GcgWidgetMonthSpinner;
 
+import java.util.Date;
+
 public class StrategicMilestoneTargetDateEditDialog extends FmsCancelOkDialog {
 
 	private StrategicMilestone strategicMilestone;
@@ -132,7 +134,8 @@ public class StrategicMilestoneTargetDateEditDialog extends FmsCancelOkDialog {
 		this.headlineWidget = (HeadlineWidgetTextView) this.dialogBodyView.findViewById(R.id.headline);
 		this.headlineWidget.setText(this.headlineNode.getHeadline());
 		this.originalTargetDateString = (TargetDateWidgetTextView) this.dialogBodyView.findViewById(R.id.original_target_date);
-		this.originalTargetDateString.setText(this.strategicMilestone.getTargetDateString());
+		this.originalTargetDateString.setText(this.strategicMilestone.getTargetDateString().length() == 0 ?
+            "No target date" : this.strategicMilestone.getTargetDateString() );
 		this.monthSpinner = (GcgWidgetMonthSpinner) this.dialogBodyView.findViewById(R.id.gcg__month__spinner);
 		this.datePicker = (GcgWidgetDatePicker) this.dialogBodyView.findViewById(R.id.gcg__date_chooser);
 		this.datePicker.setGcgActivity(this.gcgActivity);
@@ -146,12 +149,12 @@ public class StrategicMilestoneTargetDateEditDialog extends FmsCancelOkDialog {
 		this.datePicker.setEnabled(false);
 		this.enableReversePlanningCheckBox = (CheckBox) this.dialogBodyView.findViewById(R.id.enable_reverse_planning);
 		this.enableReversePlanningCheckBox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-			
-			@Override
-			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-					StrategicMilestoneTargetDateEditDialog.this.updateReversePlanningOptions();
-			}
-		});
+
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                StrategicMilestoneTargetDateEditDialog.this.updateReversePlanningOptions();
+            }
+        });
 		this.noTargetDateChoice = (RadioButton) this.dialogBodyView.findViewById(R.id.choice__no_target_date);
         this.noTargetDateChoice.setOnCheckedChangeListener(new OnCheckedChangeListener() {
             @Override
@@ -173,17 +176,17 @@ public class StrategicMilestoneTargetDateEditDialog extends FmsCancelOkDialog {
 		});
 		this.specificDateChoice = (RadioButton) this.dialogBodyView.findViewById(R.id.choice__specific_date);
 		this.specificDateChoice.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-			
-			@Override
-			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-				if(isChecked) {
-					StrategicMilestoneTargetDateEditDialog.this.monthSpinner.setEnabled(false);
-					StrategicMilestoneTargetDateEditDialog.this.datePicker.setEnabled(true);
-					StrategicMilestoneTargetDateEditDialog.this.buttonOk.setVisibility(
-							StrategicMilestoneTargetDateEditDialog.this.datePicker.isMinimumInput() ? View.VISIBLE : View.INVISIBLE );
-				}
-			}
-		});
+
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    StrategicMilestoneTargetDateEditDialog.this.monthSpinner.setEnabled(false);
+                    StrategicMilestoneTargetDateEditDialog.this.datePicker.setEnabled(true);
+                    StrategicMilestoneTargetDateEditDialog.this.buttonOk.setVisibility(
+                            StrategicMilestoneTargetDateEditDialog.this.datePicker.isMinimumInput() ? View.VISIBLE : View.INVISIBLE);
+                }
+            }
+        });
         updateReversePlanningOptions();
 		if(this.strategicMilestone.getTargetMonthEnd() != 0) {
 			this.monthSpinner.setClosestMonthSelection(this.strategicMilestone.getTargetMonthEnd());
@@ -192,7 +195,11 @@ public class StrategicMilestoneTargetDateEditDialog extends FmsCancelOkDialog {
 			this.datePicker.setEnabled(true);
 			this.specificDateChoice.setChecked(true);
 		}
-        this.enableReversePlanningCheckBox.setChecked(this.strategicMilestone.targetIsReversePlanning());
+        if(this.strategicMilestone.getFiscalYear().getYearAsInt() > GcgDateHelper.getCurrentYear()) {
+            this.enableReversePlanningCheckBox.setVisibility(View.GONE);
+        } else {
+            this.enableReversePlanningCheckBox.setChecked(this.strategicMilestone.targetIsReversePlanning());
+        }
 		manageButtonState();
 	}
 
@@ -240,7 +247,7 @@ public class StrategicMilestoneTargetDateEditDialog extends FmsCancelOkDialog {
 			this.strategicMilestone.setTargetMonthEnd(0);
 			this.strategicMilestone.setTargetDate(this.datePicker.getSelectedDate());
 		}
-        this.strategicMilestone.setTargetIsReversePlanning(this.enableReversePlanningCheckBox.isChecked());
+        this.strategicMilestone.setTargetIsReversePlanning(correctedReversePlanning());
 		if(FmmDatabaseMediator.getActiveMediator().updateTargetDate(this.strategicMilestone, true)) {
 			if(this.treeViewAdapter != null) {
 				this.treeViewAdapter.updateSecondaryHeadline(this.strategicMilestone.getTargetDateString());
@@ -252,8 +259,23 @@ public class StrategicMilestoneTargetDateEditDialog extends FmsCancelOkDialog {
 			GcgHelper.makeToast("ERROR:  Unable to update target date for " + this.fmmNodeTypeWidget.getText() + " " + this.headlineNode.getHeadline());
 		}
 	}
-	
-	@Override
+
+    private boolean correctedReversePlanning() {  // to correct for a GUI corner case
+        boolean isReallyReversePlanning = false;
+        if(! this.enableReversePlanningCheckBox.isChecked()) {
+            return isReallyReversePlanning;
+        }
+        if(this.monthEndChoice.isChecked()) {
+            isReallyReversePlanning = this.monthSpinner.getSelectedMonthNumber() < GcgDateHelper.getCurrentMonth();
+        } else {
+            int theDayOfYearToday = GcgDateHelper.getDayOfYear(new Date());
+            int theTargetDayOfYear = GcgDateHelper.getDayOfYear(this.datePicker.getSelectedDate());
+            isReallyReversePlanning = theTargetDayOfYear < theDayOfYearToday;
+        }
+        return isReallyReversePlanning;
+    }
+
+    @Override
 	public void onWidgetDataChangeListener(@SuppressWarnings("unused") int aResourceId) {
 		manageButtonState();
 	}
