@@ -147,6 +147,26 @@ public class FwbContextStrategicPlanningPerspective extends FmsPerspectiveFlippe
 		return thePopupMenu;
 	}
 
+    @Override
+    public boolean startButtonEnabled() {
+        return true;
+    }
+
+    @Override
+    protected int getStartButtonBackgroundResourceId() {
+        return R.drawable.fms__button_state_list__start__fiscal_year;
+    }
+
+    @Override
+    protected void initializeStartButtonListener() {
+        this.startButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View aView) {
+                ((FmsTreeViewAdapter) FwbContextStrategicPlanningPerspective.this.getGcgTreeViewAdapter()).createFiscalYear();
+            }
+        });
+    }
+
 	@Override
 	public String getPreferencesBundleNameShowMenu() {
 		return GuiPreferencesBundle.FWB__CONTEXT__STRATEGIC_PLANNING__SHOW.getKey();

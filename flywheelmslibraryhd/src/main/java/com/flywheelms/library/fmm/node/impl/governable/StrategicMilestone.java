@@ -331,7 +331,7 @@ public class StrategicMilestone extends FmmCompletableNodeImpl implements Compar
 		if(this.targetMonthEnd != 0) {
             theString = GcgMonth.getMonthForNumber(this.targetMonthEnd).getMonthName() + " month end";
         } else if(this.targetDate != GcgDateHelper.NULL_DATE) {
-            theString = GcgDateHelper.getGuiDateString3(this.targetDate);
+            theString = GcgDateHelper.getGuiDateString4(this.targetDate);
         }
         if(theString != null) {
             if(this.targetIsReversePlanning) {

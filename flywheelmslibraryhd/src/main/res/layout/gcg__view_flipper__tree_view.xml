@@ -31,12 +31,28 @@
             android:smoothScrollbar="true"
             treeView:indicator_gravity="right|center_vertical" />
 
-        <TextView
-            android:id="@+id/gcg_tree_view__background_menu_target"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1.0"
-            tools:ignore="NestedWeights" />
+            android:gravity="center_horizontal|center_vertical"
+            tools:ignore="NestedWeights"
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/gcg__start_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/gcg__button_state_list__start"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/gcg_tree_view__background_menu_target"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
 
     </LinearLayout>
 

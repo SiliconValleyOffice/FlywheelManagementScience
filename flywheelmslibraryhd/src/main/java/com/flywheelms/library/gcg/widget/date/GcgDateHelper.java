@@ -66,6 +66,7 @@ public class GcgDateHelper {
 	private static SimpleDateFormat simpleDateFormatGui_1 = new SimpleDateFormat("yyyy-LLL-dd  HH:mm  z", Locale.US);
 	private static SimpleDateFormat simpleDateFormatGui_2 = new SimpleDateFormat("EEE  LLL dd  yyyy  HH:mm  z", Locale.US);
 	private static SimpleDateFormat simpleDateFormatGui_3 = new SimpleDateFormat("EEEE, d LLL yyyy", Locale.US);
+	private static SimpleDateFormat simpleDateFormatGui_4 = new SimpleDateFormat("EEEE, LLL d", Locale.US);
 	private static SimpleDateFormat yearFormat = new SimpleDateFormat("yyyy", Locale.US);
 	private static SimpleDateFormat monthFormat = new SimpleDateFormat("M", Locale.US);
 	private static SimpleDateFormat dayFormat = new SimpleDateFormat("dd", Locale.US);
@@ -168,6 +169,13 @@ public class GcgDateHelper {
 		}
 		return simpleDateFormatGui_3.format(aDate);
 	}
+
+    public static String getGuiDateString4(Date aDate) {
+        if(aDate == null || aDate.equals(NULL_DATE)) {
+            return "";
+        }
+        return simpleDateFormatGui_4.format(aDate);
+    }
 
 	public static int getYear(Date aDate) {
 		if(aDate == null) {

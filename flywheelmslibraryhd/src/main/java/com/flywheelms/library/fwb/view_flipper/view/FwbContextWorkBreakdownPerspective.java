@@ -155,6 +155,26 @@ public class FwbContextWorkBreakdownPerspective extends FmsPerspectiveFlipperTre
 	}
 
     @Override
+    public boolean startButtonEnabled() {
+        return true;
+    }
+
+    @Override
+    protected int getStartButtonBackgroundResourceId() {
+        return R.drawable.fms__button_state_list__start__portfolio;
+    }
+
+    @Override
+    protected void initializeStartButtonListener() {
+        this.startButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View aView) {
+                ((FmsTreeViewAdapter) FwbContextWorkBreakdownPerspective.this.getGcgTreeViewAdapter()).createPortfolio();
+            }
+        });
+    }
+
+    @Override
     public String getPreferencesBundleNameShowMenu() {
         return GuiPreferencesBundle.FWB__CONTEXT__WORK_BREAKDOWN__SHOW.getKey();
     }

@@ -46,6 +46,7 @@ package com.flywheelms.library.gcg.viewflipper;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.PopupMenu;
 import android.widget.TextView;
@@ -64,6 +65,7 @@ public abstract class GcgViewFlipperTreeView extends GcgViewFlipperView implemen
 	protected GcgTreeView treeView;
 	protected GcgTreeViewMediator treeViewMediator = null;
 	protected GcgTreeViewAdapter treeViewAdapter;
+    protected Button startButton;
 	protected boolean collapsibleTree;
 	protected LinearLayout rightMenuLayout;
 	protected GcgSpinnableMenu rightSpinnableMenu;
@@ -124,9 +126,35 @@ public abstract class GcgViewFlipperTreeView extends GcgViewFlipperView implemen
 				}
 			}
 		});
+        if(startButtonEnabled()) {
+            this.startButton = (Button) findViewById(R.id.gcg__start_button);
+            this.startButton.setBackgroundResource(getStartButtonBackgroundResourceId());
+            this.startButtonVisible(this.treeViewAdapter.isEmpty());
+            initializeStartButtonListener();
+        }
 	}
 
-	protected abstract PopupMenu getTreeViewBackgroundPopupMenu(View aView, final GcgTreeViewAdapter aTreeViewAdapter);
+    public boolean startButtonEnabled() {
+        return false;
+    }
+
+    public void startButtonVisible(boolean bVisible) {
+        this.startButton.setVisibility(bVisible ? View.VISIBLE : View.INVISIBLE);
+    }
+
+    public Button getStartButton() {
+        return this.startButton;
+    }
+
+    protected int getStartButtonBackgroundResourceId() {
+        return R.drawable.gcg__button_state_list__get_started;
+    }
+
+    protected void initializeStartButtonListener() {
+        return;
+    }
+
+    protected abstract PopupMenu getTreeViewBackgroundPopupMenu(View aView, final GcgTreeViewAdapter aTreeViewAdapter);
 
 	protected abstract GcgTreeViewAdapter newTreeViewAdapter();
 	
@@ -137,6 +165,9 @@ public abstract class GcgViewFlipperTreeView extends GcgViewFlipperView implemen
 		this.treeViewAdapter = newTreeViewAdapter();
 		this.treeView.setAdapter(this.treeViewAdapter);
 		this.treeView.setSelection(currentPosition);
+        if(startButtonEnabled()) {
+            this.startButtonVisible(this.treeViewAdapter.isEmpty());
+        }
 		return this.treeViewAdapter;
 	}
 	
