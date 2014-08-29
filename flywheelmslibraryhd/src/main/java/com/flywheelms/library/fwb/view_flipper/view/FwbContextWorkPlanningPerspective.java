@@ -80,12 +80,6 @@ public class FwbContextWorkPlanningPerspective extends FmsPerspectiveFlipperTree
 	}
 
 	@Override
-	protected void initRightMenu() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	protected GcgTreeViewMediator createGcgTreeViewMediator() {
 		// TODO Auto-generated method stub
 		return null;

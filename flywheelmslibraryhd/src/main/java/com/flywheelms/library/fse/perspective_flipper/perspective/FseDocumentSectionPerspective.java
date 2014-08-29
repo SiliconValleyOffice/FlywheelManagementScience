@@ -43,8 +43,6 @@
 
 package com.flywheelms.library.fse.perspective_flipper.perspective;
 
-import java.util.ArrayList;
-
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
@@ -53,7 +51,7 @@ import android.widget.FrameLayout;
 
 import com.flywheelms.library.R;
 import com.flywheelms.library.fdk.enumerator.FdkKeyboardStyle;
-import com.flywheelms.library.fdk.view.FdkViewFlipperView;
+import com.flywheelms.library.fdk.view.GcgViewFlipperFdkView;
 import com.flywheelms.library.fse.FseDocumentSectionType;
 import com.flywheelms.library.fse.interfaces.FmsPerspectiveFlipperParent;
 import com.flywheelms.library.fse.model.FseDocumentSection;
@@ -64,7 +62,9 @@ import com.flywheelms.library.gcg.interfaces.GcgGuiable;
 import com.flywheelms.library.gcg.interfaces.GcgPerspectiveView;
 import com.flywheelms.library.gcg.viewflipper.GcgViewFlipper;
 
-public abstract class FseDocumentSectionPerspective extends FdkViewFlipperView implements GcgPerspectiveView {
+import java.util.ArrayList;
+
+public abstract class FseDocumentSectionPerspective extends GcgViewFlipperFdkView implements GcgPerspectiveView {
 
 	protected FsePerspectiveFlipper documentPerspectiveFlipper;
 	// will be assigned by concrete implementation

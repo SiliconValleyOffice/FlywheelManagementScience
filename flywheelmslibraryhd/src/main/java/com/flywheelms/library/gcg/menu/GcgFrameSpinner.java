@@ -43,10 +43,6 @@
 
 package com.flywheelms.library.gcg.menu;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-
 import android.graphics.drawable.Drawable;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -56,7 +52,11 @@ import com.flywheelms.library.gcg.helper.GcgPerspectiveMenu;
 import com.flywheelms.library.gcg.interfaces.GcgFrame;
 import com.flywheelms.library.gcg.interfaces.GcgPerspective;
 import com.flywheelms.library.gcg.viewflipper.GcgPerspectiveFlipper;
-import com.flywheelms.library.gcg.viewflipper.GcgViewFlipperView;
+import com.flywheelms.library.gcg.viewflipper.GcgViewFlipperChildView;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
 
 public class GcgFrameSpinner extends GcgSpinnableMenu {
 	
@@ -149,7 +149,7 @@ public class GcgFrameSpinner extends GcgSpinnableMenu {
 		return this.perspectiveFlipperMap.get(getFrame());
 	}
 
-	public GcgViewFlipperView getGcgViewFlipperView() {
+	public GcgViewFlipperChildView getGcgViewFlipperView() {
 		return this.perspectiveFlipperMap.get(getFrame()).getGcgViewFlipperView();
 	}
 	

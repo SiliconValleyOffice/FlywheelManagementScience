@@ -1,4 +1,4 @@
-/* @(#)GcgViewFlipperView.java
+/* @(#)GcgViewFlipperChildView.java
  ** 
  ** Copyright (C) 2012 by Steven D. Stamps
  **
@@ -43,9 +43,6 @@
 
 package com.flywheelms.library.gcg.viewflipper;
 
-import java.util.ArrayList;
-import java.util.Date;
-
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
@@ -62,7 +59,10 @@ import com.flywheelms.library.gcg.GcgActivity;
 import com.flywheelms.library.gcg.dialog.GcgGuiPreferencesDialog;
 import com.flywheelms.library.gcg.interfaces.GcgGuiPreferencesClient;
 
-public abstract class GcgViewFlipperView extends LinearLayout implements GcgGuiPreferencesClient {
+import java.util.ArrayList;
+import java.util.Date;
+
+public abstract class GcgViewFlipperChildView extends LinearLayout implements GcgGuiPreferencesClient {
 
 	protected Context context;
 	public static final String bundle_arg_PAGE_NUMBER = "PageNumber";
@@ -78,7 +78,7 @@ public abstract class GcgViewFlipperView extends LinearLayout implements GcgGuiP
 	protected boolean enableMultiShiftControls = false;
 	protected ArrayList<FseMultiShiftButton> multiShiftButtonList;
 
-	public GcgViewFlipperView(Context aContext, AttributeSet anAttributeSet) {
+	public GcgViewFlipperChildView(Context aContext, AttributeSet anAttributeSet) {
 		super(aContext, anAttributeSet);
 		this.context = aContext;
 		inflate(aContext, getViewLayoutResourceId(), this);
@@ -101,7 +101,7 @@ public abstract class GcgViewFlipperView extends LinearLayout implements GcgGuiP
 				
 				@Override
 				public void onClick(View v) {
-					GcgViewFlipperView.this.getViewFlipper().flipPrevious();
+					GcgViewFlipperChildView.this.getViewFlipper().flipPrevious();
 				}
 			});
 		} else {
@@ -116,7 +116,7 @@ public abstract class GcgViewFlipperView extends LinearLayout implements GcgGuiP
 				
 				@Override
 				public void onClick(View v) {
-					GcgViewFlipperView.this.getViewFlipper().flipNext();
+					GcgViewFlipperChildView.this.getViewFlipper().flipNext();
 				}
 			});
 		} else {
@@ -182,7 +182,7 @@ public abstract class GcgViewFlipperView extends LinearLayout implements GcgGuiP
 
 				@Override
 				public void onClick(View v) {
-					GcgViewFlipperView.this.viewFlipper.flipPrevious();
+					GcgViewFlipperChildView.this.viewFlipper.flipPrevious();
 				}
 			});
 		} else if(thePreviousButton != null) {
@@ -194,7 +194,7 @@ public abstract class GcgViewFlipperView extends LinearLayout implements GcgGuiP
 
 				@Override
 				public void onClick(View v) {
-					GcgViewFlipperView.this.viewFlipper.flipNext();
+					GcgViewFlipperChildView.this.viewFlipper.flipNext();
 				}
 			});
 		} else if(theNextButton != null) {

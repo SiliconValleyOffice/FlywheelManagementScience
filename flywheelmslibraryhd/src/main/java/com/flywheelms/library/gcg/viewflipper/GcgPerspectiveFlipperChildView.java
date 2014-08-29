@@ -1,4 +1,4 @@
-/* @(#)GcgPerspectiveFlipperView.java
+/* @(#)GcgPerspectiveFlipperChildView.java
 ** 
 ** Copyright (C) 2012 by Steven D. Stamps
 **
@@ -43,19 +43,19 @@
 
 package com.flywheelms.library.gcg.viewflipper;
 
-import java.util.ArrayList;
-
 import android.content.Context;
 import android.util.AttributeSet;
 
 import com.flywheelms.library.gcg.interfaces.GcgGuiable;
 import com.flywheelms.library.gcg.interfaces.GcgPerspectiveView;
 
-public abstract class GcgPerspectiveFlipperView extends GcgViewFlipperView implements GcgPerspectiveView {
+import java.util.ArrayList;
+
+public abstract class GcgPerspectiveFlipperChildView extends GcgViewFlipperChildView implements GcgPerspectiveView {
 	
 	// TODO add data member for Perspective type
 
-	public GcgPerspectiveFlipperView(Context aContext, AttributeSet anAttributeSet) {
+	public GcgPerspectiveFlipperChildView(Context aContext, AttributeSet anAttributeSet) {
 		super(aContext, anAttributeSet);
 	}
 	

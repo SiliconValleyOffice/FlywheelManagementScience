@@ -109,6 +109,15 @@ public class FwbContextWorkBreakdownPerspective extends FmsPerspectiveFlipperTre
         return R.layout.context__work_breakdown__right_menu;
     }
 
+    @Override
+    protected int[] getRightMenuBodyResourceIdArray() {
+        return new int[]{
+                R.id.show_menu__body,
+                R.id.governance__menu_body,
+                R.id.work_status__menu_body,
+                R.id.team__menu_body};
+    }
+
 	@Override
 	protected GcgTreeViewMediator createGcgTreeViewMediator() {
         GcgTreeViewMediator theTreeContentMediator =

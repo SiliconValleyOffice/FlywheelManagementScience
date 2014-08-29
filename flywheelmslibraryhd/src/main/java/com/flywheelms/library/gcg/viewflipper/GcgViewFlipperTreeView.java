@@ -60,7 +60,7 @@ import com.flywheelms.library.gcg.treeview.GcgTreeViewMediator;
 import com.flywheelms.library.gcg.treeview.interfaces.GcgTreeViewParent;
 import com.flywheelms.library.gcg.treeview.node.GcgTreeNodeInfo;
 
-public abstract class GcgViewFlipperTreeView extends GcgViewFlipperView implements GcgTreeViewParent {
+public abstract class GcgViewFlipperTreeView extends GcgViewFlipperChildView implements GcgTreeViewParent {
 
 	protected GcgTreeView treeView;
 	protected GcgTreeViewMediator treeViewMediator = null;
@@ -242,13 +242,10 @@ public abstract class GcgViewFlipperTreeView extends GcgViewFlipperView implemen
         super.activateView();
         this.treeView = (GcgTreeView) findViewById(R.id.gcg_tree_view);
         this.treeView.setAdapter(this.treeViewAdapter);
+        LinearLayout theRightMenuContainer = (LinearLayout) getGcgActivity().findViewById(R.id.gcg__right_menu__container);
+        theRightMenuContainer.removeAllViews();
         if(this.rightMenuLayout != null) {
-            LinearLayout theViewFlipperBody = (LinearLayout) getGcgActivity().findViewById(R.id.gcg_view_flipper__body);
-            LinearLayout theExistingTreeViewRightMenu = (LinearLayout) getGcgActivity().findViewById(R.id.tree_view__right_menu);
-            if(theExistingTreeViewRightMenu != null) {
-                theViewFlipperBody.removeView(theExistingTreeViewRightMenu);
-            }
-            theViewFlipperBody.addView(this.rightMenuLayout, new LayoutParams(android.view.ViewGroup.LayoutParams.WRAP_CONTENT, android.view.ViewGroup.LayoutParams.MATCH_PARENT));
+            theRightMenuContainer.addView(this.rightMenuLayout);
         }
     }
 

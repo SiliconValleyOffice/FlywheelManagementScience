@@ -46,6 +46,7 @@ package com.flywheelms.library.gcg.viewflipper;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.animation.Animation;
+import android.widget.LinearLayout;
 import android.widget.ViewFlipper;
 
 import com.flywheelms.library.R;
@@ -67,6 +68,7 @@ public class GcgViewFlipper extends ViewFlipper implements GcgFlingController {
 	private int previousDisplayedChild = 0;
 	private boolean firstLayout = true;
 	protected int spinnnableMenuIndex;
+    protected LinearLayout rightMenuContainer;
 	private OnTouchListener flingListener;
 
 	public GcgViewFlipper(Context aContext, AttributeSet anAttributeSet) {
@@ -130,7 +132,7 @@ public class GcgViewFlipper extends ViewFlipper implements GcgFlingController {
 //		if(theDisplayedChild != this.previousDisplayedChild) {
 //			((GcgViewFlipperView) this.getChildAt(this.previousDisplayedChild)).deactivateView();
 //		}
-		((GcgViewFlipperView) this.getChildAt(theDisplayedChild)).activateView();
+		((GcgViewFlipperChildView) this.getChildAt(theDisplayedChild)).activateView();
 		if(this.viewFlipListener != null) {
 			this.viewFlipListener.onViewFlip(this.previousDisplayedChild, theDisplayedChild);
 		}
@@ -170,7 +172,7 @@ public class GcgViewFlipper extends ViewFlipper implements GcgFlingController {
 	}
 
 	protected void beforeViewFlip() {
-		((GcgViewFlipperView) this.getChildAt(this.previousDisplayedChild)).deactivateView();
+		((GcgViewFlipperChildView) this.getChildAt(this.previousDisplayedChild)).deactivateView();
 	}
 
 	public int getFrameMenuSpacerCurtainBackgroundResourceId() {
@@ -264,8 +266,8 @@ public class GcgViewFlipper extends ViewFlipper implements GcgFlingController {
 		initializePageTitles();
 	}
 	
-	public GcgViewFlipperView getGcgViewFlipperView() {
-		return (GcgViewFlipperView) getCurrentView();
+	public GcgViewFlipperChildView getGcgViewFlipperView() {
+		return (GcgViewFlipperChildView) getCurrentView();
 	}
 	
 	public int getViewFlipperViewIndex() {
@@ -274,34 +276,34 @@ public class GcgViewFlipper extends ViewFlipper implements GcgFlingController {
 	
 	public void initializePageTitles() {
 		for(int theIndex = 0; theIndex < getChildCount(); ++theIndex) {
-			((GcgViewFlipperView)getChildAt(theIndex)).initializeTitleBar();
+			((GcgViewFlipperChildView)getChildAt(theIndex)).initializeTitleBar();
 		}
 	}
 
-	public String getPreviousPageTitle(GcgViewFlipperView aViewFlipperView) {
+	public String getPreviousPageTitle(GcgViewFlipperChildView aViewFlipperView) {
 		int theIndex = indexOfChild(aViewFlipperView);
 		int theCount = getChildCount();
 		String theTitleString;
 		if(theIndex == 0) {
 			theTitleString = "";
 		} else if(theIndex == theCount - 1) {
-			theTitleString = ((GcgViewFlipperView)getChildAt(0)).getAbreviatedPageTitle();
+			theTitleString = ((GcgViewFlipperChildView)getChildAt(0)).getAbreviatedPageTitle();
 		} else {
-			theTitleString = ((GcgViewFlipperView)getChildAt(theIndex + 1)).getAbreviatedPageTitle();
+			theTitleString = ((GcgViewFlipperChildView)getChildAt(theIndex + 1)).getAbreviatedPageTitle();
 		}
 		return theTitleString;
 	}
 
-	public String getNextPageTitle(GcgViewFlipperView aViewFlipperView) {
+	public String getNextPageTitle(GcgViewFlipperChildView aViewFlipperView) {
 		int theIndex = indexOfChild(aViewFlipperView);
 		int theCount = getChildCount();
 		String theTitleString;
 		if(theIndex == 1) {
 			theTitleString = "";
 		} else if(theIndex == 0) {
-			theTitleString = ((GcgViewFlipperView)getChildAt(theCount - 1)).getAbreviatedPageTitle();
+			theTitleString = ((GcgViewFlipperChildView)getChildAt(theCount - 1)).getAbreviatedPageTitle();
 		} else {
-			theTitleString = ((GcgViewFlipperView)getChildAt(theIndex - 1)).getAbreviatedPageTitle();
+			theTitleString = ((GcgViewFlipperChildView)getChildAt(theIndex - 1)).getAbreviatedPageTitle();
 		}
 		return theTitleString;
 	}
@@ -316,7 +318,7 @@ public class GcgViewFlipper extends ViewFlipper implements GcgFlingController {
 			return;
 		}
 		for(int theIndex = 0 ; theIndex < theCount ; ++theIndex) {
-			((GcgViewFlipperView) getChildAt(theIndex)).guiPreferencesSaveTransient();
+			((GcgViewFlipperChildView) getChildAt(theIndex)).guiPreferencesSaveTransient();
 		}
 	}
 
@@ -326,7 +328,7 @@ public class GcgViewFlipper extends ViewFlipper implements GcgFlingController {
 			return;
 		}
 		for(int theIndex = 0 ; theIndex < theCount ; ++theIndex) {
-			((GcgViewFlipperView) getChildAt(theIndex)).guiPreferencesRestoreTransient();
+			((GcgViewFlipperChildView) getChildAt(theIndex)).guiPreferencesRestoreTransient();
 		}
 	}
 

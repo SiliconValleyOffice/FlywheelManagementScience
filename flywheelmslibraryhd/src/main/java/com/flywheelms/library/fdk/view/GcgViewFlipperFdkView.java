@@ -1,4 +1,4 @@
-/* @(#)FdkViewFlipperView.java
+/* @(#)GcgViewFlipperFdkView.java
 ** 
 ** Copyright (C) 2012 by Steven D. Stamps
 **
@@ -43,8 +43,6 @@
 
 package com.flywheelms.library.fdk.view;
 
-import java.util.ArrayList;
-
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
@@ -58,13 +56,15 @@ import com.flywheelms.library.fdk.interfaces.FdkListener;
 import com.flywheelms.library.fdk.widget.FdkKeyboard;
 import com.flywheelms.library.gcg.GcgActivity;
 import com.flywheelms.library.gcg.viewflipper.GcgViewFlipper;
-import com.flywheelms.library.gcg.viewflipper.GcgViewFlipperView;
+import com.flywheelms.library.gcg.viewflipper.GcgViewFlipperChildView;
 
-public abstract class FdkViewFlipperView extends GcgViewFlipperView implements FdkListener {
+import java.util.ArrayList;
+
+public abstract class GcgViewFlipperFdkView extends GcgViewFlipperChildView implements FdkListener {
 	
 	protected FdkKeyboard localFdkKeyboard;
 
-	public FdkViewFlipperView(Context aContext, AttributeSet attrs) {
+	public GcgViewFlipperFdkView(Context aContext, AttributeSet attrs) {
 		super(aContext, attrs);
 	}
 	

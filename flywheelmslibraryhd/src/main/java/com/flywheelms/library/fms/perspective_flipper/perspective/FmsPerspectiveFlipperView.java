@@ -48,9 +48,9 @@ import android.util.AttributeSet;
 
 import com.flywheelms.library.deckangl.glyph.DecKanGlGlyph;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
-import com.flywheelms.library.gcg.viewflipper.GcgPerspectiveFlipperView;
+import com.flywheelms.library.gcg.viewflipper.GcgPerspectiveFlipperChildView;
 
-public abstract class FmsPerspectiveFlipperView extends GcgPerspectiveFlipperView {
+public abstract class FmsPerspectiveFlipperView extends GcgPerspectiveFlipperChildView {
 
 	public FmsPerspectiveFlipperView(Context aContext, AttributeSet anAttributeSet) {
 		super(aContext, anAttributeSet);

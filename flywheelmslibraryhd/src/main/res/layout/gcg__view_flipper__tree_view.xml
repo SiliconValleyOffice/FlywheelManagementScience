@@ -55,7 +55,14 @@
         </LinearLayout>
 
     </LinearLayout>
+    <LinearLayout
+        android:id="@+id/gcg__right_menu__container"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal" >
 
-    <!-- add right menu child at run time, if applicable -->
+        <!-- add right menu child at run time, if applicable -->
+
+    </LinearLayout>
 
 </LinearLayout>

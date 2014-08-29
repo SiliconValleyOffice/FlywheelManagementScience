@@ -142,13 +142,9 @@ public abstract class FmsPerspectiveFlipperTreeView extends GcgPerspectiveFlippe
 	}
 
 	protected void initRightMenu() {
-		int[] theMenuBodyResourceIdArray = {
-				R.id.show_menu__body,
-				R.id.governance__menu_body,
-				R.id.work_status__menu_body,
-				R.id.team__menu_body};
-		this.rightMenuLayout = (LinearLayout) inflate(getGcgActivity(), getRightMenuLayoutResourceId(), null);
-//		LinearLayout theViewFlipperBody = (LinearLayout) getGcgActivity().findViewById(R.id.gcg_view_flipper__body);
+		int[] theMenuBodyResourceIdArray = getRightMenuBodyResourceIdArray();
+        this.rightMenuLayout = (LinearLayout) inflate(getGcgActivity(), getRightMenuLayoutResourceId(), null);
+//        LinearLayout theViewFlipperBody = (LinearLayout) getGcgActivity().findViewById(R.id.gcg_view_flipper__body);
 //		theViewFlipperBody.addView(this.rightMenuLayout, new LayoutParams(android.view.ViewGroup.LayoutParams.WRAP_CONTENT, android.view.ViewGroup.LayoutParams.MATCH_PARENT));
 		this.rightSpinnableMenu = new GcgSpinnableMenu(
 				getContext(),
@@ -162,8 +158,16 @@ public abstract class FmsPerspectiveFlipperTreeView extends GcgPerspectiveFlippe
 		initWorkStatusMenu();
 		initTeamMenu();
 	}
-	
-	// TODO - make abstract
+
+    protected int[] getRightMenuBodyResourceIdArray() {
+        return new int[]{
+                R.id.show_menu__body,
+                R.id.governance__menu_body,
+                R.id.work_status__menu_body,
+                R.id.team__menu_body};
+    }
+
+    // TODO - make abstract
 	protected int getRightMenuHeadingArrayResourceId() {
 		return R.array.context__strategic_planning__right_menu__heading_array;
 	}

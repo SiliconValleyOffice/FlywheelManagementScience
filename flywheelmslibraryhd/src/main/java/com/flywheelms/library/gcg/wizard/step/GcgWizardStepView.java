@@ -60,10 +60,10 @@ import com.flywheelms.library.gcg.GcgActivity;
 import com.flywheelms.library.gcg.helper.GcgHelper;
 import com.flywheelms.library.gcg.listeners.GcgFlingListener;
 import com.flywheelms.library.gcg.viewflipper.GcgViewFlipper;
-import com.flywheelms.library.gcg.viewflipper.GcgViewFlipperView;
+import com.flywheelms.library.gcg.viewflipper.GcgViewFlipperChildView;
 import com.flywheelms.library.gcg.wizard.GcgWizardStepFlipper;
 
-public abstract class GcgWizardStepView extends GcgViewFlipperView {
+public abstract class GcgWizardStepView extends GcgViewFlipperChildView {
 	
 	private int stepNumber;
 	private GestureDetector theFlingDetector;
