@@ -46,6 +46,7 @@ package com.flywheelms.library.fms.tree_view_flipper.tree_view;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.AttributeSet;
+import android.view.LayoutInflater;
 import android.view.SoundEffectConstants;
 import android.view.View;
 import android.widget.AdapterView;
@@ -136,14 +137,12 @@ public abstract class FmsPerspectiveFlipperTreeView extends GcgPerspectiveFlippe
 	}
 
 	@Override
-	protected void initGuiElements() {
-		super.initGuiElements();
-		initRightMenu();
-	}
-
-	protected void initRightMenu() {
-		int[] theMenuBodyResourceIdArray = getRightMenuBodyResourceIdArray();
-        this.rightMenuLayout = (LinearLayout) inflate(getGcgActivity(), getRightMenuLayoutResourceId(), null);
+    protected void initializeRightMenu() {
+        this.rightMenuContainer = (LinearLayout) findViewById(R.id.gcg__right_menu__container);
+        LayoutInflater theLayoutInflater = LayoutInflater.from(getContext());
+//        theLayoutInflater.inflate(getRightMenuLayoutResourceId(), this.rightMenuContainer, false);
+        this.rightMenuLayout = (LinearLayout) theLayoutInflater.inflate(getRightMenuLayoutResourceId(), this.rightMenuContainer, false);
+        this.rightMenuContainer.addView(this.rightMenuLayout);
 //        LinearLayout theViewFlipperBody = (LinearLayout) getGcgActivity().findViewById(R.id.gcg_view_flipper__body);
 //		theViewFlipperBody.addView(this.rightMenuLayout, new LayoutParams(android.view.ViewGroup.LayoutParams.WRAP_CONTENT, android.view.ViewGroup.LayoutParams.MATCH_PARENT));
 		this.rightSpinnableMenu = new GcgSpinnableMenu(
@@ -152,7 +151,7 @@ public abstract class FmsPerspectiveFlipperTreeView extends GcgPerspectiveFlippe
 				GcgSpinnableMenu.DECORATORS_RIGHT,
 				getRightMenuHeadingSpinnerResourceId(),
 				getRightMenuHeadingArrayResourceId(),
-				theMenuBodyResourceIdArray );
+                getRightMenuBodyResourceIdArray() );
 		initShowMenu();
 		initGovernanceMenu();
 		initWorkStatusMenu();

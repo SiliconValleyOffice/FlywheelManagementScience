@@ -69,20 +69,20 @@ public class FwbContextServiceDeliveryPerspective extends FmsPerspectiveFlipperT
 		super(context, attrs);
 	}
 
+    @Override
+    protected void initializeRightMenu() {
+        // TODO - get rid of this over ride when class is fully implemented - SDS
+        return;
+    }
+
 	@Override
 	public void guiPreferencesApply() {
-		// TODO - get rid of this over ride when class is fully implemented - SDS
-	}
+        // TODO - get rid of this over ride when class is fully implemented - SDS
+    }
 
 	@Override
 	protected int getPageTitleResourceId() {
 		return R.string.fmm_perspective__service_delivery;
-	}
-
-	@Override
-	protected void initRightMenu() {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override

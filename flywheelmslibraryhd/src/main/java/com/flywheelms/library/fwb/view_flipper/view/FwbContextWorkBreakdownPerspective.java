@@ -83,13 +83,6 @@ public class FwbContextWorkBreakdownPerspective extends FmsPerspectiveFlipperTre
 	}
 
 	@Override
-	public void guiPreferencesApply() {
-		// TODO - get rid of this over ride when class is fully implemented - SDS
-//        getTreeViewAdapter().applyShowCollapseToTreeLevel(getShowCollapseToTreeLevel());
-//        getTreeStateMediator().refreshViews();
-	}
-
-	@Override
 	protected int getPageTitleResourceId() {
 		return R.string.fmm_perspective__work_breakdown;
 	}

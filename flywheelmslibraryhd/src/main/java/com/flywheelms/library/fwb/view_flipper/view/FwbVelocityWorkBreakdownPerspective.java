@@ -69,6 +69,12 @@ public class FwbVelocityWorkBreakdownPerspective extends FmsPerspectiveFlipperTr
 		super(context, attrs);
 	}
 
+    @Override
+    protected void initializeRightMenu() {
+        // TODO - get rid of this over ride when class is fully implemented - SDS
+        return;
+    }
+
 	@Override
 	public void guiPreferencesApply() {
 		// TODO - get rid of this over ride when class is fully implemented - SDS
@@ -77,12 +83,6 @@ public class FwbVelocityWorkBreakdownPerspective extends FmsPerspectiveFlipperTr
 	@Override
 	protected int getPageTitleResourceId() {
 		return R.string.velocity__work_breakdown;
-	}
-
-	@Override
-	protected void initRightMenu() {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override

@@ -20,39 +20,57 @@
             android:id="@+id/gcg_view_flipper__title_bar__include"
             layout="@layout/gcg__view_flipper__title_bar" />
 
-        <com.flywheelms.library.gcg.treeview.GcgTreeView
-            xmlns:treeView="http://com.flywheelms.library.fwb.treeview"
-            android:id="@+id/gcg_tree_view"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:scrollbarAlwaysDrawVerticalTrack="true"
-            android:scrollbarFadeDuration="9999999"
-            android:scrollbars="vertical"
-            android:smoothScrollbar="true"
-            treeView:indicator_gravity="right|center_vertical" />
+            android:layout_height="match_parent">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1.0"
-            android:gravity="center_horizontal|center_vertical"
-            tools:ignore="NestedWeights"
-            android:orientation="vertical" >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-            <Button
-                android:id="@+id/gcg__start_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                android:background="@drawable/gcg__button_state_list__start"
-                android:visibility="invisible" />
+                <com.flywheelms.library.gcg.treeview.GcgTreeView
+                    xmlns:treeView="http://com.flywheelms.library.fwb.treeview"
+                    android:id="@+id/gcg_tree_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbarAlwaysDrawVerticalTrack="true"
+                    android:scrollbarFadeDuration="9999999"
+                    android:scrollbars="vertical"
+                    android:smoothScrollbar="true"
+                    treeView:indicator_gravity="right|center_vertical" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1.0"
+                    android:gravity="center_horizontal|center_vertical"
+                    tools:ignore="NestedWeights"
+                    android:orientation="vertical" >
+
+                    <Button
+                        android:id="@+id/gcg__start_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="50dp"
+                        android:background="@drawable/gcg__button_state_list__start"
+                        android:visibility="invisible" />
+
+                    <TextView
+                        android:id="@+id/gcg_tree_view__background_menu_target"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+            </LinearLayout>
 
             <TextView
-                android:id="@+id/gcg_tree_view__background_menu_target"
+                android:id="@+id/gcg__view_curtain"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-        </LinearLayout>
+                android:layout_height="match_parent"
+                android:background="@color/gcg__tree_view__background"
+                android:visibility="visible" />
+        </FrameLayout>
 
     </LinearLayout>
     <LinearLayout
@@ -60,8 +78,6 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:orientation="horizontal" >
-
-        <!-- add right menu child at run time, if applicable -->
 
     </LinearLayout>
 

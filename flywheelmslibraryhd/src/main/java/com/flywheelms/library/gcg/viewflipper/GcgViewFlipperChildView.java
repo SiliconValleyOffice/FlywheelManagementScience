@@ -69,6 +69,7 @@ public abstract class GcgViewFlipperChildView extends LinearLayout implements Gc
 	public static final String bundle_arg_PAGE_TITLE = "PageTitle";
 	protected GcgActivity gcgActivity;
 	protected GcgViewFlipper viewFlipper;
+    protected TextView viewCurtain;
 	protected int spinnableMenuIndex; // negative number means no spinnable menu
 	protected int pageNumber;
 	protected String pageTitle;
@@ -82,6 +83,7 @@ public abstract class GcgViewFlipperChildView extends LinearLayout implements Gc
 		super(aContext, anAttributeSet);
 		this.context = aContext;
 		inflate(aContext, getViewLayoutResourceId(), this);
+        this.viewCurtain = (TextView) findViewById(R.id.gcg__view_curtain);
 	}
 
 	public GcgViewFlipper getViewFlipper() {
@@ -220,13 +222,21 @@ public abstract class GcgViewFlipperChildView extends LinearLayout implements Gc
 	protected void activateView() {
 		setHelpContextUrlString();
 		enableMultiShiftControls();
+        enableViewCurtain(false);
 	}
 
 	protected void deactivateView() {
 		disableMultiShiftControls();
+        enableViewCurtain(true);
 	}
 
-	public int getSpinnableMenuIndex() {
+    private void enableViewCurtain(boolean bEnable) {
+        if(this.viewCurtain != null) {
+            this.viewCurtain.setVisibility(bEnable ? View.VISIBLE : View.INVISIBLE);
+        }
+    }
+
+    public int getSpinnableMenuIndex() {
 		return this.spinnableMenuIndex;
 	}
 

@@ -46,12 +46,10 @@ package com.flywheelms.library.gcg.viewflipper;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.animation.Animation;
-import android.widget.LinearLayout;
 import android.widget.ViewFlipper;
 
 import com.flywheelms.library.R;
 import com.flywheelms.library.gcg.GcgActivity;
-import com.flywheelms.library.gcg.helper.GcgHelper;
 import com.flywheelms.library.gcg.interfaces.GcgFlingController;
 
 public class GcgViewFlipper extends ViewFlipper implements GcgFlingController {
@@ -68,15 +66,14 @@ public class GcgViewFlipper extends ViewFlipper implements GcgFlingController {
 	private int previousDisplayedChild = 0;
 	private boolean firstLayout = true;
 	protected int spinnnableMenuIndex;
-    protected LinearLayout rightMenuContainer;
-	private OnTouchListener flingListener;
+//	private OnTouchListener flingListener;
 
 	public GcgViewFlipper(Context aContext, AttributeSet anAttributeSet) {
 		super(aContext, anAttributeSet);
 		this.context = aContext;
 		initializeAnimations();
-		this.flingListener = GcgHelper.getFlingListener(aContext, this);
-		setOnTouchListener(this.flingListener);
+//		this.flingListener = GcgHelper.getFlingListener(aContext, this);
+//		setOnTouchListener(this.flingListener);
 	}
 	
 	public void initialize(GcgActivity aLibraryActivity) {
@@ -308,9 +305,9 @@ public class GcgViewFlipper extends ViewFlipper implements GcgFlingController {
 		return theTitleString;
 	}
 	
-	public OnTouchListener getFlingListener() {
-		return this.flingListener;
-	}
+//	public OnTouchListener getFlingListener() {
+//		return this.flingListener;
+//	}
 
 	public void saveGuiState() {
 		int theCount = getChildCount();

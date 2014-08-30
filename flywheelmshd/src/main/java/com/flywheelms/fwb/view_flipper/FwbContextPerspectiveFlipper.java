@@ -61,8 +61,8 @@ import com.flywheelms.library.gcg.viewflipper.GcgViewFlipperListener;
 public class FwbContextPerspectiveFlipper extends GcgPerspectiveFlipper {
 	
 	// menu_position must be synchronized with the frame spinner layout containing the perspective flipper
-	public static final int menu_position__STRATEGIC_PLANNING = 0; 
-	public static final int menu_position__WORK_BREAKDOWN = 1; 
+	public static final int menu_position__STRATEGIC_PLANNING = 0;
+	public static final int menu_position__WORK_BREAKDOWN = 1;
 	public static final int menu_position__WORK_PLANNING = 2; 
 	public static final int menu_position__SERVICE_DELIVERY = 3; 
 	public static final int menu_position__ANALYSIS = 4; 
@@ -83,11 +83,11 @@ public class FwbContextPerspectiveFlipper extends GcgPerspectiveFlipper {
 
 	@Override
 	public void initializeViewFlipperViews() {
-		this.strategicPlanningPerspective = (FwbContextStrategicPlanningPerspective) getGcgActivity().findViewById(R.id.fwb_context__strategic_planning);
-		this.strategicPlanningPerspective.initialize(getGcgActivity(), this, this.spinnnableMenuIndex, FwbContextPerspectiveFlipper.menu_position__STRATEGIC_PLANNING);
-		this.workBreakdownPerspective = (FwbContextWorkBreakdownPerspective) getGcgActivity().findViewById(R.id.fwb_context__work_breakdown);
-		this.workBreakdownPerspective.initialize(getGcgActivity(), this, this.spinnnableMenuIndex, FwbContextPerspectiveFlipper.menu_position__WORK_BREAKDOWN);
-		this.workPlanningPerspective = (FwbContextWorkPlanningPerspective) getGcgActivity().findViewById(R.id.fwb_context__work_planning);
+        this.strategicPlanningPerspective = (FwbContextStrategicPlanningPerspective) getGcgActivity().findViewById(R.id.fwb_context__strategic_planning);
+        this.strategicPlanningPerspective.initialize(getGcgActivity(), this, this.spinnnableMenuIndex, FwbContextPerspectiveFlipper.menu_position__STRATEGIC_PLANNING);
+        this.workBreakdownPerspective = (FwbContextWorkBreakdownPerspective) getGcgActivity().findViewById(R.id.fwb_context__work_breakdown);
+        this.workBreakdownPerspective.initialize(getGcgActivity(), this, this.spinnnableMenuIndex, FwbContextPerspectiveFlipper.menu_position__WORK_BREAKDOWN);
+        this.workPlanningPerspective = (FwbContextWorkPlanningPerspective) getGcgActivity().findViewById(R.id.fwb_context__work_planning);
 		this.workPlanningPerspective.initialize(getGcgActivity(), this, this.spinnnableMenuIndex, FwbContextPerspectiveFlipper.menu_position__WORK_PLANNING);
 		this.serviceDeliveryPerspective = (FwbContextServiceDeliveryPerspective) getGcgActivity().findViewById(R.id.fwb_context__service_delivery);
 		this.serviceDeliveryPerspective.initialize(getGcgActivity(), this, this.spinnnableMenuIndex, FwbContextPerspectiveFlipper.menu_position__SERVICE_DELIVERY);

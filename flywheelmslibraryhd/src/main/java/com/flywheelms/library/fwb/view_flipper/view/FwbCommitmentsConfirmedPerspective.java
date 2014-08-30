@@ -69,6 +69,12 @@ public class FwbCommitmentsConfirmedPerspective extends FmsPerspectiveFlipperTre
 		super(context, attrs);
 	}
 
+    @Override
+    protected void initializeRightMenu() {
+        // TODO - get rid of this over ride when class is fully implemented - SDS
+        return;
+    }
+
 	@Override
 	public void guiPreferencesApply() {
 		// TODO - get rid of this over ride when class is fully implemented - SDS
@@ -82,12 +88,6 @@ public class FwbCommitmentsConfirmedPerspective extends FmsPerspectiveFlipperTre
 	@Override
 	protected int getAbreviatedPageTitleResourceId() {
 		return R.string.completion_commitment_type__confirmed;
-	}
-
-	@Override
-	protected void initRightMenu() {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override

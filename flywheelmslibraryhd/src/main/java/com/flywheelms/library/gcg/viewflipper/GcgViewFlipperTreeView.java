@@ -67,6 +67,7 @@ public abstract class GcgViewFlipperTreeView extends GcgViewFlipperChildView imp
 	protected GcgTreeViewAdapter treeViewAdapter;
     protected Button startButton;
 	protected boolean collapsibleTree;
+    protected LinearLayout rightMenuContainer;
 	protected LinearLayout rightMenuLayout;
 	protected GcgSpinnableMenu rightSpinnableMenu;
 
@@ -83,13 +84,17 @@ public abstract class GcgViewFlipperTreeView extends GcgViewFlipperChildView imp
 	@Override
 	public void initialize(GcgActivity anGcgActivity, GcgViewFlipper aViewFlipper, int aSpinnableMenuIndex, int aPageNumber) {
 		super.initialize(anGcgActivity, aViewFlipper, aSpinnableMenuIndex, aPageNumber);
-		initGuiElements();
 		guiPreferencesRestoreAll();
 		initializeTreeView();
-		guiPreferencesApply();
+        initializeRightMenu();
+//		guiPreferencesApply();
 	}
-	
-	@Override
+
+    protected void initializeRightMenu() {
+        return;
+    }
+
+    @Override
 	public void guiPreferencesApply() { return; }
 
 	protected void guiPreferencesRestoreAll() { return; }
@@ -111,8 +116,9 @@ public abstract class GcgViewFlipperTreeView extends GcgViewFlipperChildView imp
 	}
 	
 	private void initializeTreeView() {
-		this.treeViewAdapter = newTreeViewAdapter();
-//        this.treeView = (GcgTreeView) findViewById(R.id.gcg_tree_view);
+//		this.treeViewAdapter = newTreeViewAdapter();
+
+        this.treeView = (GcgTreeView) findViewById(R.id.gcg_tree_view);
 //        this.treeView.setAdapter(this.treeViewAdapter);
 		TextView theTreeViewBackgroundMenuTarget = (TextView) findViewById(R.id.gcg_tree_view__background_menu_target);
 		theTreeViewBackgroundMenuTarget.setOnClickListener(new OnClickListener() {
@@ -126,13 +132,16 @@ public abstract class GcgViewFlipperTreeView extends GcgViewFlipperChildView imp
 				}
 			}
 		});
+        initializeStartButton();
+    }
+
+    protected void initializeStartButton() {
         if(startButtonEnabled()) {
             this.startButton = (Button) findViewById(R.id.gcg__start_button);
             this.startButton.setBackgroundResource(getStartButtonBackgroundResourceId());
-            this.startButtonVisible(this.treeViewAdapter.isEmpty());
             initializeStartButtonListener();
         }
-	}
+    }
 
     public boolean startButtonEnabled() {
         return false;
@@ -160,7 +169,7 @@ public abstract class GcgViewFlipperTreeView extends GcgViewFlipperChildView imp
 	
 	@Override
 	public GcgTreeViewAdapter rebuildTreeView() {
-		int currentPosition = this.treeView.getSelectedItemPosition();
+        int currentPosition = this.treeView.getSelectedItemPosition() < 0 ? 0 : this.treeView.getSelectedItemPosition();
 		this.treeViewMediator = createGcgTreeViewMediator();
 		this.treeViewAdapter = newTreeViewAdapter();
 		this.treeView.setAdapter(this.treeViewAdapter);
@@ -239,14 +248,18 @@ public abstract class GcgViewFlipperTreeView extends GcgViewFlipperChildView imp
 	}
 
     protected void activateView() {
+        rebuildTreeView();
         super.activateView();
-        this.treeView = (GcgTreeView) findViewById(R.id.gcg_tree_view);
-        this.treeView.setAdapter(this.treeViewAdapter);
-        LinearLayout theRightMenuContainer = (LinearLayout) getGcgActivity().findViewById(R.id.gcg__right_menu__container);
-        theRightMenuContainer.removeAllViews();
-        if(this.rightMenuLayout != null) {
-            theRightMenuContainer.addView(this.rightMenuLayout);
-        }
+//        this.treeView = (GcgTreeView) findViewById(R.id.gcg_tree_view);
+//        this.treeView.setAdapter(this.treeViewAdapter);
+
+//        LinearLayout theRightMenuContainer = (LinearLayout) getGcgActivity().findViewById(R.id.gcg__right_menu__container);
+//        if(theRightMenuContainer != null) {
+//            theRightMenuContainer.removeAllViews();
+//            if(this.rightMenuLayout != null) {
+//                theRightMenuContainer.addView(this.rightMenuLayout);
+//            }
+//        }
     }
 
 }
