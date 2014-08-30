@@ -253,13 +253,14 @@ public abstract class GcgViewFlipperTreeView extends GcgViewFlipperChildView imp
 //        this.treeView = (GcgTreeView) findViewById(R.id.gcg_tree_view);
 //        this.treeView.setAdapter(this.treeViewAdapter);
 
-//        LinearLayout theRightMenuContainer = (LinearLayout) getGcgActivity().findViewById(R.id.gcg__right_menu__container);
-//        if(theRightMenuContainer != null) {
-//            theRightMenuContainer.removeAllViews();
-//            if(this.rightMenuLayout != null) {
-//                theRightMenuContainer.addView(this.rightMenuLayout);
-//            }
-//        }
+        // TODO - HACK ALERT !!!   Only because menu does not show up in the flipper's first view
+        LinearLayout theRightMenuContainer = (LinearLayout) findViewById(R.id.gcg__right_menu__container);
+        if(theRightMenuContainer != null) {
+            theRightMenuContainer.removeAllViews();
+            if(this.rightMenuLayout != null) {
+                theRightMenuContainer.addView(this.rightMenuLayout);
+            }
+        }
     }
 
 }
