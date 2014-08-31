@@ -43,14 +43,6 @@
 
 package com.flywheelms.library.fmm.node.impl.governable;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.content.Intent;
 
 import com.flywheelms.library.deckangl.enumerator.DecKanGlDecoratorCanvasLocation;
@@ -83,6 +75,14 @@ import com.flywheelms.library.fmm.transaction.FmmNodeGlyphType;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
 import com.flywheelms.library.gcg.GcgActivity;
 import com.flywheelms.library.util.JsonHelper;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
 
 public class ProjectAsset extends FmmCompletableNodeImpl implements Comparable<ProjectAsset> {
 	
@@ -182,41 +182,33 @@ public class ProjectAsset extends FmmCompletableNodeImpl implements Comparable<P
 		this.project = null;
 	}
 
-//	@Override
-//	protected void initializeNodeSummaryMap() {
-//		super.initializeNodeSummaryMap();
-//		NodeSummary theStrategicPlanningSummary = new NodeSummary();
-//		theStrategicPlanningSummary.setSummaryDrawableResourceId(
-//				FmmNodeDictionary.PROJECT_ASSET.getUndecoratedGlyphResourceId(FmmNodeGlyphType.GREEN) );
-//		updateNodeSummary(FmmPerspective.STRATEGIC_PLANNING, theStrategicPlanningSummary);
-//		this.nodeSummaryMap.put(FmmPerspective.STRATEGIC_PLANNING, theStrategicPlanningSummary);
-//	}
-
 	@Override
 	protected void initializeNodeCompletionSummaryMap() {
 		super.initializeNodeCompletionSummaryMap();
-		NodeCompletionSummary theStrategicPlanningSummary = new NodeCompletionSummary();
-		theStrategicPlanningSummary.setSummaryDrawableResourceId(
-				FmmNodeDefinition.WORK_PACKAGE.getUndecoratedGlyphResourceId(FmmNodeGlyphType.GREEN) );
-		updateNodeCompletionSummary(FmmPerspective.STRATEGIC_PLANNING, theStrategicPlanningSummary);
-		this.nodeCompletionSummaryMap.put(FmmPerspective.STRATEGIC_PLANNING, theStrategicPlanningSummary);
+		NodeCompletionSummary theNodeCompletionSummary = new NodeCompletionSummary();
+		theNodeCompletionSummary.setSummaryDrawableResourceId(
+                FmmNodeDefinition.WORK_PACKAGE.getUndecoratedGlyphResourceId(FmmNodeGlyphType.GREEN));
+		updateNodeCompletionSummary(FmmPerspective.STRATEGIC_PLANNING, theNodeCompletionSummary);
+		this.nodeCompletionSummaryMap.put(FmmPerspective.STRATEGIC_PLANNING, theNodeCompletionSummary);
+		this.nodeCompletionSummaryMap.put(FmmPerspective.WORK_BREAKDOWN, theNodeCompletionSummary);
 	}
 
 	@Override
 	public void updateNodeCompletionSummary(FmmPerspective anFmmPerspective, NodeCompletionSummary aNodeSummary) {
 		switch(anFmmPerspective) {
-		case STRATEGIC_PLANNING:
-			Collection<WorkPackage> theWorkPackageCollection = getWorkPackageCollection();
-			if(theWorkPackageCollection.size() > 0) {
-				aNodeSummary.setShowNodeSummary(true);
-				aNodeSummary.setSummaryPrefix("( " + countGreenWorkPackages() + " ");
-				aNodeSummary.setSummarySuffix(" of " + theWorkPackageCollection.size() + " )");
-			} else {
-				aNodeSummary.setShowNodeSummary(false);
-			}
-			break;
-		default:
-			break;
+            case STRATEGIC_PLANNING:
+            case WORK_BREAKDOWN:
+                Collection<WorkPackage> theWorkPackageCollection = getWorkPackageCollection();
+                if(theWorkPackageCollection.size() > 0) {
+                    aNodeSummary.setShowNodeSummary(true);
+                    aNodeSummary.setSummaryPrefix("( " + countGreenWorkPackages() + " ");
+                    aNodeSummary.setSummarySuffix(" of " + theWorkPackageCollection.size() + " )");
+                } else {
+                    aNodeSummary.setShowNodeSummary(false);
+                }
+                break;
+            default:
+                break;
 		}
 	}
 

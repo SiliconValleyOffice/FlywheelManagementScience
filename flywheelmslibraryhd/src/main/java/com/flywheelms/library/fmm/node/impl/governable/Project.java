@@ -44,21 +44,25 @@
 package com.flywheelms.library.fmm.node.impl.governable;
 
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fmm.node.FmmHeadlineNodeShallow;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.completable.FmmCompletableNodeImpl;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
+import com.flywheelms.library.fmm.transaction.FmmNodeGlyphType;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
 import com.flywheelms.library.gcg.GcgActivity;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class Project extends FmmCompletableNodeImpl {
 
 	private static final long serialVersionUID = -4072230008356590343L;
     private String portfolioNodeIdString;
     private Portfolio portfolio;
+    private ArrayList<ProjectAsset> projectAssetList;
 
     public Project(NodeId aNodeId, String aHeadline, String aPortfolioNodeIdString) {
         super(aNodeId);
@@ -115,6 +119,55 @@ public class Project extends FmmCompletableNodeImpl {
     public void setPortfolio(Portfolio aPortfolio) {
         this.portfolio = aPortfolio;
         this.portfolioNodeIdString = aPortfolio.getNodeId().getNodeIdString();
+    }
+
+    public Collection<ProjectAsset> getProjectAssetCollection() {
+        return getProjectAssetList();
+    }
+
+    public ArrayList<ProjectAsset> getProjectAssetList() {
+        if(this.projectAssetList == null) {
+            this.projectAssetList = FmmDatabaseMediator.getActiveMediator().listProjectAssetsForProject(this.getNodeIdString());
+        }
+        return this.projectAssetList;
+    }
+
+    @Override
+    protected void initializeNodeCompletionSummaryMap() {
+        super.initializeNodeCompletionSummaryMap();
+        NodeCompletionSummary theNodeCompletionSummary = new NodeCompletionSummary();
+        theNodeCompletionSummary.setSummaryDrawableResourceId(
+                FmmNodeDefinition.PROJECT_ASSET.getUndecoratedGlyphResourceId(FmmNodeGlyphType.GREEN) );
+        updateNodeCompletionSummary(FmmPerspective.WORK_BREAKDOWN, theNodeCompletionSummary);
+        this.nodeCompletionSummaryMap.put(FmmPerspective.WORK_BREAKDOWN, theNodeCompletionSummary);
+    }
+
+    @Override
+    public void updateNodeCompletionSummary(FmmPerspective anFmmPerspective, NodeCompletionSummary aNodeSummary) {
+        switch(anFmmPerspective) {
+            case WORK_BREAKDOWN:
+                Collection<ProjectAsset> theProjectAssetCollection = getProjectAssetCollection();
+                if(theProjectAssetCollection.size() > 0) {
+                    aNodeSummary.setShowNodeSummary(true);
+                    aNodeSummary.setSummaryPrefix("( " + countGreenProjectAssets() + " ");
+                    aNodeSummary.setSummarySuffix(" of " + theProjectAssetCollection.size() + " )");
+                } else {
+                    aNodeSummary.setShowNodeSummary(false);
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
+    private int countGreenProjectAssets() {
+        int theGreenCount = 0;
+        for(ProjectAsset theProjectAsset : getProjectAssetCollection()) {
+            if(theProjectAsset.isGreen()) {
+                ++theGreenCount;
+            }
+        }
+        return theGreenCount;
     }
 
 }

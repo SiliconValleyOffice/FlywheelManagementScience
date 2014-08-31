@@ -43,8 +43,6 @@
 
 package com.flywheelms.library.fms.dialog;
 
-import java.util.ArrayList;
-
 import com.flywheelms.library.R;
 import com.flywheelms.library.deckangl.component.DecKanGlNavigationComponentParent;
 import com.flywheelms.library.deckangl.glyph.DecKanGlGlyph;
@@ -56,6 +54,8 @@ import com.flywheelms.library.fms.component.FmsDecKanGlNavigationComponent;
 import com.flywheelms.library.fms.interfaces.FmsDecKanGlNavigationDialogParent;
 import com.flywheelms.library.fms.widget.text_view.HeadlineWidgetTextView;
 import com.flywheelms.library.gcg.GcgActivity;
+
+import java.util.ArrayList;
 
 public class DecKanGlNavigationDialog extends FmsCancelDialog implements DecKanGlNavigationComponentParent {
 	
@@ -105,7 +105,7 @@ public class DecKanGlNavigationDialog extends FmsCancelDialog implements DecKanG
 			this.parentNodeIdString,
 			this.peerHeadlineNodeShallowList,
 			this.headlineNode.getNodeIdString() );
-		dismiss();
+		this.gcgActivity.stopDialog();
 	}
 
 	@Override
