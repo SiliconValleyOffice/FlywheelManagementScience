@@ -1,4 +1,4 @@
-/* @(#)StrategicMilestoneWidgetSpinner.java
+/* @(#)ProjectWidgetSpinner.java
 ** 
 ** Copyright (C) 2012 by Steven D. Stamps
 **
@@ -48,46 +48,46 @@ import android.util.AttributeSet;
 
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
-import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
+import com.flywheelms.library.fmm.node.impl.governable.Portfolio;
+import com.flywheelms.library.fmm.node.impl.governable.Project;
 import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
-import com.flywheelms.library.fmm.node.impl.governable.StrategicMilestone;
+import com.flywheelms.library.fmm.node.impl.governable.WorkPackage;
 import com.flywheelms.library.fms.widget.FmmHeadlineNodeWidgetSpinner;
 import com.flywheelms.library.gcg.interfaces.GcgGuiable;
 
 import java.util.ArrayList;
 
-public class StrategicMilestoneWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
-	
-	private FiscalYear fiscalYear;  // primary parent
-	private StrategicMilestone strategicMilestoneException;  // peer exception
-    private ProjectAsset projectAssetException;  // primary child exception
+public class ProjectWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 
-	public StrategicMilestoneWidgetSpinner(Context aContext, AttributeSet anAttributeSet) {
+	private Portfolio portfolio;  // primary parent
+    private Project projectException;  // peer exception
+    private ProjectAsset projectAssetException;  // primary child exception
+    private WorkPackage workPackageException;  // primary child, primary child exception
+
+	public ProjectWidgetSpinner(Context aContext, AttributeSet anAttributeSet) {
 		super(aContext, anAttributeSet);
 	}
 
 	@Override
 	protected String getLabelText() {
-		return FmmNodeDefinition.STRATEGIC_MILESTONE.getLabelText();
+		return FmmNodeDefinition.PROJECT.getLabelText();
 	}
 	
 	@Override
 	protected ArrayList<GcgGuiable> getPrimaryParentGuiableList() {
-		ArrayList<GcgGuiable> theGuiableList = new ArrayList<GcgGuiable>(
-			FmmDatabaseMediator.getActiveMediator().getStrategicMilestoneList(
-					this.fiscalYear, this.strategicMilestoneException) );
-		return theGuiableList;
+		return new ArrayList<GcgGuiable>(
+			FmmDatabaseMediator.getActiveMediator().getProjectList(this.portfolio, this.projectException) );
 	}
 	
 	@Override
 	protected ArrayList<GcgGuiable> getPrimaryParentPrimaryChildMoveTargetGuiableList() {
 		ArrayList<GcgGuiable> theGuiableList;
-		if(this.fiscalYear == null) {
+		if(this.portfolio == null) {
 			theGuiableList = new ArrayList<GcgGuiable>(); 
 		} else {	
 			theGuiableList = new ArrayList<GcgGuiable>(
-				FmmDatabaseMediator.getActiveMediator().listStrategicMilestoneForProjectAssetMoveTarget(
-						this.fiscalYear, this.strategicMilestoneException));
+				FmmDatabaseMediator.getActiveMediator().listProjectsForProjectAssetMoveTarget(
+						this.portfolio, this.projectException));
 		}
 		return theGuiableList;
 	}
@@ -95,30 +95,48 @@ public class StrategicMilestoneWidgetSpinner extends FmmHeadlineNodeWidgetSpinne
 	@Override
 	protected ArrayList<GcgGuiable> getPrimaryParentPrimaryChildPrimaryChildMoveTargetGuiableList() {
 		ArrayList<GcgGuiable> theGuiableList;
-		if(this.fiscalYear == null) {
+		if(this.portfolio == null) {
 			theGuiableList = new ArrayList<GcgGuiable>(); 
 		} else {	
-			theGuiableList = new ArrayList<GcgGuiable>(FmmDatabaseMediator.getActiveMediator().listStrategicMilestoneForWorkPackageMoveTarget(
-					this.fiscalYear, this.projectAssetException));
+			theGuiableList = new ArrayList<GcgGuiable>(FmmDatabaseMediator.getActiveMediator().listProjectsForWorkPackageMoveTarget(
+					this.portfolio, this.projectAssetException));
 		}
 		return theGuiableList;
 	}
 
-	public void updateSpinnerData(FiscalYear aFiscalYear) {
-		this.fiscalYear = aFiscalYear;
+    @Override
+    protected ArrayList<GcgGuiable> getPrimaryParentPrimaryChildPrimaryChildPrimaryChildMoveTargetGuiableList() {
+        ArrayList<GcgGuiable> theGuiableList;
+        if(this.portfolio == null) {
+            theGuiableList = new ArrayList<GcgGuiable>();
+        } else {
+            theGuiableList = new ArrayList<GcgGuiable>(FmmDatabaseMediator.getActiveMediator().listProjectsForWorkTaskMoveTarget(
+                    this.portfolio, this.workPackageException));
+        }
+        return theGuiableList;
+    }
+
+	public void updateSpinnerData(Portfolio aPortfolio) {
+		this.portfolio = aPortfolio;
 		super.updateSpinnerData();
 	}
 
-	public void updateSpinnerData(FiscalYear aFiscalYear, StrategicMilestone aStrategicMilestoneException) {
-		this.fiscalYear = aFiscalYear;
-		this.strategicMilestoneException = aStrategicMilestoneException;
+	public void updateSpinnerData(Portfolio aPortfolio, Project aProjectException) {
+		this.portfolio = aPortfolio;
+		this.projectException = aProjectException;
 		super.updateSpinnerData();
 	}
 
-	public void updateSpinnerData(FiscalYear aFiscalYear, ProjectAsset aProjectAssetException) {
-		this.fiscalYear = aFiscalYear;
+	public void updateSpinnerData(Portfolio aPortfolio, ProjectAsset aProjectAssetException) {
+		this.portfolio = aPortfolio;
 		this.projectAssetException = aProjectAssetException;
 		super.updateSpinnerData();
 	}
+
+    public void updateSpinnerData(Portfolio aPortfolio, WorkPackage aWorkPackageException) {
+        this.portfolio = aPortfolio;
+        this.workPackageException = aWorkPackageException;
+        super.updateSpinnerData();
+    }
 	
 }

@@ -69,6 +69,7 @@ import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragTribKnQuality;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragWorkTaskBudget;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.fmm.repository.FmmConfiguration;
+import com.flywheelms.library.gcg.interfaces.GcgGuiable;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -190,15 +191,19 @@ public abstract class PersistenceTechnologyDelegate {
 
     public abstract boolean dbInsertPortfolio(Portfolio aPortfolio, boolean bAtomicTransaction);
 
-    public abstract int dbCountPortfolioForProjectAssetMoveTarget(FmsOrganization anFmsOrganization, Project aProjectException);
+    public abstract int dbCountPortfolioForProjectMoveTarget(FmsOrganization anFmsOrganization, Portfolio aPortfolioException);
+
+    public abstract ArrayList<? extends GcgGuiable> dbListPortfolioForProjectMoveTarget(FmsOrganization anFmsOrganization, Portfolio aPortfolioException);
 
     public abstract ArrayList<Portfolio> dbListPortfolioForProjectAssetMoveTarget(FmsOrganization anFmsOrganization, Project aProjectException);
 
-    public abstract int dbCountPortfolioForWorkPackageMoveTarget(FmsOrganization anFmsOrganization, ProjectAsset aProjectAssetException);
-
     public abstract ArrayList<Portfolio> dbListPortfolioForWorkPackageMoveTarget(FmsOrganization anFmsOrganization, ProjectAsset aProjectAssetException);
 
+    public abstract ArrayList<? extends GcgGuiable> dbListPortfolioForWorkTaskMoveTarget(FmsOrganization anFmsOrganization, WorkPackage aWorkPackageException);
+
     public abstract boolean dbDeletePortfolio(Portfolio aPortfolio, boolean bAtomicTransaction);
+
+    public abstract Portfolio dbRetrievePortfolio(String aNodeIdString);
 
 	//////  Node - PROJECT  ////////////////////////////////////////////////////////////////////////////////
 
@@ -209,6 +214,14 @@ public abstract class PersistenceTechnologyDelegate {
     public abstract ArrayList<Project> dbListProject(String aPortfolioId);
 
     public abstract ArrayList<Project> dbListProject(String aPortfolioId, String aProjectExceptionId);
+
+    public abstract int dbCountProjectsForProjectAssetMoveTarget(Portfolio aPortfolio, Project aProjectException);
+
+    public abstract ArrayList<Project> dbListProjectsForProjectAssetMoveTarget(Portfolio aPortfolio, Project aProjectException);
+
+    public abstract ArrayList<Project> dbListProjectsForWorkPackageMoveTarget(Portfolio aPortfolio, ProjectAsset aProjectAssetException);
+
+    public abstract ArrayList<Project> dbListProjectsForWorkTaskMoveTarget(Portfolio aPortfolio, WorkPackage aWorkPackageException);
     
 	//////  Node - FISCAL YEAR  ////////////////////////////////////////////////////////////////////////////////
 
@@ -664,7 +677,11 @@ public abstract class PersistenceTechnologyDelegate {
 		public abstract boolean dbInsertWorkTask(WorkTask aWorkTask, boolean bAtomicTransaction);
 
 		public abstract boolean dbUpdateWorkTask(WorkTask aWorkTask, boolean bAtomicTransaction);
-		
+
 		public abstract boolean dbDeleteWorkTask(WorkTask aWorkTask, boolean bAtomicTransaction);
+
+
+
+
 
 }

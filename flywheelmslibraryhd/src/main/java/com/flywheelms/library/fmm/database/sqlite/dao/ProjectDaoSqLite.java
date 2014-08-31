@@ -43,13 +43,16 @@
 
 package com.flywheelms.library.fmm.database.sqlite.dao;
 
-import java.util.HashMap;
-
+import android.content.ContentValues;
 import android.database.Cursor;
 
+import com.flywheelms.library.fmm.meta_data.CompletableNodeMetaData;
 import com.flywheelms.library.fmm.meta_data.IdNodeMetaData;
+import com.flywheelms.library.fmm.meta_data.ProjectMetaData;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.governable.Project;
+
+import java.util.HashMap;
 
 public class ProjectDaoSqLite extends CompletableNodeDaoSqLite<Project> {
 
@@ -70,17 +73,33 @@ public class ProjectDaoSqLite extends CompletableNodeDaoSqLite<Project> {
 	@Override
 	protected void buildColumnIndexMap(Cursor aCursor) {
 		super.buildColumnIndexMap(aCursor);
+        putColumnIndexMapEntry(this.columnIndexMap, aCursor, ProjectMetaData.column_PORTFOLIO_ID);
+        putColumnIndexMapEntry(this.columnIndexMap, aCursor, CompletableNodeMetaData.column_SEQUENCE);
 	}
 
 	@Override
 	protected void getColumnValues(HashMap<String, Integer> aHashMap, Cursor aCursor, Project aProject) {
 		super.getColumnValues(aHashMap, aCursor, aProject);
+        aProject.setPortfolioNodeIdString(aCursor.getString(aHashMap.get(ProjectMetaData.column_PORTFOLIO_ID)));
+        aProject.setSequence(aCursor.getInt(aHashMap.get(CompletableNodeMetaData.column_SEQUENCE)));
 	}
+
+    @Override
+    public ContentValues buildContentValues(Project aProject) {
+        ContentValues theContentValues = super.buildContentValues(aProject);
+        theContentValues.put(ProjectMetaData.column_PORTFOLIO_ID, aProject.getPortfolioNodeIdString());
+        theContentValues.put(CompletableNodeMetaData.column_SEQUENCE, aProject.getSequence());
+        return theContentValues;
+    }
+
+    @Override
+    public ContentValues buildUpdateContentValues(Project aProject) {
+        return buildContentValues(aProject);
+    }
 
 	@Override
 	protected Project getNextObjectFromCursor(Cursor aCursor) {
-		Project theProject = null;
-		theProject = new Project(aCursor.getString(this.columnIndexMap.get(IdNodeMetaData.column_ID)) );
+		Project theProject = new Project(aCursor.getString(this.columnIndexMap.get(IdNodeMetaData.column_ID)) );
 		getColumnValues(this.columnIndexMap, aCursor, theProject);
 		return theProject;
 	}

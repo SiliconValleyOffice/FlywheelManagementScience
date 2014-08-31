@@ -43,8 +43,7 @@
 
 package com.flywheelms.library.fmm.node.impl.governable;
 
-import java.util.ArrayList;
-
+import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.node.FmmHeadlineNodeShallow;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.completable.FmmCompletableNodeImpl;
@@ -53,9 +52,19 @@ import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
 import com.flywheelms.library.gcg.GcgActivity;
 
+import java.util.ArrayList;
+
 public class Project extends FmmCompletableNodeImpl {
 
 	private static final long serialVersionUID = -4072230008356590343L;
+    private String portfolioNodeIdString;
+    private Portfolio portfolio;
+
+    public Project(NodeId aNodeId, String aHeadline, String aPortfolioNodeIdString) {
+        super(aNodeId);
+        setHeadline(aHeadline);
+        setPortfolioNodeIdString(aPortfolioNodeIdString);
+    }
 
 	public Project(NodeId aNodeId) {
 		super(aNodeId);
@@ -83,5 +92,29 @@ public class Project extends FmmCompletableNodeImpl {
 	public boolean isProjectAssetMoveTarget() {
 		return true;
 	}
+
+    public String getPortfolioNodeIdString() {
+        return this.portfolioNodeIdString;
+    }
+
+    public Portfolio getPortfolio() {
+        if(this.portfolio == null && this.portfolioNodeIdString != null) {
+            this.portfolio =
+                    FmmDatabaseMediator.getActiveMediator().getPortfolio(this.portfolioNodeIdString);
+        }
+        return this.portfolio;
+    }
+
+    public void setPortfolioNodeIdString(String aNodeIdString) {
+        this.portfolioNodeIdString = aNodeIdString;
+        if(this.portfolio != null && !this.portfolio.getNodeIdString().equals(aNodeIdString)) {
+            this.portfolio = null;
+        }
+    }
+
+    public void setPortfolio(Portfolio aPortfolio) {
+        this.portfolio = aPortfolio;
+        this.portfolioNodeIdString = aPortfolio.getNodeId().getNodeIdString();
+    }
 
 }

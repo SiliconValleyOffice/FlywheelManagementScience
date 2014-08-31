@@ -116,6 +116,7 @@ import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragWorkTaskBudget;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmNode;
 import com.flywheelms.library.fmm.repository.FmmConfiguration;
+import com.flywheelms.library.gcg.interfaces.GcgGuiable;
 import com.flywheelms.library.gcg.widget.date.GcgDateHelper;
 
 import java.util.ArrayList;
@@ -918,17 +919,14 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
                 aPortfolio, PortfolioDaoSqLite.getInstance(), bAtomicTransaction);
     }
 
-    // TODO - should use MOVE_TARGET view and not include confirmed or proposed completions
     @Override
-    public int dbCountPortfolioForProjectAssetMoveTarget(FmsOrganization anFmsOrganization, Project aProjectException) {
-//        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.FISCAL_YEAR.getName() +
-//                " WHERE " + FiscalYearMetaData.column_ORGANIZATION_ID + " = '" + anOrganization.getNodeIdString() + "'";
-//        if(aFiscalYearException != null) {
-//            theRawQuery += " AND " + IdNodeMetaData.column_ID + " != '" + aFiscalYearException.getNodeIdString() + "'";
-//        }
-//        theRawQuery += " ORDER BY " + FiscalYearMetaData.column_YEAR_NUMBER;
-//        return countRows(theRawQuery);
-        return dbListPortfolio(anFmsOrganization).size();
+    public int dbCountPortfolioForProjectMoveTarget(FmsOrganization anFmsOrganization, Portfolio aPortfolioException) {
+        return 0;
+    }
+
+    @Override
+    public ArrayList<? extends GcgGuiable> dbListPortfolioForProjectMoveTarget(FmsOrganization anFmsOrganization, Portfolio aPortfolioException) {
+        return null;
     }
 
     // TODO - should use MOVE_TARGET view and not include confirmed or proposed completions
@@ -947,18 +945,23 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
     }
 
     @Override
-    public int dbCountPortfolioForWorkPackageMoveTarget(FmsOrganization anFmsOrganization, ProjectAsset aProjectAssetException) {
-        return dbListPortfolio(anFmsOrganization).size();
-    }
-
-    @Override
     public ArrayList<Portfolio> dbListPortfolioForWorkPackageMoveTarget(FmsOrganization anFmsOrganization, ProjectAsset aProjectAssetException) {
         return dbListPortfolio(anFmsOrganization);
     }
 
     @Override
+    public ArrayList<? extends GcgGuiable> dbListPortfolioForWorkTaskMoveTarget(FmsOrganization anFmsOrganization, WorkPackage aWorkPackageException) {
+        return null;
+    }
+
+    @Override
     public boolean dbDeletePortfolio(Portfolio aPortfolio, boolean bAtomicTransaction) {
         return deleteRowFromSimpleIdTable(aPortfolio.getNodeIdString(), FmmNodeDefinition.PORTFOLIO, bAtomicTransaction);
+    }
+
+    @Override
+    public Portfolio dbRetrievePortfolio(String aNodeIdString) {
+        return (Portfolio) retrieveFmmNodeFromSimpleIdTable(aNodeIdString, PortfolioDaoSqLite.getInstance());
     }
 
 
@@ -991,6 +994,26 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 //        Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
 //        return ProjectDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
         return new ArrayList<Project>();
+    }
+
+    @Override
+    public int dbCountProjectsForProjectAssetMoveTarget(Portfolio aPortfolio, Project aProjectException) {
+        return 0;
+    }
+
+    @Override
+    public ArrayList<Project> dbListProjectsForProjectAssetMoveTarget(Portfolio aPortfolio, Project aProjectException) {
+        return null;
+    }
+
+    @Override
+    public ArrayList<Project> dbListProjectsForWorkPackageMoveTarget(Portfolio aPortfolio, ProjectAsset aProjectAssetException) {
+        return null;
+    }
+
+    @Override
+    public ArrayList<Project> dbListProjectsForWorkTaskMoveTarget(Portfolio aPortfolio, WorkPackage aWorkPackageException) {
+        return null;
     }
 
 

@@ -72,6 +72,7 @@ import com.flywheelms.library.fms.dialog.ProjectAssetAdoptOrphanWorkPackageDialo
 import com.flywheelms.library.fms.dialog.ProjectAssetDeleteDialog;
 import com.flywheelms.library.fms.dialog.ProjectAssetMoveDialog;
 import com.flywheelms.library.fms.dialog.ProjectAssetOrphanDialog;
+import com.flywheelms.library.fms.dialog.ProjectDeleteDialog;
 import com.flywheelms.library.fms.dialog.StrategicMilestoneAdoptOrphanProjectAssetDialog;
 import com.flywheelms.library.fms.dialog.StrategicMilestoneDeleteDialog;
 import com.flywheelms.library.fms.dialog.StrategicMilestoneMoveDialog;
@@ -357,6 +358,15 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter {
             createPortfolio();
         } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__DELETE_PORTFOLIO)) {
             deletePortfolio(aLaunchHeadlineNode);
+        } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__CREATE_PROJECT)) {
+            createFmmHeadlineNode(
+                    FmmNodeDefinition.PROJECT,
+                    aLaunchHeadlineNode,
+                    aParentHeadlineNode,
+                    aLaunchNodeSequence,
+                    aLaunchNodeCount);
+        } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__DELETE_PROJECT)) {
+            deleteProject(aLaunchHeadlineNode);
 		} else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__CREATE_PROJECT_ASSET)) {
 			createFmmHeadlineNode(
                     FmmNodeDefinition.PROJECT_ASSET,
@@ -480,6 +490,11 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter {
 	private void editStrategicMilestoneTargetDate(FmmHeadlineNode aStrategicMilestoneHeadlineNode) {
 		getGcgActivity().startDialog(new StrategicMilestoneTargetDateEditDialog(getGcgActivity(), this, aStrategicMilestoneHeadlineNode));
 	}
+
+    // logical validation of this operation was already done in FmmPopupBuilder
+    private void deleteProject(FmmHeadlineNode aProjectNode) {
+        getGcgActivity().startDialog(new ProjectDeleteDialog(getGcgActivity(), this, aProjectNode));
+    }
 
 	// logical validation of this operation was already done in FmmPopupBuilder
 	private void deleteProjectAsset(FmmHeadlineNode aProjectAssetHeadlineNode) {

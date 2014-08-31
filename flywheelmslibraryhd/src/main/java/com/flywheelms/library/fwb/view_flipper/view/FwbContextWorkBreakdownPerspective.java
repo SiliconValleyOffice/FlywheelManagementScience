@@ -56,6 +56,7 @@ import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fmm.node.impl.governable.Portfolio;
 import com.flywheelms.library.fmm.node.impl.governable.Project;
 import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
+import com.flywheelms.library.fmm.node.impl.governable.WorkPackage;
 import com.flywheelms.library.fms.helper.FmsHelpIndex;
 import com.flywheelms.library.fms.popup_menu.FmmPopupBuilder;
 import com.flywheelms.library.fms.preferences.GuiPreferencesBundle;
@@ -63,7 +64,7 @@ import com.flywheelms.library.fms.tree_view_flipper.tree_view.FmsPerspectiveFlip
 import com.flywheelms.library.fms.treeview.FmsTreeViewMediatorMemoryResident;
 import com.flywheelms.library.fms.treeview.filter.FmsTreeViewAdapter;
 import com.flywheelms.library.fms.treeview.filter.WorkBreakdownTreeFilter;
-import com.flywheelms.library.fwb.treeview.treebuilder.TreeBuilderFmsPerspective;
+import com.flywheelms.library.fwb.treeview.treebuilder.FmsTreeBuilder;
 import com.flywheelms.library.gcg.interfaces.GcgPerspective;
 import com.flywheelms.library.gcg.treeview.GcgTreeViewAdapter;
 import com.flywheelms.library.gcg.treeview.GcgTreeViewMediator;
@@ -115,7 +116,7 @@ public class FwbContextWorkBreakdownPerspective extends FmsPerspectiveFlipperTre
 	protected GcgTreeViewMediator createGcgTreeViewMediator() {
         GcgTreeViewMediator theTreeContentMediator =
                 new FmsTreeViewMediatorMemoryResident(new WorkBreakdownTreeFilter(this));
-        final TreeBuilderFmsPerspective theTreeBuilder = new TreeBuilderFmsPerspective(theTreeContentMediator);
+        final FmsTreeBuilder theTreeBuilder = new FmsTreeBuilder(theTreeContentMediator);
         Collection<Portfolio> thePortfolioCollection = FmmDatabaseMediator.getActiveMediator().getPortfolioList(
                 FmmDatabaseMediator.getActiveMediator().getFmmOwner() );
         for(Portfolio thePortfolio : thePortfolioCollection) {
@@ -129,8 +130,14 @@ public class FwbContextWorkBreakdownPerspective extends FmsPerspectiveFlipperTre
                 GcgTreeNodeInfo theProjectTreeNodeInfo = theTreeBuilder.addChildNode(
                         theProject, theProjectAssetCollection.size()>0, thePortfolioTreeNodeInfo, FmmPerspective.WORK_BREAKDOWN);
                 for(ProjectAsset theProjectAsset : theProjectAssetCollection) {
-                    theTreeBuilder.addLeafNode(
-                            theProjectAsset, theProjectTreeNodeInfo, FmmPerspective.WORK_BREAKDOWN);
+                    Collection<WorkPackage> theWorkPackageCollection =
+                            FmmDatabaseMediator.getActiveMediator().listWorkPackage(theProjectAsset);
+                    GcgTreeNodeInfo theProjectAssetTreeNodeInfo = theTreeBuilder.addChildNode(
+                            theProjectAsset, theWorkPackageCollection.size()>0, theProjectTreeNodeInfo, FmmPerspective.WORK_BREAKDOWN);
+                    for(WorkPackage theWorkPackage : theWorkPackageCollection) {
+                        theTreeBuilder.addLeafNode(
+                                theWorkPackage, theProjectAssetTreeNodeInfo, FmmPerspective.WORK_BREAKDOWN);
+                    }
                 }
             }
         }
@@ -197,7 +204,6 @@ public class FwbContextWorkBreakdownPerspective extends FmsPerspectiveFlipperTre
     }
 
     protected void initWorkStatusMenu() {
-        return;
     }
 
 }

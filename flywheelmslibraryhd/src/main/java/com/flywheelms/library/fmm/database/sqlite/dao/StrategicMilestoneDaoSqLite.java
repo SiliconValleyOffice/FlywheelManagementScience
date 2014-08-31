@@ -108,8 +108,7 @@ public class StrategicMilestoneDaoSqLite extends CompletableNodeDaoSqLite<Strate
 
 	@Override
 	protected StrategicMilestone getNextObjectFromCursor(Cursor aCursor) {
-		StrategicMilestone theStrategicMilestone = null;
-		theStrategicMilestone = new StrategicMilestone(
+		StrategicMilestone theStrategicMilestone = new StrategicMilestone(
 				aCursor.getString(this.columnIndexMap.get(IdNodeMetaData.column_ID)),
 				aCursor.getString(this.columnIndexMap.get(StrategicMilestoneMetaData.column_FISCAL_YEAR_ID)) );
 		getColumnValues(this.columnIndexMap, aCursor, theStrategicMilestone);

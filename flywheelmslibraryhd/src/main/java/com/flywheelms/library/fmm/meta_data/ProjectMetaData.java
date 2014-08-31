@@ -44,6 +44,8 @@
 package com.flywheelms.library.fmm.meta_data;
 
 public class ProjectMetaData extends CompletableNodeMetaData {
+
+    public static final String column_PORTFOLIO_ID = "Portfolio__id";
 	
 	public static void init() { return; }
 

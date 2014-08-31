@@ -144,8 +144,11 @@ public class StrategicMilestone extends FmmCompletableNodeImpl implements Compar
 			return this.fiscalYear;
 		}
 
-	public void setFiscalYearNodeIdString(String aFiscalYearNodeId) {
-		this.fiscalYearNodeIdString = aFiscalYearNodeId;
+	public void setFiscalYearNodeIdString(String aNodeIdString) {
+		this.fiscalYearNodeIdString = aNodeIdString;
+        if(this.fiscalYear != null && !this.fiscalYear.getNodeIdString().equals(aNodeIdString)) {
+            this.fiscalYear = null;
+        }
 	}
 
 	public void setFiscalYear(FiscalYear aFiscalYear) {

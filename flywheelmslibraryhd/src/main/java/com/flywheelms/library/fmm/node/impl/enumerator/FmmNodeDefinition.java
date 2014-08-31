@@ -87,7 +87,6 @@ import com.flywheelms.library.fmm.node.impl.link.NotebookLinkToDiscussionTopic;
 import com.flywheelms.library.fmm.node.impl.link.OrganizationCommunityMember;
 import com.flywheelms.library.fmm.node.impl.link.OrganizationGovernanceTarget;
 import com.flywheelms.library.fmm.node.impl.link.OrganizationLockConfig;
-import com.flywheelms.library.fmm.node.impl.link.PortfolioLinkToProject;
 import com.flywheelms.library.fmm.node.impl.link.ServiceRequestLinkToWorkTask;
 import com.flywheelms.library.fmm.node.impl.link.StrategicTeamCommunityMember;
 import com.flywheelms.library.fmm.node.impl.nodefrag.CompletionNodeTrash;
@@ -807,28 +806,28 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // medium drawables
     		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // large drawables
     		10049 ),
-    PORTFOLIO_LINK_TO_PROJECT (
-    		PortfolioLinkToProject.class,
-    		"PLP",
-    		R.string.fmm_node_definition__portfolio_linkto_project__label_text,
-    		R.drawable.gcg__null_drawable,
-    		0,
-    		R.drawable.gcg__unspecified_glyph,
-    		R.drawable.gcg__unspecified_glyph,
-    		new HashMap<FmmNodeGlyphType, Integer>(),
-    		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // tiny drawables
-    		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // small drawables
-    		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // medium drawables
-    		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // large drawables
-    		10050 ),
+//    PORTFOLIO_LINK_TO_PROJECT (
+//    		PortfolioLinkToProject.class,
+//    		"PLP",
+//    		R.string.fmm_node_definition__portfolio_linkto_project__label_text,
+//    		R.drawable.gcg__null_drawable,
+//    		0,
+//    		R.drawable.gcg__unspecified_glyph,
+//    		R.drawable.gcg__unspecified_glyph,
+//    		new HashMap<FmmNodeGlyphType, Integer>(),
+//    		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // tiny drawables
+//    		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // small drawables
+//    		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // medium drawables
+//    		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // large drawables
+//    		10050 ),
     PROJECT (
     		Project.class,
     		"PRJ",
     		R.string.fmm_node_definition__project__label_text,
     		R.drawable.fmm_noun__project__gray,
     		0,
-    		R.drawable.gcg__unspecified_glyph,
-    		R.drawable.gcg__unspecified_glyph,
+    		R.drawable.fms_activity__project,
+    		R.drawable.fms_dialog__project,
     		new HashMap<FmmNodeGlyphType, Integer>(),
     		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // tiny drawables
     		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // small drawables
@@ -841,8 +840,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     		R.string.fmm_node_definition__project_asset__label_text,
     		R.drawable.fmm_noun__project_asset__gray,
     		0,
-    		R.drawable.gcg__unspecified_glyph,
-    		R.drawable.fms__project_asset__32,
+    		R.drawable.fms_activity__project_asset,
+    		R.drawable.fms_dialog__project_asset,
     		new HashMap<FmmNodeGlyphType, Integer>(),
     		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // tiny drawables
     		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // small drawables

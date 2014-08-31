@@ -1,4 +1,4 @@
-/* @(#)PortfolioLinkToProject.java
+/* @(#)FmsTreeBuilder.java
 ** 
 ** Copyright (C) 2012 by Steven D. Stamps
 **
@@ -41,31 +41,53 @@
 ** <http://www.gnu.org/licenses/gpl-3.0.html>.
 */
 
-package com.flywheelms.library.fmm.node.impl.link;
+package com.flywheelms.library.fwb.treeview.treebuilder;
 
-import com.flywheelms.library.fmm.node.impl.governable.Portfolio;
-import com.flywheelms.library.fmm.node.impl.governable.Project;
-import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmNode;
+import com.flywheelms.library.fmm.context.FmmPerspective;
+import com.flywheelms.library.gcg.treeview.GcgTreeBuilder;
+import com.flywheelms.library.gcg.treeview.GcgTreeViewMediator;
+import com.flywheelms.library.gcg.treeview.node.GcgTreeNodeInfo;
+import com.flywheelms.library.gcg.treeview.node.GcgTreeNodeTargetObject;
 
-public class PortfolioLinkToProject extends FmmLinkNodeImpl {
+public class FmsTreeBuilder extends GcgTreeBuilder {
 
-	public PortfolioLinkToProject(
-			String aParentNodeId,
-			String aChildNodeId ) {
-		super(
-				PortfolioLinkToProject.class,
-				aParentNodeId,
-				aChildNodeId );
+	public FmsTreeBuilder(GcgTreeViewMediator aTreeStateManager) {
+		super(aTreeStateManager);
 	}
 
-	@Override
-	public Class<? extends FmmNode> getParentClass() {
-		return Portfolio.class;
+	public GcgTreeNodeInfo addTopNode(
+			GcgTreeNodeTargetObject theTreeNodeTargetObject, boolean bHasChildren, FmmPerspective anFmmPerspective) {
+		GcgTreeNodeInfo theTreeNodeInfo =
+				new GcgTreeNodeInfo(theTreeNodeTargetObject, 0, bHasChildren, anFmmPerspective);
+		this.treeViewMediator.addAfterChild(theTreeNodeInfo, null, null);
+        setLastAdded(theTreeNodeInfo, 0);
+		return theTreeNodeInfo;
 	}
 
-	@Override
-	public Class<? extends FmmNode> getChildClass() {
-		return Project.class;
+	public GcgTreeNodeInfo addChildNode(
+			GcgTreeNodeTargetObject theTreeNodeTargetObject,
+			boolean bHasChildren,
+			GcgTreeNodeInfo theParentTreeNodeInfo,
+			FmmPerspective anFmmPerspective ) {
+		int theLevel = theParentTreeNodeInfo.getLevel() + 1;
+		GcgTreeNodeInfo theTreeNodeInfo = new GcgTreeNodeInfo(
+				theTreeNodeTargetObject,
+				theLevel,
+				bHasChildren,
+				anFmmPerspective);
+		this.treeViewMediator.addAfterChild(theTreeNodeInfo, theParentTreeNodeInfo, null);
+        setLastAdded(theTreeNodeInfo, theLevel);
+		return theTreeNodeInfo;
 	}
-	
+
+	public GcgTreeNodeInfo addChildNode(
+			GcgTreeNodeTargetObject theTreeNodeTargetObject, GcgTreeNodeInfo theTreeNodeInfo, FmmPerspective anFmmPerspective ) {
+		return addChildNode(theTreeNodeTargetObject, true, theTreeNodeInfo, anFmmPerspective);
+	}
+
+	public GcgTreeNodeInfo addLeafNode(
+			GcgTreeNodeTargetObject theTreeNodeTargetObject, GcgTreeNodeInfo theTreeNodeInfo, FmmPerspective anFmmPerspective ) {
+		return addChildNode(theTreeNodeTargetObject, false, theTreeNodeInfo, anFmmPerspective);
+	}
+
 }

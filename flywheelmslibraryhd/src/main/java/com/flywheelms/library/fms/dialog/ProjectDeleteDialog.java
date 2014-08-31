@@ -59,20 +59,20 @@ import com.flywheelms.library.gcg.treeview.GcgTreeViewAdapter;
 
 import java.util.ArrayList;
 
-public class ProjectAssetDeleteDialog extends HeadlineNodeDeleteDialog {
+public class ProjectDeleteDialog extends HeadlineNodeDeleteDialog {
 
-	public ProjectAssetDeleteDialog(GcgActivity aLibraryActivity, GcgTreeViewAdapter aTreeViewAdapter, FmmHeadlineNode aHeadlineNode) {
+	public ProjectDeleteDialog(GcgActivity aLibraryActivity, GcgTreeViewAdapter aTreeViewAdapter, FmmHeadlineNode aHeadlineNode) {
 		super(aLibraryActivity, aTreeViewAdapter, aHeadlineNode);
 	}
 
 	@Override
 	protected int getPrimaryChildrenDispositionLayoutResourceId() {
-		return R.layout.project_asset__work_package__disposition;
+		return R.layout.project__project_asset__disposition;
 	}
 
 	@Override
 	protected ArrayList<? extends FmmHeadlineNode> getPrimaryChildHeadlineNodeList() {
-		return FmmDatabaseMediator.getActiveMediator().listWorkPackageForProjectAsset(this.headlineNode.getNodeIdString());
+		return FmmDatabaseMediator.getActiveMediator().listProjectAssetsForProject(this.headlineNode.getNodeIdString());
 	}
 
 	@Override

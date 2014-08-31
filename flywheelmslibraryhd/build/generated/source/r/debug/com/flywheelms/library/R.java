@@ -1649,7 +1649,7 @@ containing a value of this type.
         public static int fms_context_navigation__target__background=0x7f02032c;
         public static int fms_dialog__fiscal_year=0x7f02032d;
         public static int fms_dialog__portfolio=0x7f02032e;
-        public static int fms_dialog__project_asset__move=0x7f02032f;
+        public static int fms_dialog__project_asset =0x7f02032f;
         public static int fms_dialog__strategic_milestone=0x7f020330;
         public static int fse__document_history=0x7f020331;
         public static int fse__edit_scope__hierarchy=0x7f020332;
@@ -3260,7 +3260,7 @@ containing a value of this type.
         public static int portfolio__create__dialog=0x7f0300b1;
         public static int project__disposition=0x7f0300b2;
         public static int project_asset__adoption_into__strategic_milestone=0x7f0300b3;
-        public static int project_asset__disposition=0x7f0300b4;
+        public static int strategic_milestone__project_asset__disposition =0x7f0300b4;
         public static int project_asset__move=0x7f0300b5;
         public static int save_changes_dialog=0x7f0300b6;
         public static int spinnable_menu__heading__left=0x7f0300b7;
@@ -3270,7 +3270,7 @@ containing a value of this type.
         public static int strategic_milestone__move=0x7f0300bb;
         public static int strategic_milestone__target_date__edit__dialog=0x7f0300bc;
         public static int work_package__adoption_into__project_asset=0x7f0300bd;
-        public static int work_package__disposition=0x7f0300be;
+        public static int project_asset__work_package__disposition =0x7f0300be;
     }
     public static final class menu {
         public static int activity_main=0x7f0c0000;

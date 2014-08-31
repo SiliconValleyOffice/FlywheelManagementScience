@@ -42,8 +42,6 @@
 
 package com.flywheelms.library.fmm.database.sqlite;
 
-import java.io.File;
-
 import android.database.sqlite.SQLiteDatabase;
 
 import com.flywheelms.library.fmm.database.FmmDatabaseBuilder;
@@ -100,7 +98,6 @@ import com.flywheelms.library.fmm.node.impl.link.NotebookLinkToDiscussionTopic;
 import com.flywheelms.library.fmm.node.impl.link.OrganizationCommunityMember;
 import com.flywheelms.library.fmm.node.impl.link.OrganizationGovernanceTarget;
 import com.flywheelms.library.fmm.node.impl.link.OrganizationLockConfig;
-import com.flywheelms.library.fmm.node.impl.link.PortfolioLinkToProject;
 import com.flywheelms.library.fmm.node.impl.link.ServiceRequestLinkToWorkTask;
 import com.flywheelms.library.fmm.node.impl.link.StrategicTeamCommunityMember;
 import com.flywheelms.library.fmm.node.impl.nodefrag.CompletionNodeTrash;
@@ -117,6 +114,8 @@ import com.flywheelms.library.fmm.node.impl.wonky.CommunityMemberOrganizationGov
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmNode;
 import com.flywheelms.library.fmm.repository.FmmConfiguration;
 import com.flywheelms.library.fse.model.FseDocumentTransactionType;
+
+import java.io.File;
 
 public class FmmDatabaseBuilderSqLite implements FmmDatabaseBuilder {
 	
@@ -224,7 +223,7 @@ public class FmmDatabaseBuilderSqLite implements FmmDatabaseBuilder {
 		createTable(aSqLiteDatabase, CommunityMemberOrganizationGovernanceAuthority.class);
 		createTable(aSqLiteDatabase, OrganizationGovernanceTarget.class);
 		createTable(aSqLiteDatabase, OrganizationLockConfig.class);
-		createTable(aSqLiteDatabase, PortfolioLinkToProject.class);
+//		createTable(aSqLiteDatabase, PortfolioLinkToProject.class);
 		createTable(aSqLiteDatabase, ServiceRequestLinkToWorkTask.class);
 		createTable(aSqLiteDatabase, StrategicTeamCommunityMember.class);
 		createTable(aSqLiteDatabase, WorkTaskAssignment.class);

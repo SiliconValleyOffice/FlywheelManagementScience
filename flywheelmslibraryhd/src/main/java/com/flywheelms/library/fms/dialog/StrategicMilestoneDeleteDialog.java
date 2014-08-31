@@ -43,8 +43,6 @@
 
 package com.flywheelms.library.fms.dialog;
 
-import java.util.ArrayList;
-
 import android.widget.LinearLayout;
 
 import com.flywheelms.library.R;
@@ -57,6 +55,8 @@ import com.flywheelms.library.fms.widget.spinner.StrategicMilestoneWidgetSpinner
 import com.flywheelms.library.gcg.GcgActivity;
 import com.flywheelms.library.gcg.treeview.GcgTreeViewAdapter;
 
+import java.util.ArrayList;
+
 public class StrategicMilestoneDeleteDialog extends HeadlineNodeDeleteDialog {
 
 	public StrategicMilestoneDeleteDialog(GcgActivity aLibraryActivity, GcgTreeViewAdapter aTreeViewAdapter, FmmHeadlineNode aHeadlineNode) {
@@ -65,7 +65,7 @@ public class StrategicMilestoneDeleteDialog extends HeadlineNodeDeleteDialog {
 
 	@Override
 	protected int getPrimaryLinkDispositionLayoutResourceId() {
-		return R.layout.project_asset__disposition;
+		return R.layout.strategic_milestone__project_asset__disposition;
 	}
 
 	@Override

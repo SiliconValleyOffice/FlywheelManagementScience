@@ -288,6 +288,7 @@ public class FmmDatabaseMediator {
 		case PORTFOLIO:  // handled by newFmmRootNode()
 			break;
 		case PROJECT:
+            theHeadlineNode = newProjectForParent(aHeadline, aParentNode, aPeerNode, bSequenceAtEnd);
 			break;
 		case PROJECT_ASSET:
 			theHeadlineNode = newProjectAssetForParent(aHeadline, aParentNode, aPeerNode, bSequenceAtEnd);
@@ -655,12 +656,24 @@ public class FmmDatabaseMediator {
         return this.persistenceTechnologyDelegate.dbListPortfolio(anOrganization, aPortfolioException);
     }
 
+    public int countPortfolioForProjectMoveTarget(FmsOrganization anFmsOrganization, Portfolio aPortfolioException) {
+        return this.persistenceTechnologyDelegate.dbCountPortfolioForProjectMoveTarget(anFmsOrganization, aPortfolioException);
+    }
+
+    public ArrayList<? extends GcgGuiable> listPortfolioForProjectMoveTarget(FmsOrganization anFmsOrganization, Portfolio aPortfolioException) {
+        return this.persistenceTechnologyDelegate.dbListPortfolioForProjectMoveTarget(anFmsOrganization, aPortfolioException);
+    }
+
     public ArrayList<? extends GcgGuiable> listPortfolioForProjectAssetMoveTarget(FmsOrganization anFmsOrganization, Project aProjectException) {
         return this.persistenceTechnologyDelegate.dbListPortfolioForProjectAssetMoveTarget(anFmsOrganization, aProjectException);
     }
 
     public ArrayList<? extends GcgGuiable> listPortfolioForWorkPackageMoveTarget(FmsOrganization anFmsOrganization, ProjectAsset aProjectAssetException) {
         return this.persistenceTechnologyDelegate.dbListPortfolioForWorkPackageMoveTarget(anFmsOrganization, aProjectAssetException);
+    }
+
+    public ArrayList<? extends GcgGuiable> listPortfolioForWorkTaskMoveTarget(FmsOrganization anFmsOrganization, WorkPackage aWorkPackageException) {
+        return this.persistenceTechnologyDelegate.dbListPortfolioForWorkTaskMoveTarget(anFmsOrganization, aWorkPackageException);
     }
 
     public Portfolio createPortfolio(String aHeadline) {
@@ -683,6 +696,10 @@ public class FmmDatabaseMediator {
             endTransaction(isSuccess);
         }
         return isSuccess;
+    }
+
+    public Portfolio getPortfolio(String aNodeIdString) {
+        return this.persistenceTechnologyDelegate.dbRetrievePortfolio(aNodeIdString);
     }
 
     public boolean deletePortfolio(Portfolio aPortfolio, boolean bAtomicTransaction) {
@@ -715,6 +732,22 @@ public class FmmDatabaseMediator {
         return this.persistenceTechnologyDelegate.dbListProject(aPortfolio, aProjectException);
     }
 
+    public int countProjectsForProjectAssetMoveTarget(Portfolio aPortfolio, Project aProjectException) {
+        return this.persistenceTechnologyDelegate.dbCountProjectsForProjectAssetMoveTarget(aPortfolio, aProjectException);
+    }
+
+    public ArrayList<Project> listProjectsForProjectAssetMoveTarget(Portfolio aPortfolio, Project aProjectException) {
+        return this.persistenceTechnologyDelegate.dbListProjectsForProjectAssetMoveTarget(aPortfolio, aProjectException);
+    }
+
+    public ArrayList<Project> listProjectsForWorkPackageMoveTarget(Portfolio aPortfolio, ProjectAsset aProjectAssetException) {
+        return this.persistenceTechnologyDelegate.dbListProjectsForWorkPackageMoveTarget(aPortfolio, aProjectAssetException);
+    }
+
+    public ArrayList<Project> listProjectsForWorkTaskMoveTarget(Portfolio aPortfolio, WorkPackage aWorkPackageException) {
+        return this.persistenceTechnologyDelegate.dbListProjectsForWorkTaskMoveTarget(aPortfolio, aWorkPackageException);
+    }
+
     //////  Node - FISCAL YEAR  ////////////////////////////////////////////////////////////////////////////////
 
     public ArrayList<FiscalYear> getFiscalYearList(FmsOrganization anOrganization) {
@@ -725,43 +758,35 @@ public class FmmDatabaseMediator {
 		return this.persistenceTechnologyDelegate.dbListFiscalYear(anOrganization, aFiscalYearException);
 	}
 
-	public int countFiscalYearForStrategicMilestoneMoveTarget(
-			FmsOrganization anFmsOrganization, FiscalYear aFiscalYearTargetException) {
+	public int countFiscalYearForStrategicMilestoneMoveTarget(FmsOrganization anFmsOrganization, FiscalYear aFiscalYearTargetException) {
 		return this.persistenceTechnologyDelegate.dbCountFiscalYearForStrategicMilestoneMoveTarget(anFmsOrganization, aFiscalYearTargetException);
 	}
 
-	public ArrayList<FiscalYear> listFiscalYearForStrategicMilestoneMoveTarget(
-			FmsOrganization anFmsOrganization, FiscalYear aFiscalYearTargetException) {
+	public ArrayList<FiscalYear> listFiscalYearForStrategicMilestoneMoveTarget(FmsOrganization anFmsOrganization, FiscalYear aFiscalYearTargetException) {
 		return this.persistenceTechnologyDelegate.dbListFiscalYearForStrategicMilestoneMoveTarget(anFmsOrganization, aFiscalYearTargetException);
 	}
 
-	public int countFiscalYearForProjectAssetMoveTarget(
-			FmsOrganization anFmsOrganization, StrategicMilestone aStrategicMilestonException) {
+	public int countFiscalYearForProjectAssetMoveTarget(FmsOrganization anFmsOrganization, StrategicMilestone aStrategicMilestonException) {
 		return this.persistenceTechnologyDelegate.dbCountFiscalYearForProjectAssetMoveTarget(anFmsOrganization, aStrategicMilestonException);
 	}
 
-	public ArrayList<FiscalYear> listFiscalYearForProjectAssetMoveTarget(
-			FmsOrganization anFmsOrganization, StrategicMilestone aStrategicMilestonException) {
+	public ArrayList<FiscalYear> listFiscalYearForProjectAssetMoveTarget(FmsOrganization anFmsOrganization, StrategicMilestone aStrategicMilestonException) {
 		return this.persistenceTechnologyDelegate.dbListFiscalYearForProjectAssetMoveTarget(anFmsOrganization, aStrategicMilestonException);
 	}
 
-	public int countFiscalYearForWorkPackageMoveTarget(
-			FmsOrganization anFmsOrganization, ProjectAsset aProjectAssetException) {
+	public int countFiscalYearForWorkPackageMoveTarget(FmsOrganization anFmsOrganization, ProjectAsset aProjectAssetException) {
 		return this.persistenceTechnologyDelegate.dbCountFiscalYearForWorkPackageMoveTarget(anFmsOrganization, aProjectAssetException);
 	}
 
-	public ArrayList<FiscalYear> listFiscalYearForWorkPackageMoveTarget(
-			FmsOrganization anFmsOrganization, ProjectAsset aProjectAssetException) {
+	public ArrayList<FiscalYear> listFiscalYearForWorkPackageMoveTarget(FmsOrganization anFmsOrganization, ProjectAsset aProjectAssetException) {
 		return this.persistenceTechnologyDelegate.dbListFiscalYearForWorkPackageMoveTarget(anFmsOrganization, aProjectAssetException);
 	}
 
-	public int countFiscalYearForFlywheelMilestoneMoveTarget(
-			FmsOrganization anFmsOrganization, FiscalYear aFiscalYearTargetException) {
+	public int countFiscalYearForFlywheelMilestoneMoveTarget(FmsOrganization anFmsOrganization, FiscalYear aFiscalYearTargetException) {
 		return this.persistenceTechnologyDelegate.dbCountFiscalYearForFlywheelMilestoneMoveTarget(anFmsOrganization, aFiscalYearTargetException);
 	}
 
-	public ArrayList<FiscalYear> listFiscalYearForFlywheelMilestoneMoveTarget(
-			FmsOrganization anFmsOrganization, FiscalYear aFiscalYearTargetException) {
+	public ArrayList<FiscalYear> listFiscalYearForFlywheelMilestoneMoveTarget(FmsOrganization anFmsOrganization, FiscalYear aFiscalYearTargetException) {
 		return this.persistenceTechnologyDelegate.dbListFiscalYearForFlywheelMilestoneMoveTarget(anFmsOrganization, aFiscalYearTargetException);
 	}
 
@@ -1523,6 +1548,26 @@ public class FmmDatabaseMediator {
 		return isSuccess;
 	}
 
+    private Project newProjectForParent(
+            String aHeadline,
+            FmmHeadlineNode aParentNode,
+            FmmHeadlineNode aPeerNode,
+            boolean bSequenceAtEnd) {
+        startTransaction();
+        Project theNewProject = new Project(
+                new NodeId(FmmNodeDefinition.PROJECT.getNodeTypeCode()), aHeadline, aParentNode.getNodeIdString() );
+        setupForNewSequencedNode(
+                theNewProject,
+                ProjectMetaData.column_PORTFOLIO_ID,
+                aParentNode.getNodeIdString(),
+                aPeerNode,
+                bSequenceAtEnd);
+        boolean isSuccess = newProject(theNewProject, false) &&
+                newNodeFragTribKnQuality(theNewProject) != null;
+        endTransaction(isSuccess);
+        return theNewProject;
+    }
+
 	public boolean updateProject(Project aProject, boolean bAtomicTransaction) {
 		updateHeadlineNode(aProject);
 		return this.persistenceTechnologyDelegate.dbUpdateProject(aProject, bAtomicTransaction);
@@ -1551,11 +1596,11 @@ public class FmmDatabaseMediator {
 		return this.persistenceTechnologyDelegate.dbListProjectAsset(aProject, aProjectAssetException);
 	}
 
-	public ArrayList<ProjectAsset> listProjectAssetForProject(String aProjectId) {
-		return listProjectAssetForProject(aProjectId, null);
+	public ArrayList<ProjectAsset> listProjectAssetsForProject(String aProjectId) {
+		return listProjectAssetsForProject(aProjectId, null);
 	}
 
-	public ArrayList<ProjectAsset> listProjectAssetForProject(String aProjectId, String aProjectAssetExceptionId) {
+	public ArrayList<ProjectAsset> listProjectAssetsForProject(String aProjectId, String aProjectAssetExceptionId) {
 		return this.persistenceTechnologyDelegate.dbListProjectAssetForProject(aProjectId, aProjectAssetExceptionId);
 	}
 
@@ -2217,5 +2262,4 @@ public class FmmDatabaseMediator {
 		}
 		return isSuccess;
 	}
-
 }

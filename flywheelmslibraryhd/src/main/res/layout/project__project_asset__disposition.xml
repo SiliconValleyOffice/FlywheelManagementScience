@@ -45,7 +45,7 @@
             android:layout_height="wrap_content" />
     </RadioGroup>
 
-    <com.flywheelms.library.fms.widget.spinner.FiscalYearWidgetSpinner
+    <com.flywheelms.library.fms.widget.spinner.PortfolioWidgetSpinner
         android:id="@+id/disposition_target__parent__spinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -53,7 +53,7 @@
         gcg:filterId="@string/filter_id__primary_parent__primary_child__primary_child__move_target"
         gcg:deferDataInitialization="true" />
     
-    <com.flywheelms.library.fms.widget.spinner.StrategicMilestoneWidgetSpinner
+    <com.flywheelms.library.fms.widget.spinner.ProjectWidgetSpinner
         android:id="@+id/disposition_target__spinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -67,4 +67,4 @@
         android:layout_height="wrap_content"
         gcg:labelWidth="193" />
 
-</LinearLayout><!-- From: file:/home/sstamps/AndroidDevelopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/layout/project_asset__disposition.xml -->
+</LinearLayout>
