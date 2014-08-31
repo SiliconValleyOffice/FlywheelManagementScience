@@ -503,9 +503,9 @@ public class FmmDatabaseMediator {
 		case NOTEBOOK:
 			//				return getNotebook(anFmmId);
 		case PORTFOLIO:
-			//				return getPortfolio(anFmmId);
+							return getPortfolio(anFmmId);
 		case PROJECT:
-			//				return getProject(anFmmId);
+							return getProject(anFmmId);
 		case PROJECT_ASSET:
 			return getProjectAsset(anFmmId);
 		case SERVICE_OFFERING:
@@ -523,7 +523,7 @@ public class FmmDatabaseMediator {
 		case WORK_PLAN:
 			//				return getWorkPlan(anFmmId);
 		case WORK_TASK:
-			//				return getWorkTask(anFmmId);
+							return getWorkTask(anFmmId);
 		default:
 			return null;
 		}
@@ -1573,6 +1573,17 @@ public class FmmDatabaseMediator {
 		return this.persistenceTechnologyDelegate.dbUpdateProject(aProject, bAtomicTransaction);
 	}
 
+    public boolean orphanAllProjectsFromPortfolio(String aPortfolioId, boolean bAtomicTransaction) {
+        if(bAtomicTransaction) {
+            startTransaction();
+        }
+        boolean isSuccess = this.persistenceTechnologyDelegate.dbOrphanAllProjectsFromPortfolio(aPortfolioId, bAtomicTransaction);
+        if(bAtomicTransaction) {
+            endTransaction(isSuccess);
+        }
+        return isSuccess;
+    }
+
 	public boolean deleteProject(Project aProject, boolean bAtomicTransaction) {
 		if(bAtomicTransaction) {
 			startTransaction();
@@ -1699,8 +1710,39 @@ public class FmmDatabaseMediator {
 			String aHeadline,
 			FmmHeadlineNode aParentNode,
 			FmmHeadlineNode aPeerNode,
-			boolean bSequenceBeforeFlag ) {
-		return null;
+			boolean bSequenceAtEnd ) {
+        startTransaction();
+        ProjectAsset theNewProjectAsset = new ProjectAsset();
+        theNewProjectAsset.setHeadline(aHeadline);
+        theNewProjectAsset.setProjectNodeIdString(aParentNode.getNodeIdString());
+        boolean isSuccess = newProjectAsset(theNewProjectAsset, true);
+        int theNewSequenceNumber = 0;
+        if(aPeerNode == null) {  // sequence as the first/last child node of parent node
+            if(bSequenceAtEnd) {  // last child node of parent
+                theNewSequenceNumber = this.persistenceTechnologyDelegate.dbGetLastSequence(
+                        FmmNodeDefinition.PROJECT_ASSET.getClassName(),
+                        ProjectAssetMetaData.column_PROJECT_ID, aParentNode.getNodeIdString() );
+                theNewSequenceNumber = theNewSequenceNumber == 0 ? 1 : theNewSequenceNumber + 1;
+            } else {  // first child node of parent
+                theNewSequenceNumber = 1;
+                this.persistenceTechnologyDelegate.dbIncrementSequence(
+                        FmmNodeDefinition.PROJECT_ASSET.getClassName(),
+                        ProjectAssetMetaData.column_PROJECT_ID, aParentNode.getNodeIdString() );
+            }
+        } else { // sequence before/after peer node
+            if(bSequenceAtEnd) {  // sequence after peer
+                theNewSequenceNumber = ((FmmSequencedNode) aPeerNode).getSequence(FmmNodeDefinition.PROJECT_ASSET) + 1;
+            } else { // sequence before peer
+                theNewSequenceNumber = ((FmmSequencedNode) aPeerNode).getSequence(FmmNodeDefinition.PROJECT_ASSET);
+            }
+            this.persistenceTechnologyDelegate.dbIncrementSequence(
+                    FmmNodeDefinition.PROJECT_ASSET.getClassName(),
+                    ProjectAssetMetaData.column_PROJECT_ID, aParentNode.getNodeIdString(),
+                    theNewSequenceNumber );
+        }
+        isSuccess = isSuccess && newNodeFragTribKnQuality(theNewProjectAsset) != null;
+        endTransaction(isSuccess);
+        return theNewProjectAsset;
 	}
 
 	public boolean updateProjectAsset(ProjectAsset aProjectAsset, boolean bAtomicTransaction) {
@@ -1770,6 +1812,17 @@ public class FmmDatabaseMediator {
 		}
 		return isSuccess;
 	}
+
+    public boolean orphanAllProjectAssetsFromProject(String aProjectId, boolean bAtomicTransaction) {
+        if(bAtomicTransaction) {
+            startTransaction();
+        }
+        boolean isSuccess = this.persistenceTechnologyDelegate.dbOrphanAllProjectAssetsFromProject(aProjectId, bAtomicTransaction);
+        if(bAtomicTransaction) {
+            endTransaction(isSuccess);
+        }
+        return isSuccess;
+    }
 
 	public boolean orphanProjectAssetFromStrategicMilestone(String aProjectAssetId, String aStrategicMilestoneId, boolean bAtomicTransaction) {
 		if(bAtomicTransaction) {

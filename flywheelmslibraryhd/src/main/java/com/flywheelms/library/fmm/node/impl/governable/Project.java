@@ -72,7 +72,7 @@ public class Project extends FmmCompletableNodeImpl {
 	
 	public Project(String aExistingNodeIdString) {
 		super(NodeId.hydrate(
-				ProjectAsset.class,
+				Project.class,
 				aExistingNodeIdString ));
 	}
 	

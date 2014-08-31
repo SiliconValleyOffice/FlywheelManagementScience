@@ -48,6 +48,7 @@ import android.util.AttributeSet;
 
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
+import com.flywheelms.library.fmm.node.impl.governable.FmsOrganization;
 import com.flywheelms.library.fmm.node.impl.governable.Portfolio;
 import com.flywheelms.library.fmm.node.impl.governable.Project;
 import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
@@ -81,7 +82,7 @@ public class PortfolioWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
     //////  START  /////////////////////
 	// filter_id__PRIMARY_PARENT
 	// filter_id__PRIMARY_PARENT__PRIMARY_CHILD__MOVE_TARGET
-	public void updateSpinnerData(Portfolio aPortfolioException) {
+	public void updateSpinnerData(FmsOrganization anFmsOrganization, Portfolio aPortfolioException) {
 		this.portfolioException = aPortfolioException;
 		super.updateSpinnerData();
 	}

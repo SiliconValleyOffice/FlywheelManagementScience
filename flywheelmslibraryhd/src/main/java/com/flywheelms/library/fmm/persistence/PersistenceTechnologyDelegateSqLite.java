@@ -85,6 +85,7 @@ import com.flywheelms.library.fmm.meta_data.OrganizationCommunityMemberMetaData;
 import com.flywheelms.library.fmm.meta_data.PdfPublicationMetaData;
 import com.flywheelms.library.fmm.meta_data.PortfolioMetaData;
 import com.flywheelms.library.fmm.meta_data.ProjectAssetMetaData;
+import com.flywheelms.library.fmm.meta_data.ProjectMetaData;
 import com.flywheelms.library.fmm.meta_data.SequencedLinkNodeMetaData;
 import com.flywheelms.library.fmm.meta_data.StrategicCommitmentMetaData;
 import com.flywheelms.library.fmm.meta_data.StrategicMilestoneMetaData;
@@ -985,15 +986,14 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
     @SuppressWarnings("resource")
     @Override
     public ArrayList<Project> dbListProject(String aPortfolioId, String aProjectExceptionId) {
-//        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.STRATEGIC_MILESTONE.getName() +
-//                " WHERE " + ProjectMetaData.column_PORTFOLIO_ID + " = '" + aPortfolioId + "'";
-//        if(aProjectExceptionId != null) {
-//            theRawQuery += " AND " + IdNodeMetaData.column_ID + " != '" + aProjectExceptionId + "'";
-//        }
-//        theRawQuery += " ORDER BY " + CompletableNodeMetaData.column_SEQUENCE + " ASC";
-//        Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
-//        return ProjectDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
-        return new ArrayList<Project>();
+        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.PROJECT.getName() +
+                " WHERE " + ProjectMetaData.column_PORTFOLIO_ID + " = '" + aPortfolioId + "'";
+        if(aProjectExceptionId != null) {
+            theRawQuery += " AND " + IdNodeMetaData.column_ID + " != '" + aProjectExceptionId + "'";
+        }
+        theRawQuery += " ORDER BY " + CompletableNodeMetaData.column_SEQUENCE + " ASC";
+        Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
+        return ProjectDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
     }
 
     @Override
@@ -1014,6 +1014,15 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
     @Override
     public ArrayList<Project> dbListProjectsForWorkTaskMoveTarget(Portfolio aPortfolio, WorkPackage aWorkPackageException) {
         return null;
+    }
+
+    @Override
+    public boolean dbOrphanAllProjectsFromPortfolio(String aPortfolioId, boolean bAtomicTransaction) {
+        return updateRowsWithNull(
+                FmmNodeDefinition.PROJECT.getClassName(),
+                ProjectMetaData.column_PORTFOLIO_ID,
+                ProjectMetaData.column_PORTFOLIO_ID+ " = '" + aPortfolioId + "'",
+                bAtomicTransaction );
     }
 
 

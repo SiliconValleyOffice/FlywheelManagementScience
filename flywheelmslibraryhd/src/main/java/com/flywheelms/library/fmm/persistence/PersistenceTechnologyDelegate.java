@@ -204,24 +204,6 @@ public abstract class PersistenceTechnologyDelegate {
     public abstract boolean dbDeletePortfolio(Portfolio aPortfolio, boolean bAtomicTransaction);
 
     public abstract Portfolio dbRetrievePortfolio(String aNodeIdString);
-
-	//////  Node - PROJECT  ////////////////////////////////////////////////////////////////////////////////
-
-    public abstract ArrayList<Project> dbListProject(Portfolio aPortfolio);
-
-    public abstract ArrayList<Project> dbListProject(Portfolio aPortfolio, Project aProjectException);
-
-    public abstract ArrayList<Project> dbListProject(String aPortfolioId);
-
-    public abstract ArrayList<Project> dbListProject(String aPortfolioId, String aProjectExceptionId);
-
-    public abstract int dbCountProjectsForProjectAssetMoveTarget(Portfolio aPortfolio, Project aProjectException);
-
-    public abstract ArrayList<Project> dbListProjectsForProjectAssetMoveTarget(Portfolio aPortfolio, Project aProjectException);
-
-    public abstract ArrayList<Project> dbListProjectsForWorkPackageMoveTarget(Portfolio aPortfolio, ProjectAsset aProjectAssetException);
-
-    public abstract ArrayList<Project> dbListProjectsForWorkTaskMoveTarget(Portfolio aPortfolio, WorkPackage aWorkPackageException);
     
 	//////  Node - FISCAL YEAR  ////////////////////////////////////////////////////////////////////////////////
 
@@ -488,6 +470,24 @@ public abstract class PersistenceTechnologyDelegate {
 		public abstract boolean dbUpdateProject(Project aProject, boolean bAtomicTransaction);
 
 		public abstract boolean dbDeleteProject(Project aProject, boolean bAtomicTransaction);
+
+        public abstract ArrayList<Project> dbListProject(Portfolio aPortfolio);
+
+        public abstract ArrayList<Project> dbListProject(Portfolio aPortfolio, Project aProjectException);
+
+        public abstract ArrayList<Project> dbListProject(String aPortfolioId);
+
+        public abstract ArrayList<Project> dbListProject(String aPortfolioId, String aProjectExceptionId);
+
+        public abstract int dbCountProjectsForProjectAssetMoveTarget(Portfolio aPortfolio, Project aProjectException);
+
+        public abstract ArrayList<Project> dbListProjectsForProjectAssetMoveTarget(Portfolio aPortfolio, Project aProjectException);
+
+        public abstract ArrayList<Project> dbListProjectsForWorkPackageMoveTarget(Portfolio aPortfolio, ProjectAsset aProjectAssetException);
+
+        public abstract ArrayList<Project> dbListProjectsForWorkTaskMoveTarget(Portfolio aPortfolio, WorkPackage aWorkPackageException);
+
+        public abstract boolean dbOrphanAllProjectsFromPortfolio(String aPortfolioId, boolean bAtomicTransaction);
 		
 
 		/////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -679,9 +679,5 @@ public abstract class PersistenceTechnologyDelegate {
 		public abstract boolean dbUpdateWorkTask(WorkTask aWorkTask, boolean bAtomicTransaction);
 
 		public abstract boolean dbDeleteWorkTask(WorkTask aWorkTask, boolean bAtomicTransaction);
-
-
-
-
 
 }
