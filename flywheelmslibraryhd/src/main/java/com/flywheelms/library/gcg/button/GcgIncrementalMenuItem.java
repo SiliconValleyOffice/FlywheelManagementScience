@@ -64,10 +64,9 @@ public class GcgIncrementalMenuItem extends LinearLayout {
 	private String labelString;
 	private int numberOfStates = 99;
 	private int initialState = 99;
+    private RelativeLayout menuItemContainer;
 	private TextView labelView;
 	private GcgIncrementalStateButton incrementalStateButton;
-//	private OnClickListener clickListener;
-//	private OnLongClickListener longClickListener;
 	public static final int[] drawableResourceIdArray1 = {
 		R.drawable.gcg__background_state_list__multi_state_button__on,
 	};
@@ -117,6 +116,7 @@ public class GcgIncrementalMenuItem extends LinearLayout {
 		this.incrementalStateButton.initialize(getDrawableResourceIdArray(), getInitialButtonState());
 		this.labelView = (TextView) ((RelativeLayout) getChildAt(0)).findViewById(resource_id__WIDGET_LABEL);
 		this.labelView.setText(getMenuItemLabel());
+        this.menuItemContainer = ((RelativeLayout) this.labelView.getParent());
 	}
 
 	@SuppressWarnings("incomplete-switch")
@@ -143,15 +143,20 @@ public class GcgIncrementalMenuItem extends LinearLayout {
 	@Override
 	public void setOnClickListener(final OnClickListener aClickListener) {
 		this.incrementalStateButton.setOnClickListener(aClickListener);
-		this.labelView.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				GcgIncrementalMenuItem.this.incrementalStateButton.performQuietClick();
-				aClickListener.onClick(v);
-			}
-		});
-//		this.clickListener = aClickListener;
+        this.menuItemContainer.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View aView) {
+                GcgIncrementalMenuItem.this.incrementalStateButton.performClick();
+            }
+        });
+        this.labelView.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View aView) {
+                GcgIncrementalMenuItem.this.menuItemContainer.performClick();
+            }
+        });
 	}
     
 	@Override
@@ -165,7 +170,6 @@ public class GcgIncrementalMenuItem extends LinearLayout {
 				return true;
 			}
 		});
-//		this.longClickListener = aClickListener;
 	}
     
 	protected int[] getDrawableResourceIdArray() {

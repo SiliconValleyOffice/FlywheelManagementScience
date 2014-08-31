@@ -42,9 +42,8 @@
 */
 package com.flywheelms.library.gcg.menu;
 
-import java.util.ArrayList;
-
 import android.content.Context;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -55,6 +54,8 @@ import android.widget.Spinner;
 
 import com.flywheelms.library.R;
 import com.flywheelms.library.gcg.interfaces.GcgSpinnableMenuKeycodeListener;
+
+import java.util.ArrayList;
 
 public class GcgSpinnableMenu {
 	
@@ -108,6 +109,13 @@ public class GcgSpinnableMenu {
 			GcgSpinnableMenuKeycodeListener aKeycodeListener ) {
 		this.context = aContext;
 		this.menuContainer = aMenuContainer;
+        this.menuContainer.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                // do not "flip" from the menu background
+                return true;
+            }
+        });
 		this.decoratorOrientation = aDecoratorOrientation;
 		this.menuBodyResourceIdArray = aMenuBodyResourceIdArray;
 		spinnerBackgroundSetup();
