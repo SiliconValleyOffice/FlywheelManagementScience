@@ -1943,15 +1943,24 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	}
 	
 	///////  SEQUENCE  ////////////////////
+
+    @Override
+    public void dbIncrementSequence(
+            String aTableName,
+            String aWhereColumnName,
+            String aWhereColumnValue ) {
+        dbIncrementSequence(aTableName, aWhereColumnName, aWhereColumnValue, CompletableNodeMetaData.column_SEQUENCE);
+    }
 	
 	@Override
 	public void dbIncrementSequence(
 			String aTableName,
 			String aWhereColumnName,
-			String aWhereColumnValue ) {
+			String aWhereColumnValue,
+            String aSequenceColumnName ) {
 		getSqLiteDatabase().execSQL(
 				"UPDATE " + aTableName +
-				" SET "+ SequencedLinkNodeMetaData.column_SEQUENCE + " = " + SequencedLinkNodeMetaData.column_SEQUENCE + " + 1 " +
+				" SET "+ aSequenceColumnName + " = " + aSequenceColumnName + " + 1 " +
 				" WHERE " + aWhereColumnName + " = '" + aWhereColumnValue + "'" );
 	}
 	
@@ -1961,12 +1970,22 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 			String aWhereColumnName,
 			String aWhereColumnValue,
 			int aFirstSequenceToIncrement ) {
-		getSqLiteDatabase().execSQL(
-				"UPDATE " + aTableName +
-				" SET "+ SequencedLinkNodeMetaData.column_SEQUENCE + " = " + SequencedLinkNodeMetaData.column_SEQUENCE + " + 1 " +
-				" WHERE " + aWhereColumnName + " = '" + aWhereColumnValue + "'" +
-				" AND " + SequencedLinkNodeMetaData.column_SEQUENCE + " >= " + aFirstSequenceToIncrement);
+        dbIncrementSequence(aTableName, aWhereColumnName, aWhereColumnValue, aFirstSequenceToIncrement, CompletableNodeMetaData.column_SEQUENCE);
 	}
+
+    @Override
+    public void dbIncrementSequence(
+            String aTableName,
+            String aWhereColumnName,
+            String aWhereColumnValue,
+            int aFirstSequenceToIncrement,
+            String aSequenceColumnName ) {
+        getSqLiteDatabase().execSQL(
+                "UPDATE " + aTableName +
+                        " SET "+ aSequenceColumnName + " = " + aSequenceColumnName + " + 1 " +
+                        " WHERE " + aWhereColumnName + " = '" + aWhereColumnValue + "'" +
+                        " AND " + aSequenceColumnName + " >= " + aFirstSequenceToIncrement);
+    }
 	
 	private void decrementSequence(
 			String aTableName,

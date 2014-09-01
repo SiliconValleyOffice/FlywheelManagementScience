@@ -46,6 +46,7 @@ package com.flywheelms.library.fmm.meta_data;
 public class WorkTaskMetaData extends CompletableNodeMetaData {
 
 	public static final String column_WORK_PACKAGE__ID = "WorkPackage__id";
+    // primary sequence for Work Package
 	public static final String column_WORK_PLAN__ID = "WorkPlan__id";
 	public static final String column_WORK_PLAN_SEQUENCE = "work_plan_sequence";
 	public static final String column_BUDGETED_PERSON_HOURS = "budgeted_person_hours";

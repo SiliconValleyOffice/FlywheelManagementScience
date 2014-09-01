@@ -391,6 +391,17 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter {
 			deleteWorkPackage(aLaunchHeadlineNode);
 		} else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__ADOPT_ORPHAN_WORK_PACKAGE)) {
 			adoptOrphanWorkPackage(aLaunchHeadlineNode);
+        } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__CREATE_WORK_TASK)) {
+            createFmmHeadlineNode(
+                    FmmNodeDefinition.WORK_TASK,
+                    aLaunchHeadlineNode,
+                    aParentHeadlineNode,
+                    aLaunchNodeSequence,
+                    aLaunchNodeCount);
+        } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__DELETE_WORK_TASK)) {
+            deleteWorkTask(aLaunchHeadlineNode);
+        } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__ADOPT_ORPHAN_WORK_TASK)) {
+            adoptOrphanWorkTask(aLaunchHeadlineNode);
 		} else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__SEQUENCE_DOWN)) {
 			sequenceDown(aLaunchTreeNodeInfo, aLaunchHeadlineNode, aParentHeadlineNode);
 		} else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__SEQUENCE_UP)) {
@@ -522,6 +533,22 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter {
 	private void adoptOrphanWorkPackage(FmmHeadlineNode aProjectAssetHeadlineNode) {
 		getGcgActivity().startDialog(new ProjectAssetAdoptOrphanWorkPackageDialog(getGcgActivity(), this, aProjectAssetHeadlineNode));
 	}
+
+
+
+
+    // logical validation of this operation was already done in FmmPopupBuilder
+    private void deleteWorkTask(@SuppressWarnings("unused") FmmHeadlineNode aFiscalYearHeadlineNode) {
+        // TODO
+    }
+
+    // TODO !!! push down into subclass for StrategicPlanningTreeViewAdapter
+    // logical validation of this operation was already done in FmmPopupBuilder
+    private void adoptOrphanWorkTask(FmmHeadlineNode aProjectAssetHeadlineNode) {
+    }
+    
+    
+    
 
 	// logical validation of this operation was already done in FmmPopupBuilder
 	private void moveToFiscalYear(FmmHeadlineNode aHeadlineNode, FmmHeadlineNode aTargetHeadlineNodeException) {

@@ -1080,8 +1080,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     		R.string.fmm_node_definition__work_task__label_text,
     		R.drawable.fmm_noun__work_task__gray,
     		0,
-    		R.drawable.gcg__unspecified_glyph,
-    		R.drawable.gcg__unspecified_glyph,
+    		R.drawable.fms_activity__work_task,
+    		R.drawable.fms_dialog__work_task,
     		new HashMap<FmmNodeGlyphType, Integer>(),
     		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // tiny drawables
     		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // small drawables

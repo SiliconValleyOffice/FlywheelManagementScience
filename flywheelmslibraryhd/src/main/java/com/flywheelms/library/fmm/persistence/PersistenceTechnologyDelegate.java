@@ -120,12 +120,25 @@ public abstract class PersistenceTechnologyDelegate {
 			String aTableName,
 			String aWhereColumnName,
 			String aWhereColumnValue );
+
+    public abstract void dbIncrementSequence(
+            String aTableName,
+            String aWhereColumnName,
+            String aWhereColumnValue,
+            String aSequenceColumnName );
 	
 	public abstract void dbIncrementSequence(
 			String aTableName,
 			String aWhereColumnName,
 			String aWhereColumnValue,
 			int aFirstSequenceToIncrement );
+
+    public abstract void dbIncrementSequence(
+            String aTableName,
+            String aWhereColumnName,
+            String aWhereColumnValue,
+            int aFirstSequenceToIncrement,
+            String aSequenceColumnName );
 	
 	public abstract void dbResequenceOnRemove(
 			String aTableName,

@@ -69,6 +69,7 @@ import com.flywheelms.library.fmm.meta_data.StrategicCommitmentMetaData;
 import com.flywheelms.library.fmm.meta_data.StrategicMilestoneMetaData;
 import com.flywheelms.library.fmm.meta_data.WorkPackageMetaData;
 import com.flywheelms.library.fmm.meta_data.WorkPlanMetaData;
+import com.flywheelms.library.fmm.meta_data.WorkTaskMetaData;
 import com.flywheelms.library.fmm.node.FmmNodeInfo;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.commitment.StrategicCommitment;
@@ -310,6 +311,7 @@ public class FmmDatabaseMediator {
 		case WORK_PLAN:
 			break;
 		case WORK_TASK:
+            theHeadlineNode = newWorkTaskForParent(aHeadline, aParentNode, aPeerNode, bSequenceAtEnd);
 			break;
 		default:
 			// BOOKSHELF, FISCAL_YEAR and PORTFOLIO must be created with newFmmRootNode()
@@ -1347,6 +1349,122 @@ public class FmmDatabaseMediator {
 	public WorkTask getWorkTask(String aNodeIdString) {
 		return this.persistenceTechnologyDelegate.dbRetrieveWorkTask(aNodeIdString);
 	}
+
+
+
+
+
+    private WorkTask newWorkTaskForParent(
+            String aHeadline,
+            FmmHeadlineNode aParentNode,
+            FmmHeadlineNode aPeerNode,
+            boolean bSequenceAtEnd) {
+        return aParentNode.getFmmNodeDefinition() == FmmNodeDefinition.WORK_PACKAGE ?
+                newWorkTaskForWorkPackage(aHeadline, aParentNode, aPeerNode, bSequenceAtEnd) :
+                newWorkTaskForWorkPlan(aHeadline, aParentNode, aPeerNode, bSequenceAtEnd);
+    }
+
+    private WorkTask newWorkTaskForWorkPackage(
+            String aHeadline,
+            FmmHeadlineNode aParentNode,
+            FmmHeadlineNode aPeerNode,
+            boolean bSequenceAtEnd ) {
+        startTransaction();
+        WorkTask theNewWorkTask = new WorkTask(aHeadline);
+        theNewWorkTask.setWorkPackageNodeIdString(aParentNode.getNodeIdString());
+        int theNewSequenceNumber = initializeNewSequenceNumberForTable(
+                FmmNodeDefinition.WORK_TASK,
+                WorkTaskMetaData.column_WORK_PACKAGE__ID,
+                aParentNode,
+                aPeerNode,
+                bSequenceAtEnd );
+        theNewWorkTask.setSequence(theNewSequenceNumber);
+        boolean isSuccess = newWorkTask(theNewWorkTask, false);
+        isSuccess = isSuccess && newNodeFragTribKnQuality(theNewWorkTask) != null;
+        endTransaction(isSuccess);
+        return theNewWorkTask;
+    }
+
+    private int initializeNewSequenceNumberForTable(
+            FmmNodeDefinition anFmmNodeDefinition,
+            String aParentIdColumnName,
+            FmmHeadlineNode aParentNode,
+            FmmHeadlineNode aPeerNode,
+            boolean bSequenceAtEnd) {
+        return initializeNewSequenceNumberForTable(
+                anFmmNodeDefinition,
+                aParentIdColumnName,
+                aParentNode,
+                aPeerNode,
+                bSequenceAtEnd,
+                CompletableNodeMetaData.column_SEQUENCE );
+    }
+
+    private int initializeNewSequenceNumberForTable(
+            FmmNodeDefinition anFmmNodeDefinition,
+            String aParentIdColumnName,
+            FmmHeadlineNode aParentNode,
+            FmmHeadlineNode aPeerNode,
+            boolean bSequenceAtEnd,
+            String aSequenceColumnName ) {
+        int theNewSequenceNumber;
+        if(aPeerNode == null) {  // sequence as the first/last child node of parent node
+            if(bSequenceAtEnd) {  // last child node of parent
+                theNewSequenceNumber = this.persistenceTechnologyDelegate.dbGetLastSequence(
+                        anFmmNodeDefinition.getClassName(),
+                        aParentIdColumnName, aParentNode.getNodeIdString() );
+                theNewSequenceNumber = theNewSequenceNumber == 0 ? 1 : theNewSequenceNumber + 1;
+            } else {  // first child node of parent
+                theNewSequenceNumber = 1;
+                this.persistenceTechnologyDelegate.dbIncrementSequence(
+                        anFmmNodeDefinition.getClassName(),
+                        aParentIdColumnName,
+                        aParentNode.getNodeIdString(),
+                        aSequenceColumnName );
+            }
+        } else { // sequence before/after peer node
+            if(bSequenceAtEnd) {  // sequence after peer
+                theNewSequenceNumber = ((FmmSequencedNode) aPeerNode).getSequence() + 1;
+            } else { // sequence before peer
+                theNewSequenceNumber = ((FmmSequencedNode) aPeerNode).getSequence();
+            }
+            this.persistenceTechnologyDelegate.dbIncrementSequence(
+                    anFmmNodeDefinition.getClassName(),
+                    aParentIdColumnName,
+                    aParentNode.getNodeIdString(),
+                    theNewSequenceNumber,
+                    aSequenceColumnName );
+        }
+        return theNewSequenceNumber;
+    }
+
+    private WorkTask newWorkTaskForWorkPlan(
+            String aHeadline,
+            FmmHeadlineNode aParentNode,
+            FmmHeadlineNode aPeerNode,
+            boolean bSequenceAtEnd ) {
+        startTransaction();
+        WorkTask theNewWorkTask = new WorkTask(aHeadline);
+        theNewWorkTask.setWorkPlanNodeIdString(aParentNode.getNodeIdString());
+        int theNewSequenceNumber = initializeNewSequenceNumberForTable(
+                FmmNodeDefinition.WORK_TASK,
+                WorkTaskMetaData.column_WORK_PLAN__ID,
+                aParentNode,
+                aPeerNode,
+                bSequenceAtEnd,
+                WorkTaskMetaData.column_WORK_PLAN_SEQUENCE );
+        theNewWorkTask.setWorkPlanSequence(theNewSequenceNumber);
+        boolean isSuccess = newWorkTask(theNewWorkTask, false);
+        isSuccess = isSuccess && newNodeFragTribKnQuality(theNewWorkTask) != null;
+        endTransaction(isSuccess);
+        return theNewWorkTask;
+    }
+    
+    
+    
+    
+    
+    
 
 	public boolean newWorkTask(WorkTask aWorkTask, boolean bAtomicTransaction) {
 		if(bAtomicTransaction) {
