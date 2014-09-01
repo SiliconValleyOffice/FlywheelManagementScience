@@ -187,6 +187,8 @@ public class FmmDatabaseMediator {
 		return this.inTransaction;
 	}
 
+    ////  START SEQUENCE  ///////////
+
 	public void swapSequence(FmmHeadlineNode aTargetNode, FmmHeadlineNode aPeerNode, FmmHeadlineNode aParentNode) {
 		this.persistenceTechnologyDelegate.dbSwapSequence(aParentNode, aTargetNode, aPeerNode);
 	}
@@ -248,6 +250,107 @@ public class FmmDatabaseMediator {
 							aParentNode.getNodeIdString() ) + 1 );
 		}
 	}
+
+    private int initializeNewSequenceNumberForTable(
+            FmmNodeDefinition anFmmNodeDefinition,
+            String aParentIdColumnName,
+            String aParentId,
+            boolean bSequenceAtEnd ) {
+        return initializeNewSequenceNumberForTable(
+                anFmmNodeDefinition,
+                aParentIdColumnName,
+                aParentId,
+                -1,
+                bSequenceAtEnd );
+    }
+
+    private int initializeNewSequenceNumberForTable(
+            FmmNodeDefinition anFmmNodeDefinition,
+            String aParentIdColumnName,
+            FmmHeadlineNode aParentNode,
+            FmmHeadlineNode aPeerNode,
+            boolean bSequenceAtEnd) {
+        return initializeNewSequenceNumberForTable(
+                anFmmNodeDefinition,
+                aParentIdColumnName,
+                aParentNode,
+                aPeerNode,
+                bSequenceAtEnd,
+                CompletableNodeMetaData.column_SEQUENCE );
+    }
+
+    private int initializeNewSequenceNumberForTable(
+            FmmNodeDefinition anFmmNodeDefinition,
+            String aParentIdColumnName,
+            FmmHeadlineNode aParentNode,
+            FmmHeadlineNode aPeerNode,
+            boolean bSequenceAtEnd,
+            String aSequenceColumnName ) {
+        return initializeNewSequenceNumberForTable(
+            anFmmNodeDefinition,
+            aParentIdColumnName,
+            aParentNode.getNodeIdString(),
+            aPeerNode == null ? -1 : ((FmmSequencedNode)aPeerNode).getSequence(),
+            bSequenceAtEnd,
+            aSequenceColumnName );
+    }
+
+    private int initializeNewSequenceNumberForTable(
+            FmmNodeDefinition anFmmNodeDefinition,
+            String aParentIdColumnName,
+            String aParentNodeId,
+            int aPeerNodeSequence,
+            boolean bSequenceAtEnd ) {
+        return initializeNewSequenceNumberForTable(
+                anFmmNodeDefinition,
+                aParentIdColumnName,
+                aParentNodeId,
+                aPeerNodeSequence,
+                bSequenceAtEnd,
+                CompletableNodeMetaData.column_SEQUENCE );
+    }
+
+    private int initializeNewSequenceNumberForTable(
+            FmmNodeDefinition anFmmNodeDefinition,
+            String aParentIdColumnName,
+            String aParentNodeId,
+            int aPeerNodeSequence,
+            boolean bSequenceAtEnd,
+            String aSequenceColumnName ) {
+        int theNewSequenceNumber;
+        if(aPeerNodeSequence < 0) {  // sequence as the first/last child node of parent node
+            if(bSequenceAtEnd) {  // last child node of parent
+                theNewSequenceNumber = this.persistenceTechnologyDelegate.dbGetLastSequence(
+                        anFmmNodeDefinition.getClassName(),
+                        aParentIdColumnName,
+                        aParentNodeId,
+                        aSequenceColumnName );
+                theNewSequenceNumber = theNewSequenceNumber + 1;
+            } else {  // first child node of parent
+                theNewSequenceNumber = 1;
+                this.persistenceTechnologyDelegate.dbIncrementSequence(
+                        anFmmNodeDefinition.getClassName(),
+                        aParentIdColumnName,
+                        aParentNodeId,
+                        aSequenceColumnName );
+            }
+        } else { // sequence before/after peer node
+            if(bSequenceAtEnd) {  // sequence after peer
+                theNewSequenceNumber = aPeerNodeSequence + 1;
+            } else { // sequence before peer
+                theNewSequenceNumber = aPeerNodeSequence;
+            }
+            this.persistenceTechnologyDelegate.dbIncrementSequence(
+                    anFmmNodeDefinition.getClassName(),
+                    aParentIdColumnName,
+                    aParentNodeId,
+                    theNewSequenceNumber,
+                    aSequenceColumnName );
+        }
+        return theNewSequenceNumber;
+    }
+
+    /////  END SEQUENCE  /////////
 
 	public boolean newFmmRootNode(
 			FmmNodeDefinition anFmmNodeDefinition,
@@ -535,6 +638,7 @@ public class FmmDatabaseMediator {
 		// notify table listeners and row listeners
 	}
 
+
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//////  Node - COMMUNITY MEMBER  ////////////////////////////////////////////////////////////////////////////////
 
@@ -605,8 +709,6 @@ public class FmmDatabaseMediator {
 	}
 
 
-
-
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//////  Node - COMPLETION_NODE_TRASH  ////////////////////////////////////////////////////////////////////////////////
 
@@ -648,6 +750,8 @@ public class FmmDatabaseMediator {
 		return isSuccess;
 	}
 
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//////  Node - PORTFOLIO  ////////////////////////////////////////////////////////////////////////////////
 
 	public ArrayList<Portfolio> getPortfolioList(FmsOrganization anOrganization) {
@@ -724,6 +828,8 @@ public class FmmDatabaseMediator {
         return true;
     }
 
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////  Node - PROJECT  ////////////////////////////////////////////////////////////////////////////////
 
     public ArrayList<Project> getProjectList(Portfolio aPortfolio) {
@@ -750,6 +856,8 @@ public class FmmDatabaseMediator {
         return this.persistenceTechnologyDelegate.dbListProjectsForWorkTaskMoveTarget(aPortfolio, aWorkPackageException);
     }
 
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////  Node - FISCAL YEAR  ////////////////////////////////////////////////////////////////////////////////
 
     public ArrayList<FiscalYear> getFiscalYearList(FmsOrganization anOrganization) {
@@ -847,6 +955,7 @@ public class FmmDatabaseMediator {
 		return getFiscalYear(aNodeIdString) != null;
 	}
 
+
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//////  Node - FLYWHEEL TEAM  ///////////////////////////////////////////////////////////////////////////////
 
@@ -895,6 +1004,7 @@ public class FmmDatabaseMediator {
 		return isSuccess;
 	}
 
+
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//////  Node - FRAG LOCK  ////////////////////////////////////////////////////////////////////////
 
@@ -930,6 +1040,7 @@ public class FmmDatabaseMediator {
 	public boolean deleteFragLock(FragLock aFragLock, boolean bAtomicTransaction) {
 		return this.persistenceTechnologyDelegate.dbDeleteFragLock(aFragLock, bAtomicTransaction);
 	}	
+
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//////  Node - NODE FRAG AUDIT BLOCK  ////////////////////////////////////////////////////////////////////////
@@ -999,6 +1110,7 @@ public class FmmDatabaseMediator {
 		return isSuccess;
 	}
 
+
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//////  Node - NODE FRAG COMPLETION  ////////////////////////////////////////////////////////////////////////
 
@@ -1051,6 +1163,7 @@ public class FmmDatabaseMediator {
 		}
 		return isSuccess;
 	}
+
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//////  Node - NODE FRAG FSE DOCUMENT  //////////////////////////////////////////////////////////////////////
@@ -1179,6 +1292,7 @@ public class FmmDatabaseMediator {
 		return isSuccess;
 	}
 
+
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//////  Node - NODE FRAG GOVERNANCE  ////////////////////////////////////////////////////////////////////////
 
@@ -1231,6 +1345,7 @@ public class FmmDatabaseMediator {
 		}
 		return isSuccess;
 	}
+
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//////  Node - NODE FRAG TRIBKN QUALITY  ////////////////////////////////////////////////////////////////////////
@@ -1293,6 +1408,7 @@ public class FmmDatabaseMediator {
 		return isSuccess;
 	}
 
+
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//////  Node - NODE FRAG WORK TASK BUDGET  //////////////////////////////////////////////////////////////////
 
@@ -1339,6 +1455,7 @@ public class FmmDatabaseMediator {
 		return isSuccess;
 	}
 
+
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//////  Node - WORK TASK  //////////////////////////////////////////////////////////////////
 
@@ -1349,10 +1466,6 @@ public class FmmDatabaseMediator {
 	public WorkTask getWorkTask(String aNodeIdString) {
 		return this.persistenceTechnologyDelegate.dbRetrieveWorkTask(aNodeIdString);
 	}
-
-
-
-
 
     private WorkTask newWorkTaskForParent(
             String aHeadline,
@@ -1385,59 +1498,6 @@ public class FmmDatabaseMediator {
         return theNewWorkTask;
     }
 
-    private int initializeNewSequenceNumberForTable(
-            FmmNodeDefinition anFmmNodeDefinition,
-            String aParentIdColumnName,
-            FmmHeadlineNode aParentNode,
-            FmmHeadlineNode aPeerNode,
-            boolean bSequenceAtEnd) {
-        return initializeNewSequenceNumberForTable(
-                anFmmNodeDefinition,
-                aParentIdColumnName,
-                aParentNode,
-                aPeerNode,
-                bSequenceAtEnd,
-                CompletableNodeMetaData.column_SEQUENCE );
-    }
-
-    private int initializeNewSequenceNumberForTable(
-            FmmNodeDefinition anFmmNodeDefinition,
-            String aParentIdColumnName,
-            FmmHeadlineNode aParentNode,
-            FmmHeadlineNode aPeerNode,
-            boolean bSequenceAtEnd,
-            String aSequenceColumnName ) {
-        int theNewSequenceNumber;
-        if(aPeerNode == null) {  // sequence as the first/last child node of parent node
-            if(bSequenceAtEnd) {  // last child node of parent
-                theNewSequenceNumber = this.persistenceTechnologyDelegate.dbGetLastSequence(
-                        anFmmNodeDefinition.getClassName(),
-                        aParentIdColumnName, aParentNode.getNodeIdString() );
-                theNewSequenceNumber = theNewSequenceNumber == 0 ? 1 : theNewSequenceNumber + 1;
-            } else {  // first child node of parent
-                theNewSequenceNumber = 1;
-                this.persistenceTechnologyDelegate.dbIncrementSequence(
-                        anFmmNodeDefinition.getClassName(),
-                        aParentIdColumnName,
-                        aParentNode.getNodeIdString(),
-                        aSequenceColumnName );
-            }
-        } else { // sequence before/after peer node
-            if(bSequenceAtEnd) {  // sequence after peer
-                theNewSequenceNumber = ((FmmSequencedNode) aPeerNode).getSequence() + 1;
-            } else { // sequence before peer
-                theNewSequenceNumber = ((FmmSequencedNode) aPeerNode).getSequence();
-            }
-            this.persistenceTechnologyDelegate.dbIncrementSequence(
-                    anFmmNodeDefinition.getClassName(),
-                    aParentIdColumnName,
-                    aParentNode.getNodeIdString(),
-                    theNewSequenceNumber,
-                    aSequenceColumnName );
-        }
-        return theNewSequenceNumber;
-    }
-
     private WorkTask newWorkTaskForWorkPlan(
             String aHeadline,
             FmmHeadlineNode aParentNode,
@@ -1460,12 +1520,6 @@ public class FmmDatabaseMediator {
         return theNewWorkTask;
     }
     
-    
-    
-    
-    
-    
-
 	public boolean newWorkTask(WorkTask aWorkTask, boolean bAtomicTransaction) {
 		if(bAtomicTransaction) {
 			startTransaction();
@@ -1494,6 +1548,7 @@ public class FmmDatabaseMediator {
 		}
 		return isSuccess;
 	}
+
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//////  Node - FMM CONFIGURATION  ///////////////////////////////////////////////////////////////////////////
@@ -1535,6 +1590,7 @@ public class FmmDatabaseMediator {
 		return isSuccess;
 	}
 
+
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//////  Node - FMS ORGANIZATION  ////////////////////////////////////////////////////////////////////////////////
 
@@ -1575,6 +1631,7 @@ public class FmmDatabaseMediator {
 		return isSuccess;
 	}
 
+
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//////  Node - ORGANIZATION COMMUNITY MEMBER  ///////////////////////////////////////////////////////////////
 
@@ -1600,6 +1657,7 @@ public class FmmDatabaseMediator {
 	public boolean deleteOrganizationCommunityMember(OrganizationCommunityMember anOrganizationCommunityMember, boolean bAtomicTransaction) {
 		return this.persistenceTechnologyDelegate.dbDeleteOrganizationCommunityMember(anOrganizationCommunityMember, bAtomicTransaction);
 	}
+
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//////  Node - PDF PUBLICATION  /////////////////////////////////////////////////////////////////////////////
@@ -1643,6 +1701,7 @@ public class FmmDatabaseMediator {
 		return this.persistenceTechnologyDelegate.dbDeletePdfPublication(aPdfPublication, bAtomicTransaction);
 	}
 
+
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//////  Node - PROJECT  /////////////////////////////////////////////////////////////////////////////////////
 
@@ -1674,12 +1733,13 @@ public class FmmDatabaseMediator {
         startTransaction();
         Project theNewProject = new Project(
                 new NodeId(FmmNodeDefinition.PROJECT.getNodeTypeCode()), aHeadline, aParentNode.getNodeIdString() );
-        setupForNewSequencedNode(
-                theNewProject,
+        int theNewSequenceNumber = initializeNewSequenceNumberForTable(
+                FmmNodeDefinition.PROJECT,
                 ProjectMetaData.column_PORTFOLIO_ID,
-                aParentNode.getNodeIdString(),
+                aParentNode,
                 aPeerNode,
-                bSequenceAtEnd);
+                bSequenceAtEnd );
+        theNewProject.setSequence(theNewSequenceNumber);
         boolean isSuccess = newProject(theNewProject, false) &&
                 newNodeFragTribKnQuality(theNewProject) != null;
         endTransaction(isSuccess);
@@ -1713,6 +1773,7 @@ public class FmmDatabaseMediator {
 		}
 		return isSuccess;
 	}
+
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//////  Node - PROJECT ASSET  ///////////////////////////////////////////////////////////////////////////////
@@ -1790,32 +1851,14 @@ public class FmmDatabaseMediator {
 		ProjectAsset theNewProjectAsset = new ProjectAsset();
 		theNewProjectAsset.setHeadline(aHeadline);
 		boolean isSuccess = newProjectAsset(theNewProjectAsset, true);
-		int theNewSequenceNumber = 0;
-		if(aPeerNode == null) {  // sequence as the first/last child node of parent node
-			if(bSequenceAtEnd) {  // last child node of parent
-				theNewSequenceNumber = this.persistenceTechnologyDelegate.dbGetLastSequence(
-						FmmNodeDefinition.STRATEGIC_COMMITMENT.getClassName(),
-						StrategicCommitmentMetaData.column_STRATEGIC_MILESTONE_ID, aParentNode.getNodeIdString() );
-				theNewSequenceNumber = theNewSequenceNumber == 0 ? 1 : theNewSequenceNumber + 1;
-			} else {  // first child node of parent
-				theNewSequenceNumber = 1;
-				this.persistenceTechnologyDelegate.dbIncrementSequence(
-						FmmNodeDefinition.STRATEGIC_COMMITMENT.getClassName(),
-						StrategicCommitmentMetaData.column_STRATEGIC_MILESTONE_ID, aParentNode.getNodeIdString() );
-			}
-		} else { // sequence before/after peer node
-						if(bSequenceAtEnd) {  // sequence after peer
-							theNewSequenceNumber = ((FmmSequencedNode) aPeerNode).getSequence(FmmNodeDefinition.STRATEGIC_MILESTONE) + 1;
-						} else { // sequence before peer
-							theNewSequenceNumber = ((FmmSequencedNode) aPeerNode).getSequence(FmmNodeDefinition.STRATEGIC_MILESTONE);
-						}
-						this.persistenceTechnologyDelegate.dbIncrementSequence(
-							FmmNodeDefinition.STRATEGIC_COMMITMENT.getClassName(),
-							StrategicCommitmentMetaData.column_STRATEGIC_MILESTONE_ID, aParentNode.getNodeIdString(),
-							theNewSequenceNumber );
-		}
 		StrategicCommitment theNewStrategicCommitment = new StrategicCommitment(
 				aParentNode.getNodeIdString(), theNewProjectAsset.getNodeIdString() );
+        int theNewSequenceNumber = initializeNewSequenceNumberForTable(
+                FmmNodeDefinition.STRATEGIC_COMMITMENT,
+                StrategicCommitmentMetaData.column_STRATEGIC_MILESTONE_ID,
+                aParentNode,
+                aPeerNode,
+                bSequenceAtEnd );
 		theNewStrategicCommitment.setSequence(theNewSequenceNumber);
 		theNewStrategicCommitment.setCompletionCommitmentType(CompletionCommitmentType.NONE);
 		isSuccess = isSuccess && newStrategicCommitment(theNewStrategicCommitment, false);
@@ -1834,30 +1877,13 @@ public class FmmDatabaseMediator {
         theNewProjectAsset.setHeadline(aHeadline);
         theNewProjectAsset.setProjectNodeIdString(aParentNode.getNodeIdString());
         boolean isSuccess = newProjectAsset(theNewProjectAsset, true);
-        int theNewSequenceNumber = 0;
-        if(aPeerNode == null) {  // sequence as the first/last child node of parent node
-            if(bSequenceAtEnd) {  // last child node of parent
-                theNewSequenceNumber = this.persistenceTechnologyDelegate.dbGetLastSequence(
-                        FmmNodeDefinition.PROJECT_ASSET.getClassName(),
-                        ProjectAssetMetaData.column_PROJECT_ID, aParentNode.getNodeIdString() );
-                theNewSequenceNumber = theNewSequenceNumber == 0 ? 1 : theNewSequenceNumber + 1;
-            } else {  // first child node of parent
-                theNewSequenceNumber = 1;
-                this.persistenceTechnologyDelegate.dbIncrementSequence(
-                        FmmNodeDefinition.PROJECT_ASSET.getClassName(),
-                        ProjectAssetMetaData.column_PROJECT_ID, aParentNode.getNodeIdString() );
-            }
-        } else { // sequence before/after peer node
-            if(bSequenceAtEnd) {  // sequence after peer
-                theNewSequenceNumber = ((FmmSequencedNode) aPeerNode).getSequence(FmmNodeDefinition.PROJECT_ASSET) + 1;
-            } else { // sequence before peer
-                theNewSequenceNumber = ((FmmSequencedNode) aPeerNode).getSequence(FmmNodeDefinition.PROJECT_ASSET);
-            }
-            this.persistenceTechnologyDelegate.dbIncrementSequence(
-                    FmmNodeDefinition.PROJECT_ASSET.getClassName(),
-                    ProjectAssetMetaData.column_PROJECT_ID, aParentNode.getNodeIdString(),
-                    theNewSequenceNumber );
-        }
+        int theNewSequenceNumber = initializeNewSequenceNumberForTable(
+                FmmNodeDefinition.PROJECT_ASSET,
+                ProjectAssetMetaData.column_PROJECT_ID,
+                aParentNode,
+                aPeerNode,
+                bSequenceAtEnd );
+        theNewProjectAsset.setSequence(theNewSequenceNumber);
         isSuccess = isSuccess && newNodeFragTribKnQuality(theNewProjectAsset) != null;
         endTransaction(isSuccess);
         return theNewProjectAsset;
@@ -1981,18 +2007,11 @@ public class FmmDatabaseMediator {
 		if(bAtomicTransaction) {
 			startTransaction();
 		}
-		int theNewSequenceNumber = 0;
-		if(bSequenceAtEnd) {  // last child node of parent
-			theNewSequenceNumber = this.persistenceTechnologyDelegate.dbGetLastSequence(
-					FmmNodeDefinition.STRATEGIC_COMMITMENT.getClassName(),
-					StrategicCommitmentMetaData.column_STRATEGIC_MILESTONE_ID, aStrategicMilestoneId );
-			theNewSequenceNumber = theNewSequenceNumber == 0 ? 1 : theNewSequenceNumber + 1;
-		} else {  // first child node of parent
-			theNewSequenceNumber = 1;
-			this.persistenceTechnologyDelegate.dbIncrementSequence(
-					FmmNodeDefinition.STRATEGIC_COMMITMENT.getClassName(),
-					StrategicCommitmentMetaData.column_STRATEGIC_MILESTONE_ID, aStrategicMilestoneId );
-		}
+        int theNewSequenceNumber = initializeNewSequenceNumberForTable(
+                FmmNodeDefinition.STRATEGIC_COMMITMENT,
+                StrategicCommitmentMetaData.column_STRATEGIC_MILESTONE_ID,
+                aStrategicMilestoneId,
+                bSequenceAtEnd );
 		StrategicCommitment theNewStrategicCommitment = new StrategicCommitment(
 				aStrategicMilestoneId, aProjectAssetId );
 		theNewStrategicCommitment.setSequence(theNewSequenceNumber);
@@ -2005,7 +2024,7 @@ public class FmmDatabaseMediator {
 		return isSuccess;
 	}
 
-	public boolean deleteProjectAsset(ProjectAsset aProjectAsset, boolean bAtomicTransaction) {
+    public boolean deleteProjectAsset(ProjectAsset aProjectAsset, boolean bAtomicTransaction) {
 		if(bAtomicTransaction) {
 			startTransaction();
 		}
@@ -2032,6 +2051,7 @@ public class FmmDatabaseMediator {
 	public int getMoveTargetWorkPackageCount(ProjectAsset aProjectAsset, WorkPackage aWorkPackageException) {
 		return this.persistenceTechnologyDelegate.dbGetMoveTargetWorkPackageCount(aProjectAsset, aWorkPackageException);
 	}
+
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//////  Node - STRATEGIC COMMITMENT  ////////////////////////////////////////////////////////////////////////
@@ -2082,6 +2102,7 @@ public class FmmDatabaseMediator {
 	public boolean deleteStrategicCommitment(StrategicCommitment aStrategicCommitment, boolean bAtomicTransaction) {
 		return this.persistenceTechnologyDelegate.dbDeleteStrategicCommitment(aStrategicCommitment, bAtomicTransaction);
 	}
+
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//////  Node - STRATEGIC MILESTONE  /////////////////////////////////////////////////////////////////////////
@@ -2134,49 +2155,17 @@ public class FmmDatabaseMediator {
 		startTransaction();
 		StrategicMilestone theNewStrategicMilestone = new StrategicMilestone(
 				new NodeId(FmmNodeDefinition.STRATEGIC_MILESTONE.getNodeTypeCode()), aHeadline, aParentNode.getNodeIdString() );
-		setupForNewSequencedNode(
-				theNewStrategicMilestone,
-				StrategicMilestoneMetaData.column_FISCAL_YEAR_ID,
-				aParentNode.getNodeIdString(),
-				aPeerNode,
-				bSequenceAtEnd);
+        int theNewSequenceNumber = initializeNewSequenceNumberForTable(
+                FmmNodeDefinition.STRATEGIC_MILESTONE,
+                StrategicMilestoneMetaData.column_FISCAL_YEAR_ID,
+                aParentNode,
+                aPeerNode,
+                bSequenceAtEnd );
+        theNewStrategicMilestone.setSequence(theNewSequenceNumber);
 		boolean isSuccess = newStrategicMilestone(theNewStrategicMilestone, false) &&
 				newNodeFragTribKnQuality(theNewStrategicMilestone) != null;
 		endTransaction(isSuccess);
 		return theNewStrategicMilestone;
-	}
-
-	// for self-sequenced nodes
-	private void setupForNewSequencedNode(
-			FmmCompletionNode aNewSequencedNode,
-			String aParentColumnName,
-			String aParentId,
-			FmmHeadlineNode aPeerNode,
-			boolean bSequenceAtEnd) {
-		int theNewSequenceNumber = 0;
-		if(aPeerNode == null) {  // sequence as the first/last child node of parent node
-			if(bSequenceAtEnd) {  // last child node of parent
-				theNewSequenceNumber = this.persistenceTechnologyDelegate.dbGetLastSequence(
-						aNewSequencedNode.getFmmNodeDefinition().getClassName(),
-						aParentColumnName, aParentId );
-				theNewSequenceNumber = theNewSequenceNumber == 0 ? 1 : theNewSequenceNumber + 1;
-			} else {  // first child node of parent
-				theNewSequenceNumber = 1;
-				this.persistenceTechnologyDelegate.dbIncrementSequence(
-						aNewSequencedNode.getFmmNodeDefinition().getClassName(),
-						aParentColumnName, aParentId );
-			}
-		} else { // sequence before/after peer node
-			if(bSequenceAtEnd) {  // sequence after peer
-				theNewSequenceNumber = ((FmmSequencedNode) aPeerNode).getSequence() + 1;
-			} else { // sequence before peer
-				theNewSequenceNumber = ((FmmSequencedNode) aPeerNode).getSequence();
-			}
-			this.persistenceTechnologyDelegate.dbIncrementSequence(
-					aNewSequencedNode.getFmmNodeDefinition().getClassName(),
-					aParentColumnName, aParentId, theNewSequenceNumber );
-		}
-		aNewSequencedNode.setSequence(theNewSequenceNumber);
 	}
 
 	private boolean newStrategicMilestone(StrategicMilestone aStrategicMilestone, boolean bAtomicTransaction) {
@@ -2256,6 +2245,7 @@ public class FmmDatabaseMediator {
 				bAtomicTransaction );
 	}
 
+
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//////  Node - WORK PACKAGE  ////////////////////////////////////////////////////////////////////////////////
 
@@ -2333,34 +2323,17 @@ public class FmmDatabaseMediator {
 
 	private WorkPackage newWorkPackageForProjectAsset(
 			String aHeadline,
-			FmmHeadlineNode aParentNode, FmmHeadlineNode aPeerNode,
-			boolean bSequenceAtEnd) {
+			FmmHeadlineNode aParentNode,
+            FmmHeadlineNode aPeerNode,
+			boolean bSequenceAtEnd ) {
 		startTransaction();
 		WorkPackage theNewWorkPackage = new WorkPackage(aHeadline, aParentNode.getNodeIdString());
-		int theNewSequenceNumber = 0;
-		if(aPeerNode == null) {  // sequence as the first/last child node of parent node
-			if(bSequenceAtEnd) {  // last child node of parent
-				theNewSequenceNumber = this.persistenceTechnologyDelegate.dbGetLastSequence(
-						FmmNodeDefinition.WORK_PACKAGE.getClassName(),
-						WorkPackageMetaData.column_PROJECT_ASSET_ID, aParentNode.getNodeIdString() );
-				theNewSequenceNumber = theNewSequenceNumber == 0 ? 1 : theNewSequenceNumber + 1;
-			} else {  // first child node of parent
-				theNewSequenceNumber = 1;
-				this.persistenceTechnologyDelegate.dbIncrementSequence(
-						FmmNodeDefinition.WORK_PACKAGE.getClassName(),
-						WorkPackageMetaData.column_PROJECT_ASSET_ID, aParentNode.getNodeIdString() );
-			}
-		} else { // sequence before/after peer node
-						if(bSequenceAtEnd) {  // sequence after peer
-							theNewSequenceNumber = ((FmmSequencedNode) aPeerNode).getSequence() + 1;
-						} else { // sequence before peer
-							theNewSequenceNumber = ((FmmSequencedNode) aPeerNode).getSequence();
-						}
-						this.persistenceTechnologyDelegate.dbIncrementSequence(
-							FmmNodeDefinition.WORK_PACKAGE.getClassName(),
-							WorkPackageMetaData.column_PROJECT_ASSET_ID, aParentNode.getNodeIdString(),
-							theNewSequenceNumber );
-		}
+        int theNewSequenceNumber = initializeNewSequenceNumberForTable(
+                FmmNodeDefinition.WORK_PACKAGE,
+                WorkPackageMetaData.column_PROJECT_ASSET_ID,
+                aParentNode,
+                aPeerNode,
+                bSequenceAtEnd );
 		theNewWorkPackage.setSequence(theNewSequenceNumber);
 		boolean isSuccess = newWorkPackage(theNewWorkPackage, false);
 		isSuccess = isSuccess && newNodeFragTribKnQuality(theNewWorkPackage) != null;

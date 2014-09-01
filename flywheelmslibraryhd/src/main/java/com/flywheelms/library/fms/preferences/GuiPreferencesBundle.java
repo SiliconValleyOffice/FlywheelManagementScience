@@ -80,6 +80,10 @@ public enum GuiPreferencesBundle {
 	FWB__CONTEXT__WORK_BREAKDOWN__GOVERNANCE ("com.flywheelms.fwb.context.work_breakdown.governance", new GuiPreferenceAttribute[] {
 	}),
 	FWB__CONTEXT__WORK_BREAKDOWN__SHOW ("com.flywheelms.fwb.context.work_breakdown.show", new GuiPreferenceAttribute[] {
+            GuiPreferenceAttribute.CHILD_SUMMARY,
+            GuiPreferenceAttribute.NODE_QUALITY,
+            GuiPreferenceAttribute.TREE_DEPTH,
+            GuiPreferenceAttribute.EMPHASIS_LEVEL
 	}),
 	FWB__CONTEXT__WORK_BREAKDOWN__TEAM ("com.flywheelms.fwb.context.work_breakdown.team", new GuiPreferenceAttribute[] {
 	}),

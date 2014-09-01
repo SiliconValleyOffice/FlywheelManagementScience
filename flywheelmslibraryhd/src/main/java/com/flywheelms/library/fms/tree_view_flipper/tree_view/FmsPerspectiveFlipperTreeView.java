@@ -77,7 +77,7 @@ import com.flywheelms.library.fms.widget.spinner.StrategyTeamWidgetSpinner;
 import com.flywheelms.library.fms.widget.text_view.CustomerNicknameWidgetTextView;
 import com.flywheelms.library.fms.widget.text_view.FacilitatorNicknameWidgetTextView;
 import com.flywheelms.library.fms.widget.text_view.SponsorNicknameWidgetTextView;
-import com.flywheelms.library.gcg.button.GcgIncrementalMenuItem;
+import com.flywheelms.library.gcg.button.GcgIncrementalButton;
 import com.flywheelms.library.gcg.dialog.GcgGuiPreferencesDialog;
 import com.flywheelms.library.gcg.interfaces.GcgGuiable;
 import com.flywheelms.library.gcg.menu.GcgSpinnableMenu;
@@ -91,10 +91,10 @@ import java.util.Collections;
 
 public abstract class FmsPerspectiveFlipperTreeView extends GcgPerspectiveFlipperTreeView implements FmsTreeViewParent {
 
-	protected GcgIncrementalMenuItem nodeChildSummaryMenuItem;
-	protected GcgIncrementalMenuItem nodeQualityMenuItem;
-	protected GcgIncrementalMenuItem treeDepthMenuItem;
-	protected GcgIncrementalMenuItem emphasisLevelMenuItem;
+	protected GcgIncrementalButton nodeChildSummaryMenuItem;
+	protected GcgIncrementalButton nodeQualityMenuItem;
+	protected GcgIncrementalButton treeDepthMenuItem;
+	protected GcgIncrementalButton emphasisLevelMenuItem;
 	protected CheckBox sponsorFilterCheckBox;
 	protected SponsorNicknameWidgetTextView sponsorWidget;
 	protected CheckBox facilitatorFilterCheckBox;
@@ -187,7 +187,7 @@ public abstract class FmsPerspectiveFlipperTreeView extends GcgPerspectiveFlippe
 	}
 
 	protected void initShowMenu() {
-		this.nodeChildSummaryMenuItem = (GcgIncrementalMenuItem) this.rightMenuLayout.findViewById(R.id.show_button__node_child_summary);
+		this.nodeChildSummaryMenuItem = (GcgIncrementalButton) this.rightMenuLayout.findViewById(R.id.show_button__node_child_summary);
 		this.nodeChildSummaryMenuItem.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -203,7 +203,7 @@ public abstract class FmsPerspectiveFlipperTreeView extends GcgPerspectiveFlippe
 				return true;
 			}
 		});
-		this.nodeQualityMenuItem = (GcgIncrementalMenuItem) this.rightMenuLayout.findViewById(R.id.show_button__node_quality);
+		this.nodeQualityMenuItem = (GcgIncrementalButton) this.rightMenuLayout.findViewById(R.id.show_button__node_quality);
 		this.nodeQualityMenuItem.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -219,7 +219,7 @@ public abstract class FmsPerspectiveFlipperTreeView extends GcgPerspectiveFlippe
 				return true;
 			}
 		});
-		this.treeDepthMenuItem = (GcgIncrementalMenuItem) this.rightMenuLayout.findViewById(R.id.show_button__collapse_to_tree_depth);
+		this.treeDepthMenuItem = (GcgIncrementalButton) this.rightMenuLayout.findViewById(R.id.show_button__collapse_to_tree_depth);
 		this.treeDepthMenuItem.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -237,7 +237,7 @@ public abstract class FmsPerspectiveFlipperTreeView extends GcgPerspectiveFlippe
 				return true;
 			}
 		});
-		this.emphasisLevelMenuItem = (GcgIncrementalMenuItem) this.rightMenuLayout.findViewById(R.id.show_button__emphasis_level);
+		this.emphasisLevelMenuItem = (GcgIncrementalButton) this.rightMenuLayout.findViewById(R.id.show_button__emphasis_level);
 		this.emphasisLevelMenuItem.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -271,6 +271,7 @@ public abstract class FmsPerspectiveFlipperTreeView extends GcgPerspectiveFlippe
 				return true;
 			}
 		});
+        guiPreferencesRestoreShowMenu();
 	}
 
 	private void launchShowMenuGuiPreferencesDialog() {
@@ -370,6 +371,7 @@ public abstract class FmsPerspectiveFlipperTreeView extends GcgPerspectiveFlippe
 				return true;
 			}
 		});
+        guiPreferencesRestoreGovernanceMenu();
 	}
 
 	protected void launchGovernanceMenuGuiPreferencesDialog() {
@@ -465,6 +467,7 @@ public abstract class FmsPerspectiveFlipperTreeView extends GcgPerspectiveFlippe
 				return true;
 			}
 		});
+        guiPreferencesRestoreWorkStatusMenu();
 	}
 
 	protected void launchWorkStatusMenuGuiPreferencesDialog() {
@@ -574,6 +577,7 @@ public abstract class FmsPerspectiveFlipperTreeView extends GcgPerspectiveFlippe
 				return true;
 			}
 		});
+        guiPreferencesRestoreTeamMenu();
 	}
 
 	protected void launchTeamMenuGuiPreferencesDialog() {
@@ -821,8 +825,8 @@ public abstract class FmsPerspectiveFlipperTreeView extends GcgPerspectiveFlippe
 	}
 	
 	public void guiPreferencesRestoreGovernanceMenu() {
-		guiPreferencesRestoreShowMenu(GcgPreferencesHelper.getGuiPreferences(
-			getViewFlipper().getGcgActivity(), getPreferencesBundleNameGovernanceMenu() ));
+		guiPreferencesRestoreGovernanceMenu(GcgPreferencesHelper.getGuiPreferences(
+                getViewFlipper().getGcgActivity(), getPreferencesBundleNameGovernanceMenu()));
 	}
 	
 	public void guiPreferencesRestoreGovernanceMenuTransient() {

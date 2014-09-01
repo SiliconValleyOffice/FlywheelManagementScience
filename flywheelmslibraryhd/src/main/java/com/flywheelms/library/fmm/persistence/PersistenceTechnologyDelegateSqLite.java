@@ -2020,16 +2020,29 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 				" WHERE " + aWhereColumnName + " = '" + aWhereColumnValue + "' " +
 				" AND " + SequencedLinkNodeMetaData.column_SEQUENCE + " > " + aMissingSequence );
 	}
+
+    @Override
+    public int dbGetLastSequence(
+            String aTableName,
+            String aWhereColumnName,
+            String aWhereColumnValue ) {
+        return dbGetLastSequence(
+                aTableName,
+                aWhereColumnName,
+                aWhereColumnValue,
+                SequencedLinkNodeMetaData.column_SEQUENCE );
+    }
 	
 	@Override
 	public int dbGetLastSequence(
 			String aTableName,
-			String aColumnName,
-			String aColumnValue ) {
+			String aWhereColumnName,
+			String aWhereColumnValue,
+            String aSequenceColumnName ) {
 		String theQuery =
-				"SELECT MAX(" + SequencedLinkNodeMetaData.column_SEQUENCE + ") AS last_sequence_number" +
+				"SELECT MAX(" + aSequenceColumnName + ") AS last_sequence_number" +
 						" FROM " + aTableName +
-						" WHERE " + aColumnName + " = '" + aColumnValue + "'";
+						" WHERE " + aWhereColumnName + " = '" + aWhereColumnValue + "'";
 		Cursor theCursor = getSqLiteDatabase().rawQuery(theQuery, null);
 		if(theCursor.getCount() == 0) {
 			theCursor.close();

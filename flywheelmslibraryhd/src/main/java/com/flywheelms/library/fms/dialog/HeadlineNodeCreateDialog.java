@@ -138,8 +138,8 @@ public class HeadlineNodeCreateDialog extends FmsCancelOkApplyFdkDialog {
 		this.parentFmmNodeTypeWidget = (FmmNodeTypeWidgetTextView) this.dialogBodyView.findViewById(R.id.fmm_node__type__parent_node);
 		this.parentHeadlineWidget = (HeadlineWidgetTextView) this.dialogBodyView.findViewById(R.id.headline__parent_node);
 		this.launchHeadlineWidget = (HeadlineWidgetTextView) this.dialogBodyView.findViewById(R.id.headline__launch_node);
-		if(this.launchNodeChildCount == 0 && !isPeerLaunch()) {
-			this.sequenceLayout = (GcgContainerGroupBoxLinear) this.dialogBodyView.findViewById(R.id.group_box__sequence);
+        this.sequenceLayout = (GcgContainerGroupBoxLinear) this.dialogBodyView.findViewById(R.id.group_box__sequence);
+        if(this.launchNodeChildCount == 0 && !isPeerLaunch()) {
 			this.sequenceLayout.setVisibility(View.GONE);
 		} else {
 			this.firstRadioButton = (RadioButton) this.dialogBodyView.findViewById(R.id.first__radio_button);
@@ -223,7 +223,6 @@ public class HeadlineNodeCreateDialog extends FmsCancelOkApplyFdkDialog {
 	protected void onClickButtonApply() {
 		createHeadlineNode(false);
 		this.headlineWidget.setText("");
-		this.headlineWidget.requestFocus();
 		if(this.sequenceLayout.getVisibility() == View.GONE) {
 			this.sequenceLayout.setVisibility(View.VISIBLE);
 			this.firstRadioButton = (RadioButton) this.dialogBodyView.findViewById(R.id.first__radio_button);

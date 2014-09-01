@@ -42,8 +42,6 @@
  */
 package com.flywheelms.fwb.activity;
 
-import java.util.ArrayList;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -81,6 +79,9 @@ import com.flywheelms.library.gcg.menu.GcgPerspectiveMenuButton;
 import com.flywheelms.library.gcg.viewflipper.GcgPerspectiveFlipper;
 import com.flywheelms.library.gcg.viewflipper.GcgViewFlipper;
 
+import java.util.ArrayList;
+
+// com.flywheelms.fwb.activity.WorkbenchActivity
 public class WorkbenchActivity extends GcgActivity implements FmsDecKanGlNavigationDialogParent {
 
 	private static final String HELP_CONTEXT_URL_STRING = "http://code.google.com/p/flywheelms-hd/wiki/UserDocWorkbench";

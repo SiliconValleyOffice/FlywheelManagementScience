@@ -43,15 +43,6 @@
 
 package com.flywheelms.library.gcg.treeview;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
 import android.database.DataSetObserver;
 
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
@@ -60,6 +51,15 @@ import com.flywheelms.library.gcg.treeview.exception.NodeAlreadyInTreeException;
 import com.flywheelms.library.gcg.treeview.exception.NodeNotInTreeException;
 import com.flywheelms.library.gcg.treeview.node.GcgTreeNode;
 import com.flywheelms.library.gcg.treeview.node.GcgTreeNodeInfo;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /*
  * TODO - need to create super class GcgTreeContentMediator and "pull" most of this up into the new class
@@ -312,7 +312,7 @@ public abstract class GcgTreeViewMediatorMemoryResident implements GcgTreeViewMe
 					expandDirectChildren(theTreeNodeInfoLevel1);
 					for(GcgTreeNodeInfo theTreeNodeInfoLevel2 : getChildren(theTreeNodeInfoLevel1)) {
 						expandDirectChildren(theTreeNodeInfoLevel2);
-						for(GcgTreeNodeInfo theTreeNodeInfoLevel3 : getChildren(theTreeNodeInfoLevel1)) {
+						for(GcgTreeNodeInfo theTreeNodeInfoLevel3 : getChildren(theTreeNodeInfoLevel2)) {
 							collapseChildren(theTreeNodeInfoLevel3);
 						}	
 					}	
@@ -323,9 +323,9 @@ public abstract class GcgTreeViewMediatorMemoryResident implements GcgTreeViewMe
 					expandDirectChildren(theTreeNodeInfoLevel1);
 					for(GcgTreeNodeInfo theTreeNodeInfoLevel2 : getChildren(theTreeNodeInfoLevel1)) {
 						expandDirectChildren(theTreeNodeInfoLevel2);
-						for(GcgTreeNodeInfo theTreeNodeInfoLevel3 : getChildren(theTreeNodeInfoLevel1)) {
+						for(GcgTreeNodeInfo theTreeNodeInfoLevel3 : getChildren(theTreeNodeInfoLevel2)) {
 							expandDirectChildren(theTreeNodeInfoLevel3);
-							for(GcgTreeNodeInfo theTreeNodeInfoLevel4 : getChildren(theTreeNodeInfoLevel1)) {
+							for(GcgTreeNodeInfo theTreeNodeInfoLevel4 : getChildren(theTreeNodeInfoLevel3)) {
 								collapseChildren(theTreeNodeInfoLevel4);
 							}	
 						}	

@@ -115,6 +115,12 @@ public abstract class PersistenceTechnologyDelegate {
 			String aTableName,
 			String aWhereColumnName,
 			String aWhereColumnValue );
+
+    public abstract int dbGetLastSequence(
+            String aTableName,
+            String aWhereColumnName,
+            String aWhereColumnValue,
+            String aSequenceColumnName );
 	
 	public abstract void dbIncrementSequence(
 			String aTableName,

@@ -1,4 +1,4 @@
-/* @(#)GcgIncrementalMenuItem.java
+/* @(#)GcgIncrementalButton.java
 ** 
 ** Copyright (C) 2012 by Steven D. Stamps
 **
@@ -57,7 +57,7 @@ import com.flywheelms.library.R;
 /**
  * will always be on the right thumb menu
  */
-public class GcgIncrementalMenuItem extends LinearLayout {
+public class GcgIncrementalButton extends LinearLayout {
 
 	private static final int resource_id__WIDGET_LABEL = R.id.widget_label;
 	private static final int resource_id__WIDGET_BUTTON = R.id.widget_button;
@@ -93,18 +93,18 @@ public class GcgIncrementalMenuItem extends LinearLayout {
 		R.drawable.gcg__background_state_list__multi_state_button__off
 	};
 
-	public GcgIncrementalMenuItem(Context aContext) {
+	public GcgIncrementalButton(Context aContext) {
 		super(aContext);
 		setup(aContext);
 	}
 
-	public GcgIncrementalMenuItem(Context aContext, AttributeSet anAttributeSet) {
+	public GcgIncrementalButton(Context aContext, AttributeSet anAttributeSet) {
 		super(aContext, anAttributeSet);
 		processCustomAttributes(aContext, anAttributeSet);
 		setup(aContext);
 	}
 
-	public GcgIncrementalMenuItem(Context aContext, AttributeSet anAttributeSet, int aStyleDefinition) {
+	public GcgIncrementalButton(Context aContext, AttributeSet anAttributeSet, int aStyleDefinition) {
 		super(aContext, anAttributeSet, aStyleDefinition);
 		processCustomAttributes(aContext, anAttributeSet);
 		setup(aContext);
@@ -147,14 +147,14 @@ public class GcgIncrementalMenuItem extends LinearLayout {
 
             @Override
             public void onClick(View aView) {
-                GcgIncrementalMenuItem.this.incrementalStateButton.performClick();
+                GcgIncrementalButton.this.incrementalStateButton.performClick();
             }
         });
         this.labelView.setOnClickListener(new OnClickListener() {
 
             @Override
             public void onClick(View aView) {
-                GcgIncrementalMenuItem.this.menuItemContainer.performClick();
+                GcgIncrementalButton.this.incrementalStateButton.performClick();
             }
         });
 	}
@@ -162,11 +162,18 @@ public class GcgIncrementalMenuItem extends LinearLayout {
 	@Override
 	public void setOnLongClickListener(final OnLongClickListener aClickListener) {
 		this.incrementalStateButton.setOnLongClickListener(aClickListener);
+        this.menuItemContainer.setOnLongClickListener(new OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                GcgIncrementalButton.this.incrementalStateButton.performLongClick();
+                return true;
+            }
+        });
 		this.labelView.setOnLongClickListener(new OnLongClickListener() {
 			
 			@Override
 			public boolean onLongClick(View v) {
-				GcgIncrementalMenuItem.this.incrementalStateButton.performLongClick();
+				GcgIncrementalButton.this.incrementalStateButton.performLongClick();
 				return true;
 			}
 		});
