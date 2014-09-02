@@ -52,7 +52,6 @@ import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
-import com.flywheelms.library.fmm.transaction.FmmNodeGlyphType;
 import com.flywheelms.library.fms.activity.FmmNodeEditorActivity;
 import com.flywheelms.library.fms.widget.edit_text.HeadlineWidgetEditText;
 import com.flywheelms.library.fms.widget.text_view.FmmNodeIdWidgetTextView;
@@ -128,9 +127,13 @@ public class HeadlineNodeHeadlineEditDialog extends FmsCancelOkFdkDialog {
 			
 			@Override
 			public void onClick(View v) {
+                String theLeadingSpace = "";
+                if(HeadlineNodeHeadlineEditDialog.this.newHeadlineWidget.getSelectionStart() != 0) {
+                    theLeadingSpace = " ";
+                }
 				HeadlineNodeHeadlineEditDialog.this.newHeadlineWidget.insert(
 						HeadlineNodeHeadlineEditDialog.this.newHeadlineWidget.getSelectionStart(),
-						HeadlineNodeHeadlineEditDialog.this.originalHeadlineWidget.getText() );
+						theLeadingSpace + HeadlineNodeHeadlineEditDialog.this.originalHeadlineWidget.getText() );
 				HeadlineNodeHeadlineEditDialog.this.newHeadlineWidget.setSelectionAtEnd();
 			}
 		});

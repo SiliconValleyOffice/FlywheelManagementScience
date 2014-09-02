@@ -43,8 +43,6 @@
 
 package com.flywheelms.library.fms.dialog;
 
-import java.util.ArrayList;
-
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
@@ -69,6 +67,8 @@ import com.flywheelms.library.gcg.helper.GcgHelper;
 import com.flywheelms.library.gcg.interfaces.GcgGuiable;
 import com.flywheelms.library.gcg.treeview.GcgTreeViewAdapter;
 import com.flywheelms.library.gcg.widget.edit_text.GcgWidgetGenericEditText;
+
+import java.util.ArrayList;
 
 public abstract class HeadlineNodeAdoptOrphanDialog extends FmsCancelOkApplyFdkDialog {
 
@@ -163,6 +163,7 @@ public abstract class HeadlineNodeAdoptOrphanDialog extends FmsCancelOkApplyFdkD
 		this.adoptionCandidateWidgetSpinner = (FmmHeadlineNodeWidgetSpinner) this.dialogBodyView.findViewById(R.id.adoption_candidate__spinner);
 		this.adoptionCandidateWidgetSpinner.setGcgActivity(this.gcgActivity);
 		this.sequencePositionSpinner = (SequencePositionWidgetSpinner) this.dialogBodyView.findViewById(R.id.list_position__spinner);
+        this.sequencePositionSpinner.setSelection(1);
 	}
 
 	protected void updateFilterResults() {

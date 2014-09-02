@@ -858,6 +858,284 @@ public class FmmDatabaseMediator {
 
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////  Node - PROJECT ASSET  ///////////////////////////////////////////////////////////////////////////////
+
+    public ArrayList<ProjectAsset> listProjectAsset(Project aProject) {
+        return this.persistenceTechnologyDelegate.dbListProjectAsset(aProject);
+    }
+
+    public ArrayList<ProjectAsset> listProjectAsset(Project aProject, ProjectAsset aProjectAssetException) {
+        return this.persistenceTechnologyDelegate.dbListProjectAsset(aProject, aProjectAssetException);
+    }
+
+    public ArrayList<ProjectAsset> listProjectAssetsForProject(String aProjectId) {
+        return listProjectAssetsForProject(aProjectId, null);
+    }
+
+    public ArrayList<ProjectAsset> listProjectAssetsForProject(String aProjectId, String aProjectAssetExceptionId) {
+        return this.persistenceTechnologyDelegate.dbListProjectAssetForProject(aProjectId, aProjectAssetExceptionId);
+    }
+
+    public ArrayList<ProjectAsset> listProjectAsset(StrategicMilestone aStrategicMilestone) {
+        return listProjectAsset(aStrategicMilestone, null);
+    }
+
+    public ArrayList<ProjectAsset> listProjectAsset(StrategicMilestone aStrategicMilestone, ProjectAsset aProjectAssetException) {
+        return this.persistenceTechnologyDelegate.dbListProjectAsset(aStrategicMilestone, aProjectAssetException);
+    }
+
+    public ArrayList<ProjectAsset> listProjectAssetForStrategicMilestone(String aStrategicMilestoneId) {
+        return this.persistenceTechnologyDelegate.dbListProjectAssetForStrategicMilestone(aStrategicMilestoneId, null);
+    }
+
+    public ArrayList<ProjectAsset> listProjectAssetForWorkPackageMoveTarget(Project aProject, ProjectAsset aProjectAssetException) {
+        return this.persistenceTechnologyDelegate.dbListProjectAssetForWorkPackageMoveTarget(
+                aProject.getNodeIdString(), aProjectAssetException.getNodeIdString(), true);
+    }
+
+    public ArrayList<ProjectAsset> listProjectAssetForWorkPackageMoveTarget(StrategicMilestone aStrategicMilestone, ProjectAsset aProjectAssetException) {
+        return this.persistenceTechnologyDelegate.dbListProjectAssetForWorkPackageMoveTarget(
+                aStrategicMilestone.getNodeIdString(), aProjectAssetException.getNodeIdString(), false);
+    }
+
+    public ProjectAsset getProjectAsset(String aNodeIdString) {
+        return this.persistenceTechnologyDelegate.dbRetrieveProjectAsset(aNodeIdString);
+    }
+
+    private boolean newProjectAsset(ProjectAsset aProjectAsset, boolean bAtomicTransaction) {
+        if(bAtomicTransaction) {
+            startTransaction();
+        }
+        boolean isSuccess = this.persistenceTechnologyDelegate.dbInsertProjectAsset(aProjectAsset, bAtomicTransaction) &&
+                newCompletionNode(aProjectAsset);
+        if(bAtomicTransaction) {
+            endTransaction(isSuccess);
+        }
+        return isSuccess;
+    }
+
+    private ProjectAsset newProjectAssetForParent(
+            String aHeadline,
+            FmmHeadlineNode aParentNode,
+            FmmHeadlineNode aPeerNode,
+            boolean bSequenceAtEnd) {
+        return aParentNode.getFmmNodeDefinition() == FmmNodeDefinition.STRATEGIC_MILESTONE ?
+                newProjectAssetForStrategicMilestone(aHeadline, aParentNode, aPeerNode, bSequenceAtEnd) :
+                newProjectAssetForProject(aHeadline, aParentNode, aPeerNode, bSequenceAtEnd);
+    }
+
+    private ProjectAsset newProjectAssetForStrategicMilestone(
+            String aHeadline,
+            FmmHeadlineNode aParentNode,
+            FmmHeadlineNode aPeerNode,
+            boolean bSequenceAtEnd) {
+        startTransaction();
+        ProjectAsset theNewProjectAsset = new ProjectAsset();
+        theNewProjectAsset.setHeadline(aHeadline);
+        boolean isSuccess = newProjectAsset(theNewProjectAsset, true);
+        StrategicCommitment theNewStrategicCommitment = new StrategicCommitment(
+                aParentNode.getNodeIdString(), theNewProjectAsset.getNodeIdString() );
+        int theNewSequenceNumber = initializeNewSequenceNumberForTable(
+                FmmNodeDefinition.STRATEGIC_COMMITMENT,
+                StrategicCommitmentMetaData.column_STRATEGIC_MILESTONE_ID,
+                aParentNode,
+                aPeerNode,
+                bSequenceAtEnd );
+        theNewStrategicCommitment.setSequence(theNewSequenceNumber);
+        theNewStrategicCommitment.setCompletionCommitmentType(CompletionCommitmentType.NONE);
+        isSuccess = isSuccess && newStrategicCommitment(theNewStrategicCommitment, false);
+        isSuccess = isSuccess && newNodeFragTribKnQuality(theNewProjectAsset) != null;
+        endTransaction(isSuccess);
+        return theNewProjectAsset;
+    }
+
+    private ProjectAsset newProjectAssetForProject(
+            String aHeadline,
+            FmmHeadlineNode aParentNode,
+            FmmHeadlineNode aPeerNode,
+            boolean bSequenceAtEnd ) {
+        startTransaction();
+        ProjectAsset theNewProjectAsset = new ProjectAsset();
+        theNewProjectAsset.setHeadline(aHeadline);
+        theNewProjectAsset.setProjectNodeIdString(aParentNode.getNodeIdString());
+        int theNewSequenceNumber = initializeNewSequenceNumberForTable(
+                FmmNodeDefinition.PROJECT_ASSET,
+                ProjectAssetMetaData.column_PROJECT_ID,
+                aParentNode,
+                aPeerNode,
+                bSequenceAtEnd );
+        theNewProjectAsset.setSequence(theNewSequenceNumber);
+        boolean isSuccess = newProjectAsset(theNewProjectAsset, true);
+        isSuccess = isSuccess && newNodeFragTribKnQuality(theNewProjectAsset) != null;
+        endTransaction(isSuccess);
+        return theNewProjectAsset;
+    }
+
+    public boolean updateProjectAsset(ProjectAsset aProjectAsset, boolean bAtomicTransaction) {
+        updateHeadlineNode(aProjectAsset);
+        return this.persistenceTechnologyDelegate.dbUpdateProjectAsset(aProjectAsset, bAtomicTransaction);
+    }
+
+    public boolean moveAllProjectAssetsToStrategicMilestone(
+            String aSourceStrateticMilestoneId,
+            String aDestinationStrategicMilestoneId,
+            boolean bSequenceAtEnd,
+            boolean bAtomicTransaction ) {
+        return this.persistenceTechnologyDelegate.dbMoveAllProjectAssetsToStrategicMilestone(
+                aSourceStrateticMilestoneId,
+                aDestinationStrategicMilestoneId,
+                bSequenceAtEnd,
+                bAtomicTransaction );
+    }
+
+    public boolean moveSingleProjectAssetToStrategicMilestone(
+            String aProjectAssetId,
+            String anOriginalStrategicMilestonetId,
+            String aDestinationStrategicMilestoneId,
+            boolean bSequenceAtEnd,
+            boolean bAtomicTransaction) {
+        return this.persistenceTechnologyDelegate.dbMoveSingleProjectAssetToStrategicMilestone(
+                aProjectAssetId,
+                anOriginalStrategicMilestonetId,
+                aDestinationStrategicMilestoneId,
+                bSequenceAtEnd,
+                bAtomicTransaction );
+    }
+
+    public boolean moveAllProjectAssetsToProject(
+            String aSourceStrateticMilestoneId,
+            String aDestinationProjectId,
+            boolean bSequenceAtEnd,
+            boolean bAtomicTransaction ) {
+        return this.persistenceTechnologyDelegate.dbMoveAllProjectAssetsToProject(
+                aSourceStrateticMilestoneId,
+                aDestinationProjectId,
+                bSequenceAtEnd,
+                bAtomicTransaction );
+    }
+
+    public boolean moveSingleProjectAssetToProject(
+            String aProjectAssetId,
+            String anOriginalProjectId,
+            String aDestinationProjectId,
+            boolean bSequenceAtEnd,
+            boolean bAtomicTransaction) {
+        return this.persistenceTechnologyDelegate.dbMoveSingleProjectAssetToProject(
+                aProjectAssetId,
+                anOriginalProjectId,
+                aDestinationProjectId,
+                bSequenceAtEnd,
+                bAtomicTransaction );
+    }
+
+    public boolean orphanAllProjectAssetsFromStrategicMilestone(String aStrategicMilestoneId, boolean bAtomicTransaction) {
+        if(bAtomicTransaction) {
+            startTransaction();
+        }
+        boolean isSuccess = this.persistenceTechnologyDelegate.dbOrphanAllProjectAssetsFromStrategicMilestone(aStrategicMilestoneId, bAtomicTransaction);
+        if(bAtomicTransaction) {
+            endTransaction(isSuccess);
+        }
+        return isSuccess;
+    }
+
+    public boolean orphanAllProjectAssetsFromProject(String aProjectId, boolean bAtomicTransaction) {
+        if(bAtomicTransaction) {
+            startTransaction();
+        }
+        boolean isSuccess = this.persistenceTechnologyDelegate.dbOrphanAllProjectAssetsFromProject(aProjectId, bAtomicTransaction);
+        if(bAtomicTransaction) {
+            endTransaction(isSuccess);
+        }
+        return isSuccess;
+    }
+
+    public boolean orphanProjectAssetFromStrategicMilestone(String aProjectAssetId, String aStrategicMilestoneId, boolean bAtomicTransaction) {
+        if(bAtomicTransaction) {
+            startTransaction();
+        }
+        boolean isSuccess = this.persistenceTechnologyDelegate.dbOrphanSingleProjectAssetFromStrategicMilestone(aProjectAssetId, aStrategicMilestoneId, bAtomicTransaction);
+        if(bAtomicTransaction) {
+            endTransaction(isSuccess);
+        }
+        return isSuccess;
+    }
+
+    public ArrayList<ProjectAsset> listProjectAssetOrphansFromProject() {
+        return this.persistenceTechnologyDelegate.dbListProjectAssetOrphansFromProject();
+    }
+
+    public boolean adoptOrphanProjectAssetIntoProject(
+            String aProjectAssetId,
+            String aProjectId,
+            boolean bSequenceAtEnd,
+            boolean bAtomicTransaction ) {
+        return this.persistenceTechnologyDelegate.dbAdoptOrphanProjectAssetIntoProject(
+                aProjectAssetId,
+                aProjectId,
+                bSequenceAtEnd,
+                bAtomicTransaction );
+    }
+
+    public ArrayList<ProjectAsset> listProjectAssetOrphansFromStrategicMilestone() {
+        return this.persistenceTechnologyDelegate.dbListProjectAssetOrphansFromStrategicMilestone();
+    }
+
+    public boolean adoptOrphanProjectAssetIntoStrategicMilestone(
+            String aProjectAssetId,
+            String aStrategicMilestoneId,
+            boolean bSequenceAtEnd,
+            boolean bAtomicTransaction ) {
+        if(bAtomicTransaction) {
+            startTransaction();
+        }
+        int theNewSequenceNumber = initializeNewSequenceNumberForTable(
+                FmmNodeDefinition.STRATEGIC_COMMITMENT,
+                StrategicCommitmentMetaData.column_STRATEGIC_MILESTONE_ID,
+                aStrategicMilestoneId,
+                bSequenceAtEnd );
+        StrategicCommitment theNewStrategicCommitment = new StrategicCommitment(
+                aStrategicMilestoneId, aProjectAssetId );
+        theNewStrategicCommitment.setSequence(theNewSequenceNumber);
+        theNewStrategicCommitment.setCompletionCommitmentType(CompletionCommitmentType.NONE);
+        boolean isSuccess = newStrategicCommitment(theNewStrategicCommitment, false);
+        // isSuccess += UPDATE TribKn
+        if(bAtomicTransaction) {
+            endTransaction(isSuccess);
+        }
+        return isSuccess;
+    }
+
+    public boolean deleteProjectAsset(ProjectAsset aProjectAsset, boolean bAtomicTransaction) {
+        if(bAtomicTransaction) {
+            startTransaction();
+        }
+        boolean isSuccess = this.persistenceTechnologyDelegate.dbDeleteProjectAsset(aProjectAsset, bAtomicTransaction) &&
+                deleteCompletableNode(aProjectAsset);
+        if(bAtomicTransaction) {
+            endTransaction(isSuccess);
+        }
+        return isSuccess;
+    }
+
+    public void saveProjectAsset(ProjectAsset aProjectAsset, boolean bAtomicTransaction) {
+        if(existsProjectAsset(aProjectAsset.getNodeIdString())) {
+            updateProjectAsset(aProjectAsset, bAtomicTransaction);
+        } else {
+            newProjectAsset(aProjectAsset, bAtomicTransaction);
+        }
+    }
+
+    public boolean existsProjectAsset(String aNodeIdString) {
+        return getProjectAsset(aNodeIdString) != null;
+    }
+
+    public int getMoveTargetWorkPackageCount(ProjectAsset aProjectAsset, WorkPackage aWorkPackageException) {
+        return this.persistenceTechnologyDelegate.dbGetMoveTargetWorkPackageCount(aProjectAsset, aWorkPackageException);
+    }
+
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////  Node - FISCAL YEAR  ////////////////////////////////////////////////////////////////////////////////
 
     public ArrayList<FiscalYear> getFiscalYearList(FmsOrganization anOrganization) {
@@ -1765,284 +2043,6 @@ public class FmmDatabaseMediator {
 			endTransaction(isSuccess);
 		}
 		return isSuccess;
-	}
-
-
-	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	//////  Node - PROJECT ASSET  ///////////////////////////////////////////////////////////////////////////////
-
-	public ArrayList<ProjectAsset> listProjectAsset(Project aProject) {
-		return this.persistenceTechnologyDelegate.dbListProjectAsset(aProject);
-	}
-
-	public ArrayList<ProjectAsset> listProjectAsset(Project aProject, ProjectAsset aProjectAssetException) {
-		return this.persistenceTechnologyDelegate.dbListProjectAsset(aProject, aProjectAssetException);
-	}
-
-	public ArrayList<ProjectAsset> listProjectAssetsForProject(String aProjectId) {
-		return listProjectAssetsForProject(aProjectId, null);
-	}
-
-	public ArrayList<ProjectAsset> listProjectAssetsForProject(String aProjectId, String aProjectAssetExceptionId) {
-		return this.persistenceTechnologyDelegate.dbListProjectAssetForProject(aProjectId, aProjectAssetExceptionId);
-	}
-
-	public ArrayList<ProjectAsset> listProjectAsset(StrategicMilestone aStrategicMilestone) {
-		return listProjectAsset(aStrategicMilestone, null);
-	}
-
-	public ArrayList<ProjectAsset> listProjectAsset(StrategicMilestone aStrategicMilestone, ProjectAsset aProjectAssetException) {
-		return this.persistenceTechnologyDelegate.dbListProjectAsset(aStrategicMilestone, aProjectAssetException);
-	}
-
-	public ArrayList<ProjectAsset> listProjectAssetForStrategicMilestone(String aStrategicMilestoneId) {
-		return this.persistenceTechnologyDelegate.dbListProjectAssetForStrategicMilestone(aStrategicMilestoneId, null);
-	}
-
-	public ArrayList<ProjectAsset> listProjectAssetForWorkPackageMoveTarget(Project aProject, ProjectAsset aProjectAssetException) {
-		return this.persistenceTechnologyDelegate.dbListProjectAssetForWorkPackageMoveTarget(
-				aProject.getNodeIdString(), aProjectAssetException.getNodeIdString(), true);
-	}
-
-	public ArrayList<ProjectAsset> listProjectAssetForWorkPackageMoveTarget(StrategicMilestone aStrategicMilestone, ProjectAsset aProjectAssetException) {
-		return this.persistenceTechnologyDelegate.dbListProjectAssetForWorkPackageMoveTarget(
-				aStrategicMilestone.getNodeIdString(), aProjectAssetException.getNodeIdString(), false);
-	}
-
-	public ProjectAsset getProjectAsset(String aNodeIdString) {
-		return this.persistenceTechnologyDelegate.dbRetrieveProjectAsset(aNodeIdString);
-	}
-
-	private boolean newProjectAsset(ProjectAsset aProjectAsset, boolean bAtomicTransaction) {
-		if(bAtomicTransaction) {
-			startTransaction();
-		}
-		boolean isSuccess = this.persistenceTechnologyDelegate.dbInsertProjectAsset(aProjectAsset, bAtomicTransaction) &&
-				newCompletionNode(aProjectAsset);
-		if(bAtomicTransaction) {
-			endTransaction(isSuccess);
-		}
-		return isSuccess;
-	}
-
-	private ProjectAsset newProjectAssetForParent(
-			String aHeadline,
-			FmmHeadlineNode aParentNode,
-			FmmHeadlineNode aPeerNode,
-			boolean bSequenceAtEnd) {
-		return aParentNode.getFmmNodeDefinition() == FmmNodeDefinition.STRATEGIC_MILESTONE ?
-				newProjectAssetForStrategicMilestone(aHeadline, aParentNode, aPeerNode, bSequenceAtEnd) :
-					newProjectAssetForProject(aHeadline, aParentNode, aPeerNode, bSequenceAtEnd);
-	}
-
-	private ProjectAsset newProjectAssetForStrategicMilestone(
-			String aHeadline,
-			FmmHeadlineNode aParentNode,
-			FmmHeadlineNode aPeerNode,
-			boolean bSequenceAtEnd) {
-		startTransaction();
-		ProjectAsset theNewProjectAsset = new ProjectAsset();
-		theNewProjectAsset.setHeadline(aHeadline);
-		boolean isSuccess = newProjectAsset(theNewProjectAsset, true);
-		StrategicCommitment theNewStrategicCommitment = new StrategicCommitment(
-				aParentNode.getNodeIdString(), theNewProjectAsset.getNodeIdString() );
-        int theNewSequenceNumber = initializeNewSequenceNumberForTable(
-                FmmNodeDefinition.STRATEGIC_COMMITMENT,
-                StrategicCommitmentMetaData.column_STRATEGIC_MILESTONE_ID,
-                aParentNode,
-                aPeerNode,
-                bSequenceAtEnd );
-		theNewStrategicCommitment.setSequence(theNewSequenceNumber);
-		theNewStrategicCommitment.setCompletionCommitmentType(CompletionCommitmentType.NONE);
-		isSuccess = isSuccess && newStrategicCommitment(theNewStrategicCommitment, false);
-		isSuccess = isSuccess && newNodeFragTribKnQuality(theNewProjectAsset) != null;
-		endTransaction(isSuccess);
-		return theNewProjectAsset;
-	}
-
-	private ProjectAsset newProjectAssetForProject(
-			String aHeadline,
-			FmmHeadlineNode aParentNode,
-			FmmHeadlineNode aPeerNode,
-			boolean bSequenceAtEnd ) {
-        startTransaction();
-        ProjectAsset theNewProjectAsset = new ProjectAsset();
-        theNewProjectAsset.setHeadline(aHeadline);
-        theNewProjectAsset.setProjectNodeIdString(aParentNode.getNodeIdString());
-        boolean isSuccess = newProjectAsset(theNewProjectAsset, true);
-        int theNewSequenceNumber = initializeNewSequenceNumberForTable(
-                FmmNodeDefinition.PROJECT_ASSET,
-                ProjectAssetMetaData.column_PROJECT_ID,
-                aParentNode,
-                aPeerNode,
-                bSequenceAtEnd );
-        theNewProjectAsset.setSequence(theNewSequenceNumber);
-        isSuccess = isSuccess && newNodeFragTribKnQuality(theNewProjectAsset) != null;
-        endTransaction(isSuccess);
-        return theNewProjectAsset;
-	}
-
-	public boolean updateProjectAsset(ProjectAsset aProjectAsset, boolean bAtomicTransaction) {
-		updateHeadlineNode(aProjectAsset);
-		return this.persistenceTechnologyDelegate.dbUpdateProjectAsset(aProjectAsset, bAtomicTransaction);
-	}
-
-	public boolean moveAllProjectAssetsToStrategicMilestone(
-			String aSourceStrateticMilestoneId,
-			String aDestinationStrategicMilestoneId,
-			boolean bSequenceAtEnd,
-			boolean bAtomicTransaction ) {
-		return this.persistenceTechnologyDelegate.dbMoveAllProjectAssetsToStrategicMilestone(
-				aSourceStrateticMilestoneId,
-				aDestinationStrategicMilestoneId,
-				bSequenceAtEnd,
-				bAtomicTransaction );
-	}
-
-	public boolean moveSingleProjectAssetToStrategicMilestone(
-			String aProjectAssetId,
-			String anOriginalStrategicMilestonetId,
-			String aDestinationStrategicMilestoneId,
-			boolean bSequenceAtEnd,
-			boolean bAtomicTransaction) {
-		return this.persistenceTechnologyDelegate.dbMoveSingleProjectAssetToStrategicMilestone(
-				aProjectAssetId,
-				anOriginalStrategicMilestonetId,
-				aDestinationStrategicMilestoneId,
-				bSequenceAtEnd,
-				bAtomicTransaction );
-	}
-
-	public boolean moveAllProjectAssetsToProject(
-			String aSourceStrateticMilestoneId,
-			String aDestinationProjectId,
-			boolean bSequenceAtEnd,
-			boolean bAtomicTransaction ) {
-		return this.persistenceTechnologyDelegate.dbMoveAllProjectAssetsToProject(
-				aSourceStrateticMilestoneId,
-				aDestinationProjectId,
-				bSequenceAtEnd,
-				bAtomicTransaction );
-	}
-
-	public boolean moveSingleProjectAssetToProject(
-			String aProjectAssetId,
-			String anOriginalProjectId,
-			String aDestinationProjectId,
-			boolean bSequenceAtEnd,
-			boolean bAtomicTransaction) {
-		return this.persistenceTechnologyDelegate.dbMoveSingleProjectAssetToProject(
-				aProjectAssetId,
-				anOriginalProjectId,
-				aDestinationProjectId,
-				bSequenceAtEnd,
-				bAtomicTransaction );
-	}
-
-	public boolean orphanAllProjectAssetsFromStrategicMilestone(String aStrategicMilestoneId, boolean bAtomicTransaction) {
-		if(bAtomicTransaction) {
-			startTransaction();
-		}
-		boolean isSuccess = this.persistenceTechnologyDelegate.dbOrphanAllProjectAssetsFromStrategicMilestone(aStrategicMilestoneId, bAtomicTransaction);
-		if(bAtomicTransaction) {
-			endTransaction(isSuccess);
-		}
-		return isSuccess;
-	}
-
-    public boolean orphanAllProjectAssetsFromProject(String aProjectId, boolean bAtomicTransaction) {
-        if(bAtomicTransaction) {
-            startTransaction();
-        }
-        boolean isSuccess = this.persistenceTechnologyDelegate.dbOrphanAllProjectAssetsFromProject(aProjectId, bAtomicTransaction);
-        if(bAtomicTransaction) {
-            endTransaction(isSuccess);
-        }
-        return isSuccess;
-    }
-
-	public boolean orphanProjectAssetFromStrategicMilestone(String aProjectAssetId, String aStrategicMilestoneId, boolean bAtomicTransaction) {
-		if(bAtomicTransaction) {
-			startTransaction();
-		}
-		boolean isSuccess = this.persistenceTechnologyDelegate.dbOrphanSingleProjectAssetFromStrategicMilestone(aProjectAssetId, aStrategicMilestoneId, bAtomicTransaction);
-		if(bAtomicTransaction) {
-			endTransaction(isSuccess);
-		}
-		return isSuccess;
-	}
-
-	public ArrayList<ProjectAsset> listProjectAssetOrphansFromProject() {
-		return this.persistenceTechnologyDelegate.dbListProjectAssetOrphansFromProject();
-	}
-
-	public boolean adoptOrphanProjectAssetIntoProject(
-			String aProjectAssetId,
-			String aProjectId,
-			boolean bSequenceAtEnd,
-			boolean bAtomicTransaction ) {
-		return this.persistenceTechnologyDelegate.dbAdoptOrphanProjectAssetIntoProject(
-				aProjectAssetId,
-				aProjectId,
-				bSequenceAtEnd,
-				bAtomicTransaction );
-	}
-
-	public ArrayList<ProjectAsset> listProjectAssetOrphansFromStrategicMilestone() {
-		return this.persistenceTechnologyDelegate.dbListProjectAssetOrphansFromStrategicMilestone();
-	}
-
-	public boolean adoptOrphanProjectAssetIntoStrategicMilestone(
-			String aProjectAssetId,
-			String aStrategicMilestoneId,
-			boolean bSequenceAtEnd,
-			boolean bAtomicTransaction ) {
-		if(bAtomicTransaction) {
-			startTransaction();
-		}
-        int theNewSequenceNumber = initializeNewSequenceNumberForTable(
-                FmmNodeDefinition.STRATEGIC_COMMITMENT,
-                StrategicCommitmentMetaData.column_STRATEGIC_MILESTONE_ID,
-                aStrategicMilestoneId,
-                bSequenceAtEnd );
-		StrategicCommitment theNewStrategicCommitment = new StrategicCommitment(
-				aStrategicMilestoneId, aProjectAssetId );
-		theNewStrategicCommitment.setSequence(theNewSequenceNumber);
-		theNewStrategicCommitment.setCompletionCommitmentType(CompletionCommitmentType.NONE);
-		boolean isSuccess = newStrategicCommitment(theNewStrategicCommitment, false);
-		// isSuccess += UPDATE TribKn
-		if(bAtomicTransaction) {
-			endTransaction(isSuccess);
-		}
-		return isSuccess;
-	}
-
-    public boolean deleteProjectAsset(ProjectAsset aProjectAsset, boolean bAtomicTransaction) {
-		if(bAtomicTransaction) {
-			startTransaction();
-		}
-		boolean isSuccess = this.persistenceTechnologyDelegate.dbDeleteProjectAsset(aProjectAsset, bAtomicTransaction) &&
-				deleteCompletableNode(aProjectAsset);
-		if(bAtomicTransaction) {
-			endTransaction(isSuccess);
-		}
-		return isSuccess;
-	}
-
-	public void saveProjectAsset(ProjectAsset aProjectAsset, boolean bAtomicTransaction) {
-		if(existsProjectAsset(aProjectAsset.getNodeIdString())) {
-			updateProjectAsset(aProjectAsset, bAtomicTransaction);
-		} else {
-			newProjectAsset(aProjectAsset, bAtomicTransaction);
-		}
-	}
-
-	public boolean existsProjectAsset(String aNodeIdString) {
-		return getProjectAsset(aNodeIdString) != null;
-	}
-
-	public int getMoveTargetWorkPackageCount(ProjectAsset aProjectAsset, WorkPackage aWorkPackageException) {
-		return this.persistenceTechnologyDelegate.dbGetMoveTargetWorkPackageCount(aProjectAsset, aWorkPackageException);
 	}
 
 

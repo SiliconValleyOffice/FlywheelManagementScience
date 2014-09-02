@@ -161,6 +161,12 @@ public class AndroidContactWidgetPickerResult extends GcgWidgetTextView {
 		onPickerResult(anIntent);
 	}
 
+    protected void manageBackgroundState() {
+        this.textView.setBackgroundResource(isMinimumInput() ?
+                R.drawable.gcg__background_state_list__edit_text :
+                R.drawable.gcg__background_state_list__edit_text__invalid );
+    }
+
 	@Override
 	protected boolean isMinimumInput() {
 		return inputRequired() ? this.androidContact != null : true;
