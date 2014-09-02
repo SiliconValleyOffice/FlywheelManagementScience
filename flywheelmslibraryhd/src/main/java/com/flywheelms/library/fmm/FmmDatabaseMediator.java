@@ -1733,13 +1733,6 @@ public class FmmDatabaseMediator {
         startTransaction();
         Project theNewProject = new Project(
                 new NodeId(FmmNodeDefinition.PROJECT.getNodeTypeCode()), aHeadline, aParentNode.getNodeIdString() );
-        int theNewSequenceNumber = initializeNewSequenceNumberForTable(
-                FmmNodeDefinition.PROJECT,
-                ProjectMetaData.column_PORTFOLIO_ID,
-                aParentNode,
-                aPeerNode,
-                bSequenceAtEnd );
-        theNewProject.setSequence(theNewSequenceNumber);
         boolean isSuccess = newProject(theNewProject, false) &&
                 newNodeFragTribKnQuality(theNewProject) != null;
         endTransaction(isSuccess);

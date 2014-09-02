@@ -111,6 +111,7 @@ public class PortfolioCreateDialog extends FmsCancelOkApplyFdkDialog {
             }
         });
 		this.editNewPortfolio = (CheckBox) this.dialogBodyView.findViewById(R.id.edit_new_portfolio);
+        this.editNewPortfolio.setText("Edit new " + this.fmmNodeDefinition.getLabelText());
 	}
 
 	@Override

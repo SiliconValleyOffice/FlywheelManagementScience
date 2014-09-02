@@ -146,6 +146,7 @@ public class HeadlineNodeCreateDialog extends FmsCancelOkApplyFdkDialog {
 			this.lastRadioButton = (RadioButton) this.dialogBodyView.findViewById(R.id.last__radio_button);
 		}
 		this.editNewHeadlineNode = (CheckBox) this.dialogBodyView.findViewById(R.id.edit_new_headline_node);
+        this.editNewHeadlineNode.setText("Edit new " + this.fmmNodeDefinition.getLabelText());
 	}
 	
 	@Override
@@ -166,7 +167,6 @@ public class HeadlineNodeCreateDialog extends FmsCancelOkApplyFdkDialog {
 				this.lastRadioButton.setText("as last " + this.fmmNodeDefinition.getLabelText());
 			}
 		}
-		this.editNewHeadlineNode.setText("Edit new " + this.fmmNodeDefinition.getLabelText());
 	}
 
 	private boolean isPeerLaunch() {

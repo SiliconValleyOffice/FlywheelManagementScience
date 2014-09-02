@@ -991,7 +991,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
         if(aProjectExceptionId != null) {
             theRawQuery += " AND " + IdNodeMetaData.column_ID + " != '" + aProjectExceptionId + "'";
         }
-        theRawQuery += " ORDER BY " + CompletableNodeMetaData.column_SEQUENCE + " ASC";
+        theRawQuery += " ORDER BY " + HeadlineNodeMetaData.column_HEADLINE + " ASC";
         Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
         return ProjectDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
     }

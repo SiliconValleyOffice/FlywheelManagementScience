@@ -2296,11 +2296,11 @@ containing a value of this type.
     public static final class id {
         public static final int action__about_flywheelms=0x7f07030e;
         public static final int action__browse=0x7f070307;
-        public static final int action__close_fmm=0x7f07030a;
         public static final int action__deckangl__dictionary=0x7f07030d;
         public static final int action__delete=0x7f0702ff;
         public static final int action__do_it_now=0x7f070303;
         public static final int action__edit=0x7f070300;
+        public static final int action__exit=0x7f07030a;
         public static final int action__flywheel_dictation_keyboard=0x7f070304;
         public static final int action__headline=0x7f070309;
         public static final int action__help=0x7f0702fe;

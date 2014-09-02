@@ -168,9 +168,10 @@ public class WorkbenchActivity extends GcgActivity implements FmsDecKanGlNavigat
 //				buildContentViewForDataSource();
 				refreshDataDisplay();
 				break;
-			case com.flywheelms.fwb.R.id.action__close_fmm:
+			case com.flywheelms.fwb.R.id.action__exit:
 				enableActivityCurtain(true);
 				closeFmm();
+                finish();
 				break;
 			case R.id.action__publish_pdf:
 				break;
