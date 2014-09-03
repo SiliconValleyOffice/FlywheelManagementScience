@@ -1,4 +1,4 @@
-/* @(#)ProjectAssetEditorActivity.java
+/* @(#)PortfolioEditorActivity.java
 ** 
 ** Copyright (C) 2012 by Steven D. Stamps
 **
@@ -45,40 +45,40 @@ package com.flywheelms.library.fms.activity;
 
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
-import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
+import com.flywheelms.library.fmm.node.impl.governable.Portfolio;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmNode;
 import com.flywheelms.library.fms.helper.FmsHelpIndex;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class ProjectAssetEditorActivity extends FmmNodeEditorActivity {
-	
-	public ProjectAssetEditorActivity() {
-		super(FmmNodeDefinition.PROJECT_ASSET, FmsHelpIndex.PROJECT_ASSET_ACTIVITY);
+public class PortfolioEditorActivity extends FmmNodeEditorActivity {
+
+	public PortfolioEditorActivity() {
+		super(FmmNodeDefinition.PORTFOLIO, FmsHelpIndex.PORTFOLIO_ACTIVITY);
 	}
 
 	@Override
-	protected ProjectAsset getFmmHeadlineNodeFromSerialized(String aSerializedFmmNode) {
-		ProjectAsset theProjectAsset = null;
+	protected Portfolio getFmmHeadlineNodeFromSerialized(String aSerializedFmmNode) {
+		Portfolio thePortfolio = null;
 		try {
-			theProjectAsset = new ProjectAsset(new JSONObject(aSerializedFmmNode));
+			thePortfolio = new Portfolio(new JSONObject(aSerializedFmmNode));
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return theProjectAsset;
+		return thePortfolio;
 	}
 
 	@Override
 	protected Class<? extends FmmNode> getNodeClass() {
-		return ProjectAsset.class;
+		return Portfolio.class;
 	}
 	
 	@Override
 	public void saveAllDataModifications() {
 		super.saveAllDataModifications();
-		FmmDatabaseMediator.getActiveMediator().saveProjectAsset((ProjectAsset) getDisplayedFmmHeadlineNode(), true);
+		FmmDatabaseMediator.getActiveMediator().savePortfolio((Portfolio) getDisplayedFmmHeadlineNode(), true);
 	}
 
 }

@@ -956,6 +956,11 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
     }
 
     @Override
+    public boolean dbUpdatePortfolio(Portfolio aPortfolio, boolean bAtomicTransaction) {
+        return updateSimpleIdTable(aPortfolio, PortfolioDaoSqLite.getInstance(), bAtomicTransaction);
+    }
+
+    @Override
     public boolean dbDeletePortfolio(Portfolio aPortfolio, boolean bAtomicTransaction) {
         return deleteRowFromSimpleIdTable(aPortfolio.getNodeIdString(), FmmNodeDefinition.PORTFOLIO, bAtomicTransaction);
     }

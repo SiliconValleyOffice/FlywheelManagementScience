@@ -1,4 +1,4 @@
-/* @(#)ProjectAssetEditorActivity.java
+/* @(#)WorkPackageEditorActivity.java
 ** 
 ** Copyright (C) 2012 by Steven D. Stamps
 **
@@ -45,40 +45,40 @@ package com.flywheelms.library.fms.activity;
 
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
-import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
+import com.flywheelms.library.fmm.node.impl.governable.WorkPackage;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmNode;
 import com.flywheelms.library.fms.helper.FmsHelpIndex;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class ProjectAssetEditorActivity extends FmmNodeEditorActivity {
-	
-	public ProjectAssetEditorActivity() {
-		super(FmmNodeDefinition.PROJECT_ASSET, FmsHelpIndex.PROJECT_ASSET_ACTIVITY);
+public class WorkPackageEditorActivity extends FmmNodeEditorActivity {
+
+	public WorkPackageEditorActivity() {
+		super(FmmNodeDefinition.PROJECT, FmsHelpIndex.PROJECT_ACTIVITY);
 	}
 
 	@Override
-	protected ProjectAsset getFmmHeadlineNodeFromSerialized(String aSerializedFmmNode) {
-		ProjectAsset theProjectAsset = null;
+	protected WorkPackage getFmmHeadlineNodeFromSerialized(String aSerializedFmmNode) {
+		WorkPackage theWorkPackage = null;
 		try {
-			theProjectAsset = new ProjectAsset(new JSONObject(aSerializedFmmNode));
+			theWorkPackage = new WorkPackage(new JSONObject(aSerializedFmmNode));
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return theProjectAsset;
+		return theWorkPackage;
 	}
 
 	@Override
 	protected Class<? extends FmmNode> getNodeClass() {
-		return ProjectAsset.class;
+		return WorkPackage.class;
 	}
 	
 	@Override
 	public void saveAllDataModifications() {
 		super.saveAllDataModifications();
-		FmmDatabaseMediator.getActiveMediator().saveProjectAsset((ProjectAsset) getDisplayedFmmHeadlineNode(), true);
+		FmmDatabaseMediator.getActiveMediator().saveWorkPackage((WorkPackage) getDisplayedFmmHeadlineNode(), true);
 	}
 
 }

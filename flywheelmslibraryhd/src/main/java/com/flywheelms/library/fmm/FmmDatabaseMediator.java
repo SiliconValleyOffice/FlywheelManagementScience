@@ -808,6 +808,19 @@ public class FmmDatabaseMediator {
         return this.persistenceTechnologyDelegate.dbRetrievePortfolio(aNodeIdString);
     }
 
+    public void savePortfolio(Portfolio aPortfolio, boolean bAtomicTransaction) {
+        if(existsFiscalYear(aPortfolio.getNodeIdString())) {
+            updatePortfolio(aPortfolio, bAtomicTransaction);
+        } else {
+            newPortfolio(aPortfolio, bAtomicTransaction);
+        }
+    }
+
+    public boolean updatePortfolio(Portfolio aPortfolio, boolean bAtomicTransaction) {
+        updateHeadlineNode(aPortfolio);
+        return this.persistenceTechnologyDelegate.dbUpdatePortfolio(aPortfolio, bAtomicTransaction);
+    }
+
     public boolean deletePortfolio(Portfolio aPortfolio, boolean bAtomicTransaction) {
             if(bAtomicTransaction) {
                 startTransaction();
@@ -1815,6 +1828,14 @@ public class FmmDatabaseMediator {
 		return this.persistenceTechnologyDelegate.dbUpdateWorkTask(aWorkTask, bAtomicTransaction);
 	}
 
+    public void saveWorkTask(WorkTask aWorkTask, boolean bAtomicTransaction) {
+        if(existsFiscalYear(aWorkTask.getNodeIdString())) {
+            updateWorkTask(aWorkTask, bAtomicTransaction);
+        } else {
+            newWorkTask(aWorkTask, bAtomicTransaction);
+        }
+    }
+
 	public boolean deleteWorkTask(WorkTask aWorkTask, boolean bAtomicTransaction) {
 		if(bAtomicTransaction) {
 			startTransaction();
@@ -2021,6 +2042,14 @@ public class FmmDatabaseMediator {
 		updateHeadlineNode(aProject);
 		return this.persistenceTechnologyDelegate.dbUpdateProject(aProject, bAtomicTransaction);
 	}
+
+    public void saveProject(Project aProject, boolean bAtomicTransaction) {
+        if(existsFiscalYear(aProject.getNodeIdString())) {
+            updateProject(aProject, bAtomicTransaction);
+        } else {
+            newProject(aProject, bAtomicTransaction);
+        }
+    }
 
     public boolean orphanAllProjectsFromPortfolio(String aPortfolioId, boolean bAtomicTransaction) {
         if(bAtomicTransaction) {
@@ -2346,6 +2375,14 @@ public class FmmDatabaseMediator {
 		return this.persistenceTechnologyDelegate.dbUpdateWorkPackage(aWorkPackage, bAtomicTransaction);
 	}
 
+    public void saveWorkPackage(WorkPackage aWorkPackage, boolean bAtomicTransaction) {
+        if(existsFiscalYear(aWorkPackage.getNodeIdString())) {
+            updateWorkPackage(aWorkPackage, bAtomicTransaction);
+        } else {
+            newWorkPackage(aWorkPackage, bAtomicTransaction);
+        }
+    }
+
 	public boolean orphanWorkPackagesFromProjectAsset(String aProjectAssetNodeId, boolean bAtomicTransaction) {
 		if(bAtomicTransaction) {
 			startTransaction();
@@ -2399,5 +2436,4 @@ public class FmmDatabaseMediator {
 		}
 		return isSuccess;
 	}
-
 }

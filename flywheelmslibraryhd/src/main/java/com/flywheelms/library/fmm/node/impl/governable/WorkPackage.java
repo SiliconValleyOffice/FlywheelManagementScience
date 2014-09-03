@@ -43,11 +43,10 @@
 
 package com.flywheelms.library.fmm.node.impl.governable;
 
-import java.util.ArrayList;
-
 import android.content.Intent;
 
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.meta_data.WorkPackageMetaData;
 import com.flywheelms.library.fmm.node.FmmHeadlineNodeShallow;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.commitment.FlywheelWorkPackageCommitment;
@@ -56,6 +55,12 @@ import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
 import com.flywheelms.library.gcg.GcgActivity;
+import com.flywheelms.library.util.JsonHelper;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 public class WorkPackage extends FmmCompletableNodeImpl implements Comparable<WorkPackage> {
 
@@ -79,6 +84,18 @@ public class WorkPackage extends FmmCompletableNodeImpl implements Comparable<Wo
 		super(NodeId.hydrate(WorkPackage.class, anExistingNodeIdString));
 		// TODO Auto-generated constructor stub
 	}
+
+    public WorkPackage(JSONObject aJsonObject) {
+        super(WorkPackage.class, aJsonObject);
+        try {
+            validateSerializationFormatVersion(aJsonObject.getString(JsonHelper.key__SERIALIZATION_FORMAT_VERSION));
+            setProjectAssetNodeIdString(aJsonObject.getString(WorkPackageMetaData.column_PROJECT_ASSET_ID));
+            setFlywheelCommitmentNodeIdString(aJsonObject.getString(WorkPackageMetaData.column_FLYWHEEL_COMMITMENT_ID));
+        } catch (JSONException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
 
 	@Override
 	public int compareTo(WorkPackage another) {

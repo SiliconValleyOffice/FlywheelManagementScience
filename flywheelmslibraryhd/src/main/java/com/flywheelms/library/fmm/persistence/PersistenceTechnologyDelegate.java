@@ -220,6 +220,8 @@ public abstract class PersistenceTechnologyDelegate {
 
     public abstract ArrayList<? extends GcgGuiable> dbListPortfolioForWorkTaskMoveTarget(FmsOrganization anFmsOrganization, WorkPackage aWorkPackageException);
 
+    public abstract boolean dbUpdatePortfolio(Portfolio aPortfolio, boolean bAtomicTransaction);
+
     public abstract boolean dbDeletePortfolio(Portfolio aPortfolio, boolean bAtomicTransaction);
 
     public abstract Portfolio dbRetrievePortfolio(String aNodeIdString);
@@ -698,5 +700,4 @@ public abstract class PersistenceTechnologyDelegate {
 		public abstract boolean dbUpdateWorkTask(WorkTask aWorkTask, boolean bAtomicTransaction);
 
 		public abstract boolean dbDeleteWorkTask(WorkTask aWorkTask, boolean bAtomicTransaction);
-
 }

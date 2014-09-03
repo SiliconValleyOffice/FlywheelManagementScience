@@ -50,7 +50,11 @@ public class FmsHelpIndex {
 	public static final String FISCAL_YEAR_ACTIVITY = "http://code.google.com/p/flywheelms-library-hd/wiki/UserDocFiscalYearActivity";
 	public static final String PROJECT_ASSET_ACTIVITY = "http://code.google.com/p/flywheelms-library-hd/wiki/UserDocProjectAssetActivity";
 	public static final String STRATEGIC_MILESTONE_ACTIVITY = "http://code.google.com/p/flywheelms-hd/wiki/UserDocStrategicMilestone";
-	
+	public static final String PORTFOLIO_ACTIVITY = "http://code.google.com/p/flywheelms-hd/wiki/UserDocPortfolio";
+	public static final String PROJECT_ACTIVITY = "http://code.google.com/p/flywheelms-hd/wiki/UserDocProject";
+	public static final String WORK_PACKAGE_ACTIVITY = "http://code.google.com/p/flywheelms-hd/wiki/UserDocWorkPackage";
+	public static final String WORK_TASK_ACTIVITY = "http://code.google.com/p/flywheelms-hd/wiki/UserDocWorkTask";
+
 	public static final String COMMUNITY_MEMBER_PICKER = "http://code.google.com/p/flywheelms-hd/wiki/UserDocCommunityMemberPicker";
 	
 	public static final String DECKANGL_DICTIONARY = "http://code.google.com/p/flywheelms-hd/wiki/UserDocDecKanGlDictionary";

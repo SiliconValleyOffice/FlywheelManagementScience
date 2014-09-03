@@ -43,11 +43,10 @@
 
 package com.flywheelms.library.fmm.node.impl.governable;
 
-import java.util.ArrayList;
-
 import android.content.Intent;
 
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.meta_data.WorkTaskMetaData;
 import com.flywheelms.library.fmm.node.FmmHeadlineNodeShallow;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.completable.FmmCompletableNodeImpl;
@@ -55,6 +54,12 @@ import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
 import com.flywheelms.library.gcg.GcgActivity;
+import com.flywheelms.library.util.JsonHelper;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 public class WorkTask extends FmmCompletableNodeImpl {
 
@@ -76,6 +81,19 @@ public class WorkTask extends FmmCompletableNodeImpl {
 		super(NodeId.hydrate(WorkTask.class, anExistingNodeIdString));
 		setAutoCompletable(false);
 	}
+
+    public WorkTask(JSONObject aJsonObject) {
+        super(WorkTask.class, aJsonObject);
+        try {
+            validateSerializationFormatVersion(aJsonObject.getString(JsonHelper.key__SERIALIZATION_FORMAT_VERSION));
+            setWorkPackageNodeIdString(aJsonObject.getString(WorkTaskMetaData.column_WORK_PACKAGE__ID));
+            setWorkPlanNodeIdString(aJsonObject.getString(WorkTaskMetaData.column_WORK_PLAN__ID));
+            setWorkPlanSequence(aJsonObject.getInt(WorkTaskMetaData.column_WORK_PLAN_SEQUENCE));
+        } catch (JSONException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
 	
 	public static void startNodeEditorActivity(GcgActivity anActivity, String aNodeListParentNodeId, ArrayList<FmmHeadlineNodeShallow> aHeadlineNodeShallowList, String anInitialNodeIdToDisplay) {
 		FmmHeadlineNodeImpl.startNodeEditorActivity(

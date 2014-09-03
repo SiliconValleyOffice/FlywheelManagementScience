@@ -45,6 +45,7 @@ package com.flywheelms.library.fmm.node.impl.governable;
 
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.context.FmmPerspective;
+import com.flywheelms.library.fmm.meta_data.ProjectMetaData;
 import com.flywheelms.library.fmm.node.FmmHeadlineNodeShallow;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.completable.FmmCompletableNodeImpl;
@@ -53,6 +54,10 @@ import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
 import com.flywheelms.library.fmm.transaction.FmmNodeGlyphType;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
 import com.flywheelms.library.gcg.GcgActivity;
+import com.flywheelms.library.util.JsonHelper;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -79,6 +84,17 @@ public class Project extends FmmCompletableNodeImpl {
 				Project.class,
 				aExistingNodeIdString ));
 	}
+
+    public Project(JSONObject aJsonObject) {
+        super(Project.class, aJsonObject);
+        try {
+            validateSerializationFormatVersion(aJsonObject.getString(JsonHelper.key__SERIALIZATION_FORMAT_VERSION));
+            setPortfolioNodeIdString(aJsonObject.getString(ProjectMetaData.column_PORTFOLIO_ID));
+        } catch (JSONException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
 	
 	public static void startNodeEditorActivity(GcgActivity anActivity, String aNodeListParentNodeId, ArrayList<FmmHeadlineNodeShallow> aHeadlineNodeShallowList, String anInitialNodeIdToDisplay) {
 		FmmHeadlineNodeImpl.startNodeEditorActivity(
