@@ -90,6 +90,7 @@ import com.flywheelms.library.fmm.meta_data.SequencedLinkNodeMetaData;
 import com.flywheelms.library.fmm.meta_data.StrategicCommitmentMetaData;
 import com.flywheelms.library.fmm.meta_data.StrategicMilestoneMetaData;
 import com.flywheelms.library.fmm.meta_data.WorkPackageMetaData;
+import com.flywheelms.library.fmm.meta_data.WorkTaskMetaData;
 import com.flywheelms.library.fmm.node.impl.commitment.StrategicCommitment;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.enumerator.GovernanceRole;
@@ -2587,6 +2588,12 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	public Collection<WorkTask> dbRetrieveWorkTaskList() {
 		return retrieveAllFmmNodesFromTable(WorkTaskDaoSqLite.getInstance());
 	}
+
+    public ArrayList<WorkTask> dbListWorkTasksForWorkPackage(String aWorkPackageNodeIdString) {
+        Cursor theCursor = retrieveAllRowsFromTableForColumnValueSorted(
+                FmmNodeDefinition.WORK_TASK, WorkTaskMetaData.column_WORK_PACKAGE__ID, aWorkPackageNodeIdString, CompletableNodeMetaData.column_SEQUENCE );
+        return WorkTaskDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
+    }
 
 	@Override
 	public WorkTask dbRetrieveWorkTask(String aNodeIdString) {

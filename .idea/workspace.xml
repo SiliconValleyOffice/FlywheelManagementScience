@@ -33,9 +33,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c0b3b16b-24dc-4ad0-83f8-e1821de85d20" name="Default" comment=".gitignore">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/flywheelmshd/src/main/assets/database/template/EmptyFmm.db" afterPath="$PROJECT_DIR$/flywheelmshd/src/main/assets/database/template/EmptyFmm.db" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/flywheelmshd/build/intermediates/exploded-aar/flywheelms-workbench/flywheelmslibraryhd/unspecified/classes.jar" afterPath="$PROJECT_DIR$/flywheelmshd/build/intermediates/exploded-aar/flywheelms-workbench/flywheelmslibraryhd/unspecified/classes.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/design/database/fmm.mwb.bak" afterPath="$PROJECT_DIR$/design/database/fmm.mwb.bak" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/design/database/fmm.mwb" afterPath="$PROJECT_DIR$/design/database/fmm.mwb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/model_data.bin" afterPath="$PROJECT_DIR$/build/intermediates/model_data.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/design/gui/Image Library/Legacy/GimpFiles/DecKanGlTemplate/DecoratedKanbanGlyphs.txt" afterPath="$PROJECT_DIR$/design/gui/Image Library/Legacy/GimpFiles/DecKanGlTemplate/DecoratedKanbanGlyphs.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/design/gui/Image Library/Legacy/GimpFiles/buttons/FlywheelMsButton.py" afterPath="$PROJECT_DIR$/design/gui/Image Library/Legacy/GimpFiles/buttons/FlywheelMsButton.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/FmmDatabaseMediator.java" afterPath="$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/FmmDatabaseMediator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/persistence/PersistenceTechnologyDelegate.java" afterPath="$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/persistence/PersistenceTechnologyDelegate.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/persistence/PersistenceTechnologyDelegateSqLite.java" afterPath="$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/persistence/PersistenceTechnologyDelegateSqLite.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/node/impl/governable/WorkPackage.java" afterPath="$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/node/impl/governable/WorkPackage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/flywheelmshd/src/main/assets/database/ddl/sqlite/WorkTask.ddl" afterPath="$PROJECT_DIR$/flywheelmshd/src/main/assets/database/ddl/sqlite/WorkTask.ddl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/node/impl/governable/WorkTask.java" afterPath="$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/node/impl/governable/WorkTask.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/database/sqlite/dao/WorkTaskDaoSqLite.java" afterPath="$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/database/sqlite/dao/WorkTaskDaoSqLite.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/design/gui/Image Library/Legacy/16x16/unUsed/idea.txt" afterPath="$PROJECT_DIR$/design/gui/Image Library/Legacy/16x16/unUsed/idea.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/design/gui/Image Library/Legacy/16x16/project/summary.xml" afterPath="$PROJECT_DIR$/design/gui/Image Library/Legacy/16x16/project/summary.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -1730,7 +1742,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/database/sqlite/dao/WorkTaskDaoSqLite.java" />
         <option value="$PROJECT_DIR$/flywheelmslibraryhd/src/main/res/layout/project__project_asset__disposition.xml" />
         <option value="$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fms/widget/spinner/StrategicMilestoneWidgetSpinner.java" />
         <option value="$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fms/widget/spinner/ProjectWidgetSpinner.java" />
@@ -1747,7 +1758,6 @@
         <option value="$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/node/impl/enumerator/FmmNodeDefinition.java" />
         <option value="$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fms/treeview/filter/FmsTreeViewAdapter.java" />
         <option value="$PROJECT_DIR$/flywheelmslibraryhd/src/main/res/values/gcg__colors.xml" />
-        <option value="$PROJECT_DIR$/flywheelmshd/src/main/assets/database/ddl/sqlite/WorkTask.ddl" />
         <option value="$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fms/preferences/GuiPreferencesBundle.java" />
         <option value="$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fms/tree_view_flipper/tree_view/FmsPerspectiveFlipperTreeView.java" />
         <option value="$PROJECT_DIR$/flywheelmslibraryhd/src/main/res/layout/context__work_breakdown__right_menu.xml" />
@@ -1767,20 +1777,22 @@
         <option value="$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fms/dialog/HeadlineNodeAdoptOrphanDialog.java" />
         <option value="$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fms/helper/FmsHelpIndex.java" />
         <option value="$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fms/activity/ProjectAssetEditorActivity.java" />
-        <option value="$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/persistence/PersistenceTechnologyDelegate.java" />
-        <option value="$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/persistence/PersistenceTechnologyDelegateSqLite.java" />
         <option value="$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fms/activity/PortfolioEditorActivity.java" />
         <option value="$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fms/activity/ProjectEditorActivity.java" />
         <option value="$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/node/impl/governable/Project.java" />
         <option value="$PROJECT_DIR$/flywheelmshd/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/flywheelmslibraryhd/src/main/res/values/fms__strings.xml" />
         <option value="$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fms/activity/WorkPackageEditorActivity.java" />
-        <option value="$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/node/impl/governable/WorkPackage.java" />
-        <option value="$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/node/impl/governable/WorkTask.java" />
-        <option value="$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/FmmDatabaseMediator.java" />
         <option value="$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fms/activity/WorkTaskEditorActivity.java" />
         <option value="$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/context/FmmFrame.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/persistence/PersistenceTechnologyDelegate.java" />
+        <option value="$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/persistence/PersistenceTechnologyDelegateSqLite.java" />
+        <option value="$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/node/impl/governable/WorkPackage.java" />
+        <option value="$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/database/sqlite/dao/WorkTaskDaoSqLite.java" />
+        <option value="$PROJECT_DIR$/flywheelmshd/src/main/assets/database/ddl/sqlite/WorkTask.ddl" />
+        <option value="$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/FmmDatabaseMediator.java" />
+        <option value="$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/node/impl/governable/WorkTask.java" />
       </list>
     </option>
   </component>
@@ -1816,9 +1828,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -1827,18 +1836,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="flywheelms-hd" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="flywheelms-workbench" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2194,7 +2196,11 @@
       <created>1409792336385</created>
       <updated>1409792336385</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary=".gitignore">
+      <created>1409792472152</created>
+      <updated>1409792472152</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2214,10 +2220,10 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32893497" sideWeight="0.4989953" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33553252" sideWeight="0.4989953" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33553252" sideWeight="0.4989953" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39868048" sideWeight="0.5003349" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2196919" sideWeight="0.49787235" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2196919" sideWeight="0.49787235" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24983256" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39868048" sideWeight="0.4996651" order="3" side_tool="false" content_ui="tabs" />
@@ -2278,110 +2284,21 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fse/model/FseDocument.java</url>
+          <line>196</line>
+          <properties />
+          <option name="timeStamp" value="68" />
+        </line-breakpoint>
+      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="58" />
+      <option name="time" value="69" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/gcg/viewflipper/GcgViewFlipperTreeView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29941002" vertical-offset="1429" max-vertical-offset="3026">
-          <caret line="172" column="0" selection-start-line="172" selection-start-column="0" selection-end-line="172" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fms/treeview/filter/WorkBreakdownTreeFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20058997" vertical-offset="0" max-vertical-offset="678">
-          <caret line="52" column="11" selection-start-line="52" selection-start-column="11" selection-end-line="52" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/gcg/treeview/GcgTreeViewMediator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17056856" vertical-offset="0" max-vertical-offset="1377">
-          <caret line="54" column="17" selection-start-line="54" selection-start-column="17" selection-end-line="54" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/gcg/treeview/GcgTreeViewMediatorMemoryResident.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8294314" vertical-offset="7800" max-vertical-offset="8398">
-          <caret line="559" column="0" selection-start-line="559" selection-start-column="0" selection-end-line="559" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fms/treeview/FmsTreeViewMediatorMemoryResident.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.16693944" vertical-offset="0" max-vertical-offset="611">
-          <caret line="50" column="72" selection-start-line="50" selection-start-column="72" selection-end-line="50" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fwb/view_flipper/view/FwbContextWorkBreakdownPerspective.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="668" max-vertical-offset="2261">
-          <caret line="128" column="76" selection-start-line="128" selection-start-column="76" selection-end-line="128" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/node/impl/completable/FmmCompletableNodeImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="600" max-vertical-offset="4981">
-          <caret line="111" column="16" selection-start-line="111" selection-start-column="16" selection-end-line="111" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/database/sqlite/dao/ProjectAssetDaoSqLite.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="1054">
-          <caret line="56" column="13" selection-start-line="56" selection-start-column="13" selection-end-line="56" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fms/wizard_step_flipper/step/CreateFmmGovernanceWizardStepView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="2091">
-          <caret line="57" column="13" selection-start-line="57" selection-start-column="13" selection-end-line="57" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/res/layout-land/create__fmm_repository__governance__wizard_step.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.115385" vertical-offset="204" max-vertical-offset="1513">
-          <caret line="29" column="90" selection-start-line="29" selection-start-column="58" selection-end-line="29" selection-end-column="90" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/res/layout/gcg__widget__node_picker_result__horizontal.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="652">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/gcg/widget/GcgWidgetTextView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43362832" vertical-offset="641" max-vertical-offset="2635">
-          <caret line="114" column="5" selection-start-line="108" selection-start-column="5" selection-end-line="114" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/gcg/widget/chooser_result/AndroidContactWidgetPickerResult.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1205" max-vertical-offset="1904">
-          <caret line="166" column="16" selection-start-line="166" selection-start-column="16" selection-end-line="166" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/gcg/widget/GcgWidgetEditText.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.36090225" vertical-offset="2973" max-vertical-offset="3638">
@@ -2393,6 +2310,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.15338346" vertical-offset="816" max-vertical-offset="2414">
           <caret line="116" column="5" selection-start-line="116" selection-start-column="5" selection-end-line="116" selection-end-column="5" />
+          <folding>
+            <element signature="e#5565#6176#0" expanded="false" />
+            <element signature="e#6171#6172#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2400,13 +2321,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612">
           <caret line="51" column="82" selection-start-line="51" selection-start-column="82" selection-end-line="51" selection-end-column="82" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fms/dialog/HeadlineNodeCreateDialog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.59097743" vertical-offset="984" max-vertical-offset="3077">
-          <caret line="148" column="94" selection-start-line="148" selection-start-column="94" selection-end-line="148" selection-end-column="94" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2414,13 +2329,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.36124796" vertical-offset="1259" max-vertical-offset="3281">
           <caret line="165" column="53" selection-start-line="165" selection-start-column="53" selection-end-line="165" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fms/treeview/filter/FmsTreeViewAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="406" max-vertical-offset="8058">
-          <caret line="397" column="40" selection-start-line="397" selection-start-column="40" selection-end-line="397" selection-end-column="40" />
         </state>
       </provider>
     </entry>
@@ -2442,6 +2350,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4218978" vertical-offset="0" max-vertical-offset="685">
           <caret line="65" column="24" selection-start-line="65" selection-start-column="24" selection-end-line="65" selection-end-column="24" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2449,27 +2358,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="680">
           <caret line="57" column="8" selection-start-line="57" selection-start-column="8" selection-end-line="57" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/persistence/PersistenceTechnologyDelegateSqLite.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46875" vertical-offset="41641" max-vertical-offset="42313">
-          <caret line="2596" column="19" selection-start-line="2596" selection-start-column="19" selection-end-line="2596" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/persistence/PersistenceTechnologyDelegate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.58630955" vertical-offset="2156" max-vertical-offset="10829">
-          <caret line="222" column="96" selection-start-line="222" selection-start-column="96" selection-end-line="222" selection-end-column="96" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/node/impl/governable/Portfolio.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="320" max-vertical-offset="3417">
-          <caret line="115" column="5" selection-start-line="104" selection-start-column="5" selection-end-line="115" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2485,6 +2374,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.25487012" vertical-offset="1135" max-vertical-offset="3315">
           <caret line="76" column="0" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2493,29 +2383,22 @@
         <state vertical-scroll-proportion="-11.232142" vertical-offset="1173" max-vertical-offset="2567">
           <caret line="106" column="57" selection-start-line="106" selection-start-column="57" selection-end-line="106" selection-end-column="57" />
           <folding>
-            <element signature="e#969#987#0" expanded="true" />
-            <element signature="e#1226#1254#0" expanded="true" />
-            <element signature="e#1788#1821#0" expanded="true" />
-            <element signature="e#2230#2279#0" expanded="true" />
-            <element signature="e#2659#2697#0" expanded="true" />
-            <element signature="e#3096#3142#0" expanded="true" />
-            <element signature="e#3543#3583#0" expanded="true" />
-            <element signature="e#3969#4008#0" expanded="true" />
-            <element signature="e#4393#4429#0" expanded="true" />
-            <element signature="e#4812#4848#0" expanded="true" />
-            <element signature="e#5229#5263#0" expanded="true" />
-            <element signature="e#5649#5687#0" expanded="true" />
-            <element signature="e#6073#6116#0" expanded="true" />
-            <element signature="e#6512#6555#0" expanded="true" />
-            <element signature="e#6950#6989#0" expanded="true" />
+            <element signature="e#969#987#0" expanded="false" />
+            <element signature="e#1226#1254#0" expanded="false" />
+            <element signature="e#1788#1821#0" expanded="false" />
+            <element signature="e#2230#2279#0" expanded="false" />
+            <element signature="e#2659#2697#0" expanded="false" />
+            <element signature="e#3096#3142#0" expanded="false" />
+            <element signature="e#3543#3583#0" expanded="false" />
+            <element signature="e#3969#4008#0" expanded="false" />
+            <element signature="e#4393#4429#0" expanded="false" />
+            <element signature="e#4812#4848#0" expanded="false" />
+            <element signature="e#5229#5263#0" expanded="false" />
+            <element signature="e#5649#5687#0" expanded="false" />
+            <element signature="e#6073#6116#0" expanded="false" />
+            <element signature="e#6512#6555#0" expanded="false" />
+            <element signature="e#6950#6989#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/FmmDatabaseMediator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8019481" vertical-offset="30718" max-vertical-offset="41565">
-          <caret line="1836" column="5" selection-start-line="1836" selection-start-column="5" selection-end-line="1836" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -2523,6 +2406,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.08108108" vertical-offset="748" max-vertical-offset="1530">
           <caret line="47" column="47" selection-start-line="47" selection-start-column="47" selection-end-line="47" selection-end-column="47" />
+          <folding>
+            <element signature="e#0#3382#0" expanded="false" />
+            <element signature="e#3151#3152#0" expanded="false" />
+            <element signature="e#3179#3180#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2530,6 +2418,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7297297" vertical-offset="204" max-vertical-offset="833">
           <caret line="80" column="56" selection-start-line="80" selection-start-column="56" selection-end-line="80" selection-end-column="56" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#3181#3182#0" expanded="false" />
+            <element signature="e#3212#3213#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2537,6 +2430,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5675676" vertical-offset="0" max-vertical-offset="850">
           <caret line="62" column="16" selection-start-line="62" selection-start-column="16" selection-end-line="62" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#2757#2758#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2544,27 +2441,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6216216" vertical-offset="0" max-vertical-offset="833">
           <caret line="64" column="35" selection-start-line="64" selection-start-column="35" selection-end-line="64" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/node/impl/governable/ProjectAsset.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15178572" vertical-offset="0" max-vertical-offset="4624">
-          <caret line="86" column="13" selection-start-line="86" selection-start-column="13" selection-end-line="86" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/node/impl/governable/WorkPackage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.72402596" vertical-offset="1220" max-vertical-offset="2907">
-          <caret line="98" column="5" selection-start-line="86" selection-start-column="5" selection-end-line="98" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/node/impl/governable/WorkTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5714286" vertical-offset="1195" max-vertical-offset="2754">
-          <caret line="91" column="93" selection-start-line="91" selection-start-column="93" selection-end-line="91" selection-end-column="93" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#3165#3166#0" expanded="false" />
+            <element signature="e#3194#3195#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2572,20 +2453,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="488" max-vertical-offset="1428">
           <caret line="61" column="20" selection-start-line="61" selection-start-column="20" selection-end-line="61" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/node/impl/governable/StrategicMilestone.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3261" max-vertical-offset="4828">
-          <caret line="300" column="5" selection-start-line="287" selection-start-column="5" selection-end-line="300" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/node/impl/governable/Project.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.6607144" vertical-offset="1478" max-vertical-offset="3332">
-          <caret line="99" column="23" selection-start-line="99" selection-start-column="23" selection-end-line="99" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#3573#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2637,13 +2507,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/flywheelmshd/src/main/res/layout-land/workbench__frame_spinner__layout.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3961">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/flywheelmshd/src/main/java/com/flywheelms/fwb/activity/WorkbenchActivity.java">
@@ -2664,6 +2534,217 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.58961475" vertical-offset="175" max-vertical-offset="952">
           <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/node/impl/governable/FiscalYear.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2037" max-vertical-offset="4369">
+          <caret line="219" column="8" selection-start-line="219" selection-start-column="8" selection-end-line="219" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/node/impl/governable/Portfolio.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1510" max-vertical-offset="3417">
+          <caret line="184" column="8" selection-start-line="184" selection-start-column="8" selection-end-line="184" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/node/impl/governable/Project.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1952" max-vertical-offset="2890">
+          <caret line="153" column="8" selection-start-line="153" selection-start-column="8" selection-end-line="153" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/node/impl/governable/StrategicMilestone.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1119" max-vertical-offset="4828">
+          <caret line="161" column="8" selection-start-line="161" selection-start-column="8" selection-end-line="161" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/gcg/treeview/GcgTreeViewAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.37458193" vertical-offset="4128" max-vertical-offset="7922">
+          <caret line="354" column="28" selection-start-line="354" selection-start-column="28" selection-end-line="354" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/gcg/treeview/node/GcgTreeNodeInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7037643" vertical-offset="1576" max-vertical-offset="2295">
+          <caret line="197" column="37" selection-start-line="197" selection-start-column="37" selection-end-line="197" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/gcg/treeview/node/GcgTreeNodeTargetObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.37315875" vertical-offset="146" max-vertical-offset="901">
+          <caret line="67" column="12" selection-start-line="67" selection-start-column="12" selection-end-line="67" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/node/impl/headline/FmmHeadlineNodeImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.37458193" vertical-offset="1357" max-vertical-offset="7752">
+          <caret line="204" column="19" selection-start-line="204" selection-start-column="19" selection-end-line="204" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/node/impl/governable/WorkPackage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.482143" vertical-offset="2634" max-vertical-offset="3791">
+          <caret line="173" column="83" selection-start-line="173" selection-start-column="83" selection-end-line="173" selection-end-column="83" />
+          <folding>
+            <element signature="e#0#8876#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#4765#4766#0" expanded="true" />
+            <element signature="e#4814#4815#0" expanded="true" />
+            <element signature="e#6513#6514#0" expanded="true" />
+            <element signature="e#6556#6557#0" expanded="true" />
+            <element signature="e#6883#6884#0" expanded="true" />
+            <element signature="e#6901#6902#0" expanded="true" />
+            <element signature="e#6960#6961#0" expanded="true" />
+            <element signature="e#7000#7001#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fms/treeview/filter/FmsTreeViewAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="4650" max-vertical-offset="8058">
+          <caret line="185" column="87" selection-start-line="185" selection-start-column="87" selection-end-line="185" selection-end-column="87" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/persistence/PersistenceTechnologyDelegate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="10265" max-vertical-offset="10863">
+          <caret line="699" column="32" selection-start-line="699" selection-start-column="32" selection-end-line="699" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flywheelmshd/src/main/assets/database/ddl/sqlite/WorkTask.ddl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="391">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/meta_data/WorkTaskMetaData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
+          <caret line="45" column="13" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fms/dialog/HeadlineNodeCreateDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1909" max-vertical-offset="3077">
+          <caret line="191" column="0" selection-start-line="191" selection-start-column="0" selection-end-line="191" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/database/sqlite/dao/WorkTaskDaoSqLite.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2758112" vertical-offset="0" max-vertical-offset="1275">
+          <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/persistence/PersistenceTechnologyDelegateSqLite.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.48872182" vertical-offset="41750" max-vertical-offset="42415">
+          <caret line="2604" column="0" selection-start-line="2604" selection-start-column="0" selection-end-line="2604" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/node/impl/nodefrag/FmmNodeFragImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.29941002" vertical-offset="103" max-vertical-offset="1343">
+          <caret line="66" column="11" selection-start-line="66" selection-start-column="11" selection-end-line="66" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/node/impl/FmmNodeImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.29941002" vertical-offset="205" max-vertical-offset="2329">
+          <caret line="83" column="0" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
+          <folding>
+            <element signature="e#3490#3491#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/node/impl/enumerator/FmmNodeDefinition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.06315789" vertical-offset="17331" max-vertical-offset="35479">
+          <caret line="1129" column="25" selection-start-line="1129" selection-start-column="25" selection-end-line="1129" selection-end-column="25" />
+          <folding>
+            <element signature="e#55237#55264#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fse/model/FseDocument.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.29924813" vertical-offset="1824" max-vertical-offset="10285">
+          <caret line="196" column="0" selection-start-line="196" selection-start-column="0" selection-end-line="196" selection-end-column="0" />
+          <folding>
+            <element signature="e#4427#4454#0" expanded="true" />
+            <element signature="e#4885#4929#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/node/impl/nodefrag/NodeFragFseDocument.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.29924813" vertical-offset="668" max-vertical-offset="2278">
+          <caret line="99" column="0" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/node/impl/governable/WorkTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.37593985" vertical-offset="124" max-vertical-offset="1632">
+          <caret line="79" column="11" selection-start-line="79" selection-start-column="11" selection-end-line="79" selection-end-column="11" />
+          <folding>
+            <element signature="e#3326#3327#0" expanded="true" />
+            <element signature="e#3406#3407#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/node/impl/governable/ProjectAsset.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8481203" vertical-offset="1153" max-vertical-offset="4658">
+          <caret line="187" column="8" selection-start-line="187" selection-start-column="8" selection-end-line="187" selection-end-column="8" />
+          <folding>
+            <element signature="e#4802#4803#0" expanded="true" />
+            <element signature="e#4877#4878#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/FmmDatabaseMediator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.24812031" vertical-offset="27919" max-vertical-offset="39457">
+          <caret line="1781" column="44" selection-start-line="1781" selection-start-column="44" selection-end-line="1781" selection-end-column="44" />
           <folding />
         </state>
       </provider>

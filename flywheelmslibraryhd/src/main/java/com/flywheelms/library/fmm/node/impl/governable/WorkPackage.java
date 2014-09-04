@@ -46,6 +46,7 @@ package com.flywheelms.library.fmm.node.impl.governable;
 import android.content.Intent;
 
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fmm.meta_data.WorkPackageMetaData;
 import com.flywheelms.library.fmm.node.FmmHeadlineNodeShallow;
 import com.flywheelms.library.fmm.node.NodeId;
@@ -53,6 +54,7 @@ import com.flywheelms.library.fmm.node.impl.commitment.FlywheelWorkPackageCommit
 import com.flywheelms.library.fmm.node.impl.completable.FmmCompletableNodeImpl;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
+import com.flywheelms.library.fmm.transaction.FmmNodeGlyphType;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
 import com.flywheelms.library.gcg.GcgActivity;
 import com.flywheelms.library.util.JsonHelper;
@@ -61,6 +63,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class WorkPackage extends FmmCompletableNodeImpl implements Comparable<WorkPackage> {
 
@@ -68,6 +71,7 @@ public class WorkPackage extends FmmCompletableNodeImpl implements Comparable<Wo
 	private String projectAssetNodeIdString;
 	private String flywheelCommitmentNodeIdString;
 	private FlywheelWorkPackageCommitment flywheelCommitment;
+    private ArrayList<WorkTask> workTaskList;
 
 	public WorkPackage(NodeId aNodeId) {
 		super(aNodeId);
@@ -160,5 +164,54 @@ public class WorkPackage extends FmmCompletableNodeImpl implements Comparable<Wo
 	public boolean isWorkTaskMoveTarget() {
 		return true;
 	}
+
+    public Collection<WorkTask> getWorkTaskCollection() {
+        return getWorkTaskList();
+    }
+
+    public ArrayList<WorkTask> getWorkTaskList() {
+        if(this.workTaskList == null) {
+            this.workTaskList = FmmDatabaseMediator.getActiveMediator().listWorkTasksForWorkPackage(getNodeIdString());
+        }
+        return this.workTaskList;
+    }
+
+    private int countGreenWorkTasks() {
+        int theGreenCount = 0;
+        for(WorkTask theWorkTask : getWorkTaskCollection()) {
+            if(theWorkTask.isGreen()) {
+                ++theGreenCount;
+            }
+        }
+        return theGreenCount;
+    }
+
+    @Override
+    protected void initializeNodeCompletionSummaryMap() {
+        super.initializeNodeCompletionSummaryMap();
+        NodeCompletionSummary theNodeCompletionSummary = new NodeCompletionSummary();
+        theNodeCompletionSummary.setSummaryDrawableResourceId(
+                FmmNodeDefinition.WORK_TASK.getUndecoratedGlyphResourceId(FmmNodeGlyphType.GREEN));
+        updateNodeCompletionSummary(FmmPerspective.WORK_BREAKDOWN, theNodeCompletionSummary);
+        this.nodeCompletionSummaryMap.put(FmmPerspective.WORK_BREAKDOWN, theNodeCompletionSummary);
+    }
+
+    @Override
+    public void updateNodeCompletionSummary(FmmPerspective anFmmPerspective, NodeCompletionSummary aNodeSummary) {
+        switch(anFmmPerspective) {
+            case WORK_BREAKDOWN:
+                Collection<WorkTask> theWorkTaskCollection = getWorkTaskCollection();
+                if(theWorkTaskCollection.size() > 0) {
+                    aNodeSummary.setShowNodeSummary(true);
+                    aNodeSummary.setSummaryPrefix("( " + countGreenWorkTasks() + " ");
+                    aNodeSummary.setSummarySuffix(" of " + theWorkTaskCollection.size() + " )");
+                } else {
+                    aNodeSummary.setShowNodeSummary(false);
+                }
+                break;
+            default:
+                break;
+        }
+    }
 
 }

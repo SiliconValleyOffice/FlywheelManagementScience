@@ -1754,6 +1754,10 @@ public class FmmDatabaseMediator {
 		return this.persistenceTechnologyDelegate.dbRetrieveWorkTaskList();
 	}
 
+    public ArrayList<WorkTask> listWorkTasksForWorkPackage(String aWorkPackageNodeIdString) {
+        return this.persistenceTechnologyDelegate.dbListWorkTasksForWorkPackage(aWorkPackageNodeIdString);
+    }
+
 	public WorkTask getWorkTask(String aNodeIdString) {
 		return this.persistenceTechnologyDelegate.dbRetrieveWorkTask(aNodeIdString);
 	}
@@ -1774,7 +1778,8 @@ public class FmmDatabaseMediator {
             FmmHeadlineNode aPeerNode,
             boolean bSequenceAtEnd ) {
         startTransaction();
-        WorkTask theNewWorkTask = new WorkTask(aHeadline);
+        WorkTask theNewWorkTask = new WorkTask();
+        theNewWorkTask.setHeadline(aHeadline);
         theNewWorkTask.setWorkPackageNodeIdString(aParentNode.getNodeIdString());
         int theNewSequenceNumber = initializeNewSequenceNumberForTable(
                 FmmNodeDefinition.WORK_TASK,

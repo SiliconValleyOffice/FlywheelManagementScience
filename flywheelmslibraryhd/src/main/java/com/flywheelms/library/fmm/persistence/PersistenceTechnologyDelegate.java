@@ -693,6 +693,8 @@ public abstract class PersistenceTechnologyDelegate {
 
 		public abstract Collection<WorkTask> dbRetrieveWorkTaskList();
 
+        public abstract ArrayList<WorkTask> dbListWorkTasksForWorkPackage(String aWorkPackageNodeIdString);
+
 		public abstract WorkTask dbRetrieveWorkTask(String aNodeIdString);
 
 		public abstract boolean dbInsertWorkTask(WorkTask aWorkTask, boolean bAtomicTransaction);

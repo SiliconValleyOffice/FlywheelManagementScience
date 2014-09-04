@@ -95,7 +95,7 @@ public class WorkTaskDaoSqLite  extends CompletableNodeDaoSqLite<WorkTask> {
 	@Override
 	public ContentValues buildContentValues(WorkTask aWorkTask) {
 		ContentValues theContentValues = super.buildContentValues(aWorkTask);
-		theContentValues.put(WorkTaskMetaData.column_WORK_PACKAGE__ID, aWorkTask.getWorkPlanNodeIdString());
+		theContentValues.put(WorkTaskMetaData.column_WORK_PACKAGE__ID, aWorkTask.getWorkPackageNodeIdString());
 		theContentValues.put(CompletableNodeMetaData.column_SEQUENCE, aWorkTask.getSequence());
 		theContentValues.put(WorkTaskMetaData.column_WORK_PLAN__ID, aWorkTask.getWorkPlanNodeIdString());
 		theContentValues.put(WorkTaskMetaData.column_WORK_PLAN_SEQUENCE, aWorkTask.getWorkPlanSequence());
