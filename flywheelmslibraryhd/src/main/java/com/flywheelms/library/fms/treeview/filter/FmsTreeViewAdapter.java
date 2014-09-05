@@ -517,6 +517,7 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter {
     private void orphanProject(FmmHeadlineNode aProjectHeadlineNode, FmmHeadlineNode aPortfolioHeadlineNode) {
         getGcgActivity().startDialog(new ProjectOrphanDialog(getGcgActivity(), this, (Project) aProjectHeadlineNode, (Portfolio) aPortfolioHeadlineNode));
     }
+
     private void moveProject(FmmHeadlineNode aProject, FmmHeadlineNode aPortfolioException) {
         getGcgActivity().startDialog(new ProjectMoveDialog(getGcgActivity(), this, (Project) aProject, (Portfolio) aPortfolioException));
     }

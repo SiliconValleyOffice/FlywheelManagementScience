@@ -833,12 +833,12 @@ public class FmmDatabaseMediator {
             return isSuccess;
         }
 
-    public boolean deleteProjectsForPortfolio(String nodeIdString, boolean b) {
-        return true;
+    public boolean deleteProjectsForPortfolio(String aPortfolioId, boolean bAtomicTransaction) {
+        return this.persistenceTechnologyDelegate.dbDeleteProjectsForPortfolio(aPortfolioId, bAtomicTransaction);
     }
 
-    public boolean moveAllProjectsToPortfolio(String nodeIdString, String nodeIdString1, boolean b) {
-        return true;
+    public boolean moveAllProjectsToPortfolio(String aCurrentPortfolioId, String aTargetPortfolioId, boolean bAtomicTransaction) {
+        return this.persistenceTechnologyDelegate.dbMoveAllProjectsToPortfolio(aCurrentPortfolioId, aTargetPortfolioId, bAtomicTransaction);
     }
 
     public boolean adoptOrphanProjectIntoPortfolio(

@@ -73,7 +73,6 @@ public abstract class GcgViewFlipperTreeView extends GcgViewFlipperChildView imp
 
 	public GcgViewFlipperTreeView(Context aContext, AttributeSet anAttributeSet) {
 		super(aContext, anAttributeSet);
-		this.treeViewMediator = createGcgTreeViewMediator();
 	}
 
 	@Override

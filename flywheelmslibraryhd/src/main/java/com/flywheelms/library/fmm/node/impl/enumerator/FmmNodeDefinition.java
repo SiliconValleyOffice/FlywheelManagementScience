@@ -1928,6 +1928,7 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 		NOTEBOOK.setPrimaryParentNodeDefinition(FmmNodeDefinition.BOOKSHELF);
 		FMS_ORGANIZATION.setPrimaryParentNodeDefinition(FmmNodeDefinition.FMM_CONFIGURATION);
 		PORTFOLIO.setPrimaryParentNodeDefinition(FmmNodeDefinition.FMS_ORGANIZATION);
+		PORTFOLIO.setPrimaryChildNodeDefinition(FmmNodeDefinition.PROJECT);
 		PROJECT.setPrimaryParentNodeDefinition(FmmNodeDefinition.PORTFOLIO);
 		PROJECT.setPrimaryChildNodeDefinition(FmmNodeDefinition.PROJECT_ASSET);
 		PROJECT_ASSET.setPrimaryParentNodeDefinition(FmmNodeDefinition.PROJECT);

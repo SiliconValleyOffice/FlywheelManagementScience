@@ -1069,6 +1069,15 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
                 bAtomicTransaction);
     }
 
+    public boolean dbMoveAllProjectsToPortfolio(String aCurrentPortfolioId, String aTargetPortfolioId, boolean bAtomicTransaction) {
+        return updateRows(FmmNodeDefinition.PROJECT.getClassName(),
+                ProjectMetaData.column_PORTFOLIO_ID,
+                aTargetPortfolioId,
+                ProjectMetaData.column_PORTFOLIO_ID + " = '" + aCurrentPortfolioId + "'",
+                bAtomicTransaction);
+
+    }
+
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////  Node - FISCAL YEAR  /////////////////////////////////////////////////////////////////////////////////////
@@ -1516,6 +1525,18 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	public boolean dbDeleteProject(Project aProject, boolean bAtomicTransaction) {
     	return deleteRowFromSimpleIdTable(aProject.getNodeIdString(), FmmNodeDefinition.PROJECT, bAtomicTransaction);
 	}
+
+    public boolean dbDeleteProjectsForPortfolio(String aPortfolioId, boolean bAtomicTransaction) {
+        if(bAtomicTransaction) {
+            startTransaction();
+        }
+        int theRowCount = getSqLiteDatabase().delete(FmmNodeDefinition.PROJECT.getClassName(),
+                ProjectMetaData.column_PORTFOLIO_ID + " = '" + aPortfolioId + "'", null);
+        if(bAtomicTransaction) {
+            endTransaction(theRowCount > 0);
+        }
+        return theRowCount > 0;
+    }
 
 	////  Node - PROJECT ASSET  ////////////////////////////////////////////////////////////////////////////////
 

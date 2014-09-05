@@ -134,7 +134,7 @@ public class ProjectAssetDeleteDialog extends HeadlineNodeDeleteDialog {
 		return FmmDatabaseMediator.getActiveMediator().moveAllWorkPackagesToProjectAsset(
 				this.headlineNode.getNodeIdString(),
 				this.primaryChildDeleteDisposition.getTargetWidgetSpinner().getFmmNode().getNodeIdString(),
-				this.primaryChildDeleteDisposition.getSequencePositionSpinner().getSelectedItem().getDataText().equals("End"),
+				this.primaryChildDeleteDisposition.isSequencePositionSpinnerAtEnd(),
 				false );
 	}
 

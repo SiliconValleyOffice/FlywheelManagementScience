@@ -43,8 +43,6 @@
 
 package com.flywheelms.library.fms.dialog;
 
-import java.util.ArrayList;
-
 import android.graphics.Color;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -68,6 +66,8 @@ import com.flywheelms.library.gcg.helper.GcgHelper;
 import com.flywheelms.library.gcg.helper.GuiHelper;
 import com.flywheelms.library.gcg.treeview.GcgTreeViewAdapter;
 import com.flywheelms.library.gcg.widget.GcgWidgetZoomableHeading;
+
+import java.util.ArrayList;
 
 public abstract class HeadlineNodeDeleteDialog  extends FmsCancelOkDialog {
 
@@ -212,7 +212,7 @@ public abstract class HeadlineNodeDeleteDialog  extends FmsCancelOkDialog {
 		initializeDispositionSpinners(aDeleteDisposition);
 		aDeleteDisposition.setSequencePositionSpinner((SequencePositionWidgetSpinner) this.dialogBodyView.findViewById(R.id.list_position__spinner));
 		pruneDispositionOptions();
-		if(aDeleteDisposition.getSequencePositionSpinner().getVisibility() == View.VISIBLE) {
+		if(aDeleteDisposition.isSequencePositionSpinnerVisibile()) {
 			initializeSequencePositionSpinner(aDeleteDisposition);
 		}
 	}
@@ -246,18 +246,18 @@ public abstract class HeadlineNodeDeleteDialog  extends FmsCancelOkDialog {
 	}
 
 	private static void initializeSequencePositionSpinner(final DeleteDisposition aDeleteDisposition) {
-		aDeleteDisposition.getSequencePositionSpinner().setOnItemSelectedListener(new OnItemSelectedListener() {
+		aDeleteDisposition.setSequencePositionSpinnerOnItemSelectedListener(new OnItemSelectedListener() {
 
-			@Override
-			public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-				aDeleteDisposition.checkChoiceMoveButtonIfVisible();
-			}
+            @Override
+            public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+                aDeleteDisposition.checkChoiceMoveButtonIfVisible();
+            }
 
-			@Override
-			public void onNothingSelected(AdapterView<?> arg0) {
-				aDeleteDisposition.checkChoiceMoveButtonIfVisible();
-			}
-		});
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+                aDeleteDisposition.checkChoiceMoveButtonIfVisible();
+            }
+        });
 	}
 
 	private static void pruneDispositionOptions(DeleteDisposition aDeleteDisposition ) {
@@ -269,7 +269,7 @@ public abstract class HeadlineNodeDeleteDialog  extends FmsCancelOkDialog {
 				aDeleteDisposition.getTargetGrandparentWidgetSpinner().setVisibility(View.INVISIBLE);
 				aDeleteDisposition.getTargetParentWidgetSpinner().setVisibility(View.INVISIBLE);
 				aDeleteDisposition.getTargetWidgetSpinner().setVisibility(View.INVISIBLE);
-				aDeleteDisposition.getSequencePositionSpinner().setVisibility(View.INVISIBLE);
+				aDeleteDisposition.setSequencePositionSpinnerVisibility(View.INVISIBLE);
 				aDeleteDisposition.selectChoiceOrphanOrDelete();
 			}
 		} else if(aDeleteDisposition.hasTargetParentWidgetSpinner()) {
@@ -278,14 +278,14 @@ public abstract class HeadlineNodeDeleteDialog  extends FmsCancelOkDialog {
 				aDeleteDisposition.getChoiceMoveButton().setVisibility(View.INVISIBLE);
 				aDeleteDisposition.getTargetParentWidgetSpinner().setVisibility(View.INVISIBLE);
 				aDeleteDisposition.getTargetWidgetSpinner().setVisibility(View.INVISIBLE);
-				aDeleteDisposition.getSequencePositionSpinner().setVisibility(View.INVISIBLE);
+				aDeleteDisposition.setSequencePositionSpinnerVisibility(View.INVISIBLE);
 				aDeleteDisposition.selectChoiceOrphanOrDelete();
 			}
 		} else if(aDeleteDisposition.getTargetWidgetSpinner().getListSize() == 0) {
 			aDeleteDisposition.getChoiceDeleteButton().setChecked(true);
 			aDeleteDisposition.getChoiceMoveButton().setVisibility(View.INVISIBLE);
 			aDeleteDisposition.getTargetWidgetSpinner().setVisibility(View.INVISIBLE);
-			aDeleteDisposition.getSequencePositionSpinner().setVisibility(View.INVISIBLE);
+			aDeleteDisposition.setSequencePositionSpinnerVisibility(View.INVISIBLE);
 			aDeleteDisposition.selectChoiceOrphanOrDelete();
 		}
 	}
@@ -404,7 +404,7 @@ public abstract class HeadlineNodeDeleteDialog  extends FmsCancelOkDialog {
 	}
 
 	protected void updateSequencePositionSpinnerWidgetSpinner(DeleteDisposition aDeleteDisposition) {
-		aDeleteDisposition.getSequencePositionSpinner().setSequenceAtEnd(validateTargetBeforeExisting(aDeleteDisposition));
+		aDeleteDisposition.setSequencePositionSpinnerAtEnd(validateTargetBeforeExisting(aDeleteDisposition));
 	}
 
 	private boolean validateTargetBeforeExisting(DeleteDisposition aDeleteDisposition) {
@@ -698,9 +698,16 @@ public abstract class HeadlineNodeDeleteDialog  extends FmsCancelOkDialog {
 		public void setTargetWidgetSpinner(FmmHeadlineNodeWidgetSpinner aHeadlineNodeWidgetSpinner) {
 			this.targetWidgetSpinner = aHeadlineNodeWidgetSpinner;
 		}
-		public SequencePositionWidgetSpinner getSequencePositionSpinner() {
-			return this.sequencePositionSpinner;
+		public void setSequencePositionSpinnerVisibility(int aVisibility) {
+			if(this.sequencePositionSpinner != null) {
+                this.sequencePositionSpinner.setVisibility(aVisibility);
+            }
 		}
+        public void setSequencePositionSpinnerAtEnd(boolean bAtEnd) {
+            if(this.sequencePositionSpinner != null) {
+                this.sequencePositionSpinner.setSequenceAtEnd(bAtEnd);
+            }
+        }
 		public void setSequencePositionSpinner(SequencePositionWidgetSpinner aSequencePositionSpinner) {
 			this.sequencePositionSpinner = aSequencePositionSpinner;
 		}
@@ -710,7 +717,19 @@ public abstract class HeadlineNodeDeleteDialog  extends FmsCancelOkDialog {
 		public void setLinked(boolean bLinked) {
 			this.isLinked = bLinked;
 		}
-		
-	}
+
+        public void setSequencePositionSpinnerOnItemSelectedListener(OnItemSelectedListener anOnItemSelectedListener) {
+            if(this.sequencePositionSpinner != null) {
+                this.sequencePositionSpinner.setOnItemSelectedListener(anOnItemSelectedListener);
+            }
+        }
+        public boolean isSequencePositionSpinnerVisibile() {
+            return this.sequencePositionSpinner == null ? false : this.sequencePositionSpinner.getVisibility() == View.VISIBLE;
+        }
+
+        public boolean isSequencePositionSpinnerAtEnd() {
+            return this.sequencePositionSpinner == null ? false : this.sequencePositionSpinner.getSelectedItem().getDataText().equals("End");
+        }
+    }
 
 }

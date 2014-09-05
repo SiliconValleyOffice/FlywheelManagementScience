@@ -43,8 +43,6 @@
 
 package com.flywheelms.library.fms.dialog;
 
-import java.util.ArrayList;
-
 import android.widget.LinearLayout;
 
 import com.flywheelms.library.R;
@@ -55,6 +53,8 @@ import com.flywheelms.library.fms.widget.FmmHeadlineNodeWidgetSpinner;
 import com.flywheelms.library.fms.widget.spinner.FiscalYearWidgetSpinner;
 import com.flywheelms.library.gcg.GcgActivity;
 import com.flywheelms.library.gcg.treeview.GcgTreeViewAdapter;
+
+import java.util.ArrayList;
 
 public class FiscalYearDeleteDialog extends HeadlineNodeDeleteDialog {
 
@@ -125,7 +125,7 @@ public class FiscalYearDeleteDialog extends HeadlineNodeDeleteDialog {
 		return FmmDatabaseMediator.getActiveMediator().moveAllStrategicMilestonesToFiscalYear(
 				this.headlineNode.getNodeIdString(),
 				this.primaryChildDeleteDisposition.getTargetWidgetSpinner().getFmmNode().getNodeIdString(),
-				this.primaryChildDeleteDisposition.getSequencePositionSpinner().getSelectedItem().getDataText().equals("End"),
+				this.primaryChildDeleteDisposition.isSequencePositionSpinnerAtEnd(),
 				false );
 	}
 

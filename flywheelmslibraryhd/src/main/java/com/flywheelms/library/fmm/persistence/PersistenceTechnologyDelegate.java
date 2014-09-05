@@ -496,6 +496,8 @@ public abstract class PersistenceTechnologyDelegate {
 
 		public abstract boolean dbDeleteProject(Project aProject, boolean bAtomicTransaction);
 
+        public abstract boolean dbDeleteProjectsForPortfolio(String aPortfolioId, boolean bAtomicTransaction);
+
         public abstract ArrayList<Project> dbListProject(Portfolio aPortfolio);
 
         public abstract ArrayList<Project> dbListProject(Portfolio aPortfolio, Project aProjectException);
@@ -517,6 +519,8 @@ public abstract class PersistenceTechnologyDelegate {
         public abstract boolean dbOrphanAllProjectsFromPortfolio(String aPortfolioId, boolean bAtomicTransaction);
 
         public abstract boolean dbMoveSingleProjectToPortfolio(String aProjectId, String aPortfolioId, boolean bAtomicTransaction);
+
+        public abstract boolean dbMoveAllProjectsToPortfolio(String aCurrentPortfolioId, String aTargetPortfolioId, boolean bAtomicTransaction);
 		
 
 		/////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -710,4 +714,5 @@ public abstract class PersistenceTechnologyDelegate {
 		public abstract boolean dbUpdateWorkTask(WorkTask aWorkTask, boolean bAtomicTransaction);
 
 		public abstract boolean dbDeleteWorkTask(WorkTask aWorkTask, boolean bAtomicTransaction);
+
 }
