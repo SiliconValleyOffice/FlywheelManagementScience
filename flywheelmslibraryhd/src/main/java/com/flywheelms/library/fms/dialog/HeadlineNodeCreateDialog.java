@@ -139,12 +139,16 @@ public class HeadlineNodeCreateDialog extends FmsCancelOkApplyFdkDialog {
 		this.parentHeadlineWidget = (HeadlineWidgetTextView) this.dialogBodyView.findViewById(R.id.headline__parent_node);
 		this.launchHeadlineWidget = (HeadlineWidgetTextView) this.dialogBodyView.findViewById(R.id.headline__launch_node);
         this.sequenceLayout = (GcgContainerGroupBoxLinear) this.dialogBodyView.findViewById(R.id.group_box__sequence);
-        if(this.launchNodeChildCount == 0 && !isPeerLaunch()) {
-			this.sequenceLayout.setVisibility(View.GONE);
-		} else {
-			this.firstRadioButton = (RadioButton) this.dialogBodyView.findViewById(R.id.first__radio_button);
-			this.lastRadioButton = (RadioButton) this.dialogBodyView.findViewById(R.id.last__radio_button);
-		}
+        if(this.fmmNodeDefinition.isAlphaSort()) {
+            this.sequenceLayout.setVisibility(View.GONE);
+        } else {
+            if(this.launchNodeChildCount == 0 && !isPeerLaunch()) {
+                this.sequenceLayout.setVisibility(View.GONE);
+            } else {
+                this.firstRadioButton = (RadioButton) this.dialogBodyView.findViewById(R.id.first__radio_button);
+                this.lastRadioButton = (RadioButton) this.dialogBodyView.findViewById(R.id.last__radio_button);
+            }
+        }
 		this.editNewHeadlineNode = (CheckBox) this.dialogBodyView.findViewById(R.id.edit_new_headline_node);
         this.editNewHeadlineNode.setText("Edit new " + this.fmmNodeDefinition.getLabelText());
 	}
@@ -156,13 +160,13 @@ public class HeadlineNodeCreateDialog extends FmsCancelOkApplyFdkDialog {
 		if(isPeerLaunch() && ! alphaSort()) {
 			this.launchHeadlineWidget.setLabelText(this.launchHeadlineNode.getFmmNodeDefinition().getLabelText());
 			this.launchHeadlineWidget.setText(this.launchHeadlineNode.getHeadline());
-			if(isPeerLaunch()) {
+			if(isPeerLaunch() && ! this.fmmNodeDefinition.isAlphaSort()) {
 				this.firstRadioButton.setText("before");
 				this.lastRadioButton.setText("after");
 			}
 		} else {
 			this.launchHeadlineWidget.setVisibility(View.GONE);
-			if(this.launchNodeChildCount > 0) {
+			if(this.launchNodeChildCount > 0 && ! this.fmmNodeDefinition.isAlphaSort()) {
 				this.firstRadioButton.setText("as first " + this.fmmNodeDefinition.getLabelText());
 				this.lastRadioButton.setText("as last " + this.fmmNodeDefinition.getLabelText());
 			}
@@ -227,7 +231,7 @@ public class HeadlineNodeCreateDialog extends FmsCancelOkApplyFdkDialog {
 	protected void onClickButtonApply() {
 		createHeadlineNode(false);
 		this.headlineWidget.setText("");
-		if(this.sequenceLayout.getVisibility() == View.GONE) {
+		if(this.sequenceLayout.getVisibility() == View.GONE && ! this.fmmNodeDefinition.isAlphaSort()) {
 			this.sequenceLayout.setVisibility(View.VISIBLE);
 			this.firstRadioButton = (RadioButton) this.dialogBodyView.findViewById(R.id.first__radio_button);
 			this.firstRadioButton.setText("as first " + this.fmmNodeDefinition.getLabelText());

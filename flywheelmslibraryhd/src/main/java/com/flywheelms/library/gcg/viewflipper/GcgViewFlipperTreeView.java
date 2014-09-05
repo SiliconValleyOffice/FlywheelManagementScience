@@ -120,8 +120,20 @@ public abstract class GcgViewFlipperTreeView extends GcgViewFlipperChildView imp
         this.treeView = (GcgTreeView) findViewById(R.id.gcg_tree_view);
 //        this.treeView.setAdapter(this.treeViewAdapter);
 		TextView theTreeViewBackgroundMenuTarget = (TextView) findViewById(R.id.gcg_tree_view__background_menu_target);
+//        theTreeViewBackgroundMenuTarget.setOnTouchListener(new OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View aView, MotionEvent aMotionEvent) {
+//                PopupMenu thePopupMenu = GcgViewFlipperTreeView.this.getTreeViewBackgroundPopupMenu(
+//                        aView, GcgViewFlipperTreeView.this.treeViewAdapter );
+//                if(thePopupMenu != null) {
+//                    thePopupMenu.show();
+//                }
+//                return true;
+//            }
+//        });
+        // TODO - TreeView control is taking up all the space
 		theTreeViewBackgroundMenuTarget.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View aView) {
 				PopupMenu thePopupMenu = GcgViewFlipperTreeView.this.getTreeViewBackgroundPopupMenu(
