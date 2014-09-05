@@ -107,4 +107,10 @@ public class PortfolioDeleteDialog extends HeadlineNodeDeleteDialog {
                 false);
 	}
 
+    @Override
+    protected void updateTargetWidgetSpinner(final DeleteDisposition aDeleteDisposition) {
+        ((PortfolioWidgetSpinner) aDeleteDisposition.getTargetWidgetSpinner()).updateSpinnerData(
+                (Portfolio) this.headlineNode );
+    }
+
 }

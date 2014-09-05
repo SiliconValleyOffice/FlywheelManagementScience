@@ -43,8 +43,6 @@
 
 package com.flywheelms.library.fms.dialog;
 
-import java.util.ArrayList;
-
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
@@ -67,6 +65,8 @@ import com.flywheelms.library.gcg.GcgActivity;
 import com.flywheelms.library.gcg.container.GcgContainerTabbedLayout;
 import com.flywheelms.library.gcg.container.tabbed.GcgTabSpec;
 import com.flywheelms.library.gcg.helper.GcgHelper;
+
+import java.util.ArrayList;
 
 public class HeadlineNodeListZoomDialog extends FmsCancelOkDialog {
 	
@@ -109,6 +109,7 @@ public class HeadlineNodeListZoomDialog extends FmsCancelOkDialog {
 		super(aGcgActivity, aHeadlineNodeList.get(0));
 		this.headlineNodeList = aHeadlineNodeList;
 		this.okButtonAlwaysOff = true;
+        this.buttonOk.setVisibility(View.GONE);
 		initializeNodeNavigationPanel();
 		initializeDecKanGlTab();
 		initializeGovernanceTab();

@@ -163,7 +163,9 @@ public abstract class HeadlineNodeAdoptOrphanDialog extends FmsCancelOkApplyFdkD
 		this.adoptionCandidateWidgetSpinner = (FmmHeadlineNodeWidgetSpinner) this.dialogBodyView.findViewById(R.id.adoption_candidate__spinner);
 		this.adoptionCandidateWidgetSpinner.setGcgActivity(this.gcgActivity);
 		this.sequencePositionSpinner = (SequencePositionWidgetSpinner) this.dialogBodyView.findViewById(R.id.list_position__spinner);
-        this.sequencePositionSpinner.setSelection(1);
+        if(this.sequencePositionSpinner != null) {
+            this.sequencePositionSpinner.setSelection(1);
+        }
 	}
 
 	protected void updateFilterResults() {
@@ -257,7 +259,9 @@ public abstract class HeadlineNodeAdoptOrphanDialog extends FmsCancelOkApplyFdkD
 	@Override
 	public void initFdkDictationResultsConsumerMap() {
 		addFdkDictationResultsConsumer(this.adoptionCandidateWidgetSpinner);
-		addFdkDictationResultsConsumer(this.sequencePositionSpinner);
+        if(this.sequencePositionSpinner != null) {
+            addFdkDictationResultsConsumer(this.sequencePositionSpinner);
+        }
 		this.currentFdkDictationResultsConsumer = this.adoptionCandidateWidgetSpinner;
 		fdkFocusConsumer(this.currentFdkDictationResultsConsumer);
 	}

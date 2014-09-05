@@ -66,7 +66,7 @@ public class PortfolioAdoptOrphanProjectDialog extends HeadlineNodeAdoptOrphanDi
 		boolean theAdoptionStatus = FmmDatabaseMediator.getActiveMediator().adoptOrphanProjectIntoPortfolio(
 				this.adoptionCandidateWidgetSpinner.getFmmNode().getNodeIdString(),
 				this.headlineNode.getNodeIdString(),
-				this.sequencePositionSpinner.sequenceAtEnd(),
+				false,
 				true );
 		toastAdoptionResult(theAdoptionStatus);
 		return theAdoptionStatus;
