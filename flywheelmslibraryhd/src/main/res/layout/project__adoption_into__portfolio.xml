@@ -12,6 +12,7 @@
         android:layout_marginBottom="15dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/gcg__panel__sand_dollar__border__portobello"
         android:gravity="left|top"
         android:orientation="vertical"
@@ -21,20 +22,21 @@
 
         <include layout="@layout/gcg__filter_panel" />
 
-        <com.flywheelms.library.fms.widget.spinner.ProjectAssetWidgetSpinner
+        <com.flywheelms.library.fms.widget.spinner.ProjectWidgetSpinner
             android:id="@+id/adoption_candidate__spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            gcg:labelWidth="180"
+            android:layout_marginTop="5dp"
+            gcg:filterId="@string/filter_id__orphan_nodes__primary_parent"
             gcg:zoomable="true"
-            gcg:filterId="@string/filter_id__orphan_nodes__secondary_parent" />
+            gcg:labelWidth="155" />
 
         <com.flywheelms.library.fms.widget.spinner.SequencePositionWidgetSpinner
             android:id="@+id/list_position__spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            gcg:labelWidth="180" />
+            android:layout_marginBottom="10dp"
+            gcg:labelWidth="155" />
     </com.flywheelms.library.gcg.container.GcgContainerGroupBoxLinear>
 
-</LinearLayout><!-- From: file:/home/sstamps/AndroidDevelopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/layout/project_asset__adoption_into__strategic_milestone.xml -->
+</LinearLayout>

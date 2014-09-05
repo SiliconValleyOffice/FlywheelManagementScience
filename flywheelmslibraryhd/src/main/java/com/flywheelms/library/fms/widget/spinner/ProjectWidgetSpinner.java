@@ -116,6 +116,13 @@ public class ProjectWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
         return theGuiableList;
     }
 
+    @Override
+    protected ArrayList<? extends GcgGuiable> getOrphanNodesPrimaryParentGuiableList() {
+        ArrayList<GcgGuiable> theGuiableList =
+                new ArrayList<GcgGuiable>(FmmDatabaseMediator.getActiveMediator().listProjectOrphansFromPortfolio());
+        return theGuiableList;
+    }
+
 	public void updateSpinnerData(Portfolio aPortfolio) {
 		this.portfolio = aPortfolio;
 		super.updateSpinnerData();

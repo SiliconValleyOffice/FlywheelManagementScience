@@ -68,6 +68,7 @@ import com.flywheelms.library.fms.dialog.FiscalYearCreateDialog;
 import com.flywheelms.library.fms.dialog.FiscalYearDeleteDialog;
 import com.flywheelms.library.fms.dialog.HeadlineNodeCreateDialog;
 import com.flywheelms.library.fms.dialog.HeadlineNodeHeadlineEditDialog;
+import com.flywheelms.library.fms.dialog.PortfolioAdoptOrphanProjectDialog;
 import com.flywheelms.library.fms.dialog.PortfolioCreateDialog;
 import com.flywheelms.library.fms.dialog.PortfolioDeleteDialog;
 import com.flywheelms.library.fms.dialog.ProjectAssetAdoptOrphanWorkPackageDialog;
@@ -361,6 +362,8 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter {
             createPortfolio();
         } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__DELETE_PORTFOLIO)) {
             deletePortfolio(aLaunchHeadlineNode);
+        } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__ADOPT_ORPHAN_PROJECT)) {
+            adoptOrphanProject(aLaunchHeadlineNode);
         } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__CREATE_PROJECT)) {
             createFmmHeadlineNode(
                     FmmNodeDefinition.PROJECT,
@@ -515,6 +518,12 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter {
     }
     private void moveProject(FmmHeadlineNode aProjectId, FmmHeadlineNode aPortfolioId) {
 //        getGcgActivity().startDialog(new ProjectMoveDialog(getGcgActivity(), this, (Project) aProject, (Portfolio) aPortfolioException));
+    }
+
+    // TODO !!! push down into subclass for StrategicPlanningTreeViewAdapter
+    // logical validation of this operation was already done in FmmPopupBuilder
+    private void adoptOrphanProject(FmmHeadlineNode aPortfolioNode) {
+        getGcgActivity().startDialog(new PortfolioAdoptOrphanProjectDialog(getGcgActivity(), this, aPortfolioNode));
     }
 
     // logical validation of this operation was already done in FmmPopupBuilder

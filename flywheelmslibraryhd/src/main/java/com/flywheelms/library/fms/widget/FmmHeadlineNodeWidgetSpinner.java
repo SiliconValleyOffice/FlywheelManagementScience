@@ -43,8 +43,6 @@
 
 package com.flywheelms.library.fms.widget;
 
-import java.util.ArrayList;
-
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
@@ -60,6 +58,8 @@ import com.flywheelms.library.gcg.helper.GcgGuiableSpinnerArrayAdapter;
 import com.flywheelms.library.gcg.helper.GcgHelper;
 import com.flywheelms.library.gcg.interfaces.GcgGuiable;
 import com.flywheelms.library.gcg.widget.GcgWidgetSpinner;
+
+import java.util.ArrayList;
 
 public abstract class FmmHeadlineNodeWidgetSpinner extends GcgWidgetSpinner {
 	
@@ -149,11 +149,18 @@ public abstract class FmmHeadlineNodeWidgetSpinner extends GcgWidgetSpinner {
 						}
 					}
 				});
+                this.zoomButton.setVisibility(isMinimumInput() ? View.VISIBLE : View.INVISIBLE);
 			} else {
 				this.zoomButton.setVisibility(View.GONE);
 			}
 		}
 	}
+
+    private void enableZoomButton(boolean bEnable) {
+        if(this.zoomButton != null) {
+            this.zoomButton.setVisibility(bEnable ? View.VISIBLE : View.INVISIBLE);
+        }
+    }
 
 	protected ArrayList<FmmHeadlineNode> getFmmHeadlineNodeList() {
 		ArrayList<FmmHeadlineNode> theFmmHeadlineNodeList = new ArrayList<FmmHeadlineNode>();
@@ -270,5 +277,11 @@ public abstract class FmmHeadlineNodeWidgetSpinner extends GcgWidgetSpinner {
 	public FmmNode getFmmNode() {
 		return (FmmNode) this.spinner.getSelectedItem();
 	}
+
+    protected boolean isMinimumInput() {
+        boolean theBoolean = getListSize() > 0;
+        enableZoomButton(theBoolean);
+        return theBoolean && getSelectedItem() != null;
+    }
 
 }

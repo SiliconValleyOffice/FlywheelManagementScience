@@ -841,6 +841,15 @@ public class FmmDatabaseMediator {
         return true;
     }
 
+    public boolean adoptOrphanProjectIntoPortfolio(
+            String aProjectId, String aPortfolioId, boolean bSequenceAtEnd, boolean bAtomicTransaction) {
+        return this.persistenceTechnologyDelegate.dbAdoptOrphanProjectIntoPortfolio(
+                aProjectId,
+                aPortfolioId,
+                bSequenceAtEnd,
+                bAtomicTransaction );
+    }
+
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////  Node - PROJECT  ////////////////////////////////////////////////////////////////////////////////
@@ -863,6 +872,10 @@ public class FmmDatabaseMediator {
 
     public ArrayList<Project> listProjectsForWorkPackageMoveTarget(Portfolio aPortfolio, ProjectAsset aProjectAssetException) {
         return this.persistenceTechnologyDelegate.dbListProjectsForWorkPackageMoveTarget(aPortfolio, aProjectAssetException);
+    }
+
+    public ArrayList<Project> listProjectOrphansFromPortfolio() {
+        return this.persistenceTechnologyDelegate.dbListProjectOrphansFromPortfolio();
     }
 
     public ArrayList<Project> listProjectsForWorkTaskMoveTarget(Portfolio aPortfolio, WorkPackage aWorkPackageException) {

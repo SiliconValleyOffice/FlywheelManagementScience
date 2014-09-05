@@ -962,6 +962,25 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
     }
 
     @Override
+    public boolean dbAdoptOrphanProjectIntoPortfolio(
+            String aProjectId,
+            String aPortfolioId,
+            boolean bSequenceAtEnd,
+            boolean bAtomicTransaction ) {
+        if(bAtomicTransaction) {
+            startTransaction();
+        }
+        this.contentValues.clear();
+        this.contentValues.put(ProjectMetaData.column_PORTFOLIO_ID, aPortfolioId);
+        int theRowCount = getSqLiteDatabase().update(FmmNodeDefinition.PROJECT.getClassName(), this.contentValues,
+                IdNodeMetaData.column_ID + " = '" + aProjectId + "'", null);
+        if(bAtomicTransaction) {
+            endTransaction(theRowCount > 0);
+        }
+        return theRowCount > 0;
+    }
+
+    @Override
     public boolean dbDeletePortfolio(Portfolio aPortfolio, boolean bAtomicTransaction) {
         return deleteRowFromSimpleIdTable(aPortfolio.getNodeIdString(), FmmNodeDefinition.PORTFOLIO, bAtomicTransaction);
     }
@@ -998,6 +1017,16 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
             theRawQuery += " AND " + IdNodeMetaData.column_ID + " != '" + aProjectExceptionId + "'";
         }
         theRawQuery += " ORDER BY " + HeadlineNodeMetaData.column_HEADLINE + " ASC";
+        Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
+        return ProjectDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
+    }
+
+    @Override
+    public ArrayList<Project> dbListProjectOrphansFromPortfolio() {
+        String theRawQuery =
+                "SELECT * FROM " + FmmNodeDefinition.PROJECT.getName() +
+                        " WHERE " + ProjectMetaData.column_PORTFOLIO_ID + " IS NULL" +
+                        " ORDER BY " + HeadlineNodeMetaData.column_HEADLINE + " ASC";
         Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
         return ProjectDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
     }
@@ -1688,8 +1717,22 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 			String aProjectId,
 			boolean bSequenceAtEnd,
 			boolean bAtomicTransaction ) {
-		// TODO Auto-generated method stub
-		return false;
+        if(bAtomicTransaction) {
+            startTransaction();
+        }
+        this.contentValues.clear();
+        this.contentValues.put(ProjectAssetMetaData.column_PROJECT_ID, aProjectId);
+        this.contentValues.put(CompletableNodeMetaData.column_SEQUENCE, updateSequenceBeforeAddingNewPeer(
+                FmmNodeDefinition.PROJECT_ASSET,
+                ProjectAssetMetaData.column_PROJECT_ID,
+                aProjectId,
+                bSequenceAtEnd ));
+        int theRowCount = getSqLiteDatabase().update(FmmNodeDefinition.PROJECT_ASSET.getClassName(), this.contentValues,
+                IdNodeMetaData.column_ID + " = '" + aProjectAssetId + "'", null);
+        if(bAtomicTransaction) {
+            endTransaction(theRowCount > 0);
+        }
+        return theRowCount > 0;
 	}
 
 	@Override

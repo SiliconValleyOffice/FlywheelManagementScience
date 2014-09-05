@@ -222,6 +222,8 @@ public abstract class PersistenceTechnologyDelegate {
 
     public abstract boolean dbUpdatePortfolio(Portfolio aPortfolio, boolean bAtomicTransaction);
 
+    public abstract boolean dbAdoptOrphanProjectIntoPortfolio(String aProjectId, String aPortfolioId, boolean bSequenceAtEnd, boolean bAtomicTransaction );
+
     public abstract boolean dbDeletePortfolio(Portfolio aPortfolio, boolean bAtomicTransaction);
 
     public abstract Portfolio dbRetrievePortfolio(String aNodeIdString);
@@ -501,6 +503,8 @@ public abstract class PersistenceTechnologyDelegate {
         public abstract ArrayList<Project> dbListProject(String aPortfolioId);
 
         public abstract ArrayList<Project> dbListProject(String aPortfolioId, String aProjectExceptionId);
+
+        public abstract ArrayList<Project> dbListProjectOrphansFromPortfolio();
 
         public abstract int dbCountProjectsForProjectAssetMoveTarget(Portfolio aPortfolio, Project aProjectException);
 

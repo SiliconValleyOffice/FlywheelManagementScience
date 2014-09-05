@@ -11,7 +11,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
-        android:paddingLeft="10dp" >
+        android:paddingLeft="10dp"
+        android:paddingRight="0dp">
 
         <Button
             android:id="@+id/headline__zoom__button"
