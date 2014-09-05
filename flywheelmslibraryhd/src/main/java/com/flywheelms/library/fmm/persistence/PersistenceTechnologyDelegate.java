@@ -515,6 +515,8 @@ public abstract class PersistenceTechnologyDelegate {
         public abstract ArrayList<Project> dbListProjectsForWorkTaskMoveTarget(Portfolio aPortfolio, WorkPackage aWorkPackageException);
 
         public abstract boolean dbOrphanAllProjectsFromPortfolio(String aPortfolioId, boolean bAtomicTransaction);
+
+        public abstract boolean dbMoveSingleProjectToPortfolio(String aProjectId, String aPortfolioId, boolean bAtomicTransaction);
 		
 
 		/////////////////////////////////////////////////////////////////////////////////////////////////////////////

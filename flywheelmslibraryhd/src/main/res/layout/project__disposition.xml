@@ -51,6 +51,7 @@
         android:layout_height="wrap_content"
         gcg:labelWidth="193"
         gcg:filterId="@string/filter_id__primary_parent__primary_child__move_target"
+        gcg:zoomable="true"
         gcg:deferDataInitialization="true" />
 
 </LinearLayout>

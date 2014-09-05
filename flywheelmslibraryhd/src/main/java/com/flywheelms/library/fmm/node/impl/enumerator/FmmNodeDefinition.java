@@ -1260,6 +1260,18 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 	public static boolean isCommitmentNode(String aNodeIdString) {
 		return COMMITMENT__NODE_LIST.contains(NodeId.getNodeTypeCodeFromNodeIdString(aNodeIdString));
 	}
+
+
+
+
+    private static final ArrayList<FmmNodeDefinition> ALPHA_SORT__NODE_LIST = new ArrayList<FmmNodeDefinition>();
+    static {
+        ALPHA_SORT__NODE_LIST.add(FmmNodeDefinition.BOOKSHELF);
+        ALPHA_SORT__NODE_LIST.add(FmmNodeDefinition.DISCUSSION_TOPIC);
+        ALPHA_SORT__NODE_LIST.add(FmmNodeDefinition.FISCAL_YEAR);
+        ALPHA_SORT__NODE_LIST.add(FmmNodeDefinition.PORTFOLIO);
+        ALPHA_SORT__NODE_LIST.add(FmmNodeDefinition.PROJECT);
+    }
 	
 	static {  // initialize nounStateBitmapTable(s); Tiny, Small, Medium and Large
 		FmmNodeDefinition.BOOKSHELF.getNounStateBitmapTableTiny().put(
@@ -2242,4 +2254,7 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 		return this.dialogDrawableResourceId;
 	}
 
+    public boolean isAlphaSort() {
+        return FmmNodeDefinition.ALPHA_SORT__NODE_LIST.contains(this);
+    }
 }

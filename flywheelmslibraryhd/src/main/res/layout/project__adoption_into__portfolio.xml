@@ -30,13 +30,6 @@
             gcg:filterId="@string/filter_id__orphan_nodes__primary_parent"
             gcg:zoomable="true"
             gcg:labelWidth="155" />
-
-        <com.flywheelms.library.fms.widget.spinner.SequencePositionWidgetSpinner
-            android:id="@+id/list_position__spinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            gcg:labelWidth="155" />
     </com.flywheelms.library.gcg.container.GcgContainerGroupBoxLinear>
 
 </LinearLayout>

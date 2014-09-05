@@ -162,7 +162,9 @@ public abstract class HeadlineNodeMoveDialog extends FmsCancelOkDialog {
 	}
 	
 	protected void initializeSequencePositionSpinner() {
-		updateSequencePositionWidgetSpinner();
+        if(this.sequencePositionSpinner != null) {
+            updateSequencePositionWidgetSpinner();
+        }
 	}
 	
 	protected void setInitialDispositionTargetGrandparentSpinnerData() { return; }
@@ -187,7 +189,11 @@ public abstract class HeadlineNodeMoveDialog extends FmsCancelOkDialog {
 
 	protected void updateDispositionTargetWidgetSpinner() { return; }
 	
-	protected abstract void updateSequencePositionWidgetSpinner();
+	protected void updateSequencePositionWidgetSpinner() {
+        if(this.sequencePositionSpinner == null) {
+            return;
+        }
+    }
 
 	protected abstract boolean moveHeadlineNode();
 	

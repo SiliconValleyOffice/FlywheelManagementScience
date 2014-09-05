@@ -86,6 +86,10 @@ public class PortfolioWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 		this.portfolioException = aPortfolioException;
 		super.updateSpinnerData();
 	}
+    public void updateSpinnerData(Portfolio aPortfolioException) {
+        this.portfolioException = aPortfolioException;
+        super.updateSpinnerData();
+    }
 
 	@Override
 	//filter_id__PRIMARY_PARENT

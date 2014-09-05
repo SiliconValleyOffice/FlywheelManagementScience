@@ -2091,6 +2091,10 @@ public class FmmDatabaseMediator {
         return isSuccess;
     }
 
+    public boolean moveSingleProjectToPortfolio(String aProjectId, String aPortfolioId, boolean bAtomicTransaction) {
+        return this.persistenceTechnologyDelegate.dbMoveSingleProjectToPortfolio(aProjectId, aPortfolioId, bAtomicTransaction);
+    }
+
 	public boolean deleteProject(Project aProject, boolean bAtomicTransaction) {
 		if(bAtomicTransaction) {
 			startTransaction();

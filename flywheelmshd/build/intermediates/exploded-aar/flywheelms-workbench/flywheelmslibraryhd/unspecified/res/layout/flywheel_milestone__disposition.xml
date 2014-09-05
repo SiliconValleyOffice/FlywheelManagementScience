@@ -47,6 +47,7 @@
         android:id="@+id/disposition_target__spinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        gcg:zoomable="true"
         android:layout_marginLeft="83dp" />
 
     <com.flywheelms.library.fms.widget.spinner.SequencePositionWidgetSpinner

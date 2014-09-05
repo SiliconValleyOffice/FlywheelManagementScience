@@ -153,7 +153,7 @@ public class HeadlineNodeCreateDialog extends FmsCancelOkApplyFdkDialog {
 	public void refreshDialog() {
 		this.parentFmmNodeTypeWidget.setText(this.logicalParentHeadlineNode.getFmmNodeDefinition().getLabelTextResourceId());
 		this.parentHeadlineWidget.setText(this.logicalParentHeadlineNode.getHeadline());
-		if(isPeerLaunch()) {
+		if(isPeerLaunch() && ! alphaSort()) {
 			this.launchHeadlineWidget.setLabelText(this.launchHeadlineNode.getFmmNodeDefinition().getLabelText());
 			this.launchHeadlineWidget.setText(this.launchHeadlineNode.getHeadline());
 			if(isPeerLaunch()) {
@@ -169,7 +169,11 @@ public class HeadlineNodeCreateDialog extends FmsCancelOkApplyFdkDialog {
 		}
 	}
 
-	private boolean isPeerLaunch() {
+    private boolean alphaSort() {
+        return this.fmmNodeDefinition.isAlphaSort();
+    }
+
+    private boolean isPeerLaunch() {
 		return this.fmmNodeDefinition == this.launchHeadlineNode.getFmmNodeDefinition();
 	}
 	

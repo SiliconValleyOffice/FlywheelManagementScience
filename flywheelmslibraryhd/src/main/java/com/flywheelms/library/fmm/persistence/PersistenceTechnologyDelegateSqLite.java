@@ -1060,6 +1060,15 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
                 bAtomicTransaction );
     }
 
+    @Override
+    public boolean dbMoveSingleProjectToPortfolio(String aProjectId, String aPortfolioId, boolean bAtomicTransaction) {
+        return updateRows(FmmNodeDefinition.PROJECT.getClassName(),
+                ProjectMetaData.column_PORTFOLIO_ID,
+                aPortfolioId,
+                IdNodeMetaData.column_ID + " = '" + aProjectId + "'",
+                bAtomicTransaction);
+    }
+
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////  Node - FISCAL YEAR  /////////////////////////////////////////////////////////////////////////////////////

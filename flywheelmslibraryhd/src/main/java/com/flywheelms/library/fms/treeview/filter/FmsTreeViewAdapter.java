@@ -76,6 +76,7 @@ import com.flywheelms.library.fms.dialog.ProjectAssetDeleteDialog;
 import com.flywheelms.library.fms.dialog.ProjectAssetMoveDialog;
 import com.flywheelms.library.fms.dialog.ProjectAssetOrphanDialog;
 import com.flywheelms.library.fms.dialog.ProjectDeleteDialog;
+import com.flywheelms.library.fms.dialog.ProjectMoveDialog;
 import com.flywheelms.library.fms.dialog.ProjectOrphanDialog;
 import com.flywheelms.library.fms.dialog.StrategicMilestoneAdoptOrphanProjectAssetDialog;
 import com.flywheelms.library.fms.dialog.StrategicMilestoneDeleteDialog;
@@ -516,8 +517,8 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter {
     private void orphanProject(FmmHeadlineNode aProjectHeadlineNode, FmmHeadlineNode aPortfolioHeadlineNode) {
         getGcgActivity().startDialog(new ProjectOrphanDialog(getGcgActivity(), this, (Project) aProjectHeadlineNode, (Portfolio) aPortfolioHeadlineNode));
     }
-    private void moveProject(FmmHeadlineNode aProjectId, FmmHeadlineNode aPortfolioId) {
-//        getGcgActivity().startDialog(new ProjectMoveDialog(getGcgActivity(), this, (Project) aProject, (Portfolio) aPortfolioException));
+    private void moveProject(FmmHeadlineNode aProject, FmmHeadlineNode aPortfolioException) {
+        getGcgActivity().startDialog(new ProjectMoveDialog(getGcgActivity(), this, (Project) aProject, (Portfolio) aPortfolioException));
     }
 
     // TODO !!! push down into subclass for StrategicPlanningTreeViewAdapter

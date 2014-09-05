@@ -45,6 +45,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         gcg:filterId="@string/filter_id__primary_parent__primary_child__move_target"
+        gcg:zoomable="true"
         gcg:labelWidth="150" />
 
     <com.flywheelms.library.fms.widget.spinner.SequencePositionWidgetSpinner
