@@ -490,6 +490,8 @@ public abstract class PersistenceTechnologyDelegate {
 
 		public abstract boolean dbUpdateProject(Project aProject, boolean bAtomicTransaction);
 
+        public abstract boolean dbOrphanSingleProjectFromPortfolio(String aProjectNodeIdString, String aPortfolioNodeIdString, boolean bAtomicTransaction);
+
 		public abstract boolean dbDeleteProject(Project aProject, boolean bAtomicTransaction);
 
         public abstract ArrayList<Project> dbListProject(Portfolio aPortfolio);

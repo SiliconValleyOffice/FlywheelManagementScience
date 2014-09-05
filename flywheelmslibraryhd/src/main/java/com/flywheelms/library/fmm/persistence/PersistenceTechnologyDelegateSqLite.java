@@ -1446,6 +1446,34 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
     	return updateSimpleIdTable(aProject, ProjectDaoSqLite.getInstance(), bAtomicTransaction);
 	}
 
+    public boolean dbOrphanSingleProjectFromPortfolio(String aProjectNodeIdString, String aPortfolioNodeIdString, boolean bAtomicTransaction) {
+        if(bAtomicTransaction) {
+            startTransaction();
+        }
+        this.contentValues.clear();
+        this.contentValues.putNull(ProjectMetaData.column_PORTFOLIO_ID);
+        int theRowCount = getSqLiteDatabase().update(FmmNodeDefinition.PROJECT.getClassName(), this.contentValues,
+                ProjectMetaData.column_ID + " = '" + aProjectNodeIdString + "'", null);
+        if(bAtomicTransaction) {
+            endTransaction(theRowCount > 0);
+        }
+        return theRowCount > 0;
+    }
+
+    public boolean dbOrphanAllProjectsFromPortfolio(String aProjectNodeIdString, String aPortfolioNodeIdString, boolean bAtomicTransaction) {
+        if(bAtomicTransaction) {
+            startTransaction();
+        }
+        this.contentValues.clear();
+        this.contentValues.putNull(ProjectMetaData.column_PORTFOLIO_ID);
+        int theRowCount = getSqLiteDatabase().update(FmmNodeDefinition.PROJECT.getClassName(), this.contentValues,
+                ProjectMetaData.column_PORTFOLIO_ID + " = '" + aPortfolioNodeIdString + "'", null);
+        if(bAtomicTransaction) {
+            endTransaction(theRowCount > 0);
+        }
+        return theRowCount > 0;
+    }
+
 	@Override
 	public boolean dbDeleteProject(Project aProject, boolean bAtomicTransaction) {
     	return deleteRowFromSimpleIdTable(aProject.getNodeIdString(), FmmNodeDefinition.PROJECT, bAtomicTransaction);

@@ -59,6 +59,8 @@ import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fmm.node.FmmHeadlineNodeShallow;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
+import com.flywheelms.library.fmm.node.impl.governable.Portfolio;
+import com.flywheelms.library.fmm.node.impl.governable.Project;
 import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
 import com.flywheelms.library.fmm.node.impl.governable.StrategicMilestone;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
@@ -73,6 +75,7 @@ import com.flywheelms.library.fms.dialog.ProjectAssetDeleteDialog;
 import com.flywheelms.library.fms.dialog.ProjectAssetMoveDialog;
 import com.flywheelms.library.fms.dialog.ProjectAssetOrphanDialog;
 import com.flywheelms.library.fms.dialog.ProjectDeleteDialog;
+import com.flywheelms.library.fms.dialog.ProjectOrphanDialog;
 import com.flywheelms.library.fms.dialog.StrategicMilestoneAdoptOrphanProjectAssetDialog;
 import com.flywheelms.library.fms.dialog.StrategicMilestoneDeleteDialog;
 import com.flywheelms.library.fms.dialog.StrategicMilestoneMoveDialog;
@@ -261,17 +264,17 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter {
     }
 
     @Override
-	protected boolean canMove(GcgTreeNodeInfo theLaunchNodeInfo, GcgTreeNodeInfo theTargetNodeInfo) {
+	protected boolean canMove(GcgTreeNodeInfo theLaunchNodeInfo, GcgTreeNodeInfo theParentNodeInfo) {
     	FmmHeadlineNode theLaunchHeadlineNode = (FmmHeadlineNode)theLaunchNodeInfo.getTargetObject();
-    	FmmHeadlineNode theTargetHeadlineNode = (FmmHeadlineNode)theTargetNodeInfo.getTargetObject();
-    	return theTargetHeadlineNode.canMove(theLaunchHeadlineNode);
+    	FmmHeadlineNode theParentHeadlineNode = (FmmHeadlineNode)theParentNodeInfo.getTargetObject();
+    	return theParentHeadlineNode.canMove(theLaunchHeadlineNode);
     }
 
     @Override
-	protected boolean canOrphan(GcgTreeNodeInfo theLaunchNodeInfo, GcgTreeNodeInfo theTargetNodeInfo) {
+	protected boolean canOrphan(GcgTreeNodeInfo theLaunchNodeInfo, GcgTreeNodeInfo theParentNodeInfo) {
     	FmmHeadlineNode theLaunchHeadlineNode = (FmmHeadlineNode)theLaunchNodeInfo.getTargetObject();
-    	FmmHeadlineNode theTargetHeadlineNode = (FmmHeadlineNode)theTargetNodeInfo.getTargetObject();
-    	return theTargetHeadlineNode.canOrphan(theLaunchHeadlineNode);
+    	FmmHeadlineNode theParentHeadlineNode = (FmmHeadlineNode)theParentNodeInfo.getTargetObject();
+    	return theParentHeadlineNode.canOrphan(theLaunchHeadlineNode);
     }
 
 	@Override
@@ -367,6 +370,10 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter {
                     aLaunchNodeCount);
         } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__DELETE_PROJECT)) {
             deleteProject(aLaunchHeadlineNode);
+        } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__ORPHAN_PROJECT)) {
+            orphanProject(aLaunchHeadlineNode, aParentHeadlineNode);
+        } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__MOVE_PROJECT)) {
+            moveProject(aLaunchHeadlineNode, aParentHeadlineNode);
 		} else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__CREATE_PROJECT_ASSET)) {
 			createFmmHeadlineNode(
                     FmmNodeDefinition.PROJECT_ASSET,
@@ -501,6 +508,14 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter {
 	private void editStrategicMilestoneTargetDate(FmmHeadlineNode aStrategicMilestoneHeadlineNode) {
 		getGcgActivity().startDialog(new StrategicMilestoneTargetDateEditDialog(getGcgActivity(), this, aStrategicMilestoneHeadlineNode));
 	}
+
+    // logical validation of this operation was already done in FmmPopupBuilder
+    private void orphanProject(FmmHeadlineNode aProjectHeadlineNode, FmmHeadlineNode aPortfolioHeadlineNode) {
+        getGcgActivity().startDialog(new ProjectOrphanDialog(getGcgActivity(), this, (Project) aProjectHeadlineNode, (Portfolio) aPortfolioHeadlineNode));
+    }
+    private void moveProject(FmmHeadlineNode aProjectId, FmmHeadlineNode aPortfolioId) {
+//        getGcgActivity().startDialog(new ProjectMoveDialog(getGcgActivity(), this, (Project) aProject, (Portfolio) aPortfolioException));
+    }
 
     // logical validation of this operation was already done in FmmPopupBuilder
     private void deleteProject(FmmHeadlineNode aProjectNode) {

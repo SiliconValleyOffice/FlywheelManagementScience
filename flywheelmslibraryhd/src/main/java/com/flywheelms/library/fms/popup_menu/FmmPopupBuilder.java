@@ -222,18 +222,19 @@ public class FmmPopupBuilder {
         return thePopupMenu;
     }
 
+    // return createProjectPopupMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, bCanMove, bCanOrphan, bCanSequenceDown, bCanSequenceUp, aLauncNodeSequence, aLaunchNodeChildCount);
 	private static PopupMenu createProjectPopupMenu(
 			FmmHeadlineNodePopupListener aNodePopupListener,
 			GcgTreeNodeInfo aLaunchTreeNodeInfo,
 			FmmHeadlineNode aLaunchHeadlineNode,
 			FmmHeadlineNode aParentHeadlineNode,
 			View aView,
-			boolean bCanSequenceUp,
-			boolean bCanSequenceDown,
 			boolean bCanDelete,
-			boolean bCanMove,
-			boolean bCanOrphan,
-			int aLaunchNodeSequence,
+            boolean bCanMove,
+            boolean bCanOrphan,
+            boolean bCanSequenceUp,
+            boolean bCanSequenceDown,
+            int aLaunchNodeSequence,
 			int aLaunchNodeChildCount ) {
 		FmmHeadlineNodePopupMenu thePopupMenu = new FmmHeadlineNodePopupMenu(
 				aNodePopupListener, aView, aLaunchHeadlineNode, aParentHeadlineNode, aLaunchTreeNodeInfo, aLaunchNodeSequence, aLaunchNodeChildCount );
