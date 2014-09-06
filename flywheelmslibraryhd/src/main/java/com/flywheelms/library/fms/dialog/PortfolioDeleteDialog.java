@@ -81,6 +81,9 @@ public class PortfolioDeleteDialog extends HeadlineNodeDeleteDialog {
 	protected boolean canOrphanPrimaryChild() {
 		return true;
 	}
+    protected boolean orphanPrimaryChildren() {
+        return FmmDatabaseMediator.getActiveMediator().orphanAllProjectsFromPortfolio(this.headlineNode.getNodeIdString(), true);
+    }
 
 	@Override
 	protected PortfolioWidgetSpinner findTargetWidgetSpinner(LinearLayout aLinearLayout) {
