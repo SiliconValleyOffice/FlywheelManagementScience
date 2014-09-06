@@ -129,10 +129,12 @@ public class GcgViewFlipper extends ViewFlipper implements GcgFlingController {
 //		if(theDisplayedChild != this.previousDisplayedChild) {
 //			((GcgViewFlipperView) this.getChildAt(this.previousDisplayedChild)).deactivateView();
 //		}
-		((GcgViewFlipperChildView) this.getChildAt(theDisplayedChild)).activateView();
+        GcgViewFlipperChildView theChildView = (GcgViewFlipperChildView) this.getChildAt(theDisplayedChild);
+        theChildView.activateView();
 		if(this.viewFlipListener != null) {
 			this.viewFlipListener.onViewFlip(this.previousDisplayedChild, theDisplayedChild);
 		}
+        theChildView.afterViewFlip();
 //		getGcgActivity().stopActivityStatusAnimation();
 	}
 

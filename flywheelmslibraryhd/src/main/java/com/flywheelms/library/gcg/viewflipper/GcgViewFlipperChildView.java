@@ -299,4 +299,7 @@ public abstract class GcgViewFlipperChildView extends LinearLayout implements Gc
 	
 	public void refreshDataDisplay() { return; }
 
+    public void afterViewFlip() {
+
+    }
 }
