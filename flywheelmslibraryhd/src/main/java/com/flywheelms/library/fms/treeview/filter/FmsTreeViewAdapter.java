@@ -71,6 +71,7 @@ import com.flywheelms.library.fms.dialog.HeadlineNodeHeadlineEditDialog;
 import com.flywheelms.library.fms.dialog.PortfolioAdoptOrphanProjectDialog;
 import com.flywheelms.library.fms.dialog.PortfolioCreateDialog;
 import com.flywheelms.library.fms.dialog.PortfolioDeleteDialog;
+import com.flywheelms.library.fms.dialog.ProjectAdoptOrphanProjectAssetDialog;
 import com.flywheelms.library.fms.dialog.ProjectAssetAdoptOrphanWorkPackageDialog;
 import com.flywheelms.library.fms.dialog.ProjectAssetDeleteDialog;
 import com.flywheelms.library.fms.dialog.ProjectAssetMoveDialog;
@@ -539,14 +540,22 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter {
 	}
 
 	// logical validation of this operation was already done in FmmPopupBuilder
-	private void orphanProjectAsset(FmmHeadlineNode aProjectAssetHeadlineNode, FmmHeadlineNode aStrategicMilestonetHeadlineNode) {
-		getGcgActivity().startDialog(new ProjectAssetOrphanDialog(getGcgActivity(), this, (ProjectAsset) aProjectAssetHeadlineNode, (StrategicMilestone) aStrategicMilestonetHeadlineNode));
+	private void orphanProjectAsset(FmmHeadlineNode aProjectAssetHeadlineNode, FmmHeadlineNode aParentHeadlineNode) {
+        if(aParentHeadlineNode.getFmmNodeDefinition() == FmmNodeDefinition.STRATEGIC_MILESTONE) {
+            getGcgActivity().startDialog(new ProjectAssetOrphanDialog(getGcgActivity(), this, (ProjectAsset) aProjectAssetHeadlineNode, (StrategicMilestone) aParentHeadlineNode));
+        } else {
+            getGcgActivity().startDialog(new ProjectAssetOrphanDialog(getGcgActivity(), this, (ProjectAsset) aProjectAssetHeadlineNode));
+        }
 	}
 
 	// TODO !!! push down into subclass for StrategicPlanningTreeViewAdapter
 	// logical validation of this operation was already done in FmmPopupBuilder
-	private void adoptOrphanProjectAsset(FmmHeadlineNode aStrategicMilestonetHeadlineNode) {
-		getGcgActivity().startDialog(new StrategicMilestoneAdoptOrphanProjectAssetDialog(getGcgActivity(), this, aStrategicMilestonetHeadlineNode));
+	private void adoptOrphanProjectAsset(FmmHeadlineNode aParentHeadlineNode) {
+        if(aParentHeadlineNode.getFmmNodeDefinition() == FmmNodeDefinition.STRATEGIC_MILESTONE) {
+            getGcgActivity().startDialog(new StrategicMilestoneAdoptOrphanProjectAssetDialog(getGcgActivity(), this, aParentHeadlineNode));
+        } else {
+            getGcgActivity().startDialog(new ProjectAdoptOrphanProjectAssetDialog(getGcgActivity(), this, aParentHeadlineNode));
+        }
 	}
 
 	// logical validation of this operation was already done in FmmPopupBuilder

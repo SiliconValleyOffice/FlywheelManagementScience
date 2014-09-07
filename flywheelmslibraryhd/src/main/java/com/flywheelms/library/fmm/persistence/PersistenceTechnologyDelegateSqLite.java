@@ -468,6 +468,22 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 		}
 		return theBoolean;
 	}
+
+    private boolean orphanSequenceRows(String aTableName, String anUpdateColumnName, String aWhereClause, boolean bAtomicTransaction) {
+        if(bAtomicTransaction) {
+            startTransaction();
+        }
+        boolean theBoolean = true;
+        getSqLiteDatabase().execSQL(
+                "UPDATE " + aTableName +
+                        " SET "+ anUpdateColumnName + " = NULL " +
+                        " , " + CompletableNodeMetaData.column_SEQUENCE + " = '0'" +
+                        " WHERE " + aWhereClause );
+        if(bAtomicTransaction) {
+            endTransaction(theBoolean);
+        }
+        return theBoolean;
+    }
 	
 	private boolean deleteAllParentRowsFromSequencedLinkTable(
 			FmmNodeDefinition anFmmNodeDefinition,
@@ -1727,14 +1743,17 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	}
 
 	@Override
-	public boolean dbOrphanSingleProjectAssetFromProject(String aProjectAssetId, String aProjectId, boolean bAtomicTransaction) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean dbOrphanSingleProjectAssetFromProject(String aProjectAssetId, boolean bAtomicTransaction) {
+        return orphanSequenceRows(
+                FmmNodeDefinition.PROJECT_ASSET.getClassName(),
+                ProjectAssetMetaData.column_PROJECT_ID,
+                IdNodeMetaData.column_ID + " = '" + aProjectAssetId + "'",
+                bAtomicTransaction );
 	}
 
 	@Override
 	public boolean dbOrphanAllProjectAssetsFromProject(String aProjectId, boolean bAtomicTransaction) {
-		return updateRowsWithNull(
+		return orphanSequenceRows(
 				FmmNodeDefinition.PROJECT_ASSET.getClassName(),
 				ProjectAssetMetaData.column_PROJECT_ID,
 				ProjectAssetMetaData.column_PROJECT_ID + " = '" + aProjectId + "'",

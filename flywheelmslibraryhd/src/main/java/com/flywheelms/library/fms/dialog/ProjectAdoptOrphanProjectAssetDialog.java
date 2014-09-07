@@ -1,4 +1,4 @@
-/* @(#)ProjectAssetOrphanDialog.java
+/* @(#)StrategicMilestoneAdoptOrphanProjectAssetDialog.java
 ** 
 ** Copyright (C) 2012 by Steven D. Stamps
 **
@@ -43,33 +43,35 @@
 
 package com.flywheelms.library.fms.dialog;
 
+import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
-import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
-import com.flywheelms.library.fmm.node.impl.governable.StrategicMilestone;
+import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.gcg.GcgActivity;
 import com.flywheelms.library.gcg.treeview.GcgTreeViewAdapter;
 
-public class ProjectAssetOrphanDialog extends HeadlineNodeOrphanDialog {
-	
-	private StrategicMilestone strategicMilestone;
+public class ProjectAdoptOrphanProjectAssetDialog extends HeadlineNodeAdoptOrphanDialog {
 
-	public ProjectAssetOrphanDialog(GcgActivity aLibraryActivity, GcgTreeViewAdapter aTreeViewAdapter, ProjectAsset aHeadlineNode, StrategicMilestone aStrategicMilestone
-    ) {
+	public ProjectAdoptOrphanProjectAssetDialog(
+            GcgActivity aLibraryActivity,
+            GcgTreeViewAdapter aTreeViewAdapter,
+            FmmHeadlineNode aHeadlineNode) {
 		super(aLibraryActivity, aTreeViewAdapter, aHeadlineNode);
-		this.strategicMilestone = aStrategicMilestone;
-		initializeDialogBodyLate();
 	}
 
-    public ProjectAssetOrphanDialog(GcgActivity aLibraryActivity, GcgTreeViewAdapter aTreeViewAdapter, ProjectAsset aHeadlineNode) {
-        super(aLibraryActivity, aTreeViewAdapter, aHeadlineNode);
-        initializeDialogBodyLate();
-    }
+	@Override
+	protected int getAdoptionCandidateLayoutResourceId() {
+		return R.layout.project_asset__adoption_into__project;
+	}
 
 	@Override
-	protected boolean orphanHeadlineNode() {
-		return this.strategicMilestone == null ?
-            FmmDatabaseMediator.getActiveMediator().orphanProjectAssetFromProject(this.headlineNode.getNodeIdString(), true) :
-            FmmDatabaseMediator.getActiveMediator().orphanProjectAssetFromStrategicMilestone(this.headlineNode.getNodeIdString(), this.strategicMilestone.getNodeIdString(), true);
-    }
+	protected boolean adoptOrphanHeadlineNode() {
+		boolean theAdoptionStatus = FmmDatabaseMediator.getActiveMediator().adoptOrphanProjectAssetIntoProject(
+				this.adoptionCandidateWidgetSpinner.getFmmNode().getNodeIdString(),
+				this.headlineNode.getNodeIdString(),
+				this.sequencePositionSpinner.sequenceAtEnd(),
+				true );
+		toastAdoptionResult(theAdoptionStatus);
+		return theAdoptionStatus;
+	}
 
 }

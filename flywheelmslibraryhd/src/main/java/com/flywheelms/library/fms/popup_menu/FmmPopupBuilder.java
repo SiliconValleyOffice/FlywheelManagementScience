@@ -238,7 +238,6 @@ public class FmmPopupBuilder {
 			int aLaunchNodeChildCount ) {
 		FmmHeadlineNodePopupMenu thePopupMenu = new FmmHeadlineNodePopupMenu(
 				aNodePopupListener, aView, aLaunchHeadlineNode, aParentHeadlineNode, aLaunchTreeNodeInfo, aLaunchNodeSequence, aLaunchNodeChildCount );
-		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_PROJECT);
 		if(bCanDelete) {
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__DELETE_PROJECT);
 		}

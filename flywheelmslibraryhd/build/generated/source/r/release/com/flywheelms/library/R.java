@@ -3270,18 +3270,19 @@ containing a value of this type.
         public static int project__disposition=0x7f0300b3;
         public static int project__move=0x7f0300b4;
         public static int project__project_asset__disposition=0x7f0300b5;
-        public static int project_asset__adoption_into__strategic_milestone=0x7f0300b6;
-        public static int project_asset__move=0x7f0300b7;
-        public static int project_asset__work_package__disposition=0x7f0300b8;
-        public static int save_changes_dialog=0x7f0300b9;
-        public static int spinnable_menu__heading__left=0x7f0300ba;
-        public static int spinnable_menu__heading__right=0x7f0300bb;
-        public static int story__zoom_panel=0x7f0300bc;
-        public static int strategic_milestone__disposition=0x7f0300bd;
-        public static int strategic_milestone__move=0x7f0300be;
-        public static int strategic_milestone__project_asset__disposition=0x7f0300bf;
-        public static int strategic_milestone__target_date__edit__dialog=0x7f0300c0;
-        public static int work_package__adoption_into__project_asset=0x7f0300c1;
+        public static int project_asset__adoption_into__project=0x7f0300b6;
+        public static int project_asset__adoption_into__strategic_milestone=0x7f0300b7;
+        public static int project_asset__move=0x7f0300b8;
+        public static int project_asset__work_package__disposition=0x7f0300b9;
+        public static int save_changes_dialog=0x7f0300ba;
+        public static int spinnable_menu__heading__left=0x7f0300bb;
+        public static int spinnable_menu__heading__right=0x7f0300bc;
+        public static int story__zoom_panel=0x7f0300bd;
+        public static int strategic_milestone__disposition=0x7f0300be;
+        public static int strategic_milestone__move=0x7f0300bf;
+        public static int strategic_milestone__project_asset__disposition=0x7f0300c0;
+        public static int strategic_milestone__target_date__edit__dialog=0x7f0300c1;
+        public static int work_package__adoption_into__project_asset=0x7f0300c2;
     }
     public static final class menu {
         public static int activity_main=0x7f0c0000;

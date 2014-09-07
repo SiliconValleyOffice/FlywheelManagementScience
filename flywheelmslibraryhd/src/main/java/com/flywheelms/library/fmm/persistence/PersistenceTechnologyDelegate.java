@@ -580,7 +580,7 @@ public abstract class PersistenceTechnologyDelegate {
 
 		public abstract boolean dbOrphanAllProjectAssetsFromProject(String aProjectId, boolean bAtomicTransaction);
 
-		public abstract boolean dbOrphanSingleProjectAssetFromProject(String aProjectAssetId, String aProjectId, boolean bAtomicTransaction);
+		public abstract boolean dbOrphanSingleProjectAssetFromProject(String aProjectAssetId, boolean bAtomicTransaction);
 		
 		public abstract boolean dbOrphanAllProjectAssetsFromStrategicMilestone(String aStrategicMilestoneId, boolean bAtomicTransaction);
 		

@@ -1087,6 +1087,17 @@ public class FmmDatabaseMediator {
         return isSuccess;
     }
 
+    public boolean orphanProjectAssetFromProject(String aProjectAssetId, boolean bAtomicTransaction) {
+        if(bAtomicTransaction) {
+            startTransaction();
+        }
+        boolean isSuccess = this.persistenceTechnologyDelegate.dbOrphanSingleProjectAssetFromProject(aProjectAssetId, bAtomicTransaction);
+        if(bAtomicTransaction) {
+            endTransaction(isSuccess);
+        }
+        return isSuccess;
+    }
+
     public ArrayList<ProjectAsset> listProjectAssetOrphansFromProject() {
         return this.persistenceTechnologyDelegate.dbListProjectAssetOrphansFromProject();
     }
