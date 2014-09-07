@@ -70,7 +70,7 @@ public class StrategicMilestoneMoveDialog extends HeadlineNodeMoveDialog {
 
 	@Override
 	protected int getMoveDispositionLayoutResourceId() {
-		return R.layout.strategic_milestone__move;
+		return R.layout.strategic_milestone__move_into__fiscal_year;
 	}
 
 	@Override
@@ -108,12 +108,12 @@ public class StrategicMilestoneMoveDialog extends HeadlineNodeMoveDialog {
 	
 	@Override
 	protected boolean moveHeadlineNode() {
-		boolean theMoveStatus = FmmDatabaseMediator.getActiveMediator().moveSingleStrategicMilestoneToFiscalYear(
-						this.headlineNode.getNodeIdString(),
-						((StrategicMilestone) this.headlineNode).getFiscalYearNodeIdString(),
-						this.dispositionTargetWidgetSpinner.getFmmNode().getNodeIdString(),
-						this.sequencePositionSpinner.sequenceAtEnd(),
-						true );
+		boolean theMoveStatus = FmmDatabaseMediator.getActiveMediator().moveSingleStrategicMilestoneIntoFiscalYear(
+                this.headlineNode.getNodeIdString(),
+                ((StrategicMilestone) this.headlineNode).getFiscalYearNodeIdString(),
+                this.dispositionTargetWidgetSpinner.getFmmNode().getNodeIdString(),
+                this.sequencePositionSpinner.sequenceAtEnd(),
+                true);
 		toastMoveResult(theMoveStatus);
 		return theMoveStatus;
 	}

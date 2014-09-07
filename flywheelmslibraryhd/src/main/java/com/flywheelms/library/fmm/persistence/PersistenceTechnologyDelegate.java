@@ -518,9 +518,9 @@ public abstract class PersistenceTechnologyDelegate {
 
         public abstract boolean dbOrphanAllProjectsFromPortfolio(String aPortfolioId, boolean bAtomicTransaction);
 
-        public abstract boolean dbMoveSingleProjectToPortfolio(String aProjectId, String aPortfolioId, boolean bAtomicTransaction);
+        public abstract boolean dbMoveSingleProjectIntoPortfolio(String aProjectId, String aPortfolioId, boolean bAtomicTransaction);
 
-        public abstract boolean dbMoveAllProjectsToPortfolio(String aCurrentPortfolioId, String aTargetPortfolioId, boolean bAtomicTransaction);
+        public abstract boolean dbMoveAllProjectsIntoPortfolio(String aCurrentPortfolioId, String aTargetPortfolioId, boolean bAtomicTransaction);
 		
 
 		/////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -552,31 +552,31 @@ public abstract class PersistenceTechnologyDelegate {
 
 		public abstract boolean dbUpdateProjectAsset(ProjectAsset aProjectAsset, boolean bAtomicTransaction);
 
-		public abstract boolean dbMoveSingleProjectAssetToStrategicMilestone(
-				String aProjectAssetId,
-				String anOriginalStrategicMilestoneId,
-				String aDestinationStrategicMilestoneId,
-				boolean bSequenceAtEnd,
-				boolean bAtomicTransaction);
+		public abstract boolean dbMoveSingleProjectAssetIntoStrategicMilestone(
+                String aProjectAssetId,
+                String anOriginalStrategicMilestoneId,
+                String aDestinationStrategicMilestoneId,
+                boolean bSequenceAtEnd,
+                boolean bAtomicTransaction);
 		
-		public abstract boolean dbMoveAllProjectAssetsToStrategicMilestone(
-				String aSourceStrateticMilestoneId,
-				String aDestinationStrategicMilestoneId,
-				boolean bSequenceAtEnd,
-				boolean bAtomicTransaction);
+		public abstract boolean dbMoveAllProjectAssetsIntoStrategicMilestone(
+                String aSourceStrateticMilestoneId,
+                String aDestinationStrategicMilestoneId,
+                boolean bSequenceAtEnd,
+                boolean bAtomicTransaction);
 
-		public abstract boolean dbMoveSingleProjectAssetToProject(
-				String aProjectAssetId,
-				String aSourceProjectId,
-				String aDestinationProjectId,
-				boolean bSequenceAtEnd,
-				boolean bAtomicTransaction);
+		public abstract boolean dbMoveSingleProjectAssetIntoProject(
+                String aProjectAssetId,
+                String aSourceProjectId,
+                String aDestinationProjectId,
+                boolean bSequenceAtEnd,
+                boolean bAtomicTransaction);
 
-		public abstract boolean dbMoveAllProjectAssetsToProject(
-				String aSourceProjectId,
-				String aDestinationProjectId,
-				boolean bSequenceAtEnd,
-				boolean bAtomicTransaction);
+		public abstract boolean dbMoveAllProjectAssetsIntoProject(
+                String aSourceProjectId,
+                String aDestinationProjectId,
+                boolean bSequenceAtEnd,
+                boolean bAtomicTransaction);
 
 		public abstract boolean dbOrphanAllProjectAssetsFromProject(String aProjectId, boolean bAtomicTransaction);
 
@@ -650,17 +650,17 @@ public abstract class PersistenceTechnologyDelegate {
 		
 		public abstract boolean dbDeleteStrategicMilestone(StrategicMilestone aStrategicMilestone, boolean bAtomicTransaction);
 
-		public abstract int dbMoveAllStrategicMilestonesToFiscalYear(
-				String aCurrentFiscalYearId,
-				String aDestinationFiscalYearId,
-				boolean bSequenceAtEnd,
-				boolean bAtomicTransaction );
+		public abstract int dbMoveAllStrategicMilestonesIntoFiscalYear(
+                String aCurrentFiscalYearId,
+                String aDestinationFiscalYearId,
+                boolean bSequenceAtEnd,
+                boolean bAtomicTransaction);
 
-		public abstract boolean dbMoveSingleStrategicMilestoneToFiscalYear(
-				String aStrategicMilestoneId,
-				String anOriginalFiscalYearId,
-				String aDestinationFiscalYearId,
-				boolean bSequenceAtEnd, boolean bAtomicTransaction);
+		public abstract boolean dbMoveSingleStrategicMilestoneIntoFiscalYear(
+                String aStrategicMilestoneId,
+                String anOriginalFiscalYearId,
+                String aDestinationFiscalYearId,
+                boolean bSequenceAtEnd, boolean bAtomicTransaction);
 
 		/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		//////  Node - WORK PACKAGE  ////////////////////////////////////////////////////////////////////////////////
@@ -691,10 +691,10 @@ public abstract class PersistenceTechnologyDelegate {
 				boolean bSequenceAtEnd,
 				boolean bAtomicTransaction );
 
-		public abstract boolean dbMoveAllWorkPackagesToProjectAsset(
-				String aSourceProjectAssetId,
-				String aDestinationProjectAssetId, boolean bSequenceAtEnd,
-				boolean bAtomicTransaction);
+		public abstract boolean dbMoveAllWorkPackagesIntoProjectAsset(
+                String aSourceProjectAssetId,
+                String aDestinationProjectAssetId, boolean bSequenceAtEnd,
+                boolean bAtomicTransaction);
 
 		public abstract boolean dbDeleteWorkPackage(WorkPackage aWorkPackage, boolean bAtomicTransaction);
 

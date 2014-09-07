@@ -104,7 +104,7 @@ public class PortfolioDeleteDialog extends HeadlineNodeDeleteDialog {
 
 	@Override
 	protected boolean movePrimaryChildrenToNewParent() {
-		return FmmDatabaseMediator.getActiveMediator().moveAllProjectsToPortfolio(
+		return FmmDatabaseMediator.getActiveMediator().moveAllProjectsIntoPortfolio(
                 this.headlineNode.getNodeIdString(),
                 this.primaryChildDeleteDisposition.getTargetWidgetSpinner().getFmmNode().getNodeIdString(),
                 false);

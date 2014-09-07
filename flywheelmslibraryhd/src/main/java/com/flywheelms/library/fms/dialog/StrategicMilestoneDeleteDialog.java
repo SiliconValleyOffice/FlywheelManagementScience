@@ -118,11 +118,11 @@ public class StrategicMilestoneDeleteDialog extends HeadlineNodeDeleteDialog {
 
 	@Override
 	protected boolean movePrimaryLinkNodes() {
-		return FmmDatabaseMediator.getActiveMediator().moveAllProjectAssetsToStrategicMilestone(
-				this.headlineNode.getNodeIdString(),
-				this.primaryLinkDeleteDisposition.getTargetWidgetSpinner().getFmmNode().getNodeIdString(),
-				this.primaryLinkDeleteDisposition.isSequencePositionSpinnerAtEnd(),
-				false );
+		return FmmDatabaseMediator.getActiveMediator().moveAllProjectAssetsIntoStrategicMilestone(
+                this.headlineNode.getNodeIdString(),
+                this.primaryLinkDeleteDisposition.getTargetWidgetSpinner().getFmmNode().getNodeIdString(),
+                this.primaryLinkDeleteDisposition.isSequencePositionSpinnerAtEnd(),
+                false);
 	}
 
 }

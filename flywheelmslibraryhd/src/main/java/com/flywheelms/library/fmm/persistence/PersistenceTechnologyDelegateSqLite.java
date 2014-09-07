@@ -951,15 +951,17 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
     @SuppressWarnings("resource")
     @Override
     public ArrayList<Portfolio> dbListPortfolioForProjectAssetMoveTarget(FmsOrganization anFmsOrganization, Project aProjectException) {
-//        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.PORTFOLIO.getName() +
-//                " WHERE " + PortfolioMetaData.column_ORGANIZATION_ID + " = '" + anOrganization.getNodeIdString() + "'";
-//        if(aProjectException != null) {
-//            theRawQuery += " AND " + IdNodeMetaData.column_ID + " != '" + aPortfolioException.getNodeIdString() + "'";
-//        }
-//        theRawQuery += " ORDER BY LOWER(" + HeadlineNodeMetaData.column_HEADLINE + ") ASC";
-//        Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
-//        return PortfolioDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
-        return dbListPortfolio(anFmsOrganization);
+        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.PORTFOLIO.getName() +
+                " WHERE " + IdNodeMetaData.column_ID +
+                " IN (" +
+                " SELECT " + ProjectMetaData.column_PORTFOLIO_ID + " FROM " + FmmNodeDefinition.PROJECT.getClassName();
+        if(aProjectException != null) {
+            theRawQuery += " WHERE " + IdNodeMetaData.column_ID + " != '" + aProjectException.getNodeIdString() + "'";
+        }
+        theRawQuery += ") ";
+        theRawQuery += " ORDER BY LOWER(" + HeadlineNodeMetaData.column_HEADLINE + ") ASC";
+        Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
+        return PortfolioDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
     }
 
     @Override
@@ -1054,7 +1056,14 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
     @Override
     public ArrayList<Project> dbListProjectsForProjectAssetMoveTarget(Portfolio aPortfolio, Project aProjectException) {
-        return null;
+        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.PROJECT.getName() +
+                " WHERE " + ProjectMetaData.column_PORTFOLIO_ID + " = '" + aPortfolio.getNodeIdString() + "'";
+        if(aProjectException != null) {
+            theRawQuery += " AND " + IdNodeMetaData.column_ID + " != '" + aProjectException.getNodeIdString() + "'";
+        }
+        theRawQuery += " ORDER BY " + HeadlineNodeMetaData.column_HEADLINE + " ASC";
+        Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
+        return ProjectDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
     }
 
     @Override
@@ -1077,7 +1086,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
     }
 
     @Override
-    public boolean dbMoveSingleProjectToPortfolio(String aProjectId, String aPortfolioId, boolean bAtomicTransaction) {
+    public boolean dbMoveSingleProjectIntoPortfolio(String aProjectId, String aPortfolioId, boolean bAtomicTransaction) {
         return updateRows(FmmNodeDefinition.PROJECT.getClassName(),
                 ProjectMetaData.column_PORTFOLIO_ID,
                 aPortfolioId,
@@ -1085,7 +1094,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
                 bAtomicTransaction);
     }
 
-    public boolean dbMoveAllProjectsToPortfolio(String aCurrentPortfolioId, String aTargetPortfolioId, boolean bAtomicTransaction) {
+    public boolean dbMoveAllProjectsIntoPortfolio(String aCurrentPortfolioId, String aTargetPortfolioId, boolean bAtomicTransaction) {
         return updateRows(FmmNodeDefinition.PROJECT.getClassName(),
                 ProjectMetaData.column_PORTFOLIO_ID,
                 aTargetPortfolioId,
@@ -1670,22 +1679,36 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	}
 
 	@Override
-	public boolean dbMoveSingleProjectAssetToProject(
-			String aProjectAssetId,
-			String aSourceProjectId,
-			String aDestinationProjectId,
-			boolean bSequenceAtEnd,
-			boolean bAtomicTransaction ) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean dbMoveSingleProjectAssetIntoProject(
+            String aProjectAssetId,
+            String aSourceProjectId,
+            String aDestinationProjectId,
+            boolean bSequenceAtEnd,
+            boolean bAtomicTransaction) {
+        if(bAtomicTransaction) {
+            startTransaction();
+        }
+        this.contentValues.clear();
+        this.contentValues.put(ProjectAssetMetaData.column_PROJECT_ID, aDestinationProjectId);
+        this.contentValues.put(CompletableNodeMetaData.column_SEQUENCE, updateSequenceBeforeAddingNewPeer(
+                FmmNodeDefinition.PROJECT_ASSET,
+                ProjectAssetMetaData.column_PROJECT_ID,
+                aDestinationProjectId,
+                bSequenceAtEnd ));
+        int theRowCount = getSqLiteDatabase().update(FmmNodeDefinition.PROJECT_ASSET.getClassName(), this.contentValues,
+                IdNodeMetaData.column_ID + " = '" + aProjectAssetId + "'", null);
+        if(bAtomicTransaction) {
+            endTransaction(theRowCount > 0);
+        }
+        return theRowCount > 0;
 	}
 
 	@Override
-	public boolean dbMoveAllProjectAssetsToProject(
-			String aSourceProjectId,
-			String aDestinationProjectId,
-			boolean bSequenceAtEnd,
-			boolean bAtomicTransaction ) {
+	public boolean dbMoveAllProjectAssetsIntoProject(
+            String aSourceProjectId,
+            String aDestinationProjectId,
+            boolean bSequenceAtEnd,
+            boolean bAtomicTransaction) {
 		if(bAtomicTransaction) {
 			startTransaction();
 		}
@@ -1705,21 +1728,21 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	}
 
 	@Override
-	public boolean dbMoveAllProjectAssetsToStrategicMilestone(
-			String aSourceStrategicMilestoneId,
-			String aDestinationStrategicMilestoneId,
-			boolean bSequenceAtEnd,
-			boolean bAtomicTransaction ) {
+	public boolean dbMoveAllProjectAssetsIntoStrategicMilestone(
+            String aSourceStrategicMilestoneId,
+            String aDestinationStrategicMilestoneId,
+            boolean bSequenceAtEnd,
+            boolean bAtomicTransaction) {
 		return moveAllLinkNodes(FmmNodeDefinition.STRATEGIC_COMMITMENT, StrategicCommitmentMetaData.column_STRATEGIC_MILESTONE_ID, aSourceStrategicMilestoneId, aDestinationStrategicMilestoneId, bSequenceAtEnd);
 	}
 
 	@Override
-	public boolean dbMoveSingleProjectAssetToStrategicMilestone(
-			String aProjectAssetId,
-			String anOriginalStrategicMilestoneId,
-			String aDestinationStrategicMilestoneId,
-			boolean bSequenceAtEnd,
-			boolean bAtomicTransaction ) {
+	public boolean dbMoveSingleProjectAssetIntoStrategicMilestone(
+            String aProjectAssetId,
+            String anOriginalStrategicMilestoneId,
+            String aDestinationStrategicMilestoneId,
+            boolean bSequenceAtEnd,
+            boolean bAtomicTransaction) {
 		return moveSingleLinkNode(
 				FmmNodeDefinition.STRATEGIC_COMMITMENT,
 				StrategicCommitmentMetaData.column_PROJECT_ASSET_ID,
@@ -1748,16 +1771,16 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
                 FmmNodeDefinition.PROJECT_ASSET.getClassName(),
                 ProjectAssetMetaData.column_PROJECT_ID,
                 IdNodeMetaData.column_ID + " = '" + aProjectAssetId + "'",
-                bAtomicTransaction );
+                bAtomicTransaction);
 	}
 
 	@Override
 	public boolean dbOrphanAllProjectAssetsFromProject(String aProjectId, boolean bAtomicTransaction) {
 		return orphanSequenceRows(
-				FmmNodeDefinition.PROJECT_ASSET.getClassName(),
-				ProjectAssetMetaData.column_PROJECT_ID,
-				ProjectAssetMetaData.column_PROJECT_ID + " = '" + aProjectId + "'",
-				bAtomicTransaction );
+                FmmNodeDefinition.PROJECT_ASSET.getClassName(),
+                ProjectAssetMetaData.column_PROJECT_ID,
+                ProjectAssetMetaData.column_PROJECT_ID + " = '" + aProjectId + "'",
+                bAtomicTransaction);
 	}
 
 	@Override
@@ -1988,11 +2011,11 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	}
 
 	@Override
-	public int dbMoveAllStrategicMilestonesToFiscalYear(
-			String aCurrentFiscalYearId,
-			String aDestinationFiscalYearId,
-			boolean bSequenceAtEnd,
-			boolean bAtomicTransaction) {
+	public int dbMoveAllStrategicMilestonesIntoFiscalYear(
+            String aCurrentFiscalYearId,
+            String aDestinationFiscalYearId,
+            boolean bSequenceAtEnd,
+            boolean bAtomicTransaction) {
 		if(bAtomicTransaction) {
 			startTransaction();
 		}
@@ -2012,12 +2035,12 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	}
 
 	@Override
-	public boolean dbMoveSingleStrategicMilestoneToFiscalYear(
-			String aStrategicMilestoneId,
-			String anOriginalFiscalYearId,
-			String aDestinationFiscalYearId,
-			boolean bSequenceAtEnd,
-			boolean bAtomicTransaction) {
+	public boolean dbMoveSingleStrategicMilestoneIntoFiscalYear(
+            String aStrategicMilestoneId,
+            String anOriginalFiscalYearId,
+            String aDestinationFiscalYearId,
+            boolean bSequenceAtEnd,
+            boolean bAtomicTransaction) {
 		if(bAtomicTransaction) {
 			startTransaction();
 		}
@@ -2313,11 +2336,11 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	}
 
 	@Override
-	public boolean dbMoveAllWorkPackagesToProjectAsset(
-			String aSourceProjectAssetId,
-			String aDestinationProjectAssetId,
-			boolean bSequenceAtEnd,
-			boolean bAtomicTransaction ) {
+	public boolean dbMoveAllWorkPackagesIntoProjectAsset(
+            String aSourceProjectAssetId,
+            String aDestinationProjectAssetId,
+            boolean bSequenceAtEnd,
+            boolean bAtomicTransaction) {
 		if(bAtomicTransaction) {
 			startTransaction();
 		}

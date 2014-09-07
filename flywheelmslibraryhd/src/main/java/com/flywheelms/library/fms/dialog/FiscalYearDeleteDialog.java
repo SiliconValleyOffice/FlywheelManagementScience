@@ -122,11 +122,11 @@ public class FiscalYearDeleteDialog extends HeadlineNodeDeleteDialog {
 
 	@Override
 	protected boolean movePrimaryChildrenToNewParent() {
-		return FmmDatabaseMediator.getActiveMediator().moveAllStrategicMilestonesToFiscalYear(
-				this.headlineNode.getNodeIdString(),
-				this.primaryChildDeleteDisposition.getTargetWidgetSpinner().getFmmNode().getNodeIdString(),
-				this.primaryChildDeleteDisposition.isSequencePositionSpinnerAtEnd(),
-				false );
+		return FmmDatabaseMediator.getActiveMediator().moveAllStrategicMilestonesIntoFiscalYear(
+                this.headlineNode.getNodeIdString(),
+                this.primaryChildDeleteDisposition.getTargetWidgetSpinner().getFmmNode().getNodeIdString(),
+                this.primaryChildDeleteDisposition.isSequencePositionSpinnerAtEnd(),
+                false);
 	}
 
 }

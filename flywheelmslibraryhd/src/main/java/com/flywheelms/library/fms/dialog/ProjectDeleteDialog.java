@@ -125,7 +125,7 @@ public class ProjectDeleteDialog extends HeadlineNodeDeleteDialog {
 
 	@Override
 	protected boolean movePrimaryChildrenToNewParent() {
-		return FmmDatabaseMediator.getActiveMediator().moveAllProjectAssetsToProject(
+		return FmmDatabaseMediator.getActiveMediator().moveAllProjectAssetsIntoProject(
                 this.headlineNode.getNodeIdString(),
                 this.primaryChildDeleteDisposition.getTargetWidgetSpinner().getFmmNode().getNodeIdString(),
                 this.primaryChildDeleteDisposition.isSequencePositionSpinnerAtEnd(),

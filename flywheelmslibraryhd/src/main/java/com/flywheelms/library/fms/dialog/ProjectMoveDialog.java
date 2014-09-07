@@ -64,7 +64,7 @@ public class ProjectMoveDialog extends HeadlineNodeMoveDialog {
 
 	@Override
 	protected int getMoveDispositionLayoutResourceId() {
-		return R.layout.project__move;
+		return R.layout.project__move_into__portfolio;
 	}
 
 	@Override
@@ -113,7 +113,7 @@ public class ProjectMoveDialog extends HeadlineNodeMoveDialog {
 	
 	@Override
 	protected boolean moveHeadlineNode() {
-		boolean theMoveStatus = FmmDatabaseMediator.getActiveMediator().moveSingleProjectToPortfolio(
+		boolean theMoveStatus = FmmDatabaseMediator.getActiveMediator().moveSingleProjectIntoPortfolio(
                 this.headlineNode.getNodeIdString(),
                 this.dispositionTargetWidgetSpinner.getFmmNode().getNodeIdString(),
                 true);

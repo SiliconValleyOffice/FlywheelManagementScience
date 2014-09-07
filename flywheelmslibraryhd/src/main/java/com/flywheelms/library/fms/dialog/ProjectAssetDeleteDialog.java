@@ -131,11 +131,11 @@ public class ProjectAssetDeleteDialog extends HeadlineNodeDeleteDialog {
 
 	@Override
 	protected boolean movePrimaryChildrenToNewParent() {
-		return FmmDatabaseMediator.getActiveMediator().moveAllWorkPackagesToProjectAsset(
-				this.headlineNode.getNodeIdString(),
-				this.primaryChildDeleteDisposition.getTargetWidgetSpinner().getFmmNode().getNodeIdString(),
-				this.primaryChildDeleteDisposition.isSequencePositionSpinnerAtEnd(),
-				false );
+		return FmmDatabaseMediator.getActiveMediator().moveAllWorkPackagesIntoProjectAsset(
+                this.headlineNode.getNodeIdString(),
+                this.primaryChildDeleteDisposition.getTargetWidgetSpinner().getFmmNode().getNodeIdString(),
+                this.primaryChildDeleteDisposition.isSequencePositionSpinnerAtEnd(),
+                false);
 	}
 
 }

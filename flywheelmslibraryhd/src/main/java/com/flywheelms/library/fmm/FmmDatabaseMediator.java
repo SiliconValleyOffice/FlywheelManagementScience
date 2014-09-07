@@ -837,8 +837,8 @@ public class FmmDatabaseMediator {
         return this.persistenceTechnologyDelegate.dbDeleteProjectsForPortfolio(aPortfolioId, bAtomicTransaction);
     }
 
-    public boolean moveAllProjectsToPortfolio(String aCurrentPortfolioId, String aTargetPortfolioId, boolean bAtomicTransaction) {
-        return this.persistenceTechnologyDelegate.dbMoveAllProjectsToPortfolio(aCurrentPortfolioId, aTargetPortfolioId, bAtomicTransaction);
+    public boolean moveAllProjectsIntoPortfolio(String aCurrentPortfolioId, String aTargetPortfolioId, boolean bAtomicTransaction) {
+        return this.persistenceTechnologyDelegate.dbMoveAllProjectsIntoPortfolio(aCurrentPortfolioId, aTargetPortfolioId, bAtomicTransaction);
     }
 
     public boolean adoptOrphanProjectIntoPortfolio(
@@ -1002,56 +1002,56 @@ public class FmmDatabaseMediator {
         return this.persistenceTechnologyDelegate.dbUpdateProjectAsset(aProjectAsset, bAtomicTransaction);
     }
 
-    public boolean moveAllProjectAssetsToStrategicMilestone(
+    public boolean moveAllProjectAssetsIntoStrategicMilestone(
             String aSourceStrateticMilestoneId,
             String aDestinationStrategicMilestoneId,
             boolean bSequenceAtEnd,
-            boolean bAtomicTransaction ) {
-        return this.persistenceTechnologyDelegate.dbMoveAllProjectAssetsToStrategicMilestone(
+            boolean bAtomicTransaction) {
+        return this.persistenceTechnologyDelegate.dbMoveAllProjectAssetsIntoStrategicMilestone(
                 aSourceStrateticMilestoneId,
                 aDestinationStrategicMilestoneId,
                 bSequenceAtEnd,
-                bAtomicTransaction );
+                bAtomicTransaction);
     }
 
-    public boolean moveSingleProjectAssetToStrategicMilestone(
+    public boolean moveSingleProjectAssetIntoStrategicMilestone(
             String aProjectAssetId,
             String anOriginalStrategicMilestonetId,
             String aDestinationStrategicMilestoneId,
             boolean bSequenceAtEnd,
             boolean bAtomicTransaction) {
-        return this.persistenceTechnologyDelegate.dbMoveSingleProjectAssetToStrategicMilestone(
+        return this.persistenceTechnologyDelegate.dbMoveSingleProjectAssetIntoStrategicMilestone(
                 aProjectAssetId,
                 anOriginalStrategicMilestonetId,
                 aDestinationStrategicMilestoneId,
                 bSequenceAtEnd,
-                bAtomicTransaction );
+                bAtomicTransaction);
     }
 
-    public boolean moveAllProjectAssetsToProject(
+    public boolean moveAllProjectAssetsIntoProject(
             String aSourceStrateticMilestoneId,
             String aDestinationProjectId,
             boolean bSequenceAtEnd,
-            boolean bAtomicTransaction ) {
-        return this.persistenceTechnologyDelegate.dbMoveAllProjectAssetsToProject(
+            boolean bAtomicTransaction) {
+        return this.persistenceTechnologyDelegate.dbMoveAllProjectAssetsIntoProject(
                 aSourceStrateticMilestoneId,
                 aDestinationProjectId,
                 bSequenceAtEnd,
-                bAtomicTransaction );
+                bAtomicTransaction);
     }
 
-    public boolean moveSingleProjectAssetToProject(
+    public boolean moveSingleProjectAssetIntoProject(
             String aProjectAssetId,
             String anOriginalProjectId,
             String aDestinationProjectId,
             boolean bSequenceAtEnd,
             boolean bAtomicTransaction) {
-        return this.persistenceTechnologyDelegate.dbMoveSingleProjectAssetToProject(
+        return this.persistenceTechnologyDelegate.dbMoveSingleProjectAssetIntoProject(
                 aProjectAssetId,
                 anOriginalProjectId,
                 aDestinationProjectId,
                 bSequenceAtEnd,
-                bAtomicTransaction );
+                bAtomicTransaction);
     }
 
     public boolean orphanAllProjectAssetsFromStrategicMilestone(String aStrategicMilestoneId, boolean bAtomicTransaction) {
@@ -2102,8 +2102,8 @@ public class FmmDatabaseMediator {
         return isSuccess;
     }
 
-    public boolean moveSingleProjectToPortfolio(String aProjectId, String aPortfolioId, boolean bAtomicTransaction) {
-        return this.persistenceTechnologyDelegate.dbMoveSingleProjectToPortfolio(aProjectId, aPortfolioId, bAtomicTransaction);
+    public boolean moveSingleProjectIntoPortfolio(String aProjectId, String aPortfolioId, boolean bAtomicTransaction) {
+        return this.persistenceTechnologyDelegate.dbMoveSingleProjectIntoPortfolio(aProjectId, aPortfolioId, bAtomicTransaction);
     }
 
 	public boolean deleteProject(Project aProject, boolean bAtomicTransaction) {
@@ -2284,31 +2284,31 @@ public class FmmDatabaseMediator {
 		return getStrategicMilestone(aNodeIdString) != null;
 	}
 
-	public boolean moveAllStrategicMilestonesToFiscalYear(
-			String aCurrentFiscalYearId,
-			String aDestinationFiscalYearId,
-			boolean bSequenceAtEnd,
-			boolean bAtomicTransaction ) {
-		int theDbRowCount = this.persistenceTechnologyDelegate.dbMoveAllStrategicMilestonesToFiscalYear(
-				aCurrentFiscalYearId,
-				aDestinationFiscalYearId,
-				bSequenceAtEnd,
-				bAtomicTransaction );
+	public boolean moveAllStrategicMilestonesIntoFiscalYear(
+            String aCurrentFiscalYearId,
+            String aDestinationFiscalYearId,
+            boolean bSequenceAtEnd,
+            boolean bAtomicTransaction) {
+		int theDbRowCount = this.persistenceTechnologyDelegate.dbMoveAllStrategicMilestonesIntoFiscalYear(
+                aCurrentFiscalYearId,
+                aDestinationFiscalYearId,
+                bSequenceAtEnd,
+                bAtomicTransaction);
 		return theDbRowCount > 0;  // TODO - what is failure ?
 	}
 
-	public boolean moveSingleStrategicMilestoneToFiscalYear(
-			String aStrategicMilestoneId,
-			String anOriginalFiscalYearId,
-			String aDestinationFiscalYearId,
-			boolean bSequenceAtEnd,
-			boolean bAtomicTransaction) {
-		return this.persistenceTechnologyDelegate.dbMoveSingleStrategicMilestoneToFiscalYear(
-				aStrategicMilestoneId,
-				anOriginalFiscalYearId,
-				aDestinationFiscalYearId,
-				bSequenceAtEnd,
-				bAtomicTransaction );
+	public boolean moveSingleStrategicMilestoneIntoFiscalYear(
+            String aStrategicMilestoneId,
+            String anOriginalFiscalYearId,
+            String aDestinationFiscalYearId,
+            boolean bSequenceAtEnd,
+            boolean bAtomicTransaction) {
+		return this.persistenceTechnologyDelegate.dbMoveSingleStrategicMilestoneIntoFiscalYear(
+                aStrategicMilestoneId,
+                anOriginalFiscalYearId,
+                aDestinationFiscalYearId,
+                bSequenceAtEnd,
+                bAtomicTransaction);
 	}
 
 
@@ -2438,16 +2438,16 @@ public class FmmDatabaseMediator {
 		return isSuccess;
 	}
 
-	public boolean moveAllWorkPackagesToProjectAsset(
-		String aSourceProjectAssetId,
-		String aDestinationProjectAssetId,
-		boolean bSequenceAtEnd,
-		boolean bAtomicTransaction ) {
-	return this.persistenceTechnologyDelegate.dbMoveAllWorkPackagesToProjectAsset(
-			aSourceProjectAssetId,
-			aDestinationProjectAssetId,
-			bSequenceAtEnd,
-			bAtomicTransaction );
+	public boolean moveAllWorkPackagesIntoProjectAsset(
+            String aSourceProjectAssetId,
+            String aDestinationProjectAssetId,
+            boolean bSequenceAtEnd,
+            boolean bAtomicTransaction) {
+	return this.persistenceTechnologyDelegate.dbMoveAllWorkPackagesIntoProjectAsset(
+            aSourceProjectAssetId,
+            aDestinationProjectAssetId,
+            bSequenceAtEnd,
+            bAtomicTransaction);
 	}
 
 	public boolean deleteWorkPackage(WorkPackage aWorkPackage, boolean bAtomicTransaction) {

@@ -425,9 +425,9 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter {
 		} else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__EDIT_HEADLINE)) {
 			editHeadline(aLaunchHeadlineNode);
 		} else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__MOVE_STRATEGIC_MILESTONE)) {
-			moveToFiscalYear(aLaunchHeadlineNode, aParentHeadlineNode);
+			moveStrategicMilestone(aLaunchHeadlineNode, aParentHeadlineNode);
 		} else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__MOVE_PROJECT_ASSET)) {
-			moveToStrategicMilestone(aLaunchHeadlineNode, aParentHeadlineNode);
+			moveProjectAsset(aLaunchHeadlineNode, aParentHeadlineNode);
 		} else {  // we are FOO BAR !!!
 			
 		}
@@ -569,9 +569,6 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter {
 		getGcgActivity().startDialog(new ProjectAssetAdoptOrphanWorkPackageDialog(getGcgActivity(), this, aProjectAssetHeadlineNode));
 	}
 
-
-
-
     // logical validation of this operation was already done in FmmPopupBuilder
     private void deleteWorkTask(@SuppressWarnings("unused") FmmHeadlineNode aFiscalYearHeadlineNode) {
         // TODO
@@ -582,17 +579,14 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter {
     private void adoptOrphanWorkTask(FmmHeadlineNode aProjectAssetHeadlineNode) {
     }
     
-    
-    
-
 	// logical validation of this operation was already done in FmmPopupBuilder
-	private void moveToFiscalYear(FmmHeadlineNode aHeadlineNode, FmmHeadlineNode aTargetHeadlineNodeException) {
+	private void moveStrategicMilestone(FmmHeadlineNode aHeadlineNode, FmmHeadlineNode aTargetHeadlineNodeException) {
 		getGcgActivity().startDialog(new StrategicMilestoneMoveDialog(getGcgActivity(), this, aHeadlineNode, (FiscalYear) aTargetHeadlineNodeException));
 	}
 
 	// logical validation of this operation was already done in FmmPopupBuilder
-	private void moveToStrategicMilestone(FmmHeadlineNode aHeadlineNode, FmmHeadlineNode aTargetHeadlineNodeException) {
-		getGcgActivity().startDialog(new ProjectAssetMoveDialog(getGcgActivity(), this, (ProjectAsset) aHeadlineNode, (StrategicMilestone) aTargetHeadlineNodeException));
+	private void moveProjectAsset(FmmHeadlineNode aHeadlineNode, FmmHeadlineNode aTargetHeadlineNodeException) {
+		getGcgActivity().startDialog(new ProjectAssetMoveDialog(getGcgActivity(), this, (ProjectAsset) aHeadlineNode, aTargetHeadlineNodeException));
 	}
 	
 	private void editHeadline(FmmHeadlineNode aLaunchHeadlineNode) {

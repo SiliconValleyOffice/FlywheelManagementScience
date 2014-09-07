@@ -19,7 +19,7 @@
         gcg:borderStyle="3"
         gcg:headingText="Destination" >
 
-        <com.flywheelms.library.fms.widget.spinner.FiscalYearWidgetSpinner
+        <com.flywheelms.library.fms.widget.spinner.PortfolioWidgetSpinner
             android:id="@+id/disposition_target__parent__spinner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -28,7 +28,7 @@
             gcg:zoomable="true"
             gcg:labelWidth="180" />
 
-        <com.flywheelms.library.fms.widget.spinner.StrategicMilestoneWidgetSpinner
+        <com.flywheelms.library.fms.widget.spinner.ProjectWidgetSpinner
             android:id="@+id/disposition_target__spinner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -44,4 +44,4 @@
             gcg:labelWidth="180" />
     </com.flywheelms.library.gcg.container.GcgContainerGroupBoxLinear>
 
-</LinearLayout><!-- From: file:/home/sstamps/AndroidDevelopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/layout/project_asset__move.xml -->
+</LinearLayout>
