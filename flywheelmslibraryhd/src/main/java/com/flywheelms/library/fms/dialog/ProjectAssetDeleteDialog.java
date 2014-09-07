@@ -126,7 +126,7 @@ public class ProjectAssetDeleteDialog extends HeadlineNodeDeleteDialog {
 
 	@Override
 	protected boolean orphanPrimaryChildren() {
-		return FmmDatabaseMediator.getActiveMediator().orphanWorkPackagesFromProjectAsset(this.headlineNode.getNodeIdString(), false);
+		return FmmDatabaseMediator.getActiveMediator().orphanAllWorkPackagesFromProjectAsset(this.headlineNode.getNodeIdString(), false);
 	}
 
 	@Override

@@ -1,4 +1,4 @@
-/* @(#)ProjectAssetOrphanDialog.java
+/* @(#)ProjectOrphanDialog.java
 ** 
 ** Copyright (C) 2012 by Steven D. Stamps
 **
@@ -45,26 +45,26 @@ package com.flywheelms.library.fms.dialog;
 
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
-import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
+import com.flywheelms.library.fmm.node.impl.governable.WorkPackage;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.gcg.GcgActivity;
 import com.flywheelms.library.gcg.treeview.GcgTreeViewAdapter;
 
-public class ProjectAssetOrphanDialog extends HeadlineNodeOrphanDialog {
-	
-	private FmmHeadlineNode parentNode;
+public class WorkPackageOrphanDialog extends HeadlineNodeOrphanDialog {
 
-	public ProjectAssetOrphanDialog(GcgActivity aLibraryActivity, GcgTreeViewAdapter aTreeViewAdapter, ProjectAsset aHeadlineNode, FmmHeadlineNode aParentHeadlineNode) {
-		super(aLibraryActivity, aTreeViewAdapter, aHeadlineNode);
-		this.parentNode = aParentHeadlineNode;
+	private final FmmHeadlineNode parentHeadlineNode;
+
+	public WorkPackageOrphanDialog(GcgActivity aLibraryActivity, GcgTreeViewAdapter aTreeViewAdapter, WorkPackage aWorkPackage, FmmHeadlineNode aParentHeadlineNode) {
+		super(aLibraryActivity, aTreeViewAdapter, aWorkPackage);
+		this.parentHeadlineNode = aParentHeadlineNode;
 		initializeDialogBodyLate();
 	}
 
 	@Override
 	protected boolean orphanHeadlineNode() {
-		return this.parentNode.getFmmNodeDefinition() == FmmNodeDefinition.PROJECT ?
-            FmmDatabaseMediator.getActiveMediator().orphanSingleProjectAssetFromProject(this.headlineNode.getNodeIdString(), this.parentNode.getNodeIdString(), true) :
-            FmmDatabaseMediator.getActiveMediator().orphanSingleProjectAssetFromStrategicMilestone(this.headlineNode.getNodeIdString(), this.parentNode.getNodeIdString(), true);
-    }
+        return this.parentHeadlineNode.getFmmNodeDefinition() == FmmNodeDefinition.PROJECT_ASSET ?
+            FmmDatabaseMediator.getActiveMediator().orphanSingleWorkPackageFromProjectAsset(this.headlineNode.getNodeIdString(), this.parentHeadlineNode.getNodeIdString(), true) :
+            FmmDatabaseMediator.getActiveMediator().orphanSingleWorkPackageFromFlywheelMilestone(this.headlineNode.getNodeIdString(), this.parentHeadlineNode.getNodeIdString(), true);
+	}
 
 }

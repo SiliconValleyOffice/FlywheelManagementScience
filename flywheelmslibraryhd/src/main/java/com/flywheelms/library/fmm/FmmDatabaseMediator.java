@@ -1076,7 +1076,7 @@ public class FmmDatabaseMediator {
         return isSuccess;
     }
 
-    public boolean orphanProjectAssetFromStrategicMilestone(String aProjectAssetId, String aStrategicMilestoneId, boolean bAtomicTransaction) {
+    public boolean orphanSingleProjectAssetFromStrategicMilestone(String aProjectAssetId, String aStrategicMilestoneId, boolean bAtomicTransaction) {
         if(bAtomicTransaction) {
             startTransaction();
         }
@@ -1087,11 +1087,11 @@ public class FmmDatabaseMediator {
         return isSuccess;
     }
 
-    public boolean orphanProjectAssetFromProject(String aProjectAssetId, boolean bAtomicTransaction) {
+    public boolean orphanSingleProjectAssetFromProject(String aProjectAssetId, String aProjectId, boolean bAtomicTransaction) {
         if(bAtomicTransaction) {
             startTransaction();
         }
-        boolean isSuccess = this.persistenceTechnologyDelegate.dbOrphanSingleProjectAssetFromProject(aProjectAssetId, bAtomicTransaction);
+        boolean isSuccess = this.persistenceTechnologyDelegate.dbOrphanSingleProjectAssetFromProject(aProjectAssetId, aProjectId, bAtomicTransaction);
         if(bAtomicTransaction) {
             endTransaction(isSuccess);
         }
@@ -2080,7 +2080,7 @@ public class FmmDatabaseMediator {
         }
     }
 
-    public boolean orphanProjectFromPortfolio(String aProjectNodeIdString, String aPortfolioNodeIdString, boolean bAtomicTransaction) {
+    public boolean orphanSingleProjectFromPortfolio(String aProjectNodeIdString, String aPortfolioNodeIdString, boolean bAtomicTransaction) {
         if(bAtomicTransaction) {
             startTransaction();
         }
@@ -2427,16 +2427,49 @@ public class FmmDatabaseMediator {
         }
     }
 
-	public boolean orphanWorkPackagesFromProjectAsset(String aProjectAssetNodeId, boolean bAtomicTransaction) {
+	public boolean orphanAllWorkPackagesFromProjectAsset(String aProjectAssetId, boolean bAtomicTransaction) {
 		if(bAtomicTransaction) {
 			startTransaction();
 		}
-		boolean isSuccess = this.persistenceTechnologyDelegate.dbOrphanAllWorkPackagesFromProjectAsset(aProjectAssetNodeId, bAtomicTransaction);
+		boolean isSuccess = this.persistenceTechnologyDelegate.dbOrphanAllWorkPackagesFromProjectAsset(aProjectAssetId, bAtomicTransaction);
 		if(bAtomicTransaction) {
 			endTransaction(isSuccess);
 		}
 		return isSuccess;
 	}
+
+    public boolean orphanSingleWorkPackageFromProjectAsset(String aWorkPackageId, String aProjectAssetId, boolean bAtomicTransaction) {
+        if(bAtomicTransaction) {
+            startTransaction();
+        }
+        boolean isSuccess = this.persistenceTechnologyDelegate.dbOrphanSingleWorkPackageFromProjectAsset(aWorkPackageId, aProjectAssetId, bAtomicTransaction);
+        if(bAtomicTransaction) {
+            endTransaction(isSuccess);
+        }
+        return isSuccess;
+    }
+
+    public boolean orphanAllWorkPackagesFromFlywheelMilestone(String aFlywheelMilestoneId, boolean bAtomicTransaction) {
+        if(bAtomicTransaction) {
+            startTransaction();
+        }
+        boolean isSuccess = this.persistenceTechnologyDelegate.dbOrphanAllWorkPackagesFromFlywheelMilestone(aFlywheelMilestoneId, bAtomicTransaction);
+        if(bAtomicTransaction) {
+            endTransaction(isSuccess);
+        }
+        return isSuccess;
+    }
+
+    public boolean orphanSingleWorkPackageFromFlywheelMilestone(String aWorkPackageId, String aFlywheelMilestoneId, boolean bAtomicTransaction) {
+        if(bAtomicTransaction) {
+            startTransaction();
+        }
+        boolean isSuccess = this.persistenceTechnologyDelegate.dbOrphanSingleWorkPackageFromFlywheelMilestone(aWorkPackageId, aFlywheelMilestoneId, bAtomicTransaction);
+        if(bAtomicTransaction) {
+            endTransaction(isSuccess);
+        }
+        return isSuccess;
+    }
 
 	public boolean moveAllWorkPackagesIntoProjectAsset(
             String aSourceProjectAssetId,

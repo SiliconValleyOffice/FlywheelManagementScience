@@ -492,7 +492,7 @@ public abstract class PersistenceTechnologyDelegate {
 
 		public abstract boolean dbUpdateProject(Project aProject, boolean bAtomicTransaction);
 
-        public abstract boolean dbOrphanSingleProjectFromPortfolio(String aProjectNodeIdString, String aPortfolioNodeIdString, boolean bAtomicTransaction);
+        public abstract boolean dbOrphanSingleProjectFromPortfolio(String aProjectId, String aPortfolioId, boolean bAtomicTransaction);
 
 		public abstract boolean dbDeleteProject(Project aProject, boolean bAtomicTransaction);
 
@@ -580,7 +580,7 @@ public abstract class PersistenceTechnologyDelegate {
 
 		public abstract boolean dbOrphanAllProjectAssetsFromProject(String aProjectId, boolean bAtomicTransaction);
 
-		public abstract boolean dbOrphanSingleProjectAssetFromProject(String aProjectAssetId, boolean bAtomicTransaction);
+		public abstract boolean dbOrphanSingleProjectAssetFromProject(String aProjectAssetId, String aProjectId, boolean bAtomicTransaction);
 		
 		public abstract boolean dbOrphanAllProjectAssetsFromStrategicMilestone(String aStrategicMilestoneId, boolean bAtomicTransaction);
 		
@@ -681,6 +681,12 @@ public abstract class PersistenceTechnologyDelegate {
 
 		public abstract boolean dbOrphanAllWorkPackagesFromProjectAsset(String aProjectAssetNodeId, boolean bAtomicTransaction);
 
+        public abstract boolean dbOrphanAllWorkPackagesFromFlywheelMilestone(String aFlywheelMilestoneId, boolean bAtomicTransaction);
+
+        public abstract boolean dbOrphanSingleWorkPackageFromProjectAsset(String aWorkPackageId, String aProjectAssetId, boolean bAtomicTransaction);
+
+        public abstract boolean dbOrphanSingleWorkPackageFromFlywheelMilestone(String aWorkPackageId, String aFlywheelMilestoneId, boolean bAtomicTransaction);
+
 		public abstract ArrayList<WorkPackage> dbListWorkPackageOrphansFromProjectAsset();
 
 		public abstract ArrayList<WorkPackage> dbListWorkPackageOrphansFromFlywheelMilestone();
@@ -714,5 +720,4 @@ public abstract class PersistenceTechnologyDelegate {
 		public abstract boolean dbUpdateWorkTask(WorkTask aWorkTask, boolean bAtomicTransaction);
 
 		public abstract boolean dbDeleteWorkTask(WorkTask aWorkTask, boolean bAtomicTransaction);
-
 }

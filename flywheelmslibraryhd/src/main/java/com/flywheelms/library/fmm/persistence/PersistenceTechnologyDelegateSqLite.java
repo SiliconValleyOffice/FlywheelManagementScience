@@ -1766,12 +1766,17 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	}
 
 	@Override
-	public boolean dbOrphanSingleProjectAssetFromProject(String aProjectAssetId, boolean bAtomicTransaction) {
-        return orphanSequenceRows(
+	public boolean dbOrphanSingleProjectAssetFromProject(String aProjectAssetId, String aProjectId, boolean bAtomicTransaction) {
+        boolean bSuccess = orphanSequenceRows(
                 FmmNodeDefinition.PROJECT_ASSET.getClassName(),
                 ProjectAssetMetaData.column_PROJECT_ID,
                 IdNodeMetaData.column_ID + " = '" + aProjectAssetId + "'",
                 bAtomicTransaction);
+        reSequenceRows(
+                FmmNodeDefinition.PROJECT_ASSET.getClassName(),
+                ProjectAssetMetaData.column_PROJECT_ID,
+                aProjectId );
+        return bSuccess;
 	}
 
 	@Override
@@ -2291,9 +2296,34 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
 	@Override
 	public boolean dbOrphanAllWorkPackagesFromProjectAsset(String aProjectAssetNodeId, boolean bAtomicTransaction) {
-		String theWhereClause = WorkPackageMetaData.column_PROJECT_ASSET_ID + " = '" + aProjectAssetNodeId + "'";
-		return updateRowsWithNull(FmmNodeDefinition.WORK_PACKAGE.getClassName(), WorkPackageMetaData.column_PROJECT_ASSET_ID, theWhereClause, bAtomicTransaction);
+        return orphanSequenceRows(
+                FmmNodeDefinition.WORK_PACKAGE.getClassName(),
+                WorkPackageMetaData.column_PROJECT_ASSET_ID,
+                WorkPackageMetaData.column_PROJECT_ASSET_ID + " = '" + aProjectAssetNodeId + "'",
+                bAtomicTransaction);
 	}
+
+    @Override
+    public boolean dbOrphanAllWorkPackagesFromFlywheelMilestone(String aFlywheelMilestoneId, boolean bAtomicTransaction) {
+        return false;
+    }
+
+    public boolean dbOrphanSingleWorkPackageFromProjectAsset(String aWorkPackageId, String aProjectAssetId, boolean bAtomicTransaction) {
+        boolean bSuccess = orphanSequenceRows(
+                FmmNodeDefinition.WORK_PACKAGE.getClassName(),
+                WorkPackageMetaData.column_PROJECT_ASSET_ID,
+                IdNodeMetaData.column_ID + " = '" + aWorkPackageId + "'",
+                bAtomicTransaction);
+        reSequenceRows(
+                FmmNodeDefinition.WORK_PACKAGE.getClassName(),
+                WorkPackageMetaData.column_PROJECT_ASSET_ID,
+                aProjectAssetId );
+        return bSuccess;
+    }
+
+    public boolean dbOrphanSingleWorkPackageFromFlywheelMilestone(String aWorkPackageId, String aFlywheelMilestoneId, boolean bAtomicTransaction) {
+        return false;
+    }
 
 	@SuppressWarnings("resource")
 	@Override

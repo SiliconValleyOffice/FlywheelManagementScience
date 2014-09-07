@@ -61,7 +61,7 @@ public class ProjectOrphanDialog extends HeadlineNodeOrphanDialog {
 
 	@Override
 	protected boolean orphanHeadlineNode() {
-		return FmmDatabaseMediator.getActiveMediator().orphanProjectFromPortfolio(this.headlineNode.getNodeIdString(), this.portfolio.getNodeIdString(), true);
+		return FmmDatabaseMediator.getActiveMediator().orphanSingleProjectFromPortfolio(this.headlineNode.getNodeIdString(), this.portfolio.getNodeIdString(), true);
 	}
 
 }

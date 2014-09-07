@@ -62,7 +62,7 @@ import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
 import com.flywheelms.library.fmm.node.impl.governable.Portfolio;
 import com.flywheelms.library.fmm.node.impl.governable.Project;
 import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
-import com.flywheelms.library.fmm.node.impl.governable.StrategicMilestone;
+import com.flywheelms.library.fmm.node.impl.governable.WorkPackage;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.fms.dialog.FiscalYearCreateDialog;
 import com.flywheelms.library.fms.dialog.FiscalYearDeleteDialog;
@@ -83,6 +83,7 @@ import com.flywheelms.library.fms.dialog.StrategicMilestoneAdoptOrphanProjectAss
 import com.flywheelms.library.fms.dialog.StrategicMilestoneDeleteDialog;
 import com.flywheelms.library.fms.dialog.StrategicMilestoneMoveDialog;
 import com.flywheelms.library.fms.dialog.StrategicMilestoneTargetDateEditDialog;
+import com.flywheelms.library.fms.dialog.WorkPackageOrphanDialog;
 import com.flywheelms.library.fms.popup_menu.FmmPopupBuilder;
 import com.flywheelms.library.gcg.GcgApplication;
 import com.flywheelms.library.gcg.treeview.GcgTreeViewAdapter;
@@ -401,6 +402,8 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter {
                     aLaunchNodeCount);
 		} else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__DELETE_WORK_PACKAGE)) {
 			deleteWorkPackage(aLaunchHeadlineNode);
+        } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__ORPHAN_WORK_PACKAGE)) {
+            orphanWorkPackage(aLaunchHeadlineNode, aParentHeadlineNode);
 		} else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__ADOPT_ORPHAN_WORK_PACKAGE)) {
 			adoptOrphanWorkPackage(aLaunchHeadlineNode);
         } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__CREATE_WORK_TASK)) {
@@ -541,11 +544,7 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter {
 
 	// logical validation of this operation was already done in FmmPopupBuilder
 	private void orphanProjectAsset(FmmHeadlineNode aProjectAssetHeadlineNode, FmmHeadlineNode aParentHeadlineNode) {
-        if(aParentHeadlineNode.getFmmNodeDefinition() == FmmNodeDefinition.STRATEGIC_MILESTONE) {
-            getGcgActivity().startDialog(new ProjectAssetOrphanDialog(getGcgActivity(), this, (ProjectAsset) aProjectAssetHeadlineNode, (StrategicMilestone) aParentHeadlineNode));
-        } else {
-            getGcgActivity().startDialog(new ProjectAssetOrphanDialog(getGcgActivity(), this, (ProjectAsset) aProjectAssetHeadlineNode));
-        }
+            getGcgActivity().startDialog(new ProjectAssetOrphanDialog(getGcgActivity(), this, (ProjectAsset) aProjectAssetHeadlineNode, aParentHeadlineNode));
 	}
 
 	// TODO !!! push down into subclass for StrategicPlanningTreeViewAdapter
@@ -572,6 +571,11 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter {
     // logical validation of this operation was already done in FmmPopupBuilder
     private void deleteWorkTask(@SuppressWarnings("unused") FmmHeadlineNode aFiscalYearHeadlineNode) {
         // TODO
+    }
+
+    // logical validation of this operation was already done in FmmPopupBuilder
+    private void orphanWorkPackage(FmmHeadlineNode aWorkPackageHeadlineNode, FmmHeadlineNode aParentHeadlineNode) {
+        getGcgActivity().startDialog(new WorkPackageOrphanDialog(getGcgActivity(), this, (WorkPackage) aWorkPackageHeadlineNode, aParentHeadlineNode));
     }
 
     // TODO !!! push down into subclass for StrategicPlanningTreeViewAdapter
