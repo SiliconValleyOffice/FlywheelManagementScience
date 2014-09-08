@@ -43,8 +43,6 @@
 
 package com.flywheelms.library.fms.widget.spinner;
 
-import java.util.ArrayList;
-
 import android.content.Context;
 import android.util.AttributeSet;
 
@@ -56,6 +54,8 @@ import com.flywheelms.library.fmm.node.impl.governable.StrategicMilestone;
 import com.flywheelms.library.fmm.node.impl.governable.WorkPackage;
 import com.flywheelms.library.fms.widget.FmmHeadlineNodeWidgetSpinner;
 import com.flywheelms.library.gcg.interfaces.GcgGuiable;
+
+import java.util.ArrayList;
 
 public class ProjectAssetWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 	
@@ -103,8 +103,8 @@ public class ProjectAssetWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 		if(this.project == null) {
 			theGuiableList = new ArrayList<GcgGuiable>(); 
 		} else {	
-			theGuiableList = new ArrayList<GcgGuiable>(FmmDatabaseMediator.getActiveMediator().listProjectAssetForWorkPackageMoveTarget(
-					this.project, this.projectAssetException));
+			theGuiableList = new ArrayList<GcgGuiable>(FmmDatabaseMediator.getActiveMediator().listProjectAssetsForProject(
+					this.project.getNodeIdString(), this.projectAssetException.getNodeIdString() ));
 		}
 		return theGuiableList;
 	}

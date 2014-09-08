@@ -914,14 +914,9 @@ public class FmmDatabaseMediator {
         return this.persistenceTechnologyDelegate.dbListProjectAssetForStrategicMilestone(aStrategicMilestoneId, null);
     }
 
-    public ArrayList<ProjectAsset> listProjectAssetForWorkPackageMoveTarget(Project aProject, ProjectAsset aProjectAssetException) {
-        return this.persistenceTechnologyDelegate.dbListProjectAssetForWorkPackageMoveTarget(
-                aProject.getNodeIdString(), aProjectAssetException.getNodeIdString(), true);
-    }
-
     public ArrayList<ProjectAsset> listProjectAssetForWorkPackageMoveTarget(StrategicMilestone aStrategicMilestone, ProjectAsset aProjectAssetException) {
-        return this.persistenceTechnologyDelegate.dbListProjectAssetForWorkPackageMoveTarget(
-                aStrategicMilestone.getNodeIdString(), aProjectAssetException.getNodeIdString(), false);
+        return this.persistenceTechnologyDelegate.dbListProjectAssetInStrategicPlanningForWorkPackageMoveTarget(
+                aStrategicMilestone.getNodeIdString(), aProjectAssetException.getNodeIdString() );
     }
 
     public ProjectAsset getProjectAsset(String aNodeIdString) {
@@ -2482,6 +2477,20 @@ public class FmmDatabaseMediator {
             bSequenceAtEnd,
             bAtomicTransaction);
 	}
+
+    public boolean moveSingleWorkPackageIntoProjectAsset(
+            String aWorkPackageId,
+            String anOriginalProjectAssetId,
+            String aDestinationProjectAssetId,
+            boolean bSequenceAtEnd,
+            boolean bAtomicTransaction) {
+        return this.persistenceTechnologyDelegate.dbMoveSingleWorkPackageIntoProjectAsset(
+                aWorkPackageId,
+                anOriginalProjectAssetId,
+                aDestinationProjectAssetId,
+                bSequenceAtEnd,
+                bAtomicTransaction);
+    }
 
 	public boolean deleteWorkPackage(WorkPackage aWorkPackage, boolean bAtomicTransaction) {
 		if(bAtomicTransaction) {

@@ -121,7 +121,7 @@ public class PortfolioWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 	}
 
     //////  START  /////////////////////
-	// filter_id__PRIMARY_PARENT__PRIMARY_CHILD__PRIMARY_CHILD__PRIMARY_CHILD__MOVE_TARGET
+	// filter_id__PRIMARY_PARENT__PRIMARY_CHILD__PRIMARY_CHILD__PRIMARY_CHILD__MOVE_TARGET  -  WorkPackage move target
 	
 	@Override
 	protected ArrayList<? extends GcgGuiable> getPrimaryParentPrimaryChildPrimaryChildPrimaryChildMoveTargetGuiableList() { // WorkPackage move target
@@ -133,6 +133,9 @@ public class PortfolioWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
         this.projectAssetException = aProjectAssetException;
         super.updateSpinnerData();
     }
-	
+
+    //////  START  /////////////////////
+    // filter_id__PRIMARY_PARENT__PRIMARY_CHILD__PRIMARY_CHILD__PRIMARY_CHILD__PRIMARY_CHILD__MOVE_TARGET  -  WorkTask move target
+
 
 }

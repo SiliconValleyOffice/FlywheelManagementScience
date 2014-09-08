@@ -83,6 +83,7 @@ import com.flywheelms.library.fms.dialog.StrategicMilestoneAdoptOrphanProjectAss
 import com.flywheelms.library.fms.dialog.StrategicMilestoneDeleteDialog;
 import com.flywheelms.library.fms.dialog.StrategicMilestoneMoveDialog;
 import com.flywheelms.library.fms.dialog.StrategicMilestoneTargetDateEditDialog;
+import com.flywheelms.library.fms.dialog.WorkPackageMoveWorkBreakdownDialog;
 import com.flywheelms.library.fms.dialog.WorkPackageOrphanDialog;
 import com.flywheelms.library.fms.popup_menu.FmmPopupBuilder;
 import com.flywheelms.library.gcg.GcgApplication;
@@ -393,6 +394,8 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter {
 			orphanProjectAsset(aLaunchHeadlineNode, aParentHeadlineNode);
 		} else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__ADOPT_ORPHAN_PROJECT_ASSET)) {
 			adoptOrphanProjectAsset(aLaunchHeadlineNode);
+        } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__MOVE_PROJECT_ASSET)) {
+            moveProjectAsset(aLaunchHeadlineNode, aParentHeadlineNode);
 		} else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__CREATE_WORK_PACKAGE)) {
 			createFmmHeadlineNode(
                     FmmNodeDefinition.WORK_PACKAGE,
@@ -406,6 +409,8 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter {
             orphanWorkPackage(aLaunchHeadlineNode, aParentHeadlineNode);
 		} else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__ADOPT_ORPHAN_WORK_PACKAGE)) {
 			adoptOrphanWorkPackage(aLaunchHeadlineNode);
+        } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__MOVE_WORK_PACKAGE)) {
+            moveWorkPackage(aLaunchHeadlineNode, aParentHeadlineNode, aLaunchTreeNodeInfo.getFmmPerspective());
         } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__CREATE_WORK_TASK)) {
             createFmmHeadlineNode(
                     FmmNodeDefinition.WORK_TASK,
@@ -415,8 +420,12 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter {
                     aLaunchNodeCount);
         } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__DELETE_WORK_TASK)) {
             deleteWorkTask(aLaunchHeadlineNode);
+        } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__ORPHAN_WORK_TASK)) {
+            orphanWorkTask(aLaunchHeadlineNode, aParentHeadlineNode);
         } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__ADOPT_ORPHAN_WORK_TASK)) {
             adoptOrphanWorkTask(aLaunchHeadlineNode);
+        } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__MOVE_WORK_TASK)) {
+            moveWorkTask(aLaunchHeadlineNode, aParentHeadlineNode);
 		} else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__SEQUENCE_DOWN)) {
 			sequenceDown(aLaunchTreeNodeInfo, aLaunchHeadlineNode, aParentHeadlineNode);
 		} else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__SEQUENCE_UP)) {
@@ -429,14 +438,12 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter {
 			editHeadline(aLaunchHeadlineNode);
 		} else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__MOVE_STRATEGIC_MILESTONE)) {
 			moveStrategicMilestone(aLaunchHeadlineNode, aParentHeadlineNode);
-		} else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__MOVE_PROJECT_ASSET)) {
-			moveProjectAsset(aLaunchHeadlineNode, aParentHeadlineNode);
 		} else {  // we are FOO BAR !!!
 			
 		}
 	}
 
-	// logical validation of this operation was already done in FmmPopupBuilder
+    // logical validation of this operation was already done in FmmPopupBuilder
 	@Override
 	protected void sequenceDown(GcgTreeNodeInfo aLaunchTreeNodeInfo, FmmHeadlineNode aHeadlineNode, FmmHeadlineNode aParentHeadlineNode) {
 		getGcgActivity().startGreenActivityStatusAnimation();
@@ -568,9 +575,12 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter {
 		getGcgActivity().startDialog(new ProjectAssetAdoptOrphanWorkPackageDialog(getGcgActivity(), this, aProjectAssetHeadlineNode));
 	}
 
+    // TODO !!! push down into subclass for StrategicPlanningTreeViewAdapter
     // logical validation of this operation was already done in FmmPopupBuilder
-    private void deleteWorkTask(@SuppressWarnings("unused") FmmHeadlineNode aFiscalYearHeadlineNode) {
-        // TODO
+    private void moveWorkPackage(FmmHeadlineNode aLaunchHeadlineNode, FmmHeadlineNode aParentHeadlineNode, FmmPerspective anFmmPerspective) {
+        if(anFmmPerspective == FmmPerspective.WORK_BREAKDOWN) {
+            getGcgActivity().startDialog(new WorkPackageMoveWorkBreakdownDialog(getGcgActivity(), this, (WorkPackage) aLaunchHeadlineNode, aParentHeadlineNode));
+        }
     }
 
     // logical validation of this operation was already done in FmmPopupBuilder
@@ -581,6 +591,19 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter {
     // TODO !!! push down into subclass for StrategicPlanningTreeViewAdapter
     // logical validation of this operation was already done in FmmPopupBuilder
     private void adoptOrphanWorkTask(FmmHeadlineNode aProjectAssetHeadlineNode) {
+    }
+
+    // logical validation of this operation was already done in FmmPopupBuilder
+    private void deleteWorkTask(@SuppressWarnings("unused") FmmHeadlineNode aFiscalYearHeadlineNode) {
+        // TODO
+    }
+
+    private void moveWorkTask(FmmHeadlineNode aLaunchHeadlineNode, FmmHeadlineNode aParentHeadlineNode) {
+
+    }
+
+    private void orphanWorkTask(FmmHeadlineNode aLaunchHeadlineNode, FmmHeadlineNode aParentHeadlineNode) {
+
     }
     
 	// logical validation of this operation was already done in FmmPopupBuilder

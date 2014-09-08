@@ -3284,6 +3284,8 @@ containing a value of this type.
         public static int strategic_milestone__project_asset__disposition=0x7f0300c1;
         public static int strategic_milestone__target_date__edit__dialog=0x7f0300c2;
         public static int work_package__adoption_into__project_asset=0x7f0300c3;
+        public static int work_package__move_into__flywheel_milestone=0x7f0300c4;
+        public static int work_package__move_into__project_asset=0x7f0300c5;
     }
     public static final class menu {
         public static int activity_main=0x7f0c0000;

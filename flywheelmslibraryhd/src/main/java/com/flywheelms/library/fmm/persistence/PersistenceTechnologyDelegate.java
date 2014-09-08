@@ -538,7 +538,7 @@ public abstract class PersistenceTechnologyDelegate {
 		
 		public abstract ArrayList<ProjectAsset> dbListProjectAssetForStrategicMilestone(String aStrategicMilestoneId, String aProjectAssetExceptionId);
 
-		public abstract ArrayList<ProjectAsset> dbListProjectAssetForWorkPackageMoveTarget(String aStrategicMilestoneId, String aProjectAssetExceptionId, boolean bPrimaryParent);
+		public abstract ArrayList<ProjectAsset> dbListProjectAssetInStrategicPlanningForWorkPackageMoveTarget(String aStrategicMilestoneId, String aProjectAssetExceptionId);
 
 		public abstract ArrayList<ProjectAsset> dbListProjectAssetOrphansFromProject();
 
@@ -700,7 +700,14 @@ public abstract class PersistenceTechnologyDelegate {
 		public abstract boolean dbMoveAllWorkPackagesIntoProjectAsset(
                 String aSourceProjectAssetId,
                 String aDestinationProjectAssetId, boolean bSequenceAtEnd,
-                boolean bAtomicTransaction);
+                boolean bAtomicTransaction );
+
+        public abstract boolean dbMoveSingleWorkPackageIntoProjectAsset(
+                String aWorkPackageId,
+                String anOriginalProjectAssetId,
+                String aDestinationProjectAssetId,
+                boolean bSequenceAtEnd,
+                boolean bAtomicTransaction );
 
 		public abstract boolean dbDeleteWorkPackage(WorkPackage aWorkPackage, boolean bAtomicTransaction);
 

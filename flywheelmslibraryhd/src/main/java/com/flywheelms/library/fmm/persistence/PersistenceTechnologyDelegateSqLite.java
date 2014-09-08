@@ -966,7 +966,21 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
     @Override
     public ArrayList<Portfolio> dbListPortfolioForWorkPackageMoveTarget(FmsOrganization anFmsOrganization, ProjectAsset aProjectAssetException) {
-        return dbListPortfolio(anFmsOrganization);
+        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.PORTFOLIO.getName() +
+            " WHERE " + IdNodeMetaData.column_ID +
+            " IN (" +
+
+            " SELECT " + ProjectMetaData.column_PORTFOLIO_ID + " FROM " + FmmNodeDefinition.PROJECT.getClassName() +
+            " WHERE " + IdNodeMetaData.column_ID +
+            " IN (" +
+
+            " SELECT " + ProjectAssetMetaData.column_PROJECT_ID + " FROM " + FmmNodeDefinition.PROJECT_ASSET.getClassName();
+        if(aProjectAssetException != null) {
+            theRawQuery += " WHERE " + IdNodeMetaData.column_ID + " != '" + aProjectAssetException.getNodeIdString() + "' ";
+        }
+        theRawQuery += ")) ORDER BY " + HeadlineNodeMetaData.column_HEADLINE + " ASC";
+        Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
+        return PortfolioDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
     }
 
     @Override
@@ -1068,7 +1082,17 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
     @Override
     public ArrayList<Project> dbListProjectsForWorkPackageMoveTarget(Portfolio aPortfolio, ProjectAsset aProjectAssetException) {
-        return null;
+        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.PROJECT.getName() +
+                " WHERE " + ProjectMetaData.column_PORTFOLIO_ID + " = '" + aPortfolio.getNodeIdString() + "' AND " + IdNodeMetaData.column_ID +
+                " IN (" +
+                " SELECT " + ProjectAssetMetaData.column_PROJECT_ID + " FROM " + FmmNodeDefinition.PROJECT_ASSET.getClassName();
+        if(aProjectAssetException != null) {
+            theRawQuery += " WHERE " + IdNodeMetaData.column_ID + " != '" + aProjectAssetException.getNodeIdString() + "'";
+        }
+        theRawQuery += ") ";
+        theRawQuery += " ORDER BY " + HeadlineNodeMetaData.column_HEADLINE + " ASC";
+        Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
+        return ProjectDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
     }
 
     @Override
@@ -1614,29 +1638,18 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
 	@SuppressWarnings("resource")
 	@Override
-	public ArrayList<ProjectAsset> dbListProjectAssetForWorkPackageMoveTarget(String aParentId, String aProjectAssetExceptionId, boolean bPrimaryParent) {
-		Cursor theCursor;
-		if(bPrimaryParent) {
-			String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.PROJECT_ASSET.getName() +
-					" WHERE " + ProjectAssetMetaData.column_PROJECT_ID + " = '" + aParentId + "'";
-					if(aProjectAssetExceptionId != null) {
-						theRawQuery += " AND " + IdNodeMetaData.column_ID + " != '" + aProjectAssetExceptionId + "'";
-					}
-				theRawQuery += " ORDER BY " + CompletableNodeMetaData.column_SEQUENCE + " ASC";
-				theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
-		} else {
-			String theAndClause = FmmNodeDefinition.STRATEGIC_COMMITMENT.getName() + "." + StrategicCommitmentMetaData.column_STRATEGIC_MILESTONE_ID + " = '" + aParentId + "'";
-			if(aProjectAssetExceptionId != null) {
-				theAndClause += " AND " + FmmNodeDefinition.STRATEGIC_COMMITMENT.getName() + "." + StrategicCommitmentMetaData.column_PROJECT_ASSET_ID + " != '" + aProjectAssetExceptionId + "'";
-			}
-			theCursor = getSqLiteDatabase().rawQuery(getInnerJoinQueryWithAndSpecSorted(
-					FmmNodeDefinition.PROJECT_ASSET.getName(),
-					IdNodeMetaData.column_ID,
-					FmmNodeDefinition.STRATEGIC_COMMITMENT.getName(),
-					StrategicCommitmentMetaData.column_PROJECT_ASSET_ID,
-					theAndClause,
-					FmmNodeDefinition.STRATEGIC_COMMITMENT.getName() + "." + SequencedLinkNodeMetaData.column_SEQUENCE), null);
-		}
+	public ArrayList<ProjectAsset> dbListProjectAssetInStrategicPlanningForWorkPackageMoveTarget(String aParentId, String aProjectAssetExceptionId) {
+        String theAndClause = FmmNodeDefinition.STRATEGIC_COMMITMENT.getName() + "." + StrategicCommitmentMetaData.column_STRATEGIC_MILESTONE_ID + " = '" + aParentId + "'";
+        if(aProjectAssetExceptionId != null) {
+            theAndClause += " AND " + FmmNodeDefinition.STRATEGIC_COMMITMENT.getName() + "." + StrategicCommitmentMetaData.column_PROJECT_ASSET_ID + " != '" + aProjectAssetExceptionId + "'";
+        }
+        Cursor theCursor = getSqLiteDatabase().rawQuery(getInnerJoinQueryWithAndSpecSorted(
+                FmmNodeDefinition.PROJECT_ASSET.getName(),
+                IdNodeMetaData.column_ID,
+                FmmNodeDefinition.STRATEGIC_COMMITMENT.getName(),
+                StrategicCommitmentMetaData.column_PROJECT_ASSET_ID,
+                theAndClause,
+                FmmNodeDefinition.STRATEGIC_COMMITMENT.getName() + "." + SequencedLinkNodeMetaData.column_SEQUENCE), null);
 		return ProjectAssetDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
 	}
 
@@ -2388,6 +2401,31 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 		}
 		return theRowCount > 0;
 	}
+
+    public boolean dbMoveSingleWorkPackageIntoProjectAsset(
+            String aWorkPackageId,
+            String anOriginalProjectAssetId,
+            String aDestinationProjectAssetId,
+            boolean bSequenceAtEnd,
+            boolean bAtomicTransaction ) {
+        if(bAtomicTransaction) {
+            startTransaction();
+        }
+        this.contentValues.clear();
+        this.contentValues.put(WorkPackageMetaData.column_PROJECT_ASSET_ID, aDestinationProjectAssetId);
+        this.contentValues.put(CompletableNodeMetaData.column_SEQUENCE, updateSequenceBeforeAddingNewPeer(
+                FmmNodeDefinition.WORK_PACKAGE,
+                WorkPackageMetaData.column_PROJECT_ASSET_ID,
+                aDestinationProjectAssetId,
+                bSequenceAtEnd ));
+        int theRowCount = getSqLiteDatabase().update(FmmNodeDefinition.WORK_PACKAGE.getClassName(), this.contentValues,
+                IdNodeMetaData.column_ID + " = '" + aWorkPackageId + "'", null);
+        if(bAtomicTransaction) {
+            endTransaction(theRowCount > 0);
+        }
+        return theRowCount > 0;
+        
+    }
 
 	@Override
 	public boolean dbDeleteWorkPackage(WorkPackage aWorkPackage, boolean bAtomicTransaction) {
