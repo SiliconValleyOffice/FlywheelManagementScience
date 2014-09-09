@@ -122,7 +122,7 @@ public class PortfolioWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 
     //////  START  /////////////////////
 	// filter_id__PRIMARY_PARENT__PRIMARY_CHILD__PRIMARY_CHILD__PRIMARY_CHILD__MOVE_TARGET  -  WorkPackage move target
-	
+
 	@Override
 	protected ArrayList<? extends GcgGuiable> getPrimaryParentPrimaryChildPrimaryChildPrimaryChildMoveTargetGuiableList() { // WorkPackage move target
 		return FmmDatabaseMediator.getActiveMediator().listPortfolioForWorkPackageMoveTarget(
@@ -135,7 +135,19 @@ public class PortfolioWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
     }
 
     //////  START  /////////////////////
+
     // filter_id__PRIMARY_PARENT__PRIMARY_CHILD__PRIMARY_CHILD__PRIMARY_CHILD__PRIMARY_CHILD__MOVE_TARGET  -  WorkTask move target
+
+    @Override
+    protected ArrayList<? extends GcgGuiable> getPrimaryParentPrimaryChildPrimaryChildPrimaryChildPrimaryChildMoveTargetGuiableList() { // WorkTask move target
+        return FmmDatabaseMediator.getActiveMediator().listPortfolioForWorkTaskMoveTarget(
+                FmmDatabaseMediator.getActiveMediator().getFmmOwner(), this.workPackageException );
+    }
+
+    public void updateSpinnerData(WorkPackage aWorkPackageException) {
+        this.workPackageException = aWorkPackageException;
+        super.updateSpinnerData();
+    }
 
 
 }

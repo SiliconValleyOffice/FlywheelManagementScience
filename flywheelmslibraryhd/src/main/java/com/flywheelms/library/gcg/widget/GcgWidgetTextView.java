@@ -43,8 +43,6 @@
 
 package com.flywheelms.library.gcg.widget;
 
-import java.util.ArrayList;
-
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
@@ -54,6 +52,8 @@ import com.flywheelms.library.R;
 import com.flywheelms.library.fdk.enumerator.FdkKeyboardStyle;
 import com.flywheelms.library.gcg.helper.GcgHelper;
 import com.flywheelms.library.gcg.interfaces.GcgGuiable;
+
+import java.util.ArrayList;
 
 public abstract class GcgWidgetTextView extends GcgWidget {
 
@@ -110,7 +110,7 @@ public abstract class GcgWidgetTextView extends GcgWidget {
 
 	protected void manageBackgroundState() {
 		this.textView.setBackgroundResource(isMinimumInput() ?
-				this.isTransparentBackground ? R.color.transparent : R.drawable.gcg__edit_text :
+				this.isTransparentBackground ? R.color.pdf__transparent : R.drawable.gcg__edit_text :
 				R.drawable.gcg__edit_text__invalid);
 	}
 
@@ -166,7 +166,7 @@ public abstract class GcgWidgetTextView extends GcgWidget {
 
 	@Override
 	protected void setTransparentBackground() {
-		this.textView.setBackgroundResource(R.color.transparent);
+		this.textView.setBackgroundResource(R.color.pdf__transparent);
 	}
 	
 	@Override

@@ -202,7 +202,7 @@ public abstract class GcgWidgetListView <T> extends LinearLayout {
             public boolean onItemLongClick(AdapterView<?> anAdapterView, View aListViewItemView, int aListViewItemPosition, long anItemId) {
                 GcgWidgetListView.this.listItemView = aListViewItemView;
                 GcgWidgetListView.this.listItemView.setBackgroundColor(
-                        GcgWidgetListView.this.getResources().getColor(R.color.light_blue));
+                        GcgWidgetListView.this.getResources().getColor(R.color.pdf__light_blue));
                 GcgWidgetListView.this.listItemPosition = aListViewItemPosition;
                 aListViewItemView.setSelected(true);
                 PopupMenu thePopupMenu = new PopupMenu(getContext(), aListViewItemView);
@@ -220,7 +220,7 @@ public abstract class GcgWidgetListView <T> extends LinearLayout {
                     @Override
                     public void onDismiss(PopupMenu menu) {
                         GcgWidgetListView.this.listItemView.setBackgroundColor(
-                                GcgWidgetListView.this.getResources().getColor(R.color.transparent));
+                                GcgWidgetListView.this.getResources().getColor(R.color.pdf__transparent));
                     }
                 });
                 thePopupMenu.show();
@@ -275,7 +275,7 @@ public abstract class GcgWidgetListView <T> extends LinearLayout {
 		} else {
 			launchObjectEditorActivity(theObject);
 		}
-		this.listItemView.setBackgroundColor(GcgApplication.getAppResources().getColor(R.color.transparent) );
+		this.listItemView.setBackgroundColor(GcgApplication.getAppResources().getColor(R.color.pdf__transparent) );
 	}
 
 	protected abstract void launchObjectEditorActivity(T theObject);

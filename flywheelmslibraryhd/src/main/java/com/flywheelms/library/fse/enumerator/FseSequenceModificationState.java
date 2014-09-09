@@ -43,12 +43,12 @@
 
 package com.flywheelms.library.fse.enumerator;
 
-import java.util.Hashtable;
-
 import android.graphics.drawable.Drawable;
 
 import com.flywheelms.library.R;
 import com.flywheelms.library.gcg.GcgApplication;
+
+import java.util.Hashtable;
 
 public enum FseSequenceModificationState implements ModificationState {
 	
@@ -59,7 +59,7 @@ public enum FseSequenceModificationState implements ModificationState {
 	BLOCK_MOVE_DOWN__START ("Block Move Down - Start", R.drawable.sequence_modification__down__27, R.drawable.fse__paragraph_markup__sequence_block__move_down__start, 0,  R.drawable.pdf_sequence_block_move_down_start),
 	BLOCK_MOVE_DOWN ("Block Move Down", R.drawable.sequence_modification__down__27, R.drawable.fse__paragraph_markup__sequence_block__move_down, 0,  R.drawable.pdf_sequence_block_move_down),
 	SEQUENCE_PALOOZA ("Sequence Palooza", R.drawable.sequence_modification__down__27, R.drawable.fse__paragraph_markup__sequence_palooza, 0,  R.drawable.pdf_sequence_sequence_palooza),
-	UNCHANGED ("Unchanged", R.drawable.gcg__null_drawable_32, R.color.transparent, 0,  R.drawable.pdf_unchanged);
+	UNCHANGED ("Unchanged", R.drawable.gcg__null_drawable_32, R.color.pdf__transparent, 0,  R.drawable.pdf_unchanged);
 	
 	private static final Hashtable<String, FseSequenceModificationState> nameTable = new Hashtable<String, FseSequenceModificationState>();
 	static {

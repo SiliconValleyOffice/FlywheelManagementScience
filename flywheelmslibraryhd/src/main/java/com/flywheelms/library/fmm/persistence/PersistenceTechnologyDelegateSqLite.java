@@ -985,7 +985,25 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
     @Override
     public ArrayList<? extends GcgGuiable> dbListPortfolioForWorkTaskMoveTarget(FmsOrganization anFmsOrganization, WorkPackage aWorkPackageException) {
-        return null;
+        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.PORTFOLIO.getName() +
+                " WHERE " + IdNodeMetaData.column_ID +
+                " IN (" +
+
+                " SELECT " + ProjectMetaData.column_PORTFOLIO_ID + " FROM " + FmmNodeDefinition.PROJECT.getClassName() +
+                " WHERE " + IdNodeMetaData.column_ID +
+                " IN (" +
+
+                " SELECT " + ProjectAssetMetaData.column_PROJECT_ID + " FROM " + FmmNodeDefinition.PROJECT_ASSET.getClassName() +
+                " WHERE " + IdNodeMetaData.column_ID +
+                " IN (" +
+
+                " SELECT " + WorkPackageMetaData.column_PROJECT_ASSET_ID + " FROM " + FmmNodeDefinition.WORK_PACKAGE.getClassName();
+        if(aWorkPackageException != null) {
+            theRawQuery += " WHERE " + IdNodeMetaData.column_ID + " != '" + aWorkPackageException.getNodeIdString() + "' ";
+        }
+        theRawQuery += ")) ORDER BY " + HeadlineNodeMetaData.column_HEADLINE + " ASC";
+        Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
+        return PortfolioDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
     }
 
     @Override

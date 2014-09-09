@@ -97,7 +97,7 @@ public class FmmConfigurationWidgetListView extends FmsWidgetListView <FmmConfig
 			this.arrayAdapter.remove(theFmmConfiguration);
 			this.arrayAdapter.notifyDataSetChanged();
 		}
-		this.listItemView.setBackgroundColor(GcgApplication.getAppResources().getColor(R.color.transparent) );
+		this.listItemView.setBackgroundColor(GcgApplication.getAppResources().getColor(R.color.pdf__transparent) );
 	}
 
 	private void deleteFmmRepository(FmmConfiguration anFmmConfiguration) {

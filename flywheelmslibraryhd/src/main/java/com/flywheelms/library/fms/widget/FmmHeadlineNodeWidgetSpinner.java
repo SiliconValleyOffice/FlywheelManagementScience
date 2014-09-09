@@ -212,6 +212,11 @@ public abstract class FmmHeadlineNodeWidgetSpinner extends GcgWidgetSpinner {
 		ArrayList<GcgGuiable> theGuiableList = new ArrayList<GcgGuiable>();
 		return theGuiableList;
 	}
+
+    protected ArrayList<? extends GcgGuiable> getPrimaryParentPrimaryChildPrimaryChildPrimaryChildPrimaryChildMoveTargetGuiableList() {  // widget broken/unfinished, bad XML, or method called too early
+        ArrayList<GcgGuiable> theGuiableList = new ArrayList<GcgGuiable>();
+        return theGuiableList;
+    }
 	
 	protected ArrayList<? extends GcgGuiable> getPrimaryParentPrimaryChildPrimaryChildPrimaryChildMoveTargetGuiableList() {  // widget broken/unfinished, bad XML, or method called too early
 		ArrayList<GcgGuiable> theGuiableList = new ArrayList<GcgGuiable>();

@@ -66,6 +66,7 @@ public abstract class HeadlineNodeMoveDialog extends FmsCancelOkDialog {
 	protected LinearLayout dispositionContainerLayout;
 	protected FmmHeadlineNode targetHeadlineNodeException;
 	protected LinearLayout dispositionLayout;
+	protected FmmHeadlineNodeWidgetSpinner dispositionTargetGreatGrandparentWidgetSpinner;
 	protected FmmHeadlineNodeWidgetSpinner dispositionTargetGrandparentWidgetSpinner;
 	protected FmmHeadlineNodeWidgetSpinner dispositionTargetParentWidgetSpinner;
 	protected FmmHeadlineNodeWidgetSpinner dispositionTargetWidgetSpinner;
@@ -117,6 +118,12 @@ public abstract class HeadlineNodeMoveDialog extends FmsCancelOkDialog {
 		findDispositionTargetParentSpinner();
 		findDispositionTargetSpinner();
 		findSequencePositionSpinner();
+        if(this.dispositionTargetGreatGrandparentWidgetSpinner != null) {
+            setInitialDispositionTargetGreatGrandparentSpinnerData();
+            setInitialDispositionTargetGrandparentSpinnerData();
+            setInitialDispositionTargetGrandparentSpinnerSelection();
+            initializeDispositionTargetGrandparentSpinnerListener();
+        }
 		if(this.dispositionTargetGrandparentWidgetSpinner != null) {
 			setInitialDispositionTargetGrandparentSpinnerData();
 			setInitialDispositionTargetGrandparentSpinnerSelection();
@@ -132,6 +139,14 @@ public abstract class HeadlineNodeMoveDialog extends FmsCancelOkDialog {
 		initializeSequencePositionSpinner();
 		initializeDispositionTargetSpinnerListener();
 	}
+
+    protected FmmHeadlineNodeWidgetSpinner findDispositionTargetGreatGandparentSpinner() {
+        FmmHeadlineNodeWidgetSpinner theFmmHeadlineNodeWidgetSpinner = (FmmHeadlineNodeWidgetSpinner) this.dialogBodyView.findViewById(R.id.disposition_target__great_grandparent__spinner);
+        if(theFmmHeadlineNodeWidgetSpinner != null) {
+            theFmmHeadlineNodeWidgetSpinner.setGcgActivity(this.gcgActivity);
+        }
+        return this.dispositionTargetGreatGrandparentWidgetSpinner = theFmmHeadlineNodeWidgetSpinner;
+    }
 
 	protected FmmHeadlineNodeWidgetSpinner findDispositionTargetGrandparentSpinner() {
 		FmmHeadlineNodeWidgetSpinner theFmmHeadlineNodeWidgetSpinner = (FmmHeadlineNodeWidgetSpinner) this.dialogBodyView.findViewById(R.id.disposition_target__grandparent__spinner);
@@ -167,7 +182,9 @@ public abstract class HeadlineNodeMoveDialog extends FmsCancelOkDialog {
         }
 	}
 	
-	protected void setInitialDispositionTargetGrandparentSpinnerData() { return; }
+	protected void setInitialDispositionTargetGreatGrandparentSpinnerData() { return; }
+
+    protected void setInitialDispositionTargetGrandparentSpinnerData() { return; }
 
 	protected void setInitialDispositionTargetParentSpinnerData() { return; }
 

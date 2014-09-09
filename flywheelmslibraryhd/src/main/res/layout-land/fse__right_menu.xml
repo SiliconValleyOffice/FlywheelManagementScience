@@ -97,7 +97,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="8dp"
-                        android:background="@color/transparent"
+                        android:background="@color/pdf__transparent"
                         android:drawableStart="@drawable/fse__list_bullet__gray"
                         android:padding="@dimen/padding_medium" />
 
@@ -106,7 +106,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="8dp"
-                        android:background="@color/transparent"
+                        android:background="@color/pdf__transparent"
                         android:drawableStart="@drawable/fse__list_number__gray"
                         android:padding="@dimen/padding_medium" />
 
@@ -115,7 +115,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="8dp"
-                        android:background="@color/transparent"
+                        android:background="@color/pdf__transparent"
                         android:drawableStart="@drawable/fse__list_alpha__gray"
                         android:padding="@dimen/padding_medium" />
 
@@ -124,7 +124,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="8dp"
-                        android:background="@color/transparent"
+                        android:background="@color/pdf__transparent"
                         android:drawableStart="@drawable/fse__list_roman__gray"
                         android:padding="@dimen/padding_medium" />
                 </RelativeLayout>
@@ -142,7 +142,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="9dp"
-                        android:background="@color/transparent"
+                        android:background="@color/pdf__transparent"
                         android:drawableStart="@drawable/fse_insert__hyper_link__button"
                         android:padding="@dimen/padding_medium" />
 
@@ -151,7 +151,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="9dp"
-                        android:background="@color/transparent"
+                        android:background="@color/pdf__transparent"
                         android:drawableStart="@drawable/fse_insert__drawing_pad__button"
                         android:padding="@dimen/padding_medium" />
 
@@ -159,7 +159,7 @@
                         android:id="@+id/insert__image__button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@color/transparent"
+                        android:background="@color/pdf__transparent"
                         android:drawableStart="@drawable/fse_insert__image__button"
                         android:padding="@dimen/padding_medium" />
                 </RelativeLayout>
@@ -178,7 +178,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="9dp"
                         android:layout_marginTop="10dp"
-                        android:background="@color/transparent"
+                        android:background="@color/pdf__transparent"
                         android:padding="@dimen/padding_medium" />
 
                     <com.flywheelms.library.fse.widget.FseParagraphUnlockButton
@@ -186,7 +186,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="25dp"
-                        android:background="@color/transparent"
+                        android:background="@color/pdf__transparent"
                         android:padding="@dimen/padding_medium" />
 
                     <Button

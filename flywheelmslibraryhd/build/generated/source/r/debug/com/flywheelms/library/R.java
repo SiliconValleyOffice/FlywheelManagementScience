@@ -681,10 +681,10 @@ containing a value of this type.
         public static int green=0x7f0600eb;
         public static int home_view_brown=0x7f0600ec;
         public static int inactive_tab_background=0x7f0600ed;
-        public static int light_blue=0x7f0600ee;
-        public static int light_green=0x7f0600ef;
-        public static int light_grey=0x7f0600f0;
-        public static int light_yellow=0x7f0600f1;
+        public static int pdf__light_blue =0x7f0600ee;
+        public static int pdf__light_green =0x7f0600ef;
+        public static int pdf__light_grey =0x7f0600f0;
+        public static int pdf__light_yellow =0x7f0600f1;
         public static int lime=0x7f0600f2;
         public static int maroon=0x7f0600f3;
         public static int menu_background=0x7f0600f4;
@@ -715,9 +715,9 @@ containing a value of this type.
         public static int tab_background=0x7f06010d;
         public static int teal=0x7f06010e;
         public static int toolbar_background=0x7f06010f;
-        public static int transparent=0x7f060110;
-        public static int transparent_blue=0x7f060111;
-        public static int transparent_white=0x7f060112;
+        public static int pdf__transparent =0x7f060110;
+        public static int pdf__transparent_blue =0x7f060111;
+        public static int pdf__transparent_white =0x7f060112;
         public static int white=0x7f060113;
         public static int yellow=0x7f060114;
     }

@@ -43,17 +43,17 @@
 
 package com.flywheelms.library.fse.enumerator;
 
-import java.util.Hashtable;
-
 import android.graphics.drawable.Drawable;
 
 import com.flywheelms.library.R;
 import com.flywheelms.library.gcg.GcgApplication;
 
+import java.util.Hashtable;
+
 public enum FseNumberingModificationState implements ModificationState {
 	
 	MODIFIED("Modified", R.drawable.numbering_modified, R.color.fse__paragraph_markup__numbering, 0, R.drawable.pdf_numbering_modified), 
-	UNCHANGED("Unchanged", R.drawable.gcg__null_drawable_32, R.color.transparent, 0, R.drawable.pdf_unchanged);
+	UNCHANGED("Unchanged", R.drawable.gcg__null_drawable_32, R.color.pdf__transparent, 0, R.drawable.pdf_unchanged);
 	
 	private static final Hashtable<String, FseNumberingModificationState> nameTable = new Hashtable<String, FseNumberingModificationState>();
 	static {

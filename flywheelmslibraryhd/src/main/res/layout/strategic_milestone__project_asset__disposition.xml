@@ -69,4 +69,16 @@
         android:layout_height="wrap_content"
         gcg:labelWidth="193" />
 
+    <TextView
+        android:id="@+id/fms__no_move_target"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="15dp"
+        android:textColor="@color/fms__no_move_target"
+        android:textSize="18sp"
+        android:text="@string/fms__no_move_target"
+        android:visibility="gone" />
+
 </LinearLayout>

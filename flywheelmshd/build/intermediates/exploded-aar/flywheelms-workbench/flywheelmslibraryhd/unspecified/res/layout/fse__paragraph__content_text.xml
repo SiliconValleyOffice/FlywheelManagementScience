@@ -9,13 +9,13 @@
     <ImageView 
         android:layout_width="@dimen/fse__paragraph_menu__vertical_markup__width"
         android:layout_height="match_parent"
-        android:background="@color/transparent"
+        android:background="@color/pdf__transparent"
         android:contentDescription="Sequence Modification State" />
     
     <ImageView 
         android:layout_width="@dimen/fse__paragraph_menu__vertical_markup_bordered__width"
         android:layout_height="match_parent"
-        android:background="@color/transparent"
+        android:background="@color/pdf__transparent"
         android:contentDescription="Lock Modification State" />
     
     <ImageView 
@@ -27,13 +27,13 @@
     <ImageView 
         android:layout_width="@dimen/fse__paragraph_menu__vertical_markup__width"
         android:layout_height="match_parent"
-        android:background="@color/transparent"
+        android:background="@color/pdf__transparent"
         android:contentDescription="Numbering Modification State" />
     
     <ImageView 
         android:layout_width="@dimen/fse__paragraph_menu__vertical_markup_bordered__width"
         android:layout_height="match_parent"
-        android:background="@color/transparent"
+        android:background="@color/pdf__transparent"
         android:contentDescription="Style Modification State" />
     
 	<com.flywheelms.library.fse.widget.FseParagraphSpinner

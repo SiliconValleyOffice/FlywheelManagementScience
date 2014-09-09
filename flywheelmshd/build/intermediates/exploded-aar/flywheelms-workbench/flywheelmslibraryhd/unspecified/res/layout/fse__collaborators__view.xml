@@ -2,14 +2,14 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light_blue"
+    android:background="@color/pdf__light_blue"
     android:orientation="vertical" >
 
     <RelativeLayout
         android:id="@+id/fse__community_perspective"
         android:layout_width="match_parent"
         android:layout_height="780dp"
-    	android:background="@color/light_blue"
+    	android:background="@color/pdf__light_blue"
         android:orientation="vertical" >
 
         <!-- inflates fms__node_frag_audit_block__view -->

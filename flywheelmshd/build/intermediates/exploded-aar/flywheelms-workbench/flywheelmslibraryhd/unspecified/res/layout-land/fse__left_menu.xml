@@ -43,7 +43,7 @@
 	                android:layout_height="wrap_content"
 	                android:layout_marginTop="22dp"
 	                android:layout_marginBottom="28dp"
-	                android:background="@color/transparent"
+	                android:background="@color/pdf__transparent"
 	                android:drawableStart="@drawable/document__save__button"
 	                android:paddingLeft="2dp" />
 	
@@ -52,7 +52,7 @@
 	                android:layout_width="wrap_content"
 	                android:layout_height="wrap_content"
 	                android:layout_marginBottom="34dp"
-	                android:background="@color/transparent"
+	                android:background="@color/pdf__transparent"
 	                android:drawableStart="@drawable/document__new__button"
 	                android:paddingLeft="2dp" />
 	
@@ -61,7 +61,7 @@
 	                android:layout_width="wrap_content"
 	                android:layout_height="wrap_content"
 	                android:layout_marginBottom="28dp"
-	                android:background="@color/transparent"
+	                android:background="@color/pdf__transparent"
 	                android:drawableStart="@drawable/document__open__button"
 	                android:paddingLeft="2dp" />
 	
@@ -69,7 +69,7 @@
 	                android:id="@+id/storage__revert_document__button"
 	                android:layout_width="wrap_content"
 	                android:layout_height="wrap_content"
-	                android:background="@color/transparent"
+	                android:background="@color/pdf__transparent"
 	                android:drawableStart="@drawable/document__revert__button"
 	                android:paddingLeft="2dp" />
 	        </LinearLayout>
@@ -87,7 +87,7 @@
 	                android:layout_height="wrap_content"
 	                android:layout_marginBottom="28dp"
 	                android:layout_marginTop="30dp"
-	                android:background="@color/transparent"
+	                android:background="@color/pdf__transparent"
 	                android:drawableStart="@drawable/share__email__button"
 	                android:paddingLeft="2dp" />
 	
@@ -97,7 +97,7 @@
 	                android:layout_height="wrap_content"
 	                android:layout_marginBottom="28dp"
 	                android:layout_marginTop="10dp"
-	                android:background="@color/transparent"
+	                android:background="@color/pdf__transparent"
 	                android:drawableStart="@drawable/share__sms__button"
 	                android:paddingLeft="2dp" />
 	
@@ -105,7 +105,7 @@
 	                android:id="@+id/share__pdf__button"
 	                android:layout_width="wrap_content"
 	                android:layout_height="wrap_content"
-	                android:background="@color/transparent"
+	                android:background="@color/pdf__transparent"
 	                android:drawableStart="@drawable/share__pdf__button"
 	                android:paddingLeft="2dp" />
 	
@@ -114,7 +114,7 @@
 	                android:layout_width="wrap_content"
 	                android:layout_height="wrap_content"
 	                android:layout_marginTop="28dp"
-	                android:background="@color/transparent"
+	                android:background="@color/pdf__transparent"
 	                android:drawableStart="@drawable/share__print__button"
 	                android:paddingLeft="2dp" />
 	        </LinearLayout>
@@ -132,7 +132,7 @@
 	                android:layout_height="wrap_content"
 	                android:layout_marginBottom="28dp"
 	                android:layout_marginTop="30dp"
-	                android:background="@color/transparent"
+	                android:background="@color/pdf__transparent"
 	                android:drawableStart="@drawable/import__text_file__button"
 	                android:paddingLeft="2dp" />
 	
@@ -140,7 +140,7 @@
 	                android:id="@+id/import__flywheel_story__button"
 	                android:layout_width="wrap_content"
 	                android:layout_height="wrap_content"
-	                android:background="@color/transparent"
+	                android:background="@color/pdf__transparent"
 	                android:drawableStart="@drawable/import__flywheel_story__button"
 	                android:paddingLeft="2dp" />
 	        </LinearLayout>

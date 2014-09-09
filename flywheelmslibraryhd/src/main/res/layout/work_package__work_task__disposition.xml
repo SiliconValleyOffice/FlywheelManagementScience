@@ -9,10 +9,10 @@
     android:background="@drawable/gcg__tab_view_border__black"
     android:gravity="left"
     android:orientation="vertical"
-    android:paddingBottom="10dp"
+    android:paddingBottom="0dp"
     android:paddingLeft="10dp"
     android:paddingRight="10dp"
-    android:paddingTop="4dp" >
+    android:paddingTop="0dp" >
 
     <com.flywheelms.library.gcg.widget.GcgWidgetZoomableHeading
         android:id="@+id/disposition__heading"
@@ -22,7 +22,7 @@
         android:layout_marginTop="0dp"
         android:gravity="center_horizontal"
         android:paddingTop="0dp"
-        android:text="@string/strategic_milestone__disposition__plural" />
+        android:text="@string/work_task__disposition__plural" />
 
     <RadioGroup
         android:id="@+id/disposition__choice"
@@ -35,24 +35,57 @@
             android:layout_height="wrap_content" />
 
         <RadioButton
+            android:id="@+id/choice__orphan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <RadioButton
             android:id="@+id/choice__move"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </RadioGroup>
 
-    <com.flywheelms.library.fms.widget.spinner.FiscalYearWidgetSpinner
+    <com.flywheelms.library.fms.widget.spinner.PortfolioWidgetSpinner
+        android:id="@+id/disposition_target__great_grandparent__spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        gcg:deferDataInitialization="true"
+        gcg:filterId="@string/filter_id__primary_parent__primary_child__primary_child__primary_child__primary_child__move_target"
+        gcg:zoomable="true"
+        gcg:labelWidth="180" />
+
+    <com.flywheelms.library.fms.widget.spinner.ProjectWidgetSpinner
+        android:id="@+id/disposition_target__grandparent__spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        gcg:deferDataInitialization="true"
+        gcg:filterId="@string/filter_id__primary_parent__primary_child__primary_child__primary_child__move_target"
+        gcg:zoomable="true"
+        gcg:labelWidth="180" />
+
+    <com.flywheelms.library.fms.widget.spinner.ProjectAssetWidgetSpinner
+        android:id="@+id/disposition_target__parent__spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        gcg:deferDataInitialization="true"
+        gcg:filterId="@string/filter_id__primary_parent__primary_child__primary_child__move_target"
+        gcg:zoomable="true"
+        gcg:labelWidth="180" />
+
+    <com.flywheelms.library.fms.widget.spinner.WorkPackageWidgetSpinner
         android:id="@+id/disposition_target__spinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        gcg:deferDataInitialization="true"
         gcg:filterId="@string/filter_id__primary_parent__primary_child__move_target"
         gcg:zoomable="true"
-        gcg:labelWidth="150" />
+        gcg:labelWidth="180" />
 
     <com.flywheelms.library.fms.widget.spinner.SequencePositionWidgetSpinner
         android:id="@+id/list_position__spinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        gcg:labelWidth="150" />
+        gcg:labelWidth="195" />
 
     <TextView
         android:id="@+id/fms__no_move_target"
@@ -66,4 +99,4 @@
         android:text="@string/fms__no_move_target"
         android:visibility="gone" />
 
-</LinearLayout><!-- From: file:/home/sstamps/AndroidDevelopment/flywheelms-workbench/flywheelmslibraryhd/src/main/res/layout/strategic_milestone__disposition.xml -->
+</LinearLayout>

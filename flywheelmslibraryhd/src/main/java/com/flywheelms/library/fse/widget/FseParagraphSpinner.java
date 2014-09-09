@@ -161,7 +161,7 @@ public class FseParagraphSpinner extends Spinner {
 					this.longClickTimer = theCurrentTime;
 				}
 				if (aMotionEvent.getAction() == MotionEvent.ACTION_UP) {
-					((ViewGroup) aView).getChildAt(0).setBackgroundResource(R.color.transparent);
+					((ViewGroup) aView).getChildAt(0).setBackgroundResource(R.color.pdf__transparent);
 					if(isParagraphSpinnerSelectionModeOff() && System.currentTimeMillis() - this.longClickTimer > GcgClickState.LONG.getClickDuration()) {  // long click
 						FseParagraphSpinner.this.performClick();
 					} else {
@@ -193,7 +193,7 @@ public class FseParagraphSpinner extends Spinner {
 		} else {
 			this.setBackgroundResource(spinner_background__FOCUS_LOST);
 		}
-		getChildAt(0).setBackgroundResource(R.color.transparent);  // extra cleanup
+		getChildAt(0).setBackgroundResource(R.color.pdf__transparent);  // extra cleanup
 	}
 
 	public void setStyle(FseParagraphStyle aParagraphStyle) {

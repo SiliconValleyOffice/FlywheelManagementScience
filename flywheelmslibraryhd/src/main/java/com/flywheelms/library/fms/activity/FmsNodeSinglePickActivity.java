@@ -43,8 +43,6 @@
 
 package com.flywheelms.library.fms.activity;
 
-import java.util.ArrayList;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -79,6 +77,8 @@ import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
 import com.flywheelms.library.fms.helper.FmsSearchHelper;
+
+import java.util.ArrayList;
 
 public abstract class FmsNodeSinglePickActivity extends FdkActivity {
 
@@ -134,7 +134,7 @@ public abstract class FmsNodeSinglePickActivity extends FdkActivity {
 			public boolean onItemLongClick(AdapterView<?> arg0, View aListViewItemView, int aListViewItemPosition, long anItemId) {
 				FmsNodeSinglePickActivity.this.searchResultsListItemView = aListViewItemView;
 				FmsNodeSinglePickActivity.this.searchResultsListItemView.setBackgroundColor(
-						FmsNodeSinglePickActivity.this.getResources().getColor(R.color.light_blue) );
+						FmsNodeSinglePickActivity.this.getResources().getColor(R.color.pdf__light_blue) );
 				FmsNodeSinglePickActivity.this.searchResultsListItemPosition = aListViewItemPosition;
 				aListViewItemView.setSelected(true);
 				PopupMenu thePopupMenu = new PopupMenu(
@@ -153,7 +153,7 @@ public abstract class FmsNodeSinglePickActivity extends FdkActivity {
 					@Override
 					public void onDismiss(PopupMenu menu) {
 						FmsNodeSinglePickActivity.this.searchResultsListItemView.setBackgroundColor(
-								FmsNodeSinglePickActivity.this.getResources().getColor(R.color.transparent) );
+								FmsNodeSinglePickActivity.this.getResources().getColor(R.color.pdf__transparent) );
 					}
 				});
 				thePopupMenu.show();
@@ -165,7 +165,7 @@ public abstract class FmsNodeSinglePickActivity extends FdkActivity {
 	private void onSearchResultsListPopup() {
 		FmmHeadlineNode theHeadlineNode = this.searchResultsNodeList.get(this.searchResultsListItemPosition);
 		FmsActivityHelper.startHeadlineNodeEditorActivity(this, getSearchResultsFmmHeadlineNodeShallowList(), null, theHeadlineNode.getNodeIdString());
-		this.searchResultsListItemView.setBackgroundColor(getResources().getColor(R.color.transparent) );
+		this.searchResultsListItemView.setBackgroundColor(getResources().getColor(R.color.pdf__transparent) );
 	}
 
 	private ArrayList<FmmHeadlineNodeShallow> getSearchResultsFmmHeadlineNodeShallowList() {

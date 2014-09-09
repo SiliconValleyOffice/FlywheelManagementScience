@@ -51,7 +51,7 @@ public class GcgButtonHelper {
 	public static final int color_resource_DEFAULT_BUTTON_SELECTED = 
 			GcgApplication.getInstance().getResources().getColor(R.color.gcg__button_selected);
 	public static final int color_resource_DEFAULT_BUTTON_NOT_SELECTED = 
-			GcgApplication.getInstance().getResources().getColor(R.color.transparent);
+			GcgApplication.getInstance().getResources().getColor(R.color.pdf__transparent);
 
 	public static Context getContext() {
 		return GcgApplication.getContext();
