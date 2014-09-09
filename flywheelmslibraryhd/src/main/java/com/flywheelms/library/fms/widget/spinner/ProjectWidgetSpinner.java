@@ -98,8 +98,8 @@ public class ProjectWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
         if(this.portfolio == null) {
             theGuiableList = new ArrayList<GcgGuiable>();
         } else {
-            theGuiableList = new ArrayList<GcgGuiable>(FmmDatabaseMediator.getActiveMediator().listProjectsForWorkPackageMoveTarget(
-                    this.portfolio, this.projectAssetException));
+            theGuiableList = new ArrayList<GcgGuiable>(FmmDatabaseMediator.getActiveMediator().listProjectsForWorkTaskMoveTarget(
+                    this.portfolio, this.workPackageException));
         }
         return theGuiableList;
     }

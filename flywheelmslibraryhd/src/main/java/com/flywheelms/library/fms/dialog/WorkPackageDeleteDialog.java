@@ -122,6 +122,13 @@ public class WorkPackageDeleteDialog extends HeadlineNodeDeleteDialog {
 				(WorkPackage) aDeleteDisposition.getTargetHeadlineNodeException());
 	}
 
+    @Override
+    protected void updateTargetGrandparentWidgetSpinner(final DeleteDisposition aDeleteDisposition) {
+        ((ProjectWidgetSpinner) aDeleteDisposition.getTargetGrandparentWidgetSpinner()).updateSpinnerData(
+                (Portfolio) aDeleteDisposition.getTargetGreatGrandparentWidgetSpinner().getFmmNode(),
+                (WorkPackage) aDeleteDisposition.getTargetHeadlineNodeException() );
+    }
+
 	@Override
 	protected void updateTargetParentWidgetSpinner(final DeleteDisposition aDeleteDisposition) {
 		((ProjectAssetWidgetSpinner) aDeleteDisposition.getTargetParentWidgetSpinner()).updateSpinnerData(

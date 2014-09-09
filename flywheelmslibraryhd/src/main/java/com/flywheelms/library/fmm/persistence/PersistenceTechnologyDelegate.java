@@ -541,6 +541,8 @@ public abstract class PersistenceTechnologyDelegate {
 
 		public abstract ArrayList<ProjectAsset> dbListProjectAssetInStrategicPlanningForWorkPackageMoveTarget(String aStrategicMilestoneId, String aProjectAssetExceptionId);
 
+        public abstract ArrayList<ProjectAsset> dbListProjectAssetInWorkBreakdownForWorkTaskMoveTarget(String aProjectId, String aWorkPackageException);
+
 		public abstract ArrayList<ProjectAsset> dbListProjectAssetOrphansFromProject();
 
 		public abstract ArrayList<ProjectAsset> dbListProjectAssetOrphansFromStrategicMilestone();
@@ -740,5 +742,4 @@ public abstract class PersistenceTechnologyDelegate {
     public abstract ArrayList<FlywheelMilestone> dbListFlywheelMilestone(FiscalYear aFiscalYear, FlywheelMilestone aFlywheelMilestoneException);
 
     public abstract ArrayList<FlywheelMilestone> dbListFlywheelMilestoneForFiscalYear(String aFiscalYearId, String aFlywheelMilestoneExceptiionId);
-
 }

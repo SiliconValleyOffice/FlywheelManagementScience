@@ -1002,7 +1002,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
         if(aWorkPackageException != null) {
             theRawQuery += " WHERE " + IdNodeMetaData.column_ID + " != '" + aWorkPackageException.getNodeIdString() + "' ";
         }
-        theRawQuery += ")) ORDER BY " + HeadlineNodeMetaData.column_HEADLINE + " ASC";
+        theRawQuery += "))) ORDER BY " + HeadlineNodeMetaData.column_HEADLINE + " ASC";
         Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
         return PortfolioDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
     }
@@ -1116,7 +1116,19 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
     @Override
     public ArrayList<Project> dbListProjectsForWorkTaskMoveTarget(Portfolio aPortfolio, WorkPackage aWorkPackageException) {
-        return null;
+        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.PROJECT.getName() +
+                " WHERE " + ProjectMetaData.column_PORTFOLIO_ID + " = '" + aPortfolio.getNodeIdString() + "' AND " + IdNodeMetaData.column_ID +
+                " IN (" +
+                    " SELECT " + ProjectAssetMetaData.column_PROJECT_ID + " FROM " + FmmNodeDefinition.PROJECT_ASSET.getClassName() +
+                    " WHERE " + IdNodeMetaData.column_ID + " IN (" +
+                        " SELECT " + WorkPackageMetaData.column_PROJECT_ASSET_ID + " FROM " + FmmNodeDefinition.WORK_PACKAGE.getClassName();
+        if(aWorkPackageException != null) {
+            theRawQuery += " WHERE " + IdNodeMetaData.column_ID + " != '" + aWorkPackageException.getNodeIdString() + "'";
+        }
+        theRawQuery += ")) ";
+        theRawQuery += " ORDER BY " + HeadlineNodeMetaData.column_HEADLINE + " ASC";
+        Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
+        return ProjectDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
     }
 
     @Override
@@ -1671,6 +1683,20 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
                 FmmNodeDefinition.STRATEGIC_COMMITMENT.getName() + "." + SequencedLinkNodeMetaData.column_SEQUENCE), null);
 		return ProjectAssetDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
 	}
+
+    public ArrayList<ProjectAsset> dbListProjectAssetInWorkBreakdownForWorkTaskMoveTarget(String aProjectId, String aWorkPackageException) {
+        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.PROJECT_ASSET.getName() +
+                " WHERE " + ProjectAssetMetaData.column_PROJECT_ID + " = '" + aProjectId + "' AND " + IdNodeMetaData.column_ID +
+                " IN (" +
+                " SELECT " + WorkPackageMetaData.column_PROJECT_ASSET_ID + " FROM " + FmmNodeDefinition.WORK_PACKAGE.getClassName();
+        if(aWorkPackageException != null) {
+            theRawQuery += " WHERE " + IdNodeMetaData.column_ID + " != '" + aWorkPackageException + "'";
+        }
+        theRawQuery += ") ";
+        theRawQuery += " ORDER BY " + CompletableNodeMetaData.column_SEQUENCE + " ASC";
+        Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
+        return ProjectAssetDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
+    }
 
 	@SuppressWarnings("resource")
 	@Override

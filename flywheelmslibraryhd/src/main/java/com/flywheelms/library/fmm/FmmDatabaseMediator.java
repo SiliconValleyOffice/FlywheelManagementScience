@@ -916,7 +916,12 @@ public class FmmDatabaseMediator {
 
     public ArrayList<ProjectAsset> listProjectAssetForWorkPackageMoveTarget(StrategicMilestone aStrategicMilestone, ProjectAsset aProjectAssetException) {
         return this.persistenceTechnologyDelegate.dbListProjectAssetInStrategicPlanningForWorkPackageMoveTarget(
-                aStrategicMilestone.getNodeIdString(), aProjectAssetException.getNodeIdString() );
+                aStrategicMilestone.getNodeIdString(), aProjectAssetException.getNodeIdString());
+    }
+
+    public ArrayList<ProjectAsset> listProjectAssetForWorkTaskMoveTarget(String aProjectId, String aWorkPackageException) {
+        return this.persistenceTechnologyDelegate.dbListProjectAssetInWorkBreakdownForWorkTaskMoveTarget(
+                aProjectId, aWorkPackageException);
     }
 
     public ProjectAsset getProjectAsset(String aNodeIdString) {
@@ -2542,5 +2547,4 @@ public class FmmDatabaseMediator {
     public ArrayList<FlywheelMilestone> getFlywheelMilestoneList(FiscalYear aFiscalYear, FlywheelMilestone aFlywheelMilestoneException) {
         return this.persistenceTechnologyDelegate.dbListFlywheelMilestone(aFiscalYear, aFlywheelMilestoneException);
     }
-
 }

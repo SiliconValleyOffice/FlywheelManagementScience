@@ -68,6 +68,7 @@ public abstract class FmmHeadlineNodeWidgetSpinner extends GcgWidgetSpinner {
 	public static final String filter_id__PRIMARY_PARENT__PRIMARY_CHILD__MOVE_TARGET = GcgApplication.getStringResource(R.string.filter_id__primary_parent__primary_child__move_target);
 	public static final String filter_id__PRIMARY_PARENT__PRIMARY_CHILD__PRIMARY_CHILD__MOVE_TARGET = GcgApplication.getStringResource(R.string.filter_id__primary_parent__primary_child__primary_child__move_target);
 	public static final String filter_id__PRIMARY_PARENT__PRIMARY_CHILD__PRIMARY_CHILD__PRIMARY_CHILD__MOVE_TARGET = GcgApplication.getStringResource(R.string.filter_id__primary_parent__primary_child__primary_child__primary_child__move_target);
+	public static final String filter_id__PRIMARY_PARENT__PRIMARY_CHILD__PRIMARY_CHILD__PRIMARY_CHILD__PRIMARY_CHILD__MOVE_TARGET = GcgApplication.getStringResource(R.string.filter_id__primary_parent__primary_child__primary_child__primary_child__primary_child__move_target);
 	public static final String filter_id__PRIMARY_PARENT__SECONDARY_CHILD__MOVE_TARGET = GcgApplication.getStringResource(R.string.filter_id__primary_parent__secondary_child__move_target);
 	public static final String filter_id__PRIMARY_PARENT__SECONDARY_CHILD__PRIMARY_CHILD__MOVE_TARGET = GcgApplication.getStringResource(R.string.filter_id__primary_parent__secondary_child__primary_child__move_target);
 	public static final String filter_id__PRIMARY_PARENT__SECONDARY_CHILD__SECONDARY_CHILD__MOVE_TARGET = GcgApplication.getStringResource(R.string.filter_id__primary_parent__secondary_child__secondary_child__move_target);
@@ -95,6 +96,8 @@ public abstract class FmmHeadlineNodeWidgetSpinner extends GcgWidgetSpinner {
 			theGuiableList = getPrimaryParentPrimaryChildPrimaryChildMoveTargetGuiableList();
 		} else if(this.getFilterId().equals(filter_id__PRIMARY_PARENT__PRIMARY_CHILD__PRIMARY_CHILD__PRIMARY_CHILD__MOVE_TARGET)) {
 			theGuiableList = getPrimaryParentPrimaryChildPrimaryChildPrimaryChildMoveTargetGuiableList();
+        } else if(this.getFilterId().equals(filter_id__PRIMARY_PARENT__PRIMARY_CHILD__PRIMARY_CHILD__PRIMARY_CHILD__PRIMARY_CHILD__MOVE_TARGET)) {
+            theGuiableList = getPrimaryParentPrimaryChildPrimaryChildPrimaryChildPrimaryChildMoveTargetGuiableList();
 		} else if(this.getFilterId().equals(filter_id__PRIMARY_PARENT__SECONDARY_CHILD__MOVE_TARGET)) {
 			theGuiableList = getPrimaryParentSecondaryChildMoveTargetGuiableList();
 		} else if(this.getFilterId().equals(filter_id__PRIMARY_PARENT__SECONDARY_CHILD__PRIMARY_CHILD__MOVE_TARGET)) {

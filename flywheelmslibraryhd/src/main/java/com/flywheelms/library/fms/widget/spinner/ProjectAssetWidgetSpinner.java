@@ -108,6 +108,18 @@ public class ProjectAssetWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 		}
 		return theGuiableList;
 	}
+
+    @Override
+    protected ArrayList<GcgGuiable> getPrimaryParentPrimaryChildPrimaryChildMoveTargetGuiableList() {
+        ArrayList<GcgGuiable> theGuiableList;
+        if(this.project == null) {
+            theGuiableList = new ArrayList<GcgGuiable>();
+        } else {
+            theGuiableList = new ArrayList<GcgGuiable>(FmmDatabaseMediator.getActiveMediator().listProjectAssetForWorkTaskMoveTarget(
+                    this.project.getNodeIdString(), this.workPackageException.getNodeIdString() ));
+        }
+        return theGuiableList;
+    }
 	
 	@Override
 	protected ArrayList<GcgGuiable> getSecondaryParentPrimaryChildMoveTargetGuiableList() {
