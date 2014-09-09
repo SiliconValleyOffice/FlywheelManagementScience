@@ -74,7 +74,7 @@ public class FiscalYearDeleteDialog extends HeadlineNodeDeleteDialog {
 
 	@Override
 	protected ArrayList<? extends FmmHeadlineNode> getPrimaryChildHeadlineNodeList() {
-		return FmmDatabaseMediator.getActiveMediator().getStrategicMilestoneList(this.headlineNode.getNodeIdString());
+		return FmmDatabaseMediator.getActiveMediator().getStrategicMilestoneListForFiscalYear(this.headlineNode.getNodeIdString());
 	}
 	
 	@Override
@@ -84,8 +84,7 @@ public class FiscalYearDeleteDialog extends HeadlineNodeDeleteDialog {
 
 	@Override
 	protected ArrayList<? extends FmmHeadlineNode> getSecondaryChildHeadlineNodeList() {
-//		return FmmDatabaseMediator.getActiveMediator().getFlywheelMilestoneListForFiscalYear(this.headlineNode.getNodeIdString()).size();
-		return new ArrayList<FmmHeadlineNode>();
+		return FmmDatabaseMediator.getActiveMediator().getFlywheelMilestoneListForFiscalYear(this.headlineNode.getNodeIdString());
 	}
 	
 	@Override
@@ -107,6 +106,7 @@ public class FiscalYearDeleteDialog extends HeadlineNodeDeleteDialog {
 
 	@Override
 	protected void setInitialTargetSpinnerSelection(DeleteDisposition aDeleteDisposition) {
+        ((FiscalYearWidgetSpinner) aDeleteDisposition.getTargetWidgetSpinner()).updateSpinnerData((FiscalYear) this.headlineNode);
 		((FiscalYearWidgetSpinner) aDeleteDisposition.getTargetWidgetSpinner()).selectNextYear(this.headlineWidgetTextView.getText().toString());
 	}
 

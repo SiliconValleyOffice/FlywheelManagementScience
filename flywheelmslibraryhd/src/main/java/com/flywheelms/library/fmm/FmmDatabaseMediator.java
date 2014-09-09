@@ -2168,7 +2168,7 @@ public class FmmDatabaseMediator {
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//////  Node - STRATEGIC MILESTONE  /////////////////////////////////////////////////////////////////////////
 
-	public ArrayList<StrategicMilestone> getStrategicMilestoneList(String aFiscalYearId) {
+	public ArrayList<StrategicMilestone> getStrategicMilestoneListForFiscalYear(String aFiscalYearId) {
 		return this.persistenceTechnologyDelegate.dbListStrategicMilestone(aFiscalYearId);
 	}
 
@@ -2176,7 +2176,7 @@ public class FmmDatabaseMediator {
 		return this.persistenceTechnologyDelegate.dbListStrategicMilestone(aFiscalYear);
 	}
 
-	public ArrayList<StrategicMilestone> getStrategicMilestoneList(String aFiscalYearId, String aStrategicMilestoneExceptionId) {
+	public ArrayList<StrategicMilestone> getStrategicMilestoneListForFiscalYear(String aFiscalYearId, String aStrategicMilestoneExceptionId) {
 		return this.persistenceTechnologyDelegate.dbListStrategicMilestone(aFiscalYearId, aStrategicMilestoneExceptionId);
 	}
 
@@ -2248,7 +2248,7 @@ public class FmmDatabaseMediator {
 
 	public boolean deleteStrategicMilestonesForFiscalYear(String aFiscalYearId, boolean bAtomicTransaction) {
 		boolean theBoolean = true;
-		ArrayList<StrategicMilestone> theStrategicMilestoneList = getStrategicMilestoneList(aFiscalYearId);
+		ArrayList<StrategicMilestone> theStrategicMilestoneList = getStrategicMilestoneListForFiscalYear(aFiscalYearId);
 		for(StrategicMilestone theStrategicMilestone : theStrategicMilestoneList) {
 			theBoolean = theBoolean && deleteStrategicMilestone(theStrategicMilestone, bAtomicTransaction);
 		}
@@ -2522,4 +2522,25 @@ public class FmmDatabaseMediator {
 		}
 		return isSuccess;
 	}
+
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////  Node - FLYWHEEL MILESTONE  /////////////////////////////////////////////////////////////////////////
+
+    public ArrayList<FlywheelMilestone> getFlywheelMilestoneListForFiscalYear(String aFiscalYearId) {
+        return this.persistenceTechnologyDelegate.dbListFlywheelMilestone(aFiscalYearId);
+    }
+
+    public ArrayList<FlywheelMilestone> getFlywheelMilestoneList(FiscalYear aFiscalYear) {
+        return this.persistenceTechnologyDelegate.dbListFlywheelMilestone(aFiscalYear);
+    }
+
+    public ArrayList<FlywheelMilestone> getFlywheelMilestoneListForFiscalYear(String aFiscalYearId, String aFlywheelMilestoneExceptionId) {
+        return this.persistenceTechnologyDelegate.dbListFlywheelMilestoneForFiscalYear(aFiscalYearId, aFlywheelMilestoneExceptionId);
+    }
+
+    public ArrayList<FlywheelMilestone> getFlywheelMilestoneList(FiscalYear aFiscalYear, FlywheelMilestone aFlywheelMilestoneException) {
+        return this.persistenceTechnologyDelegate.dbListFlywheelMilestone(aFiscalYear, aFlywheelMilestoneException);
+    }
+
 }

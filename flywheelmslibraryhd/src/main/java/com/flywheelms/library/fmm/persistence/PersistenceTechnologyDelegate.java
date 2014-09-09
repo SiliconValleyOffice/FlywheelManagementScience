@@ -50,6 +50,7 @@ import com.flywheelms.library.fmm.node.impl.enumerator.GovernanceTarget;
 import com.flywheelms.library.fmm.node.impl.event.PdfPublication;
 import com.flywheelms.library.fmm.node.impl.governable.CommunityMember;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
+import com.flywheelms.library.fmm.node.impl.governable.FlywheelMilestone;
 import com.flywheelms.library.fmm.node.impl.governable.FlywheelTeam;
 import com.flywheelms.library.fmm.node.impl.governable.FmsOrganization;
 import com.flywheelms.library.fmm.node.impl.governable.Portfolio;
@@ -727,4 +728,17 @@ public abstract class PersistenceTechnologyDelegate {
 		public abstract boolean dbUpdateWorkTask(WorkTask aWorkTask, boolean bAtomicTransaction);
 
 		public abstract boolean dbDeleteWorkTask(WorkTask aWorkTask, boolean bAtomicTransaction);
+
+    
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////  Node - FLYWHEEL MILESTONE  ///////////////////////////////////////////////////////////////////////////////////
+
+    public abstract ArrayList<FlywheelMilestone> dbListFlywheelMilestone(String aFiscalYearId);
+
+    public abstract ArrayList<FlywheelMilestone> dbListFlywheelMilestone(FiscalYear aFiscalYear);
+
+    public abstract ArrayList<FlywheelMilestone> dbListFlywheelMilestone(FiscalYear aFiscalYear, FlywheelMilestone aFlywheelMilestoneException);
+
+    public abstract ArrayList<FlywheelMilestone> dbListFlywheelMilestoneForFiscalYear(String aFiscalYearId, String aFlywheelMilestoneExceptiionId);
+
 }

@@ -98,6 +98,7 @@ import com.flywheelms.library.fmm.node.impl.enumerator.GovernanceTarget;
 import com.flywheelms.library.fmm.node.impl.event.PdfPublication;
 import com.flywheelms.library.fmm.node.impl.governable.CommunityMember;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
+import com.flywheelms.library.fmm.node.impl.governable.FlywheelMilestone;
 import com.flywheelms.library.fmm.node.impl.governable.FlywheelTeam;
 import com.flywheelms.library.fmm.node.impl.governable.FmsOrganization;
 import com.flywheelms.library.fmm.node.impl.governable.Portfolio;
@@ -2843,5 +2844,57 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	public boolean dbUpdateWorkTask(WorkTask aWorkTask, boolean bAtomicTransaction) {
     	return updateSimpleIdTable(aWorkTask, WorkTaskDaoSqLite.getInstance(), bAtomicTransaction);
 	}
+
+
+
+
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////  Node - FLYWHEEL MILESTONE  ///////////////////////////////////////////////////////////////////////////////////
+
+
+//    @Override
+//    public ArrayList<FlywheelMilestone> dbListFlywheelMilestoneForFiscalYear(FiscalYear aFiscalYear, FlywheelMilestone aFlywheelMilestoneException) {
+//        return dbListFlywheelMilestoneForFiscalYear(aFiscalYear.getNodeIdString(), aFlywheelMilestoneException == null ? null : aFlywheelMilestoneException.getNodeIdString());
+//    }
+//
+//    @SuppressWarnings("resource")
+//    @Override
+//    public ArrayList<StrategicMilestone> dbListStrategicMilestone(String aFiscalYearId, String aStrategicMilestoneExceptionId) {
+//        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.STRATEGIC_MILESTONE.getName() +
+//                " WHERE " + StrategicMilestoneMetaData.column_FISCAL_YEAR_ID + " = '" + aFiscalYearId + "'";
+//        if(aStrategicMilestoneExceptionId != null) {
+//            theRawQuery += " AND " + IdNodeMetaData.column_ID + " != '" + aStrategicMilestoneExceptionId + "'";
+//        }
+//        theRawQuery += " ORDER BY " + CompletableNodeMetaData.column_SEQUENCE + " ASC";
+//        Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
+//        return StrategicMilestoneDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
+//    }
+
+
+
+    public ArrayList<FlywheelMilestone> dbListFlywheelMilestone(FiscalYear aFiscalYear) {
+        return dbListFlywheelMilestoneForFiscalYear(aFiscalYear.getNodeIdString(), null);
+    }
+    
+    public ArrayList<FlywheelMilestone> dbListFlywheelMilestone(String aFiscalYearId) {
+        return dbListFlywheelMilestoneForFiscalYear(aFiscalYearId, null);
+    }
+
+    public ArrayList<FlywheelMilestone> dbListFlywheelMilestone(FiscalYear aFiscalYear, FlywheelMilestone aFlywheelMilestoneException) {
+        return dbListFlywheelMilestoneForFiscalYear(aFiscalYear.getNodeIdString(), aFlywheelMilestoneException == null ? null : aFlywheelMilestoneException.getNodeIdString());
+    }
+
+    public ArrayList<FlywheelMilestone> dbListFlywheelMilestoneForFiscalYear(String aFiscalYearId, String aFlywheelMilestoneExceptiionId) {
+//        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.FLYWHEEL_MILESTONE.getClassName() +
+//                " WHERE " + FlywheelMilestoneMetaData.column_FISCAL_YEAR_ID + " = '" + aFiscalYearId + "'";
+//        if(aFlywheelMilestoneExceptionId != null) {
+//            theRawQuery += " AND " + IdNodeMetaData.column_ID + " != '" + aFlywheelMilestoneExceptionId + "'";
+//        }
+//        theRawQuery += " ORDER BY " + CompletableNodeMetaData.column_SEQUENCE + " ASC";
+//        Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
+//        return FlywheelMilestoneDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
+        return new ArrayList<FlywheelMilestone>();
+    }
 	
 }
