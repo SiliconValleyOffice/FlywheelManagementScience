@@ -2871,8 +2871,66 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
     	return updateSimpleIdTable(aWorkTask, WorkTaskDaoSqLite.getInstance(), bAtomicTransaction);
 	}
 
+    // TODO - RESEQUENCE BOTH Source and Destination
+    public boolean dbMoveSingleWorkTaskIntoWorkPackage(String aSourceWorkPackageId, String aDestinationWorkPackageId, boolean bSequenceAtEnd, boolean bAtomicTransaction) {
+//        if(bAtomicTransaction) {
+//            startTransaction();
+//        }
+//        this.contentValues.clear();
+//        this.contentValues.put(WorkTaskMetaData.column_WORK_PACKAGE__ID, aDestinationWorkPackageId);
+//        this.contentValues.put(CompletableNodeMetaData.column_SEQUENCE, updateSequenceBeforeAddingNewPeer(
+//                FmmNodeDefinition.WORK_TASK,
+//                WorkTaskMetaData.column_WORK_PACKAGE__ID,
+//                aDestinationWorkPackageId,
+//                bSequenceAtEnd ));
+//        int theRowCount = getSqLiteDatabase().update(FmmNodeDefinition.WORK_TASK.getClassName(), this.contentValues,
+//                IdNodeMetaData.column_ID + " = '" + aWorkTaskId + "'", null);
+//        if(bAtomicTransaction) {
+//            endTransaction(theRowCount > 0);
+//        }
+//        return theRowCount > 0;
+        return false;
+    }
 
+    public boolean dbMoveAllWorkTasksIntoWorkPackage(String aSourceWorkPackageId, String aDestinationWorkPackageId, boolean bSequenceAtEnd, boolean bAtomicTransaction) {
+        if(bAtomicTransaction) {
+            startTransaction();
+        }
+        this.contentValues.clear();
+        this.contentValues.put(WorkTaskMetaData.column_WORK_PACKAGE__ID, aDestinationWorkPackageId);
+        this.contentValues.put(CompletableNodeMetaData.column_SEQUENCE, updateSequenceBeforeAddingNewPeer(
+                FmmNodeDefinition.WORK_TASK,
+                WorkTaskMetaData.column_WORK_PACKAGE__ID,
+                aDestinationWorkPackageId,
+                bSequenceAtEnd ));
+        int theRowCount = getSqLiteDatabase().update(FmmNodeDefinition.WORK_TASK.getClassName(), this.contentValues,
+                WorkTaskMetaData.column_WORK_PACKAGE__ID + " = '" + aSourceWorkPackageId+ "'", null);
+        if(bAtomicTransaction) {
+            endTransaction(theRowCount > 0);
+        }
+        return theRowCount > 0;
+    }
 
+    public boolean dbOrphanAllWorkTasksFromWorkPackage(String aWorkPackageId, boolean bAtomicTransaction) {
+        return orphanSequenceRows(
+                FmmNodeDefinition.WORK_TASK.getClassName(),
+                WorkTaskMetaData.column_WORK_PACKAGE__ID,
+                WorkTaskMetaData.column_WORK_PACKAGE__ID + " = '" + aWorkPackageId + "'",
+                bAtomicTransaction);
+    }
+
+    public boolean dbOrphanSingleWorkTaskFromWorkPackage(String aWorkTaskId, String aWorkPackageId, boolean bAtomicTransaction) {
+        boolean bSuccess = orphanSequenceRows(
+                FmmNodeDefinition.WORK_TASK.getClassName(),
+                WorkTaskMetaData.column_WORK_PACKAGE__ID,
+                IdNodeMetaData.column_ID + " = '" + aWorkTaskId + "'",
+                bAtomicTransaction);
+        reSequenceRows(
+                FmmNodeDefinition.WORK_TASK.getClassName(),
+                WorkTaskMetaData.column_WORK_PACKAGE__ID,
+                aWorkPackageId );
+        return bSuccess;
+    }
 
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////

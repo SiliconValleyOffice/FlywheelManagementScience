@@ -137,7 +137,8 @@ public abstract class HeadlineNodeDeleteDialog  extends FmsCancelOkDialog {
 		this.dispositionContainerLayout = new GcgContainerTabbedLayout(this.dialogBodyView.getContext());
 		((GcgContainerTabbedLayout) this.dispositionContainerLayout).setup();
 //		LinearLayout theTargetNodeLayout = (LinearLayout) this.dialogBodyView.findViewById(R.id.target_node);
-		this.dialogBodyView.addView(this.dispositionContainerLayout, 1);
+		this.customContentsContainer.addView(this.dispositionContainerLayout);
+//		this.dialogBodyView.addView(this.dispositionContainerLayout, 1);
 		if(this.primaryChildDeleteDisposition.getCount() > 0) {
 			initializeDispositionOfPrimaryChildrenLayout();
 		}

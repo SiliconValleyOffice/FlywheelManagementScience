@@ -809,11 +809,15 @@ public class FmmDatabaseMediator {
     }
 
     public void savePortfolio(Portfolio aPortfolio, boolean bAtomicTransaction) {
-        if(existsFiscalYear(aPortfolio.getNodeIdString())) {
+        if(existsPortfolio(aPortfolio.getNodeIdString())) {
             updatePortfolio(aPortfolio, bAtomicTransaction);
         } else {
             newPortfolio(aPortfolio, bAtomicTransaction);
         }
+    }
+
+    public boolean existsPortfolio(String aNodeIdString) {
+        return getPortfolio(aNodeIdString) != null;
     }
 
     public boolean updatePortfolio(Portfolio aPortfolio, boolean bAtomicTransaction) {
@@ -1858,11 +1862,45 @@ public class FmmDatabaseMediator {
 	}
 
     public void saveWorkTask(WorkTask aWorkTask, boolean bAtomicTransaction) {
-        if(existsFiscalYear(aWorkTask.getNodeIdString())) {
+        if(existsWorkTask(aWorkTask.getNodeIdString())) {
             updateWorkTask(aWorkTask, bAtomicTransaction);
         } else {
             newWorkTask(aWorkTask, bAtomicTransaction);
         }
+    }
+
+    public boolean existsWorkTask(String aNodeIdString) {
+        return getWorkTask(aNodeIdString) != null;
+    }
+
+    public boolean moveAllWorkTasksIntoWorkPackage(String aSourceWorkPackageId, String aDestinationWorkPackageId, boolean bSequenceAtEnd, boolean bAtomicTransaction) {
+        return this.persistenceTechnologyDelegate.dbMoveAllWorkTasksIntoWorkPackage(
+                aSourceWorkPackageId,
+                aDestinationWorkPackageId,
+                bSequenceAtEnd,
+                bAtomicTransaction);
+    }
+
+    public boolean orphanAllWorkTasksFromWorkPackage(String aWorkPackageId, boolean bAtomicTransaction) {
+        if(bAtomicTransaction) {
+            startTransaction();
+        }
+        boolean isSuccess = this.persistenceTechnologyDelegate.dbOrphanAllWorkTasksFromWorkPackage(aWorkPackageId, bAtomicTransaction);
+        if(bAtomicTransaction) {
+            endTransaction(isSuccess);
+        }
+        return isSuccess;
+    }
+
+    public boolean orphanSingleWorkTaskFromWorkPackage(String aWorkTaskId, String aWorkPackageId, boolean bAtomicTransaction) {
+        if(bAtomicTransaction) {
+            startTransaction();
+        }
+        boolean isSuccess = this.persistenceTechnologyDelegate.dbOrphanSingleWorkTaskFromWorkPackage(aWorkTaskId, aWorkPackageId, bAtomicTransaction);
+        if(bAtomicTransaction) {
+            endTransaction(isSuccess);
+        }
+        return isSuccess;
     }
 
 	public boolean deleteWorkTask(WorkTask aWorkTask, boolean bAtomicTransaction) {
@@ -2073,11 +2111,15 @@ public class FmmDatabaseMediator {
 	}
 
     public void saveProject(Project aProject, boolean bAtomicTransaction) {
-        if(existsFiscalYear(aProject.getNodeIdString())) {
+        if(existsProject(aProject.getNodeIdString())) {
             updateProject(aProject, bAtomicTransaction);
         } else {
             newProject(aProject, bAtomicTransaction);
         }
+    }
+
+    public boolean existsProject(String aNodeIdString) {
+        return getProject(aNodeIdString) != null;
     }
 
     public boolean orphanSingleProjectFromPortfolio(String aProjectNodeIdString, String aPortfolioNodeIdString, boolean bAtomicTransaction) {
@@ -2420,11 +2462,15 @@ public class FmmDatabaseMediator {
 	}
 
     public void saveWorkPackage(WorkPackage aWorkPackage, boolean bAtomicTransaction) {
-        if(existsFiscalYear(aWorkPackage.getNodeIdString())) {
+        if(existsWorkPackage(aWorkPackage.getNodeIdString())) {
             updateWorkPackage(aWorkPackage, bAtomicTransaction);
         } else {
             newWorkPackage(aWorkPackage, bAtomicTransaction);
         }
+    }
+
+    public boolean existsWorkPackage(String aNodeIdString) {
+        return getWorkPackage(aNodeIdString) != null;
     }
 
 	public boolean orphanAllWorkPackagesFromProjectAsset(String aProjectAssetId, boolean bAtomicTransaction) {

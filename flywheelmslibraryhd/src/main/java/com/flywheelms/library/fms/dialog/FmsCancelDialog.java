@@ -55,7 +55,6 @@ import com.flywheelms.library.gcg.GcgActivity;
 
 public abstract class FmsCancelDialog extends FmsDialog {
 
-	protected ViewGroup dialogBodyView;
 	protected Button buttonCancel;
 
 	public FmsCancelDialog(GcgActivity aLibraryActivity) {

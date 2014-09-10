@@ -81,6 +81,16 @@
         <item name="android:paddingBottom">7dp</item>
         <item name="android:background">@color/gcg__button_panel__background</item>
     </style>
+
+    <style name="GcgButtonRowVertical">
+        <item name="android:layout_width">90dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:paddingTop">20dp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:paddingBottom">20dp</item>
+        <item name="android:background">@color/gcg__button_panel__background</item>
+    </style>
     
     <style name="GcgWidgetLabelHorizontalContainer">
         <item name="android:layout_width">wrap_content</item>

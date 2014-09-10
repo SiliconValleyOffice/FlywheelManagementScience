@@ -67,10 +67,20 @@ public class WorkPackageDeleteDialog extends HeadlineNodeDeleteDialog {
 		super(aLibraryActivity, aTreeViewAdapter, aHeadlineNode);
 	}
 
+    @Override
+    protected int getDialogBodyLayoutResourceId() {
+        return R.layout.gcg__dialog_body__cancel_ok__vertical;
+    }
+
 	@Override
 	protected int getPrimaryChildrenDispositionLayoutResourceId() {
 		return R.layout.work_package__work_task__disposition;
 	}
+
+    @Override
+    protected int getCustomDialogContentsResourceId() {
+        return R.layout.fmm__headline_node__delete__dialog;
+    }
 
 	@Override
 	protected ArrayList<? extends FmmHeadlineNode> getPrimaryChildHeadlineNodeList() {
@@ -145,17 +155,17 @@ public class WorkPackageDeleteDialog extends HeadlineNodeDeleteDialog {
 
 	@Override
 	protected boolean deleteHeadlineNode() {
-		return FmmDatabaseMediator.getActiveMediator().deleteProjectAsset((ProjectAsset) this.headlineNode, false);
+		return FmmDatabaseMediator.getActiveMediator().deleteWorkPackage((WorkPackage) this.headlineNode, false);
 	}
 
 	@Override
 	protected boolean orphanPrimaryChildren() {
-		return FmmDatabaseMediator.getActiveMediator().orphanAllWorkPackagesFromProjectAsset(this.headlineNode.getNodeIdString(), false);
+		return FmmDatabaseMediator.getActiveMediator().orphanAllWorkTasksFromWorkPackage(this.headlineNode.getNodeIdString(), false);
 	}
 
 	@Override
 	protected boolean movePrimaryChildrenToNewParent() {
-		return FmmDatabaseMediator.getActiveMediator().moveAllWorkPackagesIntoProjectAsset(
+		return FmmDatabaseMediator.getActiveMediator().moveAllWorkTasksIntoWorkPackage(
                 this.headlineNode.getNodeIdString(),
                 this.primaryChildDeleteDisposition.getTargetWidgetSpinner().getFmmNode().getNodeIdString(),
                 this.primaryChildDeleteDisposition.isSequencePositionSpinnerAtEnd(),

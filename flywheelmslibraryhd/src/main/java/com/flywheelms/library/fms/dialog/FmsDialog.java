@@ -67,6 +67,7 @@ public abstract class FmsDialog {
 	protected String targetDetail = null;
 	protected String messageString;
 	protected AlertDialog alertDialog;
+    protected ViewGroup dialogBodyView;
 	protected FmmNodeDefinition fmmNodeDefinition;
 	protected FmmHeadlineNode headlineNode;
 	protected FmmHeadlineNode parentHeadlineNode;
@@ -138,7 +139,7 @@ public abstract class FmsDialog {
     }
 
 	protected View inflateDialogBody(int aLayoutResourceId) {
-		LayoutInflater theLayoutInflater = LayoutInflater.from(this.gcgActivity);
+		LayoutInflater theLayoutInflater = LayoutInflater.from(this.dialogBuilder.getContext());
 		ViewGroup theDialogBody = (ViewGroup) theLayoutInflater.inflate(aLayoutResourceId, null);
 		setMinimumWidth(theDialogBody);
 		setMinimumHeight(theDialogBody);
@@ -179,7 +180,7 @@ public abstract class FmsDialog {
 		refreshDialog();
 		this.alertDialog.show();
 	}
-	
+
 	public void restartDialog() {
 		this.alertDialog.show();
 	}
