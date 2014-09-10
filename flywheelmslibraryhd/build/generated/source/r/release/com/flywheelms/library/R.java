@@ -3292,6 +3292,7 @@ containing a value of this type.
         public static int work_package__move_into__flywheel_milestone=0x7f0300c6;
         public static int work_package__move_into__project_asset=0x7f0300c7;
         public static int work_package__work_task__disposition=0x7f0300c8;
+        public static int work_task__adoption_into__work_package=0x7f0300c9;
     }
     public static final class menu {
         public static int activity_main=0x7f0c0000;

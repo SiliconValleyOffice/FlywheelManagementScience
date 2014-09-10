@@ -83,6 +83,7 @@ import com.flywheelms.library.fms.dialog.StrategicMilestoneAdoptOrphanProjectAss
 import com.flywheelms.library.fms.dialog.StrategicMilestoneDeleteDialog;
 import com.flywheelms.library.fms.dialog.StrategicMilestoneMoveDialog;
 import com.flywheelms.library.fms.dialog.StrategicMilestoneTargetDateEditDialog;
+import com.flywheelms.library.fms.dialog.WorkPackageAdoptOrphanWorkTaskDialog;
 import com.flywheelms.library.fms.dialog.WorkPackageDeleteDialog;
 import com.flywheelms.library.fms.dialog.WorkPackageMoveWorkBreakdownDialog;
 import com.flywheelms.library.fms.dialog.WorkPackageOrphanDialog;
@@ -591,7 +592,8 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter {
 
     // TODO !!! push down into subclass for StrategicPlanningTreeViewAdapter
     // logical validation of this operation was already done in FmmPopupBuilder
-    private void adoptOrphanWorkTask(FmmHeadlineNode aProjectAssetHeadlineNode) {
+    private void adoptOrphanWorkTask(FmmHeadlineNode aWorkPackageHeadlineNode) {
+        getGcgActivity().startDialog(new WorkPackageAdoptOrphanWorkTaskDialog(getGcgActivity(), this, aWorkPackageHeadlineNode));
     }
 
     // logical validation of this operation was already done in FmmPopupBuilder

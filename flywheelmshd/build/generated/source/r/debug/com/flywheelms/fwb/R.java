@@ -3406,8 +3406,9 @@ containing a value of this type.
         public static final int work_package__move_into__flywheel_milestone=0x7f0300ca;
         public static final int work_package__move_into__project_asset=0x7f0300cb;
         public static final int work_package__work_task__disposition=0x7f0300cc;
-        public static final int workbench__frame_spinner__layout=0x7f0300cd;
-        public static final int workbench__left_thumbpad=0x7f0300ce;
+        public static final int work_task__adoption_into__work_package=0x7f0300cd;
+        public static final int workbench__frame_spinner__layout=0x7f0300ce;
+        public static final int workbench__left_thumbpad=0x7f0300cf;
     }
     public static final class menu {
         public static final int activity_main=0x7f0c0000;

@@ -1903,6 +1903,14 @@ public class FmmDatabaseMediator {
         return isSuccess;
     }
 
+    public boolean adoptOrphanWorkTaskIntoWorkPackage(String aWorkTaskId, String aWorkPackageId, boolean bSequenceAtEnd, boolean bAtomicTransaction) {
+        return this.persistenceTechnologyDelegate.dbAdoptOrphanWorkTaskIntoWorkPackage(
+                aWorkTaskId,
+                aWorkPackageId,
+                bSequenceAtEnd,
+                bAtomicTransaction );
+    }
+
 	public boolean deleteWorkTask(WorkTask aWorkTask, boolean bAtomicTransaction) {
 		if(bAtomicTransaction) {
 			startTransaction();

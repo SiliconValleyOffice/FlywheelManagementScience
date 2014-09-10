@@ -2932,6 +2932,25 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
         return bSuccess;
     }
 
+    public boolean dbAdoptOrphanWorkTaskIntoWorkPackage(String aWorkTaskId, String aWorkPackageId, boolean bSequenceAtEnd, boolean bAtomicTransaction) {
+        if(bAtomicTransaction) {
+            startTransaction();
+        }
+        this.contentValues.clear();
+        this.contentValues.put(WorkTaskMetaData.column_WORK_PACKAGE__ID, aWorkPackageId);
+        this.contentValues.put(CompletableNodeMetaData.column_SEQUENCE, updateSequenceBeforeAddingNewPeer(
+                FmmNodeDefinition.WORK_TASK,
+                WorkTaskMetaData.column_WORK_PACKAGE__ID,
+                aWorkPackageId,
+                bSequenceAtEnd ));
+        int theRowCount = getSqLiteDatabase().update(FmmNodeDefinition.WORK_TASK.getClassName(), this.contentValues,
+                IdNodeMetaData.column_ID + " = '" + aWorkTaskId + "'", null);
+        if(bAtomicTransaction) {
+            endTransaction(theRowCount > 0);
+        }
+        return theRowCount > 0;   
+    }
+
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////  Node - FLYWHEEL MILESTONE  ///////////////////////////////////////////////////////////////////////////////////
