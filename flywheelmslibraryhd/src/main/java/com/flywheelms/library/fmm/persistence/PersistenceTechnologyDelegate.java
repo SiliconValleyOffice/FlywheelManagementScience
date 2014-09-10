@@ -527,17 +527,17 @@ public abstract class PersistenceTechnologyDelegate {
 		/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		//////  Node - PROJECT ASSET  ///////////////////////////////////////////////////////////////////////////////
 
-		public abstract ArrayList<ProjectAsset> dbListProjectAsset(Project aProject);
+		public abstract ArrayList<ProjectAsset> dbListProjectAssets(Project aProject);
 		
-		public abstract ArrayList<ProjectAsset> dbListProjectAsset(Project aProject, ProjectAsset aProjectAssetException);
+		public abstract ArrayList<ProjectAsset> dbListProjectAssets(Project aProject, ProjectAsset aProjectAssetException);
 		
-		public abstract ArrayList<ProjectAsset> dbListProjectAssetForProject(String aProjectId, String aProjectAssetExceptionId);
+		public abstract ArrayList<ProjectAsset> dbListProjectsAssetForProject(String aProjectId, String aProjectAssetExceptionId);
 		
 		public abstract ArrayList<ProjectAsset> dbListProjectAsset(StrategicMilestone aStrategicMilestone);
 		
-		public abstract ArrayList<ProjectAsset> dbListProjectAsset(StrategicMilestone aStrategicMilestone, ProjectAsset aProjectAssetException);
+		public abstract ArrayList<ProjectAsset> dbListProjectAssets(StrategicMilestone aStrategicMilestone, ProjectAsset aProjectAssetException);
 		
-		public abstract ArrayList<ProjectAsset> dbListProjectAssetForStrategicMilestone(String aStrategicMilestoneId, String aProjectAssetExceptionId);
+		public abstract ArrayList<ProjectAsset> dbListProjectAssetsForStrategicMilestone(String aStrategicMilestoneId, String aProjectAssetExceptionId);
 
 		public abstract ArrayList<ProjectAsset> dbListProjectAssetInStrategicPlanningForWorkPackageMoveTarget(String aStrategicMilestoneId, String aProjectAssetExceptionId);
 
@@ -670,11 +670,11 @@ public abstract class PersistenceTechnologyDelegate {
 
 		public abstract ArrayList<WorkPackage> dbRetrieveWorkPackageList();
 
-		public abstract ArrayList<WorkPackage> dbListWorkPackageForProjectAsset(String aProjectAssetId);
+		public abstract ArrayList<WorkPackage> dbListWorkPackagesForProjectAsset(String aProjectAssetId);
 
 		public abstract ArrayList<WorkPackage> dbListWorkPackageForFlywheelMilestone(String aFlywheelMilestoneId);
 
-		public abstract ArrayList<WorkPackage> dbListWorkPackageForWorkTaskMoveTarget(String aParentNodeId, String aWorkPackageExceptionId, boolean bPrimaryParent);
+		public abstract ArrayList<WorkPackage> dbListWorkPackagesForWorkTaskMoveTarget(String aParentNodeId, String aWorkPackageExceptionId, boolean bPrimaryParent);
 		
 		public abstract WorkPackage dbRetrieveWorkPackage(String aNodeIdString);
 
@@ -719,9 +719,9 @@ public abstract class PersistenceTechnologyDelegate {
 		/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		//////  Node - WORK TASK  ///////////////////////////////////////////////////////////////////////////////////
 
-		public abstract Collection<WorkTask> dbRetrieveWorkTaskList();
+        public abstract ArrayList<WorkTask> dbListWorkTasksForWorkPackage(String aWorkPackageId, String aWorkTaskExceptionId);
 
-        public abstract ArrayList<WorkTask> dbListWorkTasksForWorkPackage(String aWorkPackageNodeIdString);
+        public abstract ArrayList<WorkTask> dbListWorkTasksForWorkPlan(String aWorkPlanId, String aWorkTaskExceptionId);
 
 		public abstract WorkTask dbRetrieveWorkTask(String aNodeIdString);
 
@@ -736,6 +736,10 @@ public abstract class PersistenceTechnologyDelegate {
         public abstract boolean dbOrphanAllWorkTasksFromWorkPackage(String aWorkPackageId, boolean bAtomicTransaction);
 
         public abstract boolean dbOrphanSingleWorkTaskFromWorkPackage(String aWorkTaskId, String aWorkPackageId, boolean bAtomicTransaction);
+
+        public abstract ArrayList<WorkTask> dbListWorkTaskOrphansFromWorkPackage();
+
+        public abstract ArrayList<WorkTask> dbListWorkTaskOrphansFromWorkPlan();
 
         public abstract boolean dbAdoptOrphanWorkTaskIntoWorkPackage(String aWorkTaskId, String aWorkPackageId, boolean bSequenceAtEnd, boolean bAtomicTransaction);
 

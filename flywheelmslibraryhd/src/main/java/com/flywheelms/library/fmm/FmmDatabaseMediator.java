@@ -88,6 +88,7 @@ import com.flywheelms.library.fmm.node.impl.governable.Project;
 import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
 import com.flywheelms.library.fmm.node.impl.governable.StrategicMilestone;
 import com.flywheelms.library.fmm.node.impl.governable.WorkPackage;
+import com.flywheelms.library.fmm.node.impl.governable.WorkPlan;
 import com.flywheelms.library.fmm.node.impl.governable.WorkTask;
 import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
 import com.flywheelms.library.fmm.node.impl.link.OrganizationCommunityMember;
@@ -891,11 +892,11 @@ public class FmmDatabaseMediator {
     //////  Node - PROJECT ASSET  ///////////////////////////////////////////////////////////////////////////////
 
     public ArrayList<ProjectAsset> listProjectAsset(Project aProject) {
-        return this.persistenceTechnologyDelegate.dbListProjectAsset(aProject);
+        return this.persistenceTechnologyDelegate.dbListProjectAssets(aProject);
     }
 
     public ArrayList<ProjectAsset> listProjectAsset(Project aProject, ProjectAsset aProjectAssetException) {
-        return this.persistenceTechnologyDelegate.dbListProjectAsset(aProject, aProjectAssetException);
+        return this.persistenceTechnologyDelegate.dbListProjectAssets(aProject, aProjectAssetException);
     }
 
     public ArrayList<ProjectAsset> listProjectAssetsForProject(String aProjectId) {
@@ -903,7 +904,7 @@ public class FmmDatabaseMediator {
     }
 
     public ArrayList<ProjectAsset> listProjectAssetsForProject(String aProjectId, String aProjectAssetExceptionId) {
-        return this.persistenceTechnologyDelegate.dbListProjectAssetForProject(aProjectId, aProjectAssetExceptionId);
+        return this.persistenceTechnologyDelegate.dbListProjectsAssetForProject(aProjectId, aProjectAssetExceptionId);
     }
 
     public ArrayList<ProjectAsset> listProjectAsset(StrategicMilestone aStrategicMilestone) {
@@ -911,11 +912,11 @@ public class FmmDatabaseMediator {
     }
 
     public ArrayList<ProjectAsset> listProjectAsset(StrategicMilestone aStrategicMilestone, ProjectAsset aProjectAssetException) {
-        return this.persistenceTechnologyDelegate.dbListProjectAsset(aStrategicMilestone, aProjectAssetException);
+        return this.persistenceTechnologyDelegate.dbListProjectAssets(aStrategicMilestone, aProjectAssetException);
     }
 
     public ArrayList<ProjectAsset> listProjectAssetForStrategicMilestone(String aStrategicMilestoneId) {
-        return this.persistenceTechnologyDelegate.dbListProjectAssetForStrategicMilestone(aStrategicMilestoneId, null);
+        return this.persistenceTechnologyDelegate.dbListProjectAssetsForStrategicMilestone(aStrategicMilestoneId, null);
     }
 
     public ArrayList<ProjectAsset> listProjectAssetForWorkPackageMoveTarget(StrategicMilestone aStrategicMilestone, ProjectAsset aProjectAssetException) {
@@ -1778,12 +1779,44 @@ public class FmmDatabaseMediator {
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//////  Node - WORK TASK  //////////////////////////////////////////////////////////////////
 
-	public Collection<WorkTask> getWorkTaskCollection() {
-		return this.persistenceTechnologyDelegate.dbRetrieveWorkTaskList();
-	}
+    public ArrayList<WorkTask> listWorkTasks(WorkPackage aWorkPackage) {
+        return listWorkTasksForWorkPackage(aWorkPackage.getNodeIdString());
+    }
 
-    public ArrayList<WorkTask> listWorkTasksForWorkPackage(String aWorkPackageNodeIdString) {
-        return this.persistenceTechnologyDelegate.dbListWorkTasksForWorkPackage(aWorkPackageNodeIdString);
+    public ArrayList<WorkTask> listWorkTasksForWorkPackage(String aWorkPackageId) {
+        return listWorkTasksForWorkPackage(aWorkPackageId, null);
+    }
+
+    public ArrayList<WorkTask> listWorkTasks(WorkPackage aWorkPackage, WorkTask aWorkTaskException) {
+        return listWorkTasksForWorkPackage(aWorkPackage.getNodeIdString());
+    }
+
+    public ArrayList<WorkTask> listWorkTasksForWorkPackage(String aWorkPackageId, String aWorkTaskExceptionId) {
+        return this.persistenceTechnologyDelegate.dbListWorkTasksForWorkPackage(aWorkPackageId, aWorkTaskExceptionId);
+    }
+
+    public ArrayList<WorkTask> listWorkTasks(WorkPlan aWorkPlan) {
+        return listWorkTasksForWorkPlan(aWorkPlan.getNodeIdString());
+    }
+
+    public ArrayList<WorkTask> listWorkTasksForWorkPlan(String aWorkPlanId) {
+        return listWorkTasksForWorkPlan(aWorkPlanId, null);
+    }
+
+    public ArrayList<WorkTask> listWorkTasks(WorkPlan aWorkPlan, WorkTask aWorkTaskException) {
+        return listWorkTasksForWorkPlan(aWorkPlan.getNodeIdString());
+    }
+
+    public ArrayList<WorkTask> listWorkTasksForWorkPlan(String aWorkPlanId, String aWorkTaskExceptionId) {
+        return this.persistenceTechnologyDelegate.dbListWorkTasksForWorkPlan(aWorkPlanId, aWorkTaskExceptionId);
+    }
+
+    public ArrayList<WorkTask> listWorkTaskOrphansFromWorkPackage() {
+        return this.persistenceTechnologyDelegate.dbListWorkTaskOrphansFromWorkPackage();
+    }
+
+    public ArrayList<WorkTask> listWorkTaskOrphansFromWorkPlan() {
+        return this.persistenceTechnologyDelegate.dbListWorkTaskOrphansFromWorkPlan();
     }
 
 	public WorkTask getWorkTask(String aNodeIdString) {
@@ -2366,7 +2399,7 @@ public class FmmDatabaseMediator {
 	//////  Node - WORK PACKAGE  ////////////////////////////////////////////////////////////////////////////////
 
 	public ArrayList<WorkPackage> listWorkPackageForProjectAsset(String aProjectAssetId) {
-		return this.persistenceTechnologyDelegate.dbListWorkPackageForProjectAsset(aProjectAssetId);
+		return this.persistenceTechnologyDelegate.dbListWorkPackagesForProjectAsset(aProjectAssetId);
 	}
 
 	public ArrayList<WorkPackage> listWorkPackage(ProjectAsset aProjectAsset) {
@@ -2382,13 +2415,13 @@ public class FmmDatabaseMediator {
 	}
 
 	public ArrayList<WorkPackage> listWorkPackageForWorkTaskMoveTarget(ProjectAsset aProjectAsset, WorkPackage aWorkPackageException) {
-		return this.persistenceTechnologyDelegate.dbListWorkPackageForWorkTaskMoveTarget(
-				aProjectAsset.getNodeIdString(), aWorkPackageException.getNodeIdString(), true);
+		return this.persistenceTechnologyDelegate.dbListWorkPackagesForWorkTaskMoveTarget(
+                aProjectAsset.getNodeIdString(), aWorkPackageException.getNodeIdString(), true);
 	}
 
 	public ArrayList<WorkPackage> listWorkPackageForWorkTaskMoveTarget(FlywheelMilestone aFlywheelMilestone, WorkPackage aWorkPackageException) {
-		return this.persistenceTechnologyDelegate.dbListWorkPackageForWorkTaskMoveTarget(
-				aFlywheelMilestone.getNodeIdString(), aWorkPackageException.getNodeIdString(), true);
+		return this.persistenceTechnologyDelegate.dbListWorkPackagesForWorkTaskMoveTarget(
+                aFlywheelMilestone.getNodeIdString(), aWorkPackageException.getNodeIdString(), true);
 	}
 
 	public ArrayList<WorkPackage> listWorkPackageOrphansFromProjectAsset() {

@@ -1620,20 +1620,19 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
 	////  Node - PROJECT ASSET  ////////////////////////////////////////////////////////////////////////////////
 
-
 	@Override
-	public ArrayList<ProjectAsset> dbListProjectAsset(Project aProject) {
-		return dbListProjectAsset(aProject, null);
+	public ArrayList<ProjectAsset> dbListProjectAssets(Project aProject) {
+		return dbListProjectAssets(aProject, null);
 	}
 
 	@Override
-	public ArrayList<ProjectAsset> dbListProjectAsset(Project aProject, ProjectAsset aProjectAssetException) {
-		return dbListProjectAssetForProject(aProject.getNodeIdString(), aProjectAssetException == null ? null : aProjectAssetException.getNodeIdString());
+	public ArrayList<ProjectAsset> dbListProjectAssets(Project aProject, ProjectAsset aProjectAssetException) {
+		return dbListProjectsAssetForProject(aProject.getNodeIdString(), aProjectAssetException == null ? null : aProjectAssetException.getNodeIdString());
 	}
 
 	@SuppressWarnings("resource")
 	@Override
-	public ArrayList<ProjectAsset> dbListProjectAssetForProject(String aProjectId, String aProjectAssetExceptionId) {
+	public ArrayList<ProjectAsset> dbListProjectsAssetForProject(String aProjectId, String aProjectAssetExceptionId) {
 		String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.PROJECT_ASSET.getName() +
 			" WHERE " + ProjectAssetMetaData.column_PROJECT_ID + " = '" + aProjectId + "'";
 			if(aProjectAssetExceptionId != null) {
@@ -1646,17 +1645,17 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
 	@Override
 	public ArrayList<ProjectAsset> dbListProjectAsset(StrategicMilestone aStrategicMilestone) {
-		return dbListProjectAsset(aStrategicMilestone, null);
+		return dbListProjectAssets(aStrategicMilestone, null);
 	}
 
 	@Override
-	public ArrayList<ProjectAsset> dbListProjectAsset(StrategicMilestone aStrategicMilestone, ProjectAsset aProjectAssetException) {
-		return dbListProjectAssetForStrategicMilestone(aStrategicMilestone.getNodeIdString(), aProjectAssetException == null ? null : aProjectAssetException.getNodeIdString());
+	public ArrayList<ProjectAsset> dbListProjectAssets(StrategicMilestone aStrategicMilestone, ProjectAsset aProjectAssetException) {
+		return dbListProjectAssetsForStrategicMilestone(aStrategicMilestone.getNodeIdString(), aProjectAssetException == null ? null : aProjectAssetException.getNodeIdString());
 	}
 
 	@SuppressWarnings("resource")
 	@Override
-	public ArrayList<ProjectAsset> dbListProjectAssetForStrategicMilestone(String aStrategicMilestoneId, String aProjectAssetExceptionId) {
+	public ArrayList<ProjectAsset> dbListProjectAssetsForStrategicMilestone(String aStrategicMilestoneId, String aProjectAssetExceptionId) {
 		Cursor theCursor = getSqLiteDatabase().rawQuery(getInnerJoinQueryWithAndSpecSorted(
 				FmmNodeDefinition.PROJECT_ASSET.getName(),
 				IdNodeMetaData.column_ID,
@@ -2297,7 +2296,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
 	@SuppressWarnings("resource")
 	@Override
-	public ArrayList<WorkPackage> dbListWorkPackageForProjectAsset(String aProjectAssetId) {
+	public ArrayList<WorkPackage> dbListWorkPackagesForProjectAsset(String aProjectAssetId) {
 		Cursor theCursor = retrieveAllRowsFromTableForColumnValueSorted(
 				FmmNodeDefinition.WORK_PACKAGE, WorkPackageMetaData.column_PROJECT_ASSET_ID, aProjectAssetId, CompletableNodeMetaData.column_SEQUENCE );
 		return WorkPackageDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
@@ -2311,7 +2310,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
 	@SuppressWarnings("resource")
 	@Override
-	public ArrayList<WorkPackage> dbListWorkPackageForWorkTaskMoveTarget(String aParentNodeId, String aWorkPackageExceptionId, boolean bPrimaryParent) {
+	public ArrayList<WorkPackage> dbListWorkPackagesForWorkTaskMoveTarget(String aParentNodeId, String aWorkPackageExceptionId, boolean bPrimaryParent) {
 		Cursor theCursor;
 		if(bPrimaryParent) {
 			String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.WORK_PACKAGE.getName() +
@@ -2840,14 +2839,25 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//////  Node - WORK TASK  ///////////////////////////////////////////////////////////////////////////////////
 
-	@Override
-	public Collection<WorkTask> dbRetrieveWorkTaskList() {
-		return retrieveAllFmmNodesFromTable(WorkTaskDaoSqLite.getInstance());
-	}
+    public ArrayList<WorkTask> dbListWorkTasksForWorkPackage(String aWorkPackageId, String aWorkTaskExceptionId) {
+        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.WORK_TASK.getName() +
+                " WHERE " + WorkTaskMetaData.column_WORK_PACKAGE__ID + " = '" + aWorkPackageId + "'";
+        if(aWorkTaskExceptionId != null) {
+            theRawQuery += " AND " + IdNodeMetaData.column_ID + " != '" + aWorkTaskExceptionId + "'";
+        }
+        theRawQuery += " ORDER BY " + CompletableNodeMetaData.column_SEQUENCE + " ASC";
+        Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
+        return WorkTaskDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
+    }
 
-    public ArrayList<WorkTask> dbListWorkTasksForWorkPackage(String aWorkPackageNodeIdString) {
-        Cursor theCursor = retrieveAllRowsFromTableForColumnValueSorted(
-                FmmNodeDefinition.WORK_TASK, WorkTaskMetaData.column_WORK_PACKAGE__ID, aWorkPackageNodeIdString, CompletableNodeMetaData.column_SEQUENCE );
+    public ArrayList<WorkTask> dbListWorkTasksForWorkPlan(String aWorkPlanId, String aWorkTaskExceptionId) {
+        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.WORK_TASK.getName() +
+                " WHERE " + WorkTaskMetaData.column_WORK_PLAN__ID + " = '" + aWorkPlanId + "'";
+        if(aWorkTaskExceptionId != null) {
+            theRawQuery += " AND " + IdNodeMetaData.column_ID + " != '" + aWorkTaskExceptionId + "'";
+        }
+        theRawQuery += " ORDER BY " + CompletableNodeMetaData.column_SEQUENCE + " ASC";
+        Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
         return WorkTaskDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
     }
 
@@ -2930,6 +2940,24 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
                 WorkTaskMetaData.column_WORK_PACKAGE__ID,
                 aWorkPackageId );
         return bSuccess;
+    }
+
+    public ArrayList<WorkTask> dbListWorkTaskOrphansFromWorkPackage() {
+        String theRawQuery =
+                "SELECT * FROM " + FmmNodeDefinition.WORK_TASK.getName() +
+                        " WHERE " + WorkTaskMetaData.column_WORK_PACKAGE__ID + " IS NULL" +
+                        " ORDER BY " + HeadlineNodeMetaData.column_HEADLINE + " ASC";
+        Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
+        return WorkTaskDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
+    }
+
+    public ArrayList<WorkTask> dbListWorkTaskOrphansFromWorkPlan() {
+        String theRawQuery =
+                "SELECT * FROM " + FmmNodeDefinition.WORK_TASK.getName() +
+                        " WHERE " + WorkTaskMetaData.column_WORK_PLAN__ID + " IS NULL" +
+                        " ORDER BY " + HeadlineNodeMetaData.column_HEADLINE + " ASC";
+        Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
+        return WorkTaskDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
     }
 
     public boolean dbAdoptOrphanWorkTaskIntoWorkPackage(String aWorkTaskId, String aWorkPackageId, boolean bSequenceAtEnd, boolean bAtomicTransaction) {
