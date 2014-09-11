@@ -99,7 +99,7 @@
                         android:layout_marginBottom="8dp"
                         android:background="@color/pdf__transparent"
                         android:drawableStart="@drawable/fse__list_bullet__gray"
-                        android:padding="@dimen/padding_medium" />
+                        android:padding="@dimen/gcg__padding__medium" />
 
                     <Button
                         android:id="@+id/number__numbered__button"
@@ -108,7 +108,7 @@
                         android:layout_marginBottom="8dp"
                         android:background="@color/pdf__transparent"
                         android:drawableStart="@drawable/fse__list_number__gray"
-                        android:padding="@dimen/padding_medium" />
+                        android:padding="@dimen/gcg__padding__medium" />
 
                     <Button
                         android:id="@+id/number__alpha__button"
@@ -117,7 +117,7 @@
                         android:layout_marginBottom="8dp"
                         android:background="@color/pdf__transparent"
                         android:drawableStart="@drawable/fse__list_alpha__gray"
-                        android:padding="@dimen/padding_medium" />
+                        android:padding="@dimen/gcg__padding__medium" />
 
                     <Button
                         android:id="@+id/fse_number__roman__button"
@@ -126,7 +126,7 @@
                         android:layout_marginBottom="8dp"
                         android:background="@color/pdf__transparent"
                         android:drawableStart="@drawable/fse__list_roman__gray"
-                        android:padding="@dimen/padding_medium" />
+                        android:padding="@dimen/gcg__padding__medium" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -144,7 +144,7 @@
                         android:layout_marginBottom="9dp"
                         android:background="@color/pdf__transparent"
                         android:drawableStart="@drawable/fse_insert__hyper_link__button"
-                        android:padding="@dimen/padding_medium" />
+                        android:padding="@dimen/gcg__padding__medium" />
 
                     <Button
                         android:id="@+id/insert__drawing_pad__button"
@@ -153,7 +153,7 @@
                         android:layout_marginBottom="9dp"
                         android:background="@color/pdf__transparent"
                         android:drawableStart="@drawable/fse_insert__drawing_pad__button"
-                        android:padding="@dimen/padding_medium" />
+                        android:padding="@dimen/gcg__padding__medium" />
 
                     <Button
                         android:id="@+id/insert__image__button"
@@ -161,7 +161,7 @@
                         android:layout_height="wrap_content"
                         android:background="@color/pdf__transparent"
                         android:drawableStart="@drawable/fse_insert__image__button"
-                        android:padding="@dimen/padding_medium" />
+                        android:padding="@dimen/gcg__padding__medium" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -179,7 +179,7 @@
                         android:layout_marginBottom="9dp"
                         android:layout_marginTop="10dp"
                         android:background="@color/pdf__transparent"
-                        android:padding="@dimen/padding_medium" />
+                        android:padding="@dimen/gcg__padding__medium" />
 
                     <com.flywheelms.library.fse.widget.FseParagraphUnlockButton
                         android:id="@+id/lock__unlock__button"
@@ -187,7 +187,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="25dp"
                         android:background="@color/pdf__transparent"
-                        android:padding="@dimen/padding_medium" />
+                        android:padding="@dimen/gcg__padding__medium" />
 
                     <Button
                         android:id="@+id/lock__history__button"
@@ -195,7 +195,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="25dp"
                         android:background="@drawable/fse__paragraph_history"
-                        android:padding="@dimen/padding_medium" />
+                        android:padding="@dimen/gcg__padding__medium" />
                 </RelativeLayout>
             </FrameLayout>
 
