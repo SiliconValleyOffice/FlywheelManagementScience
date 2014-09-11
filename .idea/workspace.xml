@@ -34,16 +34,60 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c0b3b16b-24dc-4ad0-83f8-e1821de85d20" name="Default" comment="incremental - adopt orphan WorkTask into WorkPackage">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flywheelmshd/src/main/res/drawable-hdpi/icon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flywheelmshd/src/main/res/drawable-ldpi/icon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flywheelmshd/src/main/res/drawable-ldpi/menu_heading__background__old.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flywheelmshd/src/main/res/drawable-ldpi/menu_heading__spinner__arrow__old.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flywheelmshd/src/main/res/drawable-ldpi/menu_heading__spinner__background__old.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flywheelmshd/src/main/res/drawable-ldpi/text_view_border.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flywheelmshd/src/main/res/drawable-mdpi/commitment__confirm_all.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flywheelmshd/src/main/res/drawable-mdpi/commitment__destroy.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flywheelmshd/src/main/res/drawable-mdpi/commitment__edit.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flywheelmshd/src/main/res/drawable-mdpi/commitment__flywheel.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flywheelmshd/src/main/res/drawable-mdpi/commitment__management.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flywheelmshd/src/main/res/drawable-mdpi/commitment__strategic.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flywheelmshd/src/main/res/drawable-mdpi/commitment__unavailable.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flywheelmshd/src/main/res/drawable-mdpi/commitments.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flywheelmshd/src/main/res/drawable-mdpi/commitments__none.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flywheelmshd/src/main/res/drawable-mdpi/commitments__not_confirmed.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flywheelmshd/src/main/res/drawable-mdpi/commitments_proposed.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flywheelmshd/src/main/res/drawable-mdpi/filter_button__completion__conditional.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flywheelmshd/src/main/res/drawable-mdpi/icon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flywheelmshd/src/main/res/drawable-mdpi/repository__add.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flywheelmshd/src/main/res/drawable-mdpi/repository__admin_request.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flywheelmshd/src/main/res/drawable-mdpi/repository__administration.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flywheelmshd/src/main/res/drawable-mdpi/repository__delete.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flywheelmshd/src/main/res/drawable-mdpi/repository__new.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flywheelmshd/src/main/res/drawable-mdpi/repository__properties.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flywheelmshd/src/main/res/drawable-mdpi/repository__remove.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flywheelmshd/src/main/res/drawable-mdpi/repository__rename.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flywheelmshd/src/main/res/drawable-mdpi/repository__work_offline.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flywheelmshd/src/main/res/drawable-mdpi/team_role__add.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flywheelmshd/src/main/res/drawable-mdpi/team_role__custom_list.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flywheelmshd/src/main/res/drawable-mdpi/team_role__destroy.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flywheelmshd/src/main/res/drawable-mdpi/team_role__functional_list.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flywheelmshd/src/main/res/drawable-mdpi/team_role__import.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flywheelmshd/src/main/res/drawable-mdpi/team_role__list.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flywheelmshd/src/main/res/drawable-mdpi/team_role__members.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flywheelmshd/src/main/res/drawable-mdpi/team_role__new.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flywheelmshd/src/main/res/drawable-mdpi/team_role__none.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flywheelmshd/src/main/res/drawable-mdpi/team_role__rename.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/flywheelmshd/src/main/res/drawable-mdpi/team_role__standard_list.gif" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/flywheelmshd/src/main/res/drawable-hdpi/ic_action_search.png" afterPath="$PROJECT_DIR$/flywheelmshd/src/main/res/drawable-hdpi/gcg__generic__search.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/flywheelmshd/src/main/res/drawable-mdpi/ic_action_search.png" afterPath="$PROJECT_DIR$/flywheelmshd/src/main/res/drawable-mdpi/gcg__generic__search.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/flywheelmshd/src/main/res/drawable-mdpi/icon_missing.png" afterPath="$PROJECT_DIR$/flywheelmshd/src/main/res/drawable-mdpi/gcg__icon_missing.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/flywheelmshd/src/main/res/drawable-xhdpi/ic_action_search.png" afterPath="$PROJECT_DIR$/flywheelmshd/src/main/res/drawable-xhdpi/gcg__generic__search.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/flywheelmshd/build/intermediates/exploded-aar/flywheelms-workbench/flywheelmslibraryhd/unspecified/classes.jar" afterPath="$PROJECT_DIR$/flywheelmshd/build/intermediates/exploded-aar/flywheelms-workbench/flywheelmslibraryhd/unspecified/classes.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/design/gui/Image Library/Legacy/GimpFiles/DecKanGlTemplate/DecoratedKanbanGlyphs.txt" afterPath="$PROJECT_DIR$/design/gui/Image Library/Legacy/GimpFiles/DecKanGlTemplate/DecoratedKanbanGlyphs.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/design/gui/Image Library/Legacy/GimpFiles/buttons/FlywheelMsButton.py" afterPath="$PROJECT_DIR$/design/gui/Image Library/Legacy/GimpFiles/buttons/FlywheelMsButton.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/FmmDatabaseMediator.java" afterPath="$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/FmmDatabaseMediator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/persistence/PersistenceTechnologyDelegate.java" afterPath="$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/persistence/PersistenceTechnologyDelegate.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/persistence/PersistenceTechnologyDelegateSqLite.java" afterPath="$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fmm/persistence/PersistenceTechnologyDelegateSqLite.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fms/widget/spinner/WorkTaskWidgetSpinner.java" afterPath="$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fms/widget/spinner/WorkTaskWidgetSpinner.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/flywheelmshd/build/generated/source/r/debug/com/flywheelms/fwb/R.java" afterPath="$PROJECT_DIR$/flywheelmshd/build/generated/source/r/debug/com/flywheelms/fwb/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/flywheelmshd/build/generated/source/r/debug/com/flywheelms/library/R.java" afterPath="$PROJECT_DIR$/flywheelmshd/build/generated/source/r/debug/com/flywheelms/library/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/flywheelmslibraryhd/build/generated/source/r/debug/com/flywheelms/library/R.java" afterPath="$PROJECT_DIR$/flywheelmslibraryhd/build/generated/source/r/debug/com/flywheelms/library/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/flywheelmslibraryhd/build/generated/source/r/release/com/flywheelms/library/R.java" afterPath="$PROJECT_DIR$/flywheelmslibraryhd/build/generated/source/r/release/com/flywheelms/library/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/flywheelmshd/build/intermediates/exploded-aar/flywheelms-workbench/flywheelmslibraryhd/unspecified/R.txt" afterPath="$PROJECT_DIR$/flywheelmshd/build/intermediates/exploded-aar/flywheelms-workbench/flywheelmslibraryhd/unspecified/R.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/design/gui/Image Library/Legacy/16x16/unUsed/idea.txt" afterPath="$PROJECT_DIR$/design/gui/Image Library/Legacy/16x16/unUsed/idea.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/design/gui/Image Library/Legacy/16x16/project/summary.xml" afterPath="$PROJECT_DIR$/design/gui/Image Library/Legacy/16x16/project/summary.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/flywheelmshd/flywheelmshd.iml" afterPath="$PROJECT_DIR$/flywheelmshd/flywheelmshd.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/flywheelmslibraryhd/flywheelmslibraryhd.iml" afterPath="$PROJECT_DIR$/flywheelmslibraryhd/flywheelmslibraryhd.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/flywheelmshd/src/main/res/layout/label__text_and_glyph.xml" afterPath="$PROJECT_DIR$/flywheelmshd/src/main/res/layout/label__text_and_glyph.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/flywheelmshd/build/intermediates/exploded-aar/flywheelms-workbench/flywheelmslibraryhd/unspecified/res/values/values.xml" afterPath="$PROJECT_DIR$/flywheelmshd/build/intermediates/exploded-aar/flywheelms-workbench/flywheelmslibraryhd/unspecified/res/values/values.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="flywheelms-hd.iws" />
@@ -66,7 +110,29 @@
     <favorites_list name="flywheelms-hd" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="gcg__generic__search.png" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/flywheelmshd/src/main/res/drawable-hdpi/gcg__generic__search.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gcg__generic__search.png" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/flywheelmshd/src/main/res/drawable-mdpi/gcg__generic__search.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gcg__icon_missing.png" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/flywheelmshd/src/main/res/drawable-mdpi/gcg__icon_missing.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -1387,7 +1453,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="5634882710380" />
+        <entry key="$PROJECT_DIR$" value="5639901822371" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -1822,6 +1888,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -1830,9 +1897,170 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flywheelms-hd" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flywheelms-workbench" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flywheelms-hd" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flywheelms-workbench" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flywheelmshd" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flywheelms-hd" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flywheelms-workbench" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flywheelmshd" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flywheelms-hd" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flywheelms-workbench" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flywheelmshd" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flywheelms-hd" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flywheelms-workbench" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flywheelmshd" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drawable-mdpi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flywheelms-hd" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flywheelms-workbench" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flywheelmshd" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drawable-ldpi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flywheelms-hd" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flywheelms-workbench" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flywheelmshd" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drawable-hdpi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="AndroidView" />
       <pane id="PackagesPane" />
     </panes>
@@ -2294,10 +2522,11 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32893497" sideWeight="0.4989953" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32987747" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33553252" sideWeight="0.4989953" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33553252" sideWeight="0.4989953" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39868048" sideWeight="0.5003349" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21835232" sideWeight="0.4964539" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35432017" sideWeight="0.4964539" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32893497" sideWeight="0.4989953" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24983256" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39868048" sideWeight="0.4996651" order="3" side_tool="false" content_ui="tabs" />
@@ -2308,7 +2537,6 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="true" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.3296417" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32893497" sideWeight="0.4989953" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -2406,13 +2634,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/res/layout/work_package__move_into__project_asset.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7131902" vertical-offset="317" max-vertical-offset="1037">
           <caret line="46" column="35" selection-start-line="19" selection-start-column="39" selection-end-line="46" selection-end-column="35" />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fms/dialog/HeadlineNodeMoveDialog.java">
@@ -2426,7 +2654,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.40117994" vertical-offset="0" max-vertical-offset="731">
           <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2434,58 +2661,57 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.84661657" vertical-offset="2667" max-vertical-offset="3400">
           <caret line="190" column="66" selection-start-line="190" selection-start-column="66" selection-end-line="190" selection-end-column="66" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/res/layout/strategic_milestone__project_asset__disposition.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-23.76923" vertical-offset="759" max-vertical-offset="1513">
           <caret line="81" column="36" selection-start-line="81" selection-start-column="36" selection-end-line="81" selection-end-column="36" />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/res/layout/project__project_asset__disposition.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-23.76923" vertical-offset="759" max-vertical-offset="1513">
           <caret line="81" column="36" selection-start-line="81" selection-start-column="36" selection-end-line="81" selection-end-column="36" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/res/layout/project__disposition.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/res/layout/project__disposition.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-23.76923" vertical-offset="504" max-vertical-offset="1258">
           <caret line="66" column="36" selection-start-line="66" selection-start-column="36" selection-end-line="66" selection-end-column="36" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/res/layout/flywheel_milestone__disposition.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/res/layout/flywheel_milestone__disposition.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.40030676" vertical-offset="538" max-vertical-offset="1292">
           <caret line="47" column="43" selection-start-line="47" selection-start-column="43" selection-end-line="47" selection-end-column="43" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/res/layout/strategic_milestone__disposition.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/res/layout/strategic_milestone__disposition.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-17.846153" vertical-offset="250" max-vertical-offset="1258">
           <caret line="42" column="70" selection-start-line="42" selection-start-column="47" selection-end-line="42" selection-end-column="70" />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fms/dialog/StrategicMilestoneMoveDialog.java">
@@ -2523,13 +2749,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/gcg/widget/GcgWidgetSpinner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2504" max-vertical-offset="5610">
-          <caret line="244" column="0" selection-start-line="244" selection-start-column="0" selection-end-line="244" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fms/widget/FmmHeadlineNodeWidgetSpinner.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="5" max-vertical-offset="4012">
@@ -2559,61 +2778,23 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/res/layout/project_asset__work_package__disposition.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-47.73077" vertical-offset="0" max-vertical-offset="1666">
           <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
         </state>
       </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/res/layout/gcg__dialog_body__cancel_ok.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1008">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/res/layout/gcg__button_panel__cancel_ok.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1008">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/res/layout/fmm__headline_node__delete__dialog.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="629">
           <caret line="15" column="38" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/res/values/gcg__styles.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1202" max-vertical-offset="2992">
-          <caret line="84" column="17" selection-start-line="84" selection-start-column="17" selection-end-line="84" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/res/layout/gcg__button_panel__cancel_ok__vertical.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="476">
-          <caret line="2" column="39" selection-start-line="2" selection-start-column="39" selection-end-line="2" selection-end-column="39" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fms/dialog/FmmManagementDialog.java">
@@ -2631,13 +2812,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/res/layout/work_package__work_task__disposition.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="776" max-vertical-offset="1819">
           <caret line="77" column="44" selection-start-line="77" selection-start-column="44" selection-end-line="77" selection-end-column="44" />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fms/dialog/FmsCancelOkDialog.java">
@@ -2652,16 +2833,6 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="816">
           <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/res/layout/gcg__dialog_body__cancel_ok__vertical.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="476">
-          <caret line="12" column="39" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="39" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fms/dialog/FmsDialog.java">
@@ -2723,13 +2894,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/res/layout/work_package__adoption_into__project_asset.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="799">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fms/widget/spinner/WorkPackageWidgetSpinner.java">
@@ -2740,20 +2911,19 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/res/layout/work_task__adoption_into__work_package.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.547546" vertical-offset="0" max-vertical-offset="799">
           <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/flywheelmslibraryhd/src/main/java/com/flywheelms/library/fms/dialog/WorkPackageAdoptOrphanWorkTaskDialog.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612">
           <caret line="65" column="89" selection-start-line="65" selection-start-column="89" selection-end-line="65" selection-end-column="89" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2767,12 +2937,12 @@
         <state vertical-scroll-proportion="0.63909775" vertical-offset="49691" max-vertical-offset="51493">
           <caret line="2956" column="73" selection-start-line="2956" selection-start-column="73" selection-end-line="2956" selection-end-column="73" />
           <folding>
-            <element signature="e#0#143274#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-            <element signature="e#11191#11199#0" expanded="true" />
-            <element signature="e#11790#11798#0" expanded="true" />
-            <element signature="e#12430#12438#0" expanded="true" />
-            <element signature="e#13200#13208#0" expanded="true" />
+            <element signature="e#0#143274#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#11191#11199#0" expanded="false" />
+            <element signature="e#11790#11798#0" expanded="false" />
+            <element signature="e#12430#12438#0" expanded="false" />
+            <element signature="e#13200#13208#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2781,7 +2951,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7413534" vertical-offset="10795" max-vertical-offset="11764">
           <caret line="737" column="3" selection-start-line="737" selection-start-column="3" selection-end-line="737" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2789,11 +2958,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.45155993" vertical-offset="30359" max-vertical-offset="44625">
           <caret line="1818" column="72" selection-start-line="1818" selection-start-column="72" selection-end-line="1818" selection-end-column="72" />
-          <folding>
-            <element signature="e#0#113737#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-            <element signature="e#7378#7407#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2801,12 +2965,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.37315634" vertical-offset="818" max-vertical-offset="1496">
           <caret line="117" column="49" selection-start-line="117" selection-start-column="49" selection-end-line="117" selection-end-column="49" />
-          <folding>
-            <element signature="e#3325#3326#0" expanded="true" />
-            <element signature="e#3381#3382#0" expanded="true" />
-            <element signature="e#5048#5060#0" expanded="true" />
-            <element signature="e#5327#5339#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2814,8 +2972,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.028571429" vertical-offset="8226" max-vertical-offset="8891">
           <caret line="594" column="77" selection-start-line="594" selection-start-column="77" selection-end-line="594" selection-end-column="77" />
-          <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flywheelmshd/src/main/res/drawable-hdpi/gcg__generic__search.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flywheelmshd/src/main/res/drawable-mdpi/gcg__generic__search.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flywheelmshd/src/main/res/drawable-mdpi/gcg__icon_missing.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
   </component>
