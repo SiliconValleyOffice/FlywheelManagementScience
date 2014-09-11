@@ -41,17 +41,17 @@
 ** <http://www.gnu.org/licenses/gpl-3.0.html>.
 */
 
-package com.flywheelms.fwb.view_flipper;
+package com.flywheelms.fwb.perspective_flipper;
 
 import android.content.Context;
 import android.util.AttributeSet;
 
 import com.flywheelms.fwb.R;
+import com.flywheelms.fwb.perspective.FwbQualityServiceDeliveryPerspective;
+import com.flywheelms.fwb.perspective.FwbQualityStrategicPlanningPerspective;
+import com.flywheelms.fwb.perspective.FwbQualityWorkBreakdownPerspective;
+import com.flywheelms.fwb.perspective.FwbQualityWorkPlanningPerspective;
 import com.flywheelms.library.fmm.context.FmmFrame;
-import com.flywheelms.library.fwb.view_flipper.view.FwbQualityServiceDeliveryPerspective;
-import com.flywheelms.library.fwb.view_flipper.view.FwbQualityStrategicPlanningPerspective;
-import com.flywheelms.library.fwb.view_flipper.view.FwbQualityWorkBreakdownPerspective;
-import com.flywheelms.library.fwb.view_flipper.view.FwbQualityWorkPlanningPerspective;
 import com.flywheelms.library.gcg.GcgActivity;
 import com.flywheelms.library.gcg.menu.GcgFrameSpinner;
 import com.flywheelms.library.gcg.viewflipper.GcgPerspectiveFlipper;

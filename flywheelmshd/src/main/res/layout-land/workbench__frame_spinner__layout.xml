@@ -25,203 +25,203 @@
             android:layout_height="match_parent"
             android:layout_weight="1" >
 
-            <com.flywheelms.fwb.view_flipper.FwbContextPerspectiveFlipper
+            <com.flywheelms.fwb.perspective_flipper.FwbContextPerspectiveFlipper
                 android:id="@+id/context_frame__perspective_flipper"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" >
 
                 <!-- page 1 -->
 
-                <com.flywheelms.library.fwb.view_flipper.view.FwbContextStrategicPlanningPerspective
+                <com.flywheelms.fwb.perspective.FwbContextStrategicPlanningPerspective
                     android:id="@+id/fwb_context__strategic_planning"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
 
                 <!-- page 5 -->
 
-                <com.flywheelms.library.fwb.view_flipper.view.FwbContextAnalysisPerspective
+                <com.flywheelms.fwb.perspective.FwbContextAnalysisPerspective
                     android:id="@+id/fwb_context__analysis"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
 
                 <!-- page 4 -->
 
-                <com.flywheelms.library.fwb.view_flipper.view.FwbContextServiceDeliveryPerspective
+                <com.flywheelms.fwb.perspective.FwbContextServiceDeliveryPerspective
                     android:id="@+id/fwb_context__service_delivery"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
 
                 <!-- page 3 -->
 
-                <com.flywheelms.library.fwb.view_flipper.view.FwbContextWorkPlanningPerspective
+                <com.flywheelms.fwb.perspective.FwbContextWorkPlanningPerspective
                     android:id="@+id/fwb_context__work_planning"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
 
                 <!-- page 2 -->
 
-                <com.flywheelms.library.fwb.view_flipper.view.FwbContextWorkBreakdownPerspective
+                <com.flywheelms.fwb.perspective.FwbContextWorkBreakdownPerspective
                     android:id="@+id/fwb_context__work_breakdown"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
-            </com.flywheelms.fwb.view_flipper.FwbContextPerspectiveFlipper>
+            </com.flywheelms.fwb.perspective_flipper.FwbContextPerspectiveFlipper>
 
-            <com.flywheelms.fwb.view_flipper.FwbVelocityPerspectiveFlipper
+            <com.flywheelms.fwb.perspective_flipper.FwbVelocityPerspectiveFlipper
                 android:id="@+id/velocity_frame__perspective_flipper"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" >
 
                 <!-- page 1 -->
 
-                <com.flywheelms.library.fwb.view_flipper.view.FwbVelocityCompletionPerspective
+                <com.flywheelms.fwb.perspective.FwbVelocityCompletionPerspective
                     android:id="@+id/fwb_velocity__completion"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
 
                 <!-- page 6 -->
 
-                <com.flywheelms.library.fwb.view_flipper.view.FwbVelocityWorkPlanningPerspective
+                <com.flywheelms.fwb.perspective.FwbVelocityWorkPlanningPerspective
                     android:id="@+id/fwb_velocity__work_planning"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
 
                 <!-- page 5 -->
 
-                <com.flywheelms.library.fwb.view_flipper.view.FwbVelocityBudgetingPerspective
+                <com.flywheelms.fwb.perspective.FwbVelocityBudgetingPerspective
                     android:id="@+id/fwb_velocity__budgeting"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
 
                 <!-- page 4 -->
 
-                <com.flywheelms.library.fwb.view_flipper.view.FwbVelocityWorkBreakdownPerspective
+                <com.flywheelms.fwb.perspective.FwbVelocityWorkBreakdownPerspective
                     android:id="@+id/fwb_velocity__work_breakdown"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
 
                 <!-- page 3 -->
 
-                <com.flywheelms.library.fwb.view_flipper.view.FwbVelocityStoryPerspective
+                <com.flywheelms.fwb.perspective.FwbVelocityStoryPerspective
                     android:id="@+id/fwb_velocity__story"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
 
                 <!-- page 2 -->
 
-                <com.flywheelms.library.fwb.view_flipper.view.FwbVelocityGovernancePerspective
+                <com.flywheelms.fwb.perspective.FwbVelocityGovernancePerspective
                     android:id="@+id/fwb_velocity__governance"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
-            </com.flywheelms.fwb.view_flipper.FwbVelocityPerspectiveFlipper>
+            </com.flywheelms.fwb.perspective_flipper.FwbVelocityPerspectiveFlipper>
 
-            <com.flywheelms.fwb.view_flipper.FwbQualityPerspectiveFlipper
+            <com.flywheelms.fwb.perspective_flipper.FwbQualityPerspectiveFlipper
                 android:id="@+id/quality_frame__perspective_flipper"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" >
 
                 <!-- page 1 -->
 
-                <com.flywheelms.library.fwb.view_flipper.view.FwbQualityStrategicPlanningPerspective
+                <com.flywheelms.fwb.perspective.FwbQualityStrategicPlanningPerspective
                     android:id="@+id/fwb_tribkn_quality__strategic_planning"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
 
                 <!-- page 4 -->
 
-                <com.flywheelms.library.fwb.view_flipper.view.FwbQualityServiceDeliveryPerspective
+                <com.flywheelms.fwb.perspective.FwbQualityServiceDeliveryPerspective
                     android:id="@+id/fwb_tribkn_quality__service_delivery"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
 
                 <!-- page 3 -->
 
-                <com.flywheelms.library.fwb.view_flipper.view.FwbQualityWorkPlanningPerspective
+                <com.flywheelms.fwb.perspective.FwbQualityWorkPlanningPerspective
                     android:id="@+id/fwb_tribkn_quality__work_planning"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
 
                 <!-- page 2 -->
 
-                <com.flywheelms.library.fwb.view_flipper.view.FwbQualityWorkBreakdownPerspective
+                <com.flywheelms.fwb.perspective.FwbQualityWorkBreakdownPerspective
                     android:id="@+id/fwb_tribkn_quality__work_breakdown"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
-            </com.flywheelms.fwb.view_flipper.FwbQualityPerspectiveFlipper>
+            </com.flywheelms.fwb.perspective_flipper.FwbQualityPerspectiveFlipper>
 
-            <com.flywheelms.fwb.view_flipper.FwbTeamPerspectiveFlipper
+            <com.flywheelms.fwb.perspective_flipper.FwbTeamPerspectiveFlipper
                 android:id="@+id/team_frame__perspective_flipper"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" >
 
                 <!-- page 1 -->
 
-                <com.flywheelms.library.fwb.view_flipper.view.FwbTeamsStrategyPerspective
+                <com.flywheelms.fwb.perspective.FwbTeamsStrategyPerspective
                     android:id="@+id/fwb_teams__strategy"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
 
                 <!-- page 4 -->
 
-                <com.flywheelms.library.fwb.view_flipper.view.FwbTeamsGovernancePerspective
+                <com.flywheelms.fwb.perspective.FwbTeamsGovernancePerspective
                     android:id="@+id/fwb_teams__governance"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
 
                 <!-- page 3 -->
 
-                <com.flywheelms.library.fwb.view_flipper.view.FwbTeamsFunctionalPerspective
+                <com.flywheelms.fwb.perspective.FwbTeamsFunctionalPerspective
                     android:id="@+id/fwb_teams__functional"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
 
                 <!-- page 2 -->
 
-                <com.flywheelms.library.fwb.view_flipper.view.FwbTeamsFlywheelPerspective
+                <com.flywheelms.fwb.perspective.FwbTeamsFlywheelPerspective
                     android:id="@+id/fwb_teams__flywheel"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
-            </com.flywheelms.fwb.view_flipper.FwbTeamPerspectiveFlipper>
+            </com.flywheelms.fwb.perspective_flipper.FwbTeamPerspectiveFlipper>
 
-            <com.flywheelms.fwb.view_flipper.FwbCommitmentsPerspectiveFlipper
+            <com.flywheelms.fwb.perspective_flipper.FwbCommitmentsPerspectiveFlipper
                 android:id="@+id/commitments_frame__perspective_flipper"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" >
 
                 <!-- page 1 -->
 
-                <com.flywheelms.library.fwb.view_flipper.view.FwbCommitmentsConfirmedPerspective
+                <com.flywheelms.fwb.perspective.FwbCommitmentsConfirmedPerspective
                     android:id="@+id/fwb_commitments__confirmed"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
 
                 <!-- page 5 -->
 
-                <com.flywheelms.library.fwb.view_flipper.view.FwbCommitmentsWithdrawnPerspective
+                <com.flywheelms.fwb.perspective.FwbCommitmentsWithdrawnPerspective
                     android:id="@+id/fwb_commitments__confirmed_and_withdrawn"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
 
                 <!-- page 4 -->
 
-                <com.flywheelms.library.fwb.view_flipper.view.FwbCommitmentsDeclinedPerspective
+                <com.flywheelms.fwb.perspective.FwbCommitmentsDeclinedPerspective
                     android:id="@+id/fwb_commitments__proposed_and_declined"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
 
                 <!-- page 3 -->
 
-                <com.flywheelms.library.fwb.view_flipper.view.FwbCommitmentsSuggestedPerspective
+                <com.flywheelms.fwb.perspective.FwbCommitmentsSuggestedPerspective
                     android:id="@+id/fwb_commitments__suggested"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
 
                 <!-- page 2 -->
 
-                <com.flywheelms.library.fwb.view_flipper.view.FwbCommitmentsProposedPerspective
+                <com.flywheelms.fwb.perspective.FwbCommitmentsProposedPerspective
                     android:id="@+id/fwb_commitments__proposed"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
-            </com.flywheelms.fwb.view_flipper.FwbCommitmentsPerspectiveFlipper>
+            </com.flywheelms.fwb.perspective_flipper.FwbCommitmentsPerspectiveFlipper>
         </FrameLayout>
     </LinearLayout>
 

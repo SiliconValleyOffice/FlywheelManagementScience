@@ -41,19 +41,19 @@
 ** <http://www.gnu.org/licenses/gpl-3.0.html>.
 */
 
-package com.flywheelms.fwb.view_flipper;
+package com.flywheelms.fwb.perspective_flipper;
 
 import android.content.Context;
 import android.util.AttributeSet;
 
 import com.flywheelms.fwb.R;
+import com.flywheelms.fwb.perspective.FwbVelocityBudgetingPerspective;
+import com.flywheelms.fwb.perspective.FwbVelocityCompletionPerspective;
+import com.flywheelms.fwb.perspective.FwbVelocityGovernancePerspective;
+import com.flywheelms.fwb.perspective.FwbVelocityStoryPerspective;
+import com.flywheelms.fwb.perspective.FwbVelocityWorkBreakdownPerspective;
+import com.flywheelms.fwb.perspective.FwbVelocityWorkPlanningPerspective;
 import com.flywheelms.library.fmm.context.FmmFrame;
-import com.flywheelms.library.fwb.view_flipper.view.FwbVelocityBudgetingPerspective;
-import com.flywheelms.library.fwb.view_flipper.view.FwbVelocityCompletionPerspective;
-import com.flywheelms.library.fwb.view_flipper.view.FwbVelocityGovernancePerspective;
-import com.flywheelms.library.fwb.view_flipper.view.FwbVelocityStoryPerspective;
-import com.flywheelms.library.fwb.view_flipper.view.FwbVelocityWorkBreakdownPerspective;
-import com.flywheelms.library.fwb.view_flipper.view.FwbVelocityWorkPlanningPerspective;
 import com.flywheelms.library.gcg.GcgActivity;
 import com.flywheelms.library.gcg.menu.GcgFrameSpinner;
 import com.flywheelms.library.gcg.viewflipper.GcgPerspectiveFlipper;

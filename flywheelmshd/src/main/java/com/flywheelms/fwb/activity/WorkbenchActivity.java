@@ -51,11 +51,11 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.flywheelms.fwb.dialog.FlywheelMsAboutDialog;
-import com.flywheelms.fwb.view_flipper.FwbCommitmentsPerspectiveFlipper;
-import com.flywheelms.fwb.view_flipper.FwbContextPerspectiveFlipper;
-import com.flywheelms.fwb.view_flipper.FwbQualityPerspectiveFlipper;
-import com.flywheelms.fwb.view_flipper.FwbTeamPerspectiveFlipper;
-import com.flywheelms.fwb.view_flipper.FwbVelocityPerspectiveFlipper;
+import com.flywheelms.fwb.perspective_flipper.FwbCommitmentsPerspectiveFlipper;
+import com.flywheelms.fwb.perspective_flipper.FwbContextPerspectiveFlipper;
+import com.flywheelms.fwb.perspective_flipper.FwbQualityPerspectiveFlipper;
+import com.flywheelms.fwb.perspective_flipper.FwbTeamPerspectiveFlipper;
+import com.flywheelms.fwb.perspective_flipper.FwbVelocityPerspectiveFlipper;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.FmmDatabaseTemplate;

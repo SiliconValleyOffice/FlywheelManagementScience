@@ -41,18 +41,18 @@
 ** <http://www.gnu.org/licenses/gpl-3.0.html>.
 */
 
-package com.flywheelms.fwb.view_flipper;
+package com.flywheelms.fwb.perspective_flipper;
 
 import android.content.Context;
 import android.util.AttributeSet;
 
 import com.flywheelms.fwb.R;
+import com.flywheelms.fwb.perspective.FwbCommitmentsConfirmedPerspective;
+import com.flywheelms.fwb.perspective.FwbCommitmentsDeclinedPerspective;
+import com.flywheelms.fwb.perspective.FwbCommitmentsProposedPerspective;
+import com.flywheelms.fwb.perspective.FwbCommitmentsSuggestedPerspective;
+import com.flywheelms.fwb.perspective.FwbCommitmentsWithdrawnPerspective;
 import com.flywheelms.library.fmm.context.FmmFrame;
-import com.flywheelms.library.fwb.view_flipper.view.FwbCommitmentsConfirmedPerspective;
-import com.flywheelms.library.fwb.view_flipper.view.FwbCommitmentsDeclinedPerspective;
-import com.flywheelms.library.fwb.view_flipper.view.FwbCommitmentsProposedPerspective;
-import com.flywheelms.library.fwb.view_flipper.view.FwbCommitmentsSuggestedPerspective;
-import com.flywheelms.library.fwb.view_flipper.view.FwbCommitmentsWithdrawnPerspective;
 import com.flywheelms.library.gcg.GcgActivity;
 import com.flywheelms.library.gcg.menu.GcgFrameSpinner;
 import com.flywheelms.library.gcg.viewflipper.GcgPerspectiveFlipper;
