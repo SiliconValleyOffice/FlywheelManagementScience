@@ -1,0 +1,17 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_vertical"
+    android:background="@color/gcg__dialog__background"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/gcg_view_flipper__title_bar__include"
+        layout="@layout/gcg__view_flipper__title_bar" />
+    
+    <com.flywheelms.library.fms.component.FmsDecKanGlNavigationComponent
+        android:id="@+id/deckangl__navigation_widget"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
