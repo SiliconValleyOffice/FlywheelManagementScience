@@ -1,5 +1,0 @@
-CREATE TRIGGER FmsOrganization_update_timestamp
-    AFTER UPDATE ON FmsOrganization
-    BEGIN
-      UPDATE FmsOrganization SET timestamp = datetime('now') WHERE _id = old. _id;
-    END; 
