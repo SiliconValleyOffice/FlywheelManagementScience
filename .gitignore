@@ -29,11 +29,6 @@ local.properties
 .idea/modules.xml
 .idea/scopes/scope_settings.xml
 .idea/vcs.xml
-*.iml
-
-# Eclipse project files
-.classpath
-.project
 
 # Android Studio
 .idea/
@@ -44,7 +39,6 @@ gradle
 /*/*/build
 build
 /*/*/production
-*.iml
 *.iws
 *.ipr
 *~
