@@ -57,8 +57,8 @@ public class FseParagraphStyleDemoteButton extends GcgMultiShiftClientButton {
 	private static HashMap<GcgMultiShiftState, Integer> supportedStateHashTable =
 			new HashMap<GcgMultiShiftState, Integer>();
 	static {
-		FseParagraphStyleDemoteButton.supportedStateHashTable.put(GcgMultiShiftState.OFF, R.drawable.button_state_list__style_demote__gray);
-		FseParagraphStyleDemoteButton.supportedStateHashTable.put(GcgMultiShiftState.ALT, R.drawable.button_state_list__style_demote__yellow);
+		FseParagraphStyleDemoteButton.supportedStateHashTable.put(GcgMultiShiftState.OFF, R.drawable.fse__button_state_list__style_demote__gray);
+		FseParagraphStyleDemoteButton.supportedStateHashTable.put(GcgMultiShiftState.ALT, R.drawable.fse__button_state_list__style_demote__yellow);
 //		FseParagraphStyleDemoteButton.supportedStateHashTable.put(GcgMultiShiftState.ALT_SHIFT, R.drawable.fse__style_demote__green);
 	}
 	

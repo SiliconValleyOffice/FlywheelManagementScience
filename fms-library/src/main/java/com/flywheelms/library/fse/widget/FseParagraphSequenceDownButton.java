@@ -58,8 +58,8 @@ public class FseParagraphSequenceDownButton extends GcgMultiShiftClientButton {
 	private static HashMap<GcgMultiShiftState, Integer> supportedStateHashTable =
 			new HashMap<GcgMultiShiftState, Integer>();
 	static {
-		FseParagraphSequenceDownButton.supportedStateHashTable.put(GcgMultiShiftState.OFF, R.drawable.button_state_list__sequence_down__gray);
-		FseParagraphSequenceDownButton.supportedStateHashTable.put(GcgMultiShiftState.ALT, R.drawable.button_state_list__sequence_down__yellow);
+		FseParagraphSequenceDownButton.supportedStateHashTable.put(GcgMultiShiftState.OFF, R.drawable.fse__button_state_list__sequence_down__gray);
+		FseParagraphSequenceDownButton.supportedStateHashTable.put(GcgMultiShiftState.ALT, R.drawable.fse__button_state_list__sequence_down__yellow);
 //		FseParagraphMoveDownButton.supportedStateHashTable.put(GcgMultiShiftState.ALT_SHIFT, R.drawable.fse__style_demote__green);
 	}
 	

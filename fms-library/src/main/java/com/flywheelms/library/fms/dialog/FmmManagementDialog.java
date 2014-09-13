@@ -73,6 +73,11 @@ public class FmmManagementDialog extends FmsCancelDialog {
 		return R.drawable.fmm_repository;
 	}
 
+    @Override
+    protected int getCustomDialogContentsResourceId() {
+        return R.layout.fmm__management__dialog;
+    }
+
 	@Override
 	protected void initializeDialogBody() {
 		super.initializeDialogBody();
@@ -97,11 +102,6 @@ public class FmmManagementDialog extends FmsCancelDialog {
 	@Override
 	public void refreshDialog() {
 		this.repositoryList.updateListData(this.accessScopeSpinner.getFmmAccessScope());
-	}
-
-	@Override
-	protected int getCustomDialogContentsResourceId() {
-		return R.layout.fmm__management__dialog;
 	}
 
 	@Override

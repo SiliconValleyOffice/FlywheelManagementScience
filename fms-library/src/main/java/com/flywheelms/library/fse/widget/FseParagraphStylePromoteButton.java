@@ -57,8 +57,8 @@ public class FseParagraphStylePromoteButton extends GcgMultiShiftClientButton {
 	private static HashMap<GcgMultiShiftState, Integer> supportedStateHashTable =
 			new HashMap<GcgMultiShiftState, Integer>();
 	static {
-		FseParagraphStylePromoteButton.supportedStateHashTable.put(GcgMultiShiftState.OFF, R.drawable.button_state_list__style_promote__gray);
-		FseParagraphStylePromoteButton.supportedStateHashTable.put(GcgMultiShiftState.ALT, R.drawable.button_state_list__style_promote__yellow);
+		FseParagraphStylePromoteButton.supportedStateHashTable.put(GcgMultiShiftState.OFF, R.drawable.fse__button_state_list__style_promote__gray);
+		FseParagraphStylePromoteButton.supportedStateHashTable.put(GcgMultiShiftState.ALT, R.drawable.fse__button_state_list__style_promote__yellow);
 //		FseParagraphStylePromoteButton.supportedStateHashTable.put(GcgMultiShiftState.ALT_SHIFT, R.drawable.fse__style_promote__green);
 	}
 	

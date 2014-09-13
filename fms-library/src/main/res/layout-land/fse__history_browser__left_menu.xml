@@ -19,7 +19,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="@dimen/menu_button__bottom_margin"
             android:layout_marginTop="22dp"
-            android:drawableStart="@drawable/button_state_list__fse__story"
+            android:drawableStart="@drawable/fse__button_state_list__story"
             android:onClick="onClickDocumentStory" />
 
         <Button
@@ -30,7 +30,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="@dimen/menu_button__bottom_margin"
             android:layout_marginTop="11dp"
-            android:drawableStart="@drawable/button_state_list__fse__notes"
+            android:drawableStart="@drawable/fse__button_state_list__notes"
             android:onClick="onClickDocumentNotes" />
     </LinearLayout>
 

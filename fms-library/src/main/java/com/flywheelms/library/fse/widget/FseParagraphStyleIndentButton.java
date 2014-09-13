@@ -58,8 +58,8 @@ public class FseParagraphStyleIndentButton extends GcgMultiShiftClientButton {
 	private static HashMap<GcgMultiShiftState, Integer> supportedStateHashTable =
 			new HashMap<GcgMultiShiftState, Integer>();
 	static {
-		FseParagraphStyleIndentButton.supportedStateHashTable.put(GcgMultiShiftState.OFF, R.drawable.button_state_list__style_indent__gray);
-		FseParagraphStyleIndentButton.supportedStateHashTable.put(GcgMultiShiftState.ALT, R.drawable.button_state_list__style_indent__yellow);
+		FseParagraphStyleIndentButton.supportedStateHashTable.put(GcgMultiShiftState.OFF, R.drawable.fse__button_state_list__style_indent__gray);
+		FseParagraphStyleIndentButton.supportedStateHashTable.put(GcgMultiShiftState.ALT, R.drawable.fse__button_state_list__style_indent__yellow);
 //		FseParagraphStyleIndentButton.supportedStateHashTable.put(GcgMultiShiftState.ALT_SHIFT, R.drawable.fse__style_indent__green);
 	}
 	

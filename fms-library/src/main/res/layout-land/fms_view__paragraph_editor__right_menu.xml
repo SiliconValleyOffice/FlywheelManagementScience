@@ -126,7 +126,7 @@
                                 android:layout_alignParentTop="true"
                                 android:layout_marginBottom="8dp"
                                 android:background="@color/pdf__transparent"
-                                android:drawableStart="@drawable/button_state_list__list_bullet__gray"
+                                android:drawableStart="@drawable/fse__button_state_list__list_bullet__gray"
                                 android:padding="@dimen/gcg__padding__medium" />
 
                             <Button
@@ -136,7 +136,7 @@
                                 android:layout_below="@id/number__bullet__button"
                                 android:layout_marginBottom="8dp"
                                 android:background="@color/pdf__transparent"
-                                android:drawableStart="@drawable/button_state_list__list_number__gray"
+                                android:drawableStart="@drawable/fse__button_state_list__list_number__gray"
                                 android:padding="@dimen/gcg__padding__medium" />
 
                             <Button
@@ -146,7 +146,7 @@
                                 android:layout_below="@id/number__numbered__button"
                                 android:layout_marginBottom="8dp"
                                 android:background="@color/pdf__transparent"
-                                android:drawableStart="@drawable/button_state_list__list_alpha__gray"
+                                android:drawableStart="@drawable/fse__button_state_list__list_alpha__gray"
                                 android:padding="@dimen/gcg__padding__medium" />
 
                             <Button
@@ -156,7 +156,7 @@
                                 android:layout_below="@id/number__alpha__button"
                                 android:layout_marginBottom="8dp"
                                 android:background="@color/pdf__transparent"
-                                android:drawableStart="@drawable/button_state_list__list_roman__gray"
+                                android:drawableStart="@drawable/fse__button_state_list__list_roman__gray"
                                 android:padding="@dimen/gcg__padding__medium" />
                         </RelativeLayout>
 

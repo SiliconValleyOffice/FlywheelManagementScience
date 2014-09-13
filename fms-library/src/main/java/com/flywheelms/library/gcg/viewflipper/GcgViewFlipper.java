@@ -90,7 +90,7 @@ public class GcgViewFlipper extends ViewFlipper implements GcgFlingController {
 	}
 	
 	private void initializeAnimations() {
-		setInAnimation(this.context, R.anim.rotate_in_from_left);
+		setInAnimation(this.context, R.anim.gcg__rotate_in_from_left);
 		this.flipInFromLeftAnimation = getInAnimation();
 		this.flipInFromLeftAnimation.setAnimationListener(new Animation.AnimationListener() {
 			@Override
@@ -104,9 +104,9 @@ public class GcgViewFlipper extends ViewFlipper implements GcgFlingController {
 				GcgViewFlipper.this.afterViewFlip();
 			}
 		});
-		setOutAnimation(this.context, R.anim.rotate_out_to_right);
+		setOutAnimation(this.context, R.anim.gcg__rotate_out_to_right);
 		this.flipOutToRightAnimation = getOutAnimation();
-		setInAnimation(this.context, R.anim.rotate_in_from_right);
+		setInAnimation(this.context, R.anim.gcg__rotate_in_from_right);
 		this.flipInFromRightAnimation = getInAnimation();
 		this.flipInFromRightAnimation.setAnimationListener(new Animation.AnimationListener() {
 			@Override
@@ -120,7 +120,7 @@ public class GcgViewFlipper extends ViewFlipper implements GcgFlingController {
 				GcgViewFlipper.this.afterViewFlip();
 			}
 		});
-		setOutAnimation(this.context, R.anim.rotate_out_to_left);
+		setOutAnimation(this.context, R.anim.gcg__rotate_out_to_left);
 		this.flipOutToLeftAnimation = getOutAnimation();
 	}
 

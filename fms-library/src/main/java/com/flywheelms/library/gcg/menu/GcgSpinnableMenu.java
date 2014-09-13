@@ -130,26 +130,26 @@ public class GcgSpinnableMenu {
 		if(this.decoratorOrientation == DECORATORS_LEFT) {
 			switch(this.menuBodyResourceIdArray.length) {
 			case 2:
-				this.spinnerBackgroundDrawableResourceIdArray.add(R.drawable.background_state_list__spinnable_menu__1_of_2__left);
-				this.spinnerBackgroundDrawableResourceIdArray.add(R.drawable.background_state_list__spinnable_menu__2_of_2__left);
+				this.spinnerBackgroundDrawableResourceIdArray.add(R.drawable.gcg__background_state_list__spinnable_menu__1_of_2__left);
+				this.spinnerBackgroundDrawableResourceIdArray.add(R.drawable.gcg__background_state_list__spinnable_menu__2_of_2__left);
 				break;
 			case 3:
-				this.spinnerBackgroundDrawableResourceIdArray.add(R.drawable.background_state_list__spinnable_menu__1_of_3__left);
-				this.spinnerBackgroundDrawableResourceIdArray.add(R.drawable.background_state_list__spinnable_menu__2_of_3__left);
-				this.spinnerBackgroundDrawableResourceIdArray.add(R.drawable.background_state_list__spinnable_menu__3_of_3__left);
+				this.spinnerBackgroundDrawableResourceIdArray.add(R.drawable.gcg__background_state_list__spinnable_menu__1_of_3__left);
+				this.spinnerBackgroundDrawableResourceIdArray.add(R.drawable.gcg__background_state_list__spinnable_menu__2_of_3__left);
+				this.spinnerBackgroundDrawableResourceIdArray.add(R.drawable.gcg__background_state_list__spinnable_menu__3_of_3__left);
 				break;
 			case 4:
-				this.spinnerBackgroundDrawableResourceIdArray.add(R.drawable.background_state_list__spinnable_menu__1_of_4__left);
-				this.spinnerBackgroundDrawableResourceIdArray.add(R.drawable.background_state_list__spinnable_menu__2_of_4__left);
-				this.spinnerBackgroundDrawableResourceIdArray.add(R.drawable.background_state_list__spinnable_menu__3_of_4__left);
-				this.spinnerBackgroundDrawableResourceIdArray.add(R.drawable.background_state_list__spinnable_menu__4_of_4__left);
+				this.spinnerBackgroundDrawableResourceIdArray.add(R.drawable.gcg__background_state_list__spinnable_menu__1_of_4__left);
+				this.spinnerBackgroundDrawableResourceIdArray.add(R.drawable.gcg__background_state_list__spinnable_menu__2_of_4__left);
+				this.spinnerBackgroundDrawableResourceIdArray.add(R.drawable.gcg__background_state_list__spinnable_menu__3_of_4__left);
+				this.spinnerBackgroundDrawableResourceIdArray.add(R.drawable.gcg__background_state_list__spinnable_menu__4_of_4__left);
 				break;
 			case 5:
-				this.spinnerBackgroundDrawableResourceIdArray.add(R.drawable.background_state_list__spinnable_menu__1_of_5__left);
-				this.spinnerBackgroundDrawableResourceIdArray.add(R.drawable.background_state_list__spinnable_menu__2_of_5__left);
-				this.spinnerBackgroundDrawableResourceIdArray.add(R.drawable.background_state_list__spinnable_menu__3_of_5__left);
-				this.spinnerBackgroundDrawableResourceIdArray.add(R.drawable.background_state_list__spinnable_menu__4_of_5__left);
-				this.spinnerBackgroundDrawableResourceIdArray.add(R.drawable.background_state_list__spinnable_menu__5_of_5__left);
+				this.spinnerBackgroundDrawableResourceIdArray.add(R.drawable.gcg__background_state_list__spinnable_menu__1_of_5__left);
+				this.spinnerBackgroundDrawableResourceIdArray.add(R.drawable.gcg__background_state_list__spinnable_menu__2_of_5__left);
+				this.spinnerBackgroundDrawableResourceIdArray.add(R.drawable.gcg__background_state_list__spinnable_menu__3_of_5__left);
+				this.spinnerBackgroundDrawableResourceIdArray.add(R.drawable.gcg__background_state_list__spinnable_menu__4_of_5__left);
+				this.spinnerBackgroundDrawableResourceIdArray.add(R.drawable.gcg__background_state_list__spinnable_menu__5_of_5__left);
 				break;
 			default:
 				break;
@@ -157,26 +157,26 @@ public class GcgSpinnableMenu {
 		} else {
 			switch(this.menuBodyResourceIdArray.length) {
 			case 2:
-				this.spinnerBackgroundDrawableResourceIdArray.add(R.drawable.background_state_list__spinnable_menu__1_of_2__right);
-				this.spinnerBackgroundDrawableResourceIdArray.add(R.drawable.background_state_list__spinnable_menu__2_of_2__right);
+				this.spinnerBackgroundDrawableResourceIdArray.add(R.drawable.gcg__background_state_list__spinnable_menu__1_of_2__right);
+				this.spinnerBackgroundDrawableResourceIdArray.add(R.drawable.gcg__background_state_list__spinnable_menu__2_of_2__right);
 				break;
 			case 3:
-				this.spinnerBackgroundDrawableResourceIdArray.add(R.drawable.background_state_list__spinnable_menu__1_of_3__right);
-				this.spinnerBackgroundDrawableResourceIdArray.add(R.drawable.background_state_list__spinnable_menu__2_of_3__right);
-				this.spinnerBackgroundDrawableResourceIdArray.add(R.drawable.background_state_list__spinnable_menu__3_of_3__right);
+				this.spinnerBackgroundDrawableResourceIdArray.add(R.drawable.gcg__background_state_list__spinnable_menu__1_of_3__right);
+				this.spinnerBackgroundDrawableResourceIdArray.add(R.drawable.gcg__background_state_list__spinnable_menu__2_of_3__right);
+				this.spinnerBackgroundDrawableResourceIdArray.add(R.drawable.gcg__background_state_list__spinnable_menu__3_of_3__right);
 				break;
 			case 4:
-				this.spinnerBackgroundDrawableResourceIdArray.add(R.drawable.background_state_list__spinnable_menu__1_of_4__right);
-				this.spinnerBackgroundDrawableResourceIdArray.add(R.drawable.background_state_list__spinnable_menu__2_of_4__right);
-				this.spinnerBackgroundDrawableResourceIdArray.add(R.drawable.background_state_list__spinnable_menu__3_of_4__right);
-				this.spinnerBackgroundDrawableResourceIdArray.add(R.drawable.background_state_list__spinnable_menu__4_of_4__right);
+				this.spinnerBackgroundDrawableResourceIdArray.add(R.drawable.gcg__background_state_list__spinnable_menu__1_of_4__right);
+				this.spinnerBackgroundDrawableResourceIdArray.add(R.drawable.gcg__background_state_list__spinnable_menu__2_of_4__right);
+				this.spinnerBackgroundDrawableResourceIdArray.add(R.drawable.gcg__background_state_list__spinnable_menu__3_of_4__right);
+				this.spinnerBackgroundDrawableResourceIdArray.add(R.drawable.gcg__background_state_list__spinnable_menu__4_of_4__right);
 				break;
 			case 5:
-				this.spinnerBackgroundDrawableResourceIdArray.add(R.drawable.background_state_list__spinnable_menu__1_of_5__right);
-				this.spinnerBackgroundDrawableResourceIdArray.add(R.drawable.background_state_list__spinnable_menu__2_of_5__right);
-				this.spinnerBackgroundDrawableResourceIdArray.add(R.drawable.background_state_list__spinnable_menu__3_of_5__right);
-				this.spinnerBackgroundDrawableResourceIdArray.add(R.drawable.background_state_list__spinnable_menu__4_of_5__right);
-				this.spinnerBackgroundDrawableResourceIdArray.add(R.drawable.background_state_list__spinnable_menu__5_of_5__right);
+				this.spinnerBackgroundDrawableResourceIdArray.add(R.drawable.gcg__background_state_list__spinnable_menu__1_of_5__right);
+				this.spinnerBackgroundDrawableResourceIdArray.add(R.drawable.gcg__background_state_list__spinnable_menu__2_of_5__right);
+				this.spinnerBackgroundDrawableResourceIdArray.add(R.drawable.gcg__background_state_list__spinnable_menu__3_of_5__right);
+				this.spinnerBackgroundDrawableResourceIdArray.add(R.drawable.gcg__background_state_list__spinnable_menu__4_of_5__right);
+				this.spinnerBackgroundDrawableResourceIdArray.add(R.drawable.gcg__background_state_list__spinnable_menu__5_of_5__right);
 				break;
 			default:
 				break;

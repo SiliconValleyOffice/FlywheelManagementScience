@@ -96,10 +96,10 @@ public class FmsApplicationContextNavigationDialog extends FmsDialog {
 				TextView theTextView = (TextView) theRowView.findViewById(R.id.gcg_context__breadcrumb__headine);
 				theTextView.setText(theNavigationTarget.getHeadline() );
 				if(! theNavigationTarget.isPerspective()) {
-					theRowView.setBackgroundResource(R.drawable.button_state_list__fms_context_navigation__breadcrumb);
+					theRowView.setBackgroundResource(R.drawable.gcg__button_state_list__context_navigation__breadcrumb);
 				} else {
 					theRowView.setBackgroundResource(
-							theNavigationTarget.isContextRoot() ? R.drawable.button_state_list__fms_context_navigation__active_perspective : R.drawable.button_state_list__fms_context_navigation__inactive_perspective);
+							theNavigationTarget.isContextRoot() ? R.drawable.gcg__button_state_list__context_navigation__active_perspective : R.drawable.gcg__button_state_list__context_navigation__inactive_perspective);
 				}
 				return theRowView;
 			}
