@@ -1,4 +1,4 @@
-/* @(#)FmsSaveChangesDialog.java
+/* @(#)GcgSaveChangesDialog.java
  ** 
  ** Copyright (C) 2012 by Steven D. Stamps
  **
@@ -41,7 +41,7 @@
  ** <http://www.gnu.org/licenses/gpl-3.0.html>.
  */
 
-package com.flywheelms.library.fms.dialog;
+package com.flywheelms.library.gcg.dialog;
 
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -49,9 +49,10 @@ import android.widget.Button;
 import android.widget.CheckBox;
 
 import com.flywheelms.library.R;
+import com.flywheelms.library.fms.dialog.FmsDialog;
 import com.flywheelms.library.gcg.GcgActivity;
 
-public class FmsSaveChangesDialog extends FmsDialog {
+public class GcgSaveChangesDialog extends FmsDialog {
 	
 	public static final int button_choice__DISCARD = 0;
 	public static final int button_choice__CANCEL_NAVIGATION = 1;
@@ -67,7 +68,7 @@ public class FmsSaveChangesDialog extends FmsDialog {
 	public static final int next_action__BROWSE_TRANSACTION_HISTORY = 6;
 	public static final int next_action__REVERT_DOCUMENT_TO_TRANSACTION = 7;
 
-	public FmsSaveChangesDialog(GcgActivity aLibraryActivity, String aViewGroupName, int aNextAction) {
+	public GcgSaveChangesDialog(GcgActivity aLibraryActivity, String aViewGroupName, int aNextAction) {
 		super(aLibraryActivity, aViewGroupName);
 		this.nextAction = aNextAction;
 	}
@@ -84,22 +85,22 @@ public class FmsSaveChangesDialog extends FmsDialog {
 
 	@Override
 	protected void initializeDialogBody() {
-		View theDialogBodyView = inflateDialogBody(R.layout.save_changes_dialog);
+		View theDialogBodyView = inflateDialogBody(R.layout.gcg__save_changes_dialog);
 		initializeDialogTargetInfo(theDialogBodyView);
 		((Button) theDialogBodyView.findViewById(R.id.discard_changes__button)).setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-				FmsSaveChangesDialog.this.gcgActivity.stopDialog();
-				FmsSaveChangesDialog.this.gcgActivity.saveDataChangesDialogResults(button_choice__DISCARD, getCheckboxValue(), FmsSaveChangesDialog.this.nextAction);
+				GcgSaveChangesDialog.this.gcgActivity.stopDialog();
+				GcgSaveChangesDialog.this.gcgActivity.saveDataChangesDialogResults(button_choice__DISCARD, getCheckboxValue(), GcgSaveChangesDialog.this.nextAction);
 			}
 		});
 		((Button) theDialogBodyView.findViewById(R.id.cancel_navigation__button)).setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-				FmsSaveChangesDialog.this.gcgActivity.stopDialog();
-				FmsSaveChangesDialog.this.gcgActivity.saveDataChangesDialogResults(button_choice__CANCEL_NAVIGATION, getCheckboxValue(), FmsSaveChangesDialog.this.nextAction);
+				GcgSaveChangesDialog.this.gcgActivity.stopDialog();
+				GcgSaveChangesDialog.this.gcgActivity.saveDataChangesDialogResults(button_choice__CANCEL_NAVIGATION, getCheckboxValue(), GcgSaveChangesDialog.this.nextAction);
 			}
 		});
 		Button theSaveButton = (Button) theDialogBodyView.findViewById(R.id.save_changes__button);
@@ -107,10 +108,10 @@ public class FmsSaveChangesDialog extends FmsDialog {
 			
 			@Override
 			public void onClick(View v) {
-				FmsSaveChangesDialog.this.gcgActivity.stopDialog();
-				FmsSaveChangesDialog.this.gcgActivity.startMagentaActivityStatusAnimation();
-				FmsSaveChangesDialog.this.gcgActivity.saveDataChangesDialogResults(button_choice__SAVE, getCheckboxValue(), FmsSaveChangesDialog.this.nextAction);
-				FmsSaveChangesDialog.this.gcgActivity.stopActivityStatusAnimation();
+				GcgSaveChangesDialog.this.gcgActivity.stopDialog();
+				GcgSaveChangesDialog.this.gcgActivity.startMagentaActivityStatusAnimation();
+				GcgSaveChangesDialog.this.gcgActivity.saveDataChangesDialogResults(button_choice__SAVE, getCheckboxValue(), GcgSaveChangesDialog.this.nextAction);
+				GcgSaveChangesDialog.this.gcgActivity.stopActivityStatusAnimation();
 			}
 		});
 		theSaveButton.requestFocus();

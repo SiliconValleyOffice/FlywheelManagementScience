@@ -51,7 +51,6 @@ import android.widget.LinearLayout;
 
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.context.FmmPerspective;
-import com.flywheelms.library.fms.dialog.FmsSaveChangesDialog;
 import com.flywheelms.library.fms.dialog.FseRevertCancelOkDialog;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
 import com.flywheelms.library.fms.helper.FmsHelpIndex;
@@ -65,6 +64,7 @@ import com.flywheelms.library.fse.model.FseDocumentTransactionType;
 import com.flywheelms.library.fse.perspective_flipper.FsePerspectiveFlipper;
 import com.flywheelms.library.fse.views.FseTransactionTableView;
 import com.flywheelms.library.gcg.GcgActivity;
+import com.flywheelms.library.gcg.dialog.GcgSaveChangesDialog;
 import com.flywheelms.library.gcg.interfaces.GcgPerspective;
 import com.flywheelms.library.gcg.viewflipper.GcgViewFlipper;
 
@@ -202,7 +202,7 @@ public class FseDocumentSectionHistoryPerspective extends FseDocumentSectionPers
 	}
 
 	public void launchFseHistoryBrowser() {
-		if(getGcgActivity().protectDataChanges(FmsSaveChangesDialog.next_action__BROWSE_TRANSACTION_HISTORY, "launch FSE Document History browser")) {
+		if(getGcgActivity().protectDataChanges(GcgSaveChangesDialog.next_action__BROWSE_TRANSACTION_HISTORY, "launch FSE Document History browser")) {
 			return;
 		}
 		int theTransactionListIndex = this.transactionTableView.getSelectedRowIndex();
@@ -214,7 +214,7 @@ public class FseDocumentSectionHistoryPerspective extends FseDocumentSectionPers
 
 	public void getReadyToRevertDocumentToSelectedTransactionRow() {
 		FseDocumentSectionHistoryPerspective.selectedRowIndex = this.transactionTableView.getSelectedRowIndex();
-		if(getGcgActivity().protectDataChanges(FmsSaveChangesDialog.next_action__REVERT_DOCUMENT_TO_TRANSACTION, "revert FSE Document\r\nto an earlier version")) {
+		if(getGcgActivity().protectDataChanges(GcgSaveChangesDialog.next_action__REVERT_DOCUMENT_TO_TRANSACTION, "revert FSE Document\r\nto an earlier version")) {
 			return;
 		}
 		revertDocumentToSelectedTransactionRow();

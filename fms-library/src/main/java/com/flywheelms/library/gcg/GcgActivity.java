@@ -76,12 +76,12 @@ import com.flywheelms.library.fmm.transaction.FmmDataRefreshNotice;
 import com.flywheelms.library.fms.context.FmsNavigationTarget;
 import com.flywheelms.library.fms.dialog.FmsDialog;
 import com.flywheelms.library.fms.dialog.FmsRevertDataOkCancelDialog;
-import com.flywheelms.library.fms.dialog.FmsSaveChangesDialog;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
 import com.flywheelms.library.gcg.context.GcgActivityBreadcrumb;
 import com.flywheelms.library.gcg.context.GcgApplicationContext;
 import com.flywheelms.library.gcg.context.GcgApplicationContextHeader;
 import com.flywheelms.library.gcg.context.GcgFrameBreadcrumb;
+import com.flywheelms.library.gcg.dialog.GcgSaveChangesDialog;
 import com.flywheelms.library.gcg.enumerator.GcgDoItNowMenuItemState;
 import com.flywheelms.library.gcg.interfaces.GcgDoItNowClient;
 import com.flywheelms.library.gcg.interfaces.GcgFrame;
@@ -715,7 +715,7 @@ public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNo
 	}
 	
 	public void finish(int anActivityResultCode, Intent anIntent) {
-		if(protectDataChanges(FmsSaveChangesDialog.next_action__FINISH, getActiveViewGroupName())) {
+		if(protectDataChanges(GcgSaveChangesDialog.next_action__FINISH, getActiveViewGroupName())) {
 			return;
 		}
 		Intent theIntent = anIntent;
@@ -752,7 +752,7 @@ public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNo
 			return false;
 		}
 		if(isDataModified() && ! automaticallySaveDataModifications()) {
-			startDialog(new FmsSaveChangesDialog(this, aTargetDetail, aNextAction));
+			startDialog(new GcgSaveChangesDialog(this, aTargetDetail, aNextAction));
 			return true;
 		}
 		if(isDataModified()) {
@@ -768,16 +768,16 @@ public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNo
 	public void saveDataChangesDialogResults(int aButtonChoice, boolean bAutoSaveNextTime, int aNextAction) {
 		setAutomaticallySaveDataModifications(bAutoSaveNextTime);
 		switch (aButtonChoice) {
-			case FmsSaveChangesDialog.button_choice__DISCARD:
+			case GcgSaveChangesDialog.button_choice__DISCARD:
 				this.discardDataChanges = true;
 				resetDataHasBeenModified();
 				initiateNextAction(aNextAction);
 				break;
-			case FmsSaveChangesDialog.button_choice__SAVE:
+			case GcgSaveChangesDialog.button_choice__SAVE:
 				saveAllDataModifications();
 				initiateNextAction(aNextAction);
 				break;
-			case FmsSaveChangesDialog.button_choice__CANCEL_NAVIGATION:
+			case GcgSaveChangesDialog.button_choice__CANCEL_NAVIGATION:
 				break;
 			default:
 		}
@@ -785,7 +785,7 @@ public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNo
 	
 	protected void initiateNextAction(int aNextAction) {
 		switch(aNextAction) {
-			case FmsSaveChangesDialog.next_action__FINISH:
+			case GcgSaveChangesDialog.next_action__FINISH:
 				finish();
 				return;
 			default:

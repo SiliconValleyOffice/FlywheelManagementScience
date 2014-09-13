@@ -56,10 +56,10 @@ import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.node.FmmHeadlineNodeShallow;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
-import com.flywheelms.library.fms.dialog.FmsSaveChangesDialog;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
 import com.flywheelms.library.fms.miscellaneous.FmsHeadlineNodeShallowArrayAdapter;
 import com.flywheelms.library.gcg.GcgActivity;
+import com.flywheelms.library.gcg.dialog.GcgSaveChangesDialog;
 import com.flywheelms.library.gcg.helper.GcgHelper;
 
 import java.util.ArrayList;
@@ -284,7 +284,7 @@ public abstract class FmsHorizontalNodeNavigatorActivity extends GcgActivity {
 	}
 
 	protected void navigateToBeginning() {
-		if(protectDataChanges(FmsSaveChangesDialog.next_action__NAVIGATE_TO_BEGINNING, "Navigate to another FMM node")) {
+		if(protectDataChanges(GcgSaveChangesDialog.next_action__NAVIGATE_TO_BEGINNING, "Navigate to another FMM node")) {
 			return;
 		}
 		this.discardDataChanges = false;
@@ -296,7 +296,7 @@ public abstract class FmsHorizontalNodeNavigatorActivity extends GcgActivity {
 	}
 
 	protected void navigateLeft() {
-		if(protectDataChanges(FmsSaveChangesDialog.next_action__NAVIGATE_LEFT, "Navigate to another FMM node")) {
+		if(protectDataChanges(GcgSaveChangesDialog.next_action__NAVIGATE_LEFT, "Navigate to another FMM node")) {
 			return;
 		}
 		this.discardDataChanges = false;
@@ -308,7 +308,7 @@ public abstract class FmsHorizontalNodeNavigatorActivity extends GcgActivity {
 	}
 
 	protected void navigateRight() {
-		if(protectDataChanges(FmsSaveChangesDialog.next_action__NAVIGATE_RIGHT, "Navigate to another FMM node")) {
+		if(protectDataChanges(GcgSaveChangesDialog.next_action__NAVIGATE_RIGHT, "Navigate to another FMM node")) {
 			return;
 		}
 		this.discardDataChanges = false;
@@ -320,7 +320,7 @@ public abstract class FmsHorizontalNodeNavigatorActivity extends GcgActivity {
 	}
 
 	protected void navigateToEnd() {
-		if(protectDataChanges(FmsSaveChangesDialog.next_action__NAVIGATE_TO_END, "Navigate to another FMM node")) {
+		if(protectDataChanges(GcgSaveChangesDialog.next_action__NAVIGATE_TO_END, "Navigate to another FMM node")) {
 			return;
 		}
 		this.discardDataChanges = false;

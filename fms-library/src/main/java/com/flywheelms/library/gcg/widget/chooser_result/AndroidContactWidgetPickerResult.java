@@ -99,7 +99,7 @@ public class AndroidContactWidgetPickerResult extends GcgWidgetTextView {
 			public boolean onLongClick(View aView) {
 				if(AndroidContactWidgetPickerResult.this.isMinimumInput()) {
 					PopupMenu thePopupMenu = new PopupMenu(getContext(), aView);
-					thePopupMenu.getMenuInflater().inflate(R.menu.edit_remove__item, thePopupMenu.getMenu());
+					thePopupMenu.getMenuInflater().inflate(R.menu.edit_remove__menu, thePopupMenu.getMenu());
 					thePopupMenu.setOnMenuItemClickListener(new OnMenuItemClickListener() {
 						
 						@Override

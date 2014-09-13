@@ -96,7 +96,7 @@ public class PdfSectionModificationMarkupLegend extends HeadlineNodePublicationS
 
 	@Override
 	protected String getHeaderLabel() {
-		return PdfUtil.getResource(R.string.modification_markup_legend);
+		return PdfUtil.getResource(R.string.fse__modification_markup_legend);
 	}
 
 	@Override

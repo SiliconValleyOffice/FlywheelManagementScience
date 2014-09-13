@@ -60,7 +60,6 @@ import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmNode;
 import com.flywheelms.library.fmm.transaction.FmmDataRefreshNotice;
 import com.flywheelms.library.fmm.transaction.FmmDataRefreshType;
-import com.flywheelms.library.fms.dialog.FmsSaveChangesDialog;
 import com.flywheelms.library.fms.dialog.HeadlineNodeHeadlineEditDialog;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
 import com.flywheelms.library.fms.perspective_flipper.ContextPerspectiveFlipper;
@@ -72,6 +71,7 @@ import com.flywheelms.library.fse.perspective_flipper.FsePerspectiveFlipper;
 import com.flywheelms.library.fse.widget.FseMultiShiftButton;
 import com.flywheelms.library.gcg.context.GcgApplicationContext;
 import com.flywheelms.library.gcg.context.GcgFrameBreadcrumb;
+import com.flywheelms.library.gcg.dialog.GcgSaveChangesDialog;
 import com.flywheelms.library.gcg.helper.GcgPerspectiveMenu;
 import com.flywheelms.library.gcg.interfaces.GcgFrame;
 import com.flywheelms.library.gcg.menu.GcgFrameSpinner;
@@ -347,22 +347,22 @@ public abstract class FmmNodeEditorActivity extends FmsHorizontalNodeNavigatorAc
 	protected void initiateNextAction(int aNextAction) {
 		super.initiateNextAction(aNextAction);
 		switch(aNextAction) {
-			case FmsSaveChangesDialog.next_action__NAVIGATE_LEFT:
+			case GcgSaveChangesDialog.next_action__NAVIGATE_LEFT:
 				navigateLeft();
 				return;
-			case FmsSaveChangesDialog.next_action__NAVIGATE_RIGHT:
+			case GcgSaveChangesDialog.next_action__NAVIGATE_RIGHT:
 				navigateRight();
 				return;
-			case FmsSaveChangesDialog.next_action__NAVIGATE_TO_BEGINNING:
+			case GcgSaveChangesDialog.next_action__NAVIGATE_TO_BEGINNING:
 				navigateToBeginning();
 				return;
-			case FmsSaveChangesDialog.next_action__NAVIGATE_TO_END:
+			case GcgSaveChangesDialog.next_action__NAVIGATE_TO_END:
 				navigateToEnd();
 				return;
-			case FmsSaveChangesDialog.next_action__BROWSE_TRANSACTION_HISTORY:
+			case GcgSaveChangesDialog.next_action__BROWSE_TRANSACTION_HISTORY:
 				getFsePerspectiveFlipper().getHistorySectionPerspective().launchFseHistoryBrowser();
 				return;
-			case FmsSaveChangesDialog.next_action__REVERT_DOCUMENT_TO_TRANSACTION:
+			case GcgSaveChangesDialog.next_action__REVERT_DOCUMENT_TO_TRANSACTION:
 				getFsePerspectiveFlipper().getHistorySectionPerspective().revertDocumentToSelectedTransactionRow();
 				return;
 			default:

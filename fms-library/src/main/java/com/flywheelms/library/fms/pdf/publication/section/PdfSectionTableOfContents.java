@@ -78,7 +78,7 @@ public class PdfSectionTableOfContents extends HeadlineNodePublicationSection
 	@Override
 	protected String getHeaderLabel()
 	{
-		return PdfUtil.getResource(R.string.table_of_contents);
+		return PdfUtil.getResource(R.string.fse__table_of_contents);
 	}
 
 	@Override
@@ -138,7 +138,7 @@ public class PdfSectionTableOfContents extends HeadlineNodePublicationSection
 		{
 			PdfTemplate template = createBlankPageNumberTemplate();
 			setTemplateMarkupLegend(template);
-			addEntry(table, R.string.modification_markup_legend, template);
+			addEntry(table, R.string.fse__modification_markup_legend, template);
 		}
 	}
 

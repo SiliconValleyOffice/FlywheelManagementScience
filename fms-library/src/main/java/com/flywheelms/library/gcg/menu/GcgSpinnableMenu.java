@@ -186,7 +186,7 @@ public class GcgSpinnableMenu {
 
 	protected void menuSetup() {
 		this.headingLayoutResourceId = this.decoratorOrientation == DECORATORS_LEFT ?
-				R.layout.spinnable_menu__heading__left : R.layout.spinnable_menu__heading__right;
+				R.layout.gcg__spinnable_menu__heading__left : R.layout.gcg__spinnable_menu__heading__right;
 	    ArrayAdapter<CharSequence> theSpinnerAdapter = getSpinnerAdapter();
 	    theSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 	    getHeadingSpinnner().setAdapter(theSpinnerAdapter);

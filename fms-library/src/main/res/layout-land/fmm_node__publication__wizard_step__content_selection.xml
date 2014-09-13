@@ -74,7 +74,7 @@
                     android:id="@+id/pdf__table_of_contents__label"
                     style="@style/NodeLabel"
                     android:paddingLeft="10dp"
-                    android:text="@string/table_of_contents" />
+                    android:text="@string/fse__table_of_contents" />
 
                 <CheckBox
                     android:id="@+id/pdf__table_of_contents__check_box"
