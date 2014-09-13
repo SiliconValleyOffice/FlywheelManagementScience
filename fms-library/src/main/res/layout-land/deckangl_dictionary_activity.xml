@@ -57,7 +57,8 @@
 
                     <Spinner
                         android:id="@+id/deckangl_glyph__scale__spinner"
-                        style="@style/NodeDataWithDrawable"
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginRight="0dp"
                         android:layout_gravity="left" />
                 </LinearLayout>
@@ -333,62 +334,6 @@
                 <TableRow
                     android:layout_width="210dp"
                     android:layout_height="wrap_content"
-                    android:padding="0dip" >
-
-                    <TextView
-                        android:background="@color/WhiteSmoke"
-                        android:gravity="center"
-                        android:text="@string/deckangl__glyph_zone__bottom"
-                        android:textSize="10sp"
-                        android:textColor="@color/black"
-                        android:width="210dp" />
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="0dip" >
-
-                    <TextView
-                        android:id="@+id/tribkn_quality_metric__story__label"
-                        style="@style/NodeLabelSmall" />
-
-                    <Spinner
-                        android:id="@+id/tribkn_quality_metric__story__spinner"
-                        style="@style/NodeDataWithDrawable" />
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="0dip" >
-
-                    <TextView
-                        android:id="@+id/tribkn_quality_metric__sequence__label"
-                        style="@style/NodeLabelSmall" />
-
-                    <Spinner
-                        android:id="@+id/tribkn_quality_metric__sequence__spinner"
-                        style="@style/NodeDataWithDrawable" />
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="0dip" >
-
-                    <TextView
-                        android:id="@+id/tribkn_quality_metric__completion__label"
-                        style="@style/NodeLabelSmall" />
-
-                    <Spinner
-                        android:id="@+id/tribkn_quality_metric__completion__spinner"
-                        style="@style/NodeDataWithDrawable" />
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="210dp"
-                    android:layout_height="wrap_content"
                     android:layout_marginTop="10dip"
                     android:padding="0dip" >
 
@@ -440,6 +385,62 @@
 
                     <Spinner
                         android:id="@+id/tribkn_quality_metric__work_team__spinner"
+                        style="@style/NodeDataWithDrawable" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="210dp"
+                    android:layout_height="wrap_content"
+                    android:padding="0dip" >
+
+                    <TextView
+                        android:background="@color/WhiteSmoke"
+                        android:gravity="center"
+                        android:text="@string/deckangl__glyph_zone__bottom"
+                        android:textSize="10sp"
+                        android:textColor="@color/black"
+                        android:width="210dp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="0dip" >
+
+                    <TextView
+                        android:id="@+id/tribkn_quality_metric__story__label"
+                        style="@style/NodeLabelSmall" />
+
+                    <Spinner
+                        android:id="@+id/tribkn_quality_metric__story__spinner"
+                        style="@style/NodeDataWithDrawable" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="0dip" >
+
+                    <TextView
+                        android:id="@+id/tribkn_quality_metric__sequence__label"
+                        style="@style/NodeLabelSmall" />
+
+                    <Spinner
+                        android:id="@+id/tribkn_quality_metric__sequence__spinner"
+                        style="@style/NodeDataWithDrawable" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="0dip" >
+
+                    <TextView
+                        android:id="@+id/tribkn_quality_metric__completion__label"
+                        style="@style/NodeLabelSmall" />
+
+                    <Spinner
+                        android:id="@+id/tribkn_quality_metric__completion__spinner"
                         style="@style/NodeDataWithDrawable" />
                 </TableRow>
             </TableLayout>
