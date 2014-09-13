@@ -33,125 +33,215 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="app: com.flywheelms.fwb" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c0b3b16b-24dc-4ad0-83f8-e1821de85d20" name="Default" comment="clean up gradle">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__button_state_list__action__add_new.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__button_state_list__generic_add.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__row_state_list__default.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/button_state_list__action__add_new.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/button_state_list__generic_add.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/row_state_list__default.xml" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/anim/activity_status__blue.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/anim/gcg__activity_status__blue.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/anim/activity_status__green.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/anim/gcg__activity_status__green.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/anim/activity_status__magenta.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/anim/gcg__activity_status__magenta.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/anim/activity_status__orange.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/anim/gcg__activity_status__orange.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/anim/flip_in_from_left.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/anim/gcg__flip_in_from_left.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/anim/flip_in_from_right.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/anim/gcg__flip_in_from_right.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/anim/flip_out_to_left.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/anim/gcg__flip_out_to_left.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/anim/flip_out_to_right.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/anim/gcg__flip_out_to_right.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/anim/rotate_clockwise.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/anim/gcg__rotate_clockwise.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/anim/rotate_in_from_left.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/anim/gcg__rotate_in_from_left.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/anim/rotate_in_from_right.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/anim/gcg__rotate_in_from_right.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/anim/rotate_out_to_left.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/anim/gcg__rotate_out_to_left.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/anim/rotate_out_to_right.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/anim/gcg__rotate_out_to_right.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/button__add_new.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__button__add_new__gray.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/button__add_new__touch.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__button__add_new__gray__touch.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/generic_add__button.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__generic_add__button.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/generic_add__pressed.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__generic_add__pressed.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/view_touch__gray.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__view_touch__gray.9.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/view_touch__null.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__view_touch__null.9.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/add_new__blue.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__button__add_new__blue_green.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/add_new__gray.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__button__add_new__green_2.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/add_new__green.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__button__add_new__green_1.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/add_new__purple.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__button__add_new__purple.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/background_state_list__spinnable_menu__1_of_2__left.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__1_of_2__left.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/background_state_list__spinnable_menu__1_of_2__right.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__1_of_2__right.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/background_state_list__spinnable_menu__1_of_3__left.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__1_of_3__left.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/background_state_list__spinnable_menu__1_of_3__right.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__1_of_3__right.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/background_state_list__spinnable_menu__1_of_4__left.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__1_of_4__left.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/background_state_list__spinnable_menu__1_of_4__right.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__1_of_4__right.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/background_state_list__spinnable_menu__1_of_5__left.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__1_of_5__left.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/background_state_list__spinnable_menu__1_of_5__right.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__1_of_5__right.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/background_state_list__spinnable_menu__2_of_2__left.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__2_of_2__left.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/background_state_list__spinnable_menu__2_of_2__right.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__2_of_2__right.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/background_state_list__spinnable_menu__2_of_3__left.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__2_of_3__left.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/background_state_list__spinnable_menu__2_of_3__right.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__2_of_3__right.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/background_state_list__spinnable_menu__2_of_4__left.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__2_of_4__left.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/background_state_list__spinnable_menu__2_of_4__right.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__2_of_4__right.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/background_state_list__spinnable_menu__2_of_5__left.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__2_of_5__left.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/background_state_list__spinnable_menu__2_of_5__right.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__2_of_5__right.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/background_state_list__spinnable_menu__3_of_3__left.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__3_of_3__left.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/background_state_list__spinnable_menu__3_of_3__right.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__3_of_3__right.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/background_state_list__spinnable_menu__3_of_4__left.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__3_of_4__left.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/background_state_list__spinnable_menu__3_of_4__right.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__3_of_4__right.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/background_state_list__spinnable_menu__3_of_5__left.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__3_of_5__left.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/background_state_list__spinnable_menu__3_of_5__right.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__3_of_5__right.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/background_state_list__spinnable_menu__4_of_4__left.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__4_of_4__left.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/background_state_list__spinnable_menu__4_of_4__right.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__4_of_4__right.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/background_state_list__spinnable_menu__4_of_5__left.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__4_of_5__left.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/background_state_list__spinnable_menu__4_of_5__right.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__4_of_5__right.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/background_state_list__spinnable_menu__5_of_5__left.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__5_of_5__left.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/background_state_list__spinnable_menu__5_of_5__right.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__5_of_5__right.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/background_state_list__tree_row__expand_collapse.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__tree_row__expand_collapse.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/button_state_list__fms_context_navigation.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__button_state_list__context_navigation.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/button_state_list__fms_context_navigation__active_perspective.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__button_state_list__context_navigation__active_perspective.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/button_state_list__fms_context_navigation__breadcrumb.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__button_state_list__context_navigation__breadcrumb.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/button_state_list__fms_context_navigation__inactive_perspective.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__button_state_list__context_navigation__inactive_perspective.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/button_state_list__fse__contributors.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/fse__button_state_list__contributors.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/button_state_list__fse__history.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/fse__button_state_list__history.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/button_state_list__fse__notes.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/fse__button_state_list__notes.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/button_state_list__fse__story.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/fse__button_state_list__story.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/button_state_list__list_alpha__gray.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/fse__button_state_list__list_alpha__gray.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/button_state_list__list_bullet__gray.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/fse__button_state_list__list_bullet__gray.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/button_state_list__list_number__gray.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/fse__button_state_list__list_number__gray.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/button_state_list__list_roman__gray.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/fse__button_state_list__list_roman__gray.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/button_state_list__lock__gray.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/fse__button_state_list__lock__gray.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/button_state_list__lock__yellow.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/fse__button_state_list__lock__yellow.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/button_state_list__sequence_down__gray.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/fse__button_state_list__sequence_down__gray.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/button_state_list__sequence_down__yellow.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/fse__button_state_list__sequence_down__yellow.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/button_state_list__sequence_up__gray.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/fse__button_state_list__sequence_up__gray.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/button_state_list__sequence_up__yellow.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/fse__button_state_list__sequence_up__yellow.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/button_state_list__style_demote__gray.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/fse__button_state_list__style_demote__gray.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/button_state_list__style_demote__yellow.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/fse__button_state_list__style_demote__yellow.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/button_state_list__style_indent__gray.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/fse__button_state_list__style_indent__gray.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/button_state_list__style_indent__yellow.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/fse__button_state_list__style_indent__yellow.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/button_state_list__style_outdent__gray.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/fse__button_state_list__style_outdent__gray.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/button_state_list__style_outdent__yellow.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/fse__button_state_list__style_outdent__yellow.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/button_state_list__style_promote__gray.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/fse__button_state_list__style_promote__gray.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/button_state_list__style_promote__yellow.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/fse__button_state_list__style_promote__yellow.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/button_state_list__unlock__gray.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/fse__button_state_list__unlock__gray.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/button_state_list__unlock__yellow.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/fse__button_state_list__unlock__yellow.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/fms_context_navigation__active_perspective__background.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__context_navigation__active_perspective__background.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/fms_context_navigation__breadcrumb__background.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__context_navigation__breadcrumb__background.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/fms_context_navigation__inactive_perspective__background.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__context_navigation__inactive_perspective__background.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/fms_context_navigation__target__background.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__context_navigation__target__background.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/tree_view__row_background.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__tree_view__row_background.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/tree_view__row_background_disabled.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__tree_view__row_background_disabled.9.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/tree_view__row_background_focus.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__tree_view__row_background_focus.9.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/tree_view__row_background_longpress.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__tree_view__row_background_longpress.9.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/tree_view__row_background_pressed.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__tree_view__row_background_pressed.9.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/tree_view__row_background_transition.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__tree_view__row_background_transition.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/FmmManagementDialog.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/FmmManagementDialog.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/FmsApplicationContextNavigationDialog.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/FmsApplicationContextNavigationDialog.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fse/widget/FseParagraphLockButton.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fse/widget/FseParagraphLockButton.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fse/widget/FseParagraphSequenceDownButton.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fse/widget/FseParagraphSequenceDownButton.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fse/widget/FseParagraphSequenceUpButton.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fse/widget/FseParagraphSequenceUpButton.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fse/widget/FseParagraphStyleDemoteButton.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fse/widget/FseParagraphStyleDemoteButton.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fse/widget/FseParagraphStyleIndentButton.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fse/widget/FseParagraphStyleIndentButton.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fse/widget/FseParagraphStyleOutdentButton.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fse/widget/FseParagraphStyleOutdentButton.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fse/widget/FseParagraphStylePromoteButton.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fse/widget/FseParagraphStylePromoteButton.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fse/widget/FseParagraphUnlockButton.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fse/widget/FseParagraphUnlockButton.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/gcg/menu/GcgSpinnableMenu.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/gcg/menu/GcgSpinnableMenu.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/gcg/viewflipper/GcgViewFlipper.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/gcg/viewflipper/GcgViewFlipper.java" />
+    <list default="true" id="c0b3b16b-24dc-4ad0-83f8-e1821de85d20" name="Default" comment="incremental - clean up drawables file names">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/fse__locks_modified.png" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-hdpi/document__open__button.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-hdpi/ic_launcher.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-ldpi/ic_launcher.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/dialog__strategic_milestone__move.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/ic_launcher.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/lock_type__node.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/wizard_target.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-xhdpi/ic_launcher.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout-land/fms_wizard_header.xml" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/assets/elephant.mp3" afterPath="$PROJECT_DIR$/fms-library/src/main/assets/gcg__elephant.mp3" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/assets/submarine_dive_horn.wav" afterPath="$PROJECT_DIR$/fms-library/src/main/assets/gcg__submarine_dive_horn.wav" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-hdpi/share__email__button.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-hdpi/gcg__button__share__email.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-hdpi/share__sms__button.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-hdpi/gcg__button__share__sms.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-ldpi/gcg__data_source.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-ldpi/fms__organization.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-ldpi/multi_state_button__level_2.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-ldpi/gcg__multi_state_button__level_2.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-ldpi/multi_state_button__level_2__touch.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-ldpi/gcg__multi_state_button__level_2__touch.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-ldpi/multi_state_button__level_3.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-ldpi/gcg__multi_state_button__level_3.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-ldpi/multi_state_button__level_3__touch.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-ldpi/gcg__multi_state_button__level_3__touch.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-ldpi/multi_state_button__level_4.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-ldpi/gcg__multi_state_button__level_4.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-ldpi/multi_state_button__level_4__touch.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-ldpi/gcg__multi_state_button__level_4__touch.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-ldpi/multi_state_button__off.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-ldpi/gcg__multi_state_button__off.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-ldpi/multi_state_button__off__touch.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-ldpi/gcg__multi_state_button__off__touch.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-ldpi/multi_state_button__on.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-ldpi/gcg__multi_state_button__on.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-ldpi/multi_state_button__on__touch.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-ldpi/gcg__multi_state_button__on__touch.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/button__delete.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__button__delete.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/button__disable.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__button__disable.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/button__edit.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__button__edit.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/button__enable.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__button__enable.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/button__move.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__button__move.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/button__remove.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__button__remove.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/cloud__16.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__cloud__16.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/document__new__button.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/fse__button__new.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/document__open__button.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/fse__button__open.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/document__revert__button.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/fse__button__revert.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/document__save__button.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/fse__button__save.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/document_button__contributors.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/fse__button__contributors.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/document_button__contributors__pressed.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/fse__button__contributors__pressed.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/document_button__history.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/fse__button__history.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/document_button__history__pressed.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/fse__button__history__pressed.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/document_button__notes.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/fse__button__notes.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/document_button__notes__pressed.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/fse__button__notes__pressed.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/document_button__story.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/fse__button__story.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/document_button__story__pressed.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/fse__button__story__pressed.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/empty_bitmap.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__empty_bitmap.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/group_box__background_1.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__group_box__background_1.9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gui_preferences__16.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__gui_preferences__16.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gui_preferences__32.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__gui_preferences__32.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/icon_undefined.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__icon_undefined.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/import__flywheel_story__button.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/fse__button__import__flywheel_story.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/import__text_file__button.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/fse__button__import__text_file.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/locks_modified.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/fmm_noun__lock_type.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/locks_modified_2.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/fse__locks_modified_2.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/locks_modified_3.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/fse__locks_modified_3.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/menu_heading__background.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__menu_heading__background.9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/numbering_modified.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/fse__numbering_modified.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/printer.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__printer.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/revert__32.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__revert__32.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/sequence_modification__down.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/fse__sequence_modification__down.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/sequence_modification__down__27.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/fse__sequence_modification__down__27.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/sequence_modification__up.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/fse__sequence_modification__up.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/share__pdf__button.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__button__share__pdf.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/spinnable_menu_background__left__1_of_2.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__spinnable_menu_background__left__1_of_2.9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/spinnable_menu_background__left__1_of_2__touch.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__spinnable_menu_background__left__1_of_2__touch.9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/spinnable_menu_background__left__1_of_3.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__spinnable_menu_background__left__1_of_3.9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/spinnable_menu_background__left__1_of_3__touch.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__spinnable_menu_background__left__1_of_3__touch.9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/spinnable_menu_background__left__1_of_4.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__spinnable_menu_background__left__1_of_4.9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/spinnable_menu_background__left__1_of_4__touch.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__spinnable_menu_background__left__1_of_4__touch.9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/spinnable_menu_background__left__1_of_5.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__spinnable_menu_background__left__1_of_5.9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/spinnable_menu_background__left__1_of_5__touch.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__spinnable_menu_background__left__1_of_5__touch.9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/spinnable_menu_background__left__2_of_2.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__spinnable_menu_background__left__2_of_2.9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/spinnable_menu_background__left__2_of_2__touch.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__spinnable_menu_background__left__2_of_2__touch.9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/spinnable_menu_background__left__2_of_3.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__spinnable_menu_background__left__2_of_3.9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/spinnable_menu_background__left__2_of_3__touch.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__spinnable_menu_background__left__2_of_3__touch.9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/spinnable_menu_background__left__2_of_4.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__spinnable_menu_background__left__2_of_4.9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/spinnable_menu_background__left__2_of_4__touch.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__spinnable_menu_background__left__2_of_4__touch.9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/spinnable_menu_background__left__2_of_5.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__spinnable_menu_background__left__2_of_5.9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/spinnable_menu_background__left__2_of_5__touch.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__spinnable_menu_background__left__2_of_5__touch.9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/spinnable_menu_background__left__3_of_3.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__spinnable_menu_background__left__3_of_3.9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/spinnable_menu_background__left__3_of_3__touch.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__spinnable_menu_background__left__3_of_3__touch.9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/spinnable_menu_background__left__3_of_4.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__spinnable_menu_background__left__3_of_4.9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/spinnable_menu_background__left__3_of_4__touch.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__spinnable_menu_background__left__3_of_4__touch.9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/spinnable_menu_background__left__3_of_5.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__spinnable_menu_background__left__3_of_5.9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/spinnable_menu_background__left__3_of_5__touch.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__spinnable_menu_background__left__3_of_5__touch.9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/spinnable_menu_background__left__4_of_4.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__spinnable_menu_background__left__4_of_4.9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/spinnable_menu_background__left__4_of_4__touch.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__spinnable_menu_background__left__4_of_4__touch.9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/spinnable_menu_background__left__4_of_5.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__spinnable_menu_background__left__4_of_5.9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/spinnable_menu_background__left__4_of_5__touch.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__spinnable_menu_background__left__4_of_5__touch.9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/spinnable_menu_background__left__5_of_5.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__spinnable_menu_background__left__5_of_5.9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/spinnable_menu_background__left__5_of_5__touch.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__spinnable_menu_background__left__5_of_5__touch.9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/spinnable_menu_background__right__1_of_2.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__spinnable_menu_background__right__1_of_2.9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/spinnable_menu_background__right__1_of_2__touch.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__spinnable_menu_background__right__1_of_2__touch.9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/spinnable_menu_background__right__1_of_3.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__spinnable_menu_background__right__1_of_3.9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/spinnable_menu_background__right__1_of_3__touch.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__spinnable_menu_background__right__1_of_3__touch.9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/spinnable_menu_background__right__1_of_4.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__spinnable_menu_background__right__1_of_4.9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/spinnable_menu_background__right__1_of_4__touch.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__spinnable_menu_background__right__1_of_4__touch.9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/spinnable_menu_background__right__1_of_5.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__spinnable_menu_background__right__1_of_5.9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/spinnable_menu_background__right__1_of_5__touch.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__spinnable_menu_background__right__1_of_5__touch.9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/spinnable_menu_background__right__2_of_2.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__spinnable_menu_background__right__2_of_2.9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/spinnable_menu_background__right__2_of_2__touch.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__spinnable_menu_background__right__2_of_2__touch.9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/spinnable_menu_background__right__2_of_3.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__spinnable_menu_background__right__2_of_3.9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/spinnable_menu_background__right__2_of_3__touch.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__spinnable_menu_background__right__2_of_3__touch.9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/spinnable_menu_background__right__2_of_4.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__spinnable_menu_background__right__2_of_4.9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/spinnable_menu_background__right__2_of_4__touch.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__spinnable_menu_background__right__2_of_4__touch.9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/spinnable_menu_background__right__2_of_5.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__spinnable_menu_background__right__2_of_5.9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/spinnable_menu_background__right__2_of_5__touch.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__spinnable_menu_background__right__2_of_5__touch.9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/spinnable_menu_background__right__3_of_3.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__spinnable_menu_background__right__3_of_3.9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/spinnable_menu_background__right__3_of_3__touch.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__spinnable_menu_background__right__3_of_3__touch.9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/spinnable_menu_background__right__3_of_4.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__spinnable_menu_background__right__3_of_4.9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/spinnable_menu_background__right__3_of_4__touch.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__spinnable_menu_background__right__3_of_4__touch.9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/spinnable_menu_background__right__3_of_5.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__spinnable_menu_background__right__3_of_5.9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/spinnable_menu_background__right__3_of_5__touch.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__spinnable_menu_background__right__3_of_5__touch.9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/spinnable_menu_background__right__4_of_4.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__spinnable_menu_background__right__4_of_4.9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/spinnable_menu_background__right__4_of_4__touch.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__spinnable_menu_background__right__4_of_4__touch.9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/spinnable_menu_background__right__4_of_5.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__spinnable_menu_background__right__4_of_5.9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/spinnable_menu_background__right__4_of_5__touch.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__spinnable_menu_background__right__4_of_5__touch.9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/spinnable_menu_background__right__5_of_5.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__spinnable_menu_background__right__5_of_5.9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/spinnable_menu_background__right__5_of_5__touch.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__spinnable_menu_background__right__5_of_5__touch.9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/spinnable_menu_background__right_side.9.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__spinnable_menu_background__right_side.9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/style_demote.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/fse__style_demote.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/style_indent.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/fse__style_indent.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/style_outdent.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/fse__style_outdent.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/style_promote.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/fse__style_promote.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-xhdpi/share__print__button.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-xhdpi/gcg__button__share__print.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-xhdpi/style_demote.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-xhdpi/fse__style_demote.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-xhdpi/style_indent.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-xhdpi/fse__style_indent.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-xhdpi/style_outdent.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-xhdpi/fse__style_outdent.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-xhdpi/style_promote.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-xhdpi/fse__style_promote.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/audit_block.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/audit_block.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/repository/FmmConfigurationTemplateSource.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/repository/FmmConfigurationTemplateSource.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/headline/FmmHeadlineNodeImpl.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/headline/FmmHeadlineNodeImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/enumerator/FmmNodeDefinition.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/enumerator/FmmNodeDefinition.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/FmsRevertDataOkCancelDialog.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/FmsRevertDataOkCancelDialog.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fse/enumerator/FseLockModificationState.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fse/enumerator/FseLockModificationState.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fse/enumerator/FseNumberingModificationState.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fse/enumerator/FseNumberingModificationState.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/FseRevertCancelOkDialog.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/FseRevertCancelOkDialog.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fse/enumerator/FseSequenceModificationState.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fse/enumerator/FseSequenceModificationState.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/gcg/dialog/GcgGuiPreferencesDialog.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/gcg/dialog/GcgGuiPreferencesDialog.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/gcg/treeview/GcgTreeViewAdapter.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/gcg/treeview/GcgTreeViewAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/button_state_list__perspective__story.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/button_state_list__perspective__story.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout/context__strategic_planning__right_menu.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout/context__strategic_planning__right_menu.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout/context__work_breakdown__right_menu.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout/context__work_breakdown__right_menu.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout-land/create__fmm_repository__fmm_template__wizard_step.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout-land/create__fmm_repository__fmm_template__wizard_step.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout-land/fmm_node__editor__left_thumbpad.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout-land/fmm_node__editor__left_thumbpad.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout-land/fmm_node__publication__wizard_step__content_selection.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout-land/fmm_node__publication__wizard_step__content_selection.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout-land/fmm_node__publication__wizard_step__destination.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout-land/fmm_node__publication__wizard_step__destination.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout-land/fmm_node__publication__wizard_step__do_it_now.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout-land/fmm_node__publication__wizard_step__do_it_now.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout/fms__widget__headline_node__spinner__row_layout.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout/fms__widget__headline_node__spinner__row_layout.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout-land/fms_view__paragraph_editor__right_menu.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout-land/fms_view__paragraph_editor__right_menu.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout-land/fse__history__document_transaction_row.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout-land/fse__history__document_transaction_row.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout-land/fse__history_browser__left_menu.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout-land/fse__history_browser__left_menu.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout/gcg__application_context__header.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout/gcg__application_context__header.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout/gcg__tree_view__row_layout.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout/gcg__tree_view__row_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout/gcg__widget__list_view__horizontal.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout/gcg__widget__list_view__horizontal.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout/gcg__widget__list_view__no_label.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout/gcg__widget__list_view__no_label.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout/gcg__widget__list_view__vertical.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout/gcg__widget__list_view__vertical.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/fse__button_state_list__contributors.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/fse__button_state_list__contributors.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/fse__button_state_list__history.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/fse__button_state_list__history.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/fse__button_state_list__notes.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/fse__button_state_list__notes.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/fse__button_state_list__story.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/fse__button_state_list__story.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout/fse__community_member__collaboration_summary__view.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout/fse__community_member__collaboration_summary__view.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout-land/fse__community_member__collaboration_summary__view.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout-land/fse__community_member__collaboration_summary__view.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout/fse__history__view.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout/fse__history__view.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout-land/fse__history__view.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout-land/fse__history__view.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout-land/fse__left_menu.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout-land/fse__left_menu.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout/fse__paragraph_editor__scrollable_container.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout/fse__paragraph_editor__scrollable_container.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout-land/fse__paragraph_editor__scrollable_container.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout-land/fse__paragraph_editor__scrollable_container.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout-land/fse__right_menu.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout-land/fse__right_menu.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__multi_state_button__level_2.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__multi_state_button__level_2.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__multi_state_button__level_3.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__multi_state_button__level_3.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__multi_state_button__level_4.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__multi_state_button__level_4.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__multi_state_button__off.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__multi_state_button__off.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__multi_state_button__on.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__multi_state_button__on.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__1_of_2__left.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__1_of_2__left.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__1_of_2__right.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__1_of_2__right.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__1_of_3__left.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__1_of_3__left.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__1_of_3__right.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__1_of_3__right.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__1_of_4__left.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__1_of_4__left.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__1_of_4__right.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__1_of_4__right.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__1_of_5__left.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__1_of_5__left.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__1_of_5__right.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__1_of_5__right.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__2_of_2__left.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__2_of_2__left.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__2_of_2__right.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__2_of_2__right.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__2_of_3__left.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__2_of_3__left.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__2_of_3__right.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__2_of_3__right.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__2_of_4__left.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__2_of_4__left.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__2_of_4__right.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__2_of_4__right.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__2_of_5__left.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__2_of_5__left.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__2_of_5__right.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__2_of_5__right.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__3_of_3__left.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__3_of_3__left.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__3_of_3__right.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__3_of_3__right.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__3_of_4__left.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__3_of_4__left.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__3_of_4__right.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__3_of_4__right.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__3_of_5__left.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__3_of_5__left.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__3_of_5__right.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__3_of_5__right.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__4_of_4__left.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__4_of_4__left.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__4_of_4__right.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__4_of_4__right.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__4_of_5__left.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__4_of_5__left.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__4_of_5__right.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__4_of_5__right.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__5_of_5__left.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__5_of_5__left.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__5_of_5__right.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__background_state_list__spinnable_menu__5_of_5__right.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout/gcg__spinner__row_layout.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout/gcg__spinner__row_layout.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout/gcg__widget__spinner__row_layout.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout/gcg__widget__spinner__row_layout.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout/gui_target.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout/gui_target.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout/perspective__right_menu__breakdown.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout/perspective__right_menu__breakdown.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout/perspective__right_menu__commitments.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout/perspective__right_menu__commitments.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout/perspective__right_menu__community.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout/perspective__right_menu__community.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout/perspective__right_menu__context.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout/perspective__right_menu__context.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout/perspective__right_menu__governance.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout/perspective__right_menu__governance.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout/perspective__right_menu__issues.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout/perspective__right_menu__issues.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout/perspective__right_menu__planning.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout/perspective__right_menu__planning.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout/perspective__right_menu__service.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout/perspective__right_menu__service.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout/perspective__right_menu__strategy.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout/perspective__right_menu__strategy.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-workbench/src/main/res/layout-land/workbench__left_thumbpad.xml" afterPath="$PROJECT_DIR$/fms-workbench/src/main/res/layout-land/workbench__left_thumbpad.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="flywheelms-hd.iws" />
@@ -175,92 +265,74 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="fse__button_state_list__list_bullet__gray.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable/fse__button_state_list__list_bullet__gray.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="187">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="fse__button_state_list__sequence_down__gray.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable/fse__button_state_list__sequence_down__gray.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="187">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="gcg__button_state_list__context_navigation__active_perspective.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__button_state_list__context_navigation__active_perspective.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="187">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="gcg__button_state_list__context_navigation__breadcrumb.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__button_state_list__context_navigation__breadcrumb.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="187">
-              <caret line="2" column="56" selection-start-line="2" selection-start-column="56" selection-end-line="2" selection-end-column="56" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="fse__button_state_list__style_outdent__yellow.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable/fse__button_state_list__style_outdent__yellow.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="187">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="fdk__button_state_list__clear_search.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable/fdk__button_state_list__clear_search.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="187">
-              <caret line="2" column="61" selection-start-line="2" selection-start-column="61" selection-end-line="2" selection-end-column="61" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="fmm_repository.png" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable/fmm_repository.png">
+      <file leaf-file-name="fse__locks_modified.png" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/fse__locks_modified.png">
           <provider selected="true" editor-type-id="images">
             <state />
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gcg__context_navigation__active_perspective__background.png" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__context_navigation__active_perspective__background.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="gcg__row_state_list__default.xml" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__row_state_list__default.xml">
+      <file leaf-file-name="FmmNodeDefinition.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/enumerator/FmmNodeDefinition.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.05112782" vertical-offset="0" max-vertical-offset="665">
-              <caret line="2" column="41" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="8344" max-vertical-offset="35717">
+              <caret line="616" column="33" selection-start-line="616" selection-start-column="33" selection-end-line="616" selection-end-column="33" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fdk_key__clear_search__pressed.png" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/fdk_key__clear_search__pressed.png">
+      <file leaf-file-name="gcg__printer.png" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__printer.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="repository.gif" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/repository.gif">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="repository__active.gif" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/repository__active.gif">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="repository__android__16.png" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/repository__android__16.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gcg__revert__32.png" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__revert__32.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fse__sequence_modification__down.png" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/fse__sequence_modification__down.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gcg__button__share__pdf.png" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__button__share__pdf.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="work_breakdown.png" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/work_breakdown.png">
           <provider selected="true" editor-type-id="images">
             <state />
           </provider>
@@ -1468,7 +1540,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/ProjectAssetMoveDialog.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/WorkPackageMoveWorkBreakdownDialog.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/res/layout/work_package__move_into__project_asset.xml" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/HeadlineNodeMoveDialog.java" />
@@ -1519,6 +1590,7 @@
         <option value="$PROJECT_DIR$/fms-library/src/main/res/drawable/button_state_list__action__add_new.xml" />
         <option value="$PROJECT_DIR$/fms-library/src/main/res/drawable/button_state_list__generic_add.xml" />
         <option value="$PROJECT_DIR$/fms-library/src/main/res/drawable/row_state_list__default.xml" />
+        <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/enumerator/FmmNodeDefinition.java" />
       </list>
     </option>
   </component>
@@ -1587,20 +1659,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="fms-workbench" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="flywheelms-hd" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="flywheel-management-science" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="fms-library" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -1679,7 +1737,67 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="layout" />
+              <option name="myItemId" value="layout-land" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flywheelms-hd" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flywheel-management-science" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fms-library" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drawable-xhdpi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flywheelms-hd" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flywheel-management-science" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fms-library" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drawable-nodpi" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1739,7 +1857,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="drawable" />
+              <option name="myItemId" value="drawable-ldpi" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1769,7 +1887,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="anim" />
+              <option name="myItemId" value="drawable-hdpi" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1833,7 +1951,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="fms" />
+              <option name="myItemId" value="fmm" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1867,11 +1985,99 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="fms" />
+              <option name="myItemId" value="fmm" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="dialog" />
+              <option name="myItemId" value="node" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flywheelms-hd" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flywheel-management-science" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fms-library" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="library" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fmm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="node" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="impl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flywheelms-hd" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flywheel-management-science" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fms-library" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="library" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fmm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="node" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="impl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="enumerator" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1908,6 +2114,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi" />
       <recent name="$PROJECT_DIR$/fms-library/src/main/res/layout" />
       <recent name="$PROJECT_DIR$/fms-library/src/main/res/drawable" />
     </key>
@@ -2365,7 +2572,11 @@
       <created>1410569662884</created>
       <updated>1410569662884</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="incremental - clean up drawables file names">
+      <created>1410628635602</created>
+      <updated>1410628635603</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2419,7 +2630,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="tweak work_task.ddl - delete work status column&#10;implement child summary for WorkPackage&#10;create WorkTasks" />
     <MESSAGE value="GUI tweak" />
     <MESSAGE value="1st iteration - orphan Project from Portfolio" />
     <MESSAGE value="1st iteration - adopt orphan Project into Portfolio&#10;all orphan spinners are zoomable" />
@@ -2444,7 +2654,8 @@
     <MESSAGE value="iteration - rename module flywheelmshd to fms-workbench" />
     <MESSAGE value="bug fix - .gitignore" />
     <MESSAGE value="clean up gradle" />
-    <option name="LAST_COMMIT_MESSAGE" value="clean up gradle" />
+    <MESSAGE value="incremental - clean up drawables file names" />
+    <option name="LAST_COMMIT_MESSAGE" value="incremental - clean up drawables file names" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -2482,264 +2693,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/persistence/PersistenceTechnologyDelegateSqLite.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.63909775" vertical-offset="49691" max-vertical-offset="51493">
-          <caret line="2956" column="73" selection-start-line="2956" selection-start-column="73" selection-end-line="2956" selection-end-column="73" />
-          <folding>
-            <element signature="e#0#143274#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#11191#11199#0" expanded="false" />
-            <element signature="e#11790#11798#0" expanded="false" />
-            <element signature="e#12430#12438#0" expanded="false" />
-            <element signature="e#13200#13208#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/persistence/PersistenceTechnologyDelegate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7413534" vertical-offset="10795" max-vertical-offset="11764">
-          <caret line="737" column="3" selection-start-line="737" selection-start-column="3" selection-end-line="737" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/FmmDatabaseMediator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45155993" vertical-offset="30359" max-vertical-offset="44625">
-          <caret line="1818" column="72" selection-start-line="1818" selection-start-column="72" selection-end-line="1818" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/widget/spinner/WorkTaskWidgetSpinner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37315634" vertical-offset="818" max-vertical-offset="1496">
-          <caret line="117" column="49" selection-start-line="117" selection-start-column="49" selection-end-line="117" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/treeview/filter/FmsTreeViewAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.028571429" vertical-offset="8226" max-vertical-offset="8891">
-          <caret line="594" column="77" selection-start-line="594" selection-start-column="77" selection-end-line="594" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable-hdpi/gcg__icon_missing.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable-hdpi/gcg__generic__search.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-workbench/src/main/res/values/fwb__arrays.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="685">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-workbench/src/main/res/values/fwb__strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5112782" vertical-offset="0" max-vertical-offset="665">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/values-land/fms_dimens.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="204">
-          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/values-large/gcg__dimens.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.100294985" vertical-offset="0" max-vertical-offset="678">
-          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fwb/interfaces/ShowMenuActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.100294985" vertical-offset="0" max-vertical-offset="678">
-          <caret line="45" column="17" selection-start-line="45" selection-start-column="17" selection-end-line="45" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fwb/treeview/treebuilder/FmsTreeBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15338346" vertical-offset="0" max-vertical-offset="884">
-          <caret line="51" column="13" selection-start-line="51" selection-start-column="13" selection-end-line="51" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-workbench/src/main/java/com/flywheelms/fwb/perspective/FwbCommitmentsConfirmedPerspective.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="67" max-vertical-offset="1088">
-          <caret line="60" column="28" selection-start-line="60" selection-start-column="28" selection-end-line="60" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-workbench/src/main/java/com/flywheelms/fwb/perspective/FwbCommitmentsDeclinedPerspective.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1088">
-          <caret line="60" column="13" selection-start-line="60" selection-start-column="13" selection-end-line="60" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-workbench/src/main/java/com/flywheelms/fwb/FmsWorkbench.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35103244" vertical-offset="0" max-vertical-offset="678">
-          <caret line="60" column="5" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gradlew.bat">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.6130081" vertical-offset="992" max-vertical-offset="1632">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/modules.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="289">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/gradle.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="425">
-          <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/local.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1034">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/settings.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="136">
-          <caret line="0" column="21" selection-start-line="0" selection-start-column="21" selection-end-line="0" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-workbench/fms-workbench.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.0541353" vertical-offset="701" max-vertical-offset="1666">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/fms-library.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.9954887" vertical-offset="662" max-vertical-offset="1683">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flywheelms-workbench.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.02556391" vertical-offset="0" max-vertical-offset="665">
-          <caret line="1" column="194" selection-start-line="1" selection-start-column="193" selection-end-line="1" selection-end-column="194" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.025335321" vertical-offset="34" max-vertical-offset="51544">
-          <caret line="3" column="13" selection-start-line="35" selection-start-column="117" selection-end-line="35" selection-end-column="129" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-21.36" vertical-offset="197" max-vertical-offset="850">
-          <caret line="43" column="2" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-workbench/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="578">
-          <caret line="27" column="1" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="561">
-          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/anim/gcg__activity_status__green.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="685">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/FmmManagementDialog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="1326">
-          <caret line="77" column="33" selection-start-line="77" selection-start-column="33" selection-end-line="77" selection-end-column="33" />
-          <folding>
-            <element signature="e#2917#2918#0" expanded="true" />
-            <element signature="e#2947#2948#0" expanded="true" />
-            <element signature="e#3009#3010#0" expanded="true" />
-            <element signature="e#3020#3055#0" expanded="true" />
-            <element signature="e#3058#3059#0" expanded="true" />
-            <element signature="e#3118#3119#0" expanded="true" />
-            <element signature="e#3157#3158#0" expanded="true" />
-            <element signature="e#3228#3229#0" expanded="true" />
-            <element signature="e#3283#3284#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/layout/fmm__management__dialog.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.384615" vertical-offset="357" max-vertical-offset="1020">
-          <caret line="43" column="83" selection-start-line="43" selection-start-column="53" selection-end-line="43" selection-end-column="83" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__button__add_new__green_1.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__button__add_new__purple.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable/gcg__button__add_new__blue_green.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -2853,6 +2806,179 @@
           <caret line="2" column="41" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable-hdpi/fse_paragraph.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable-hdpi/start_button__bookshelf.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable-hdpi/gcg__button__share__sms.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable-hdpi/gcg__button__share__email.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable-ldpi/fms__organization.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/audit_block.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__button__disable.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__button__enable.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__button__move.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__button__remove.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__cloud__16.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/collaborators.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__button__delete.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/fse__button__new.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/fse__button__open.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/fse__button__revert.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/fse__button__save.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/fse__button__contributors.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__empty_bitmap.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/fse__button__import__flywheel_story.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/node_picker_button__community_member.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/fse__numbering_modified.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/fse__locks_modified_3.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/fse__locks_modified_2.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/fse__locks_modified.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/enumerator/FmmNodeDefinition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="8344" max-vertical-offset="35717">
+          <caret line="616" column="33" selection-start-line="616" selection-start-column="33" selection-end-line="616" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__printer.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/repository.gif">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/repository__active.gif">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/repository__android__16.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__revert__32.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/fse__sequence_modification__down.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__button__share__pdf.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/work_breakdown.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
   </component>

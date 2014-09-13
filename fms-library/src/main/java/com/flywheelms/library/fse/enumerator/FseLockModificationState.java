@@ -52,7 +52,7 @@ import java.util.Hashtable;
 
 public enum FseLockModificationState implements ModificationState {
 	
-	MODIFIED ("Modified", R.drawable.locks_modified_2, R.drawable.fse__paragraph_markup__locking, 0, R.drawable.pdf_lock_locking),
+	MODIFIED ("Modified", R.drawable.fse__locks_modified_2, R.drawable.fse__paragraph_markup__locking, 0, R.drawable.pdf_lock_locking),
 	UNCHANGED ("Unchanged", R.drawable.gcg__null_drawable_32, R.drawable.gcg__null_drawable, 0, R.drawable.pdf_unchanged);
 	
 	private static final Hashtable<String, FseLockModificationState> nameTable = new Hashtable<String, FseLockModificationState>();

@@ -404,7 +404,7 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     		FragLock.class,
     		"FRL",
     		R.string.fmm_node_definition__frag_lock__label_text,
-    		R.drawable.lock_type__node,
+    		R.drawable.fmm_noun__lock_type,
     		0,
     		R.drawable.gcg__unspecified_glyph,
     		R.drawable.gcg__unspecified_glyph,
@@ -614,7 +614,7 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     		NodeFragCompletion.class,
     		"NFC",
     		R.string.fmm_node_definition__node_frag__completion__label_text,
-    		R.drawable.lock_type__node,
+    		R.drawable.completion,
     		0,
     		R.drawable.gcg__unspecified_glyph,
     		R.drawable.gcg__unspecified_glyph,
@@ -712,7 +712,7 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     		FmsOrganization.class,
     		"ORG",
     		R.string.fmm_node_definition__organization__label_text,
-    		R.drawable.gcg__data_source,
+    		R.drawable.fms__organization,
     		0,
     		R.drawable.gcg__unspecified_glyph,
     		R.drawable.gcg__unspecified_glyph,
@@ -2118,7 +2118,7 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 	public int getUndecoratedGlyphResourceId(FmmNodeGlyphType anFmmNodeGlyphType) {
 		Integer theInteger = getNodeGlyphResourceIdMap().get(anFmmNodeGlyphType);
 		return theInteger == null
-				? R.drawable.icon_undefined
+				? R.drawable.gcg__icon_undefined
 				: theInteger;
 	}
 

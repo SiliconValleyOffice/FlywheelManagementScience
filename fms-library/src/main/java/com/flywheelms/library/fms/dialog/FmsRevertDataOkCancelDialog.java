@@ -61,7 +61,7 @@ public class FmsRevertDataOkCancelDialog extends FmsCancelOkDialog {
 
 	@Override
 	protected int getDialogTitleIconResourceId() {
-		return R.drawable.revert__32;
+		return R.drawable.gcg__revert__32;
 	}
 
 	@Override

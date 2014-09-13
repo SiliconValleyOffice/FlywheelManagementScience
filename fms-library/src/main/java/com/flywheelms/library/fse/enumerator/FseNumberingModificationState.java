@@ -52,7 +52,7 @@ import java.util.Hashtable;
 
 public enum FseNumberingModificationState implements ModificationState {
 	
-	MODIFIED("Modified", R.drawable.numbering_modified, R.color.fse__paragraph_markup__numbering, 0, R.drawable.pdf_numbering_modified), 
+	MODIFIED("Modified", R.drawable.fse__numbering_modified, R.color.fse__paragraph_markup__numbering, 0, R.drawable.pdf_numbering_modified),
 	UNCHANGED("Unchanged", R.drawable.gcg__null_drawable_32, R.color.pdf__transparent, 0, R.drawable.pdf_unchanged);
 	
 	private static final Hashtable<String, FseNumberingModificationState> nameTable = new Hashtable<String, FseNumberingModificationState>();

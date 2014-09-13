@@ -71,7 +71,7 @@ public class GcgGuiPreferencesDialog extends FmsCancelDialog {
 
 	@Override
 	protected int getDialogTitleIconResourceId() {
-		return R.drawable.gui_preferences__32;
+		return R.drawable.gcg__gui_preferences__32;
 	}
 
 	@Override

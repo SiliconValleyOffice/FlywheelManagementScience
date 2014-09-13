@@ -16,7 +16,7 @@
             android:id="@+id/fse__paragraph_menu__heading"
             android:layout_width="@dimen/fse__paragraph_menu__width"
             android:layout_height="match_parent"
-            android:background="@drawable/menu_heading__background"
+            android:background="@drawable/gcg__menu_heading__background"
             android:gravity="center_horizontal"
             android:paddingTop="4dp"
             android:text="@string/fse__paragraph_menu__heading"
@@ -30,7 +30,7 @@
 	        android:layout_weight="1"
 	        android:layout_height="@dimen/menu__label_height"
 	        android:gravity="center_horizontal"
-	        android:background="@drawable/menu_heading__background"
+	        android:background="@drawable/gcg__menu_heading__background"
 	        android:orientation="horizontal" >
 	
 	        <TextView

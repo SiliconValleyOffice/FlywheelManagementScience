@@ -82,7 +82,7 @@ public abstract class GcgTreeViewAdapter extends BaseAdapter implements FmmHeadl
     private int indentWidth = 0;
     private Drawable collapsedNodeButtonDrawable;
     private Drawable expandedNodeButtonDrawable;
-    private Drawable emptyDrawable = GcgApplication.getInstance().getResources().getDrawable(R.drawable.empty_bitmap);
+    private Drawable emptyDrawable = GcgApplication.getInstance().getResources().getDrawable(R.drawable.gcg__empty_bitmap);
     private boolean collapsible;
     protected final GcgTreeViewParent gcgTreeViewParent;
     protected HashMap<String, GcgTreeNodeInfo> savedTreeNodeInfoMap;

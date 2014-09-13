@@ -59,7 +59,7 @@ public enum FmmConfigurationTemplateSource implements GcgGuiable {
 	SHARED ("Shared", R.drawable.fmm_repository__scope__shared),
 	TEAM ("Team", R.drawable.fmm_repository__scope__team),
 	ASSETS ("FlywheelMS", R.drawable.flywheel_ms__16),
-	CLOUD ("Template Cloud", R.drawable.cloud__16);
+	CLOUD ("Template Cloud", R.drawable.gcg__cloud__16);
 	
 	private static final ArrayList<GcgGuiable> guiableList = new ArrayList<GcgGuiable>(Arrays.asList(values()));
 

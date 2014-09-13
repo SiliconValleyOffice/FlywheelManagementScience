@@ -17,7 +17,7 @@
             android:layout_width="@dimen/fse__paragraph_menu__width"
             android:layout_height="match_parent"
             android:gravity="center_horizontal"
-            android:background="@drawable/spinnable_menu_background__right_side"
+            android:background="@drawable/gcg__spinnable_menu_background__right_side"
             android:text="@string/fse__paragraph_menu__heading"
             android:textColor="@color/gcg__thumb_menu__heading__text"
             android:textSize="14.0dp"
@@ -29,7 +29,7 @@
 	        android:layout_weight="1"
 	        android:layout_height="@dimen/menu__label_height"
 	        android:gravity="center"
-        	android:background="@drawable/menu_heading__background"
+        	android:background="@drawable/gcg__menu_heading__background"
 	        android:orientation="horizontal" >
 	        
 	        <ImageView

@@ -2,7 +2,7 @@
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/row_text"
     style="@style/WidgetDataWithDrawableHorizontalContainer"
-    android:drawableLeft="@drawable/icon_undefined"
+    android:drawableLeft="@drawable/gcg__icon_undefined"
     android:singleLine="true"
     android:text="@string/undefined"
     android:textSize="24sp">

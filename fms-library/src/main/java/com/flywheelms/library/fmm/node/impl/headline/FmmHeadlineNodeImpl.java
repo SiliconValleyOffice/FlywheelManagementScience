@@ -141,7 +141,7 @@ public abstract class FmmHeadlineNodeImpl extends FmmHistoryNodeImpl
 		private static final long serialVersionUID = 1L;
 		boolean showNodeSummary = false;
 		String summaryPrefix = "";
-		int summaryDrawableResourceId = R.drawable.empty_bitmap;
+		int summaryDrawableResourceId = R.drawable.gcg__empty_bitmap;
 		String summarySuffix = "";
 		
 		public NodeCompletionSummary() {
@@ -217,7 +217,7 @@ public abstract class FmmHeadlineNodeImpl extends FmmHistoryNodeImpl
 	public int getNodeSummaryDrawableResourceId(FmmPerspective anFmmPerspective) {
 		NodeCompletionSummary theNodeSummary = getNodeSummaryMap().get(anFmmPerspective);
 		return theNodeSummary == null
-				? R.drawable.empty_bitmap
+				? R.drawable.gcg__empty_bitmap
 				: theNodeSummary.getSummaryDrawableResourceId();
 	}
 

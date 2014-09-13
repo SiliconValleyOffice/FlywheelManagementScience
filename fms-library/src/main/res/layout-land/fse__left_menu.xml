@@ -19,7 +19,7 @@
 	        android:layout_width="match_parent"
 	        android:layout_height="@dimen/menu__label_height"
 	        android:layout_marginBottom="8dp"
-	        android:background="@drawable/spinnable_menu_background__left__1_of_3"
+	        android:background="@drawable/gcg__spinnable_menu_background__left__1_of_3"
 	        android:gravity="left"
 	        android:spinnerMode="dropdown"
 	        android:textColor="@color/White"
@@ -44,7 +44,7 @@
 	                android:layout_marginTop="22dp"
 	                android:layout_marginBottom="28dp"
 	                android:background="@color/pdf__transparent"
-	                android:drawableStart="@drawable/document__save__button"
+	                android:drawableStart="@drawable/fse__button__save"
 	                android:paddingLeft="2dp" />
 	
 	            <Button
@@ -53,7 +53,7 @@
 	                android:layout_height="wrap_content"
 	                android:layout_marginBottom="34dp"
 	                android:background="@color/pdf__transparent"
-	                android:drawableStart="@drawable/document__new__button"
+	                android:drawableStart="@drawable/fse__button__new"
 	                android:paddingLeft="2dp" />
 	
 	            <Button
@@ -62,7 +62,7 @@
 	                android:layout_height="wrap_content"
 	                android:layout_marginBottom="28dp"
 	                android:background="@color/pdf__transparent"
-	                android:drawableStart="@drawable/document__open__button"
+	                android:drawableStart="@drawable/fse__button__open"
 	                android:paddingLeft="2dp" />
 	
 	            <Button
@@ -70,7 +70,7 @@
 	                android:layout_width="wrap_content"
 	                android:layout_height="wrap_content"
 	                android:background="@color/pdf__transparent"
-	                android:drawableStart="@drawable/document__revert__button"
+	                android:drawableStart="@drawable/fse__button__revert"
 	                android:paddingLeft="2dp" />
 	        </LinearLayout>
 	
@@ -88,7 +88,7 @@
 	                android:layout_marginBottom="28dp"
 	                android:layout_marginTop="30dp"
 	                android:background="@color/pdf__transparent"
-	                android:drawableStart="@drawable/share__email__button"
+	                android:drawableStart="@drawable/gcg__button__share__email"
 	                android:paddingLeft="2dp" />
 	
 	            <Button
@@ -98,7 +98,7 @@
 	                android:layout_marginBottom="28dp"
 	                android:layout_marginTop="10dp"
 	                android:background="@color/pdf__transparent"
-	                android:drawableStart="@drawable/share__sms__button"
+	                android:drawableStart="@drawable/gcg__button__share__sms"
 	                android:paddingLeft="2dp" />
 	
 	            <Button
@@ -106,7 +106,7 @@
 	                android:layout_width="wrap_content"
 	                android:layout_height="wrap_content"
 	                android:background="@color/pdf__transparent"
-	                android:drawableStart="@drawable/share__pdf__button"
+	                android:drawableStart="@drawable/gcg__button__share__pdf"
 	                android:paddingLeft="2dp" />
 	
 	            <Button
@@ -115,7 +115,7 @@
 	                android:layout_height="wrap_content"
 	                android:layout_marginTop="28dp"
 	                android:background="@color/pdf__transparent"
-	                android:drawableStart="@drawable/share__print__button"
+	                android:drawableStart="@drawable/gcg__button__share__print"
 	                android:paddingLeft="2dp" />
 	        </LinearLayout>
 	
@@ -133,7 +133,7 @@
 	                android:layout_marginBottom="28dp"
 	                android:layout_marginTop="30dp"
 	                android:background="@color/pdf__transparent"
-	                android:drawableStart="@drawable/import__text_file__button"
+	                android:drawableStart="@drawable/fse__button__import__text_file"
 	                android:paddingLeft="2dp" />
 	
 	            <Button
@@ -141,7 +141,7 @@
 	                android:layout_width="wrap_content"
 	                android:layout_height="wrap_content"
 	                android:background="@color/pdf__transparent"
-	                android:drawableStart="@drawable/import__flywheel_story__button"
+	                android:drawableStart="@drawable/fse__button__import__flywheel_story"
 	                android:paddingLeft="2dp" />
 	        </LinearLayout>
 	    </FrameLayout>

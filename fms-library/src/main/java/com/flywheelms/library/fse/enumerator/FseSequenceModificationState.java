@@ -52,13 +52,13 @@ import java.util.Hashtable;
 
 public enum FseSequenceModificationState implements ModificationState {
 	
-	MOVE_UP ("Move Up",		 R.drawable.sequence_modification__down__27, R.drawable.fse__paragraph_markup__sequence__move_up, 	0, 	R.drawable.pdf_sequence_move_up),
-	MOVE_DOWN ("Move Down",	 R.drawable.sequence_modification__down__27, R.drawable.fse__paragraph_markup__sequence__move_down, 0,  R.drawable.pdf_sequence_move_down),
-	BLOCK_MOVE_UP__START ("Block Move Up - Start", R.drawable.sequence_modification__down__27, R.drawable.fse__paragraph_markup__sequence_block__move_up__start, 0,  R.drawable.pdf_sequence_block_move_up_start),
-	BLOCK_MOVE_UP ("Block Move Up", R.drawable.sequence_modification__down__27, R.drawable.fse__paragraph_markup__sequence_block__move_up, 0,  R.drawable.pdf_sequence_block_move_up),
-	BLOCK_MOVE_DOWN__START ("Block Move Down - Start", R.drawable.sequence_modification__down__27, R.drawable.fse__paragraph_markup__sequence_block__move_down__start, 0,  R.drawable.pdf_sequence_block_move_down_start),
-	BLOCK_MOVE_DOWN ("Block Move Down", R.drawable.sequence_modification__down__27, R.drawable.fse__paragraph_markup__sequence_block__move_down, 0,  R.drawable.pdf_sequence_block_move_down),
-	SEQUENCE_PALOOZA ("Sequence Palooza", R.drawable.sequence_modification__down__27, R.drawable.fse__paragraph_markup__sequence_palooza, 0,  R.drawable.pdf_sequence_sequence_palooza),
+	MOVE_UP ("Move Up",		 R.drawable.fse__sequence_modification__down__27, R.drawable.fse__paragraph_markup__sequence__move_up, 	0, 	R.drawable.pdf_sequence_move_up),
+	MOVE_DOWN ("Move Down",	 R.drawable.fse__sequence_modification__down__27, R.drawable.fse__paragraph_markup__sequence__move_down, 0,  R.drawable.pdf_sequence_move_down),
+	BLOCK_MOVE_UP__START ("Block Move Up - Start", R.drawable.fse__sequence_modification__down__27, R.drawable.fse__paragraph_markup__sequence_block__move_up__start, 0,  R.drawable.pdf_sequence_block_move_up_start),
+	BLOCK_MOVE_UP ("Block Move Up", R.drawable.fse__sequence_modification__down__27, R.drawable.fse__paragraph_markup__sequence_block__move_up, 0,  R.drawable.pdf_sequence_block_move_up),
+	BLOCK_MOVE_DOWN__START ("Block Move Down - Start", R.drawable.fse__sequence_modification__down__27, R.drawable.fse__paragraph_markup__sequence_block__move_down__start, 0,  R.drawable.pdf_sequence_block_move_down_start),
+	BLOCK_MOVE_DOWN ("Block Move Down", R.drawable.fse__sequence_modification__down__27, R.drawable.fse__paragraph_markup__sequence_block__move_down, 0,  R.drawable.pdf_sequence_block_move_down),
+	SEQUENCE_PALOOZA ("Sequence Palooza", R.drawable.fse__sequence_modification__down__27, R.drawable.fse__paragraph_markup__sequence_palooza, 0,  R.drawable.pdf_sequence_sequence_palooza),
 	UNCHANGED ("Unchanged", R.drawable.gcg__null_drawable_32, R.color.pdf__transparent, 0,  R.drawable.pdf_unchanged);
 	
 	private static final Hashtable<String, FseSequenceModificationState> nameTable = new Hashtable<String, FseSequenceModificationState>();
