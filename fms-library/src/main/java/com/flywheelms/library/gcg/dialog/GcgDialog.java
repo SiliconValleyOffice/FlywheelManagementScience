@@ -50,6 +50,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
 
 import com.flywheelms.library.R;
 import com.flywheelms.library.gcg.activity.GcgActivity;
@@ -94,9 +97,25 @@ public abstract class GcgDialog {
         return 0;
     }
 
-    protected void setMinimumHeight(@SuppressWarnings("unused") View theCustomView) { return; }
+    protected String getDialogTitleString() {
+        return this.gcgActivity.getResources().getString(getDialogTitleStringResourceId());
+    }
 
-    protected void setMinimumWidth(@SuppressWarnings("unused") View theCustomView) { return; }
+    protected int getDialogTitleIconResourceId() {
+        return 0;
+    }
+
+    protected abstract int getDialogTitleStringResourceId();
+
+    protected boolean deferredDialogInitialization() {
+        return false;
+    }
+
+    protected void manageButtonState() { }
+
+    protected void setMinimumHeight(@SuppressWarnings("unused") View theCustomView) { }
+
+    protected void setMinimumWidth(@SuppressWarnings("unused") View theCustomView) { }
 
     protected abstract void initializeDialogBody();
 
@@ -124,11 +143,23 @@ public abstract class GcgDialog {
         this.alertDialog.show();
     }
 
-    public void refreshDialog() { return; }
+    public void refreshDialog() { }
 
     public void dismiss() {
         this.alertDialog.dismiss();
     }
 
-    public void onWidgetDataChangeListener(@SuppressWarnings("unused") int aResourceId) { return; }
+    public void onWidgetDataChangeListener(@SuppressWarnings("unused") int aResourceId) { }
+
+    // optional support method
+    protected void initializeDialogTargetInfo(View theDialogBodyView) {
+        ((TextView) theDialogBodyView.findViewById(R.id.activity_name__data)).setText(this.gcgActivity.getActivityLabel());
+        if(this.targetDetail == null) {
+            TableLayout theTableLayout = (TableLayout) theDialogBodyView.findViewById(R.id.gui_target);
+            TableRow theTableRow = (TableRow) theTableLayout.findViewById(R.id.row__a2);
+            theTableLayout.removeView(theTableRow);
+        } else {
+            ((TextView) theDialogBodyView.findViewById(R.id.target_detail__data)).setText(this.targetDetail);
+        }
+    }
 }

@@ -10,7 +10,7 @@ import com.flywheelms.library.gcg.activity.GcgActivity;
 /**
  * Created by sstamps on 9/15/14.
  */
-public class GcgCancelDialog  extends GcgDialog {
+public abstract class GcgCancelDialog  extends GcgDialog {
 
     protected Button buttonCancel;
 
