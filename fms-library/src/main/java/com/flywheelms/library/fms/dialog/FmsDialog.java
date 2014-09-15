@@ -44,12 +44,9 @@
 package com.flywheelms.library.fms.dialog;
 
 import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -59,14 +56,12 @@ import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.gcg.GcgActivity;
+import com.flywheelms.library.gcg.dialog.GcgDialog;
 
-public abstract class FmsDialog {
-	
-	protected AlertDialog.Builder dialogBuilder;
-	protected final GcgActivity gcgActivity;
+public abstract class FmsDialog extends GcgDialog {
+
 	protected String targetDetail = null;
 	protected String messageString;
-	protected AlertDialog alertDialog;
     protected ViewGroup dialogBodyView;
 	protected FmmNodeDefinition fmmNodeDefinition;
 	protected FmmHeadlineNode headlineNode;
@@ -104,7 +99,7 @@ public abstract class FmsDialog {
 			FmmNodeDefinition anFmmNodeDefinition,
 			FmmHeadlineNode aHeadlineNode,
 			FmmHeadlineNode aParentHeadlineNode ) {
-		this.gcgActivity = aGcgActivity;
+		super(aGcgActivity);
 		this.targetDetail = aTargetDetail;
 		this.messageString = aMessageString;
 		this.fmmNodeDefinition = anFmmNodeDefinition;
@@ -160,49 +155,17 @@ public abstract class FmsDialog {
 	protected void setMinimumWidth(@SuppressWarnings("unused") View theCustomView) { return; }
 
 	protected abstract void initializeDialogBody();
-	
-	public void processDialog() {
-		if(this.alertDialog == null) {
-			this.alertDialog = this.dialogBuilder.create();
-			this.alertDialog.setOnKeyListener(new AlertDialog.OnKeyListener() {
 
-				@Override
-				public boolean onKey(DialogInterface arg0, int aKeyCode, KeyEvent aKeyEvent) {
-					if (aKeyCode == KeyEvent.KEYCODE_BACK && aKeyEvent.getAction() == KeyEvent.ACTION_DOWN) {
-						FmsDialog.this.gcgActivity.stopDialog();
-						return true;
-					}
-					return false;
-				}
-			});
-			this.alertDialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
-		}
-		refreshDialog();
-		this.alertDialog.show();
-	}
-
-	public void restartDialog() {
-		this.alertDialog.show();
-	}
-	
-	public void refreshDialog() { return; }
-
-	// optional support method
-	protected void initializeDialogTargetInfo(View theDialogBodyView) {
-		((TextView) theDialogBodyView.findViewById(R.id.activity_name__data)).setText(this.gcgActivity.getActivityLabel());
-		if(this.targetDetail == null) {
-			TableLayout theTableLayout = (TableLayout) theDialogBodyView.findViewById(R.id.gui_target);
-			TableRow theTableRow = (TableRow) theTableLayout.findViewById(R.id.row__a2);
-			theTableLayout.removeView(theTableRow);
-		} else {
-			((TextView) theDialogBodyView.findViewById(R.id.target_detail__data)).setText(this.targetDetail);
-		}
-	}
-
-	public void dismiss() {
-		this.alertDialog.dismiss();
-	}
-	
-	public void onWidgetDataChangeListener(@SuppressWarnings("unused") int aResourceId) { return; }
+    // optional support method
+    protected void initializeDialogTargetInfo(View theDialogBodyView) {
+        ((TextView) theDialogBodyView.findViewById(R.id.activity_name__data)).setText(this.gcgActivity.getActivityLabel());
+        if(this.targetDetail == null) {
+            TableLayout theTableLayout = (TableLayout) theDialogBodyView.findViewById(R.id.gui_target);
+            TableRow theTableRow = (TableRow) theTableLayout.findViewById(R.id.row__a2);
+            theTableLayout.removeView(theTableRow);
+        } else {
+            ((TextView) theDialogBodyView.findViewById(R.id.target_detail__data)).setText(this.targetDetail);
+        }
+    }
 
 }
