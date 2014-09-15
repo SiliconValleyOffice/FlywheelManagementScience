@@ -57,20 +57,20 @@ public abstract class FmsCancelDialog extends FmsDialog {
 
 	protected Button buttonCancel;
 
-	public FmsCancelDialog(GcgActivity aLibraryActivity) {
-		super(aLibraryActivity);
+	public FmsCancelDialog(GcgActivity aGcgActivity) {
+		super(aGcgActivity);
 	}
 	
-	public FmsCancelDialog(GcgActivity aLibraryActivity, FmmHeadlineNode aHeadlineNode) {
-		super(aLibraryActivity, aHeadlineNode);
+	public FmsCancelDialog(GcgActivity aGcgActivity, FmmHeadlineNode aHeadlineNode) {
+		super(aGcgActivity, aHeadlineNode);
 	}
 	
-	public FmsCancelDialog(GcgActivity aLibraryActivity, FmmNodeDefinition anFmmNodeDefinition) {
-		super(aLibraryActivity, anFmmNodeDefinition);
+	public FmsCancelDialog(GcgActivity aGcgActivity, FmmNodeDefinition anFmmNodeDefinition) {
+		super(aGcgActivity, anFmmNodeDefinition);
 	}
 
-	public FmsCancelDialog(GcgActivity aLibraryActivity, String aViewGroupName) {
-		super(aLibraryActivity, aViewGroupName);
+	public FmsCancelDialog(GcgActivity aGcgActivity, String aViewGroupName) {
+		super(aGcgActivity, aViewGroupName);
 	}
 
 	@Override

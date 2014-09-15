@@ -44,10 +44,7 @@
 package com.flywheelms.library.fms.dialog;
 
 import android.app.AlertDialog;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -60,13 +57,9 @@ import com.flywheelms.library.gcg.dialog.GcgDialog;
 
 public abstract class FmsDialog extends GcgDialog {
 
-	protected String targetDetail = null;
-	protected String messageString;
-    protected ViewGroup dialogBodyView;
 	protected FmmNodeDefinition fmmNodeDefinition;
 	protected FmmHeadlineNode headlineNode;
 	protected FmmHeadlineNode parentHeadlineNode;
-	protected LinearLayout customContentsContainer;
 
 	public FmsDialog(GcgActivity aGcgActivity) {
 		this(aGcgActivity, "", "", null, null, null);
@@ -99,9 +92,7 @@ public abstract class FmsDialog extends GcgDialog {
 			FmmNodeDefinition anFmmNodeDefinition,
 			FmmHeadlineNode aHeadlineNode,
 			FmmHeadlineNode aParentHeadlineNode ) {
-		super(aGcgActivity);
-		this.targetDetail = aTargetDetail;
-		this.messageString = aMessageString;
+		super(aGcgActivity, aTargetDetail, aMessageString);
 		this.fmmNodeDefinition = anFmmNodeDefinition;
 		this.headlineNode = aHeadlineNode;
 		this.parentHeadlineNode = aParentHeadlineNode;
@@ -132,29 +123,6 @@ public abstract class FmsDialog extends GcgDialog {
         }
         return 0;
     }
-
-	protected View inflateDialogBody(int aLayoutResourceId) {
-		LayoutInflater theLayoutInflater = LayoutInflater.from(this.dialogBuilder.getContext());
-		ViewGroup theDialogBody = (ViewGroup) theLayoutInflater.inflate(aLayoutResourceId, null);
-		setMinimumWidth(theDialogBody);
-		setMinimumHeight(theDialogBody);
-		if(getCustomDialogContentsResourceId() != 0) {
-			this.customContentsContainer = (LinearLayout) theDialogBody.findViewById(R.id.gcg_dialog__custom_contents_container);
-			theLayoutInflater.inflate(getCustomDialogContentsResourceId(), this.customContentsContainer, true);
-		}
-		this.dialogBuilder.setView(theDialogBody);
-		return theDialogBody;
-	}
-
-	protected int getCustomDialogContentsResourceId() {
-		return 0;
-	}
-	
-	protected void setMinimumHeight(@SuppressWarnings("unused") View theCustomView) { return; }
-
-	protected void setMinimumWidth(@SuppressWarnings("unused") View theCustomView) { return; }
-
-	protected abstract void initializeDialogBody();
 
     // optional support method
     protected void initializeDialogTargetInfo(View theDialogBodyView) {

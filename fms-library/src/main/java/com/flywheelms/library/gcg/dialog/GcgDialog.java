@@ -45,19 +45,60 @@ package com.flywheelms.library.gcg.dialog;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.LinearLayout;
 
+import com.flywheelms.library.R;
 import com.flywheelms.library.gcg.activity.GcgActivity;
 
-public class GcgDialog {
+public abstract class GcgDialog {
 
     protected final GcgActivity gcgActivity;
     protected AlertDialog.Builder dialogBuilder;
     protected AlertDialog alertDialog;
+    protected String targetDetail = null;
+    protected String messageString;
+    protected ViewGroup dialogBodyView;
+    protected LinearLayout customContentsContainer;
 
     public GcgDialog(GcgActivity aGcgActivity) {
-        this.gcgActivity = aGcgActivity;
+        this(aGcgActivity, "", "");
     }
+
+    public GcgDialog(
+            GcgActivity aGcgActivity,
+            String aTargetDetail,
+            String aMessageString ) {
+        this.gcgActivity = aGcgActivity;
+        this.targetDetail = aTargetDetail;
+        this.messageString = aMessageString;
+    }
+
+    protected View inflateDialogBody(int aLayoutResourceId) {
+        LayoutInflater theLayoutInflater = LayoutInflater.from(this.dialogBuilder.getContext());
+        ViewGroup theDialogBody = (ViewGroup) theLayoutInflater.inflate(aLayoutResourceId, null);
+        setMinimumWidth(theDialogBody);
+        setMinimumHeight(theDialogBody);
+        if(getCustomDialogContentsResourceId() != 0) {
+            this.customContentsContainer = (LinearLayout) theDialogBody.findViewById(R.id.gcg_dialog__custom_contents_container);
+            theLayoutInflater.inflate(getCustomDialogContentsResourceId(), this.customContentsContainer, true);
+        }
+        this.dialogBuilder.setView(theDialogBody);
+        return theDialogBody;
+    }
+
+    protected int getCustomDialogContentsResourceId() {
+        return 0;
+    }
+
+    protected void setMinimumHeight(@SuppressWarnings("unused") View theCustomView) { return; }
+
+    protected void setMinimumWidth(@SuppressWarnings("unused") View theCustomView) { return; }
+
+    protected abstract void initializeDialogBody();
 
     public void processDialog() {
         if(this.alertDialog == null) {
