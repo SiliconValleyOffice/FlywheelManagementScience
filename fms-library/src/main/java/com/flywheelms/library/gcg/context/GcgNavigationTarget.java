@@ -1,4 +1,4 @@
-/* @(#)FmsNavigationTarget.java
+/* @(#)GcgNavigationTarget.java
 ** 
 ** Copyright (C) 2012 by Steven D. Stamps
 **
@@ -41,35 +41,34 @@
 ** <http://www.gnu.org/licenses/gpl-3.0.html>.
 */
 
-package com.flywheelms.library.fms.context;
+package com.flywheelms.library.gcg.context;
 
 import com.flywheelms.library.fmm.context.GcgImplementationHelper;
-import com.flywheelms.library.gcg.context.GcgActivityBreadcrumb;
 import com.flywheelms.library.gcg.interfaces.GcgPerspective;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class FmsNavigationTarget {
+public class GcgNavigationTarget {
 
 	private int drawableResourceId;
 	private String headline;
 	private boolean isPerspective;
 	private boolean isContextRoot;
 	private GcgActivityBreadcrumb gcgActivityBreadcrumb;
-	public static final String bundle_key__FMS_NAVIGATION_TARGET = "FmsNavigationTarget";
+	public static final String bundle_key__GCG_NAVIGATION_TARGET = "GcgNavigationTarget";
 	public static final String bundle_key__DRAWABLE_RESOURCE_ID = "DrawableResourceId";
 	public static final String bundle_key__HEADLINE = "Headline";
 	public static final String bundle_key__IS_PERSPECTIVE = "IsPerspective";
 	public static final String bundle_key__IS_CONTEXT_ROOT = "IsContextRoot";
-	public static final String bundle_key__GCG_APPLICATION_BREADCRUMB = "FmsApplicationContextBreadcrumb";
+	public static final String bundle_key__GCG_APPLICATION_BREADCRUMB = "GcgApplicationContextBreadcrumb";
 	public static final int request_code__NAVIGATE = 131313;
 	
-	public FmsNavigationTarget(int aDrawableResourceId, String aHeadline, boolean bPerspective, boolean bContextRoot) {
+	public GcgNavigationTarget(int aDrawableResourceId, String aHeadline, boolean bPerspective, boolean bContextRoot) {
 		this(aDrawableResourceId, aHeadline, bPerspective, bContextRoot, null);
 	}
 	
-	public FmsNavigationTarget(int aDrawableResourceId, String aHeadline, boolean bPerspective, boolean bContextRoot, GcgActivityBreadcrumb anActivityBreadcrumb) {
+	public GcgNavigationTarget(int aDrawableResourceId, String aHeadline, boolean bPerspective, boolean bContextRoot, GcgActivityBreadcrumb anActivityBreadcrumb) {
 		this.drawableResourceId = aDrawableResourceId;
 		this.headline = aHeadline;
 		this.isPerspective = bPerspective;
@@ -77,7 +76,7 @@ public class FmsNavigationTarget {
 		this.gcgActivityBreadcrumb = anActivityBreadcrumb;
 	}
 	
-	public FmsNavigationTarget(JSONObject aJsonObject) {
+	public GcgNavigationTarget(JSONObject aJsonObject) {
 		try {
 			this.drawableResourceId = aJsonObject.getInt(bundle_key__DRAWABLE_RESOURCE_ID);
 			this.headline = aJsonObject.getString(bundle_key__HEADLINE);

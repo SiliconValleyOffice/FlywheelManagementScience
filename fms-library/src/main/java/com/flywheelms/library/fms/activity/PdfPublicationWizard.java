@@ -50,10 +50,10 @@ import android.os.Bundle;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
-import com.flywheelms.library.fms.context.FmsNavigationTarget;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
 import com.flywheelms.library.fms.helper.FmsHelpIndex;
 import com.flywheelms.library.fms.wizard_step_flipper.FmsNodePublishingWizardStepFlipper;
+import com.flywheelms.library.gcg.context.GcgNavigationTarget;
 
 public class PdfPublicationWizard extends FmsNodeWizardActivity {
 	
@@ -81,8 +81,8 @@ public class PdfPublicationWizard extends FmsNodeWizardActivity {
 		if(anIntent == null) {
 			return;
 		}
-		if(aResultCode == FmsNavigationTarget.request_code__NAVIGATE) {
-			processFmsApplicationContextNavigationIntent(anIntent);
+		if(aResultCode == GcgNavigationTarget.request_code__NAVIGATE) {
+			processGcgApplicationContextNavigationIntent(anIntent);
 			return;
 		}
 		if(aRequestCode == FmsActivityHelper.request_code__ANDROID_CONTACT_PICKER) {

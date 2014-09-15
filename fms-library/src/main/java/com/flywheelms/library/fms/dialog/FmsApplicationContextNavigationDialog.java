@@ -53,16 +53,16 @@ import android.widget.TextView;
 
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.context.FmmPerspective;
-import com.flywheelms.library.fms.context.FmsNavigationTarget;
 import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.gcg.context.GcgActivityBreadcrumb;
 import com.flywheelms.library.gcg.context.GcgApplicationContext;
+import com.flywheelms.library.gcg.context.GcgNavigationTarget;
 
 import java.util.ArrayList;
 
 public class FmsApplicationContextNavigationDialog extends FmsDialog {
 
-	private ArrayAdapter<FmsNavigationTarget> fmsNavigationTargetArrayAdapter;
+	private ArrayAdapter<GcgNavigationTarget> fmsNavigationTargetArrayAdapter;
 
 	public FmsApplicationContextNavigationDialog(GcgActivity aLibraryActivity) {
 		super(aLibraryActivity);
@@ -80,7 +80,7 @@ public class FmsApplicationContextNavigationDialog extends FmsDialog {
 
 	@Override
 	protected void initializeDialogBody() {
-		this.fmsNavigationTargetArrayAdapter = new ArrayAdapter<FmsNavigationTarget>(
+		this.fmsNavigationTargetArrayAdapter = new ArrayAdapter<GcgNavigationTarget>(
 				this.gcgActivity,
 				R.layout.gcg__application_context__breadcrumb,
 				getNavigationChoiceList() ) {
@@ -90,7 +90,7 @@ public class FmsApplicationContextNavigationDialog extends FmsDialog {
 				// low volume, transient list; so we do not use the Android ViewHolder pattern  :-)
 				final LayoutInflater inflater = LayoutInflater.from(FmsApplicationContextNavigationDialog.this.gcgActivity);
 				View theRowView = inflater.inflate(R.layout.gcg__application_context__breadcrumb, null);
-				FmsNavigationTarget theNavigationTarget = FmsApplicationContextNavigationDialog.this.fmsNavigationTargetArrayAdapter.getItem(aViewPosition);
+				GcgNavigationTarget theNavigationTarget = FmsApplicationContextNavigationDialog.this.fmsNavigationTargetArrayAdapter.getItem(aViewPosition);
 				ImageView theImageView = (ImageView) theRowView.findViewById(R.id.gcg_context__breadcrumb__image);
 				theImageView.setImageResource(theNavigationTarget.getDrawableResourceId() );
 				TextView theTextView = (TextView) theRowView.findViewById(R.id.gcg_context__breadcrumb__headine);
@@ -115,11 +115,11 @@ public class FmsApplicationContextNavigationDialog extends FmsDialog {
 		});
 	}
 
-	private ArrayList<FmsNavigationTarget> getNavigationChoiceList() {
-		ArrayList<FmsNavigationTarget> theChoiceList = new ArrayList<FmsNavigationTarget>();
+	private ArrayList<GcgNavigationTarget> getNavigationChoiceList() {
+		ArrayList<GcgNavigationTarget> theChoiceList = new ArrayList<GcgNavigationTarget>();
 		GcgApplicationContext theGcgApplicationContext = this.gcgActivity.getGcgApplicationContext();
 		for(FmmPerspective thePerspective : theGcgApplicationContext.getRootActivityFrame().getPerspectiveList()) {
-			theChoiceList.add(new FmsNavigationTarget(
+			theChoiceList.add(new GcgNavigationTarget(
 					thePerspective.getIconDrawableResourceId(),
 					thePerspective.getName(),
 					true,
@@ -131,7 +131,7 @@ public class FmsApplicationContextNavigationDialog extends FmsDialog {
 				theFirstActivity = false;
 				continue;
 			}
-			theChoiceList.add(new FmsNavigationTarget(
+			theChoiceList.add(new GcgNavigationTarget(
 					theBreakcrumb.getDrawableResourceId(),
 					theBreakcrumb.getText(),
 					false,

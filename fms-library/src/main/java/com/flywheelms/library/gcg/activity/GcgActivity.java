@@ -68,12 +68,9 @@ import com.flywheelms.library.fdk.FdkHostSupport;
 import com.flywheelms.library.fdk.enumerator.FdkKeyboardState;
 import com.flywheelms.library.fdk.interfaces.FdkHost;
 import com.flywheelms.library.fdk.widget.FdkKeyboard;
-import com.flywheelms.library.fmm.enumerator.FmmNodeTransactionType;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.repository.FmmAccessScope;
-import com.flywheelms.library.fmm.transaction.FmmDataRefreshNotice;
-import com.flywheelms.library.fms.context.FmsNavigationTarget;
 import com.flywheelms.library.fms.dialog.FmsRevertDataOkCancelDialog;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
 import com.flywheelms.library.gcg.GcgApplication;
@@ -81,6 +78,7 @@ import com.flywheelms.library.gcg.context.GcgActivityBreadcrumb;
 import com.flywheelms.library.gcg.context.GcgApplicationContext;
 import com.flywheelms.library.gcg.context.GcgApplicationContextHeader;
 import com.flywheelms.library.gcg.context.GcgFrameBreadcrumb;
+import com.flywheelms.library.gcg.context.GcgNavigationTarget;
 import com.flywheelms.library.gcg.dialog.GcgDialog;
 import com.flywheelms.library.gcg.dialog.GcgSaveChangesDialog;
 import com.flywheelms.library.gcg.enumerator.GcgDoItNowMenuItemState;
@@ -100,7 +98,6 @@ import org.json.JSONObject;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Hashtable;
 import java.util.Stack;
 
 public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNowClient {
@@ -111,8 +108,6 @@ public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNo
 	protected boolean mustSelectDataSource;
 	protected boolean dataRefreshAll = false;
 	protected boolean parentDataRefreshAll = false;
-	protected ArrayList<FmmDataRefreshNotice> dataRefreshList;
-	protected ArrayList<FmmDataRefreshNotice> parentDataRefreshList;
 	private Bundle savedInstanceState;
 	private String activityLabel;
 	protected GcgFrameSpinner frameSpinner;
@@ -136,9 +131,7 @@ public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNo
 	protected boolean discardDataChanges = false;
 	private String activeViewGroupName = null;
 	private GcgTreeViewAdapter activeTreeViewAdapter;
-	protected Hashtable<String, FmmNodeTransactionType> modifiedFmmNodeIdList = new Hashtable<String, FmmNodeTransactionType>();
-	protected Hashtable<String, FmmNodeTransactionType> queuedChildModifiedFmmNodeIdTable;
-	protected float lastXposition;  // for detecting page swipes
+    protected float lastXposition;  // for detecting page swipes
 
 	public GcgActivity(String anInitialHelpContextUrlString) {
 		super();
@@ -152,10 +145,7 @@ public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNo
 		if(this.dataRefreshAll) {
 			refreshDataDisplay();
 			this.dataRefreshAll = false;
-		} else if(this.dataRefreshList != null) {
-			refreshDataDisplay();
 		}
-		this.dataRefreshList = null;
 		resetSoftKeyboard();
 	}
 	
@@ -623,45 +613,32 @@ public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNo
 		if(anIntent == null) {
 			return;
 		}
-		this.queuedChildModifiedFmmNodeIdTable = FmsActivityHelper.getModifiedNodeHashTable(anIntent);
-		if(aResultCode != FmsNavigationTarget.request_code__NAVIGATE) {
-			this.queuedChildModifiedFmmNodeIdTable.putAll(FmsActivityHelper.getModifiedNodeHashTable(anIntent));
+		if(aResultCode != GcgNavigationTarget.request_code__NAVIGATE) {
 			updateDataRefreshInfo(anIntent);
 			super.onActivityResult(aRequestCode, aResultCode, anIntent);
 		} else {
-			updateNodeModificationListForContextNavigation(anIntent);
-			processFmsApplicationContextNavigationIntent(anIntent);
+			updateDataModificationListForContextNavigation(anIntent);
+			processGcgApplicationContextNavigationIntent(anIntent);
 		}
 	}
 
-	private void updateDataRefreshInfo(Intent anIntent) {
+	protected void updateDataRefreshInfo(Intent anIntent) {
 		if(anIntent.getExtras().containsKey(FmsActivityHelper.bundle_key__DATA_REFRESH__ALL)) {
 			this.dataRefreshAll = true;
 		} else if (anIntent.getExtras().containsKey(FmsActivityHelper.bundle_key__DATA_REFRESH__NOTICE_LIST)) {
-			this.dataRefreshList = new ArrayList<FmmDataRefreshNotice>();
-		}
+            processDataRefreshNoticeList();
+        }
 	}
 
-	private void updateNodeModificationListForContextNavigation(Intent anIntent) {
-		Intent theIntent = anIntent;
-		if(anIntent == null) {
-			if(this.modifiedFmmNodeIdList.size() < 1) {
-				return;
-			}
-			theIntent = new Intent();
-		}
-		Hashtable<String, FmmNodeTransactionType> theModifiedNodeIdTable = FmsActivityHelper.getModifiedNodeHashTable(theIntent);
-		if(theModifiedNodeIdTable.size() > 0) {
-			this.modifiedFmmNodeIdList.putAll(theModifiedNodeIdTable);
-			theIntent.putExtra(FmsActivityHelper.bundle_key__MODIFIED_FMM_NODE__MAP, FmsActivityHelper.getSerializedModifiedNodeTable(this.modifiedFmmNodeIdList));
-		}
-	}
+    private void processDataRefreshNoticeList() { }
 
-	protected void processFmsApplicationContextNavigationIntent(Intent anIntent) {
-		String theString = anIntent.getStringExtra(FmsNavigationTarget.bundle_key__FMS_NAVIGATION_TARGET);
-		FmsNavigationTarget theNavigationTarget = null;
+    protected void updateDataModificationListForContextNavigation(Intent anIntent) { }
+
+	protected void processGcgApplicationContextNavigationIntent(Intent anIntent) {
+		String theString = anIntent.getStringExtra(GcgNavigationTarget.bundle_key__GCG_NAVIGATION_TARGET);
+		GcgNavigationTarget theNavigationTarget = null;
 		try {
-			theNavigationTarget = new FmsNavigationTarget(new JSONObject(theString));
+			theNavigationTarget = new GcgNavigationTarget(new JSONObject(theString));
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -669,27 +646,26 @@ public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNo
 		fmsApplicationContextNavigation(theNavigationTarget);
 	}
 	
-	public void fmsApplicationContextNavigation(FmsNavigationTarget anFmsApplicationContextNavigationTarget) {
+	public void fmsApplicationContextNavigation(GcgNavigationTarget aGcgNavigationTarget) {
 		if(this.isMainGcgApplicationActivity) {
-			navigateToCurrentFramePerspective(anFmsApplicationContextNavigationTarget);
+			navigateToCurrentFramePerspective(aGcgNavigationTarget);
 			return;
 		}
-		if(anFmsApplicationContextNavigationTarget.getFmsApplicationContextBreadcrumb() == null || ! this.activityNodeIdString.equals(
-				anFmsApplicationContextNavigationTarget.getFmsApplicationContextBreadcrumb().getActivityIdString()) ) {
+		if(aGcgNavigationTarget.getFmsApplicationContextBreadcrumb() == null || ! this.activityNodeIdString.equals(
+				aGcgNavigationTarget.getFmsApplicationContextBreadcrumb().getActivityIdString()) ) {
 			// create data intent
 			Intent theIntent = new Intent();   
-			theIntent.putExtra(FmsNavigationTarget.bundle_key__FMS_NAVIGATION_TARGET, anFmsApplicationContextNavigationTarget.getJsonObject().toString());
-			finish(FmsNavigationTarget.request_code__NAVIGATE, theIntent);
+			theIntent.putExtra(GcgNavigationTarget.bundle_key__GCG_NAVIGATION_TARGET, aGcgNavigationTarget.getJsonObject().toString());
+			finish(GcgNavigationTarget.request_code__NAVIGATE, theIntent);
 		} 	// else stop on this activity
 	}
 
-	private void navigateToCurrentFramePerspective(FmsNavigationTarget anFmsApplicationContextNavigationTarget) {
+	private void navigateToCurrentFramePerspective(GcgNavigationTarget aGcgNavigationTarget) {
 		if(getGcgFrame() == null || getGcgPerspective() == null) {
 			return;
 		}
-		if(getGcgPerspective() != anFmsApplicationContextNavigationTarget.getGcgPerspective()) {
-//			setGcgPerspective(anFmsApplicationContextNavigationTarget.getGcgPerspective());
-			activityNavigation(getGcgFrame(), anFmsApplicationContextNavigationTarget.getGcgPerspective());
+		if(getGcgPerspective() != aGcgNavigationTarget.getGcgPerspective()) {
+			activityNavigation(getGcgFrame(), aGcgNavigationTarget.getGcgPerspective());
 		}
 	}
 
@@ -723,13 +699,13 @@ public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNo
 		if(theIntent == null) {
 			theIntent = new Intent();
 		}
-		if(this.modifiedFmmNodeIdList.size() > 0) {
-			theIntent.putExtra(FmsActivityHelper.bundle_key__MODIFIED_FMM_NODE__MAP, FmsActivityHelper.getSerializedModifiedNodeTable(this.modifiedFmmNodeIdList));
+		if(hasDataRefreshList()) {
+			theIntent.putExtra(FmsActivityHelper.bundle_key__MODIFIED_FMM_NODE__MAP, getSerializedDataRefreshNoticeList());
 		}
 		if(this.parentDataRefreshAll) {
 			theIntent.putExtra(FmsActivityHelper.bundle_key__DATA_REFRESH__ALL, "");
 		}
-		if(this.parentDataRefreshList != null) {
+		if(hasParentDataRefreshList()) {
 			theIntent.putExtra(FmsActivityHelper.bundle_key__DATA_REFRESH__NOTICE_LIST, getSerializedParentDataRefreshNoticeList());
 		}
 		if(anIntent == null && theIntent.getExtras() == null) {
@@ -740,12 +716,20 @@ public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNo
 		super.finish();
 	}
 
-	private String getSerializedParentDataRefreshNoticeList() {
-		String theString = "";
-		for(@SuppressWarnings("unused") FmmDataRefreshNotice theDataRefreshNotice : this.parentDataRefreshList) {
-			// TODO - unfinished
-		}
-		return theString;
+    protected String getSerializedDataRefreshNoticeList() {
+        return "";
+    }
+
+    protected boolean hasParentDataRefreshList() {
+        return false;
+    }
+
+    protected boolean hasDataRefreshList() {
+        return false;
+    }
+
+    protected String getSerializedParentDataRefreshNoticeList() {
+		return "";
 	}
 
 	public boolean protectDataChanges(int aNextAction, String aTargetDetail) {
@@ -821,21 +805,9 @@ public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNo
 		return this.activityLabel;
 	}
 
-	public Hashtable<String, FmmNodeTransactionType> getModifiedFmmNodeIdTable() {
-		return this.modifiedFmmNodeIdList;
-	}
 
-	public void setModifiedFmmNodeIdTable(Hashtable<String, FmmNodeTransactionType> aLocallyModifiedFmmNodeIdTable) {
-		this.modifiedFmmNodeIdList = aLocallyModifiedFmmNodeIdTable;
-	}
 
-	public Hashtable<String, FmmNodeTransactionType> getQueuedChildModifiedFmmNodeIdTable() {
-		return this.queuedChildModifiedFmmNodeIdTable;
-	}
 
-	public void setQueuedChildModifiedFmmNodeIdTable(Hashtable<String, FmmNodeTransactionType> aChildModifiedFmmNodeIdTable) {
-		this.queuedChildModifiedFmmNodeIdTable = aChildModifiedFmmNodeIdTable;
-	}
 
 	public GcgFrame getGcgFrame() {
 		return this.frameSpinner == null ? null : this.frameSpinner.getFrame();
@@ -999,14 +971,6 @@ public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNo
 		return theContentView.getWindowToken();
 	}
 
-	public ArrayList<FmmDataRefreshNotice> getDataRefreshList() {
-		return this.dataRefreshList;
-	}
-
-	public void setDataRefreshList(ArrayList<FmmDataRefreshNotice> aDataRefreshList) {
-		this.dataRefreshList = aDataRefreshList;
-	}
-
 	public boolean isDataRefreshAll() {
 		return this.dataRefreshAll;
 	}
@@ -1015,28 +979,13 @@ public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNo
 		this.dataRefreshAll = dataRefreshAll;
 	}
 
-	public ArrayList<FmmDataRefreshNotice> getParentDataRefreshList() {
-		return this.parentDataRefreshList;
-	}
+    public boolean isParentDataRefreshAll() {
+        return this.parentDataRefreshAll;
+    }
 
-	public void seParenttDataRefreshList(ArrayList<FmmDataRefreshNotice> aDataRefreshList) {
-		this.parentDataRefreshList = aDataRefreshList;
-	}
-
-	public boolean isParentDataRefreshAll() {
-		return this.parentDataRefreshAll;
-	}
-
-	public void setParentDataRefreshAll(boolean dataRefreshAll) {
-		this.parentDataRefreshAll = dataRefreshAll;
-	}
-	
-	public void updateParentDataRefreshList(FmmDataRefreshNotice aDataRefreshNotice) {
-		if(this.parentDataRefreshList == null) {
-			this.parentDataRefreshList = new ArrayList<FmmDataRefreshNotice>();
-		}
-		this.parentDataRefreshList.add(aDataRefreshNotice);
-	}
+    public void setParentDataRefreshAll(boolean dataRefreshAll) {
+        this.parentDataRefreshAll = dataRefreshAll;
+    }
 	
 	public GcgTreeViewAdapter getActiveGcgTreeViewAdapter() {
 		return this.activeTreeViewAdapter;
