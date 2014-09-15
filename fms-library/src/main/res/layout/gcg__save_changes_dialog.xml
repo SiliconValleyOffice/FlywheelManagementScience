@@ -26,6 +26,7 @@
         android:layout_margin="15dp"
         android:layout_marginBottom="30dp"
         android:gravity="center_horizontal"
+        android:enabled="false"
         android:text="@string/gcg__data_changes__always_save" />
 
     <RelativeLayout style="@style/GcgButtonRowHorizontal" >
