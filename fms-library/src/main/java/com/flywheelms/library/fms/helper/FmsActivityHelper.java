@@ -1,5 +1,5 @@
 /* @(#)FmsActivityHelper.java
- ** 
+ **
  ** Copyright (C) 2012 by Steven D. Stamps
  **
  **             Trademarks & Copyrights
@@ -43,12 +43,7 @@
 
 package com.flywheelms.library.fms.helper;
 
-import android.content.ContentUris;
 import android.content.Intent;
-import android.content.pm.ResolveInfo;
-import android.net.Uri;
-import android.provider.ContactsContract;
-import android.provider.ContactsContract.Contacts;
 
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.context.FmmFrame;
@@ -58,29 +53,25 @@ import com.flywheelms.library.fmm.node.FmmHeadlineNodeShallow;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.repository.FmmAccessScope;
 import com.flywheelms.library.fms.activity.CreateFmmWizard;
-import com.flywheelms.library.fms.activity.DecKanGlDictionaryActivity;
 import com.flywheelms.library.fms.activity.FiscalYearEditorActivity;
 import com.flywheelms.library.fms.activity.PdfPublicationWizard;
 import com.flywheelms.library.fse.activity.FseDocumentHistoryBrowserActivity;
 import com.flywheelms.library.gcg.GcgApplication;
 import com.flywheelms.library.gcg.activity.GcgActivity;
+import com.flywheelms.library.gcg.helper.GcgActivityHelper;
 import com.flywheelms.library.gcg.helper.GcgHelper;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Map;
 
-public class FmsActivityHelper {
-
-	public static final String bundle_key__LIST_ACTION_LABEL = "ListActionLabel";
-	public static final String bundle_key__INITIAL_NODE_TO_DISPLAY = "InitialNodeToDisplay";
-	public static final String bundle_key__INITIAL_FRAME_TO_DISPLAY = "InitialFrameToDisplay";
-	public static final String bundle_key__INITIAL_PERSPECTIVE_TO_DISPLAY = "InitialPerspectiveToDisplay";
+public class FmsActivityHelper extends GcgActivityHelper {
+    // ==================
+    public static final String bundle_key__INITIAL_NODE_TO_DISPLAY = "InitialNodeToDisplay";
 	public static final String bundle_key__FSE_DOCUMENT_NODE_ID = "FseDocumentNodeId";
 	public static final String bundle_key__FSE_DOCUMENT_TRANSACTION_INDEX = "FseDocumentTransactionIndex";
 	public static final String bundle_key__NAVIGATION_NODE_ID_LIST = "NavigationNodeIdList";
@@ -88,10 +79,8 @@ public class FmsActivityHelper {
 	public static final String bundle_key__MODIFIED_FMM_NODE__MAP = "ModifiedFmmNodeIdList";
 	public static final String bundle_key__NODE_ID_EXLUSION_LIST = "NodeIdExclusionList";
 	public static final String bundle_key__INITIAL_WHERE_CLAUSE = "WhereClause";
-	public static final String bundle_key__MUST_SELECT_DATA_SOURCE = "MustSelectDataSource";
 	public static final String bundle_key__NAVIGATION_PARENT_NODE_ID = "NavigationParentNodeId";
 	public static final String bundle_key__NAVIGATION_PARENT_CLASS_NAME = "NavigationParentClassName";
-	public static final String bundle_key__FMS_CONTEXT = "FmsApplicationContext";
 	public static final String bundle_key__FMM_CONFIGURATION_SCOPE = "FmmAccessScope";
 	public static final String bundle_key__FMM_NODE__NAME = "FmmNodeName";  // TODO - duplicate of CLASS_NAME ???
 	public static final String bundle_key__FMM_NODE__CLASS_NAME = "FmmNodeClassName";
@@ -101,10 +90,6 @@ public class FmsActivityHelper {
 	public static final String bundle_key__FSE_DOCUMENT_SECTION_TYPE = "FseDocumentSectionType";
 	public static final String bundle_key__DISPLAYED_FSE_DOCUMENT = "DisplayedFseDocument";
 	public static final String bundle_key__FSE_DOCUMENT_VIEW = "FseDocumentView";
-	public static final String bundle_key__DATA_REFRESH__ALL = "DataRefreshAll";
-	public static final String bundle_key__DATA_REFRESH__NOTICE_LIST = "DataRefreshNoticeList";
-	public static final int request_code__ANDROID_CONTACT_PICKER = 100;
-	public static final int request_code__ANDROID_CONTACT_EDITOR = 200;
 	public static final int request_code__ANDROID_CONTACT_PICKER_FOR_SPONSOR = GcgApplication.getIntegerResource(R.integer.request_code__android_contact_picker__sponsor);
 	public static final int request_code__ANDROID_CONTACT_PICKER_FOR_CUSTOMER = GcgApplication.getIntegerResource(R.integer.request_code__android_contact_picker__customer);
 	public static final int request_code__ANDROID_CONTACT_PICKER_FOR_FACILITATOR = GcgApplication.getIntegerResource(R.integer.request_code__android_contact_picker__facilitator);
@@ -115,16 +100,8 @@ public class FmsActivityHelper {
 	public static final int request_code__ANDROID_CONTACT_EDITOR_FOR_FACILITATOR = GcgApplication.getIntegerResource(R.integer.request_code__android_contact_editor__facilitator);
 	public static final int request_code__ANDROID_CONTACT_EDITOR_FOR_ADMINISTRATOR = GcgApplication.getIntegerResource(R.integer.request_code__android_contact_editor__administrator);
 	public static final int request_code__ANDROID_CONTACT_EDITOR_FOR_ORGANIZATION = GcgApplication.getIntegerResource(R.integer.request_code__android_contact_editor__organization);
-	public static final int request_code__PRINT = 111;
-	public static final int request_code__PRINTER_INSTALLATION = 112;
 	////  request codes for FMM nodes are defined in the FmmNodeDictionary entry for the node  ////
 	private static final String class_path_ACTIVITY_PACKAGE = FiscalYearEditorActivity.class.getName().substring(0, 1 + FiscalYearEditorActivity.class.getName().lastIndexOf("."));
-
-	public static void startDecKanGlDictionaryActivity(GcgActivity aParentActivity) {
-		aParentActivity.startBlueActivityStatusAnimation();
-		Intent theIntent = new Intent(aParentActivity, DecKanGlDictionaryActivity.class);
-		aParentActivity.startActivity(theIntent);
-	}
 
 	public static void startHeadlineNodeEditorActivity(
 			GcgActivity aParentActivity,
@@ -186,7 +163,7 @@ public class FmsActivityHelper {
 		theIntent.putExtra(bundle_key__INITIAL_FRAME_TO_DISPLAY, anInitialFrame == null ? FmmFrame.FSE.getName() : anInitialFrame.getName());
 		theIntent.putExtra(bundle_key__INITIAL_PERSPECTIVE_TO_DISPLAY, anInitialPerspective == null ? FmmPerspective.STORY.getName() : anInitialPerspective.getName());
 		theIntent.putExtra(bundle_key__NAVIGATION_PARENT_NODE_ID, aNodeListParentNodeId);
-		theIntent.putExtra(bundle_key__FMS_CONTEXT, aParentActivity.getChildGcgApplicationContext().getSerialized());
+		theIntent.putExtra(bundle_key__GCG_CONTEXT, aParentActivity.getChildGcgApplicationContext().getSerialized());
 		aParentActivity.startActivityForResult(theIntent, anFmmNodeDefinition.getNodeEditorActivityRequestCode());
 	}
 
@@ -206,22 +183,22 @@ public class FmsActivityHelper {
 			e.printStackTrace();
 			return;
 		}
-		theIntent.putExtra(bundle_key__FMS_CONTEXT, aParentActivity.getChildGcgApplicationContext().getSerialized());
+		theIntent.putExtra(bundle_key__GCG_CONTEXT, aParentActivity.getChildGcgApplicationContext().getSerialized());
 		theIntent.putExtra(bundle_key__INITIAL_WHERE_CLAUSE, aWhereClause);
 		theIntent.putExtra(bundle_key__NODE_ID_EXLUSION_LIST, aNodeIdExclusionList);
 		theIntent.putExtra(bundle_key__LIST_ACTION_LABEL, aListActionLabel);
 		aParentActivity.startActivityForResult(theIntent, anFmmNodeDefinition.getNodePickerActivityRequestCode());
 	}
 
-	public static void startPdfPublicationWizard(
-			GcgActivity aParentActivity,
-			String anFmmNodeIdString ) {
-		aParentActivity.startBlueActivityStatusAnimation();
-		Intent theIntent = new Intent(aParentActivity, PdfPublicationWizard.class);
-		theIntent.putExtra(bundle_key__FMM_NODE__ID_STRING, anFmmNodeIdString);
-		theIntent.putExtra(bundle_key__FMS_CONTEXT, aParentActivity.getChildGcgApplicationContext().getSerialized());
-		aParentActivity.startActivityForResult(theIntent, FmmNodeDefinition.PDF_PUBLICATION.getNodeEditorActivityRequestCode());
-	}
+    public static void startPdfPublicationWizard(
+            GcgActivity aParentActivity,
+            String anFmmNodeIdString ) {
+        aParentActivity.startBlueActivityStatusAnimation();
+        Intent theIntent = new Intent(aParentActivity, PdfPublicationWizard.class);
+        theIntent.putExtra(bundle_key__FMM_NODE__ID_STRING, anFmmNodeIdString);
+        theIntent.putExtra(bundle_key__GCG_CONTEXT, aParentActivity.getChildGcgApplicationContext().getSerialized());
+        aParentActivity.startActivityForResult(theIntent, FmmNodeDefinition.PDF_PUBLICATION.getNodeEditorActivityRequestCode());
+    }
 
 	public static void startCreateFmmWizard(
 			GcgActivity aParentActivity,
@@ -229,65 +206,10 @@ public class FmsActivityHelper {
 		aParentActivity.startBlueActivityStatusAnimation();
 		Intent theIntent = new Intent(aParentActivity, CreateFmmWizard.class);
 		if(aParentActivity.getChildGcgApplicationContext() != null) {
-			theIntent.putExtra(bundle_key__FMS_CONTEXT, aParentActivity.getChildGcgApplicationContext().getSerialized());
+			theIntent.putExtra(bundle_key__GCG_CONTEXT, aParentActivity.getChildGcgApplicationContext().getSerialized());
 		}
 		theIntent.putExtra(bundle_key__FMM_CONFIGURATION_SCOPE, anAccessScope.getName());
 		aParentActivity.startActivityForResult(theIntent, FmmNodeDefinition.FMM_CONFIGURATION.getNodeCreateActivityRequestCode());
-	}
-
-	public static void startContactPicker(GcgActivity aParentActivity ) {
-		aParentActivity.startBlueActivityStatusAnimation();
-		Intent theIntent = new Intent(Intent.ACTION_PICK, Contacts.CONTENT_URI);
-		aParentActivity.startActivityForResult(theIntent, request_code__ANDROID_CONTACT_PICKER);
-	}
-
-	public static void startContactPicker(GcgActivity aParentActivity, int aRequestCode) {
-		aParentActivity.startBlueActivityStatusAnimation();
-		Intent theIntent = new Intent(Intent.ACTION_PICK, Contacts.CONTENT_URI);
-		aParentActivity.startActivityForResult(theIntent, aRequestCode);
-	}
-
-	public static void startContactEditor(GcgActivity aParentActivity, long anId, int aRequestCode) {
-		aParentActivity.startBlueActivityStatusAnimation();
-		Intent theIntent = new Intent(Intent.ACTION_EDIT);
-		Uri theContactUri = ContentUris.withAppendedId(ContactsContract.Contacts.CONTENT_URI, anId); 
-		theIntent.setData(theContactUri);
-		theIntent.putExtra("finishActivityOnSaveCompleted", true);  // Sets the special extended data for navigation
-		aParentActivity.startActivityForResult(theIntent, aRequestCode);
-	}
-
-	public static void startPrintJob(GcgActivity aParentActivity, File aFile, String aMimeType) {
-		aParentActivity.startBlueActivityStatusAnimation();
-		Uri theUri = Uri.fromFile(aFile);
-		Intent theIntent = new Intent ("org.androidprinting.intent.action.PRINT");
-		theIntent.setDataAndType( theUri, aMimeType );
-		if(intentServiceIsAvailable(aParentActivity, theIntent)) {
-			aParentActivity.startActivityForResult(theIntent, request_code__PRINT);
-		} else {
-			GcgHelper.makeToast("ERROR: No printing application installed");
-			installHpEprint(aParentActivity);
-			if(intentServiceIsAvailable(aParentActivity, theIntent)) {
-				aParentActivity.startActivityForResult(theIntent, request_code__PRINT);
-			}
-		}
-	}
-
-	public static boolean intentServiceIsAvailable(GcgActivity aParentActivity, Intent anIntent) {
-		ResolveInfo theResolveInfo = aParentActivity.getPackageManager().resolveActivity(
-				anIntent, 
-				0 );
-		return theResolveInfo != null;
-	}
-
-	public static void installHpEprint(GcgActivity aParentActivity) {
-		aParentActivity.startBlueActivityStatusAnimation();
-		installMarketplaceApplication(aParentActivity, "com.hp.android.print&hl=en");
-	}
-
-	public static void installMarketplaceApplication(GcgActivity aParentActivity, String anApplicationName) {
-		aParentActivity.startBlueActivityStatusAnimation();
-		Intent theIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + anApplicationName));
-		aParentActivity.startActivityForResult(theIntent, request_code__PRINTER_INSTALLATION);
 	}
 
 	public static void startFseDocumentHistoryBrowserActivity(
@@ -298,7 +220,7 @@ public class FmsActivityHelper {
 		Intent theIntent = new Intent(aParentActivity, FseDocumentHistoryBrowserActivity.class);
 		theIntent.putExtra(bundle_key__FSE_DOCUMENT_NODE_ID, anFseDocumentNodeIdString);
 		theIntent.putExtra(bundle_key__FSE_DOCUMENT_TRANSACTION_INDEX, anInitialTransactionIndexToDisplay);
-		theIntent.putExtra(bundle_key__FMS_CONTEXT, aParentActivity.getChildGcgApplicationContext().getSerialized());
+		theIntent.putExtra(bundle_key__GCG_CONTEXT, aParentActivity.getChildGcgApplicationContext().getSerialized());
 		aParentActivity.startActivityForResult(theIntent, FmmNodeDefinition.FSE_DOCUMENT_TRANSACTION.getNodeEditorActivityRequestCode());
 	}
 

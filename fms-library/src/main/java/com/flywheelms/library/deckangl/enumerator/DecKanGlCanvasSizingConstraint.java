@@ -47,4 +47,4 @@
 
 package com.flywheelms.library.deckangl.enumerator;
 
-public enum CanvasSizingConstraint {HORIZONTAL, VERTICAL}
+public enum DecKanGlCanvasSizingConstraint {HORIZONTAL, VERTICAL}

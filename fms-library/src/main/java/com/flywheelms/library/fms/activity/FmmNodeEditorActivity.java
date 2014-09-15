@@ -72,6 +72,7 @@ import com.flywheelms.library.fse.widget.FseMultiShiftButton;
 import com.flywheelms.library.gcg.context.GcgApplicationContext;
 import com.flywheelms.library.gcg.context.GcgFrameBreadcrumb;
 import com.flywheelms.library.gcg.dialog.GcgSaveChangesDialog;
+import com.flywheelms.library.gcg.helper.GcgActivityHelper;
 import com.flywheelms.library.gcg.helper.GcgPerspectiveMenu;
 import com.flywheelms.library.gcg.interfaces.GcgFrame;
 import com.flywheelms.library.gcg.menu.GcgFrameSpinner;
@@ -122,7 +123,7 @@ public abstract class FmmNodeEditorActivity extends FmsHorizontalNodeNavigatorAc
 		String theClassName = aSavedInstanceState.getString(FmsActivityHelper.bundle_key__NAVIGATION_PARENT_CLASS_NAME);
 		this.navigationParentFmmNodeDefinition = FmmNodeDefinition.getEntryForNodeClassName(theClassName);
 		try {
-			setGcgApplicationContext(new GcgApplicationContext(new JSONObject(aSavedInstanceState.getString(FmsActivityHelper.bundle_key__FMS_CONTEXT))));
+			setGcgApplicationContext(new GcgApplicationContext(new JSONObject(aSavedInstanceState.getString(GcgActivityHelper.bundle_key__GCG_CONTEXT))));
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
