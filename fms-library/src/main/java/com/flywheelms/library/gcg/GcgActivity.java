@@ -74,13 +74,13 @@ import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.repository.FmmAccessScope;
 import com.flywheelms.library.fmm.transaction.FmmDataRefreshNotice;
 import com.flywheelms.library.fms.context.FmsNavigationTarget;
-import com.flywheelms.library.fms.dialog.FmsDialog;
 import com.flywheelms.library.fms.dialog.FmsRevertDataOkCancelDialog;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
 import com.flywheelms.library.gcg.context.GcgActivityBreadcrumb;
 import com.flywheelms.library.gcg.context.GcgApplicationContext;
 import com.flywheelms.library.gcg.context.GcgApplicationContextHeader;
 import com.flywheelms.library.gcg.context.GcgFrameBreadcrumb;
+import com.flywheelms.library.gcg.dialog.GcgDialog;
 import com.flywheelms.library.gcg.dialog.GcgSaveChangesDialog;
 import com.flywheelms.library.gcg.enumerator.GcgDoItNowMenuItemState;
 import com.flywheelms.library.gcg.interfaces.GcgDoItNowClient;
@@ -106,7 +106,7 @@ public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNo
 
 	protected boolean isMainGcgApplicationActivity = false;
 	protected TextView activityCurtain;
-	protected Stack<FmsDialog> modalFmsDialogStack = new Stack<FmsDialog>();
+	protected Stack<GcgDialog> modalGcgDialogStack = new Stack<GcgDialog>();
 	protected boolean mustSelectDataSource;
 	protected boolean dataRefreshAll = false;
 	protected boolean parentDataRefreshAll = false;
@@ -250,8 +250,8 @@ public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNo
 
 	@Override
 	public void onWindowFocusChanged(boolean bHasFocus) {
-		if(bHasFocus && ! this.modalFmsDialogStack.empty()) {
-			this.modalFmsDialogStack.peek().restartDialog();
+		if(bHasFocus && ! this.modalGcgDialogStack.empty()) {
+			this.modalGcgDialogStack.peek().restartDialog();
 		}
 	}
 
@@ -513,8 +513,8 @@ public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNo
 	}
 	
 	public void requestRevertAllModifiedData() {
-		this.modalFmsDialogStack.push(new FmsRevertDataOkCancelDialog(this)); 
-		this.modalFmsDialogStack.peek().processDialog();
+		this.modalGcgDialogStack.push(new FmsRevertDataOkCancelDialog(this)); 
+		this.modalGcgDialogStack.peek().processDialog();
 	}
 	
 	public void revertAllDataModifications() {  return;  }
@@ -901,21 +901,21 @@ public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNo
 		}
 	}
 
-	public void startDialog(FmsDialog anFmsDialog) {
-		startDialog(anFmsDialog, activityCurtainEnabled());
+	public void startDialog(GcgDialog anGcgDialog) {
+		startDialog(anGcgDialog, activityCurtainEnabled());
 	}
 
-	public void startDialog(FmsDialog anFmsDialog, boolean bActivityCurtain) {
+	public void startDialog(GcgDialog anGcgDialog, boolean bActivityCurtain) {
 		enableActivityCurtain(bActivityCurtain);
-		this.modalFmsDialogStack.push(anFmsDialog);
-		this.modalFmsDialogStack.peek().processDialog();
+		this.modalGcgDialogStack.push(anGcgDialog);
+		this.modalGcgDialogStack.peek().processDialog();
 	}
 
-	public void replaceDialog(FmsDialog anFmsDialog) {
-		this.modalFmsDialogStack.peek().dismiss();
-		this.modalFmsDialogStack.pop();
-		this.modalFmsDialogStack.push(anFmsDialog);
-		this.modalFmsDialogStack.peek().processDialog();
+	public void replaceDialog(GcgDialog anGcgDialog) {
+		this.modalGcgDialogStack.peek().dismiss();
+		this.modalGcgDialogStack.pop();
+		this.modalGcgDialogStack.push(anGcgDialog);
+		this.modalGcgDialogStack.peek().processDialog();
 	}
 
 	public void stopDialog() {
@@ -923,9 +923,9 @@ public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNo
 	}
 
 	public void stopDialog(boolean bRefreshPreviousDialogOrActivity) {
-		this.modalFmsDialogStack.peek().dismiss();
-		this.modalFmsDialogStack.pop();
-		if(this.modalFmsDialogStack.size() == 0) {
+		this.modalGcgDialogStack.peek().dismiss();
+		this.modalGcgDialogStack.pop();
+		if(this.modalGcgDialogStack.size() == 0) {
 			if(this.mustSelectDataSource) {
 				finish();
 			} else if(bRefreshPreviousDialogOrActivity) {
@@ -938,7 +938,7 @@ public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNo
 	}
 	
 	public void refreshDialog() {
-		this.modalFmsDialogStack.peek().refreshDialog();
+		this.modalGcgDialogStack.peek().refreshDialog();
 	}
 
 	@Override

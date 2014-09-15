@@ -131,7 +131,7 @@ public class WorkbenchActivity extends GcgActivity implements FmsDecKanGlNavigat
 
 	@Override
 	protected void selectDataSource() {
-		if(this.modalFmsDialogStack.size() == 0) {
+		if(this.modalGcgDialogStack.size() == 0) {
 			startDialog(new FmmSelectionDialog(this), true);
 		}
 	}
