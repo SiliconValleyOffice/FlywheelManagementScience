@@ -52,7 +52,7 @@ import android.provider.ContactsContract;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
 
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
-import com.flywheelms.library.gcg.GcgActivity;
+import com.flywheelms.library.gcg.activity.GcgActivity;
 
 public class AndroidContact {
 

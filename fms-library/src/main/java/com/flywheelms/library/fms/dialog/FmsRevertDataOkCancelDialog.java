@@ -46,7 +46,7 @@ package com.flywheelms.library.fms.dialog;
 import android.widget.TextView;
 
 import com.flywheelms.library.R;
-import com.flywheelms.library.gcg.GcgActivity;
+import com.flywheelms.library.gcg.activity.GcgActivity;
 
 public class FmsRevertDataOkCancelDialog extends FmsCancelOkDialog {
 

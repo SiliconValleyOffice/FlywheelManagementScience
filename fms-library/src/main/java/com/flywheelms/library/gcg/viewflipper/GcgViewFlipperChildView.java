@@ -55,7 +55,7 @@ import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.context.FmmFrame;
 import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fse.widget.FseMultiShiftButton;
-import com.flywheelms.library.gcg.GcgActivity;
+import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.gcg.dialog.GcgGuiPreferencesDialog;
 import com.flywheelms.library.gcg.interfaces.GcgGuiPreferencesClient;
 

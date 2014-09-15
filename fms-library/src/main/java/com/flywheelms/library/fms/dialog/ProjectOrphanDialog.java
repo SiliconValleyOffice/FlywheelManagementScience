@@ -46,7 +46,7 @@ package com.flywheelms.library.fms.dialog;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.node.impl.governable.Portfolio;
 import com.flywheelms.library.fmm.node.impl.governable.Project;
-import com.flywheelms.library.gcg.GcgActivity;
+import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.gcg.treeview.GcgTreeViewAdapter;
 
 public class ProjectOrphanDialog extends HeadlineNodeOrphanDialog {

@@ -53,7 +53,7 @@ import com.flywheelms.library.fms.widget.FmmHeadlineNodeWidgetSpinner;
 import com.flywheelms.library.fms.widget.spinner.SequencePositionWidgetSpinner;
 import com.flywheelms.library.fms.widget.text_view.FmmNodeTypeWidgetTextView;
 import com.flywheelms.library.fms.widget.text_view.HeadlineWidgetTextView;
-import com.flywheelms.library.gcg.GcgActivity;
+import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.gcg.helper.GcgHelper;
 import com.flywheelms.library.gcg.helper.GuiHelper;
 import com.flywheelms.library.gcg.treeview.GcgTreeViewAdapter;

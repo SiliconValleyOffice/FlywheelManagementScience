@@ -52,7 +52,7 @@ import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
 import com.flywheelms.library.fms.widget.spinner.FiscalYearForCreateWidgetSpinner;
 import com.flywheelms.library.fms.widget.text_view.FmmNodeTypeWidgetTextView;
-import com.flywheelms.library.gcg.GcgActivity;
+import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.gcg.helper.GcgHelper;
 import com.flywheelms.library.gcg.treeview.GcgTreeViewAdapter;
 

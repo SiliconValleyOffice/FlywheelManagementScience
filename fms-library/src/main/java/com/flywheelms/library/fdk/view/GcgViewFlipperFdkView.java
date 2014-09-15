@@ -54,7 +54,7 @@ import com.flywheelms.library.fdk.enumerator.FdkKeyboardStyle;
 import com.flywheelms.library.fdk.interfaces.FdkDictationResultsConsumer;
 import com.flywheelms.library.fdk.interfaces.FdkListener;
 import com.flywheelms.library.fdk.widget.FdkKeyboard;
-import com.flywheelms.library.gcg.GcgActivity;
+import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.gcg.viewflipper.GcgViewFlipper;
 import com.flywheelms.library.gcg.viewflipper.GcgViewFlipperChildView;
 

@@ -50,7 +50,7 @@ import android.widget.TextView;
 
 import com.flywheelms.library.R;
 import com.flywheelms.library.fms.activity.FmmNodeEditorActivity;
-import com.flywheelms.library.gcg.GcgActivity;
+import com.flywheelms.library.gcg.activity.GcgActivity;
 
 public class FseRevertCancelOkDialog extends FmsCancelOkDialog {
 	

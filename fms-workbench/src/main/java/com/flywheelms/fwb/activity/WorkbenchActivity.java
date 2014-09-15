@@ -69,7 +69,7 @@ import com.flywheelms.library.fms.dialog.FmmManagementDialog;
 import com.flywheelms.library.fms.dialog.FmmSelectionDialog;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
 import com.flywheelms.library.fms.interfaces.FmsDecKanGlNavigationDialogParent;
-import com.flywheelms.library.gcg.GcgActivity;
+import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.gcg.context.GcgApplicationContext;
 import com.flywheelms.library.gcg.helper.GcgPerspectiveMenu;
 import com.flywheelms.library.gcg.interfaces.GcgFrame;

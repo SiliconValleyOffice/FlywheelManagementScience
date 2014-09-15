@@ -62,8 +62,8 @@ import com.flywheelms.library.fms.activity.DecKanGlDictionaryActivity;
 import com.flywheelms.library.fms.activity.FiscalYearEditorActivity;
 import com.flywheelms.library.fms.activity.PdfPublicationWizard;
 import com.flywheelms.library.fse.activity.FseDocumentHistoryBrowserActivity;
-import com.flywheelms.library.gcg.GcgActivity;
 import com.flywheelms.library.gcg.GcgApplication;
+import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.gcg.helper.GcgHelper;
 
 import org.json.JSONArray;

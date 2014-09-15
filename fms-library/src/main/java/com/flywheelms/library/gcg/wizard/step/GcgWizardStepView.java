@@ -56,7 +56,7 @@ import android.widget.TextView;
 
 import com.flywheelms.library.R;
 import com.flywheelms.library.fms.activity.FmsNodeWizardActivity;
-import com.flywheelms.library.gcg.GcgActivity;
+import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.gcg.helper.GcgHelper;
 import com.flywheelms.library.gcg.listeners.GcgFlingListener;
 import com.flywheelms.library.gcg.viewflipper.GcgViewFlipper;

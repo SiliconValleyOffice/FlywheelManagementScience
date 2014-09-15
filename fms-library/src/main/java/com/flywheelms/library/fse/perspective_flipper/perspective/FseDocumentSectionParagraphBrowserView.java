@@ -51,7 +51,7 @@ import android.widget.RelativeLayout;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fms.helper.FmsHelpIndex;
 import com.flywheelms.library.fse.interfaces.FmsPerspectiveFlipperParent;
-import com.flywheelms.library.gcg.GcgActivity;
+import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.gcg.viewflipper.GcgViewFlipper;
 
 public abstract class FseDocumentSectionParagraphBrowserView extends FseDocumentSectionParagraphEditorPerspective {

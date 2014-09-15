@@ -54,7 +54,7 @@ import com.flywheelms.fwb.perspective.FwbVelocityStoryPerspective;
 import com.flywheelms.fwb.perspective.FwbVelocityWorkBreakdownPerspective;
 import com.flywheelms.fwb.perspective.FwbVelocityWorkPlanningPerspective;
 import com.flywheelms.library.fmm.context.FmmFrame;
-import com.flywheelms.library.gcg.GcgActivity;
+import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.gcg.menu.GcgFrameSpinner;
 import com.flywheelms.library.gcg.viewflipper.GcgPerspectiveFlipper;
 import com.flywheelms.library.gcg.viewflipper.GcgViewFlipperListener;

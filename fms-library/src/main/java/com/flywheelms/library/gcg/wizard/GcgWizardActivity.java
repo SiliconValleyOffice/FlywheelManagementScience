@@ -47,7 +47,7 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 
 import com.flywheelms.library.R;
-import com.flywheelms.library.gcg.GcgActivity;
+import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.gcg.context.GcgFrameBreadcrumb;
 
 public abstract class GcgWizardActivity extends GcgActivity {

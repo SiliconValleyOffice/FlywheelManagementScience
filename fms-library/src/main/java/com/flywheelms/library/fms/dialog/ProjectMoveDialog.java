@@ -52,7 +52,7 @@ import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.node.impl.governable.Portfolio;
 import com.flywheelms.library.fmm.node.impl.governable.Project;
 import com.flywheelms.library.fms.widget.spinner.PortfolioWidgetSpinner;
-import com.flywheelms.library.gcg.GcgActivity;
+import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.gcg.treeview.GcgTreeViewAdapter;
 
 public class ProjectMoveDialog extends HeadlineNodeMoveDialog {

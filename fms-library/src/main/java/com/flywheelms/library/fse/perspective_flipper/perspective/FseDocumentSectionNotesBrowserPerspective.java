@@ -55,7 +55,7 @@ import com.flywheelms.library.fse.enumerator.FseContentModificationState;
 import com.flywheelms.library.fse.enumerator.FseNumberingModificationState;
 import com.flywheelms.library.fse.interfaces.FmsPerspectiveFlipperParent;
 import com.flywheelms.library.fse.model.FseDocumentSection;
-import com.flywheelms.library.gcg.GcgActivity;
+import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.gcg.viewflipper.GcgViewFlipper;
 
 public class FseDocumentSectionNotesBrowserPerspective extends FseDocumentSectionNotesPerspective {

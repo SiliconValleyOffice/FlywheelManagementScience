@@ -45,7 +45,7 @@ package com.flywheelms.fwb.dialog;
 
 import com.flywheelms.fwb.R;
 import com.flywheelms.library.fms.dialog.FmsDialog;
-import com.flywheelms.library.gcg.GcgActivity;
+import com.flywheelms.library.gcg.activity.GcgActivity;
 
 public class FlywheelMsAboutDialog extends FmsDialog {
 

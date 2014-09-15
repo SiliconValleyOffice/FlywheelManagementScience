@@ -50,7 +50,7 @@ import android.view.View;
 import android.widget.DatePicker;
 
 import com.flywheelms.library.R;
-import com.flywheelms.library.gcg.GcgActivity;
+import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.gcg.widget.GcgWidgetTextView;
 
 import java.util.Date;

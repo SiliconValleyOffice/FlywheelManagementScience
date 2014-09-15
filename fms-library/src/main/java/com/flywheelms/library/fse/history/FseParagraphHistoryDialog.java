@@ -45,7 +45,7 @@ package com.flywheelms.library.fse.history;
 
 import com.flywheelms.library.R;
 import com.flywheelms.library.fms.dialog.FmsCancelDialog;
-import com.flywheelms.library.gcg.GcgActivity;
+import com.flywheelms.library.gcg.activity.GcgActivity;
 
 public class FseParagraphHistoryDialog extends FmsCancelDialog {
 	

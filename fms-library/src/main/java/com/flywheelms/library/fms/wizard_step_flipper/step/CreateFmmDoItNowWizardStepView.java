@@ -50,7 +50,7 @@ import android.util.AttributeSet;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fms.helper.FmsHelpIndex;
 import com.flywheelms.library.fms.wizard_step_flipper.CreateFmmWizardStepFlipper;
-import com.flywheelms.library.gcg.GcgActivity;
+import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.gcg.viewflipper.GcgViewFlipper;
 import com.flywheelms.library.gcg.widget.GcgWidgetTextViewSummaryBox;
 import com.flywheelms.library.gcg.wizard.step.GcgWizardStepView;

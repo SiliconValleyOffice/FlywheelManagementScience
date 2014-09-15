@@ -53,7 +53,7 @@ import com.flywheelms.fwb.perspective.FwbContextStrategicPlanningPerspective;
 import com.flywheelms.fwb.perspective.FwbContextWorkBreakdownPerspective;
 import com.flywheelms.fwb.perspective.FwbContextWorkPlanningPerspective;
 import com.flywheelms.library.fmm.context.FmmFrame;
-import com.flywheelms.library.gcg.GcgActivity;
+import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.gcg.menu.GcgFrameSpinner;
 import com.flywheelms.library.gcg.viewflipper.GcgPerspectiveFlipper;
 import com.flywheelms.library.gcg.viewflipper.GcgViewFlipperListener;

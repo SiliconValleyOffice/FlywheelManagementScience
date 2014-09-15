@@ -59,7 +59,7 @@ import com.flywheelms.library.fms.pdf.FmsPdfHelper;
 import com.flywheelms.library.fms.preferences.GuiPreferenceAttribute;
 import com.flywheelms.library.fms.preferences.GuiPreferencesBundle;
 import com.flywheelms.library.fse.model.FseDocumentTransaction;
-import com.flywheelms.library.gcg.GcgActivity;
+import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.gcg.helper.GcgHelper;
 import com.flywheelms.library.gcg.preferences.GcgPreferencesHelper;
 import com.flywheelms.library.gcg.viewflipper.GcgViewFlipper;

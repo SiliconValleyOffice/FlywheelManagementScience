@@ -63,7 +63,7 @@ import com.flywheelms.library.fse.model.FseDocumentSectionParagraphAudit;
 import com.flywheelms.library.fse.model.FseDocumentTransactionType;
 import com.flywheelms.library.fse.perspective_flipper.FsePerspectiveFlipper;
 import com.flywheelms.library.fse.views.FseTransactionTableView;
-import com.flywheelms.library.gcg.GcgActivity;
+import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.gcg.dialog.GcgSaveChangesDialog;
 import com.flywheelms.library.gcg.interfaces.GcgPerspective;
 import com.flywheelms.library.gcg.viewflipper.GcgViewFlipper;

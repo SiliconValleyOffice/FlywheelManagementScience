@@ -67,7 +67,7 @@ import com.flywheelms.library.fse.perspective_flipper.FseHistoryBrowserPerspecti
 import com.flywheelms.library.fse.perspective_flipper.FsePerspectiveFlipper;
 import com.flywheelms.library.fse.perspective_flipper.perspective.FseDocumentSectionNotesBrowserPerspective;
 import com.flywheelms.library.fse.perspective_flipper.perspective.FseDocumentSectionStoryBrowserPerspective;
-import com.flywheelms.library.gcg.GcgActivity;
+import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.gcg.helper.GcgButtonMenu;
 import com.flywheelms.library.gcg.helper.GcgHelper;
 

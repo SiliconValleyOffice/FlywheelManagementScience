@@ -57,7 +57,7 @@ import com.flywheelms.library.fmm.repository.FmmConfigurationTemplateSource;
 import com.flywheelms.library.fms.helper.FmsHelpIndex;
 import com.flywheelms.library.fms.widget.spinner.FmmTemplateWidgetSpinner;
 import com.flywheelms.library.fms.wizard_step_flipper.CreateFmmWizardStepFlipper;
-import com.flywheelms.library.gcg.GcgActivity;
+import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.gcg.helper.GcgHelper;
 import com.flywheelms.library.gcg.viewflipper.GcgViewFlipper;
 import com.flywheelms.library.gcg.widget.edit_text.GcgWidgetFileNameEditText;

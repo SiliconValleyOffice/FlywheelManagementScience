@@ -61,7 +61,7 @@ import com.flywheelms.library.fms.widget.text_view.CustomerWidgetTextView;
 import com.flywheelms.library.fms.widget.text_view.FacilitatorWidgetTextView;
 import com.flywheelms.library.fms.widget.text_view.FseStoryWidget;
 import com.flywheelms.library.fms.widget.text_view.SponsorWidgetTextView;
-import com.flywheelms.library.gcg.GcgActivity;
+import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.gcg.container.GcgContainerTabbedLayout;
 import com.flywheelms.library.gcg.container.tabbed.GcgTabSpec;
 import com.flywheelms.library.gcg.helper.GcgHelper;

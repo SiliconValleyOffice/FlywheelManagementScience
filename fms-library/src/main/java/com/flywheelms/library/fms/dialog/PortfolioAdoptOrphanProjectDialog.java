@@ -46,7 +46,7 @@ package com.flywheelms.library.fms.dialog;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
-import com.flywheelms.library.gcg.GcgActivity;
+import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.gcg.treeview.GcgTreeViewAdapter;
 
 public class PortfolioAdoptOrphanProjectDialog extends HeadlineNodeAdoptOrphanDialog {

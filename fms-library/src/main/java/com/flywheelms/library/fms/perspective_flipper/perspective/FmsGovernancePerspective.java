@@ -53,7 +53,7 @@ import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragGovernance;
 import com.flywheelms.library.fms.component.FmsGovernanceComponent;
 import com.flywheelms.library.fms.component.FmsGovernanceComponentParent;
 import com.flywheelms.library.fms.helper.FmsHelpIndex;
-import com.flywheelms.library.gcg.GcgActivity;
+import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.gcg.interfaces.GcgPerspective;
 import com.flywheelms.library.gcg.viewflipper.GcgViewFlipper;
 

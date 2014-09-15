@@ -54,7 +54,7 @@ import android.widget.TextView;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fms.context.FmsNavigationTarget;
-import com.flywheelms.library.gcg.GcgActivity;
+import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.gcg.context.GcgActivityBreadcrumb;
 import com.flywheelms.library.gcg.context.GcgApplicationContext;
 

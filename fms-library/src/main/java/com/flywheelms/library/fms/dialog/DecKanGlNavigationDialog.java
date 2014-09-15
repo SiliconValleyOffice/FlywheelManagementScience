@@ -53,7 +53,7 @@ import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.fms.component.FmsDecKanGlNavigationComponent;
 import com.flywheelms.library.fms.interfaces.FmsDecKanGlNavigationDialogParent;
 import com.flywheelms.library.fms.widget.text_view.HeadlineWidgetTextView;
-import com.flywheelms.library.gcg.GcgActivity;
+import com.flywheelms.library.gcg.activity.GcgActivity;
 
 import java.util.ArrayList;
 

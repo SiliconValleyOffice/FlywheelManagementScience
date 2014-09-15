@@ -50,7 +50,7 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.node.impl.governable.WorkPackage;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
-import com.flywheelms.library.gcg.GcgActivity;
+import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.gcg.treeview.GcgTreeViewAdapter;
 
 public class WorkPackageMoveWorkPlanningDialog extends HeadlineNodeMoveDialog {

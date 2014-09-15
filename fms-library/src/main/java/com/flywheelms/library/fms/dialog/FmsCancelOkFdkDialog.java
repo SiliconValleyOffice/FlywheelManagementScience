@@ -61,7 +61,7 @@ import com.flywheelms.library.fdk.interfaces.FdkListener;
 import com.flywheelms.library.fdk.widget.FdkKeyboard;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
-import com.flywheelms.library.gcg.GcgActivity;
+import com.flywheelms.library.gcg.activity.GcgActivity;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;

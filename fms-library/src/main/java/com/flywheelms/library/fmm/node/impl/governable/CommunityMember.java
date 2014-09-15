@@ -56,8 +56,8 @@ import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
 import com.flywheelms.library.fmm.node.interfaces.FmmSupportingNode;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
-import com.flywheelms.library.gcg.GcgActivity;
 import com.flywheelms.library.gcg.GcgApplication;
+import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.util.JsonHelper;
 
 import org.json.JSONException;

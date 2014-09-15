@@ -57,7 +57,7 @@ import com.flywheelms.library.fmm.persistence.PersistenceServiceProvider;
 import com.flywheelms.library.fmm.persistence.PersistenceTechnology;
 import com.flywheelms.library.fmm.persistence.PersistenceTechnologyDelegate;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
-import com.flywheelms.library.gcg.GcgActivity;
+import com.flywheelms.library.gcg.activity.GcgActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;

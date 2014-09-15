@@ -49,7 +49,7 @@ import android.view.animation.Animation;
 import android.widget.ViewFlipper;
 
 import com.flywheelms.library.R;
-import com.flywheelms.library.gcg.GcgActivity;
+import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.gcg.interfaces.GcgFlingController;
 
 public class GcgViewFlipper extends ViewFlipper implements GcgFlingController {

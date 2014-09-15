@@ -41,7 +41,7 @@
  ** <http://www.gnu.org/licenses/gpl-3.0.html>.
  */
 
-package com.flywheelms.library.gcg;
+package com.flywheelms.library.gcg.activity;
 
 import android.app.Activity;
 import android.content.Context;
@@ -76,6 +76,7 @@ import com.flywheelms.library.fmm.transaction.FmmDataRefreshNotice;
 import com.flywheelms.library.fms.context.FmsNavigationTarget;
 import com.flywheelms.library.fms.dialog.FmsRevertDataOkCancelDialog;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
+import com.flywheelms.library.gcg.GcgApplication;
 import com.flywheelms.library.gcg.context.GcgActivityBreadcrumb;
 import com.flywheelms.library.gcg.context.GcgApplicationContext;
 import com.flywheelms.library.gcg.context.GcgApplicationContextHeader;

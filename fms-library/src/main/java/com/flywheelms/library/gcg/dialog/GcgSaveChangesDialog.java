@@ -50,7 +50,7 @@ import android.widget.CheckBox;
 
 import com.flywheelms.library.R;
 import com.flywheelms.library.fms.dialog.FmsDialog;
-import com.flywheelms.library.gcg.GcgActivity;
+import com.flywheelms.library.gcg.activity.GcgActivity;
 
 public class GcgSaveChangesDialog extends FmsDialog {
 	

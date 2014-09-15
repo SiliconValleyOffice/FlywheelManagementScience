@@ -52,7 +52,7 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import com.flywheelms.library.R;
-import com.flywheelms.library.gcg.GcgActivity;
+import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.gcg.menu.GcgSpinnableMenu;
 import com.flywheelms.library.gcg.treeview.GcgTreeView;
 import com.flywheelms.library.gcg.treeview.GcgTreeViewAdapter;

@@ -5,7 +5,7 @@ import android.content.DialogInterface;
 import android.view.KeyEvent;
 import android.view.WindowManager;
 
-import com.flywheelms.library.gcg.GcgActivity;
+import com.flywheelms.library.gcg.activity.GcgActivity;
 
 /**
  * Created by sstamps on 9/14/14.

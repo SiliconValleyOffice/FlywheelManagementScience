@@ -59,7 +59,7 @@ import com.flywheelms.library.fms.helper.FmsTextHelper;
 import com.flywheelms.library.fms.preferences.GuiPreferenceAttribute;
 import com.flywheelms.library.fms.preferences.GuiPreferencesBundle;
 import com.flywheelms.library.fms.widget.list_view.CommunityMemberWidgetListView;
-import com.flywheelms.library.gcg.GcgActivity;
+import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.gcg.android.AndroidContact;
 import com.flywheelms.library.gcg.helper.GcgHelper;
 import com.flywheelms.library.gcg.preferences.GcgPreferencesHelper;

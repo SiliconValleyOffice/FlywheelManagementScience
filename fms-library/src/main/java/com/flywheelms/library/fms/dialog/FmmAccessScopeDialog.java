@@ -47,7 +47,7 @@ import android.widget.RadioGroup;
 
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.repository.FmmAccessScope;
-import com.flywheelms.library.gcg.GcgActivity;
+import com.flywheelms.library.gcg.activity.GcgActivity;
 
 public class FmmAccessScopeDialog extends FmsCancelOkDialog {
 	

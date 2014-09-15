@@ -70,7 +70,7 @@ import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
 import com.flywheelms.library.fmm.transaction.FmmNodeGlyphType;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
-import com.flywheelms.library.gcg.GcgActivity;
+import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.gcg.widget.date.GcgDateHelper;
 import com.flywheelms.library.gcg.widget.date.GcgMonth;
 import com.flywheelms.library.util.JsonHelper;

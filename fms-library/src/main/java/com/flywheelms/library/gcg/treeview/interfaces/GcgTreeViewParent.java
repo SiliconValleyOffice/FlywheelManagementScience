@@ -45,7 +45,7 @@ package com.flywheelms.library.gcg.treeview.interfaces;
 
 import com.flywheelms.library.fmm.context.FmmFrame;
 import com.flywheelms.library.fmm.context.FmmPerspective;
-import com.flywheelms.library.gcg.GcgActivity;
+import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.gcg.treeview.GcgTreeViewAdapter;
 import com.flywheelms.library.gcg.treeview.GcgTreeViewMediator;
 import com.flywheelms.library.gcg.treeview.node.GcgTreeNodeInfo;

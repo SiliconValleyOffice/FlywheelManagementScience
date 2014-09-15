@@ -55,7 +55,7 @@ import com.flywheelms.library.R;
 import com.flywheelms.library.fdk.FdkHostSupport;
 import com.flywheelms.library.fdk.enumerator.FdkKeyboardStyle;
 import com.flywheelms.library.fmm.node.impl.enumerator.CompletableWorkStatus;
-import com.flywheelms.library.gcg.GcgActivity;
+import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.gcg.button.multi_shift.GcgMultiShiftState;
 import com.flywheelms.library.gcg.interfaces.GcgGuiable;
 

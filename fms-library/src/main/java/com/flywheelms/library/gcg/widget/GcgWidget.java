@@ -59,7 +59,7 @@ import com.flywheelms.library.R;
 import com.flywheelms.library.fdk.interfaces.FdkDictationResultsConsumer;
 import com.flywheelms.library.fdk.interfaces.FdkListener;
 import com.flywheelms.library.fms.dialog.FmsDialog;
-import com.flywheelms.library.gcg.GcgActivity;
+import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.gcg.button.multi_shift.GcgMultiShiftState;
 import com.flywheelms.library.gcg.helper.GcgHelper;
 import com.flywheelms.library.gcg.helper.GuiHelper;

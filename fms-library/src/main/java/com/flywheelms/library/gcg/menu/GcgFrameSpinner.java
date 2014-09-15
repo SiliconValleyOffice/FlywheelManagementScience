@@ -47,7 +47,7 @@ import android.graphics.drawable.Drawable;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.flywheelms.library.gcg.GcgActivity;
+import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.gcg.helper.GcgPerspectiveMenu;
 import com.flywheelms.library.gcg.interfaces.GcgFrame;
 import com.flywheelms.library.gcg.interfaces.GcgPerspective;

@@ -64,7 +64,7 @@ import com.flywheelms.library.fse.model.FseParagraph;
 import com.flywheelms.library.fse.perspective_flipper.FsePerspectiveFlipper;
 import com.flywheelms.library.fse.perspective_flipper.perspective.FseDocumentSectionParagraphEditorPerspective;
 import com.flywheelms.library.fse.widget.GcgClickState;
-import com.flywheelms.library.gcg.GcgActivity;
+import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.gcg.button.multi_shift.GcgMultiShiftState;
 import com.flywheelms.library.gcg.interfaces.GcgMultiShiftStateListener;
 

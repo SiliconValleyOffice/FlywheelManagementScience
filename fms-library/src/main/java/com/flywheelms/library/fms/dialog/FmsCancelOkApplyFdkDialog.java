@@ -50,7 +50,7 @@ import android.widget.Button;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
-import com.flywheelms.library.gcg.GcgActivity;
+import com.flywheelms.library.gcg.activity.GcgActivity;
 
 public abstract class FmsCancelOkApplyFdkDialog extends FmsCancelOkFdkDialog {
 	

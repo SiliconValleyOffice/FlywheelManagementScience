@@ -53,7 +53,7 @@ import com.flywheelms.library.R;
 import com.flywheelms.library.fdk.FdkHostSupport;
 import com.flywheelms.library.fdk.interfaces.FdkDictationResultsConsumer;
 import com.flywheelms.library.fdk.interfaces.FdkListener;
-import com.flywheelms.library.gcg.GcgActivity;
+import com.flywheelms.library.gcg.activity.GcgActivity;
 
 public abstract class FdkActivity extends GcgActivity implements FdkListener {
 	

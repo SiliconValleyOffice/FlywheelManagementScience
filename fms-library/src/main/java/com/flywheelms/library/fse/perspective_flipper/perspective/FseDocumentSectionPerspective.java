@@ -56,7 +56,7 @@ import com.flywheelms.library.fse.FseDocumentSectionType;
 import com.flywheelms.library.fse.interfaces.FmsPerspectiveFlipperParent;
 import com.flywheelms.library.fse.model.FseDocumentSection;
 import com.flywheelms.library.fse.perspective_flipper.FsePerspectiveFlipper;
-import com.flywheelms.library.gcg.GcgActivity;
+import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.gcg.button.multi_shift.GcgMultiShiftKeysetController;
 import com.flywheelms.library.gcg.interfaces.GcgGuiable;
 import com.flywheelms.library.gcg.interfaces.GcgPerspectiveView;

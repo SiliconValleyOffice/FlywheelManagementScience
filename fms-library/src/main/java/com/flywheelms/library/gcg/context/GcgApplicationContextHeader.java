@@ -55,7 +55,7 @@ import android.widget.TextView;
 
 import com.flywheelms.library.R;
 import com.flywheelms.library.fms.dialog.FmsApplicationContextNavigationDialog;
-import com.flywheelms.library.gcg.GcgActivity;
+import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.gcg.helper.GcgHelper;
 
 public class GcgApplicationContextHeader extends LinearLayout {
