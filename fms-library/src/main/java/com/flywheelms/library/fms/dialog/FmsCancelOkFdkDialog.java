@@ -43,7 +43,6 @@
 
 package com.flywheelms.library.fms.dialog;
 
-
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.fms.activity.FmmNodeEditorActivity;

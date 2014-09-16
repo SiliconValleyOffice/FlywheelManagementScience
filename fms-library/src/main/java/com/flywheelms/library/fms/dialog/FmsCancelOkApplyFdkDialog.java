@@ -43,55 +43,72 @@
 
 package com.flywheelms.library.fms.dialog;
 
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
-
-import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
+import com.flywheelms.library.fms.activity.FmmNodeEditorActivity;
+import com.flywheelms.library.fms.treeview.filter.FmsTreeViewAdapter;
 import com.flywheelms.library.gcg.activity.GcgActivity;
+import com.flywheelms.library.gcg.dialog.GcgCancelOkApplyFdkDialog;
 
-public abstract class FmsCancelOkApplyFdkDialog extends FmsCancelOkFdkDialog {
-	
-	protected Button buttonApply;
+public abstract class FmsCancelOkApplyFdkDialog extends GcgCancelOkApplyFdkDialog {
 
-	public FmsCancelOkApplyFdkDialog(GcgActivity aLibraryActivity) {
-		super(aLibraryActivity);
-	}
-	
-	public FmsCancelOkApplyFdkDialog(GcgActivity aLibraryActivity, FmmHeadlineNode aHeadlineNode) {
-		super(aLibraryActivity, aHeadlineNode);
-	}
-	
-	public FmsCancelOkApplyFdkDialog(GcgActivity aLibraryActivity, FmmNodeDefinition anFmmNodeDefinition) {
-		super(aLibraryActivity, anFmmNodeDefinition);
-	}
+    protected FmsDialogExtension fmsDialogExtension = new FmsDialogExtension();
 
-	@Override
-	protected int getDialogBodyLayoutResourceId() {
-		return R.layout.fdk_dialog__cancel_ok_apply__base_layout;
-	}
+    public FmsCancelOkApplyFdkDialog(GcgActivity aGcgActivity) {
+        this(aGcgActivity, "", "", null, null, null);
+    }
 
-	@Override
-	protected void initializeDialogBody() {
-		super.initializeDialogBody();
-		this.buttonApply = (Button) this.dialogBodyView.findViewById(R.id.button__apply);
-		this.buttonApply.setOnClickListener(new OnClickListener() {
+    public FmsCancelOkApplyFdkDialog(GcgActivity aGcgActivity, FmmHeadlineNode aHeadlineNode) {
+        this(aGcgActivity, "", "", aHeadlineNode.getFmmNodeDefinition(), aHeadlineNode, null);
+    }
 
-			@Override
-			public void onClick(View v) {
-				FmsCancelOkApplyFdkDialog.this.onClickButtonApply();
-			}
-		});
-	}
-	
-	protected abstract void onClickButtonApply();
+    public FmsCancelOkApplyFdkDialog(GcgActivity aGcgActivity, FmmNodeDefinition anFmmNodeDefinition) {
+        this(aGcgActivity, "", "", anFmmNodeDefinition, null, null);
+    }
 
-	@Override
-	protected void manageButtonState() {
-		super.manageButtonState();
-		this.buttonApply.setVisibility(View.VISIBLE);
-	}
+    public FmsCancelOkApplyFdkDialog(GcgActivity aGcgActivity, String aTargetDetail) {
+        this(aGcgActivity, aTargetDetail, "", null, null, null);
+    }
+
+    public FmsCancelOkApplyFdkDialog(
+            GcgActivity aGcgActivity,
+            String aTargetDetail,
+            String aMessageString,
+            FmmNodeDefinition anFmmNodeDefinition,
+            FmmHeadlineNode aHeadlineNode,
+            FmmHeadlineNode aParentHeadlineNode) {
+        super(aGcgActivity, aTargetDetail, aMessageString);
+        this.fmsDialogExtension.fmmNodeDefinition = anFmmNodeDefinition;
+        this.fmsDialogExtension.headlineNode = aHeadlineNode;
+        this.fmsDialogExtension.parentHeadlineNode = aParentHeadlineNode;
+        initialSetup();
+    }
+
+    protected int getDialogTitleIconResourceId() {
+        if (getFmmNodeDefinition() != null) {
+            return getFmmNodeDefinition().getDialogDrawableResourceId();
+        }
+        return 0;
+    }
+
+    public FmmNodeDefinition getFmmNodeDefinition() {
+        return this.fmsDialogExtension.fmmNodeDefinition;
+    }
+
+    public FmmHeadlineNode getFmmHeadlineNode() {
+        return this.fmsDialogExtension.headlineNode;
+    }
+
+    public FmmHeadlineNode getParentFmmHeadlineNode() {
+        return this.fmsDialogExtension.parentHeadlineNode;
+    }
+
+    public FmsTreeViewAdapter getFmsTreeViewAdapter() {
+        return this.fmsDialogExtension.treeViewAdapter;
+    }
+
+    public FmmNodeEditorActivity getFmmNodeEditorActivity() {
+        return this.fmsDialogExtension.nodeEditorActivity;
+    }
 
 }

@@ -1,4 +1,4 @@
-/* @(#)GcgCancelOkFdkDialog.java
+/* @(#)GcgCancelOkApplyFdkDialog.java
 **
 ** Copyright (C) 2012 by Steven D. Stamps
 **
@@ -63,19 +63,19 @@ import com.flywheelms.library.gcg.activity.GcgActivity;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
-public abstract class GcgCancelOkFdkDialog extends GcgCancelOkDialog  implements FdkHost, FdkListener {
+public abstract class GcgCancelOkApplyFdkDialog extends GcgCancelOkApplyDialog implements FdkHost, FdkListener {
 
-    private FdkHostSupport fdkHostSupport;
-    protected LinkedHashMap<View, FdkDictationResultsConsumer> fdkDictationResultsConsumerMap = new LinkedHashMap<View, FdkDictationResultsConsumer>();
-    ArrayList<FdkDictationResultsConsumer> fdkDictationResultsConsumerList = new ArrayList<FdkDictationResultsConsumer>();
-    protected FdkDictationResultsConsumer currentFdkDictationResultsConsumer;
+        private FdkHostSupport fdkHostSupport;
+        protected LinkedHashMap<View, FdkDictationResultsConsumer> fdkDictationResultsConsumerMap = new LinkedHashMap<View, FdkDictationResultsConsumer>();
+        ArrayList<FdkDictationResultsConsumer> fdkDictationResultsConsumerList = new ArrayList<FdkDictationResultsConsumer>();
+        protected FdkDictationResultsConsumer currentFdkDictationResultsConsumer;
 
 
-    public GcgCancelOkFdkDialog(GcgActivity aGcgActivity) {
+        public GcgCancelOkApplyFdkDialog(GcgActivity aGcgActivity) {
         super(aGcgActivity);
     }
 
-    public GcgCancelOkFdkDialog(GcgActivity aGcgActivity, String aTargetDetail, String aMessageString) {
+        public GcgCancelOkApplyFdkDialog(GcgActivity aGcgActivity, String aTargetDetail, String aMessageString) {
         super(aGcgActivity, aTargetDetail, aMessageString);
     }
 
@@ -97,7 +97,7 @@ public abstract class GcgCancelOkFdkDialog extends GcgCancelOkDialog  implements
 
     @Override
     protected int getDialogBodyLayoutResourceId() {
-        return R.layout.fdk_dialog__cancel_ok__base_layout;
+        return R.layout.fdk_dialog__cancel_ok_apply__base_layout;
     }
 
     /////  FDK Host wrapper
