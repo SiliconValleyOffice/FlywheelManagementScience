@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="29dp"
-    android:background="@drawable/fms_context__background" >
+    android:background="@drawable/gcg__application_context__background" >
 
     <Button
         android:id="@+id/gcg__application_context__navigation_button"
@@ -11,7 +11,7 @@
         android:layout_height="24dp"
         android:layout_alignParentRight="true"
         android:layout_marginRight="2dp"
-        android:background="@drawable/gcg__button_state_list__context_navigation" />
+        android:background="@drawable/gcg__button_state_list__application_context_navigation" />
 
     <HorizontalScrollView
         android:id="@+id/gcg__application_context__scroll_view"

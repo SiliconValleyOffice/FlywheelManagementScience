@@ -67,7 +67,7 @@ public class ProjectAdoptOrphanProjectAssetDialog extends HeadlineNodeAdoptOrpha
 	protected boolean adoptOrphanHeadlineNode() {
 		boolean theAdoptionStatus = FmmDatabaseMediator.getActiveMediator().adoptOrphanProjectAssetIntoProject(
 				this.adoptionCandidateWidgetSpinner.getFmmNode().getNodeIdString(),
-				this.headlineNode.getNodeIdString(),
+				getFmmHeadlineNode().getNodeIdString(),
 				this.sequencePositionSpinner.sequenceAtEnd(),
 				true );
 		toastAdoptionResult(theAdoptionStatus);

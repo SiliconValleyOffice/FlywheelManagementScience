@@ -82,7 +82,7 @@ public class FiscalYearCreateDialog extends FmsCancelOkApplyDialog {
 	protected void initializeDialogBody() {
 		super.initializeDialogBody();
 		this.fmmNodeTypeWidget = (FmmNodeTypeWidgetTextView) this.dialogBodyView.findViewById(R.id.fmm_node__type);
-		this.fmmNodeTypeWidget.setText(this.fmmNodeDefinition.getLabelTextResourceId());
+		this.fmmNodeTypeWidget.setText(getFmmNodeDefinition().getLabelTextResourceId());
 		this.fiscalYearWidget = (FiscalYearForCreateWidgetSpinner) this.dialogBodyView.findViewById(R.id.fiscal_year);
 		this.editNewFiscalYear = (CheckBox) this.dialogBodyView.findViewById(R.id.edit_new_fiscal_year);
 	}

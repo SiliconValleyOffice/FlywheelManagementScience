@@ -145,15 +145,15 @@ public class WorkPackageMoveWorkPlanningDialog extends HeadlineNodeMoveDialog {
         boolean theMoveStatus = false;
 //        if(this.fmmPerspective == FmmPerspective.STRATEGIC_PLANNING) {
 //            theMoveStatus = FmmDatabaseMediator.getActiveMediator().moveSingleWorkPackageIntoStrategicMilestone(
-//                    this.headlineNode.getNodeIdString(),
-//                    ((WorkPackage) this.headlineNode).getStrategicMilestoneNodeId(),
+//                    getFmmHeadlineNode().getNodeIdString(),
+//                    ((WorkPackage) getFmmHeadlineNode()).getStrategicMilestoneNodeId(),
 //                    this.dispositionTargetWidgetSpinner.getFmmNode().getNodeIdString(),
 //                    this.sequencePositionSpinner.sequenceAtEnd(),
 //                    true);
 //        } else {
 //            theMoveStatus = FmmDatabaseMediator.getActiveMediator().moveSingleWorkPackageIntoProject(
-//                    this.headlineNode.getNodeIdString(),
-//                    ((WorkPackage) this.headlineNode).getProjectNodeIdString(),
+//                    getFmmHeadlineNode().getNodeIdString(),
+//                    ((WorkPackage) getFmmHeadlineNode()).getProjectNodeIdString(),
 //                    this.dispositionTargetWidgetSpinner.getFmmNode().getNodeIdString(),
 //                    this.sequencePositionSpinner.sequenceAtEnd(),
 //                    true);

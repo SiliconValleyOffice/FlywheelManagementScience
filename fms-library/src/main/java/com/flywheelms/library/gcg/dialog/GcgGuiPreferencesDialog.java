@@ -51,22 +51,22 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.flywheelms.library.R;
-import com.flywheelms.library.fms.dialog.FmsCancelDialog;
 import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.gcg.interfaces.GcgGuiPreferencesClient;
 
-public class GcgGuiPreferencesDialog extends FmsCancelDialog {
+public class GcgGuiPreferencesDialog extends GcgCancelDialog {
 
 	private final GcgGuiPreferencesClient guiPreferencesClient;
 
-	public GcgGuiPreferencesDialog(GcgActivity aLibraryActivity, String aViewGroupName, GcgGuiPreferencesClient aGuiPreferencesClient) {
-		super(aLibraryActivity, aViewGroupName);
+	public GcgGuiPreferencesDialog(GcgActivity aGcgActivity, String aViewGroupName, GcgGuiPreferencesClient aGuiPreferencesClient) {
+		super(aGcgActivity, aViewGroupName, "");
 		this.guiPreferencesClient = aGuiPreferencesClient;
+        initialSetup();
 	}
 
 	@Override
 	protected int getDialogTitleStringResourceId() {
-		return R.string.fms__save_gui_preferences;
+		return R.string.gcg__save_gui_preferences;
 	}
 
 	@Override

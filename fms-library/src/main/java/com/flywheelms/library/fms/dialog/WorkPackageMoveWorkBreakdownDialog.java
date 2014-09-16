@@ -145,8 +145,8 @@ public class WorkPackageMoveWorkBreakdownDialog extends HeadlineNodeMoveDialog {
 	protected boolean moveHeadlineNode() {
         boolean theMoveStatus = false;
         theMoveStatus = FmmDatabaseMediator.getActiveMediator().moveSingleWorkPackageIntoProjectAsset(
-                this.headlineNode.getNodeIdString(),
-                ((WorkPackage) this.headlineNode).getProjectAssetNodeIdString(),
+                getFmmHeadlineNode().getNodeIdString(),
+                ((WorkPackage) getFmmHeadlineNode()).getProjectAssetNodeIdString(),
                 this.dispositionTargetWidgetSpinner.getFmmNode().getNodeIdString(),
                 this.sequencePositionSpinner.sequenceAtEnd(),
                 true);

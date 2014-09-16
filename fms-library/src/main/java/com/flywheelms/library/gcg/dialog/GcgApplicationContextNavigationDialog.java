@@ -1,4 +1,4 @@
-/* @(#)FmsApplicationContextNavigationDialog.java
+/* @(#)GcgApplicationContextNavigationDialog.java
  ** 
  ** Copyright (C) 2012 by Steven D. Stamps
  **
@@ -41,7 +41,7 @@
  ** <http://www.gnu.org/licenses/gpl-3.0.html>.
  */
 
-package com.flywheelms.library.fms.dialog;
+package com.flywheelms.library.gcg.dialog;
 
 import android.content.DialogInterface;
 import android.view.LayoutInflater;
@@ -60,27 +60,28 @@ import com.flywheelms.library.gcg.context.GcgNavigationTarget;
 
 import java.util.ArrayList;
 
-public class FmsApplicationContextNavigationDialog extends FmsDialog {
+public class GcgApplicationContextNavigationDialog extends GcgDialog {
 
-	private ArrayAdapter<GcgNavigationTarget> fmsNavigationTargetArrayAdapter;
+	private ArrayAdapter<GcgNavigationTarget> gcgNavigationTargetArrayAdapter;
 
-	public FmsApplicationContextNavigationDialog(GcgActivity aLibraryActivity) {
-		super(aLibraryActivity);
+	public GcgApplicationContextNavigationDialog(GcgActivity aGcgActivity) {
+		super(aGcgActivity);
+        initialSetup();
 	}
 
 	@Override
 	protected int getDialogTitleStringResourceId() {
-		return R.string.flywheel_navigation;
+		return R.string.gcg__application_navigation;
 	}
 
 	@Override
 	protected int getDialogTitleIconResourceId() {
-		return R.drawable.fms_context_navigation__32;
+		return R.drawable.gcg__application_navigation__dialog;
 	}
 
 	@Override
 	protected void initializeDialogBody() {
-		this.fmsNavigationTargetArrayAdapter = new ArrayAdapter<GcgNavigationTarget>(
+		this.gcgNavigationTargetArrayAdapter = new ArrayAdapter<GcgNavigationTarget>(
 				this.gcgActivity,
 				R.layout.gcg__application_context__breadcrumb,
 				getNavigationChoiceList() ) {
@@ -88,29 +89,29 @@ public class FmsApplicationContextNavigationDialog extends FmsDialog {
 			@Override
 			public View getView(int aViewPosition, View aRowView, ViewGroup aViewGroupParent) {
 				// low volume, transient list; so we do not use the Android ViewHolder pattern  :-)
-				final LayoutInflater inflater = LayoutInflater.from(FmsApplicationContextNavigationDialog.this.gcgActivity);
+				final LayoutInflater inflater = LayoutInflater.from(GcgApplicationContextNavigationDialog.this.gcgActivity);
 				View theRowView = inflater.inflate(R.layout.gcg__application_context__breadcrumb, null);
-				GcgNavigationTarget theNavigationTarget = FmsApplicationContextNavigationDialog.this.fmsNavigationTargetArrayAdapter.getItem(aViewPosition);
+				GcgNavigationTarget theNavigationTarget = GcgApplicationContextNavigationDialog.this.gcgNavigationTargetArrayAdapter.getItem(aViewPosition);
 				ImageView theImageView = (ImageView) theRowView.findViewById(R.id.gcg_context__breadcrumb__image);
 				theImageView.setImageResource(theNavigationTarget.getDrawableResourceId() );
 				TextView theTextView = (TextView) theRowView.findViewById(R.id.gcg_context__breadcrumb__headine);
 				theTextView.setText(theNavigationTarget.getHeadline() );
 				if(! theNavigationTarget.isPerspective()) {
-					theRowView.setBackgroundResource(R.drawable.gcg__button_state_list__context_navigation__breadcrumb);
+					theRowView.setBackgroundResource(R.drawable.gcg__button_state_list__application_context_navigation__breadcrumb);
 				} else {
 					theRowView.setBackgroundResource(
-							theNavigationTarget.isContextRoot() ? R.drawable.gcg__button_state_list__context_navigation__active_perspective : R.drawable.gcg__button_state_list__context_navigation__inactive_perspective);
+							theNavigationTarget.isContextRoot() ? R.drawable.gcg__button_state_list__application_context_navigation__active_perspective : R.drawable.gcg__button_state_list__context_navigation__inactive_perspective);
 				}
 				return theRowView;
 			}
 		};
-		this.dialogBuilder.setAdapter(this.fmsNavigationTargetArrayAdapter, new DialogInterface.OnClickListener() {
+		this.dialogBuilder.setAdapter(this.gcgNavigationTargetArrayAdapter, new DialogInterface.OnClickListener() {
 
 			@Override
 			public void onClick(DialogInterface aDialog, int aListItem) {
-				FmsApplicationContextNavigationDialog.this.alertDialog.dismiss();
-				FmsApplicationContextNavigationDialog.this.gcgActivity.fmsApplicationContextNavigation(
-						FmsApplicationContextNavigationDialog.this.fmsNavigationTargetArrayAdapter.getItem(aListItem));
+				GcgApplicationContextNavigationDialog.this.alertDialog.dismiss();
+				GcgApplicationContextNavigationDialog.this.gcgActivity.fmsApplicationContextNavigation(
+                        GcgApplicationContextNavigationDialog.this.gcgNavigationTargetArrayAdapter.getItem(aListItem));
 			}
 		});
 	}

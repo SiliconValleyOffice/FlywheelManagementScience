@@ -168,5 +168,4 @@ public class GcgApplicationContext implements GcgSerialization {
 		GcgActivityBreadcrumb theFirstActivityBreakcrumb = this.activityBreadcrumbList.get(0);
 		return FmmPerspective.getObjectForName(theFirstActivityBreakcrumb.getFrameBreadcrumb().getPerspectiveName().toString());
 	}
-	
 }

@@ -78,6 +78,16 @@ public abstract class GcgDialog {
         this.gcgActivity = aGcgActivity;
         this.targetDetail = aTargetDetail;
         this.messageString = aMessageString;
+        this.dialogBuilder = new AlertDialog.Builder(this.gcgActivity);
+    }
+
+    protected void initialSetup() {
+        this.dialogBuilder.setTitle(getDialogTitleString());
+        this.dialogBuilder.setIcon(getDialogTitleIconResourceId());
+        if(! deferredDialogInitialization()) {
+            initializeDialogBody();
+            manageButtonState();
+        }
     }
 
     protected View inflateDialogBody(int aLayoutResourceId) {

@@ -63,8 +63,8 @@ public class StrategicMilestoneMoveDialog extends HeadlineNodeMoveDialog {
 
 	public StrategicMilestoneMoveDialog(GcgActivity aLibraryActivity, GcgTreeViewAdapter aTreeViewAdapter, FmmHeadlineNode aHeadlineNode, FiscalYear aTargetHeadlineNodeException) {
 		super(aLibraryActivity, aTreeViewAdapter, aHeadlineNode, aTargetHeadlineNodeException);
-		this.currentFiscalYearNumberString = ((StrategicMilestone) this.headlineNode).getFiscalYear().getYearString();
-		this.currentFiscalYearNumber = ((StrategicMilestone) this.headlineNode).getFiscalYear().getYearAsInt();
+		this.currentFiscalYearNumberString = ((StrategicMilestone) getFmmHeadlineNode()).getFiscalYear().getYearString();
+		this.currentFiscalYearNumber = ((StrategicMilestone) getFmmHeadlineNode()).getFiscalYear().getYearAsInt();
 		initializeDialogBodyLate();
 	}
 
@@ -109,8 +109,8 @@ public class StrategicMilestoneMoveDialog extends HeadlineNodeMoveDialog {
 	@Override
 	protected boolean moveHeadlineNode() {
 		boolean theMoveStatus = FmmDatabaseMediator.getActiveMediator().moveSingleStrategicMilestoneIntoFiscalYear(
-                this.headlineNode.getNodeIdString(),
-                ((StrategicMilestone) this.headlineNode).getFiscalYearNodeIdString(),
+                getFmmHeadlineNode().getNodeIdString(),
+                ((StrategicMilestone) getFmmHeadlineNode()).getFiscalYearNodeIdString(),
                 this.dispositionTargetWidgetSpinner.getFmmNode().getNodeIdString(),
                 this.sequencePositionSpinner.sequenceAtEnd(),
                 true);

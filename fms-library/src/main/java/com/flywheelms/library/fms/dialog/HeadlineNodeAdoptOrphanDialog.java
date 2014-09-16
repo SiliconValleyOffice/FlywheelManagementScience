@@ -92,7 +92,7 @@ public abstract class HeadlineNodeAdoptOrphanDialog extends FmsCancelOkApplyFdkD
 
 	@Override
 	protected int getDialogTitleIconResourceId() {
-		return this.headlineNode.getFmmNodeDefinition().getDialogDrawableResourceId();
+		return getFmmHeadlineNode().getFmmNodeDefinition().getDialogDrawableResourceId();
 	}
 
 	@Override
@@ -115,9 +115,9 @@ public abstract class HeadlineNodeAdoptOrphanDialog extends FmsCancelOkApplyFdkD
 	protected void initializeDialogBodyLate() {
 		super.initializeDialogBody();
 		this.fmmNodeTypeWidget = (FmmNodeTypeWidgetTextView) this.dialogBodyView.findViewById(R.id.fmm_node__type);
-		this.fmmNodeTypeWidget.setText(this.fmmNodeDefinition.getLabelTextResourceId());
+		this.fmmNodeTypeWidget.setText(getFmmNodeDefinition().getLabelTextResourceId());
 		this.headlineWidgetTextView = (HeadlineWidgetTextView) this.dialogBodyView.findViewById(R.id.headline);
-		this.headlineWidgetTextView.setText(this.headlineNode.getDataText());
+		this.headlineWidgetTextView.setText(getFmmHeadlineNode().getDataText());
 		initializeAdoptionCandidateLayout();
 		manageButtonState();
 	}
@@ -217,7 +217,7 @@ public abstract class HeadlineNodeAdoptOrphanDialog extends FmsCancelOkApplyFdkD
 		theStringBuffer.append(
 			((FmmHeadlineNode) this.adoptionCandidateWidgetSpinner.getSelectedItem()).getFmmNodeDefinition().getLabelText() +
 			":  " + ((FmmHeadlineNode) this.adoptionCandidateWidgetSpinner.getSelectedItem()).getFmmNodeDefinition().getDataText() +
-				" into " + this.fmmNodeDefinition.getLabelText() + ": " + this.headlineNode.getDataText() );
+				" into " + getFmmNodeDefinition().getLabelText() + ": " + getFmmHeadlineNode().getDataText() );
 		GcgHelper.makeToast(theStringBuffer.toString());
 	}
 	

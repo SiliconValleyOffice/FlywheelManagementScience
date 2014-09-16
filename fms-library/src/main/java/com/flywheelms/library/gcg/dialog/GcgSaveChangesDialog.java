@@ -75,7 +75,7 @@ public class GcgSaveChangesDialog extends FmsDialog {
 
 	@Override
 	protected int getDialogTitleStringResourceId() {
-		return R.string.fms__save_data_changes;
+		return R.string.gcg__save_data_changes;
 	}
 
 	@Override

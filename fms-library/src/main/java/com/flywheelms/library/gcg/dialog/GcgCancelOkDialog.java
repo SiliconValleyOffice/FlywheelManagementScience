@@ -1,5 +1,5 @@
-/* @(#)FseParagraphHistoryDialog.java
-** 
+/* @(#)GcgCancelOkDialog.java
+**
 ** Copyright (C) 2012 by Steven D. Stamps
 **
 **             Trademarks & Copyrights
@@ -41,32 +41,57 @@
 ** <http://www.gnu.org/licenses/gpl-3.0.html>.
 */
 
-package com.flywheelms.library.fse.history;
+package com.flywheelms.library.gcg.dialog;
+
+import android.view.View;
+import android.widget.Button;
 
 import com.flywheelms.library.R;
 import com.flywheelms.library.gcg.activity.GcgActivity;
-import com.flywheelms.library.gcg.dialog.GcgCancelDialog;
 
-public class FseParagraphHistoryDialog extends GcgCancelDialog {
-	
-	public FseParagraphHistoryDialog(GcgActivity aLibraryActivity) {
-		super(aLibraryActivity);
-        initialSetup();
-	}
+public abstract class GcgCancelOkDialog  extends GcgCancelDialog{
 
-	@Override
-	protected int getCustomDialogContentsResourceId() {
-		return R.layout.fse__paragraph_history__dialog;
-	}
+    protected Button buttonOk;
 
-	@Override
-	protected int getDialogTitleIconResourceId() {
-		return R.drawable.fse__paragraph_history;
-	}
+    public GcgCancelOkDialog(GcgActivity aGcgActivity) {
+        super(aGcgActivity);
+    }
 
-	@Override
-	protected int getDialogTitleStringResourceId() {
-		return R.string.fse__paragraph_history;
-	}
+    public GcgCancelOkDialog(GcgActivity aGcgActivity, String aTargetDetail, String aMessageString) {
+        super(aGcgActivity, aTargetDetail, aMessageString);
+    }
 
+    @Override
+    protected int getDialogBodyLayoutResourceId() {
+        return R.layout.gcg__dialog_body__cancel_ok;
+    }
+
+    @Override
+    protected void initializeDialogBody() {
+        super.initializeDialogBody();
+        this.buttonOk = (Button) this.dialogBodyView.findViewById(R.id.button__ok);
+        this.buttonOk.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                GcgCancelOkDialog.this.onClickButtonOk();
+            }
+        });
+        this.buttonOk.setVisibility(defaultOkButtonState() ? View.VISIBLE : View.INVISIBLE);
+    }
+
+    protected boolean defaultOkButtonState() {
+        return false;
+    }
+
+    @Override
+    protected void manageButtonState() {
+        if(this.buttonOk != null) {  // when initializeDialogBodyLate()
+            this.buttonOk.setVisibility(View.VISIBLE);
+        }
+    }
+
+    protected void onClickButtonOk() {
+        this.gcgActivity.stopDialog();
+    }
 }

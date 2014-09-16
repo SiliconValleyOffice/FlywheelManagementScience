@@ -72,7 +72,7 @@ public class ProjectDeleteDialog extends HeadlineNodeDeleteDialog {
 
 	@Override
 	protected ArrayList<? extends FmmHeadlineNode> getPrimaryChildHeadlineNodeList() {
-		return FmmDatabaseMediator.getActiveMediator().listProjectAssetsForProject(this.headlineNode.getNodeIdString());
+		return FmmDatabaseMediator.getActiveMediator().listProjectAssetsForProject(getFmmHeadlineNode().getNodeIdString());
 	}
 
 	@Override
@@ -115,18 +115,18 @@ public class ProjectDeleteDialog extends HeadlineNodeDeleteDialog {
 
 	@Override
 	protected boolean deleteHeadlineNode() {
-		return FmmDatabaseMediator.getActiveMediator().deleteProject((Project) this.headlineNode, false);
+		return FmmDatabaseMediator.getActiveMediator().deleteProject((Project) getFmmHeadlineNode(), false);
 	}
 
 	@Override
 	protected boolean orphanPrimaryChildren() {
-		return FmmDatabaseMediator.getActiveMediator().orphanAllProjectAssetsFromProject(this.headlineNode.getNodeIdString(), false);
+		return FmmDatabaseMediator.getActiveMediator().orphanAllProjectAssetsFromProject(getFmmHeadlineNode().getNodeIdString(), false);
 	}
 
 	@Override
 	protected boolean movePrimaryChildrenToNewParent() {
 		return FmmDatabaseMediator.getActiveMediator().moveAllProjectAssetsIntoProject(
-                this.headlineNode.getNodeIdString(),
+                getFmmHeadlineNode().getNodeIdString(),
                 this.primaryChildDeleteDisposition.getTargetWidgetSpinner().getFmmNode().getNodeIdString(),
                 this.primaryChildDeleteDisposition.isSequencePositionSpinnerAtEnd(),
                 false);

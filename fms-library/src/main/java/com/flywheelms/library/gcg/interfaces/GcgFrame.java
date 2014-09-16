@@ -62,5 +62,4 @@ public interface GcgFrame {
 	CharSequence getHeadingCharSequence();
 
 	GcgPerspective getPerspectiveAt(int currentViewFlipperViewIndex);
-
 }

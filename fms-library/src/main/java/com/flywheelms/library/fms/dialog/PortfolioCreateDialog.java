@@ -91,7 +91,7 @@ public class PortfolioCreateDialog extends FmsCancelOkApplyFdkDialog {
     protected void initializeDialogBodyLate() {
 		super.initializeDialogBody();
 		this.fmmNodeTypeWidget = (FmmNodeTypeWidgetTextView) this.dialogBodyView.findViewById(R.id.fmm_node__type);
-		this.fmmNodeTypeWidget.setText(this.fmmNodeDefinition.getLabelTextResourceId());
+		this.fmmNodeTypeWidget.setText(getFmmNodeDefinition().getLabelTextResourceId());
         this.headlineWidget = (HeadlineWidgetEditText) this.dialogBodyView.findViewById(R.id.headline);
         this.headlineWidget.addTextChangedListener(new TextWatcher() {
 
@@ -111,7 +111,7 @@ public class PortfolioCreateDialog extends FmsCancelOkApplyFdkDialog {
             }
         });
 		this.editNewPortfolio = (CheckBox) this.dialogBodyView.findViewById(R.id.edit_new_portfolio);
-        this.editNewPortfolio.setText("Edit new " + this.fmmNodeDefinition.getLabelText());
+        this.editNewPortfolio.setText("Edit new " + getFmmNodeDefinition().getLabelText());
 	}
 
 	@Override

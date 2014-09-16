@@ -51,7 +51,6 @@ import android.widget.RadioButton;
 
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
-import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.governable.StrategicMilestone;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.fms.activity.FmmNodeEditorActivity;
@@ -72,8 +71,6 @@ import java.util.Date;
 public class StrategicMilestoneTargetDateEditDialog extends FmsCancelOkDialog {
 
 	private StrategicMilestone strategicMilestone;
-	private FmsTreeViewAdapter treeViewAdapter;
-	private FmmNodeEditorActivity nodeEditorActivity;
 	protected FmmNodeTypeWidgetTextView fmmNodeTypeWidget;
 	protected HeadlineWidgetTextView headlineWidget;
 	protected TargetDateWidgetTextView originalTargetDateString;
@@ -85,24 +82,15 @@ public class StrategicMilestoneTargetDateEditDialog extends FmsCancelOkDialog {
 	protected CheckBox enableReversePlanningCheckBox;
 
 	public StrategicMilestoneTargetDateEditDialog(GcgActivity aGcgActivity, FmsTreeViewAdapter aTreeViewAdapter, FmmHeadlineNode aHeadlineNode ) {
-		super(aGcgActivity, aHeadlineNode.getFmmNodeDefinition());
-		this.treeViewAdapter = aTreeViewAdapter;
-		this.nodeEditorActivity = (FmmNodeEditorActivity) this.headlineNode;
-		this.headlineNode = aHeadlineNode;
+		super(aGcgActivity, aHeadlineNode);
+		this.fmsDialogExtension.treeViewAdapter = aTreeViewAdapter;
+		this.fmsDialogExtension.nodeEditorActivity = (FmmNodeEditorActivity) getFmmHeadlineNode();
 		this.strategicMilestone = (StrategicMilestone) aHeadlineNode;
 		initializeDialogBodyLate();
 	}
 
 	public StrategicMilestoneTargetDateEditDialog(GcgActivity aGcgActivity, FmmHeadlineNode aHeadlineNode ) {
-		super(aGcgActivity, aHeadlineNode.getFmmNodeDefinition());
-		this.headlineNode = aHeadlineNode;
-		this.strategicMilestone = (StrategicMilestone) aHeadlineNode;
-		initializeDialogBodyLate();
-	}
-
-	public StrategicMilestoneTargetDateEditDialog(GcgActivity aGcgActivity, FmmNodeDefinition anFmmNodeDefinition, FmmHeadlineNode aHeadlineNode ) {
-		super(aGcgActivity, anFmmNodeDefinition);
-		this.headlineNode = aHeadlineNode;
+		super(aGcgActivity, aHeadlineNode);
 		this.strategicMilestone = (StrategicMilestone) aHeadlineNode;
 		initializeDialogBodyLate();
 	}
@@ -118,11 +106,6 @@ public class StrategicMilestoneTargetDateEditDialog extends FmsCancelOkDialog {
 	}
 
 	@Override
-	protected int getDialogTitleIconResourceId() {
-		return this.fmmNodeDefinition.getDialogDrawableResourceId();
-	}
-
-	@Override
 	protected int getCustomDialogContentsResourceId() {
 		return R.layout.strategic_milestone__target_date__edit__dialog;
 	}
@@ -130,9 +113,9 @@ public class StrategicMilestoneTargetDateEditDialog extends FmsCancelOkDialog {
 	protected void initializeDialogBodyLate() {
 		super.initializeDialogBody();
 		this.fmmNodeTypeWidget = (FmmNodeTypeWidgetTextView) this.dialogBodyView.findViewById(R.id.fmm_node__type);
-		this.fmmNodeTypeWidget.setText(this.fmmNodeDefinition.getLabelTextResourceId());
+		this.fmmNodeTypeWidget.setText(getFmmNodeDefinition().getLabelTextResourceId());
 		this.headlineWidget = (HeadlineWidgetTextView) this.dialogBodyView.findViewById(R.id.headline);
-		this.headlineWidget.setText(this.headlineNode.getHeadline());
+		this.headlineWidget.setText(getFmmHeadlineNode().getHeadline());
 		this.originalTargetDateString = (TargetDateWidgetTextView) this.dialogBodyView.findViewById(R.id.original_target_date);
 		this.originalTargetDateString.setText(this.strategicMilestone.getTargetDateString().length() == 0 ?
             "No target date" : this.strategicMilestone.getTargetDateString() );
@@ -227,10 +210,10 @@ public class StrategicMilestoneTargetDateEditDialog extends FmsCancelOkDialog {
 	protected void onClickButtonOk() {
 		updateTargetDate();
 		if(this.monthEndChoice.isChecked()) {
-			if(this.treeViewAdapter != null) {
-				this.treeViewAdapter.updateSecondaryHeadline(this.strategicMilestone.getTargetDateString());
+			if(getFmsTreeViewAdapter() != null) {
+				getFmsTreeViewAdapter().updateSecondaryHeadline(this.strategicMilestone.getTargetDateString());
 			} else {
-				this.nodeEditorActivity.updateTargetDate(this.strategicMilestone);
+				getFmmNodeEditorActivity().updateTargetDate(this.strategicMilestone);
 			}
 		}
 		this.gcgActivity.stopDialog();
@@ -249,14 +232,14 @@ public class StrategicMilestoneTargetDateEditDialog extends FmsCancelOkDialog {
 		}
         this.strategicMilestone.setTargetIsReversePlanning(correctedReversePlanning());
 		if(FmmDatabaseMediator.getActiveMediator().updateTargetDate(this.strategicMilestone, true)) {
-			if(this.treeViewAdapter != null) {
-				this.treeViewAdapter.updateSecondaryHeadline(this.strategicMilestone.getTargetDateString());
+			if(getFmsTreeViewAdapter() != null) {
+				getFmsTreeViewAdapter().updateSecondaryHeadline(this.strategicMilestone.getTargetDateString());
 			} else {
-				this.nodeEditorActivity.updateTargetDate(this.headlineNode);
+				getFmmNodeEditorActivity().updateTargetDate(getFmmHeadlineNode());
 			}
 			GcgHelper.makeToast("Target date updated.");
 		} else {
-			GcgHelper.makeToast("ERROR:  Unable to update target date for " + this.fmmNodeTypeWidget.getText() + " " + this.headlineNode.getHeadline());
+			GcgHelper.makeToast("ERROR:  Unable to update target date for " + this.fmmNodeTypeWidget.getText() + " " + getFmmHeadlineNode().getHeadline());
 		}
 	}
 

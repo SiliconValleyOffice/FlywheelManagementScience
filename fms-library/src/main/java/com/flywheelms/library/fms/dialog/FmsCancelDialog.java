@@ -43,65 +43,72 @@
 
 package com.flywheelms.library.fms.dialog;
 
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.ViewGroup;
-import android.widget.Button;
-
-import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
+import com.flywheelms.library.fms.activity.FmmNodeEditorActivity;
+import com.flywheelms.library.fms.treeview.filter.FmsTreeViewAdapter;
 import com.flywheelms.library.gcg.activity.GcgActivity;
+import com.flywheelms.library.gcg.dialog.GcgCancelDialog;
 
-public abstract class FmsCancelDialog extends FmsDialog {
+public abstract class FmsCancelDialog extends GcgCancelDialog {
 
-	protected Button buttonCancel;
+    protected FmsDialogExtension fmsDialogExtension = new FmsDialogExtension();
 
 	public FmsCancelDialog(GcgActivity aGcgActivity) {
-		super(aGcgActivity);
+		this(aGcgActivity, "", "", null, null, null);
 	}
 	
 	public FmsCancelDialog(GcgActivity aGcgActivity, FmmHeadlineNode aHeadlineNode) {
-		super(aGcgActivity, aHeadlineNode);
+		this(aGcgActivity, "", "", null, aHeadlineNode, null);
 	}
 	
 	public FmsCancelDialog(GcgActivity aGcgActivity, FmmNodeDefinition anFmmNodeDefinition) {
-		super(aGcgActivity, anFmmNodeDefinition);
+        this(aGcgActivity, "", "", anFmmNodeDefinition, null, null);
 	}
 
-	public FmsCancelDialog(GcgActivity aGcgActivity, String aViewGroupName) {
-		super(aGcgActivity, aViewGroupName);
+	public FmsCancelDialog(GcgActivity aGcgActivity, String aTargetDetail) {
+        this(aGcgActivity, aTargetDetail, "", null, null, null);
 	}
 
-	@Override
-	protected void initializeDialogBody() {
-		this.dialogBodyView = (ViewGroup) inflateDialogBody(getDialogBodyLayoutResourceId());
-		this.buttonCancel = (Button) this.dialogBodyView.findViewById(R.id.button__cancel);
-		this.buttonCancel.setOnClickListener(new OnClickListener() {
+    public FmsCancelDialog(
+            GcgActivity aGcgActivity,
+            String aTargetDetail,
+            String aMessageString,
+            FmmNodeDefinition anFmmNodeDefinition,
+            FmmHeadlineNode aHeadlineNode,
+            FmmHeadlineNode aParentHeadlineNode ) {
+        super(aGcgActivity, aTargetDetail, aMessageString);
+        this.fmsDialogExtension.fmmNodeDefinition = anFmmNodeDefinition;
+        this.fmsDialogExtension.headlineNode = aHeadlineNode;
+        this.fmsDialogExtension.parentHeadlineNode = aParentHeadlineNode;
+        initialSetup();
+    }
 
-			@Override
-			public void onClick(View v) {
-				FmsCancelDialog.this.onClickButtonCancel();
-			}
-		});
-		wrappedButtonSetup();
-		customButtonSetup();
-	}
+    protected int getDialogTitleIconResourceId() {
+        if(getFmmNodeDefinition() != null) {
+            return getFmmNodeDefinition().getDialogDrawableResourceId();
+        }
+        return 0;
+    }
 
-	protected void wrappedButtonSetup() {
-		return;
-	}
+    public FmmNodeDefinition getFmmNodeDefinition() {
+        return this.fmsDialogExtension.fmmNodeDefinition;
+    }
 
-	protected void customButtonSetup() {
-		return;
-	}
+    public FmmHeadlineNode getFmmHeadlineNode() {
+        return this.fmsDialogExtension.headlineNode;
+    }
 
-	protected int getDialogBodyLayoutResourceId() {
-		return R.layout.gcg__dialog_body__cancel;
-	}
+    public FmmHeadlineNode getParentFmmHeadlineNode() {
+        return this.fmsDialogExtension.parentHeadlineNode;
+    }
 
-	protected void onClickButtonCancel() {
-		this.gcgActivity.stopDialog();
-	}
+    public FmsTreeViewAdapter getFmsTreeViewAdapter() {
+        return this.fmsDialogExtension.treeViewAdapter;
+    }
+
+    public FmmNodeEditorActivity getFmmNodeEditorActivity() {
+        return this.fmsDialogExtension.nodeEditorActivity;
+    }
 
 }

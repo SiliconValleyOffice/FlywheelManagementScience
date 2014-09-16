@@ -72,11 +72,11 @@ public class DecKanGlAnnotationDialog extends FmsCancelDialog {
 	protected void initializeDialogBody() {
 		super.initializeDialogBody();
 		FmmNodeTypeWidgetTextView theFmmNodeTypeWidgetTextView = (FmmNodeTypeWidgetTextView) this.dialogBodyView.findViewById(R.id.fmm_node__type);
-		theFmmNodeTypeWidgetTextView.setText(this.headlineNode.getNodeTypeName());
+		theFmmNodeTypeWidgetTextView.setText(getFmmHeadlineNode().getNodeTypeName());
 		HeadlineWidgetTextView theHeadlineWidget = (HeadlineWidgetTextView) this.dialogBodyView.findViewById(R.id.headline);
-		theHeadlineWidget.setText(this.headlineNode.getHeadline());
+		theHeadlineWidget.setText(getFmmHeadlineNode().getHeadline());
 		ImageView theImageView = (ImageView) this.dialogBodyView.findViewById(R.id.annotated_deckangl);
-		theImageView.setImageBitmap(this.headlineNode.getDecKanGlGlyph().getAnnotatedGlyphBitmap(DecKanGlAnnotatedGlyphSize.MEDIUM));
+		theImageView.setImageBitmap(getFmmHeadlineNode().getDecKanGlGlyph().getAnnotatedGlyphBitmap(DecKanGlAnnotatedGlyphSize.MEDIUM));
 	}
 
 	@Override

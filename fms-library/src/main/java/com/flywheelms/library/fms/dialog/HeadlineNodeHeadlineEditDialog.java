@@ -50,42 +50,32 @@ import android.view.View.OnClickListener;
 
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
-import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.fms.activity.FmmNodeEditorActivity;
+import com.flywheelms.library.fms.treeview.filter.FmsTreeViewAdapter;
 import com.flywheelms.library.fms.widget.edit_text.HeadlineWidgetEditText;
 import com.flywheelms.library.fms.widget.text_view.FmmNodeIdWidgetTextView;
 import com.flywheelms.library.fms.widget.text_view.FmmNodeTypeWidgetTextView;
 import com.flywheelms.library.fms.widget.text_view.HeadlineWidgetTextView;
 import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.gcg.helper.GcgHelper;
-import com.flywheelms.library.gcg.treeview.GcgTreeViewAdapter;
 
 public class HeadlineNodeHeadlineEditDialog extends FmsCancelOkFdkDialog {
 
-	private GcgTreeViewAdapter treeViewAdapter;
 	private FmmNodeEditorActivity fmmNodeEditorActivity;
 	protected FmmNodeIdWidgetTextView fmmNodeIdWidget;
 	protected FmmNodeTypeWidgetTextView fmmNodeTypeWidget;
 	protected HeadlineWidgetTextView originalHeadlineWidget;
 	protected HeadlineWidgetEditText newHeadlineWidget;
 
-	public HeadlineNodeHeadlineEditDialog(GcgActivity aGcgActivity, GcgTreeViewAdapter aTreeViewAdapter, FmmHeadlineNode aHeadlineNode ) {
-		super(aGcgActivity, aHeadlineNode.getFmmNodeDefinition());
-		this.treeViewAdapter = aTreeViewAdapter;
-		this.headlineNode = aHeadlineNode;
+	public HeadlineNodeHeadlineEditDialog(GcgActivity aGcgActivity, FmsTreeViewAdapter aTreeViewAdapter, FmmHeadlineNode aHeadlineNode ) {
+		super(aGcgActivity, aHeadlineNode);
+		this.fmsDialogExtension.treeViewAdapter = aTreeViewAdapter;
 		finalConstruction();
 	}
 
 	public HeadlineNodeHeadlineEditDialog(GcgActivity aGcgActivity, FmmHeadlineNode aHeadlineNode ) {
-		super(aGcgActivity, aHeadlineNode.getFmmNodeDefinition());
-		this.headlineNode = aHeadlineNode;
-		finalConstruction();
-	}
-
-	public HeadlineNodeHeadlineEditDialog(GcgActivity aGcgActivity, FmmNodeDefinition anFmmNodeDefinition, FmmHeadlineNode aHeadlineNode ) {
-		super(aGcgActivity, anFmmNodeDefinition);
-		this.headlineNode = aHeadlineNode;
+		super(aGcgActivity, aHeadlineNode);
 		finalConstruction();
 	}
 
@@ -102,7 +92,7 @@ public class HeadlineNodeHeadlineEditDialog extends FmsCancelOkFdkDialog {
 
 	@Override
 	protected int getDialogTitleIconResourceId() {
-		return this.fmmNodeDefinition.getDialogDrawableResourceId();
+		return getFmmNodeDefinition().getDialogDrawableResourceId();
 	}
 
 	@Override
@@ -118,11 +108,11 @@ public class HeadlineNodeHeadlineEditDialog extends FmsCancelOkFdkDialog {
 	protected void initializeDialogBodyLate() {
 		super.initializeDialogBody();
 		this.fmmNodeIdWidget = (FmmNodeIdWidgetTextView) this.dialogBodyView.findViewById(R.id.fmm_node_id);
-		this.fmmNodeIdWidget.setText(this.headlineNode.getAbbreviatedNodeIdString());
+		this.fmmNodeIdWidget.setText(getFmmHeadlineNode().getAbbreviatedNodeIdString());
 		this.fmmNodeTypeWidget = (FmmNodeTypeWidgetTextView) this.dialogBodyView.findViewById(R.id.fmm_node__type);
-		this.fmmNodeTypeWidget.setText(this.fmmNodeDefinition.getLabelTextResourceId());
+		this.fmmNodeTypeWidget.setText(getFmmNodeDefinition().getLabelTextResourceId());
 		this.originalHeadlineWidget = (HeadlineWidgetTextView) this.dialogBodyView.findViewById(R.id.headline__original);
-		this.originalHeadlineWidget.setText(this.headlineNode.getHeadline());
+		this.originalHeadlineWidget.setText(getFmmHeadlineNode().getHeadline());
 		this.originalHeadlineWidget.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -174,16 +164,16 @@ public class HeadlineNodeHeadlineEditDialog extends FmsCancelOkFdkDialog {
 	}
 
 	private void updateHeadlineNode() {
-		this.headlineNode.setHeadline(this.newHeadlineWidget.getText().toString());
-		if(FmmDatabaseMediator.getActiveMediator().updateHeadlineNodeHeadline(this.headlineNode)) {
-			if(this.treeViewAdapter != null) {
-				this.treeViewAdapter.updateHeadlineNodeHeadline(this.headlineNode);
+		getFmmHeadlineNode().setHeadline(this.newHeadlineWidget.getText().toString());
+		if(FmmDatabaseMediator.getActiveMediator().updateHeadlineNodeHeadline(getFmmHeadlineNode())) {
+			if(getFmsTreeViewAdapter() != null) {
+				getFmsTreeViewAdapter().updateHeadlineNodeHeadline(getFmmHeadlineNode());
 			} else {
-				((FmmNodeEditorActivity) this.gcgActivity).updateHeadlineNodeHeadline(this.headlineNode);
+				((FmmNodeEditorActivity) this.gcgActivity).updateHeadlineNodeHeadline(getFmmHeadlineNode());
 			}
 			GcgHelper.makeToast("Headline updated.");
 		} else {
-			GcgHelper.makeToast("ERROR:  Unable to update headline for " + this.fmmNodeTypeWidget.getText() + " " + this.headlineNode.getHeadline());
+			GcgHelper.makeToast("ERROR:  Unable to update headline for " + this.fmmNodeTypeWidget.getText() + " " + getFmmHeadlineNode().getHeadline());
 		}
 	}
 

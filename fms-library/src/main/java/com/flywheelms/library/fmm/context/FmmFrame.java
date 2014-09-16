@@ -56,47 +56,47 @@ public enum FmmFrame implements GcgFrame {
 
 	COMMITMENT(R.string.fmm_frame__commitment, R.string.fmm_frame__commitment__abreviated, new FmmPerspective[] {
 			FmmPerspective.CONFIRMED_COMMITMENTS,   // 1
-            FmmPerspective.WITHDRAWN_COMMITMENTS,    //5
-            FmmPerspective.DECLINED_COMMITMENTS,    // 4
+            FmmPerspective.PROPOSED_COMMITMENTS,    // 2
             FmmPerspective.SUGGESTED_COMMITMENTS,   // 3
-            FmmPerspective.PROPOSED_COMMITMENTS }), // 2
-	CONTEXT_WORKBENCH(R.string.fmm_frame__context, new FmmPerspective[] {  // in ViewFlipper "wonky" order
+            FmmPerspective.DECLINED_COMMITMENTS,    // 4
+            FmmPerspective.WITHDRAWN_COMMITMENTS }),//5
+    CONTEXT_WORKBENCH(R.string.fmm_frame__context, new FmmPerspective[] {
 			FmmPerspective.STRATEGIC_PLANNING,  // 1
-            FmmPerspective.ANALYSIS,            // 5
-			FmmPerspective.SERVICE_DELIVERY,    // 4
+            FmmPerspective.WORK_BREAKDOWN,      // 2
             FmmPerspective.WORK_PLANNING,       // 3
-			FmmPerspective.WORK_BREAKDOWN }),   // 2
-	CONTEXT_NODE(R.string.fmm_frame__context, new FmmPerspective[] {
+            FmmPerspective.SERVICE_DELIVERY,    // 4
+            FmmPerspective.ANALYSIS }),         // 5
+    CONTEXT_NODE(R.string.fmm_frame__context, new FmmPerspective[] {
 			FmmPerspective.STRATEGIC_PLANNING,  // 1
-            FmmPerspective.ANALYSIS,            // 4
+            FmmPerspective.WORK_BREAKDOWN,      // 2
             FmmPerspective.WORK_PLANNING,       // 3
-            FmmPerspective.WORK_BREAKDOWN }),   // 2
+            FmmPerspective.ANALYSIS }),         // 4
     FSE(R.string.fmm_frame__fse, new FmmPerspective[] {
 			FmmPerspective.STORY,        // 1
-            FmmPerspective.COMMUNITY,    // 4
+            FmmPerspective.NOTES,        // 2
             FmmPerspective.HISTORY,      // 3
-            FmmPerspective.NOTES }),     // 2
+            FmmPerspective.COMMUNITY }), // 4
     QUALITY(R.string.fmm_frame__quality, new FmmPerspective[] {
 			FmmPerspective.STRATEGIC_PLANNING,  // 1
-            FmmPerspective.SERVICE_DELIVERY,    // 4
+            FmmPerspective.WORK_BREAKDOWN,      // 2
             FmmPerspective.WORK_PLANNING,       // 3
-            FmmPerspective.WORK_BREAKDOWN }),   // 2
+            FmmPerspective.SERVICE_DELIVERY }), // 4
     TEAM(R.string.fmm_frame__teams, new FmmPerspective[] {
 			FmmPerspective.STRATEGY_TEAMS,      // 1
-            FmmPerspective.GOVERNANCE_TEAMS,    // 4
+            FmmPerspective.FLYWHEEL_TEAMS,      // 2
             FmmPerspective.FUNCTIONAL_TEAMS,    // 3
-            FmmPerspective.FLYWHEEL_TEAMS }),   // 2
+            FmmPerspective.GOVERNANCE_TEAMS }), // 4
     TRIBKN(R.string.fmm_frame__tribkn, new FmmPerspective[] {  // SWAG
 			FmmPerspective.DECKANGL,      // 1
-            FmmPerspective.COMMUNITY,     // 4
+            FmmPerspective.GOVERNANCE,    // 2
             FmmPerspective.COMMITMENTS,   // 3
-            FmmPerspective.GOVERNANCE }), // 2
+            FmmPerspective.COMMUNITY }),  // 4
     VELOCITY(R.string.fmm_frame__velocity, new FmmPerspective[] {
 			FmmPerspective.DECKANGL,    // 1
-            FmmPerspective.ANALYSIS,    // 5
-            FmmPerspective.COMMUNITY,   // 4
+            FmmPerspective.STORY,       // 2
             FmmPerspective.GOVERNANCE,  // 3
-            FmmPerspective.STORY });    // 2
+            FmmPerspective.COMMUNITY,   // 4
+            FmmPerspective.ANALYSIS }); // 5
 
 	public static FmmFrame getObjectForName(String aName) {
 		FmmFrame theFmmFrame = null;

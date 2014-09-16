@@ -114,7 +114,7 @@ public class ProjectMoveDialog extends HeadlineNodeMoveDialog {
 	@Override
 	protected boolean moveHeadlineNode() {
 		boolean theMoveStatus = FmmDatabaseMediator.getActiveMediator().moveSingleProjectIntoPortfolio(
-                this.headlineNode.getNodeIdString(),
+                getFmmHeadlineNode().getNodeIdString(),
                 this.dispositionTargetWidgetSpinner.getFmmNode().getNodeIdString(),
                 true);
 		toastMoveResult(theMoveStatus);

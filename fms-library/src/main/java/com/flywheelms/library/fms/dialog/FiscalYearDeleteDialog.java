@@ -74,7 +74,7 @@ public class FiscalYearDeleteDialog extends HeadlineNodeDeleteDialog {
 
 	@Override
 	protected ArrayList<? extends FmmHeadlineNode> getPrimaryChildHeadlineNodeList() {
-		return FmmDatabaseMediator.getActiveMediator().getStrategicMilestoneListForFiscalYear(this.headlineNode.getNodeIdString());
+		return FmmDatabaseMediator.getActiveMediator().getStrategicMilestoneListForFiscalYear(getFmmHeadlineNode().getNodeIdString());
 	}
 	
 	@Override
@@ -84,7 +84,7 @@ public class FiscalYearDeleteDialog extends HeadlineNodeDeleteDialog {
 
 	@Override
 	protected ArrayList<? extends FmmHeadlineNode> getSecondaryChildHeadlineNodeList() {
-		return FmmDatabaseMediator.getActiveMediator().getFlywheelMilestoneListForFiscalYear(this.headlineNode.getNodeIdString());
+		return FmmDatabaseMediator.getActiveMediator().getFlywheelMilestoneListForFiscalYear(getFmmHeadlineNode().getNodeIdString());
 	}
 	
 	@Override
@@ -106,24 +106,24 @@ public class FiscalYearDeleteDialog extends HeadlineNodeDeleteDialog {
 
 	@Override
 	protected void setInitialTargetSpinnerSelection(DeleteDisposition aDeleteDisposition) {
-        ((FiscalYearWidgetSpinner) aDeleteDisposition.getTargetWidgetSpinner()).updateSpinnerData((FiscalYear) this.headlineNode);
+        ((FiscalYearWidgetSpinner) aDeleteDisposition.getTargetWidgetSpinner()).updateSpinnerData((FiscalYear) getFmmHeadlineNode());
 		((FiscalYearWidgetSpinner) aDeleteDisposition.getTargetWidgetSpinner()).selectNextYear(this.headlineWidgetTextView.getText().toString());
 	}
 
 	@Override
 	protected boolean deleteHeadlineNode() {
-		return FmmDatabaseMediator.getActiveMediator().deleteFiscalYear((FiscalYear) this.headlineNode, false);
+		return FmmDatabaseMediator.getActiveMediator().deleteFiscalYear((FiscalYear) getFmmHeadlineNode(), false);
 	}
 
 	@Override
 	protected boolean deletePrimaryChildren() {
-		return FmmDatabaseMediator.getActiveMediator().deleteStrategicMilestonesForFiscalYear(this.headlineNode.getNodeIdString(), false);
+		return FmmDatabaseMediator.getActiveMediator().deleteStrategicMilestonesForFiscalYear(getFmmHeadlineNode().getNodeIdString(), false);
 	}
 
 	@Override
 	protected boolean movePrimaryChildrenToNewParent() {
 		return FmmDatabaseMediator.getActiveMediator().moveAllStrategicMilestonesIntoFiscalYear(
-                this.headlineNode.getNodeIdString(),
+                getFmmHeadlineNode().getNodeIdString(),
                 this.primaryChildDeleteDisposition.getTargetWidgetSpinner().getFmmNode().getNodeIdString(),
                 this.primaryChildDeleteDisposition.isSequencePositionSpinnerAtEnd(),
                 false);

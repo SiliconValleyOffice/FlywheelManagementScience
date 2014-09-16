@@ -67,7 +67,7 @@ public class StrategicMilestoneAdoptOrphanProjectAssetDialog extends HeadlineNod
 	protected boolean adoptOrphanHeadlineNode() {
 		boolean theAdoptionStatus = FmmDatabaseMediator.getActiveMediator().adoptOrphanProjectAssetIntoStrategicMilestone(
 				this.adoptionCandidateWidgetSpinner.getFmmNode().getNodeIdString(),
-				this.headlineNode.getNodeIdString(),
+                getFmmHeadlineNode().getNodeIdString(),
 				this.sequencePositionSpinner.sequenceAtEnd(),
 				true );
 		toastAdoptionResult(theAdoptionStatus);

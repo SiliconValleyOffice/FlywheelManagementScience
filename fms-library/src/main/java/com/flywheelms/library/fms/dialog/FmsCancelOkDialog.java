@@ -43,63 +43,72 @@
 
 package com.flywheelms.library.fms.dialog;
 
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
-
-import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
+import com.flywheelms.library.fms.activity.FmmNodeEditorActivity;
+import com.flywheelms.library.fms.treeview.filter.FmsTreeViewAdapter;
 import com.flywheelms.library.gcg.activity.GcgActivity;
+import com.flywheelms.library.gcg.dialog.GcgCancelOkDialog;
 
-public abstract class FmsCancelOkDialog extends FmsCancelDialog {
+public abstract class FmsCancelOkDialog extends GcgCancelOkDialog {
 
-	protected Button buttonOk;
+    protected FmsDialogExtension fmsDialogExtension = new FmsDialogExtension();
 
-	public FmsCancelOkDialog(GcgActivity aLibraryActivity) {
-		super(aLibraryActivity);
-	}
-	
-	public FmsCancelOkDialog(GcgActivity aLibraryActivity, FmmHeadlineNode aHeadlineNode) {
-		super(aLibraryActivity, aHeadlineNode);
-	}
-	
-	public FmsCancelOkDialog(GcgActivity aLibraryActivity, FmmNodeDefinition anFmmNodeDefinition) {
-		super(aLibraryActivity, anFmmNodeDefinition);
-	}
+    public FmsCancelOkDialog(GcgActivity aGcgActivity) {
+        this(aGcgActivity, "", "", null, null, null);
+    }
 
-	@Override
-	protected int getDialogBodyLayoutResourceId() {
-		return R.layout.gcg__dialog_body__cancel_ok;
-	}
+    public FmsCancelOkDialog(GcgActivity aGcgActivity, FmmHeadlineNode aHeadlineNode) {
+        this(aGcgActivity, "", "", aHeadlineNode.getFmmNodeDefinition(), aHeadlineNode, null);
+    }
 
-	@Override
-	protected void initializeDialogBody() {
-		super.initializeDialogBody();
-		this.buttonOk = (Button) this.dialogBodyView.findViewById(R.id.button__ok);
-		this.buttonOk.setOnClickListener(new OnClickListener() {
+    public FmsCancelOkDialog(GcgActivity aGcgActivity, FmmNodeDefinition anFmmNodeDefinition) {
+        this(aGcgActivity, "", "", anFmmNodeDefinition, null, null);
+    }
 
-			@Override
-			public void onClick(View v) {
-				FmsCancelOkDialog.this.onClickButtonOk();
-			}
-		});
-		this.buttonOk.setVisibility(defaultOkButtonState() ? View.VISIBLE : View.INVISIBLE);
-	}
-	
-	protected boolean defaultOkButtonState() {
-		return false;
-	}
+    public FmsCancelOkDialog(GcgActivity aGcgActivity, String aTargetDetail) {
+        this(aGcgActivity, aTargetDetail, "", null, null, null);
+    }
 
-	@Override
-	protected void manageButtonState() {
-		if(this.buttonOk != null) {  // when initializeDialogBodyLate()
-			this.buttonOk.setVisibility(View.VISIBLE);
-		}
-	}
+    public FmsCancelOkDialog(
+            GcgActivity aGcgActivity,
+            String aTargetDetail,
+            String aMessageString,
+            FmmNodeDefinition anFmmNodeDefinition,
+            FmmHeadlineNode aHeadlineNode,
+            FmmHeadlineNode aParentHeadlineNode ) {
+        super(aGcgActivity, aTargetDetail, aMessageString);
+        this.fmsDialogExtension.fmmNodeDefinition = anFmmNodeDefinition;
+        this.fmsDialogExtension.headlineNode = aHeadlineNode;
+        this.fmsDialogExtension.parentHeadlineNode = aParentHeadlineNode;
+        initialSetup();
+    }
 
-	protected void onClickButtonOk() {
-		this.gcgActivity.stopDialog();
-	}
+    protected int getDialogTitleIconResourceId() {
+        if(getFmmNodeDefinition() != null) {
+            return getFmmNodeDefinition().getDialogDrawableResourceId();
+        }
+        return 0;
+    }
+
+    public FmmNodeDefinition getFmmNodeDefinition() {
+        return this.fmsDialogExtension.fmmNodeDefinition;
+    }
+
+    public FmmHeadlineNode getFmmHeadlineNode() {
+        return this.fmsDialogExtension.headlineNode;
+    }
+
+    public FmmHeadlineNode getParentFmmHeadlineNode() {
+        return this.fmsDialogExtension.parentHeadlineNode;
+    }
+
+    public FmsTreeViewAdapter getFmsTreeViewAdapter() {
+        return this.fmsDialogExtension.treeViewAdapter;
+    }
+
+    public FmmNodeEditorActivity getFmmNodeEditorActivity() {
+        return this.fmsDialogExtension.nodeEditorActivity;
+    }
 
 }

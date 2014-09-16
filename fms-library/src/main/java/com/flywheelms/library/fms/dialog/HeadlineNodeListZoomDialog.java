@@ -124,7 +124,7 @@ public class HeadlineNodeListZoomDialog extends FmsCancelOkDialog {
 
 	@Override
 	protected int getDialogTitleIconResourceId() {
-		return this.headlineNode.getLabelDrawableResourceId();
+		return getFmmHeadlineNode().getLabelDrawableResourceId();
 	}
 
 	@Override
@@ -146,7 +146,7 @@ public class HeadlineNodeListZoomDialog extends FmsCancelOkDialog {
 	private void initializeDecKanGlTab() {
 		LinearLayout theLinearLayout = (LinearLayout) this.gcgActivity.getLayoutInflater().inflate(R.layout.deckangl__zoom_panel, this.tabbedLayout, false);
 		this.decKanGlImageView = (ImageView) theLinearLayout.findViewById(R.id.annotated_deckangl);
-		this.decKanGlImageView.setImageBitmap(this.headlineNode.getDecKanGlGlyph().getAnnotatedGlyphBitmap(DecKanGlAnnotatedGlyphSize.MEDIUM));
+		this.decKanGlImageView.setImageBitmap(getFmmHeadlineNode().getDecKanGlGlyph().getAnnotatedGlyphBitmap(DecKanGlAnnotatedGlyphSize.MEDIUM));
 		GcgTabSpec theGcgTabSpec = new GcgTabSpec(theLinearLayout, R.drawable.deckangl__32, R.string.deckangl_tm__noun, false);
 		this.tabbedLayout.addTab(theGcgTabSpec);
 	}
@@ -154,11 +154,11 @@ public class HeadlineNodeListZoomDialog extends FmsCancelOkDialog {
 	private void initializeGovernanceTab() {
 		LinearLayout theLinearLayout = (LinearLayout) this.gcgActivity.getLayoutInflater().inflate(R.layout.governance__zoom_panel, this.tabbedLayout, false);
 		this.sponsorWidgetTextView = (SponsorWidgetTextView) theLinearLayout.findViewById(R.id.sponsor);
-		this.sponsorWidgetTextView.setText(this.headlineNode.getSponsorName());
+		this.sponsorWidgetTextView.setText(getFmmHeadlineNode().getSponsorName());
 		this.customerWidgetTextView = (CustomerWidgetTextView) theLinearLayout.findViewById(R.id.customer);
-		this.customerWidgetTextView.setText(this.headlineNode.getCustomerName());
+		this.customerWidgetTextView.setText(getFmmHeadlineNode().getCustomerName());
 		this.facilitatorWidgetTextView = (FacilitatorWidgetTextView) theLinearLayout.findViewById(R.id.facilitator);
-		this.facilitatorWidgetTextView.setText(this.headlineNode.getFacilitatorName());
+		this.facilitatorWidgetTextView.setText(getFmmHeadlineNode().getFacilitatorName());
 		GcgTabSpec theGcgTabSpec = new GcgTabSpec(theLinearLayout, R.drawable.governance__32, R.string.fmm_perspective__governance, false);
 		this.tabbedLayout.addTab(theGcgTabSpec);
 	}

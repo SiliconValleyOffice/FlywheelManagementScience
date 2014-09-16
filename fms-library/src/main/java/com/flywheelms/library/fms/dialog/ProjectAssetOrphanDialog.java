@@ -63,8 +63,8 @@ public class ProjectAssetOrphanDialog extends HeadlineNodeOrphanDialog {
 	@Override
 	protected boolean orphanHeadlineNode() {
 		return this.parentNode.getFmmNodeDefinition() == FmmNodeDefinition.PROJECT ?
-            FmmDatabaseMediator.getActiveMediator().orphanSingleProjectAssetFromProject(this.headlineNode.getNodeIdString(), this.parentNode.getNodeIdString(), true) :
-            FmmDatabaseMediator.getActiveMediator().orphanSingleProjectAssetFromStrategicMilestone(this.headlineNode.getNodeIdString(), this.parentNode.getNodeIdString(), true);
+            FmmDatabaseMediator.getActiveMediator().orphanSingleProjectAssetFromProject(getFmmHeadlineNode().getNodeIdString(), this.parentNode.getNodeIdString(), true) :
+            FmmDatabaseMediator.getActiveMediator().orphanSingleProjectAssetFromStrategicMilestone(getFmmHeadlineNode().getNodeIdString(), this.parentNode.getNodeIdString(), true);
     }
 
 }

@@ -70,7 +70,7 @@
             android:layout_marginTop="25dp"
             android:layout_marginLeft="0dp"
             android:enabled="false"
-            android:text="@string/use_this_as_the_default" />
+            android:text="@string/gcg__use_this_as_the_default" />
     </RelativeLayout>
 
     <include layout="@layout/gcg__button_panel__cancel_ok" />

@@ -152,15 +152,15 @@ public class ProjectAssetMoveDialog extends HeadlineNodeMoveDialog {
         boolean theMoveStatus = false;
         if(this.strataegicMilestoneParent) {
             theMoveStatus = FmmDatabaseMediator.getActiveMediator().moveSingleProjectAssetIntoStrategicMilestone(
-                    this.headlineNode.getNodeIdString(),
-                    ((ProjectAsset) this.headlineNode).getStrategicMilestoneNodeId(),
+                    getFmmHeadlineNode().getNodeIdString(),
+                    ((ProjectAsset) getFmmHeadlineNode()).getStrategicMilestoneNodeId(),
                     this.dispositionTargetWidgetSpinner.getFmmNode().getNodeIdString(),
                     this.sequencePositionSpinner.sequenceAtEnd(),
                     true);
         } else {
             theMoveStatus = FmmDatabaseMediator.getActiveMediator().moveSingleProjectAssetIntoProject(
-                    this.headlineNode.getNodeIdString(),
-                    ((ProjectAsset) this.headlineNode).getProjectNodeIdString(),
+                    getFmmHeadlineNode().getNodeIdString(),
+                    ((ProjectAsset) getFmmHeadlineNode()).getProjectNodeIdString(),
                     this.dispositionTargetWidgetSpinner.getFmmNode().getNodeIdString(),
                     this.sequencePositionSpinner.sequenceAtEnd(),
                     true);

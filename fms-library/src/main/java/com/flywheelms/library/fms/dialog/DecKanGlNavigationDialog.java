@@ -79,7 +79,7 @@ public class DecKanGlNavigationDialog extends FmsCancelDialog implements DecKanG
 	@Override
 	protected void initializeDialogBody() {
 		super.initializeDialogBody();
-		((HeadlineWidgetTextView) this.dialogBodyView.findViewById(R.id.headline_widget)).setText(this.headlineNode.getHeadline());
+		((HeadlineWidgetTextView) this.dialogBodyView.findViewById(R.id.headline_widget)).setText(getFmmHeadlineNode().getHeadline());
 	}
 
 	@Override
@@ -104,13 +104,13 @@ public class DecKanGlNavigationDialog extends FmsCancelDialog implements DecKanG
 			aPerspective,
 			this.parentNodeIdString,
 			this.peerHeadlineNodeShallowList,
-			this.headlineNode.getNodeIdString() );
+			getFmmHeadlineNode().getNodeIdString() );
 		this.gcgActivity.stopDialog();
 	}
 
 	@Override
 	public DecKanGlGlyph getDecKanGlGlyph() {
-		return this.headlineNode.getDecKanGlGlyph();
+		return getFmmHeadlineNode().getDecKanGlGlyph();
 	}
 
 }

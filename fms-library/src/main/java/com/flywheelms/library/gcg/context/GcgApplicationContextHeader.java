@@ -54,8 +54,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.flywheelms.library.R;
-import com.flywheelms.library.fms.dialog.FmsApplicationContextNavigationDialog;
 import com.flywheelms.library.gcg.activity.GcgActivity;
+import com.flywheelms.library.gcg.dialog.GcgApplicationContextNavigationDialog;
 import com.flywheelms.library.gcg.helper.GcgHelper;
 
 public class GcgApplicationContextHeader extends LinearLayout {
@@ -73,6 +73,7 @@ public class GcgApplicationContextHeader extends LinearLayout {
 	private LinearLayout activityBreadcrumbListContainer;
 	private Button navigationButton;
 	private GcgApplicationContext applicationContext;
+    private GcgActivity gcgActivity;
 
 	public GcgApplicationContextHeader(Context aContext, AttributeSet attrs) {
 		super(aContext, attrs);
@@ -85,6 +86,7 @@ public class GcgApplicationContextHeader extends LinearLayout {
 	}
 
 	public void initialize(final GcgActivity aGcgActivity) {
+        this.gcgActivity = aGcgActivity;
 		this.applicationContext = aGcgActivity.getGcgApplicationContext();
 		if(this.applicationContext == null) {
 			this.dataSourceImageView.setVisibility(View.GONE);
@@ -104,16 +106,16 @@ public class GcgApplicationContextHeader extends LinearLayout {
 
 			@Override
 			public void onClick(View v) {
-				FmsApplicationContextNavigationDialog theNavigationDialog = new FmsApplicationContextNavigationDialog(aGcgActivity);
-				theNavigationDialog.processDialog();
+				GcgApplicationContextNavigationDialog theNavigationDialog = new GcgApplicationContextNavigationDialog(aGcgActivity);
+                GcgApplicationContextHeader.this.gcgActivity.startDialog(theNavigationDialog);
 			}
 		});
 		this.activityBreadcrumbListContainer.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				FmsApplicationContextNavigationDialog theNavigationDialog = new FmsApplicationContextNavigationDialog(aGcgActivity);
-				theNavigationDialog.processDialog();
+				GcgApplicationContextNavigationDialog theNavigationDialog = new GcgApplicationContextNavigationDialog(aGcgActivity);
+                GcgApplicationContextHeader.this.gcgActivity.startDialog(theNavigationDialog);
 			}
 		});
 		displayFirstActivityBreadcrumb();

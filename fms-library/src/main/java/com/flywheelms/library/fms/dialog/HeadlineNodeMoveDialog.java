@@ -81,7 +81,7 @@ public abstract class HeadlineNodeMoveDialog extends FmsCancelOkDialog {
 
 	@Override
 	protected int getDialogTitleIconResourceId() {
-		return this.headlineNode.getFmmNodeDefinition().getDialogDrawableResourceId();
+		return getFmmHeadlineNode().getFmmNodeDefinition().getDialogDrawableResourceId();
 	}
 
 	@Override
@@ -104,9 +104,9 @@ public abstract class HeadlineNodeMoveDialog extends FmsCancelOkDialog {
 	protected void initializeDialogBodyLate() {
 		super.initializeDialogBody();
 		this.fmmNodeTypeWidget = (FmmNodeTypeWidgetTextView) this.dialogBodyView.findViewById(R.id.fmm_node__type);
-		this.fmmNodeTypeWidget.setText(this.fmmNodeDefinition.getLabelTextResourceId());
+		this.fmmNodeTypeWidget.setText(getFmmNodeDefinition().getLabelTextResourceId());
 		this.headlineWidgetTextView = (HeadlineWidgetTextView) this.dialogBodyView.findViewById(R.id.headline);
-		this.headlineWidgetTextView.setText(GuiHelper.getColorString(this.headlineNode.getDataText(), Color.RED));
+		this.headlineWidgetTextView.setText(GuiHelper.getColorString(getFmmHeadlineNode().getDataText(), Color.RED));
 		initializeDispositionLayout();
 		manageButtonState();
 	}
@@ -221,7 +221,7 @@ public abstract class HeadlineNodeMoveDialog extends FmsCancelOkDialog {
 		} else {
 			theStringBuffer.append("Fatal Error:  Could not move ");
 		}
-		theStringBuffer.append(this.fmmNodeDefinition.getLabelText() + " to" +
+		theStringBuffer.append(getFmmNodeDefinition().getLabelText() + " to" +
 					((FmmHeadlineNode) this.dispositionTargetWidgetSpinner.getSelectedItem()).getFmmNodeDefinition().getLabelText() +
 					":  " + this.dispositionTargetWidgetSpinner.getSelectedItem().getDataText());
 		GcgHelper.makeToast(theStringBuffer.toString());

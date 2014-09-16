@@ -43,8 +43,6 @@
 
 package com.flywheelms.library.fms.dialog;
 
-import android.app.AlertDialog;
-
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.gcg.activity.GcgActivity;
@@ -52,9 +50,7 @@ import com.flywheelms.library.gcg.dialog.GcgDialog;
 
 public abstract class FmsDialog extends GcgDialog {
 
-	protected FmmNodeDefinition fmmNodeDefinition;
-	protected FmmHeadlineNode headlineNode;
-	protected FmmHeadlineNode parentHeadlineNode;
+    protected FmsDialogExtension fmsDialogExtension = new FmsDialogExtension();
 
 	public FmsDialog(GcgActivity aGcgActivity) {
 		this(aGcgActivity, "", "", null, null, null);
@@ -88,23 +84,29 @@ public abstract class FmsDialog extends GcgDialog {
 			FmmHeadlineNode aHeadlineNode,
 			FmmHeadlineNode aParentHeadlineNode ) {
 		super(aGcgActivity, aTargetDetail, aMessageString);
-		this.fmmNodeDefinition = anFmmNodeDefinition;
-		this.headlineNode = aHeadlineNode;
-		this.parentHeadlineNode = aParentHeadlineNode;
-		this.dialogBuilder = new AlertDialog.Builder(this.gcgActivity);
-		this.dialogBuilder.setTitle(getDialogTitleString());
-		this.dialogBuilder.setIcon(getDialogTitleIconResourceId());
-		if(! deferredDialogInitialization()) {
-			initializeDialogBody();
-			manageButtonState();
-		}
+		this.fmsDialogExtension.fmmNodeDefinition = anFmmNodeDefinition;
+		this.fmsDialogExtension.headlineNode = aHeadlineNode;
+		this.fmsDialogExtension.parentHeadlineNode = aParentHeadlineNode;
+        initialSetup();
 	}
 
     protected int getDialogTitleIconResourceId() {
-        if(this.fmmNodeDefinition != null) {
-            return this.fmmNodeDefinition.getDialogDrawableResourceId();
+        if(getFmmNodeDefinition() != null) {
+            return getFmmNodeDefinition().getDialogDrawableResourceId();
         }
         return 0;
+    }
+
+    public FmmNodeDefinition getFmmNodeDefinition() {
+        return this.fmsDialogExtension.fmmNodeDefinition;
+    }
+
+    public FmmHeadlineNode getFmmHeadlineNode() {
+        return this.fmsDialogExtension.headlineNode;
+    }
+
+    public FmmHeadlineNode getParentFmmHeadlineNode() {
+        return this.fmsDialogExtension.parentHeadlineNode;
     }
 
 }

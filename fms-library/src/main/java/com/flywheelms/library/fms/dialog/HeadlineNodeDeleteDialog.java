@@ -88,7 +88,7 @@ public abstract class HeadlineNodeDeleteDialog  extends FmsCancelOkDialog {
 
 	@Override
 	protected int getDialogTitleIconResourceId() {
-		return this.fmmNodeDefinition.getDialogDrawableResourceId();
+		return getFmmNodeDefinition().getDialogDrawableResourceId();
 	}
 
 	@Override
@@ -111,9 +111,9 @@ public abstract class HeadlineNodeDeleteDialog  extends FmsCancelOkDialog {
 	protected void initializeDialogBody() {
 		super.initializeDialogBody();
 		this.fmmNodeTypeWidget = (FmmNodeTypeWidgetTextView) this.dialogBodyView.findViewById(R.id.fmm_node__type);
-		this.fmmNodeTypeWidget.setText(this.fmmNodeDefinition.getLabelTextResourceId());
+		this.fmmNodeTypeWidget.setText(getFmmNodeDefinition().getLabelTextResourceId());
 		this.headlineWidgetTextView = (HeadlineWidgetTextView) this.dialogBodyView.findViewById(R.id.headline);
-		this.headlineWidgetTextView.setText(GuiHelper.getColorString(this.headlineNode.getDataText(), Color.RED));
+		this.headlineWidgetTextView.setText(GuiHelper.getColorString(getFmmHeadlineNode().getDataText(), Color.RED));
 		initializeDispositionLayout();
 	}
 
@@ -154,21 +154,21 @@ public abstract class HeadlineNodeDeleteDialog  extends FmsCancelOkDialog {
 	protected void initializeDispositionOfPrimaryChildrenLayout() {
 		buildDispositionView(
 				getPrimaryChildrenDispositionLayoutResourceId(),
-				this.headlineNode.getFmmNodeDefinition().getPrimaryChildNodeDefinition(),
+				getFmmHeadlineNode().getFmmNodeDefinition().getPrimaryChildNodeDefinition(),
 				this.primaryChildDeleteDisposition );
 	}
 
 	protected void initializeDispositionOfSecondaryChildrenLayout() {
 		buildDispositionView(
 				getSecondaryChildrenDispositionLayoutResourceId(),
-				this.headlineNode.getFmmNodeDefinition().getSecondaryChildNodeDefinition(),
+				getFmmHeadlineNode().getFmmNodeDefinition().getSecondaryChildNodeDefinition(),
 				this.secondaryChildDeleteDisposition );
 	}
 	
 	protected void initializeDispositionOfPrimaryLinkNodesLayout() {
 		buildDispositionView(
 				getPrimaryLinkDispositionLayoutResourceId(),
-				this.headlineNode.getFmmNodeDefinition().getPrimaryLinkNodeDefinition(),
+				getFmmHeadlineNode().getFmmNodeDefinition().getPrimaryLinkNodeDefinition(),
 				this.primaryLinkDeleteDisposition );
 	}
 	
@@ -199,14 +199,14 @@ public abstract class HeadlineNodeDeleteDialog  extends FmsCancelOkDialog {
 			if(aDeleteDisposition.hasChoiceOrphanButton()) {
 				aDeleteDisposition.getChoiceOrphanButton().setText("Orphan the " + theNodeLabelText);
 			}
-			aDeleteDisposition.getChoiceMoveButton().setText("Move the " + theNodeLabelText + " to another " + this.headlineNode.getFmmNodeDefinition().getLabelText());
+			aDeleteDisposition.getChoiceMoveButton().setText("Move the " + theNodeLabelText + " to another " + getFmmHeadlineNode().getFmmNodeDefinition().getLabelText());
 		} else {
 			theHeadingWidget.setText("Disposition of " + aDeleteDisposition.getCount() + " " + theNodeLabelText + "s");
 			aDeleteDisposition.getChoiceDeleteButton().setText("Delete the " + aDeleteDisposition.getCount() + " " + theNodeLabelText + "s");
 			if(aDeleteDisposition.hasChoiceOrphanButton()) {
 				aDeleteDisposition.getChoiceOrphanButton().setText("Orphan the " + aDeleteDisposition.getCount() + " " + theNodeLabelText + "s");
 			}
-			aDeleteDisposition.getChoiceMoveButton().setText("Move the " + aDeleteDisposition.getCount() + " " + theNodeLabelText + "s to another " + this.headlineNode.getFmmNodeDefinition().getLabelText());
+			aDeleteDisposition.getChoiceMoveButton().setText("Move the " + aDeleteDisposition.getCount() + " " + theNodeLabelText + "s to another " + getFmmHeadlineNode().getFmmNodeDefinition().getLabelText());
 		}
 		aDeleteDisposition.setTargetWidgetSpinner(findTargetWidgetSpinner(aDeleteDisposition.getDispositionLayout()));
 		aDeleteDisposition.setTargetParentWidgetSpinner(findTargetParentWidgetSpinner(aDeleteDisposition.getDispositionLayout()));
@@ -460,11 +460,11 @@ public abstract class HeadlineNodeDeleteDialog  extends FmsCancelOkDialog {
 
 	private boolean validateTargetBeforeExisting(DeleteDisposition aDeleteDisposition) {
 		return this.treeViewAdapter.verifyNodeOrder(
-				aDeleteDisposition.getTargetNodeIdString(), this.headlineNode.getNodeIdString());
+				aDeleteDisposition.getTargetNodeIdString(), getFmmHeadlineNode().getNodeIdString());
 	}
 
 //	protected void pruneTargetSpinnerData(final DeleteDisposition aDeleteDisposition) {
-//		aDeleteDisposition.getTargetHeadlineNodeWidgetSpinner().removeFmmHeadlineNode(this.headlineNode.getNodeIdString(), GcgWidgetSpinner.logical_position__NEXT);
+//		aDeleteDisposition.getTargetHeadlineNodeWidgetSpinner().removeFmmHeadlineNode(getFmmHeadlineNode().getNodeIdString(), GcgWidgetSpinner.logical_position__NEXT);
 //	}
     protected void updateTargetGrandparentWidgetSpinner(@SuppressWarnings("unused") final DeleteDisposition aDeleteDisposition) { return; }
 
@@ -489,7 +489,7 @@ public abstract class HeadlineNodeDeleteDialog  extends FmsCancelOkDialog {
 			isTransactionSuccess = deleteHeadlineNode();
 		}
 		if(isTransactionSuccess) { 
-			this.treeViewAdapter.deleteHeadlineNode(this.headlineNode);
+			this.treeViewAdapter.deleteHeadlineNode(getFmmHeadlineNode());
 			GcgHelper.makeToast("Deleted " + this.fmmNodeTypeWidget.getText() + ":  " + this.headlineWidgetTextView.getText());
 		} else {
 			GcgHelper.makeToast("Faral Error:  Failed to delete " + this.fmmNodeTypeWidget.getText() + ":  " + this.headlineWidgetTextView.getText());
@@ -502,7 +502,7 @@ public abstract class HeadlineNodeDeleteDialog  extends FmsCancelOkDialog {
 
 	protected boolean disposeOfPrimaryChildren() {
 		boolean isTransactionSuccess;
-		String theChildNodeLabelText = this.headlineNode.getFmmNodeDefinition().getPrimaryChildNodeDefinition().getLabelText();
+		String theChildNodeLabelText = getFmmHeadlineNode().getFmmNodeDefinition().getPrimaryChildNodeDefinition().getLabelText();
 		if(this.primaryChildDeleteDisposition.getChoiceDeleteButton().isChecked()) {
 			isTransactionSuccess = deletePrimaryChildren();
 			if(isTransactionSuccess) {
@@ -560,7 +560,7 @@ public abstract class HeadlineNodeDeleteDialog  extends FmsCancelOkDialog {
 	
 	protected boolean disposeOfSecondaryChildren() {
 		boolean isTransactionSuccess;
-		String theChildNodeLabelText = this.headlineNode.getFmmNodeDefinition().getPrimaryChildNodeDefinition().getLabelText();
+		String theChildNodeLabelText = getFmmHeadlineNode().getFmmNodeDefinition().getPrimaryChildNodeDefinition().getLabelText();
 		if(this.secondaryChildDeleteDisposition.getChoiceDeleteButton().isChecked()) {
 			isTransactionSuccess = deleteSecondaryChildren();
 			if(isTransactionSuccess) {
@@ -652,7 +652,7 @@ public abstract class HeadlineNodeDeleteDialog  extends FmsCancelOkDialog {
 		protected boolean canOrphan = true;
 		
 		public DeleteDisposition() {
-			this.targetHeadlineNodeException = HeadlineNodeDeleteDialog.this.headlineNode;
+			this.targetHeadlineNodeException = getFmmHeadlineNode();
 		}
 		public boolean canOrphan() {
 			return this.canOrphan;

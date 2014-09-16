@@ -52,15 +52,17 @@ import com.flywheelms.library.fmm.repository.FmmAccessScope;
 import com.flywheelms.library.fms.widget.list_view.FmmConfigurationWidgetListView;
 import com.flywheelms.library.fms.widget.spinner.FmmAccessScopeWidgetSpinner;
 import com.flywheelms.library.gcg.activity.GcgActivity;
+import com.flywheelms.library.gcg.dialog.GcgCancelDialog;
 import com.flywheelms.library.gcg.helper.GcgHelper;
 
-public class FmmManagementDialog extends FmsCancelDialog {
+public class FmmManagementDialog extends GcgCancelDialog {
 	
 	private FmmAccessScopeWidgetSpinner accessScopeSpinner;
 	private FmmConfigurationWidgetListView repositoryList;
 	
 	public FmmManagementDialog(GcgActivity aLibraryActivity) {
 		super(aLibraryActivity);
+        initialSetup();
 	}
 
 	@Override

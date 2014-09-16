@@ -74,7 +74,7 @@ public class PortfolioDeleteDialog extends HeadlineNodeDeleteDialog {
 
     @Override
 	protected ArrayList<? extends FmmHeadlineNode> getPrimaryChildHeadlineNodeList() {
-		return FmmDatabaseMediator.getActiveMediator().getProjectList((Portfolio) this.headlineNode);
+		return FmmDatabaseMediator.getActiveMediator().getProjectList((Portfolio) getFmmHeadlineNode());
 	}
 	
 	@Override
@@ -82,7 +82,7 @@ public class PortfolioDeleteDialog extends HeadlineNodeDeleteDialog {
 		return true;
 	}
     protected boolean orphanPrimaryChildren() {
-        return FmmDatabaseMediator.getActiveMediator().orphanAllProjectsFromPortfolio(this.headlineNode.getNodeIdString(), true);
+        return FmmDatabaseMediator.getActiveMediator().orphanAllProjectsFromPortfolio(getFmmHeadlineNode().getNodeIdString(), true);
     }
 
 	@Override
@@ -94,18 +94,18 @@ public class PortfolioDeleteDialog extends HeadlineNodeDeleteDialog {
 
 	@Override
 	protected boolean deleteHeadlineNode() {
-		return FmmDatabaseMediator.getActiveMediator().deletePortfolio((Portfolio) this.headlineNode, false);
+		return FmmDatabaseMediator.getActiveMediator().deletePortfolio((Portfolio) getFmmHeadlineNode(), false);
 	}
 
 	@Override
 	protected boolean deletePrimaryChildren() {
-		return FmmDatabaseMediator.getActiveMediator().deleteProjectsForPortfolio(this.headlineNode.getNodeIdString(), false);
+		return FmmDatabaseMediator.getActiveMediator().deleteProjectsForPortfolio(getFmmHeadlineNode().getNodeIdString(), false);
 	}
 
 	@Override
 	protected boolean movePrimaryChildrenToNewParent() {
 		return FmmDatabaseMediator.getActiveMediator().moveAllProjectsIntoPortfolio(
-                this.headlineNode.getNodeIdString(),
+                getFmmHeadlineNode().getNodeIdString(),
                 this.primaryChildDeleteDisposition.getTargetWidgetSpinner().getFmmNode().getNodeIdString(),
                 false);
 	}
@@ -113,7 +113,7 @@ public class PortfolioDeleteDialog extends HeadlineNodeDeleteDialog {
     @Override
     protected void updateTargetWidgetSpinner(final DeleteDisposition aDeleteDisposition) {
         ((PortfolioWidgetSpinner) aDeleteDisposition.getTargetWidgetSpinner()).updateSpinnerData(
-                (Portfolio) this.headlineNode );
+                (Portfolio) getFmmHeadlineNode() );
     }
 
 }
