@@ -50,7 +50,7 @@ import android.util.AttributeSet;
 
 import com.flywheelms.library.R;
 import com.flywheelms.library.fdk.enumerator.FdkKeyboardStyle;
-import com.flywheelms.library.fdk.view.FdkWizardStepView;
+import com.flywheelms.library.fdk.wizard.FdkWizardStepView;
 import com.flywheelms.library.fmm.persistence.PersistenceServiceProvider;
 import com.flywheelms.library.fmm.repository.FmmAccessScope;
 import com.flywheelms.library.fms.helper.FmsHelpIndex;

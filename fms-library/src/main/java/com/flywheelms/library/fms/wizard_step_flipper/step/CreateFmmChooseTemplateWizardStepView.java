@@ -52,7 +52,7 @@ import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.TextView;
 
 import com.flywheelms.library.R;
-import com.flywheelms.library.fdk.view.FdkWizardStepView;
+import com.flywheelms.library.fdk.wizard.FdkWizardStepView;
 import com.flywheelms.library.fmm.repository.FmmConfigurationTemplateSource;
 import com.flywheelms.library.fms.helper.FmsHelpIndex;
 import com.flywheelms.library.fms.widget.spinner.FmmTemplateWidgetSpinner;

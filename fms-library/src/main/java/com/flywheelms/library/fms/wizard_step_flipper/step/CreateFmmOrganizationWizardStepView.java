@@ -49,7 +49,7 @@ import android.text.TextWatcher;
 import android.util.AttributeSet;
 
 import com.flywheelms.library.R;
-import com.flywheelms.library.fdk.view.FdkWizardStepView;
+import com.flywheelms.library.fdk.wizard.FdkWizardStepView;
 import com.flywheelms.library.fms.helper.FmsHelpIndex;
 import com.flywheelms.library.fms.widget.edit_text.HeadlineWidgetEditText;
 import com.flywheelms.library.gcg.helper.GcgHelper;

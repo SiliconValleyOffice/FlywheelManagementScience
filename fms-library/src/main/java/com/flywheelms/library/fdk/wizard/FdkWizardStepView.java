@@ -41,7 +41,7 @@
 ** <http://www.gnu.org/licenses/gpl-3.0.html>.
 */
 
-package com.flywheelms.library.fdk.view;
+package com.flywheelms.library.fdk.wizard;
 
 import android.content.Context;
 import android.util.AttributeSet;

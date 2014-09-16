@@ -41,7 +41,7 @@
 ** <http://www.gnu.org/licenses/gpl-3.0.html>.
 */
 
-package com.flywheelms.library.fdk.view;
+package com.flywheelms.library.fdk.viewflipper;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -60,11 +60,11 @@ import com.flywheelms.library.gcg.viewflipper.GcgViewFlipperChildView;
 
 import java.util.ArrayList;
 
-public abstract class GcgViewFlipperFdkView extends GcgViewFlipperChildView implements FdkListener {
+public abstract class GcgViewFlipperChildFdkView extends GcgViewFlipperChildView implements FdkListener {
 	
 	protected FdkKeyboard localFdkKeyboard;
 
-	public GcgViewFlipperFdkView(Context aContext, AttributeSet attrs) {
+	public GcgViewFlipperChildFdkView(Context aContext, AttributeSet attrs) {
 		super(aContext, attrs);
 	}
 	
