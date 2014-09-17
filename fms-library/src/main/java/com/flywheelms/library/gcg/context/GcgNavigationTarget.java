@@ -125,7 +125,7 @@ public class GcgNavigationTarget {
 		return this.isContextRoot;
 	}
 
-	public GcgActivityBreadcrumb getFmsApplicationContextBreadcrumb() {
+	public GcgActivityBreadcrumb getGcgApplicationContextBreadcrumb() {
 		return this.gcgActivityBreadcrumb;
 	}
 

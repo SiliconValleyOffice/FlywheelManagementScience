@@ -70,13 +70,12 @@ import java.util.Iterator;
 import java.util.Map;
 
 public class FmsActivityHelper extends GcgActivityHelper {
-    // ==================
+
     public static final String bundle_key__INITIAL_NODE_TO_DISPLAY = "InitialNodeToDisplay";
-	public static final String bundle_key__FSE_DOCUMENT_NODE_ID = "FseDocumentNodeId";
-	public static final String bundle_key__FSE_DOCUMENT_TRANSACTION_INDEX = "FseDocumentTransactionIndex";
-	public static final String bundle_key__NAVIGATION_NODE_ID_LIST = "NavigationNodeIdList";
-	public static final String bundle_key__FMM_HEADLINE_NODE_SHALLOW_LIST = "FmmHeadlineNodeShallowList";
-	public static final String bundle_key__MODIFIED_FMM_NODE__MAP = "ModifiedFmmNodeIdList";
+    public static final String bundle_key__FSE_DOCUMENT_NODE_ID = "FseDocumentNodeId";
+    public static final String bundle_key__FSE_DOCUMENT_TRANSACTION_INDEX = "FseDocumentTransactionIndex";
+    public static final String bundle_key__NAVIGATION_NODE_ID_LIST = "NavigationNodeIdList";
+    public static final String bundle_key__FMM_HEADLINE_NODE_SHALLOW_LIST = "FmmHeadlineNodeShallowList";
 	public static final String bundle_key__NODE_ID_EXLUSION_LIST = "NodeIdExclusionList";
 	public static final String bundle_key__INITIAL_WHERE_CLAUSE = "WhereClause";
 	public static final String bundle_key__NAVIGATION_PARENT_NODE_ID = "NavigationParentNodeId";
@@ -229,7 +228,7 @@ public class FmsActivityHelper extends GcgActivityHelper {
 		if(anIntent == null) {
 			return theHashtable;
 		}
-		String theString = anIntent.getStringExtra(bundle_key__MODIFIED_FMM_NODE__MAP);
+		String theString = anIntent.getStringExtra(bundle_key__MODIFIED_TREE_NODE__LIST);
 		if(theString == null || theString.length() < 1) {
 			return theHashtable;
 		}

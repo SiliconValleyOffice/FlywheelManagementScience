@@ -66,7 +66,7 @@ public abstract class FmsActivity extends GcgActivity{
         Hashtable<String, FmmNodeTransactionType> theModifiedNodeIdTable = FmsActivityHelper.getModifiedNodeHashTable(theIntent);
         if(theModifiedNodeIdTable.size() > 0) {
             this.modifiedFmmNodeIdList.putAll(theModifiedNodeIdTable);
-            theIntent.putExtra(FmsActivityHelper.bundle_key__MODIFIED_FMM_NODE__MAP, FmsActivityHelper.getSerializedModifiedNodeTable(this.modifiedFmmNodeIdList));
+            theIntent.putExtra(FmsActivityHelper.bundle_key__MODIFIED_TREE_NODE__LIST, FmsActivityHelper.getSerializedModifiedNodeTable(this.modifiedFmmNodeIdList));
         }
     }
 

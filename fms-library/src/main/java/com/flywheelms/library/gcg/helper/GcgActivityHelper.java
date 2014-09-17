@@ -63,6 +63,7 @@ public class GcgActivityHelper {
     public static final String bundle_key__LIST_ACTION_LABEL = "ListActionLabel";
     public static final String bundle_key__MUST_SELECT_DATA_SOURCE = "MustSelectDataSource";
     public static final String bundle_key__GCG_CONTEXT = "GcgApplicationContext";
+    public static final String bundle_key__MODIFIED_TREE_NODE__LIST = "ModifiedFmmNodeIdList";
     public static final String bundle_key__DATA_REFRESH__ALL = "DataRefreshAll";
     public static final String bundle_key__DATA_REFRESH__NOTICE_LIST = "DataRefreshNoticeList";
     public static final int request_code__ANDROID_CONTACT_PICKER = 100;

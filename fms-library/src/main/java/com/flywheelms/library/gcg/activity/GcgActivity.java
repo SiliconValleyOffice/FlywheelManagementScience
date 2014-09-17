@@ -70,9 +70,6 @@ import com.flywheelms.library.fdk.interfaces.FdkHost;
 import com.flywheelms.library.fdk.widget.FdkKeyboard;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
-import com.flywheelms.library.fmm.repository.FmmAccessScope;
-import com.flywheelms.library.fms.dialog.FmsRevertDataOkCancelDialog;
-import com.flywheelms.library.fms.helper.FmsActivityHelper;
 import com.flywheelms.library.gcg.GcgApplication;
 import com.flywheelms.library.gcg.context.GcgActivityBreadcrumb;
 import com.flywheelms.library.gcg.context.GcgApplicationContext;
@@ -81,8 +78,10 @@ import com.flywheelms.library.gcg.context.GcgFrame;
 import com.flywheelms.library.gcg.context.GcgFrameBreadcrumb;
 import com.flywheelms.library.gcg.context.GcgNavigationTarget;
 import com.flywheelms.library.gcg.dialog.GcgDialog;
+import com.flywheelms.library.gcg.dialog.GcgRevertDataOkCancelDialog;
 import com.flywheelms.library.gcg.dialog.GcgSaveChangesDialog;
 import com.flywheelms.library.gcg.enumerator.GcgDoItNowMenuItemState;
+import com.flywheelms.library.gcg.helper.GcgActivityHelper;
 import com.flywheelms.library.gcg.interfaces.GcgDoItNowClient;
 import com.flywheelms.library.gcg.interfaces.GcgGuiable;
 import com.flywheelms.library.gcg.interfaces.GcgPerspective;
@@ -169,8 +168,8 @@ public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNo
 	protected void processExtras() {
 		try {
 			if(getIntent().getExtras() != null) {
-				if(getIntent().hasExtra(FmsActivityHelper.bundle_key__GCG_CONTEXT)) {
-					setGcgApplicationContext(new GcgApplicationContext(new JSONObject(getIntent().getExtras().getString(FmsActivityHelper.bundle_key__GCG_CONTEXT))));
+				if(getIntent().hasExtra(GcgActivityHelper.bundle_key__GCG_CONTEXT)) {
+					setGcgApplicationContext(new GcgApplicationContext(new JSONObject(getIntent().getExtras().getString(GcgActivityHelper.bundle_key__GCG_CONTEXT))));
 				}
 			}
 		} catch (JSONException e) {
@@ -230,7 +229,7 @@ public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNo
 	public void onSaveInstanceState(Bundle theBundle) {
 		super.onSaveInstanceState(theBundle);
 		if(getGcgApplicationContext() != null) {
-			theBundle.putString(FmsActivityHelper.bundle_key__GCG_CONTEXT, getGcgApplicationContext().getSerialized());
+			theBundle.putString(GcgActivityHelper.bundle_key__GCG_CONTEXT, getGcgApplicationContext().getSerialized());
 		}
 	}
 	
@@ -504,7 +503,7 @@ public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNo
 	}
 	
 	public void requestRevertAllModifiedData() {
-		this.modalGcgDialogStack.push(new FmsRevertDataOkCancelDialog(this)); 
+		this.modalGcgDialogStack.push(new GcgRevertDataOkCancelDialog(this));
 		this.modalGcgDialogStack.peek().processDialog();
 	}
 	
@@ -623,9 +622,9 @@ public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNo
 	}
 
 	protected void updateDataRefreshInfo(Intent anIntent) {
-		if(anIntent.getExtras().containsKey(FmsActivityHelper.bundle_key__DATA_REFRESH__ALL)) {
+		if(anIntent.getExtras().containsKey(GcgActivityHelper.bundle_key__DATA_REFRESH__ALL)) {
 			this.dataRefreshAll = true;
-		} else if (anIntent.getExtras().containsKey(FmsActivityHelper.bundle_key__DATA_REFRESH__NOTICE_LIST)) {
+		} else if (anIntent.getExtras().containsKey(GcgActivityHelper.bundle_key__DATA_REFRESH__NOTICE_LIST)) {
             processDataRefreshNoticeList();
         }
 	}
@@ -651,8 +650,8 @@ public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNo
 			navigateToCurrentFramePerspective(aGcgNavigationTarget);
 			return;
 		}
-		if(aGcgNavigationTarget.getFmsApplicationContextBreadcrumb() == null || ! this.activityNodeIdString.equals(
-				aGcgNavigationTarget.getFmsApplicationContextBreadcrumb().getActivityIdString()) ) {
+		if(aGcgNavigationTarget.getGcgApplicationContextBreadcrumb() == null || ! this.activityNodeIdString.equals(
+				aGcgNavigationTarget.getGcgApplicationContextBreadcrumb().getActivityIdString()) ) {
 			// create data intent
 			Intent theIntent = new Intent();   
 			theIntent.putExtra(GcgNavigationTarget.bundle_key__GCG_NAVIGATION_TARGET, aGcgNavigationTarget.getJsonObject().toString());
@@ -700,13 +699,13 @@ public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNo
 			theIntent = new Intent();
 		}
 		if(hasDataRefreshList()) {
-			theIntent.putExtra(FmsActivityHelper.bundle_key__MODIFIED_FMM_NODE__MAP, getSerializedDataRefreshNoticeList());
+			theIntent.putExtra(GcgActivityHelper.bundle_key__MODIFIED_TREE_NODE__LIST, getSerializedDataRefreshNoticeList());
 		}
 		if(this.parentDataRefreshAll) {
-			theIntent.putExtra(FmsActivityHelper.bundle_key__DATA_REFRESH__ALL, "");
+			theIntent.putExtra(GcgActivityHelper.bundle_key__DATA_REFRESH__ALL, "");
 		}
 		if(hasParentDataRefreshList()) {
-			theIntent.putExtra(FmsActivityHelper.bundle_key__DATA_REFRESH__NOTICE_LIST, getSerializedParentDataRefreshNoticeList());
+			theIntent.putExtra(GcgActivityHelper.bundle_key__DATA_REFRESH__NOTICE_LIST, getSerializedParentDataRefreshNoticeList());
 		}
 		if(anIntent == null && theIntent.getExtras() == null) {
 			setResult(anActivityResultCode);
@@ -831,10 +830,6 @@ public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNo
 
 	protected void setGcgPerspective(GcgPerspective aGcgPerspective) {
 		this.frameSpinner.setPerspective(aGcgPerspective);
-	}
-	
-	public void startCreateFmmConfigurationWizard(FmmAccessScope anAccessScope) {
-		FmsActivityHelper.startCreateFmmWizard(this, anAccessScope);
 	}
 
 	public String getOrganizationName() {

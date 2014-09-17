@@ -1,4 +1,4 @@
-/* @(#)FmsRevertDataOkCancelDialog.java
+/* @(#)GcgRevertDataOkCancelDialog.java
 ** 
 ** Copyright (C) 2012 by Steven D. Stamps
 **
@@ -41,17 +41,18 @@
 ** <http://www.gnu.org/licenses/gpl-3.0.html>.
 */
 
-package com.flywheelms.library.fms.dialog;
+package com.flywheelms.library.gcg.dialog;
 
 import android.widget.TextView;
 
 import com.flywheelms.library.R;
 import com.flywheelms.library.gcg.activity.GcgActivity;
 
-public class FmsRevertDataOkCancelDialog extends FmsCancelOkDialog {
+public class GcgRevertDataOkCancelDialog extends GcgCancelOkDialog {
 
-	public FmsRevertDataOkCancelDialog(GcgActivity aLibraryActivity) {
+	public GcgRevertDataOkCancelDialog(GcgActivity aLibraryActivity) {
 		super(aLibraryActivity);
+        initialSetup();
 	}
 
 	@Override
@@ -61,7 +62,7 @@ public class FmsRevertDataOkCancelDialog extends FmsCancelOkDialog {
 
 	@Override
 	protected int getDialogTitleIconResourceId() {
-		return R.drawable.gcg__revert__32;
+		return R.drawable.gcg__revert__dialog;
 	}
 
 	@Override
