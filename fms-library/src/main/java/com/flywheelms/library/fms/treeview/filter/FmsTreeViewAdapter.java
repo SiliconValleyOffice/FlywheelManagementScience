@@ -87,6 +87,7 @@ import com.flywheelms.library.fms.dialog.WorkPackageAdoptOrphanWorkTaskDialog;
 import com.flywheelms.library.fms.dialog.WorkPackageDeleteDialog;
 import com.flywheelms.library.fms.dialog.WorkPackageMoveWorkBreakdownDialog;
 import com.flywheelms.library.fms.dialog.WorkPackageOrphanDialog;
+import com.flywheelms.library.fms.popup_menu.FmmHeadlineNodePopupListener;
 import com.flywheelms.library.fms.popup_menu.FmmPopupBuilder;
 import com.flywheelms.library.gcg.GcgApplication;
 import com.flywheelms.library.gcg.treeview.GcgTreeViewAdapter;
@@ -95,7 +96,7 @@ import com.flywheelms.library.gcg.treeview.node.GcgTreeNodeInfo;
 
 import java.util.ArrayList;
 
-public class FmsTreeViewAdapter extends GcgTreeViewAdapter {
+public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlineNodePopupListener {
 
     private final OnClickListener launchNodeDecKanGlDialogListener = new OnClickListener() {
 		
@@ -254,7 +255,6 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter {
     	this.treeViewMediator.collapseToTreeLevel(aTreeLevel);
     }
 
-	@Override
 	protected ArrayList<FmmHeadlineNodeShallow> getPeerHeadlineNodeShallowList(GcgTreeNodeInfo aTreeNodeInfo) {
 		ArrayList<FmmHeadlineNodeShallow> thePeerHeadlineNodeShallowList = new ArrayList<FmmHeadlineNodeShallow>();
 		for(GcgTreeNodeInfo theTreeNodeInfo : this.treeViewMediator.getChildren(this.treeViewMediator.getParent(aTreeNodeInfo)) ) {
@@ -323,7 +323,7 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter {
 			boolean bCanOrphan,
 			boolean bCanSequenceUp,
 			boolean bCanSequenceDown,
-			int aLauncNodeSequence,
+			int aLaunchNodeSequence,
 			int aLaunchNodeChildCount ) {
 		return FmmPopupBuilder.createPopupMenu(
 				this,
@@ -335,7 +335,7 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter {
 				bCanOrphan,
 				bCanSequenceUp,
 				bCanSequenceDown,
-				aLauncNodeSequence,  // launch node sequence
+                aLaunchNodeSequence,  // launch node sequence
 				aLaunchNodeChildCount );
 	}
     
@@ -622,5 +622,21 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter {
 	private void editHeadline(FmmHeadlineNode aLaunchHeadlineNode) {
 		this.getGcgActivity().startDialog(new HeadlineNodeHeadlineEditDialog(getGcgActivity(), this, aLaunchHeadlineNode));
 	}
+
+//    protected ArrayList<FmmHeadlineNodeShallow> getPeerHeadlineNodeShallowList(GcgTreeNodeInfo aTreeNodeInfo) {
+//        ArrayList<FmmHeadlineNodeShallow> thePeerHeadlineNodeShallowList = new ArrayList<FmmHeadlineNodeShallow>();
+//        for(GcgTreeNodeInfo theTreeNodeInfo : this.treeViewMediator.getChildren(this.treeViewMediator.getParent(aTreeNodeInfo)) ) {
+//            thePeerHeadlineNodeShallowList.add(new FmmHeadlineNodeShallow(theTreeNodeInfo));
+//        }
+//        return thePeerHeadlineNodeShallowList;
+//    }
+
+    protected ArrayList<FmmHeadlineNodeShallow> getChildHeadlineNodeShallowList(GcgTreeNodeInfo aTreeNodeInfo) {
+        ArrayList<FmmHeadlineNodeShallow> theChildHeadlineNodeShallowList = new ArrayList<FmmHeadlineNodeShallow>();
+        for(GcgTreeNodeInfo theTreeNodeInfo : this.treeViewMediator.getChildren(aTreeNodeInfo)) {
+            theChildHeadlineNodeShallowList.add(new FmmHeadlineNodeShallow(theTreeNodeInfo));
+        }
+        return theChildHeadlineNodeShallowList;
+    }
 
 }

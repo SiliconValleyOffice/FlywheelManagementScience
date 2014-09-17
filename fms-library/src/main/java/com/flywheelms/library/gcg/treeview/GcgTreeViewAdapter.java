@@ -46,7 +46,6 @@ package com.flywheelms.library.gcg.treeview;
 import android.database.DataSetObserver;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
@@ -61,9 +60,7 @@ import android.widget.PopupMenu;
 
 import com.flywheelms.library.R;
 import com.flywheelms.library.deckangl.enumerator.DecKanGlDecoratedGlyphSize;
-import com.flywheelms.library.fmm.node.FmmHeadlineNodeShallow;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
-import com.flywheelms.library.fms.popup_menu.FmmHeadlineNodePopupListener;
 import com.flywheelms.library.gcg.GcgApplication;
 import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.gcg.helper.GcgHelper;
@@ -75,7 +72,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
-public abstract class GcgTreeViewAdapter extends BaseAdapter implements FmmHeadlineNodePopupListener {
+public abstract class GcgTreeViewAdapter extends BaseAdapter {
 	
     protected GcgTreeViewMediator treeViewMediator;
     private final int[] fontSizeArray;
@@ -96,7 +93,7 @@ public abstract class GcgTreeViewAdapter extends BaseAdapter implements FmmHeadl
     };
 	protected final OnLongClickListener launchPopupMenuListener = new OnLongClickListener() {
 		
-		// TODO - decouple GCG from FMS - push up to FmsTreeViewAdapter
+		// TODO - decouple GCG from FMS - push down to FmsTreeViewAdapter
 		@Override
 		public boolean onLongClick(View aView) {
 			GcgTreeViewAdapter.this.setRowBackground(aView, R.color.silver);
@@ -128,7 +125,7 @@ public abstract class GcgTreeViewAdapter extends BaseAdapter implements FmmHeadl
 			boolean bCanOrphan,
 			boolean bCanSequenceUp,
 			boolean bCanSequenceDown,
-			int aLauncNodeSequence,
+			int aLaunchNodeSequence,
 			int aLaunchNodeChildCount );
     
     public GcgTreeViewAdapter(
@@ -153,7 +150,6 @@ public abstract class GcgTreeViewAdapter extends BaseAdapter implements FmmHeadl
     	theTargetView.setBackgroundResource(aBackgroundResourceId);
 	}
     
-    @Override
 	public void resetRowBackground(View aView) {
 		setRowBackground(aView, R.drawable.gcg__background_state_list__tree_row);
     }
@@ -435,14 +431,6 @@ public abstract class GcgTreeViewAdapter extends BaseAdapter implements FmmHeadl
 		return 0;
 	}
 
-	protected ArrayList<FmmHeadlineNodeShallow> getPeerHeadlineNodeShallowList(GcgTreeNodeInfo aTreeNodeInfo) {
-		ArrayList<FmmHeadlineNodeShallow> thePeerHeadlineNodeShallowList = new ArrayList<FmmHeadlineNodeShallow>();
-		for(GcgTreeNodeInfo theTreeNodeInfo : this.treeViewMediator.getChildren(this.treeViewMediator.getParent(aTreeNodeInfo)) ) {
-			thePeerHeadlineNodeShallowList.add(new FmmHeadlineNodeShallow(theTreeNodeInfo));
-		}
-		return thePeerHeadlineNodeShallowList;
-	}
-
 	protected ArrayList<GcgTreeNodeInfo> getPeerTreeNodeInfoList(GcgTreeNodeInfo aTreeNodeInfo) {
 		ArrayList<GcgTreeNodeInfo> theGcgTreeNodeInfoList = new ArrayList<GcgTreeNodeInfo>();
 		for(GcgTreeNodeInfo theTreeNodeInfo : this.treeViewMediator.getChildren(this.treeViewMediator.getParent(aTreeNodeInfo)) ) {
@@ -471,14 +459,6 @@ public abstract class GcgTreeViewAdapter extends BaseAdapter implements FmmHeadl
 		return thePreviousTreeNodeInfo == null ? null : thePreviousTreeNodeInfo.getTargetObject();
 	}
 
-	protected ArrayList<FmmHeadlineNodeShallow> getChildHeadlineNodeShallowList(GcgTreeNodeInfo aTreeNodeInfo) {
-		ArrayList<FmmHeadlineNodeShallow> theChildHeadlineNodeShallowList = new ArrayList<FmmHeadlineNodeShallow>();
-		for(GcgTreeNodeInfo theTreeNodeInfo : this.treeViewMediator.getChildren(aTreeNodeInfo)) {
-			theChildHeadlineNodeShallowList.add(new FmmHeadlineNodeShallow(theTreeNodeInfo));
-		}
-		return theChildHeadlineNodeShallowList;
-	}
-
 	protected ArrayList<GcgTreeNodeInfo> getChildTreeNodeInfoList(GcgTreeNodeInfo aTreeNodeInfo) {
 		ArrayList<GcgTreeNodeInfo> theChildTreeNodeInfoList = new ArrayList<GcgTreeNodeInfo>();
 		for(GcgTreeNodeInfo theTreeNodeInfo : this.treeViewMediator.getChildren(aTreeNodeInfo)) {
@@ -486,15 +466,6 @@ public abstract class GcgTreeViewAdapter extends BaseAdapter implements FmmHeadl
 		}
 		return theChildTreeNodeInfoList;
 	}
-
-	public abstract void onPopupMenuItemClick(
-			View aView,
-			MenuItem aMenuItem,
-			FmmHeadlineNode aLaunchHeadlineNode,
-			FmmHeadlineNode aParentHeadlineNode,
-			GcgTreeNodeInfo aLaunchTreeNodeInfo,
-			int aLaunchNodeSequence,
-			int aLaunchNodeCount );
 
 	/*
 	 * TODO - This is a HEAVY HAMMER which is over-used during the "science project" phase of FlywheelMS
