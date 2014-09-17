@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical" >
 
-        <com.flywheelms.fwb.widget.ShowButtonNodeChildSummary
+        <com.flywheelms.workbench.widget.ShowButtonNodeChildSummary
             android:id="@+id/show_button__node_child_summary"
             android:layout_width="@dimen/right_menu__width"
             android:layout_height="38dp"
@@ -30,7 +30,7 @@
             android:layout_marginTop="@dimen/right_menu__top_margin"
             android:onClick="onShowNodeChildSummaryClicked" />
 
-        <com.flywheelms.fwb.widget.ShowButtonNodeQuality
+        <com.flywheelms.workbench.widget.ShowButtonNodeQuality
             android:id="@+id/show_button__node_quality"
             android:layout_width="@dimen/right_menu__width"
             android:layout_height="38dp"
@@ -39,7 +39,7 @@
             android:layout_marginLeft="10dp"
             android:onClick="onShowNodeQualityClicked" />
 
-        <com.flywheelms.fwb.widget.ShowButtonNodeCompletion
+        <com.flywheelms.workbench.widget.ShowButtonNodeCompletion
             android:id="@+id/show_button__node_completion"
             android:layout_width="@dimen/right_menu__width"
             android:layout_height="38dp"
@@ -48,7 +48,7 @@
             android:layout_marginLeft="10dp"
             android:onClick="onShowNodeCompletionClicked" />
 
-        <com.flywheelms.fwb.widget.ShowButtonCollapseToTreeLevel
+        <com.flywheelms.workbench.widget.ShowButtonCollapseToTreeLevel
             android:id="@+id/show_button__collapse_to_tree_level"
             android:layout_width="@dimen/right_menu__width"
             android:layout_height="38dp"
