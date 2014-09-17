@@ -86,7 +86,7 @@ public class FmmConfigurationWidgetListView extends FmsWidgetListView <FmmConfig
 	
 	@Override
 	protected int getPopupMenuResourceId() {
-		return R.menu.delete__menu;
+		return R.menu.gcg__delete__menu;
 	}
 
 	@Override

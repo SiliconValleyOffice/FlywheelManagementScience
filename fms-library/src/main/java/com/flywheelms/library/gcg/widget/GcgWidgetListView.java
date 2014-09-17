@@ -264,7 +264,7 @@ public abstract class GcgWidgetListView <T> extends LinearLayout {
     }
 	
 	protected int getPopupMenuResourceId() {
-		return R.menu.edit_remove__menu;
+		return R.menu.gcg__edit_remove__menu;
 	}
 
 	protected void onPopupMenu(MenuItem aSelectedMenuItem) {

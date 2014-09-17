@@ -139,7 +139,7 @@ public abstract class FmsNodeSinglePickActivity extends FdkActivity {
 				aListViewItemView.setSelected(true);
 				PopupMenu thePopupMenu = new PopupMenu(
 						FmsNodeSinglePickActivity.this, aListViewItemView);
-				thePopupMenu.getMenuInflater().inflate(R.menu.edit__menu, thePopupMenu.getMenu());
+				thePopupMenu.getMenuInflater().inflate(R.menu.gcg__edit__menu, thePopupMenu.getMenu());
 				thePopupMenu.setOnMenuItemClickListener(new OnMenuItemClickListener() {
 
 					@Override
