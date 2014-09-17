@@ -17,7 +17,7 @@
             android:layout_width="65dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="@dimen/menu_button__bottom_margin"
+            android:layout_marginBottom="@dimen/gcg__menu_button__bottom_margin"
             android:layout_marginTop="22dp"
             android:drawableStart="@drawable/fse__button_state_list__story"
             android:onClick="onClickDocumentStory" />
@@ -28,7 +28,7 @@
             android:layout_width="65dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="@dimen/menu_button__bottom_margin"
+            android:layout_marginBottom="@dimen/gcg__menu_button__bottom_margin"
             android:layout_marginTop="11dp"
             android:drawableStart="@drawable/fse__button_state_list__notes"
             android:onClick="onClickDocumentNotes" />

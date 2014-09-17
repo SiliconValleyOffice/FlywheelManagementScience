@@ -56,7 +56,7 @@ public class FmsRevertDataOkCancelDialog extends FmsCancelOkDialog {
 
 	@Override
 	protected int getDialogTitleStringResourceId() {
-		return R.string.fms__revert_ok_cancel_dialog__title;
+		return R.string.gcg__revert_ok_cancel_dialog__title;
 	}
 
 	@Override

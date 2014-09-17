@@ -65,9 +65,9 @@ public class GuiHelper {
 	public static final int MAX_DRAWABLE_WIDTH =
 			GcgApplication.getInstance().getResources().getDrawable(R.drawable.fmm_noun__portfolio__gray).getIntrinsicWidth();
 	public static final int MINIMUM_PADDING_BEFORE_DRAWABLE =
-			GcgApplication.getInstance().getResources().getDimensionPixelOffset(R.dimen.data__minimum_padding_before_drawable);
+			GcgApplication.getInstance().getResources().getDimensionPixelOffset(R.dimen.gcg__data__minimum_padding_before_drawable);
 	public static final int MINIMUM_PADDING_BEFORE_TEXT =
-			GcgApplication.getInstance().getResources().getDimensionPixelOffset(R.dimen.data__minimum_padding_before_text);
+			GcgApplication.getInstance().getResources().getDimensionPixelOffset(R.dimen.gcg__data__minimum_padding_before_text);
 	
 	public static String getLabelTextForFmmNode(Class<? extends FmmNode> aClass) {
 		return FmmNodeDefinition.getLabelTextForClass(aClass);
@@ -83,7 +83,7 @@ public class GuiHelper {
 		aTextViewLabel.setText(aGuiableInstance.getLabelText());
 		aTextViewLabel.setCompoundDrawablesWithIntrinsicBounds(aGuiableInstance.getLabelDrawable(), null, null, null);
 		aTextViewLabel.setPadding(10, 0, 10, 0);
-		aTextViewLabel.setCompoundDrawablePadding(GcgApplication.getContext().getResources().getDimensionPixelOffset(R.dimen.padding_after_drawable));
+		aTextViewLabel.setCompoundDrawablePadding(GcgApplication.getContext().getResources().getDimensionPixelOffset(R.dimen.gcg__padding_after_drawable));
 	}
 
 	public static void initializeTextViewLabel(TextView aTextViewLabel, int aDrawableResourceId, int aTextResourceId) {
@@ -93,7 +93,7 @@ public class GuiHelper {
 				GcgApplication.getInstance().getResources().getDrawable(aDrawableResourceId),
 				null, null, null);
 		aTextViewLabel.setPadding(0, 0, 0, 0);
-		aTextViewLabel.setCompoundDrawablePadding(GcgApplication.getContext().getResources().getDimensionPixelOffset(R.dimen.padding_after_drawable));
+		aTextViewLabel.setCompoundDrawablePadding(GcgApplication.getContext().getResources().getDimensionPixelOffset(R.dimen.gcg__padding_after_drawable));
 	}
 
 	public static void setCompoundDrawablePadding(TextView theTextView, Drawable dataDrawable) {
@@ -110,9 +110,9 @@ public class GuiHelper {
 
 	public static void setCompoundDrawablePadding(TextView theTextView) {
 		theTextView.setPadding(
-				GcgApplication.getInstance().getResources().getDimensionPixelOffset(R.dimen.data__standard_padding_before_drawable),0 ,0 ,0);
+				GcgApplication.getInstance().getResources().getDimensionPixelOffset(R.dimen.gcg__data__standard_padding_before_drawable),0 ,0 ,0);
 		theTextView.setCompoundDrawablePadding(
-				GcgApplication.getInstance().getResources().getDimensionPixelOffset(R.dimen.data__standard_padding_before_text));
+				GcgApplication.getInstance().getResources().getDimensionPixelOffset(R.dimen.gcg__data__standard_padding_before_text));
 	}
 	
 	public static void updateScaledImageViewInTableRow(ImageView anImageView, BitmapDrawable aBitmapDrawable) {

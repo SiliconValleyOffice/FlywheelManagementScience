@@ -21,14 +21,14 @@
 
     <LinearLayout
         android:id="@+id/history__right_menu"
-        android:layout_width="@dimen/right_menu__width"
+        android:layout_width="@dimen/gcg__right_menu__width"
         android:layout_height="match_parent"
         android:orientation="vertical" >
 
         <TextView
             android:id="@+id/history__right_menu__heading"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/menu__label_height"
+            android:layout_height="@dimen/gcg__menu__label_height"
             android:layout_marginBottom="8dp"
             android:background="@color/Gray"
             android:gravity="center"

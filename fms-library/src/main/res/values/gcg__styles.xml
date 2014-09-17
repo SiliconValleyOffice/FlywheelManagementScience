@@ -22,8 +22,8 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">right|bottom</item>
         <item name="android:layout_gravity">right</item>
-        <item name="android:paddingRight">@dimen/widget__label__padding_right</item>
-        <item name="android:paddingBottom">@dimen/widget__label__padding_bottom</item>
+        <item name="android:paddingRight">@dimen/gcg__widget__label__padding_right</item>
+        <item name="android:paddingBottom">@dimen/gcg__widget__label__padding_bottom</item>
         <item name="android:textColor">@color/gcg__widget_label__text_color</item>
         <item name="android:textSize">12.0dp</item>
     </style>
@@ -33,8 +33,8 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">right|bottom</item>
         <item name="android:layout_gravity">right</item>
-        <item name="android:paddingRight">@dimen/widget__label__padding_right</item>
-        <item name="android:paddingBottom">@dimen/widget__label__padding_bottom</item>
+        <item name="android:paddingRight">@dimen/gcg__widget__label__padding_right</item>
+        <item name="android:paddingBottom">@dimen/gcg__widget__label__padding_bottom</item>
         <item name="android:textColor">@color/gcg__widget_label__text_color</item>
         <item name="android:textSize">16.0dp</item>
     </style>
@@ -43,15 +43,15 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">left</item>
-        <item name="android:paddingLeft">@dimen/data__minimum_padding_before_text</item>
-        <item name="android:paddingBottom">@dimen/widget__label__padding_bottom</item>
+        <item name="android:paddingLeft">@dimen/gcg__data__minimum_padding_before_text</item>
+        <item name="android:paddingBottom">@dimen/gcg__widget__label__padding_bottom</item>
         <item name="android:textColor">@color/gcg__widget_data__text_color</item>
         <item name="android:textSize">16.0dp</item>
     </style>
     
     <style name="NodeDataWithDrawable" parent="@style/NodeData">
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:drawablePadding">@dimen/widget__label__padding_right</item>
+        <item name="android:drawablePadding">@dimen/gcg__widget__label__padding_right</item>
     </style>
     
     <style name="GcgWidgetRowHorizontal">
@@ -127,7 +127,7 @@
     </style>
     
     <style name="WidgetDataWithDrawableHorizontalContainer" parent="@style/GcgWidgetData">
-        <item name="android:drawablePadding">@dimen/widget__label__padding_right</item>
+        <item name="android:drawablePadding">@dimen/gcg__widget__label__padding_right</item>
     </style>
     
     <style name="TableColumnHeading" parent="@android:style/TextAppearance.Small">

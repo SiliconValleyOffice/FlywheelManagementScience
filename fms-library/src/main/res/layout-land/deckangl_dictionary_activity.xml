@@ -17,14 +17,14 @@
         <TableLayout
             android:id="@+id/deckangl__glyph"
             android:layout_width="0dp"
-            android:layout_height="@dimen/group_box__height__noun_status"
+            android:layout_height="@dimen/deckangl__group_box__height__noun_status"
             android:layout_weight="65"
             android:background="@drawable/view_border__title_bar__white"
             android:orientation="vertical"
-            android:paddingBottom="@dimen/group_box__padding_bottom"
-            android:paddingLeft="@dimen/group_box__padding_left"
-            android:paddingRight="@dimen/group_box__padding_right"
-            android:paddingTop="@dimen/group_box__padding_top" >
+            android:paddingBottom="@dimen/gcg__group_box__padding_bottom"
+            android:paddingLeft="@dimen/gcg__group_box__padding_left"
+            android:paddingRight="@dimen/gcg__group_box__padding_right"
+            android:paddingTop="@dimen/gcg__group_box__padding_top" >
 
             <TableRow
                 android:layout_width="match_parent"
@@ -84,12 +84,12 @@
         <TableLayout
             android:id="@+id/deckangl__noun_status"
             android:layout_width="340dp"
-            android:layout_height="@dimen/group_box__height__noun_status"
+            android:layout_height="@dimen/deckangl__group_box__height__noun_status"
             android:layout_marginTop="0dp"
             android:background="@drawable/view_border__title_bar__white"
             android:orientation="vertical"
             android:paddingLeft="10dp"
-            android:paddingRight="@dimen/group_box__padding_right" >
+            android:paddingRight="@dimen/gcg__group_box__padding_right" >
 
             <TableRow
                 android:layout_width="wrap_content"
@@ -163,15 +163,15 @@
     <TableLayout
         android:id="@+id/deckangl__tribkn_decorators"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/group_box__height__tribkn_decorators"
+        android:layout_height="@dimen/deckangl__group_box__height__tribkn_decorators"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:background="@drawable/view_border__title_bar__white"
         android:orientation="vertical"
-        android:paddingBottom="@dimen/group_box__padding_bottom"
+        android:paddingBottom="@dimen/gcg__group_box__padding_bottom"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:paddingTop="@dimen/group_box__padding_top" >
+        android:paddingTop="@dimen/gcg__group_box__padding_top" >
 
         <TableRow
             android:layout_width="match_parent"
@@ -189,7 +189,7 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="@dimen/group_box__height__tribkn_decorators"
+            android:layout_height="@dimen/deckangl__group_box__height__tribkn_decorators"
             android:paddingBottom="5dp"
             android:gravity="center_horizontal" >
 
@@ -200,10 +200,10 @@
                 android:layout_gravity="left"
                 android:layout_weight="50"
                 android:orientation="vertical"
-                android:paddingBottom="@dimen/group_box__padding_bottom"
-                android:paddingLeft="@dimen/group_box__padding_left"
-                android:paddingRight="@dimen/group_box__padding_right"
-                android:paddingTop="@dimen/group_box__padding_top" >
+                android:paddingBottom="@dimen/gcg__group_box__padding_bottom"
+                android:paddingLeft="@dimen/gcg__group_box__padding_left"
+                android:paddingRight="@dimen/gcg__group_box__padding_right"
+                android:paddingTop="@dimen/gcg__group_box__padding_top" >
 
                 <TableRow
                     android:layout_width="210dp"
@@ -326,10 +326,10 @@
                 android:layout_gravity="left"
                 android:layout_weight="50"
                 android:orientation="vertical"
-                android:paddingBottom="@dimen/group_box__padding_bottom"
-                android:paddingLeft="@dimen/group_box__padding_left"
-                android:paddingRight="@dimen/group_box__padding_right"
-                android:paddingTop="@dimen/group_box__padding_top" >
+                android:paddingBottom="@dimen/gcg__group_box__padding_bottom"
+                android:paddingLeft="@dimen/gcg__group_box__padding_left"
+                android:paddingRight="@dimen/gcg__group_box__padding_right"
+                android:paddingTop="@dimen/gcg__group_box__padding_top" >
 
                 <TableRow
                     android:layout_width="210dp"

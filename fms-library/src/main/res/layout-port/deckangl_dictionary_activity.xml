@@ -10,14 +10,14 @@
             xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/deckangl__glyph"
             android:layout_width="@dimen/group_box__width__deckangl_glyph"
-            android:layout_height="@dimen/group_box__height__noun_status"
+            android:layout_height="@dimen/deckangl__group_box__height__noun_status"
             android:layout_gravity="center"
             android:background="@drawable/view_border__title_bar__white"
             android:orientation="vertical"
-            android:paddingBottom="@dimen/group_box__padding_bottom"
-            android:paddingLeft="@dimen/group_box__padding_left"
-            android:paddingRight="@dimen/group_box__padding_right"
-            android:paddingTop="@dimen/group_box__padding_top" >
+            android:paddingBottom="@dimen/gcg__group_box__padding_bottom"
+            android:paddingLeft="@dimen/gcg__group_box__padding_left"
+            android:paddingRight="@dimen/gcg__group_box__padding_right"
+            android:paddingTop="@dimen/gcg__group_box__padding_top" >
 
             <TableRow
                 android:layout_width="match_parent"
@@ -79,15 +79,15 @@
           xmlns:android="http://schemas.android.com/apk/res/android"
           android:id="@+id/deckangl__noun_status"
           android:layout_width="340dp"
-          android:layout_height="@dimen/group_box__height__noun_status"
+          android:layout_height="@dimen/deckangl__group_box__height__noun_status"
           android:layout_marginTop="0dp"
           android:layout_gravity="center"
           android:background="@drawable/view_border__title_bar__white"
           android:orientation="vertical"
-          android:paddingBottom="@dimen/group_box__padding_bottom"
-          android:paddingLeft="@dimen/group_box__padding_left"
-          android:paddingRight="@dimen/group_box__padding_right"
-          android:paddingTop="@dimen/group_box__padding_top" >
+          android:paddingBottom="@dimen/gcg__group_box__padding_bottom"
+          android:paddingLeft="@dimen/gcg__group_box__padding_left"
+          android:paddingRight="@dimen/gcg__group_box__padding_right"
+          android:paddingTop="@dimen/gcg__group_box__padding_top" >
 
           <TableRow
               android:layout_width="wrap_content"
@@ -162,15 +162,15 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/deckangl__tribkn_decorators"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/group_box__height__tribkn_decorators"
+        android:layout_height="@dimen/deckangl__group_box__height__tribkn_decorators"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:background="@drawable/view_border__title_bar__white"
         android:orientation="vertical"
-        android:paddingBottom="@dimen/group_box__padding_bottom"
+        android:paddingBottom="@dimen/gcg__group_box__padding_bottom"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:paddingTop="@dimen/group_box__padding_top" >
+        android:paddingTop="@dimen/gcg__group_box__padding_top" >
 
         <TableRow
             android:layout_width="match_parent"
@@ -188,7 +188,7 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="@dimen/group_box__height__tribkn_decorators"
+            android:layout_height="@dimen/deckangl__group_box__height__tribkn_decorators"
             android:gravity="center_horizontal"
             android:padding="0dp" >
 
@@ -200,10 +200,10 @@
                 android:layout_weight="50"
                 android:layout_gravity="left"
                 android:orientation="vertical"
-                android:paddingBottom="@dimen/group_box__padding_bottom"
-                android:paddingLeft="@dimen/group_box__padding_left"
-                android:paddingRight="@dimen/group_box__padding_right"
-                android:paddingTop="@dimen/group_box__padding_top" >
+                android:paddingBottom="@dimen/gcg__group_box__padding_bottom"
+                android:paddingLeft="@dimen/gcg__group_box__padding_left"
+                android:paddingRight="@dimen/gcg__group_box__padding_right"
+                android:paddingTop="@dimen/gcg__group_box__padding_top" >
 
                 <TableRow
                     android:layout_width="wrap_content"
@@ -332,10 +332,10 @@
                 android:layout_weight="50"
                 android:layout_gravity="left"
                 android:orientation="vertical"
-                android:paddingBottom="@dimen/group_box__padding_bottom"
-                android:paddingLeft="@dimen/group_box__padding_left"
-                android:paddingRight="@dimen/group_box__padding_right"
-                android:paddingTop="@dimen/group_box__padding_top" >
+                android:paddingBottom="@dimen/gcg__group_box__padding_bottom"
+                android:paddingLeft="@dimen/gcg__group_box__padding_left"
+                android:paddingRight="@dimen/gcg__group_box__padding_right"
+                android:paddingTop="@dimen/gcg__group_box__padding_top" >
 
                 <TableRow
                     android:layout_width="wrap_content"

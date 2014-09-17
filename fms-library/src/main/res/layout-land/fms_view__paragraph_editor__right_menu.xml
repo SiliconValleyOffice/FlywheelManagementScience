@@ -1,6 +1,6 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/gcg__thumbpad__right"
-    android:layout_width="@dimen/right_menu__width"
+    android:layout_width="@dimen/gcg__right_menu__width"
     android:layout_height="match_parent">
 
     <include
@@ -23,7 +23,7 @@
             <Spinner
                 android:id="@+id/fse__right_menu__heading_spinner"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/menu__label_height"
+                android:layout_height="@dimen/gcg__menu__label_height"
                 android:background="@drawable/gcg__spinnable_menu_background__right__1_of_5"
                 android:gravity="right"
                 android:spinnerMode="dropdown" />
