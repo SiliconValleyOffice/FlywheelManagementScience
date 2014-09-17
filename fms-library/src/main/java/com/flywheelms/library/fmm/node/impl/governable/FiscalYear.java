@@ -226,8 +226,7 @@ public class FiscalYear extends FmmCompletableNodeImpl implements Comparable<Fis
 
 	@Override
 	public void updateNodeCompletionSummary(FmmPerspective anFmmPerspective, NodeCompletionSummary aNodeSummary) {
-		switch(anFmmPerspective) {
-		case STRATEGIC_PLANNING:
+        if(anFmmPerspective == FmmPerspective.STRATEGIC_PLANNING) {
 			Collection<StrategicMilestone> theStrategicMilestoneCollection = getStrategicMilestoneCollection();
 			if(theStrategicMilestoneCollection.size() > 0) {
 				aNodeSummary.setShowNodeSummary(true);
@@ -236,9 +235,6 @@ public class FiscalYear extends FmmCompletableNodeImpl implements Comparable<Fis
 			} else {
 				aNodeSummary.setShowNodeSummary(false);
 			}
-			break;
-		default:
-			break;
 		}
 	}
 

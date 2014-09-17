@@ -77,7 +77,7 @@ public class FwbContextPerspectiveFlipper extends GcgPerspectiveFlipper {
 	}
 	
 	public void initialize(GcgActivity aLibraryActivity, GcgViewFlipperListener aViewFlipListener, GcgFrameSpinner aFrameSpinner, int aSpinnnableMenuIndex) {
-		super.initialize(aLibraryActivity, aViewFlipListener, FmmFrame.CONTEXT_WORKBENCH, aFrameSpinner);
+		super.initialize(aLibraryActivity, aViewFlipListener, FmmFrame.CONTEXT_FOR_WORKBENCH, aFrameSpinner);
 		this.spinnnableMenuIndex = aSpinnnableMenuIndex;
 	}
 

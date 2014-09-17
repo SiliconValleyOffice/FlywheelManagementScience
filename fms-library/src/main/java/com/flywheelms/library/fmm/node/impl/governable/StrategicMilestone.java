@@ -168,8 +168,7 @@ public class StrategicMilestone extends FmmCompletableNodeImpl implements Compar
 
 	@Override
 	public void updateNodeCompletionSummary(FmmPerspective anFmmPerspective, NodeCompletionSummary aNodeSummary) {
-		switch(anFmmPerspective) {
-		case STRATEGIC_PLANNING:
+        if(anFmmPerspective == FmmPerspective.STRATEGIC_PLANNING) {
 			Collection<ProjectAsset> theProjectAssetCollection = getProjectAssetCollection();
 			if(theProjectAssetCollection.size() > 0) {
 				aNodeSummary.setShowNodeSummary(true);
@@ -178,9 +177,6 @@ public class StrategicMilestone extends FmmCompletableNodeImpl implements Compar
 			} else {
 				aNodeSummary.setShowNodeSummary(false);
 			}
-			break;
-		default:
-			break;
 		}
 	}
 	

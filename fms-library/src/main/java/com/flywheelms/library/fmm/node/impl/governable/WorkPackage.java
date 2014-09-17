@@ -198,19 +198,15 @@ public class WorkPackage extends FmmCompletableNodeImpl implements Comparable<Wo
 
     @Override
     public void updateNodeCompletionSummary(FmmPerspective anFmmPerspective, NodeCompletionSummary aNodeSummary) {
-        switch(anFmmPerspective) {
-            case WORK_BREAKDOWN:
-                Collection<WorkTask> theWorkTaskCollection = getWorkTaskCollection();
-                if(theWorkTaskCollection.size() > 0) {
-                    aNodeSummary.setShowNodeSummary(true);
-                    aNodeSummary.setSummaryPrefix("( " + countGreenWorkTasks() + " ");
-                    aNodeSummary.setSummarySuffix(" of " + theWorkTaskCollection.size() + " )");
-                } else {
-                    aNodeSummary.setShowNodeSummary(false);
-                }
-                break;
-            default:
-                break;
+        if(anFmmPerspective == FmmPerspective.WORK_BREAKDOWN) {
+            Collection<WorkTask> theWorkTaskCollection = getWorkTaskCollection();
+            if(theWorkTaskCollection.size() > 0) {
+                aNodeSummary.setShowNodeSummary(true);
+                aNodeSummary.setSummaryPrefix("( " + countGreenWorkTasks() + " ");
+                aNodeSummary.setSummarySuffix(" of " + theWorkTaskCollection.size() + " )");
+            } else {
+                aNodeSummary.setShowNodeSummary(false);
+            }
         }
     }
 

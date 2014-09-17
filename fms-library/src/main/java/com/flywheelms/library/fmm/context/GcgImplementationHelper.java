@@ -43,7 +43,7 @@
 
 package com.flywheelms.library.fmm.context;
 
-import com.flywheelms.library.gcg.interfaces.GcgFrame;
+import com.flywheelms.library.gcg.context.GcgFrame;
 import com.flywheelms.library.gcg.interfaces.GcgPerspective;
 
 public class GcgImplementationHelper {

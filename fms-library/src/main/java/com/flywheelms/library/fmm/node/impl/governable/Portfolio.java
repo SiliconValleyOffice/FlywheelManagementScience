@@ -191,19 +191,15 @@ public class Portfolio extends FmmCompletableNodeImpl {
 
     @Override
     public void updateNodeCompletionSummary(FmmPerspective anFmmPerspective, NodeCompletionSummary aNodeSummary) {
-        switch(anFmmPerspective) {
-            case WORK_BREAKDOWN:
-                Collection<Project> theProjectCollection = getProjectCollection();
-                if(theProjectCollection.size() > 0) {
-                    aNodeSummary.setShowNodeSummary(true);
-                    aNodeSummary.setSummaryPrefix("( " + countGreenProjects() + " ");
-                    aNodeSummary.setSummarySuffix(" of " + theProjectCollection.size() + " )");
-                } else {
-                    aNodeSummary.setShowNodeSummary(false);
-                }
-                break;
-            default:
-                break;
+        if(anFmmPerspective == FmmPerspective.WORK_BREAKDOWN) {
+            Collection<Project> theProjectCollection = getProjectCollection();
+            if (theProjectCollection.size() > 0) {
+                aNodeSummary.setShowNodeSummary(true);
+                aNodeSummary.setSummaryPrefix("( " + countGreenProjects() + " ");
+                aNodeSummary.setSummarySuffix(" of " + theProjectCollection.size() + " )");
+            } else {
+                aNodeSummary.setShowNodeSummary(false);
+            }
         }
     }
 

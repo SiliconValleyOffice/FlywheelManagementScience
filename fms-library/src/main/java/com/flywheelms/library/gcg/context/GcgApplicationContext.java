@@ -45,8 +45,7 @@ package com.flywheelms.library.gcg.context;
 
 import android.graphics.drawable.Drawable;
 
-import com.flywheelms.library.fmm.context.FmmFrame;
-import com.flywheelms.library.fmm.context.FmmPerspective;
+import com.flywheelms.library.gcg.interfaces.GcgPerspective;
 import com.flywheelms.library.gcg.interfaces.GcgSerialization;
 
 import org.json.JSONArray;
@@ -153,19 +152,19 @@ public class GcgApplicationContext implements GcgSerialization {
 		return false;
 	}
 
-	public FmmFrame getRootActivityFrame() {
+	public GcgFrame getRootActivityFrame() {
 		if(this.activityBreadcrumbList == null || this.activityBreadcrumbList.size() < 1) {
 			return null;
 		}
 		GcgActivityBreadcrumb theFirstActivityBreakcrumb = this.activityBreadcrumbList.get(0);
-		return FmmFrame.getObjectForName(theFirstActivityBreakcrumb.getFrameBreadcrumb().getText());
+		return GcgFrame.getObjectForName(theFirstActivityBreakcrumb.getFrameBreadcrumb().getText());
 	}
 
-	public FmmPerspective getRootActivityPerspective() {
+	public GcgPerspective getRootActivityPerspective() {
 		if(this.activityBreadcrumbList == null || this.activityBreadcrumbList.size() < 1) {
 			return null;
 		}
 		GcgActivityBreadcrumb theFirstActivityBreakcrumb = this.activityBreadcrumbList.get(0);
-		return FmmPerspective.getObjectForName(theFirstActivityBreakcrumb.getFrameBreadcrumb().getPerspectiveName().toString());
+		return GcgPerspective.getObjectForName(theFirstActivityBreakcrumb.getFrameBreadcrumb().getPerspectiveName().toString());
 	}
 }

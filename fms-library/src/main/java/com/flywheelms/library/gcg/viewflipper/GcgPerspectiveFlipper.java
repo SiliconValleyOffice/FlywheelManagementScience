@@ -47,7 +47,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 
 import com.flywheelms.library.gcg.activity.GcgActivity;
-import com.flywheelms.library.gcg.interfaces.GcgFrame;
+import com.flywheelms.library.gcg.context.GcgFrame;
 import com.flywheelms.library.gcg.interfaces.GcgPerspective;
 import com.flywheelms.library.gcg.menu.GcgFrameSpinner;
 

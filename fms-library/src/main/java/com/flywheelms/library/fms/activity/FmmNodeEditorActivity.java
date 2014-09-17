@@ -70,11 +70,11 @@ import com.flywheelms.library.fse.model.FseDocument;
 import com.flywheelms.library.fse.perspective_flipper.FsePerspectiveFlipper;
 import com.flywheelms.library.fse.widget.FseMultiShiftButton;
 import com.flywheelms.library.gcg.context.GcgApplicationContext;
+import com.flywheelms.library.gcg.context.GcgFrame;
 import com.flywheelms.library.gcg.context.GcgFrameBreadcrumb;
 import com.flywheelms.library.gcg.dialog.GcgSaveChangesDialog;
 import com.flywheelms.library.gcg.helper.GcgActivityHelper;
 import com.flywheelms.library.gcg.helper.GcgPerspectiveMenu;
-import com.flywheelms.library.gcg.interfaces.GcgFrame;
 import com.flywheelms.library.gcg.menu.GcgFrameSpinner;
 import com.flywheelms.library.gcg.menu.GcgPerspectiveMenuButton;
 import com.flywheelms.library.gcg.viewflipper.GcgPerspectiveFlipper;
@@ -112,8 +112,8 @@ public abstract class FmmNodeEditorActivity extends FmsHorizontalNodeNavigatorAc
 		if(this.navigationParentNodeIdString != null) {
 			this.navigationParentFmmNodeDefinition = FmmNodeDefinition.getEntryForNodeIdString(this.navigationParentNodeIdString);
 		}
-		this.initialFrame = FmmFrame.getObjectForName(getIntent().getExtras().getString(FmsActivityHelper.bundle_key__INITIAL_FRAME_TO_DISPLAY));
-		this.initialPerspective = FmmPerspective.getObjectForName(getIntent().getExtras().getString(FmsActivityHelper.bundle_key__INITIAL_PERSPECTIVE_TO_DISPLAY));
+		this.initialFrame = FmmFrame.getFmmObjectForName(getIntent().getExtras().getString(FmsActivityHelper.bundle_key__INITIAL_FRAME_TO_DISPLAY));
+		this.initialPerspective = FmmPerspective.getFmmObjectForName(getIntent().getExtras().getString(FmsActivityHelper.bundle_key__INITIAL_PERSPECTIVE_TO_DISPLAY));
 	}
 
 	@Override
@@ -161,7 +161,7 @@ public abstract class FmmNodeEditorActivity extends FmsHorizontalNodeNavigatorAc
 	
 	@Override
 	public ContextPerspectiveFlipper getContextPerspectiveFlipper() {
-		return (ContextPerspectiveFlipper) this.frameSpinner.getPerspectiveFlipper(FmmFrame.CONTEXT_NODE);
+		return (ContextPerspectiveFlipper) this.frameSpinner.getPerspectiveFlipper(FmmFrame.CONTEXT_FOR_NODE);
 	}
 
 	public FseDocument getDisplayedFseDocument() {
@@ -253,7 +253,7 @@ public abstract class FmmNodeEditorActivity extends FmsHorizontalNodeNavigatorAc
 		// MUST add in the same sequence as desired in the spinnable menu heading
 		theFrameList.add(FmmFrame.FSE);
 		theFrameList.add(FmmFrame.TRIBKN);
-		theFrameList.add(FmmFrame.CONTEXT_NODE);
+		theFrameList.add(FmmFrame.CONTEXT_FOR_NODE);
 		int[] thePerspectiveMenuBodyResourceIdArray = {
 				R.id.perspective_menu__fse__frame_0,
 				R.id.perspective_menu__tribkn__frame_1,
@@ -303,7 +303,7 @@ public abstract class FmmNodeEditorActivity extends FmsHorizontalNodeNavigatorAc
 		TextView theMenuSpacer = (TextView) getFdkKeypadPeerViewLeft().findViewById(R.id.left_menu__filler);
 		GcgPerspectiveMenu theGcgPerspectiveMenu = new GcgPerspectiveMenu(thePerspectiveButtonList, theMenuSpacer);
 		ContextPerspectiveFlipper theContextPerspectiveFlipper = (ContextPerspectiveFlipper) findViewById(R.id.context_frame__perspective_flipper);
-		this.frameSpinner.putFrame(FmmFrame.CONTEXT_NODE, theGcgPerspectiveMenu, theContextPerspectiveFlipper);
+		this.frameSpinner.putFrame(FmmFrame.CONTEXT_FOR_NODE, theGcgPerspectiveMenu, theContextPerspectiveFlipper);
 	}
 
 	public FmmNodeDefinition getFmmNodeDefinition() {

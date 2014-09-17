@@ -87,7 +87,7 @@ public class FmsDecKanGlNavigationComponent extends DecKanGlNavigationComponent 
 		case left_zone_BOTTOM:
 			break;
 		case right_zone_TOP:
-			theFrame = FmmFrame.CONTEXT_NODE;
+			theFrame = FmmFrame.CONTEXT_FOR_NODE;
 			thePerspective = FmmPerspective.STRATEGIC_PLANNING;
 			break;
 		case right_zone_MIDDLE:

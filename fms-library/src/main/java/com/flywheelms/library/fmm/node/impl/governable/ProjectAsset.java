@@ -195,20 +195,15 @@ public class ProjectAsset extends FmmCompletableNodeImpl implements Comparable<P
 
 	@Override
 	public void updateNodeCompletionSummary(FmmPerspective anFmmPerspective, NodeCompletionSummary aNodeSummary) {
-		switch(anFmmPerspective) {
-            case STRATEGIC_PLANNING:
-            case WORK_BREAKDOWN:
-                Collection<WorkPackage> theWorkPackageCollection = getWorkPackageCollection();
-                if(theWorkPackageCollection.size() > 0) {
-                    aNodeSummary.setShowNodeSummary(true);
-                    aNodeSummary.setSummaryPrefix("( " + countGreenWorkPackages() + " ");
-                    aNodeSummary.setSummarySuffix(" of " + theWorkPackageCollection.size() + " )");
-                } else {
-                    aNodeSummary.setShowNodeSummary(false);
-                }
-                break;
-            default:
-                break;
+        if(anFmmPerspective == FmmPerspective.WORK_BREAKDOWN || anFmmPerspective == FmmPerspective.STRATEGIC_PLANNING) {
+            Collection<WorkPackage> theWorkPackageCollection = getWorkPackageCollection();
+            if(theWorkPackageCollection.size() > 0) {
+                aNodeSummary.setShowNodeSummary(true);
+                aNodeSummary.setSummaryPrefix("( " + countGreenWorkPackages() + " ");
+                aNodeSummary.setSummarySuffix(" of " + theWorkPackageCollection.size() + " )");
+            } else {
+                aNodeSummary.setShowNodeSummary(false);
+            }
 		}
 	}
 

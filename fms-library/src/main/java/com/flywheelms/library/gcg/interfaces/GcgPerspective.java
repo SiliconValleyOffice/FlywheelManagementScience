@@ -47,32 +47,122 @@ import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.Button;
 
-public interface GcgPerspective {
-	
-	String getName();
+import com.flywheelms.library.gcg.GcgApplication;
 
-	int getIconDrawableResourceId();
-	
-	Drawable getIconDrawable();
+import java.util.ArrayList;
 
-	int getButtonDrawableResourceId();
-	
-	Button getButton(View aView);
-	
-	int getMenuSequence();
-	
-	boolean isEnabled();
-	
-	void setEnabled(boolean bEnabled);
-	
-	boolean isShowPerspective();
-	
-	void setShowPerspective(boolean bShowPerspective);
-	
-	boolean showNoOpPerspectivePrototype();
-	
-	Drawable getPrototypeDrawable();
-	
-	GcgPerspective getPerspectiveForName(String aPerspectiveName);
+public class GcgPerspective {
+
+    protected static final ArrayList<GcgPerspective> VALUES = new ArrayList<GcgPerspective>();
+
+    public static ArrayList<GcgPerspective> values() {
+        return GcgPerspective.VALUES;
+    }
+
+    public static GcgPerspective getObjectForName(String aName) {
+        GcgPerspective theGcgPerspective = null;
+        for(GcgPerspective theInstance : GcgPerspective.VALUES) {
+            if(theInstance.getName().equals(aName)) {
+                theGcgPerspective = theInstance;
+                break;
+            }
+        }
+        return theGcgPerspective;
+    }
+
+    private int nameStringResourceId;
+    private String name;
+    private int iconDrawableResourceId;
+    private Drawable iconDrawable;
+    private int buttonResourceId;
+    private Button button;
+    private int menuSequence;
+    private boolean enabled;
+    private boolean isShowPerspective;
+    private boolean showNoOpPrototype = false;
+    private int prototypeResourceId = 0;
+
+    protected GcgPerspective(
+            int aNameStringResourceId,
+            int anIconDrawableResourceId,
+            int aButtonResourceId,
+            int aMenuSequence,
+            boolean bEnabled,
+            boolean bShowPerspective,
+            boolean bShowNoOpPrototype ) {
+        this.nameStringResourceId = aNameStringResourceId;
+        this.name = GcgApplication.getAppResources().getString(this.nameStringResourceId);
+        this.iconDrawableResourceId = anIconDrawableResourceId;
+        this.iconDrawable = GcgApplication.getAppResources().getDrawable(this.iconDrawableResourceId);
+        this.buttonResourceId = aButtonResourceId;
+        this.menuSequence = aMenuSequence;
+        this.enabled = bEnabled;
+        this.isShowPerspective = bEnabled == true ? bShowPerspective : false;
+        this.showNoOpPrototype = bShowNoOpPrototype;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public int getIconDrawableResourceId() {
+        return this.iconDrawableResourceId;
+    }
+
+    public Drawable getIconDrawable() {
+        return this.iconDrawable;
+    }
+
+    public int getButtonDrawableResourceId() {
+        return this.buttonResourceId;
+    }
+
+    public Button getButton(View aView) {
+        if(this.button == null) {
+            this.button = (Button) aView.findViewById(this.buttonResourceId);
+        }
+        return this.button;
+    }
+
+    public int getMenuSequence() {
+        return this.menuSequence;
+    }
+
+    public boolean isEnabled() {
+        return this.enabled;
+    }
+
+    public void setEnabled(boolean aBoolean) {
+        this.enabled = aBoolean;
+    }
+
+    public boolean isShowPerspective() {
+        return this.isShowPerspective;
+    }
+
+    public void setShowPerspective(boolean aBoolean) {
+        this.isShowPerspective = aBoolean;
+    }
+
+    public boolean showNoOpPerspectivePrototype() {
+        return this.showNoOpPrototype;
+    }
+
+    public Drawable getPrototypeDrawable() {
+        return GcgApplication.getAppResources().getDrawable(this.prototypeResourceId);
+    }
+
+    public String toString() {
+        return this.name;
+    }
+
+    public GcgPerspective getPerspectiveForName(String aPerspectiveName) {
+        for (GcgPerspective thePerspective : GcgPerspective.values()) {
+            if (thePerspective.toString().equals(aPerspectiveName)) {
+                return thePerspective;
+            }
+        }
+        return null;
+    }
 
 }

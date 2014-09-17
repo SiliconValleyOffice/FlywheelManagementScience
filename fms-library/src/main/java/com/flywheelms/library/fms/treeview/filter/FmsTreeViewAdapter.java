@@ -306,7 +306,7 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter {
 	}
 
 	protected void launchNodeEditorToChildrenActivity(GcgTreeNodeInfo aTreeNodeInfo) {
-		this.gcgTreeViewParent.launchNodeEditorActivity(aTreeNodeInfo, FmmFrame.CONTEXT_NODE, FmmPerspective.WORK_BREAKDOWN);
+		this.gcgTreeViewParent.launchNodeEditorActivity(aTreeNodeInfo, FmmFrame.CONTEXT_FOR_NODE, FmmPerspective.WORK_BREAKDOWN);
 	}
 
 	protected void launchNodeEditorToQualityActivity(GcgTreeNodeInfo aTreeNodeInfo) {

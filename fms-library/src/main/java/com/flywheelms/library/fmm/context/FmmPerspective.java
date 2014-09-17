@@ -41,12 +41,7 @@
 */
 package com.flywheelms.library.fmm.context;
 
-import android.graphics.drawable.Drawable;
-import android.view.View;
-import android.widget.Button;
-
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.helper.FmmHelper;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmNode;
 import com.flywheelms.library.gcg.interfaces.GcgPerspective;
@@ -54,470 +49,478 @@ import com.flywheelms.library.gcg.interfaces.GcgPerspective;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public enum FmmPerspective implements GcgPerspective {
+public class FmmPerspective extends GcgPerspective {
 
-	ANALYSIS (
-		R.string.fmm_perspective__analysis,
-		R.drawable.perspective__analysis,
+    public static FmmPerspective ANALYSIS = new FmmPerspective(
+            R.string.fmm_perspective__analysis,
+            R.drawable.perspective__analysis,
 //		R.id.perspective_button__analysis,
-		0,
-		3,
-		true,
-		true,
-		false,
-		new ArrayList<FmmNode>(Arrays.asList(
-				FmmNodeDefinition.BOOKSHELF,
-				FmmNodeDefinition.NOTEBOOK,
-				FmmNodeDefinition.DISCUSSION_TOPIC,
-				FmmNodeDefinition.PROJECT_ASSET,
-				FmmNodeDefinition.WORK_PACKAGE,
-				FmmNodeDefinition.WORK_TASK,
-				FmmNodeDefinition.FACILITATION_ISSUE )) ),
-	BUDGETING (
-			R.string.fmm_perspective__budgeting,
-			R.drawable.perspective__analysis,
+            0,
+                    3,
+                    true,
+                    true,
+                    false,
+                    new ArrayList<FmmNode>(Arrays.asList(
+                    FmmNodeDefinition.BOOKSHELF,
+            FmmNodeDefinition.NOTEBOOK,
+            FmmNodeDefinition.DISCUSSION_TOPIC,
+            FmmNodeDefinition.PROJECT_ASSET,
+            FmmNodeDefinition.WORK_PACKAGE,
+            FmmNodeDefinition.WORK_TASK,
+            FmmNodeDefinition.FACILITATION_ISSUE)
+
+    ));
+
+    public static FmmPerspective BUDGETING = new FmmPerspective(
+            R.string.fmm_perspective__budgeting,
+            R.drawable.perspective__analysis,
 //			R.id.perspective_button__analysis,
-			0,
-			3,
-			true,
-			true,
-			false,
-			new ArrayList<FmmNode>(Arrays.asList(
-					FmmNodeDefinition.BOOKSHELF,
-					FmmNodeDefinition.NOTEBOOK,
-					FmmNodeDefinition.DISCUSSION_TOPIC,
-					FmmNodeDefinition.PROJECT_ASSET,
-					FmmNodeDefinition.WORK_PACKAGE,
-					FmmNodeDefinition.WORK_TASK,
-					FmmNodeDefinition.FACILITATION_ISSUE )) ),
-	COMMITMENTS (
-			R.string.fmm_perspective__commitments,
-			R.drawable.perspective__commitments,
+            0,
+                    3,
+                    true,
+                    true,
+                    false,
+                    new ArrayList<FmmNode>(Arrays.asList(
+                    FmmNodeDefinition.BOOKSHELF,
+            FmmNodeDefinition.NOTEBOOK,
+            FmmNodeDefinition.DISCUSSION_TOPIC,
+            FmmNodeDefinition.PROJECT_ASSET,
+            FmmNodeDefinition.WORK_PACKAGE,
+            FmmNodeDefinition.WORK_TASK,
+            FmmNodeDefinition.FACILITATION_ISSUE)
+
+    ));
+
+    public static FmmPerspective COMMITMENTS = new FmmPerspective(
+            R.string.fmm_perspective__commitments,
+            R.drawable.perspective__commitments,
 //			R.id.perspective_button__commitments,
-			0,
-			6,
-			true,
-			true,
-			false,
-			new ArrayList<FmmNode>(Arrays.asList(
-					FmmNodeDefinition.FMS_ORGANIZATION,
-					FmmNodeDefinition.STRATEGY_TEAM,
-					FmmNodeDefinition.FLYWHEEL_TEAM,
-					FmmNodeDefinition.FUNCTIONAL_TEAM,
-					FmmNodeDefinition.COMMUNITY_MEMBER )) ),
-	COMMUNITY (
-			R.string.fmm_perspective__community,
-			R.drawable.perspective__community,
+            0,
+                    6,
+                    true,
+                    true,
+                    false,
+                    new ArrayList<FmmNode>(Arrays.asList(
+                    FmmNodeDefinition.FMS_ORGANIZATION,
+            FmmNodeDefinition.STRATEGY_TEAM,
+            FmmNodeDefinition.FLYWHEEL_TEAM,
+            FmmNodeDefinition.FUNCTIONAL_TEAM,
+            FmmNodeDefinition.COMMUNITY_MEMBER)
+
+    ));
+
+    public static FmmPerspective COMMUNITY = new FmmPerspective(
+            R.string.fmm_perspective__community,
+            R.drawable.perspective__community,
 //			R.id.perspective_button__community,
-			0,
-			6,
-			true,
-			true,
-			false,
-			new ArrayList<FmmNode>(Arrays.asList(
-					FmmNodeDefinition.FMS_ORGANIZATION,
-					FmmNodeDefinition.STRATEGY_TEAM,
-					FmmNodeDefinition.FLYWHEEL_TEAM,
-					FmmNodeDefinition.FUNCTIONAL_TEAM,
-					FmmNodeDefinition.COMMUNITY_MEMBER )) ),
-	COMPLETION (
-			R.string.fmm_perspective__completion,
-			R.drawable.perspective__community,
+            0,
+                    6,
+                    true,
+                    true,
+                    false,
+                    new ArrayList<FmmNode>(Arrays.asList(
+                    FmmNodeDefinition.FMS_ORGANIZATION,
+            FmmNodeDefinition.STRATEGY_TEAM,
+            FmmNodeDefinition.FLYWHEEL_TEAM,
+            FmmNodeDefinition.FUNCTIONAL_TEAM,
+            FmmNodeDefinition.COMMUNITY_MEMBER)
+
+    ));
+
+    public static FmmPerspective COMPLETION = new FmmPerspective(
+            R.string.fmm_perspective__completion,
+            R.drawable.perspective__community,
 //			R.id.perspective_button__community,
-			0,
-			6,
-			true,
-			true,
-			false,
-			new ArrayList<FmmNode>(Arrays.asList(
-					FmmNodeDefinition.FMS_ORGANIZATION,
-					FmmNodeDefinition.STRATEGY_TEAM,
-					FmmNodeDefinition.FLYWHEEL_TEAM,
-					FmmNodeDefinition.FUNCTIONAL_TEAM,
-					FmmNodeDefinition.COMMUNITY_MEMBER )) ),
-	CONFIRMED_COMMITMENTS (
-			R.string.fmm_perspective__confirmed_commitments,
-			R.drawable.perspective__community,
+            0,
+                    6,
+                    true,
+                    true,
+                    false,
+                    new ArrayList<FmmNode>(Arrays.asList(
+                    FmmNodeDefinition.FMS_ORGANIZATION,
+            FmmNodeDefinition.STRATEGY_TEAM,
+            FmmNodeDefinition.FLYWHEEL_TEAM,
+            FmmNodeDefinition.FUNCTIONAL_TEAM,
+            FmmNodeDefinition.COMMUNITY_MEMBER)
+
+    ));
+
+    public static FmmPerspective CONFIRMED_COMMITMENTS = new FmmPerspective(
+            R.string.fmm_perspective__confirmed_commitments,
+            R.drawable.perspective__community,
 //			R.id.perspective_button__community,
-			0,
-			6,
-			true,
-			true,
-			false,
-			new ArrayList<FmmNode>(Arrays.asList(
-					FmmNodeDefinition.FMS_ORGANIZATION,
-					FmmNodeDefinition.STRATEGY_TEAM,
-					FmmNodeDefinition.FLYWHEEL_TEAM,
-					FmmNodeDefinition.FUNCTIONAL_TEAM,
-					FmmNodeDefinition.COMMUNITY_MEMBER )) ),
-	DECLINED_COMMITMENTS (
-			R.string.fmm_perspective__declined_commitments,
-			R.drawable.perspective__community,
+            0,
+                    6,
+                    true,
+                    true,
+                    false,
+                    new ArrayList<FmmNode>(Arrays.asList(
+                    FmmNodeDefinition.FMS_ORGANIZATION,
+            FmmNodeDefinition.STRATEGY_TEAM,
+            FmmNodeDefinition.FLYWHEEL_TEAM,
+            FmmNodeDefinition.FUNCTIONAL_TEAM,
+            FmmNodeDefinition.COMMUNITY_MEMBER)
+
+    ));
+
+    public static FmmPerspective DECLINED_COMMITMENTS = new FmmPerspective(
+            R.string.fmm_perspective__declined_commitments,
+            R.drawable.perspective__community,
 //			R.id.perspective_button__community,
-			0,
-			6,
-			true,
-			true,
-			false,
-			new ArrayList<FmmNode>(Arrays.asList(
-					FmmNodeDefinition.FMS_ORGANIZATION,
-					FmmNodeDefinition.STRATEGY_TEAM,
-					FmmNodeDefinition.FLYWHEEL_TEAM,
-					FmmNodeDefinition.FUNCTIONAL_TEAM,
-					FmmNodeDefinition.COMMUNITY_MEMBER )) ),
-	DECKANGL (
-			R.string.fmm_perspective__deckangl,
-			R.drawable.perspective__community,
+            0,
+                    6,
+                    true,
+                    true,
+                    false,
+                    new ArrayList<FmmNode>(Arrays.asList(
+                    FmmNodeDefinition.FMS_ORGANIZATION,
+            FmmNodeDefinition.STRATEGY_TEAM,
+            FmmNodeDefinition.FLYWHEEL_TEAM,
+            FmmNodeDefinition.FUNCTIONAL_TEAM,
+            FmmNodeDefinition.COMMUNITY_MEMBER)
+
+    ));
+
+    public static FmmPerspective DECKANGL = new FmmPerspective(
+            R.string.fmm_perspective__deckangl,
+            R.drawable.perspective__community,
 //			R.id.perspective_button__community,
-			0,
-			6,
-			true,
-			true,
-			false,
-			new ArrayList<FmmNode>(Arrays.asList(
-					FmmNodeDefinition.FMS_ORGANIZATION,
-					FmmNodeDefinition.STRATEGY_TEAM,
-					FmmNodeDefinition.FLYWHEEL_TEAM,
-					FmmNodeDefinition.FUNCTIONAL_TEAM,
-					FmmNodeDefinition.COMMUNITY_MEMBER )) ),
-	FACILITATION_ISSUES (
-			R.string.fmm_perspective__facilitation_issues,
-			R.drawable.perspective__facilitation_issues,
+            0,
+                    6,
+                    true,
+                    true,
+                    false,
+                    new ArrayList<FmmNode>(Arrays.asList(
+                    FmmNodeDefinition.FMS_ORGANIZATION,
+            FmmNodeDefinition.STRATEGY_TEAM,
+            FmmNodeDefinition.FLYWHEEL_TEAM,
+            FmmNodeDefinition.FUNCTIONAL_TEAM,
+            FmmNodeDefinition.COMMUNITY_MEMBER)
+
+    ));
+
+    public static FmmPerspective FACILITATION_ISSUES = new FmmPerspective(
+            R.string.fmm_perspective__facilitation_issues,
+            R.drawable.perspective__facilitation_issues,
 //			R.id.perspective_button__facilitation_issues,
-			0,
-			7,
-			true,
-			true,
-			false,
-			new ArrayList<FmmNode>(Arrays.asList(
-					FmmNodeDefinition.GOVERNANCE_TARGET,
-					FmmNodeDefinition.FACILITATION_ISSUE )) ),
-	FLYWHEEL_TEAMS (
-			R.string.fmm_perspective__flywheel_team,
-			R.drawable.perspective__facilitation_issues,
+            0,
+                    7,
+                    true,
+                    true,
+                    false,
+                    new ArrayList<FmmNode>(Arrays.asList(
+                    FmmNodeDefinition.GOVERNANCE_TARGET,
+            FmmNodeDefinition.FACILITATION_ISSUE)
+
+    ));
+
+    public static FmmPerspective FLYWHEEL_TEAMS = new FmmPerspective(
+            R.string.fmm_perspective__flywheel_team,
+            R.drawable.perspective__facilitation_issues,
 //			R.id.perspective_button__facilitation_issues,
-			0,
-			7,
-			true,
-			true,
-			false,
-			new ArrayList<FmmNode>(Arrays.asList(
-					FmmNodeDefinition.GOVERNANCE_TARGET,
-					FmmNodeDefinition.FACILITATION_ISSUE )) ),
-	FUNCTIONAL_TEAMS (
-			R.string.fmm_perspective__functional_team,
-			R.drawable.perspective__facilitation_issues,
+            0,
+                    7,
+                    true,
+                    true,
+                    false,
+                    new ArrayList<FmmNode>(Arrays.asList(
+                    FmmNodeDefinition.GOVERNANCE_TARGET,
+            FmmNodeDefinition.FACILITATION_ISSUE)
+
+    ));
+
+    public static FmmPerspective FUNCTIONAL_TEAMS = new FmmPerspective(
+            R.string.fmm_perspective__functional_team,
+            R.drawable.perspective__facilitation_issues,
 //			R.id.perspective_button__facilitation_issues,
-			0,
-			7,
-			true,
-			true,
-			false,
-			new ArrayList<FmmNode>(Arrays.asList(
-					FmmNodeDefinition.GOVERNANCE_TARGET,
-					FmmNodeDefinition.FACILITATION_ISSUE )) ),
-	GOVERNANCE (
-			R.string.fmm_perspective__governance,
-			R.drawable.perspective__governance,
+            0,
+                    7,
+                    true,
+                    true,
+                    false,
+                    new ArrayList<FmmNode>(Arrays.asList(
+                    FmmNodeDefinition.GOVERNANCE_TARGET,
+            FmmNodeDefinition.FACILITATION_ISSUE)
+
+    ));
+
+    public static FmmPerspective GOVERNANCE = new FmmPerspective(
+            R.string.fmm_perspective__governance,
+            R.drawable.perspective__governance,
 //			R.id.perspective_button__governance,
-			0,
-			5,
-			true,
-			true,
-			false,
-			new ArrayList<FmmNode>(Arrays.asList(
-					FmmNodeDefinition.GOVERNANCE_ROLE,
-					FmmNodeDefinition.COMMUNITY_MEMBER,
-					FmmNodeDefinition.GOVERNANCE_TARGET )) ),
-	GOVERNANCE_TEAMS (
-			R.string.fmm_perspective__governance_team,
-			R.drawable.perspective__governance,
+            0,
+                    5,
+                    true,
+                    true,
+                    false,
+                    new ArrayList<FmmNode>(Arrays.asList(
+                    FmmNodeDefinition.GOVERNANCE_ROLE,
+            FmmNodeDefinition.COMMUNITY_MEMBER,
+            FmmNodeDefinition.GOVERNANCE_TARGET)
+
+    ));
+
+    public static FmmPerspective GOVERNANCE_TEAMS = new FmmPerspective(
+            R.string.fmm_perspective__governance_team,
+            R.drawable.perspective__governance,
 //			R.id.perspective_button__governance,
-			0,
-			5,
-			true,
-			true,
-			false,
-			new ArrayList<FmmNode>(Arrays.asList(
-					FmmNodeDefinition.GOVERNANCE_ROLE,
-					FmmNodeDefinition.COMMUNITY_MEMBER,
-					FmmNodeDefinition.GOVERNANCE_TARGET )) ),
-	HISTORY (
-			R.string.fmm_perspective__history,
-			R.drawable.perspective__facilitation_issues,
+            0,
+                    5,
+                    true,
+                    true,
+                    false,
+                    new ArrayList<FmmNode>(Arrays.asList(
+                    FmmNodeDefinition.GOVERNANCE_ROLE,
+            FmmNodeDefinition.COMMUNITY_MEMBER,
+            FmmNodeDefinition.GOVERNANCE_TARGET)
+
+    ));
+
+    public static FmmPerspective HISTORY = new FmmPerspective(
+            R.string.fmm_perspective__history,
+            R.drawable.perspective__facilitation_issues,
 //			R.id.perspective_button__facilitation_issues,
-			0,
-			7,
-			true,
-			true,
-			false,
-			new ArrayList<FmmNode>(Arrays.asList(
-					FmmNodeDefinition.GOVERNANCE_TARGET,
-					FmmNodeDefinition.FACILITATION_ISSUE )) ),
-	NOTES (
-			R.string.fmm_perspective__notes,
-			R.drawable.perspective__facilitation_issues,
+            0,
+                    7,
+                    true,
+                    true,
+                    false,
+                    new ArrayList<FmmNode>(Arrays.asList(
+                    FmmNodeDefinition.GOVERNANCE_TARGET,
+            FmmNodeDefinition.FACILITATION_ISSUE)
+
+    ));
+
+    public static FmmPerspective NOTES = new FmmPerspective(
+            R.string.fmm_perspective__notes,
+            R.drawable.perspective__facilitation_issues,
 //			R.id.perspective_button__facilitation_issues,
-			0,
-			7,
-			true,
-			true,
-			false,
-			new ArrayList<FmmNode>(Arrays.asList(
-					FmmNodeDefinition.GOVERNANCE_TARGET,
-					FmmNodeDefinition.FACILITATION_ISSUE )) ),
-	PROPOSED_COMMITMENTS (
-			R.string.fmm_perspective__proposed_commitments,
-			R.drawable.perspective__facilitation_issues,
+            0,
+                    7,
+                    true,
+                    true,
+                    false,
+                    new ArrayList<FmmNode>(Arrays.asList(
+                    FmmNodeDefinition.GOVERNANCE_TARGET,
+            FmmNodeDefinition.FACILITATION_ISSUE)
+
+    ));
+
+    public static FmmPerspective PROPOSED_COMMITMENTS = new FmmPerspective(
+            R.string.fmm_perspective__proposed_commitments,
+            R.drawable.perspective__facilitation_issues,
 //			R.id.perspective_button__facilitation_issues,
-			0,
-			7,
-			true,
-			true,
-			false,
-			new ArrayList<FmmNode>(Arrays.asList(
-					FmmNodeDefinition.GOVERNANCE_TARGET,
-					FmmNodeDefinition.FACILITATION_ISSUE )) ),
-	SERVICE_DELIVERY (
-			R.string.fmm_perspective__service_delivery,
-			R.drawable.perspective__service_delivery,
+            0,
+                    7,
+                    true,
+                    true,
+                    false,
+                    new ArrayList<FmmNode>(Arrays.asList(
+                    FmmNodeDefinition.GOVERNANCE_TARGET,
+            FmmNodeDefinition.FACILITATION_ISSUE)
+
+    ));
+
+    public static FmmPerspective SERVICE_DELIVERY = new FmmPerspective(
+            R.string.fmm_perspective__service_delivery,
+            R.drawable.perspective__service_delivery,
 //			R.id.perspective_button__service_delivery,
-			0,
-			5,
-			true,
-			true,
-			false,
-			new ArrayList<FmmNode>(Arrays.asList(
-					FmmNodeDefinition.FISCAL_YEAR,
-					FmmNodeDefinition.FLYWHEEL_MILESTONE,
-					FmmNodeDefinition.SERVICE_REQUEST_TRIAGE_LOG,
-					FmmNodeDefinition.SERVICE_OFFERING,
-					FmmNodeDefinition.SERVICE_REQUEST )) ),
-	STRATEGIC_PLANNING (
-		R.string.fmm_perspective__strategic_planning,
-		R.drawable.perspective__strategic_planning,
-		R.id.context_button__strategic_planning,
-		0,
-		true,
-		true,
-		false,
-		new ArrayList<FmmNode>(Arrays.asList(
-				FmmNodeDefinition.FISCAL_YEAR,
-				FmmNodeDefinition.STRATEGIC_MILESTONE,
-				FmmNodeDefinition.PROJECT_ASSET )) ),
-	STRATEGY_TEAMS (
-			R.string.fmm_perspective__strategy_team,
-			R.drawable.perspective__strategic_planning,
-			R.id.context_button__strategic_planning,
-			0,
-			true,
-			true,
-			false,
-			new ArrayList<FmmNode>(Arrays.asList(
-					FmmNodeDefinition.FISCAL_YEAR,
-					FmmNodeDefinition.STRATEGIC_MILESTONE,
-					FmmNodeDefinition.PROJECT_ASSET )) ),
-	STORY(
-			R.string.fmm_perspective__story,
-			R.drawable.perspective__strategic_planning,
-			R.id.context_button__strategic_planning,
-			0,
-			true,
-			true,
-			false,
-			new ArrayList<FmmNode>(Arrays.asList(
-					FmmNodeDefinition.FISCAL_YEAR,
-					FmmNodeDefinition.STRATEGIC_MILESTONE,
-					FmmNodeDefinition.PROJECT_ASSET )) ),
-	SUGGESTED_COMMITMENTS (
-			R.string.fmm_perspective__suggested_commitments,
-			R.drawable.perspective__facilitation_issues,
+            0,
+                    5,
+                    true,
+                    true,
+                    false,
+                    new ArrayList<FmmNode>(Arrays.asList(
+                    FmmNodeDefinition.FISCAL_YEAR,
+            FmmNodeDefinition.FLYWHEEL_MILESTONE,
+            FmmNodeDefinition.SERVICE_REQUEST_TRIAGE_LOG,
+            FmmNodeDefinition.SERVICE_OFFERING,
+            FmmNodeDefinition.SERVICE_REQUEST)
+
+    ));
+
+    public static FmmPerspective STRATEGIC_PLANNING = new FmmPerspective(
+            R.string.fmm_perspective__strategic_planning,
+            R.drawable.perspective__strategic_planning,
+            R.id.context_button__strategic_planning,
+            0,
+                    true,
+                    true,
+                    false,
+                    new ArrayList<FmmNode>(Arrays.asList(
+                    FmmNodeDefinition.FISCAL_YEAR,
+            FmmNodeDefinition.STRATEGIC_MILESTONE,
+            FmmNodeDefinition.PROJECT_ASSET)
+
+    ));
+
+    public static FmmPerspective STRATEGY_TEAMS = new FmmPerspective(
+            R.string.fmm_perspective__strategy_team,
+            R.drawable.perspective__strategic_planning,
+            R.id.context_button__strategic_planning,
+            0,
+                    true,
+                    true,
+                    false,
+                    new ArrayList<FmmNode>(Arrays.asList(
+                    FmmNodeDefinition.FISCAL_YEAR,
+            FmmNodeDefinition.STRATEGIC_MILESTONE,
+            FmmNodeDefinition.PROJECT_ASSET)
+
+    ));
+
+    public static FmmPerspective STORY = new FmmPerspective(
+            R.string.fmm_perspective__story,
+            R.drawable.perspective__strategic_planning,
+            R.id.context_button__strategic_planning,
+            0,
+                    true,
+                    true,
+                    false,
+                    new ArrayList<FmmNode>(Arrays.asList(
+                    FmmNodeDefinition.FISCAL_YEAR,
+            FmmNodeDefinition.STRATEGIC_MILESTONE,
+            FmmNodeDefinition.PROJECT_ASSET)
+
+    ));
+
+    public static FmmPerspective SUGGESTED_COMMITMENTS = new FmmPerspective(
+            R.string.fmm_perspective__suggested_commitments,
+            R.drawable.perspective__facilitation_issues,
 //			R.id.perspective_button__facilitation_issues,
-			0,
-			7,
-			true,
-			true,
-			false,
-			new ArrayList<FmmNode>(Arrays.asList(
-					FmmNodeDefinition.GOVERNANCE_TARGET,
-					FmmNodeDefinition.FACILITATION_ISSUE )) ),
-	TRIBKN (
-			R.string.fmm_perspective__tribkn,
-			R.drawable.perspective__tribkn,
-			0,
-			0,
-			false,
-			false,
-			false,
-			new ArrayList<FmmNode>(Arrays.asList(
-					FmmNodeDefinition.GOVERNANCE_TARGET,
-					FmmNodeDefinition.FACILITATION_ISSUE )) ),
-	WITHDRAWN_COMMITMENTS(
-			R.string.fmm_perspective__withdrawn_commitments,
-			R.drawable.perspective__strategic_planning,
-			R.id.context_button__strategic_planning,
-			0,
-			true,
-			true,
-			false,
-			new ArrayList<FmmNode>(Arrays.asList(
-					FmmNodeDefinition.FISCAL_YEAR,
-					FmmNodeDefinition.STRATEGIC_MILESTONE,
-					FmmNodeDefinition.PROJECT_ASSET )) ),
-	WORK_BREAKDOWN (
-		R.string.fmm_perspective__work_breakdown,
-		R.drawable.perspective__work_breakdown,
+            0,
+                    7,
+                    true,
+                    true,
+                    false,
+                    new ArrayList<FmmNode>(Arrays.asList(
+                    FmmNodeDefinition.GOVERNANCE_TARGET,
+            FmmNodeDefinition.FACILITATION_ISSUE)
+
+    ));
+
+    public static FmmPerspective TRIBKN = new FmmPerspective(
+            R.string.fmm_perspective__tribkn,
+            R.drawable.perspective__tribkn,
+            0,
+                    0,
+                    false,
+                    false,
+                    false,
+                    new ArrayList<FmmNode>(Arrays.asList(
+                    FmmNodeDefinition.GOVERNANCE_TARGET,
+            FmmNodeDefinition.FACILITATION_ISSUE)
+
+    ));
+
+    public static FmmPerspective WITHDRAWN_COMMITMENTS = new FmmPerspective(
+            R.string.fmm_perspective__withdrawn_commitments,
+            R.drawable.perspective__strategic_planning,
+            R.id.context_button__strategic_planning,
+            0,
+                    true,
+                    true,
+                    false,
+                    new ArrayList<FmmNode>(Arrays.asList(
+                    FmmNodeDefinition.FISCAL_YEAR,
+            FmmNodeDefinition.STRATEGIC_MILESTONE,
+            FmmNodeDefinition.PROJECT_ASSET)
+
+    ));
+
+    public static FmmPerspective WORK_BREAKDOWN = new FmmPerspective(
+            R.string.fmm_perspective__work_breakdown,
+            R.drawable.perspective__work_breakdown,
 //		R.id.perspective_button__work_breakdown,
-		0,
-		1,
-		true,
-		true,
-		false,
-		new ArrayList<FmmNode>(Arrays.asList(
-				FmmNodeDefinition.PORTFOLIO,
-				FmmNodeDefinition.PROJECT,
-				FmmNodeDefinition.PROJECT_ASSET,
-				FmmNodeDefinition.WORK_PACKAGE )) ),
-	WORK_PLANNING (
-		R.string.fmm_perspective__work_planning,
-		R.drawable.perspective__work_planning,
+            0,
+                    1,
+                    true,
+                    true,
+                    false,
+                    new ArrayList<FmmNode>(Arrays.asList(
+                    FmmNodeDefinition.PORTFOLIO,
+            FmmNodeDefinition.PROJECT,
+            FmmNodeDefinition.PROJECT_ASSET,
+            FmmNodeDefinition.WORK_PACKAGE)
+
+    ));
+
+    public static FmmPerspective WORK_PLANNING = new FmmPerspective(
+            R.string.fmm_perspective__work_planning,
+            R.drawable.perspective__work_planning,
 //		R.id.perspective_button__work_planning,
-		0,
-		2,
-		true,
-		true,
-		false,
-		new ArrayList<FmmNode>(Arrays.asList(
-				FmmNodeDefinition.FISCAL_YEAR,
-				FmmNodeDefinition.FLYWHEEL_MILESTONE,
-				FmmNodeDefinition.WORK_PLAN,
-				FmmNodeDefinition.WORK_PACKAGE )) );
-	
-	
+            0,
+                    2,
+                    true,
+                    true,
+                    false,
+                    new ArrayList<FmmNode>(Arrays.asList(
+                    FmmNodeDefinition.FISCAL_YEAR,
+            FmmNodeDefinition.FLYWHEEL_MILESTONE,
+            FmmNodeDefinition.WORK_PLAN,
+            FmmNodeDefinition.WORK_PACKAGE)
 
-	public static FmmPerspective getObjectForName(String aName) {
-		for(FmmPerspective theFmmPerspective : FmmPerspective.values()) {
-			if(theFmmPerspective.getName().equals(aName)) {
-				return theFmmPerspective;
-			}
-		}
-		return null;
-	}
-	
-	private int nameStringResourceId;
-	private String name;
-	private int iconDrawableResourceId;
-	private Drawable iconDrawable;
-	private int buttonResourceId;
-	private Button button;
-	private int menuSequence;
-	private boolean enabled;
-	private boolean isShowPerspective;
-	private boolean showNoOpPrototype = false;
-	private int prototypeResourceId = 0;
-	private ArrayList<FmmNode> treeNodeTypeList = new ArrayList<FmmNode>();
-	
-	private FmmPerspective(
-			int aNameStringResourceId,
-			int anIconDrawableResourceId,
-			int aButtonResourceId,
-			int aMenuSequence,
-			boolean bEnabled,
-			boolean bShowPerspective,
-			boolean bShowNoOpPrototype,
-			ArrayList<FmmNode> aTreeNodeTypeList ) {
-		this.nameStringResourceId = aNameStringResourceId;
-		this.name = FmmHelper.getContext().getResources().getString(this.nameStringResourceId);
-		this.iconDrawableResourceId = anIconDrawableResourceId;
-		this.iconDrawable = FmmHelper.getContext().getResources().getDrawable(this.iconDrawableResourceId);
-		this.buttonResourceId = aButtonResourceId;
-		this.menuSequence = aMenuSequence;
-		this.enabled = bEnabled;
-		this.isShowPerspective = bEnabled == true ? bShowPerspective : false;
-		this.showNoOpPrototype = bShowNoOpPrototype;
-		this.treeNodeTypeList = aTreeNodeTypeList;
-	}
-	
-	@Override
-	public String getName() {
-		return this.name;
-	}
+    ));
 
-	@Override
-	public int getIconDrawableResourceId() {
-		return this.iconDrawableResourceId;
-	}
-	
-	@Override
-	public Drawable getIconDrawable() {
-		return this.iconDrawable;
-	}
+    static {
+        GcgPerspective.VALUES.add(ANALYSIS);
+        GcgPerspective.VALUES.add(BUDGETING);
+        GcgPerspective.VALUES.add(COMMITMENTS);
+        GcgPerspective.VALUES.add(COMMUNITY);
+        GcgPerspective.VALUES.add(COMPLETION);
+        GcgPerspective.VALUES.add(CONFIRMED_COMMITMENTS);
+        GcgPerspective.VALUES.add(DECLINED_COMMITMENTS);
+        GcgPerspective.VALUES.add(DECKANGL);
+        GcgPerspective.VALUES.add(FACILITATION_ISSUES);
+        GcgPerspective.VALUES.add(FLYWHEEL_TEAMS);
+        GcgPerspective.VALUES.add(FUNCTIONAL_TEAMS);
+        GcgPerspective.VALUES.add(GOVERNANCE);
+        GcgPerspective.VALUES.add(GOVERNANCE_TEAMS);
+        GcgPerspective.VALUES.add(HISTORY);
+        GcgPerspective.VALUES.add(NOTES);
+        GcgPerspective.VALUES.add(PROPOSED_COMMITMENTS);
+        GcgPerspective.VALUES.add(SERVICE_DELIVERY);
+        GcgPerspective.VALUES.add(STRATEGIC_PLANNING);
+        GcgPerspective.VALUES.add(STRATEGY_TEAMS);
+        GcgPerspective.VALUES.add(STORY);
+        GcgPerspective.VALUES.add(SUGGESTED_COMMITMENTS);
+        GcgPerspective.VALUES.add(TRIBKN);
+        GcgPerspective.VALUES.add(WITHDRAWN_COMMITMENTS);
+        GcgPerspective.VALUES.add(WORK_BREAKDOWN);
+        GcgPerspective.VALUES.add(WORK_PLANNING);
+    }
 
-	@Override
-	public int getButtonDrawableResourceId() {
-		return this.buttonResourceId;
-	}
-	
-	@Override
-	public Button getButton(View aView) {
-		if(this.button == null) {
-			this.button = (Button) aView.findViewById(this.buttonResourceId);
-		}
-		return this.button;
-	}
-	
-	@Override
-	public int getMenuSequence() {
-		return this.menuSequence;
-	}
-	
-	@Override
-	public boolean isEnabled() {
-		return this.enabled;
-	}
-	
-	@Override
-	public void setEnabled(boolean aBoolean) {
-		this.enabled = aBoolean;
-	}
-	
-	@Override
-	public boolean isShowPerspective() {
-		return this.isShowPerspective;
-	}
-	
-	@Override
-	public void setShowPerspective(boolean aBoolean) {
-		this.isShowPerspective = aBoolean;
-	}
-	
-	@Override
-	public boolean showNoOpPerspectivePrototype() {
-		return this.showNoOpPrototype;
-	}
-	
-	@Override
-	public Drawable getPrototypeDrawable() {
-		return FmmHelper.getContext().getResources().getDrawable(this.prototypeResourceId);
-	}
-	
-	public ArrayList<FmmNode> getTreeNodeTypeList() {
-		return this.treeNodeTypeList;
-	}
-	
-	@Override
-	public String toString() {
-		return this.name;
-	}
-	
-	@Override
-	public FmmPerspective getPerspectiveForName(String aPerspectiveName) {
-		for (FmmPerspective thePerspective : FmmPerspective.values()) {
-			if (thePerspective.toString().equals(aPerspectiveName)) {
-				return thePerspective;
-			}
-		}
-		return null;
-	}
+    private static final ArrayList<FmmPerspective> FMM_VALUES = new ArrayList<FmmPerspective>();
 
+    public static ArrayList<FmmPerspective> getFmmValues() {
+        if(FmmPerspective.FMM_VALUES.size() == 0) {
+            for(GcgPerspective theGcgPerspective : GcgPerspective.values()) {
+                FmmPerspective.FMM_VALUES.add((FmmPerspective) theGcgPerspective);
+            }
+        }
+        return FMM_VALUES;
+    }
+
+    public static FmmPerspective getFmmObjectForName(String aName) {
+        return (FmmPerspective) getObjectForName(aName);
+    }
+
+    private ArrayList<FmmNode> treeNodeTypeList = new ArrayList<FmmNode>();
+
+    private FmmPerspective(
+            int aNameStringResourceId,
+            int anIconDrawableResourceId,
+            int aButtonResourceId,
+            int aMenuSequence,
+            boolean bEnabled,
+            boolean bShowPerspective,
+            boolean bShowNoOpPrototype,
+            ArrayList<FmmNode> aTreeNodeTypeList) {
+        super(aNameStringResourceId, anIconDrawableResourceId, aButtonResourceId, aMenuSequence, bEnabled, bShowPerspective, bShowNoOpPrototype);
+        this.treeNodeTypeList = aTreeNodeTypeList;
+    }
+
+    public ArrayList<FmmNode> getTreeNodeTypeList() {
+        return this.treeNodeTypeList;
+    }
 }

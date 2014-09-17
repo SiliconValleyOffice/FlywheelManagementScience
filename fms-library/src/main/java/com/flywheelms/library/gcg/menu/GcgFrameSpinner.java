@@ -48,8 +48,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.flywheelms.library.gcg.activity.GcgActivity;
+import com.flywheelms.library.gcg.context.GcgFrame;
 import com.flywheelms.library.gcg.helper.GcgPerspectiveMenu;
-import com.flywheelms.library.gcg.interfaces.GcgFrame;
 import com.flywheelms.library.gcg.interfaces.GcgPerspective;
 import com.flywheelms.library.gcg.viewflipper.GcgPerspectiveFlipper;
 import com.flywheelms.library.gcg.viewflipper.GcgViewFlipperChildView;

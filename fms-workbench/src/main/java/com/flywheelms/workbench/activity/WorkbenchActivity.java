@@ -65,8 +65,8 @@ import com.flywheelms.library.fms.helper.FmsActivityHelper;
 import com.flywheelms.library.fms.interfaces.FmsDecKanGlNavigationDialogParent;
 import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.gcg.context.GcgApplicationContext;
+import com.flywheelms.library.gcg.context.GcgFrame;
 import com.flywheelms.library.gcg.helper.GcgPerspectiveMenu;
-import com.flywheelms.library.gcg.interfaces.GcgFrame;
 import com.flywheelms.library.gcg.interfaces.GcgGuiable;
 import com.flywheelms.library.gcg.menu.GcgFrameSpinner;
 import com.flywheelms.library.gcg.menu.GcgPerspectiveMenuButton;
@@ -276,7 +276,7 @@ public class WorkbenchActivity extends GcgActivity implements FmsDecKanGlNavigat
 	private void initializeFrameSpinner() {
 		ArrayList<GcgFrame> theFrameList = new ArrayList<GcgFrame>();
 		// MUST add in the same sequence as desired in the spinnable menu heading
-		theFrameList.add(FmmFrame.CONTEXT_WORKBENCH);
+		theFrameList.add(FmmFrame.CONTEXT_FOR_WORKBENCH);
 		theFrameList.add(FmmFrame.VELOCITY);
 		theFrameList.add(FmmFrame.QUALITY);
 		theFrameList.add(FmmFrame.TEAM);
@@ -312,7 +312,7 @@ public class WorkbenchActivity extends GcgActivity implements FmsDecKanGlNavigat
 		TextView theMenuSpacer = (TextView) getFdkKeypadPeerViewLeft().findViewById(com.flywheelms.workbench.R.id.fwb__context__menu_filler);
 		GcgPerspectiveMenu theGcgPerspectiveMenu = new GcgPerspectiveMenu(thePerspectiveButtonList, theMenuSpacer);
 		FwbContextPerspectiveFlipper theFwbContextPerspectiveFlipper = (FwbContextPerspectiveFlipper) findViewById(com.flywheelms.workbench.R.id.context_frame__perspective_flipper);
-		this.frameSpinner.putFrame(FmmFrame.CONTEXT_WORKBENCH, theGcgPerspectiveMenu, theFwbContextPerspectiveFlipper);
+		this.frameSpinner.putFrame(FmmFrame.CONTEXT_FOR_WORKBENCH, theGcgPerspectiveMenu, theFwbContextPerspectiveFlipper);
 	}
 
 	private void initVelocityFrame() {

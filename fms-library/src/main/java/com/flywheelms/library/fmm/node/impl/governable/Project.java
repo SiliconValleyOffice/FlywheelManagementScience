@@ -160,19 +160,15 @@ public class Project extends FmmCompletableNodeImpl {
 
     @Override
     public void updateNodeCompletionSummary(FmmPerspective anFmmPerspective, NodeCompletionSummary aNodeSummary) {
-        switch(anFmmPerspective) {
-            case WORK_BREAKDOWN:
-                Collection<ProjectAsset> theProjectAssetCollection = getProjectAssetCollection();
-                if(theProjectAssetCollection.size() > 0) {
-                    aNodeSummary.setShowNodeSummary(true);
-                    aNodeSummary.setSummaryPrefix("( " + countGreenProjectAssets() + " ");
-                    aNodeSummary.setSummarySuffix(" of " + theProjectAssetCollection.size() + " )");
-                } else {
-                    aNodeSummary.setShowNodeSummary(false);
-                }
-                break;
-            default:
-                break;
+        if(anFmmPerspective == FmmPerspective.WORK_BREAKDOWN) {
+            Collection<ProjectAsset> theProjectAssetCollection = getProjectAssetCollection();
+            if(theProjectAssetCollection.size() > 0) {
+                aNodeSummary.setShowNodeSummary(true);
+                aNodeSummary.setSummaryPrefix("( " + countGreenProjectAssets() + " ");
+                aNodeSummary.setSummarySuffix(" of " + theProjectAssetCollection.size() + " )");
+            } else {
+                aNodeSummary.setShowNodeSummary(false);
+            }
         }
     }
 

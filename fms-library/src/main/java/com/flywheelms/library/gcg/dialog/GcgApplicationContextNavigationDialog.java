@@ -52,11 +52,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.gcg.context.GcgActivityBreadcrumb;
 import com.flywheelms.library.gcg.context.GcgApplicationContext;
 import com.flywheelms.library.gcg.context.GcgNavigationTarget;
+import com.flywheelms.library.gcg.interfaces.GcgPerspective;
 
 import java.util.ArrayList;
 
@@ -119,7 +119,7 @@ public class GcgApplicationContextNavigationDialog extends GcgDialog {
 	private ArrayList<GcgNavigationTarget> getNavigationChoiceList() {
 		ArrayList<GcgNavigationTarget> theChoiceList = new ArrayList<GcgNavigationTarget>();
 		GcgApplicationContext theGcgApplicationContext = this.gcgActivity.getGcgApplicationContext();
-		for(FmmPerspective thePerspective : theGcgApplicationContext.getRootActivityFrame().getPerspectiveList()) {
+		for(GcgPerspective thePerspective : theGcgApplicationContext.getRootActivityFrame().getPerspectiveList()) {
 			theChoiceList.add(new GcgNavigationTarget(
 					thePerspective.getIconDrawableResourceId(),
 					thePerspective.getName(),
