@@ -54,7 +54,7 @@ import com.flywheelms.library.fms.pdf.publication.section.PdfSectionNotes;
 import com.flywheelms.library.fms.pdf.publication.section.PdfSectionStory;
 import com.flywheelms.library.fms.pdf.publication.section.PdfSectionTableOfContents;
 import com.flywheelms.library.fms.pdf.publication.section.PdfSectionTitlePage;
-import com.flywheelms.library.fms.wizard_step_flipper.step.FmsNodePublishingContentSelectionWizardStepView;
+import com.flywheelms.library.fms.wizard.step.FmsNodePublishingContentSelectionWizardStepView;
 import com.flywheelms.library.fse.model.FseDocument;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;

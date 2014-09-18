@@ -41,7 +41,7 @@
 ** <http://www.gnu.org/licenses/gpl-3.0.html>.
 */
 
-package com.flywheelms.library.fms.wizard_step_flipper.step;
+package com.flywheelms.library.fms.wizard.step;
 
 import android.content.Context;
 import android.text.Editable;
@@ -56,7 +56,7 @@ import com.flywheelms.library.fdk.wizard.FdkWizardStepView;
 import com.flywheelms.library.fmm.repository.FmmConfigurationTemplateSource;
 import com.flywheelms.library.fms.helper.FmsHelpIndex;
 import com.flywheelms.library.fms.widget.spinner.FmmTemplateWidgetSpinner;
-import com.flywheelms.library.fms.wizard_step_flipper.CreateFmmWizardStepFlipper;
+import com.flywheelms.library.fms.wizard.CreateFmmWizardStepFlipper;
 import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.gcg.helper.GcgHelper;
 import com.flywheelms.library.gcg.viewflipper.GcgViewFlipper;

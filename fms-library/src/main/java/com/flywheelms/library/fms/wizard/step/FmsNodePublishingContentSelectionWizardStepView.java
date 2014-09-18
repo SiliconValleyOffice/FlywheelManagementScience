@@ -41,7 +41,7 @@
 ** <http://www.gnu.org/licenses/gpl-3.0.html>.
 */
 
-package com.flywheelms.library.fms.wizard_step_flipper.step;
+package com.flywheelms.library.fms.wizard.step;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -54,6 +54,7 @@ import android.widget.CheckBox;
 import android.widget.Spinner;
 
 import com.flywheelms.library.R;
+import com.flywheelms.library.fms.activity.FmsNodeWizardActivity;
 import com.flywheelms.library.fms.helper.FmsHelpIndex;
 import com.flywheelms.library.fms.pdf.FmsPdfHelper;
 import com.flywheelms.library.fms.preferences.GuiPreferenceAttribute;
@@ -226,7 +227,7 @@ public class FmsNodePublishingContentSelectionWizardStepView extends GcgWizardSt
 
 	protected void previewPdf() {
 		getGcgActivity().startBlueActivityStatusAnimation(true);
-		File theReportFile = FmsPdfHelper.generatePdfFile(this, getWizardActivity().getFmmNodeIdString(), getWizardActivity().getAbbreviatedFmmNodeIdString());
+		File theReportFile = FmsPdfHelper.generatePdfFile(this, ((FmsNodeWizardActivity) getWizardActivity()).getFmmNodeIdString(), ((FmsNodeWizardActivity) getWizardActivity()).getAbbreviatedFmmNodeIdString());
 		FmsPdfHelper.viewPdfFile(this.context, theReportFile);
 	}
 
@@ -386,7 +387,7 @@ public class FmsNodePublishingContentSelectionWizardStepView extends GcgWizardSt
 	// TODO - unfinished
 	private List<String> getTransactionDateListForSpinner() {
 		ArrayList<String> theDateStringList = new ArrayList<String>();
-		List<FseDocumentTransaction> theTransactionList = getWizardActivity().getFmmHeadlineNode().getFseDocument().getDocumentSectionHistory().getDocumentTransactionList();
+		List<FseDocumentTransaction> theTransactionList = ((FmsNodeWizardActivity) getWizardActivity()).getFmmHeadlineNode().getFseDocument().getDocumentSectionHistory().getDocumentTransactionList();
 		if(theTransactionList.size() < 2) {
 			this.contentModification.setEnabled(false);
 			this.contentModification.setChecked(false);

@@ -51,8 +51,8 @@ import android.provider.BaseColumns;
 import android.provider.ContactsContract;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
 
-import com.flywheelms.library.fms.helper.FmsActivityHelper;
 import com.flywheelms.library.gcg.activity.GcgActivity;
+import com.flywheelms.library.gcg.helper.GcgActivityHelper;
 
 public class AndroidContact {
 
@@ -114,15 +114,15 @@ public class AndroidContact {
 	}
 	
 	public static void startContactPicker(GcgActivity anActivity ) {
-		FmsActivityHelper.startContactPicker(anActivity);
+		GcgActivityHelper.startContactPicker(anActivity);
 	}
 	
 	public static void startContactPicker(GcgActivity anActivity, int aRequestCode ) {
-		FmsActivityHelper.startContactPicker(anActivity, aRequestCode);
+		GcgActivityHelper.startContactPicker(anActivity, aRequestCode);
 	}
 
 	public static void startContactEditor(GcgActivity anActivity, long anId, int aRequestCode) {
-		FmsActivityHelper.startContactEditor(anActivity, anId, aRequestCode);
+		GcgActivityHelper.startContactEditor(anActivity, anId, aRequestCode);
 	}
 	
 	public long getId() {

@@ -1,5 +1,5 @@
-/* @(#)GcgWizardView.java
-** 
+/* @(#)FmsWizardStepFlipper.java
+**
 ** Copyright (C) 2012 by Steven D. Stamps
 **
 **             Trademarks & Copyrights
@@ -41,37 +41,23 @@
 ** <http://www.gnu.org/licenses/gpl-3.0.html>.
 */
 
-package com.flywheelms.library.gcg.wizard;
+package com.flywheelms.library.fms.wizard;
 
 import android.content.Context;
 import android.util.AttributeSet;
 
-import com.flywheelms.library.gcg.listeners.GcgDoItNowListener;
-import com.flywheelms.library.gcg.viewflipper.GcgViewFlipper;
+import com.flywheelms.library.fms.activity.FmsWizardActivity;
+import com.flywheelms.library.gcg.wizard.GcgWizardStepFlipper;
 
-public abstract class GcgWizardStepFlipper extends GcgViewFlipper implements GcgDoItNowListener {
-	
+public abstract class FmsWizardStepFlipper extends GcgWizardStepFlipper {
 
-	public GcgWizardStepFlipper(Context aContext, AttributeSet anAttributeSet) {
-		super(aContext, anAttributeSet);
-	}
-	
-	public void enableDoItNowButton() {
-		if(validWizardData()) {
-			getGcgActivity().enableDoItNowButton(this);
-		}
-	}
 
-	public boolean validWizardData() {
-		return true;
-	}
+    public FmsWizardStepFlipper(Context aContext, AttributeSet anAttributeSet) {
+        super(aContext, anAttributeSet);
+    }
 
-	public void disableDoItNowButton() {
-		getGcgActivity().disableDoItNowButton();
-	}
-	
-	public GcgWizardActivity getWizardActivity() {
-		return (GcgWizardActivity) getGcgActivity();
-	}
-	
+    public FmsWizardActivity getWizardActivity() {
+        return (FmsWizardActivity) getGcgActivity();
+    }
+
 }

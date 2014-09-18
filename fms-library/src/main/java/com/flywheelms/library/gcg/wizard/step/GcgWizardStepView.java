@@ -55,12 +55,12 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.flywheelms.library.R;
-import com.flywheelms.library.fms.activity.FmsNodeWizardActivity;
 import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.gcg.helper.GcgHelper;
 import com.flywheelms.library.gcg.listeners.GcgFlingListener;
 import com.flywheelms.library.gcg.viewflipper.GcgViewFlipper;
 import com.flywheelms.library.gcg.viewflipper.GcgViewFlipperChildView;
+import com.flywheelms.library.gcg.wizard.GcgWizardActivity;
 import com.flywheelms.library.gcg.wizard.GcgWizardStepFlipper;
 
 public abstract class GcgWizardStepView extends GcgViewFlipperChildView {
@@ -160,7 +160,7 @@ public abstract class GcgWizardStepView extends GcgViewFlipperChildView {
 		return (GcgWizardStepFlipper) this.viewFlipper;
 	}
 	
-	public FmsNodeWizardActivity getWizardActivity() {
+	public GcgWizardActivity getWizardActivity() {
 		return getWizardStepFlipper().getWizardActivity();
 	}
 	

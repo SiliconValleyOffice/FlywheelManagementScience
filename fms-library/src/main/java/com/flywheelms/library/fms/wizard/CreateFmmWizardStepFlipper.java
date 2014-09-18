@@ -41,7 +41,7 @@
 ** <http://www.gnu.org/licenses/gpl-3.0.html>.
 */
 
-package com.flywheelms.library.fms.wizard_step_flipper;
+package com.flywheelms.library.fms.wizard;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -59,11 +59,11 @@ import com.flywheelms.library.fmm.repository.FmmConfigurationTeam;
 import com.flywheelms.library.fms.activity.CreateFmmWizard;
 import com.flywheelms.library.fms.helper.FmmConfigurationHelper;
 import com.flywheelms.library.fms.helper.FmsFileHelper;
-import com.flywheelms.library.fms.wizard_step_flipper.step.CreateFmmChooseTemplateWizardStepView;
-import com.flywheelms.library.fms.wizard_step_flipper.step.CreateFmmDoItNowWizardStepView;
-import com.flywheelms.library.fms.wizard_step_flipper.step.CreateFmmGovernanceWizardStepView;
-import com.flywheelms.library.fms.wizard_step_flipper.step.CreateFmmHeadlineWizardStepView;
-import com.flywheelms.library.fms.wizard_step_flipper.step.CreateFmmOrganizationWizardStepView;
+import com.flywheelms.library.fms.wizard.step.CreateFmmChooseTemplateWizardStepView;
+import com.flywheelms.library.fms.wizard.step.CreateFmmDoItNowWizardStepView;
+import com.flywheelms.library.fms.wizard.step.CreateFmmGovernanceWizardStepView;
+import com.flywheelms.library.fms.wizard.step.CreateFmmHeadlineWizardStepView;
+import com.flywheelms.library.fms.wizard.step.CreateFmmOrganizationWizardStepView;
 import com.flywheelms.library.gcg.helper.GcgHelper;
 import com.flywheelms.library.gcg.interfaces.GcgFileNameValidator;
 import com.flywheelms.library.gcg.wizard.GcgWizardStepFlipper;

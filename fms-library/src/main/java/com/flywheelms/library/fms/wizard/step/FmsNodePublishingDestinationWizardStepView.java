@@ -41,7 +41,7 @@
 ** <http://www.gnu.org/licenses/gpl-3.0.html>.
 */
 
-package com.flywheelms.library.fms.wizard_step_flipper.step;
+package com.flywheelms.library.fms.wizard.step;
 
 import android.app.Activity;
 import android.content.Context;
@@ -54,6 +54,7 @@ import android.widget.TextView;
 
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.node.impl.governable.CommunityMember;
+import com.flywheelms.library.fms.activity.FmsNodeWizardActivity;
 import com.flywheelms.library.fms.helper.FmsHelpIndex;
 import com.flywheelms.library.fms.helper.FmsTextHelper;
 import com.flywheelms.library.fms.preferences.GuiPreferenceAttribute;
@@ -90,7 +91,7 @@ public class FmsNodePublishingDestinationWizardStepView extends GcgWizardStepVie
 		super.initialize(anGcgActivity, aViewFlipper, aPageNumber);
 		this.androidDownloadsDirectory = (CheckBox) findViewById(R.id.file_storage__android__check_box);
 		this.fileName = (TextView) findViewById(R.id.file_name__data);
-		this.fileName.setText(getWizardStepFlipper().getWizardActivity().getAbbreviatedFmmNodeIdString() + ".pdf");
+		this.fileName.setText(((FmsNodeWizardActivity) getWizardStepFlipper().getWizardActivity()).getAbbreviatedFmmNodeIdString() + ".pdf");
 		this.dropBox = (CheckBox) findViewById(R.id.file_storage__dropbox__check_box);
 		initializeTableRowClickListener(this.dropBox, R.id.row__a2);
 		this.dropBoxDirectory = (EditText) findViewById(R.id.dropbox_directory__data);

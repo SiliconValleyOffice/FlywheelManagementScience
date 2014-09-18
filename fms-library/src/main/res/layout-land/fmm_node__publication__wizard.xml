@@ -4,29 +4,29 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
     
-    <com.flywheelms.library.fms.wizard_step_flipper.FmsNodePublishingWizardStepFlipper
+    <com.flywheelms.library.fms.wizard.FmsNodePublishingWizardStepFlipper
         android:id="@+id/gcg__wizard__step_flipper"
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
 
         <!-- page 1 -->
-        <com.flywheelms.library.fms.wizard_step_flipper.step.FmsNodePublishingContentSelectionWizardStepView
+        <com.flywheelms.library.fms.wizard.step.FmsNodePublishingContentSelectionWizardStepView
             android:id="@+id/wizard_step__content_selection"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
         <!-- page 3 -->
-        <com.flywheelms.library.fms.wizard_step_flipper.step.FmsNodePublishingDoItNowStepView
+        <com.flywheelms.library.fms.wizard.step.FmsNodePublishingDoItNowStepView
             android:id="@+id/wizard_step__publish"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
         <!-- page 2 -->
-        <com.flywheelms.library.fms.wizard_step_flipper.step.FmsNodePublishingDestinationWizardStepView
+        <com.flywheelms.library.fms.wizard.step.FmsNodePublishingDestinationWizardStepView
             android:id="@+id/wizard_step__destination"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
         
-    </com.flywheelms.library.fms.wizard_step_flipper.FmsNodePublishingWizardStepFlipper>
+    </com.flywheelms.library.fms.wizard.FmsNodePublishingWizardStepFlipper>
 
 </LinearLayout>

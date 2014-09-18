@@ -49,10 +49,9 @@ import android.widget.Button;
 import android.widget.CheckBox;
 
 import com.flywheelms.library.R;
-import com.flywheelms.library.fms.dialog.FmsDialog;
 import com.flywheelms.library.gcg.activity.GcgActivity;
 
-public class GcgSaveChangesDialog extends FmsDialog {
+public class GcgSaveChangesDialog extends GcgDialog {
 	
 	public static final int button_choice__DISCARD = 0;
 	public static final int button_choice__CANCEL_NAVIGATION = 1;
@@ -69,7 +68,7 @@ public class GcgSaveChangesDialog extends FmsDialog {
 	public static final int next_action__REVERT_DOCUMENT_TO_TRANSACTION = 7;
 
 	public GcgSaveChangesDialog(GcgActivity aLibraryActivity, String aViewGroupName, int aNextAction) {
-		super(aLibraryActivity, aViewGroupName);
+		super(aLibraryActivity, aViewGroupName, "");
 		this.nextAction = aNextAction;
 	}
 

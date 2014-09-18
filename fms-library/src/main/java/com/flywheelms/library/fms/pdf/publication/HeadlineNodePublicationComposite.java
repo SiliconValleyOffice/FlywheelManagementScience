@@ -45,7 +45,7 @@ package com.flywheelms.library.fms.pdf.publication;
 
 import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
 import com.flywheelms.library.fms.pdf.publication.image_cache.HeadlineNodePublicationImageCache;
-import com.flywheelms.library.fms.wizard_step_flipper.step.FmsNodePublishingContentSelectionWizardStepView;
+import com.flywheelms.library.fms.wizard.step.FmsNodePublishingContentSelectionWizardStepView;
 import com.flywheelms.library.fse.model.FseDocument;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.pdf.PdfContentByte;

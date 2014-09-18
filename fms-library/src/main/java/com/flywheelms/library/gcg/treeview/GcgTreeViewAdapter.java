@@ -93,7 +93,6 @@ public abstract class GcgTreeViewAdapter extends BaseAdapter {
     };
 	protected final OnLongClickListener launchPopupMenuListener = new OnLongClickListener() {
 		
-		// TODO - decouple GCG from FMS - push down to FmsTreeViewAdapter
 		@Override
 		public boolean onLongClick(View aView) {
 			GcgTreeViewAdapter.this.setRowBackground(aView, R.color.silver);

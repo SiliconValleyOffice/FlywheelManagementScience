@@ -52,7 +52,7 @@ import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
 import com.flywheelms.library.fms.helper.FmsHelpIndex;
-import com.flywheelms.library.fms.wizard_step_flipper.FmsNodePublishingWizardStepFlipper;
+import com.flywheelms.library.fms.wizard.FmsNodePublishingWizardStepFlipper;
 import com.flywheelms.library.gcg.context.GcgNavigationTarget;
 
 public class PdfPublicationWizard extends FmsNodeWizardActivity {

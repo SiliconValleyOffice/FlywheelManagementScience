@@ -50,8 +50,8 @@ import android.util.AttributeSet;
 import android.widget.ArrayAdapter;
 
 import com.flywheelms.library.R;
-import com.flywheelms.library.fms.helper.FmsActivityHelper;
 import com.flywheelms.library.gcg.android.AndroidContact;
+import com.flywheelms.library.gcg.helper.GcgActivityHelper;
 import com.flywheelms.library.gcg.helper.GcgHelper;
 import com.flywheelms.library.gcg.widget.GcgWidgetListView;
 
@@ -75,13 +75,13 @@ public class AndroidContactsWidgetListView extends GcgWidgetListView <AndroidCon
 	
 	@Override
 	protected void launchObjectEditorActivity(AndroidContact anAndroidContact) {
-		FmsActivityHelper.startContactEditor(this.gcgActivity, anAndroidContact.getId(), getRequestCode2());
+		GcgActivityHelper.startContactEditor(this.gcgActivity, anAndroidContact.getId(), getRequestCode2());
 	}
 	
 	@Override
 	protected int getRequestCode() {
 		if(this.requestCode == 0) {
-			this.requestCode = FmsActivityHelper.request_code__ANDROID_CONTACT_PICKER;
+			this.requestCode = GcgActivityHelper.request_code__ANDROID_CONTACT_PICKER;
 		}
 		return this.requestCode;
 	}
@@ -89,7 +89,7 @@ public class AndroidContactsWidgetListView extends GcgWidgetListView <AndroidCon
 	@Override
 	protected int getRequestCode2() {
 		if(this.requestCode2 == 0) {
-			this.requestCode2 = FmsActivityHelper.request_code__ANDROID_CONTACT_EDITOR;
+			this.requestCode2 = GcgActivityHelper.request_code__ANDROID_CONTACT_EDITOR;
 		}
 		return this.requestCode2;
 	}

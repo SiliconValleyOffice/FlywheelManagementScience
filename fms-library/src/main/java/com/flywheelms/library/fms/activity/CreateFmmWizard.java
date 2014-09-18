@@ -51,7 +51,7 @@ import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.repository.FmmAccessScope;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
 import com.flywheelms.library.fms.helper.FmsHelpIndex;
-import com.flywheelms.library.fms.wizard_step_flipper.CreateFmmWizardStepFlipper;
+import com.flywheelms.library.fms.wizard.CreateFmmWizardStepFlipper;
 import com.flywheelms.library.gcg.wizard.GcgWizardActivity;
 
 public class CreateFmmWizard extends GcgWizardActivity {

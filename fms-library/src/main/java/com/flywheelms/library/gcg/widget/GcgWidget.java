@@ -61,6 +61,7 @@ import com.flywheelms.library.fdk.interfaces.FdkListener;
 import com.flywheelms.library.fms.dialog.FmsDialog;
 import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.gcg.button.multi_shift.GcgMultiShiftState;
+import com.flywheelms.library.gcg.dialog.GcgDialog;
 import com.flywheelms.library.gcg.helper.GcgHelper;
 import com.flywheelms.library.gcg.helper.GuiHelper;
 
@@ -69,7 +70,7 @@ import java.util.ArrayList;
 public abstract class GcgWidget extends RelativeLayout implements FdkDictationResultsConsumer {
 	
 	protected GcgActivity gcgActivity;
-	protected FmsDialog fmsDialog;
+	protected GcgDialog gcgDialog;
 	private FdkListener fdkListener;
 	protected ArrayList<GcgOnSetTextListener> onSetTextListenerList = new ArrayList<GcgOnSetTextListener>(); 
 	public static final String container_layout__MENU_PARAMETER = "menu_parameter";
@@ -308,8 +309,8 @@ public abstract class GcgWidget extends RelativeLayout implements FdkDictationRe
 		this.gcgActivity = aGcgActivity;
 	}
 	
-	public void setFmsDialog(FmsDialog anFmsDialog) {
-		this.fmsDialog = anFmsDialog;
+	public void setGcgDialog(FmsDialog anFmsDialog) {
+		this.gcgDialog = anFmsDialog;
 	}
 	
 	public FdkListener getFdkListener() {

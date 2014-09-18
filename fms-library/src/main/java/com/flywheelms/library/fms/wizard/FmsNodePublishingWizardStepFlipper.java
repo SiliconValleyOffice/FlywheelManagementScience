@@ -41,7 +41,7 @@
 ** <http://www.gnu.org/licenses/gpl-3.0.html>.
 */
 
-package com.flywheelms.library.fms.wizard_step_flipper;
+package com.flywheelms.library.fms.wizard;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -52,17 +52,16 @@ import com.flywheelms.library.fms.activity.FmsNodeWizardActivity;
 import com.flywheelms.library.fms.helper.FmsEmailHelper;
 import com.flywheelms.library.fms.miscellaneous.HpEprint;
 import com.flywheelms.library.fms.pdf.FmsPdfHelper;
-import com.flywheelms.library.fms.wizard_step_flipper.step.FmsNodePublishingContentSelectionWizardStepView;
-import com.flywheelms.library.fms.wizard_step_flipper.step.FmsNodePublishingDestinationWizardStepView;
-import com.flywheelms.library.fms.wizard_step_flipper.step.FmsNodePublishingDoItNowStepView;
+import com.flywheelms.library.fms.wizard.step.FmsNodePublishingContentSelectionWizardStepView;
+import com.flywheelms.library.fms.wizard.step.FmsNodePublishingDestinationWizardStepView;
+import com.flywheelms.library.fms.wizard.step.FmsNodePublishingDoItNowStepView;
 import com.flywheelms.library.gcg.android.AndroidContact;
 import com.flywheelms.library.gcg.helper.GcgHelper;
-import com.flywheelms.library.gcg.wizard.GcgWizardStepFlipper;
 
 import java.io.File;
 import java.util.ArrayList;
 
-public class FmsNodePublishingWizardStepFlipper extends GcgWizardStepFlipper {
+public class FmsNodePublishingWizardStepFlipper extends FmsWizardStepFlipper {
 	
 	private FmsNodePublishingContentSelectionWizardStepView contentSelectionWizardStep;
 	private FmsNodePublishingDestinationWizardStepView destinationWizardStep;
@@ -86,7 +85,7 @@ public class FmsNodePublishingWizardStepFlipper extends GcgWizardStepFlipper {
 	
 	@Override
 	public void doItNow() {
-		this.pdfFile = FmsPdfHelper.generatePdfFile(getWizardStepView1(), getWizardActivity().getFmmNodeIdString(), getWizardActivity().getAbbreviatedFmmNodeIdString());
+		this.pdfFile = FmsPdfHelper.generatePdfFile(getWizardStepView1(), ((FmsNodeWizardActivity) getWizardActivity()).getFmmNodeIdString(), ((FmsNodeWizardActivity) getWizardActivity()).getAbbreviatedFmmNodeIdString());
 		if(getWizardStepView2().getPrint().isChecked()) {
 			HpEprint.print(getGcgActivity(), this.pdfFile);
 		}
