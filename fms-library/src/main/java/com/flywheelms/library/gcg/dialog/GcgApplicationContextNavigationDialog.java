@@ -83,14 +83,14 @@ public class GcgApplicationContextNavigationDialog extends GcgDialog {
 	protected void initializeDialogBody() {
 		this.gcgNavigationTargetArrayAdapter = new ArrayAdapter<GcgNavigationTarget>(
 				this.gcgActivity,
-				R.layout.gcg__application_context__breadcrumb,
+				R.layout.gcg__application_context__navigation__breadcrumb,
 				getNavigationChoiceList() ) {
 
 			@Override
 			public View getView(int aViewPosition, View aRowView, ViewGroup aViewGroupParent) {
 				// low volume, transient list; so we do not use the Android ViewHolder pattern  :-)
 				final LayoutInflater inflater = LayoutInflater.from(GcgApplicationContextNavigationDialog.this.gcgActivity);
-				View theRowView = inflater.inflate(R.layout.gcg__application_context__breadcrumb, null);
+				View theRowView = inflater.inflate(R.layout.gcg__application_context__navigation__breadcrumb, null);
 				GcgNavigationTarget theNavigationTarget = GcgApplicationContextNavigationDialog.this.gcgNavigationTargetArrayAdapter.getItem(aViewPosition);
 				ImageView theImageView = (ImageView) theRowView.findViewById(R.id.gcg_context__breadcrumb__image);
 				theImageView.setImageResource(theNavigationTarget.getDrawableResourceId() );

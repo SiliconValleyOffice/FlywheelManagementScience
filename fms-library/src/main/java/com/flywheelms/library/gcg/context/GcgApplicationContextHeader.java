@@ -204,7 +204,7 @@ public class GcgApplicationContextHeader extends LinearLayout {
 				addContextDrawable(this.activityBreadcrumbListContainer, theFirstActivityBreadcrumb.getFrameBreadcrumb().getPerspectiveDrawableResourceId());
 				if(this.applicationContext.getActivityBreadcrumbList().size() == 1 && theFirstActivityBreadcrumb.getFrameBreadcrumb().hasPerspectiveContext()) {
 					LinearLayout thePerspectiveContextContainer = GcgHelper.inflateLinearLayout(
-							getContext(), R.layout.gcg__application_context__perspective_context_container, this.activityBreadcrumbListContainer);
+							getContext(), R.layout.gcg__application_context__perspective_context__container, this.activityBreadcrumbListContainer);
 					for(GcgContextBreadcrumb theContextBreadcrumb : theFirstActivityBreadcrumb.getFrameBreadcrumb().getPerspectiveContext()) {
 						addPerspectiveContextSeparator(thePerspectiveContextContainer);
 						addContextDrawable(thePerspectiveContextContainer, theContextBreadcrumb.getDrawableResourceId());
@@ -216,7 +216,7 @@ public class GcgApplicationContextHeader extends LinearLayout {
 	}
 
 	private void addPerspectiveContextSeparator(LinearLayout aContainer) {
-		inflate(getContext(), R.layout.gcg__application_context__perspective_context_separator, aContainer);
+		inflate(getContext(), R.layout.gcg__application_context__perspective_context__separator, aContainer);
 	}
 
 	private void addContextDrawable(LinearLayout aContainer, int aDrawableResourceId) {
