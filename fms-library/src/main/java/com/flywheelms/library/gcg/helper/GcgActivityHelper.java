@@ -53,9 +53,6 @@ import com.flywheelms.library.gcg.activity.GcgActivity;
 
 import java.io.File;
 
-/**
- * Created by sstamps on 9/15/14.
- */
 public class GcgActivityHelper {
 
     public static final String bundle_key__INITIAL_FRAME_TO_DISPLAY = "InitialFrameToDisplay";

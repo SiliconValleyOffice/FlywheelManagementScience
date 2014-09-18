@@ -110,7 +110,7 @@ public class GcgApplicationContextNavigationDialog extends GcgDialog {
 			@Override
 			public void onClick(DialogInterface aDialog, int aListItem) {
 				GcgApplicationContextNavigationDialog.this.alertDialog.dismiss();
-				GcgApplicationContextNavigationDialog.this.gcgActivity.fmsApplicationContextNavigation(
+				GcgApplicationContextNavigationDialog.this.gcgActivity.gcgApplicationContextNavigation(
                         GcgApplicationContextNavigationDialog.this.gcgNavigationTargetArrayAdapter.getItem(aListItem));
 			}
 		});

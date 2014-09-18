@@ -68,7 +68,6 @@ import com.flywheelms.library.fdk.FdkHostSupport;
 import com.flywheelms.library.fdk.enumerator.FdkKeyboardState;
 import com.flywheelms.library.fdk.interfaces.FdkHost;
 import com.flywheelms.library.fdk.widget.FdkKeyboard;
-import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.gcg.GcgApplication;
 import com.flywheelms.library.gcg.context.GcgActivityBreadcrumb;
 import com.flywheelms.library.gcg.context.GcgApplicationContext;
@@ -97,6 +96,7 @@ import org.json.JSONObject;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Stack;
+import java.util.UUID;
 
 public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNowClient {
 
@@ -134,8 +134,18 @@ public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNo
 	public GcgActivity(String anInitialHelpContextUrlString) {
 		super();
 		this.helpContextUrlString = anInitialHelpContextUrlString;
-		this.activityNodeIdString = new NodeId("FLA").getNodeIdString();
+		this.activityNodeIdString = generateActivityId();
 	}
+
+    private String generateActivityId() {
+        StringBuilder theStringBuilder = new StringBuilder(getFrameworkCode() + "-");
+        theStringBuilder.append(UUID.randomUUID());
+        return theStringBuilder.toString();
+    }
+
+    protected String getFrameworkCode() {
+        return "GCG";
+    }
 	
 	@Override
 	public void onPostResume() {
@@ -267,7 +277,7 @@ public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNo
 
 	protected void buildContentViewForDataSource() {
 		setContentView(R.layout.gcg__library_activity);
-		this.activityLayout = (LinearLayout) findViewById(R.id.fms_library_activity__layout_root);
+		this.activityLayout = (LinearLayout) findViewById(R.id.gcg_library_activity__layout_root);
 		this.activityLayout.setBackgroundResource(getRootLayoutBackgroundResourceId());
 		layoutInflation();
 	}
@@ -344,7 +354,7 @@ public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNo
 	@Override
 	public boolean onCreateOptionsMenu(Menu aMenu) {
 		MenuInflater aMenuInflater = getMenuInflater();
-		aMenuInflater.inflate(R.menu.fms_activity__default_options_menu, aMenu);
+		aMenuInflater.inflate(getActivityOptionsMenuResourceId(), aMenu);
 		this.fdkHostSupport.initOptionsMenu(aMenu);
 		this.doItNowView = new GcgDoItNowView(this);
 		this.saveDataLongClickListener = new OnLongClickListener() {
@@ -367,8 +377,12 @@ public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNo
 		resetActionBarSave();
 		return true;
 	}
-	
-	protected GcgActivityStatusIndicator getActivityStatusIndicator() {
+
+    protected int getActivityOptionsMenuResourceId() {
+        return R.menu.gcg_activity__default_options_menu;
+    }
+
+    protected GcgActivityStatusIndicator getActivityStatusIndicator() {
 		if(this.activityStatusIndicator == null) {
 			this.activityStatusIndicator = new GcgActivityStatusIndicator(this);
 		}
@@ -637,10 +651,10 @@ public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNo
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		fmsApplicationContextNavigation(theNavigationTarget);
+		gcgApplicationContextNavigation(theNavigationTarget);
 	}
 	
-	public void fmsApplicationContextNavigation(GcgNavigationTarget aGcgNavigationTarget) {
+	public void gcgApplicationContextNavigation(GcgNavigationTarget aGcgNavigationTarget) {
 		if(this.isMainGcgApplicationActivity) {
 			navigateToCurrentFramePerspective(aGcgNavigationTarget);
 			return;
