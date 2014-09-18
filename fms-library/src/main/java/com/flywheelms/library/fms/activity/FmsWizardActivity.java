@@ -6,23 +6,23 @@ import com.flywheelms.library.fmm.enumerator.FmmNodeTransactionType;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.transaction.FmmDataRefreshNotice;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
-import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.gcg.context.GcgNavigationTarget;
+import com.flywheelms.library.gcg.wizard.GcgWizardActivity;
 
 import java.util.ArrayList;
 import java.util.Hashtable;
 
 /**
- * Created by sstamps on 9/15/14.
+ * Created by sstamps on 9/18/14.
  */
-public abstract class FmsActivity extends GcgActivity{
+public abstract class FmsWizardActivity extends GcgWizardActivity {
 
     protected ArrayList<FmmDataRefreshNotice> dataRefreshList;
     protected ArrayList<FmmDataRefreshNotice> parentDataRefreshList;
     protected Hashtable<String, FmmNodeTransactionType> modifiedFmmNodeIdList = new Hashtable<String, FmmNodeTransactionType>();
     protected Hashtable<String, FmmNodeTransactionType> queuedChildModifiedFmmNodeIdTable;
 
-    public FmsActivity(String anInitialHelpContextUrlString) {
+    public FmsWizardActivity(String anInitialHelpContextUrlString) {
         super(anInitialHelpContextUrlString);
     }
 

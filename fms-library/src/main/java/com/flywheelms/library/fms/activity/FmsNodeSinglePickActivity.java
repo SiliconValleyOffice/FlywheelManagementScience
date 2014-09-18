@@ -67,7 +67,6 @@ import android.widget.TextView;
 
 import com.flywheelms.library.R;
 import com.flywheelms.library.fdk.FdkHostSupport;
-import com.flywheelms.library.fdk.activity.FdkActivity;
 import com.flywheelms.library.fdk.enumerator.FdkKeyboardState;
 import com.flywheelms.library.fdk.enumerator.FdkKeyboardStyle;
 import com.flywheelms.library.fdk.widget.FdkKeyboard;
@@ -80,7 +79,7 @@ import com.flywheelms.library.fms.helper.FmsSearchHelper;
 
 import java.util.ArrayList;
 
-public abstract class FmsNodeSinglePickActivity extends FdkActivity {
+public abstract class FmsNodeSinglePickActivity extends FmsFdkActivity {
 
 	protected String searchTypeDescription = "Must contain all...";
 	protected String listActionLabel;

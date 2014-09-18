@@ -48,7 +48,6 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.repository.FmmAccessScope;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
 import com.flywheelms.library.fms.helper.FmsHelpIndex;
@@ -85,15 +84,20 @@ public class CreateFmmWizard extends GcgWizardActivity {
 		return R.layout.create__fmm_repository__wizard;
 	}
 
-	@Override
+    @Override
+    protected int getBreadcrumbDrawableResourceId() {
+        return 0;
+    }
+
+    @Override
 	protected String getBreadcrumbHeadline() {
 		return "Create FMM Repository";
 	}
 
-	@Override
-	protected FmmNodeDefinition getDisplayedFmmNodeDefinition() {
-		return FmmNodeDefinition.FMM_CONFIGURATION;
-	}
+//	@Override
+//	protected FmmNodeDefinition getDisplayedFmmNodeDefinition() {
+//		return FmmNodeDefinition.FMM_CONFIGURATION;
+//	}
 
 	@Override
 	protected String getBreadcrumbTargetNodeIdString() {

@@ -51,9 +51,8 @@ import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
-import com.flywheelms.library.gcg.wizard.GcgWizardActivity;
 
-public abstract class FmsNodeWizardActivity extends GcgWizardActivity {
+public abstract class FmsNodeWizardActivity extends FmsWizardActivity {
 	
 	protected String fmmNodeIdString;
 	protected FmmNodeDefinition nodeDictionaryEntry;

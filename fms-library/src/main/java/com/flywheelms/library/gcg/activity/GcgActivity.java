@@ -69,7 +69,6 @@ import com.flywheelms.library.fdk.enumerator.FdkKeyboardState;
 import com.flywheelms.library.fdk.interfaces.FdkHost;
 import com.flywheelms.library.fdk.widget.FdkKeyboard;
 import com.flywheelms.library.fmm.node.NodeId;
-import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.gcg.GcgApplication;
 import com.flywheelms.library.gcg.context.GcgActivityBreadcrumb;
 import com.flywheelms.library.gcg.context.GcgApplicationContext;
@@ -596,13 +595,9 @@ public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNo
 		return theFrameBreadcrumb;
 	}
 
-	protected int getBreadcrumbDrawableResourceId() {
-		return getDisplayedFmmNodeDefinition().getLabelDrawableResourceId();
-	}
+	protected abstract int getBreadcrumbDrawableResourceId();
 
 	protected abstract String getBreadcrumbHeadline();
-
-	protected abstract FmmNodeDefinition getDisplayedFmmNodeDefinition();
 
 	protected abstract String getBreadcrumbTargetNodeIdString();
 

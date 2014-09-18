@@ -59,11 +59,11 @@ import com.flywheelms.library.fmm.deckangl.FmmDecKanGlDictionary;
 import com.flywheelms.library.fmm.node.FmmHeadlineNodeShallow;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.repository.FmmConfiguration;
+import com.flywheelms.library.fms.activity.FmsActivity;
 import com.flywheelms.library.fms.dialog.FmmManagementDialog;
 import com.flywheelms.library.fms.dialog.FmmSelectionDialog;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
 import com.flywheelms.library.fms.interfaces.FmsDecKanGlNavigationDialogParent;
-import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.gcg.context.GcgApplicationContext;
 import com.flywheelms.library.gcg.context.GcgFrame;
 import com.flywheelms.library.gcg.helper.GcgPerspectiveMenu;
@@ -82,7 +82,7 @@ import com.flywheelms.workbench.perspective_flipper.FwbVelocityPerspectiveFlippe
 import java.util.ArrayList;
 
 // com.flywheelms.fwb.activity.WorkbenchActivity
-public class WorkbenchActivity extends GcgActivity implements FmsDecKanGlNavigationDialogParent {
+public class WorkbenchActivity extends FmsActivity implements FmsDecKanGlNavigationDialogParent {
 
 	private static final String HELP_CONTEXT_URL_STRING = "http://code.google.com/p/flywheelms-hd/wiki/UserDocWorkbench";
 	private static WorkbenchActivity instance;

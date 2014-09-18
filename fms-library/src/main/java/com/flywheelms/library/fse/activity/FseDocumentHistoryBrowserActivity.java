@@ -56,6 +56,7 @@ import com.flywheelms.library.R;
 import com.flywheelms.library.fdk.widget.FdkKeyboard;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
+import com.flywheelms.library.fms.activity.FmsActivity;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
 import com.flywheelms.library.fms.helper.FmsHelpIndex;
 import com.flywheelms.library.fms.perspective_flipper.ContextPerspectiveFlipper;
@@ -67,14 +68,13 @@ import com.flywheelms.library.fse.perspective_flipper.FseHistoryBrowserPerspecti
 import com.flywheelms.library.fse.perspective_flipper.FsePerspectiveFlipper;
 import com.flywheelms.library.fse.perspective_flipper.perspective.FseDocumentSectionNotesBrowserPerspective;
 import com.flywheelms.library.fse.perspective_flipper.perspective.FseDocumentSectionStoryBrowserPerspective;
-import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.gcg.helper.GcgButtonMenu;
 import com.flywheelms.library.gcg.helper.GcgHelper;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class FseDocumentHistoryBrowserActivity extends GcgActivity
+public class FseDocumentHistoryBrowserActivity extends FmsActivity
 		implements FmsPerspectiveFlipperParent {
 	
 	private String fseDocumentNodeIdString;
