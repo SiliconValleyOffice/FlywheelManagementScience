@@ -77,7 +77,7 @@ public class FseDocumentSectionStoryBrowserPerspective extends FseDocumentSectio
 		initializeTitleBarNavigation();
 		initializeTitleBar();
 		LinearLayout theRightKeypadContainer = (LinearLayout) findViewById(R.id.fdk__right_keypad__container);
-		theRightKeypadContainer.setBackgroundResource(R.color.menu_background);
+		theRightKeypadContainer.setBackgroundResource(R.color.gcg__menu_background);
 		this.fdkKeypadPeerRight = (RelativeLayout) findViewById(R.id.fdk__right_keypad_peer);
 		this.fdkKeypadPeerRight.removeAllViewsInLayout();
 	}

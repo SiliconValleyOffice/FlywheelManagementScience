@@ -48,7 +48,6 @@ import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.provider.ContactsContract;
 
-import com.flywheelms.library.fms.activity.DecKanGlDictionaryActivity;
 import com.flywheelms.library.gcg.activity.GcgActivity;
 
 import java.io.File;
@@ -67,12 +66,6 @@ public class GcgActivityHelper {
     public static final int request_code__ANDROID_CONTACT_EDITOR = 200;
     public static final int request_code__PRINT = 111;
     public static final int request_code__PRINTER_INSTALLATION = 112;
-
-    public static void startDecKanGlDictionaryActivity(GcgActivity aParentActivity) {
-        aParentActivity.startBlueActivityStatusAnimation();
-        Intent theIntent = new Intent(aParentActivity, DecKanGlDictionaryActivity.class);
-        aParentActivity.startActivity(theIntent);
-    }
 
     public static void startContactPicker(GcgActivity aParentActivity ) {
         aParentActivity.startBlueActivityStatusAnimation();

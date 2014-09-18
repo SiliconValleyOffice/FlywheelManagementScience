@@ -72,7 +72,7 @@ public abstract class FseDocumentSectionParagraphBrowserView extends FseDocument
 		initializeTitleBarNavigation();
 		initializeTitleBar();
 		FrameLayout theRigtKeypadParent = (FrameLayout) findViewById(R.id.gcg__thumbpad__right);
-		theRigtKeypadParent.setBackgroundResource(R.color.menu_background);
+		theRigtKeypadParent.setBackgroundResource(R.color.gcg__menu_background);
 		this.fdkKeypadPeerRight = (RelativeLayout) findViewById(R.id.fdk__right_keypad_peer);
 		this.fdkKeypadPeerRight.removeAllViewsInLayout();
 	}

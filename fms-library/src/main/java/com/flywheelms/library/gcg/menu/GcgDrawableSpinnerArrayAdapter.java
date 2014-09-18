@@ -69,7 +69,7 @@ public class GcgDrawableSpinnerArrayAdapter extends ArrayAdapter<Integer> {
 
 	public View getCustomView(int aSpinnerPosition, View anExistingView) {
 		if (anExistingView == null) {
-			return getCustomView(aSpinnerPosition, LayoutInflater.from(getContext()).inflate(R.layout.fms__drawable_spinner, null));
+			return getCustomView(aSpinnerPosition, LayoutInflater.from(getContext()).inflate(R.layout.gcg__drawable_spinner, null));
 		}
 		ImageView theImageView = (ImageView) anExistingView.findViewById(R.id.drawable_spinner__item);
 		theImageView.setImageResource(getItem(aSpinnerPosition));

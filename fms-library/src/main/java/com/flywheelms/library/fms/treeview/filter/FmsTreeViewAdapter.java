@@ -132,17 +132,28 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
 	};
 
 	public FmsTreeViewAdapter(FmsTreeViewParent aTreeViewParent, GcgTreeViewMediator aTreeStateMediator, int[] aFontSizeArray) {
-		super(aTreeViewParent, aTreeStateMediator, aFontSizeArray);
+		super(aTreeViewParent, aTreeStateMediator, R.layout.fms__tree_view__row_target_object, aFontSizeArray);
 	}
 
 	protected FmsTreeViewParent getFmsTreeViewParent() {
 		return (FmsTreeViewParent) this.gcgTreeViewParent;
 	}
 
+    protected void setRowBackground(View aView, int aBackgroundResourceId) {
+        View theTargetView;
+        int id = aView.getId();
+        if (id == R.id.tree_node__node_summary_launch_zone) {
+            theTargetView = (View) aView.getParent().getParent();
+        } else {
+            theTargetView = (View) aView.getParent();
+        }
+        theTargetView.setBackgroundResource(aBackgroundResourceId);
+    }
+
 	@Override
 	protected void setupTreeNodeTargetObject(GcgTreeNodeInfo aTreeNodeInfo, LinearLayout aTreeNodeRowLayout, boolean bAddChildView, View aChildView) {
         final FrameLayout theTreeNodeTargetObjectLayout = (FrameLayout) aTreeNodeRowLayout
-                .findViewById(R.id.tree_node__target_object_layout);
+                .findViewById(R.id.tree_node__target_object__container);
         if (bAddChildView) {
             theTreeNodeTargetObjectLayout.addView(aChildView);
         }

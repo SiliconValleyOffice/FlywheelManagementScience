@@ -53,6 +53,7 @@ import com.flywheelms.library.fmm.node.FmmHeadlineNodeShallow;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.repository.FmmAccessScope;
 import com.flywheelms.library.fms.activity.CreateFmmWizard;
+import com.flywheelms.library.fms.activity.DecKanGlDictionaryActivity;
 import com.flywheelms.library.fms.activity.FiscalYearEditorActivity;
 import com.flywheelms.library.fms.activity.PdfPublicationWizard;
 import com.flywheelms.library.fse.activity.FseDocumentHistoryBrowserActivity;
@@ -101,6 +102,12 @@ public class FmsActivityHelper extends GcgActivityHelper {
 	public static final int request_code__ANDROID_CONTACT_EDITOR_FOR_ORGANIZATION = GcgApplication.getIntegerResource(R.integer.request_code__android_contact_editor__organization);
 	////  request codes for FMM nodes are defined in the FmmNodeDictionary entry for the node  ////
 	private static final String class_path_ACTIVITY_PACKAGE = FiscalYearEditorActivity.class.getName().substring(0, 1 + FiscalYearEditorActivity.class.getName().lastIndexOf("."));
+
+    public static void startDecKanGlDictionaryActivity(GcgActivity aParentActivity) {
+        aParentActivity.startBlueActivityStatusAnimation();
+        Intent theIntent = new Intent(aParentActivity, DecKanGlDictionaryActivity.class);
+        aParentActivity.startActivity(theIntent);
+    }
 
 	public static void startHeadlineNodeEditorActivity(
 			GcgActivity aParentActivity,

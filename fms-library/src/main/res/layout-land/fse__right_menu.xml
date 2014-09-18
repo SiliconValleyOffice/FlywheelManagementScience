@@ -27,7 +27,7 @@
                 android:id="@+id/fse__right_menu__content_frame"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/gcg__floating_thumb_menu__height"
-                android:background="@color/menu_background" >
+                android:background="@color/gcg__menu_background" >
 
                 <RelativeLayout
                     android:id="@+id/fse__style_menu__body"

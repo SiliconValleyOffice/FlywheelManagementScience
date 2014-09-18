@@ -34,8 +34,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c0b3b16b-24dc-4ad0-83f8-e1821de85d20" name="Default" comment="incremental - decouple GCG from FlywheelMS">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/gcg/widget/GcgWidget.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/gcg/widget/GcgWidget.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout/fms__drawable_spinner.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout/gcg__drawable_spinner.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/helper/FmsActivityHelper.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/helper/FmsActivityHelper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/treeview/filter/FmsTreeViewAdapter.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/treeview/filter/FmsTreeViewAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fse/perspective_flipper/perspective/FseDocumentSectionNotesBrowserPerspective.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fse/perspective_flipper/perspective/FseDocumentSectionNotesBrowserPerspective.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fse/perspective_flipper/perspective/FseDocumentSectionParagraphBrowserView.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fse/perspective_flipper/perspective/FseDocumentSectionParagraphBrowserView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fse/perspective_flipper/perspective/FseDocumentSectionStoryBrowserPerspective.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fse/perspective_flipper/perspective/FseDocumentSectionStoryBrowserPerspective.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/gcg/helper/GcgActivityHelper.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/gcg/helper/GcgActivityHelper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/gcg/menu/GcgDrawableSpinnerArrayAdapter.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/gcg/menu/GcgDrawableSpinnerArrayAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/gcg/treeview/GcgTreeViewAdapter.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/gcg/treeview/GcgTreeViewAdapter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout/context__strategic_planning__right_menu.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout/context__strategic_planning__right_menu.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout/context__work_breakdown__right_menu.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout/context__work_breakdown__right_menu.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout/flywheel_milestone__disposition.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout/flywheel_milestone__disposition.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout-land/fmm_node__editor__left_thumbpad.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout-land/fmm_node__editor__left_thumbpad.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout-land/fms_view__paragraph_editor__right_menu.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout-land/fms_view__paragraph_editor__right_menu.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout-land/fse__right_menu.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout-land/fse__right_menu.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/values/gcg__colors.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/values/gcg__colors.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout/gcg__gui_preferences.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout/gcg__gui_preferences.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout/gcg__gui_preferences__dialog.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout/gcg__gui_preferences__dialog.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout/gcg__tree_view__row_layout.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout/gcg__tree_view__row_layout.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout/project__disposition.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout/project__disposition.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout/project__project_asset__disposition.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout/project__project_asset__disposition.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout/project_asset__work_package__disposition.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout/project_asset__work_package__disposition.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout/strategic_milestone__disposition.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout/strategic_milestone__disposition.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout/strategic_milestone__project_asset__disposition.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout/strategic_milestone__project_asset__disposition.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout/work_package__work_task__disposition.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout/work_package__work_task__disposition.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="flywheelms-hd.iws" />
@@ -2214,7 +2238,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/gcg/dialog/GcgApplicationContextNavigationDialog.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/gcg/context/GcgApplicationContext.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/context/FmmFrame.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/context/FmmPerspective.java" />
@@ -2225,8 +2248,6 @@
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/governable/WorkPackage.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/governable/FiscalYear.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/governable/StrategicMilestone.java" />
-        <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/treeview/filter/FmsTreeViewAdapter.java" />
-        <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/helper/FmsActivityHelper.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/gcg/context/GcgNavigationTarget.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/FmsRevertDataOkCancelDialog.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/GcgRevertDataOkCancelDialog.java" />
@@ -2238,7 +2259,6 @@
         <option value="$PROJECT_DIR$/fms-library/src/main/res/layout/gcg__application_context__perspective_context__container.xml" />
         <option value="$PROJECT_DIR$/fms-library/src/main/res/layout/gcg__application_context__perspective_context__separator.xml" />
         <option value="$PROJECT_DIR$/fms-library/src/main/res/layout/gcg__application_context__header.xml" />
-        <option value="$PROJECT_DIR$/fms-library/src/main/res/values/gcg__colors.xml" />
         <option value="$PROJECT_DIR$/fms-library/src/main/res/layout/gcg__application_context__activity_breadcrumb.xml" />
         <option value="$PROJECT_DIR$/fms-library/src/main/res/layout/gcg__application_context__navigation__breadcrumb.xml" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fse/activity/FseDocumentHistoryBrowserActivity.java" />
@@ -2248,7 +2268,6 @@
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/activity/FmsNodeWizardActivity.java" />
         <option value="$PROJECT_DIR$/fms-workbench/src/main/java/com/flywheelms/workbench/activity/WorkbenchActivity.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/activity/FmsWizardActivity.java" />
-        <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/gcg/helper/GcgActivityHelper.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/res/layout/gcg__library_activity.xml" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/activity/FmsActivity.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/gcg/activity/GcgActivity.java" />
@@ -2256,7 +2275,6 @@
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/gcg/widget/list_view/AndroidContactsWidgetListView.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/gcg/dialog/GcgSaveChangesDialog.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/gcg/helper/GuiHelper.java" />
-        <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/gcg/treeview/GcgTreeViewAdapter.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/gcg/wizard/step/GcgWizardStepView.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/wizard_step_flipper/FmsNodePublishingWizardStepFlipper.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/gcg/wizard/GcgWizardStepFlipper.java" />
@@ -2265,6 +2283,12 @@
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/wizard/step/FmsNodePublishingContentSelectionWizardStepView.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/wizard/step/FmsNodePublishingDestinationWizardStepView.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/gcg/widget/GcgWidget.java" />
+        <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/helper/FmsActivityHelper.java" />
+        <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/gcg/helper/GcgActivityHelper.java" />
+        <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/gcg/menu/GcgDrawableSpinnerArrayAdapter.java" />
+        <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/treeview/filter/FmsTreeViewAdapter.java" />
+        <option value="$PROJECT_DIR$/fms-library/src/main/res/values/gcg__colors.xml" />
+        <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/gcg/treeview/GcgTreeViewAdapter.java" />
       </list>
     </option>
   </component>
@@ -2300,8 +2324,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -2313,6 +2335,8 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2919,7 +2943,11 @@
       <created>1411069641606</created>
       <updated>1411069641606</updated>
     </task>
-    <option name="localTasksCounter" value="93" />
+    <task id="LOCAL-00093" summary="incremental - decouple GCG from FlywheelMS">
+      <created>1411069846220</created>
+      <updated>1411069846220</updated>
+    </task>
+    <option name="localTasksCounter" value="94" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2928,32 +2956,32 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32987747" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27426955" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23241796" sideWeight="0.50047123" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32893497" sideWeight="0.5003349" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="true" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.3296417" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32893497" sideWeight="0.4989953" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32987747" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33553252" sideWeight="0.4989953" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33553252" sideWeight="0.4989953" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39868048" sideWeight="0.5003349" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26121902" sideWeight="0.49503547" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24916276" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32893497" sideWeight="0.4989953" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26121902" sideWeight="0.49503547" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24983256" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39868048" sideWeight="0.4996651" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26121902" sideWeight="0.50496453" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24916276" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27426955" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="true" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.3296417" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32893497" sideWeight="0.4989953" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -3048,94 +3076,38 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/layout/gcg__application_context__perspective_context__container.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.10429448" vertical-offset="0" max-vertical-offset="652">
-          <caret line="4" column="37" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/gcg/viewflipper/GcgViewFlipperChildView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30977443" vertical-offset="1460" max-vertical-offset="3451">
-          <caret line="176" column="0" selection-start-line="176" selection-start-column="0" selection-end-line="176" selection-end-column="0" />
-          <folding>
-            <element signature="e#6930#6931#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/tree_view_flipper/tree_view/FmsPerspectiveFlipperTreeView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.505263" vertical-offset="9960" max-vertical-offset="14450">
-          <caret line="948" column="48" selection-start-line="948" selection-start-column="48" selection-end-line="948" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/gcg/context/GcgApplicationContextHeader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3366174" vertical-offset="220" max-vertical-offset="3281">
-          <caret line="79" column="73" selection-start-line="79" selection-start-column="73" selection-end-line="79" selection-end-column="73" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/gcg__application_context__background.9.png">
-      <provider editor-type-id="ninepatcheditor">
+      <provider selected="true" editor-type-id="images">
         <state />
       </provider>
-      <provider selected="true" editor-type-id="images">
+      <provider editor-type-id="ninepatcheditor">
         <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/layout/gcg__application_context__header.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.1303681" vertical-offset="0" max-vertical-offset="1139">
           <caret line="5" column="59" selection-start-line="5" selection-start-column="59" selection-end-line="5" selection-end-column="59" />
-          <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/layout/gcg__application_context__activity_breadcrumb.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/layout/gcg__application_context__activity_breadcrumb.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33588958" vertical-offset="19" max-vertical-offset="1241">
           <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/values/gcg__colors.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1666">
-          <caret line="11" column="67" selection-start-line="11" selection-start-column="67" selection-end-line="11" selection-end-column="67" />
-          <folding />
-        </state>
+      <provider editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="jar://$PROJECT_DIR$/fms-library/build/intermediates/exploded-aar/com.android.support/support-v4/20.0.0/classes.jar!/android/support/v4/view/PagerTabStrip.class">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.0413476" vertical-offset="153" max-vertical-offset="1156">
           <caret line="50" column="16" selection-start-line="50" selection-start-column="16" selection-end-line="50" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-19/android.jar!/android/view/View.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33233082" vertical-offset="15045" max-vertical-offset="20196">
-          <caret line="899" column="16" selection-start-line="899" selection-start-column="16" selection-end-line="899" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3143,7 +3115,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="678">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3151,7 +3122,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.07522124" vertical-offset="0" max-vertical-offset="678">
           <caret line="3" column="60" selection-start-line="3" selection-start-column="60" selection-end-line="3" selection-end-column="60" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3174,26 +3144,23 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="235" max-vertical-offset="1496">
           <caret line="92" column="83" selection-start-line="92" selection-start-column="83" selection-end-line="92" selection-end-column="83" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/layout/gcg__application_context__navigation__breadcrumb.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.59969324" vertical-offset="0" max-vertical-offset="652">
           <caret line="23" column="28" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
-          <folding />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fdk/activity/FdkActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1972">
           <caret line="57" column="22" selection-start-line="57" selection-start-column="22" selection-end-line="57" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3201,9 +3168,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4029">
           <caret line="81" column="61" selection-start-line="81" selection-start-column="61" selection-end-line="81" selection-end-column="61" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3211,9 +3175,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.66466165" vertical-offset="0" max-vertical-offset="5270">
           <caret line="96" column="44" selection-start-line="96" selection-start-column="44" selection-end-line="96" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3221,11 +3182,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="2.5548873" vertical-offset="171" max-vertical-offset="1972">
           <caret line="170" column="0" selection-start-line="170" selection-start-column="0" selection-end-line="170" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#3652#3653#0" expanded="true" />
-            <element signature="e#3676#3677#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3233,7 +3189,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.15338346" vertical-offset="0" max-vertical-offset="1411">
           <caret line="57" column="56" selection-start-line="57" selection-start-column="56" selection-end-line="57" selection-end-column="56" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3241,14 +3196,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.22857143" vertical-offset="1684" max-vertical-offset="2414">
           <caret line="114" column="42" selection-start-line="114" selection-start-column="42" selection-end-line="114" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#3351#3378#1" expanded="false" />
-            <element signature="e#5076#5077#0" expanded="false" />
-            <element signature="e#5103#5104#0" expanded="false" />
-            <element signature="e#5327#5328#0" expanded="false" />
-            <element signature="e#5354#5355#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3256,7 +3203,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.43458647" vertical-offset="1530" max-vertical-offset="4063">
           <caret line="159" column="5" selection-start-line="153" selection-start-column="28" selection-end-line="159" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3264,26 +3210,23 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.23007518" vertical-offset="0" max-vertical-offset="7446">
           <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/layout/gcg__library_activity.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.02607362" vertical-offset="0" max-vertical-offset="652">
           <caret line="1" column="24" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="24" />
-          <folding />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/fms-workbench/src/main/java/com/flywheelms/workbench/activity/WorkbenchActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33233082" vertical-offset="1037" max-vertical-offset="5797">
           <caret line="156" column="19" selection-start-line="156" selection-start-column="19" selection-end-line="156" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3291,7 +3234,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.67699116" vertical-offset="0" max-vertical-offset="901">
           <caret line="27" column="60" selection-start-line="27" selection-start-column="60" selection-end-line="27" selection-end-column="60" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3299,28 +3241,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334" vertical-offset="10099" max-vertical-offset="15436">
           <caret line="656" column="19" selection-start-line="656" selection-start-column="19" selection-end-line="656" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#30998#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/helper/FmsActivityHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15338346" vertical-offset="0" max-vertical-offset="3434">
-          <caret line="71" column="13" selection-start-line="71" selection-start-column="13" selection-end-line="71" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/gcg/helper/GcgActivityHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33628318" vertical-offset="1115" max-vertical-offset="2193">
-          <caret line="88" column="23" selection-start-line="88" selection-start-column="23" selection-end-line="88" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#6834#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3328,9 +3248,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.8775811" vertical-offset="17" max-vertical-offset="1870">
           <caret line="77" column="19" selection-start-line="77" selection-start-column="19" selection-end-line="77" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3338,9 +3255,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33684212" vertical-offset="1051" max-vertical-offset="2635">
           <caret line="116" column="17" selection-start-line="116" selection-start-column="17" selection-end-line="116" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3348,7 +3262,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1190">
           <caret line="50" column="22" selection-start-line="50" selection-start-column="22" selection-end-line="50" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3356,7 +3269,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="65" max-vertical-offset="1887">
           <caret line="73" column="11" selection-start-line="73" selection-start-column="11" selection-end-line="73" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3364,7 +3276,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1105">
           <caret line="71" column="9" selection-start-line="71" selection-start-column="9" selection-end-line="71" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3372,23 +3283,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1751">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/treeview/filter/FmsTreeViewAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="9146">
-          <caret line="98" column="45" selection-start-line="98" selection-start-column="45" selection-end-line="98" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/gcg/treeview/GcgTreeViewAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1734" max-vertical-offset="7480">
-          <caret line="74" column="22" selection-start-line="74" selection-start-column="22" selection-end-line="74" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3396,11 +3290,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1312" max-vertical-offset="2346">
           <caret line="162" column="20" selection-start-line="162" selection-start-column="20" selection-end-line="162" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#6097#6098#0" expanded="true" />
-            <element signature="e#6153#6154#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3408,7 +3297,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="382" max-vertical-offset="4386">
           <caret line="87" column="23" selection-start-line="87" selection-start-column="23" selection-end-line="87" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3416,7 +3304,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1105">
           <caret line="52" column="22" selection-start-line="52" selection-start-column="22" selection-end-line="52" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3424,11 +3311,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="663">
           <caret line="75" column="5" selection-start-line="75" selection-start-column="5" selection-end-line="75" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#2920#2921#0" expanded="true" />
-            <element signature="e#2970#2971#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3436,11 +3318,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
           <caret line="61" column="28" selection-start-line="61" selection-start-column="28" selection-end-line="61" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#2655#2656#0" expanded="true" />
-            <element signature="e#2714#2715#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3448,9 +3325,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="556" max-vertical-offset="2907">
           <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#7535#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3458,9 +3332,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4857143" vertical-offset="680" max-vertical-offset="2941">
           <caret line="71" column="0" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#7577#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3468,7 +3339,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1428">
           <caret line="64" column="76" selection-start-line="64" selection-start-column="56" selection-end-line="64" selection-end-column="76" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3476,10 +3346,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.8702065" vertical-offset="107" max-vertical-offset="884">
           <caret line="91" column="47" selection-start-line="91" selection-start-column="18" selection-end-line="91" selection-end-column="47" />
-          <folding>
-            <element signature="e#3683#3684#0" expanded="true" />
-            <element signature="e#3717#3718#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3487,14 +3353,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="4574" max-vertical-offset="5304">
           <caret line="389" column="199" selection-start-line="389" selection-start-column="199" selection-end-line="389" selection-end-column="199" />
-          <folding>
-            <element signature="e#7463#7616#0" expanded="true" />
-            <element signature="e#7611#7612#0" expanded="true" />
-            <element signature="e#7729#7849#0" expanded="true" />
-            <element signature="e#7844#7845#0" expanded="true" />
-            <element signature="e#7897#8090#0" expanded="true" />
-            <element signature="e#8085#8086#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3502,7 +3360,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.36541355" vertical-offset="182" max-vertical-offset="3298">
           <caret line="93" column="49" selection-start-line="93" selection-start-column="49" selection-end-line="93" selection-end-column="49" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3510,7 +3367,85 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.02556391" vertical-offset="306" max-vertical-offset="7021">
           <caret line="60" column="41" selection-start-line="60" selection-start-column="41" selection-end-line="60" selection-end-column="41" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/helper/FmsActivityHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4047619" vertical-offset="459" max-vertical-offset="3536">
+          <caret line="109" column="5" selection-start-line="109" selection-start-column="5" selection-end-line="109" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/gcg/helper/GcgActivityHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.464286" vertical-offset="488" max-vertical-offset="2227">
+          <caret line="50" column="32" selection-start-line="50" selection-start-column="32" selection-end-line="50" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/layout/gcg__drawable_spinner.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="659">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/gcg/menu/GcgDrawableSpinnerArrayAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5818452" vertical-offset="0" max-vertical-offset="672">
+          <caret line="71" column="105" selection-start-line="71" selection-start-column="105" selection-end-line="71" selection-end-column="105" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/layout/fms__tree_view__row_target_object.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2295">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-19/android.jar!/android/view/View.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33300686" vertical-offset="14926" max-vertical-offset="20196">
+          <caret line="899" column="16" selection-start-line="899" selection-start-column="16" selection-end-line="899" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/treeview/filter/FmsTreeViewAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9181548" vertical-offset="97" max-vertical-offset="9333">
+          <caret line="150" column="5" selection-start-line="150" selection-start-column="5" selection-end-line="150" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/values/gcg__colors.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.79941005" vertical-offset="988" max-vertical-offset="1666">
+          <caret line="90" column="22" selection-start-line="90" selection-start-column="22" selection-end-line="90" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/layout/gcg__tree_view__row_layout.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2607362" vertical-offset="0" max-vertical-offset="652">
+          <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/gcg/treeview/GcgTreeViewAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.32954547" vertical-offset="188" max-vertical-offset="7531">
+          <caret line="98" column="62" selection-start-line="98" selection-start-column="60" selection-end-line="98" selection-end-column="62" />
         </state>
       </provider>
     </entry>

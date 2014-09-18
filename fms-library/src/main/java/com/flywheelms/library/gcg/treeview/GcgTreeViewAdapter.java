@@ -75,6 +75,7 @@ import java.util.List;
 public abstract class GcgTreeViewAdapter extends BaseAdapter {
 	
     protected GcgTreeViewMediator treeViewMediator;
+    protected final int childNodeViewLayoutResourceId;
     private final int[] fontSizeArray;
     private int indentWidth = 0;
     private Drawable collapsedNodeButtonDrawable;
@@ -130,9 +131,11 @@ public abstract class GcgTreeViewAdapter extends BaseAdapter {
     public GcgTreeViewAdapter(
     		final GcgTreeViewParent aTreeViewParent,
     		final GcgTreeViewMediator aTreeViewMediator,
+            final int aChildNodeViewLayoutResourceId,
     		final int[] aFontSizeArray ) {
     	this.gcgTreeViewParent = aTreeViewParent;
     	this.treeViewMediator = aTreeViewMediator;
+        this.childNodeViewLayoutResourceId = aChildNodeViewLayoutResourceId;
     	this.fontSizeArray = aFontSizeArray;
     	this.collapsedNodeButtonDrawable = null;
     	this.expandedNodeButtonDrawable = null;
@@ -140,12 +143,12 @@ public abstract class GcgTreeViewAdapter extends BaseAdapter {
 
     protected void setRowBackground(View aView, int aBackgroundResourceId) {
     	View theTargetView;
-    	int id = aView.getId();
-		if (id == R.id.tree_node__node_summary_launch_zone) {
-			theTargetView = (View) aView.getParent().getParent();
-		} else {
+//    	int id = aView.getId();
+//		if (id == R.id.tree_node__node_summary_launch_zone) {
+//			theTargetView = (View) aView.getParent().getParent();
+//		} else {
 			theTargetView = (View) aView.getParent();
-		}
+//		}
     	theTargetView.setBackgroundResource(aBackgroundResourceId);
 	}
     
@@ -295,7 +298,7 @@ public abstract class GcgTreeViewAdapter extends BaseAdapter {
         }
 		final LinearLayout theLinearLayout = (LinearLayout) aConvertView;
 		final FrameLayout theTreeNodeTargetObjectLayout = (FrameLayout) theLinearLayout
-		        .findViewById(R.id.tree_node__target_object_layout);
+		        .findViewById(R.id.tree_node__target_object__container);
 		final LinearLayout theChildView = (LinearLayout) theTreeNodeTargetObjectLayout.getChildAt(0);
 		updateNodeView(theChildView, theTreeNodeInfo);
         setRowHeight(theLinearLayout, theTreeNodeInfo);
@@ -304,11 +307,11 @@ public abstract class GcgTreeViewAdapter extends BaseAdapter {
     
 	public View getNewChildNodeView(final GcgTreeNodeInfo aTreeNodeInfo) {
         final LinearLayout theLinearLayout = (LinearLayout) 
-                getLayoutInflater().inflate(R.layout.fms__tree_view__row_target_object, null);
+                getLayoutInflater().inflate(this.childNodeViewLayoutResourceId, null);
         return updateNodeView(theLinearLayout, aTreeNodeInfo);
     }
 
-	public abstract View updateNodeView(final LinearLayout aRowLayout, final GcgTreeNodeInfo aTreeNodeInfo );
+    public abstract View updateNodeView(final LinearLayout aRowLayout, final GcgTreeNodeInfo aTreeNodeInfo );
 
     private static void setRowHeight(LinearLayout aRowLayout,GcgTreeNodeInfo aTreeNodeInfo) {
 		ImageView theImageView = (ImageView) aRowLayout.findViewById(R.id.tree_node__expander_image);
@@ -367,7 +370,7 @@ public abstract class GcgTreeViewAdapter extends BaseAdapter {
     	if(bVisible) {
     		theTreeNodeFillerView.setBackgroundResource(R.color.gcg__tree_view__node_filler_line);
     	} else {
-    		theTreeNodeFillerView.setBackgroundResource(R.color.perspective_tree_background);
+    		theTreeNodeFillerView.setBackgroundResource(R.color.gcg__perspective_tree_background);
     	}
 	}
 
