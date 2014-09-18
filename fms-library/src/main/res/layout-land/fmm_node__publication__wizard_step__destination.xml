@@ -132,20 +132,12 @@
                 android:layout_height="80dp"
                 android:orientation="horizontal" >
 
-                <Button
-                    android:id="@+id/gui_preferences"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:layout_gravity="bottom"
-                    android:layout_marginLeft="30dp"
-                    android:background="@drawable/gcg__button_state_list__gui_preferences" />
-
                 <TableLayout
                     android:id="@+id/pdf_destination__printer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
-                    android:layout_marginLeft="80dp"
+                    android:layout_marginLeft="30dp"
                     android:background="@drawable/gcg__group_box__background_1"
                     android:orientation="vertical"
                     android:paddingBottom="@dimen/gcg__group_box__padding_bottom"
@@ -287,6 +279,22 @@
             </TableRow>
         </TableLayout>
     </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="25dp"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/gui_preferences"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="25dp"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/gcg__button_state_list__gui_preferences" />
+    </RelativeLayout>
 
     <include
         android:id="@+id/gcg_wizard__navigation_bar__include"
