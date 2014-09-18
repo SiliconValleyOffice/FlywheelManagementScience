@@ -58,7 +58,6 @@ import android.widget.TextView;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fdk.interfaces.FdkDictationResultsConsumer;
 import com.flywheelms.library.fdk.interfaces.FdkListener;
-import com.flywheelms.library.fms.dialog.FmsDialog;
 import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.gcg.button.multi_shift.GcgMultiShiftState;
 import com.flywheelms.library.gcg.dialog.GcgDialog;
@@ -309,8 +308,8 @@ public abstract class GcgWidget extends RelativeLayout implements FdkDictationRe
 		this.gcgActivity = aGcgActivity;
 	}
 	
-	public void setGcgDialog(FmsDialog anFmsDialog) {
-		this.gcgDialog = anFmsDialog;
+	public void setGcgDialog(GcgDialog aGcgDialog) {
+		this.gcgDialog = aGcgDialog;
 	}
 	
 	public FdkListener getFdkListener() {
