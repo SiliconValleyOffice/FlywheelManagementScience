@@ -73,7 +73,7 @@ public class GcgTreeView extends ListView {
 
     // TODO - TreeView control is taking up too much space when height is wrap-contents
     public GcgTreeView(final Context aContext, final AttributeSet anAttributeSet) {
-        this(aContext, anAttributeSet, R.style.treeViewRowStyle);
+        this(aContext, anAttributeSet, R.style.GcgTreeViewRowStyle);
     }
 
     public GcgTreeView(final Context aContext) {
