@@ -8,13 +8,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:textColor="@color/DarkSlateGray" />
+        android:textColor="@color/x11__DarkSlateGray" />
     
     <com.flywheelms.library.gcg.widget.GcgSpinner
         android:id="@+id/widget_spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:textColor="@color/Blue" />
+        android:textColor="@color/x11__Blue" />
 
 </RelativeLayout>

@@ -13,7 +13,7 @@
         android:background="@drawable/gcg__spinnable_menu_background__right__1_of_2"
         android:gravity="right"
         android:spinnerMode="dropdown"
-        android:textColor="@color/White"
+        android:textColor="@color/x11__White"
         android:textSize="14.0dp" />
 
     <LinearLayout
@@ -122,7 +122,7 @@
                         android:layout_marginLeft="1dp"
                         android:layout_marginTop="5dp"
                         android:text="Sponsor"
-                        android:textColor="@color/DarkSlateGray" />
+                        android:textColor="@color/x11__DarkSlateGray" />
 
                     <com.flywheelms.library.fms.widget.text_view.SponsorNicknameWidgetTextView
                         android:id="@+id/governance_text__sponsor"
@@ -136,7 +136,7 @@
                         android:layout_width="115dp"
                         android:layout_height="1dp"
                         android:layout_marginTop="10dp"
-                        android:background="@color/RoyalBlue" />
+                        android:background="@color/x11__RoyalBlue" />
 
                     <CheckBox
                         android:id="@+id/governance_checkbox__facilitator"
@@ -145,7 +145,7 @@
                         android:layout_marginLeft="1dp"
                         android:layout_marginTop="3dp"
                         android:text="Facilitator"
-                        android:textColor="@color/DarkSlateGray" />
+                        android:textColor="@color/x11__DarkSlateGray" />
 
                     <com.flywheelms.library.fms.widget.text_view.FacilitatorNicknameWidgetTextView
                         android:id="@+id/governance_text__facilitator"
@@ -160,7 +160,7 @@
                         android:layout_width="115dp"
                         android:layout_height="1dp"
                         android:layout_marginTop="10dp"
-                        android:background="@color/RoyalBlue" />
+                        android:background="@color/x11__RoyalBlue" />
 
                     <CheckBox
                         android:id="@+id/governance_checkbox__customer"
@@ -169,7 +169,7 @@
                         android:layout_marginLeft="1dp"
                         android:layout_marginTop="3dp"
                         android:text="Customer"
-                        android:textColor="@color/DarkSlateGray" />
+                        android:textColor="@color/x11__DarkSlateGray" />
 
                     <com.flywheelms.library.fms.widget.text_view.CustomerNicknameWidgetTextView
                         android:id="@+id/governance_text__customer"
@@ -210,7 +210,7 @@
                         android:layout_marginLeft="1dp"
                         android:layout_marginTop="15dp"
                         android:text="Fiscal\nYear"
-                        android:textColor="@color/DarkSlateGray" />
+                        android:textColor="@color/x11__DarkSlateGray" />
 
                     <com.flywheelms.library.fms.widget.spinner.CompletableWorkStatusWidgetSpinner
                         android:id="@+id/work_status__fiscal_year__spinner"
@@ -224,7 +224,7 @@
                         android:layout_width="115dp"
                         android:layout_height="1dp"
                         android:layout_marginTop="10dp"
-                        android:background="@color/RoyalBlue" />
+                        android:background="@color/x11__RoyalBlue" />
 
                     <CheckBox
                         android:id="@+id/work_status__strategic_milestone__checkbox"
@@ -233,7 +233,7 @@
                         android:layout_marginLeft="1dp"
                         android:layout_marginTop="5dp"
                         android:text="Strategic\nMilestone"
-                        android:textColor="@color/DarkSlateGray" />
+                        android:textColor="@color/x11__DarkSlateGray" />
 
                     <com.flywheelms.library.fms.widget.spinner.CompletableWorkStatusWidgetSpinner
                         android:id="@+id/work_status__strategic_milestone__spinner"
@@ -247,7 +247,7 @@
                         android:layout_width="115dp"
                         android:layout_height="1dp"
                         android:layout_marginTop="10dp"
-                        android:background="@color/RoyalBlue" />
+                        android:background="@color/x11__RoyalBlue" />
 
                     <CheckBox
                         android:id="@+id/work_status__project_asset__checkbox"
@@ -256,7 +256,7 @@
                         android:layout_marginLeft="1dp"
                         android:layout_marginTop="5dp"
                         android:text="Project\nAsset"
-                        android:textColor="@color/DarkSlateGray" />
+                        android:textColor="@color/x11__DarkSlateGray" />
 
                     <com.flywheelms.library.fms.widget.spinner.CompletableWorkStatusWidgetSpinner
                         android:id="@+id/work_status__project_asset__spinner"
@@ -298,7 +298,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="1dp"
                         android:drawableLeft="@drawable/button_state_list__community__strategy_teams"
-                        android:textColor="@color/DarkSlateGray" />
+                        android:textColor="@color/x11__DarkSlateGray" />
 
                     <com.flywheelms.library.fms.widget.spinner.StrategyTeamWidgetSpinner
                         android:id="@+id/strategy_team__spinner"
@@ -311,7 +311,7 @@
                         android:layout_width="115dp"
                         android:layout_height="1dp"
                         android:layout_marginTop="7dp"
-                        android:background="@color/RoyalBlue" />
+                        android:background="@color/x11__RoyalBlue" />
 
                     <CheckBox
                         android:id="@+id/flywheel_team__checkbox"
@@ -320,7 +320,7 @@
                         android:layout_marginLeft="1dp"
                         android:layout_marginTop="7dp"
                         android:drawableLeft="@drawable/button_state_list__community__flywheel_teams"
-                        android:textColor="@color/DarkSlateGray" />
+                        android:textColor="@color/x11__DarkSlateGray" />
 
                     <com.flywheelms.library.fms.widget.spinner.FlywheelTeamWidgetSpinner
                         android:id="@+id/flywheel_team__spinner"
@@ -333,7 +333,7 @@
                         android:layout_width="115dp"
                         android:layout_height="1dp"
                         android:layout_marginTop="10dp"
-                        android:background="@color/RoyalBlue" />
+                        android:background="@color/x11__RoyalBlue" />
 
                     <CheckBox
                         android:id="@+id/functional_team__checkbox"
@@ -342,7 +342,7 @@
                         android:layout_marginLeft="1dp"
                         android:layout_marginTop="7dp"
                         android:drawableLeft="@drawable/button_state_list__community__functional_teams"
-                        android:textColor="@color/DarkSlateGray" />
+                        android:textColor="@color/x11__DarkSlateGray" />
 
                     <com.flywheelms.library.fms.widget.spinner.FunctionalTeamWidgetSpinner
                         android:id="@+id/functional_team__spinner"

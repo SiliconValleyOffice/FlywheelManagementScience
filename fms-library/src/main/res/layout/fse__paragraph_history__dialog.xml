@@ -22,7 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="3dp"
             android:layout_below="@id/paragraph_snapshot__current_version"
-            android:background="@color/Orange" />
+            android:background="@color/x11__Orange" />
 
         <TextView
             android:id="@+id/paragraph_snapshot__previous_version"
@@ -38,7 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="3dp"
             android:layout_below="@id/paragraph_snapshot__previous_version"
-            android:background="@color/Orange" />
+            android:background="@color/x11__Orange" />
 
         <TextView
             android:id="@+id/paragraph_id"

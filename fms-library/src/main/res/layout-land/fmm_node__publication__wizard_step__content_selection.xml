@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/fms__wizard_step_1__background"
+    android:background="@color/gcg__wizard_step_1__background"
     android:clickable="true"
     android:orientation="vertical" >
 
@@ -96,7 +96,7 @@
                     style="@style/NodeLabel"
                     android:layout_span="3"
                     android:text="Paragraph Markup"
-                    android:textColor="@color/black"
+                    android:textColor="@color/w3c__black"
                     android:textStyle="italic" />
             </TableRow>
 

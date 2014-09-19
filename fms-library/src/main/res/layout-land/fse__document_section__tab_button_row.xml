@@ -17,12 +17,12 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="10dp"
-        android:background="@color/gray"
+        android:background="@color/w3c__gray"
         android:gravity="top|center_horizontal"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:text="@string/fse__document_section__tribkn"
-        android:textColor="@color/white" />
+        android:textColor="@color/w3c__white" />
 
     <Button
         android:id="@+id/fse__document_section__audit_block__button"
@@ -33,12 +33,12 @@
         android:layout_marginRight="10dp"
         android:layout_marginTop="10dp"
         android:layout_toRightOf="@id/fse__document_section__tribkn"
-        android:background="@color/gray"
+        android:background="@color/w3c__gray"
         android:gravity="top|center_horizontal"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:text="@string/fse__document_section__community"
-        android:textColor="@color/white" />
+        android:textColor="@color/w3c__white" />
 
     <Button
         android:id="@+id/fse__document_section__history__button"
@@ -49,12 +49,12 @@
         android:layout_marginRight="10dp"
         android:layout_marginTop="10dp"
         android:layout_toRightOf="@id/fse__document_section__audit_block__button"
-        android:background="@color/gray"
+        android:background="@color/w3c__gray"
         android:gravity="top|center_horizontal"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:text="@string/fse__document_section__history"
-        android:textColor="@color/white" />
+        android:textColor="@color/w3c__white" />
 
     <Button
         android:id="@+id/fse__document_section__notes__button"
@@ -65,12 +65,12 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="10dp"
-        android:background="@color/gray"
+        android:background="@color/w3c__gray"
         android:gravity="top|center_horizontal"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:text="@string/fse__document_section__notes"
-        android:textColor="@color/white" />
+        android:textColor="@color/w3c__white" />
 
     <Button
         android:id="@+id/fse__document_section__story__button"
@@ -81,11 +81,11 @@
         android:layout_marginRight="10dp"
         android:layout_marginTop="10dp"
         android:layout_toLeftOf="@id/fse__document_section__notes__button"
-        android:background="@color/gray"
+        android:background="@color/w3c__gray"
         android:gravity="top|center_horizontal"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:text="@string/fse__document_section__story"
-        android:textColor="@color/white" />
+        android:textColor="@color/w3c__white" />
 
 </RelativeLayout>

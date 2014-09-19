@@ -2,7 +2,7 @@
     android:id="@+id/fms_activity__layout_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/sands_of_time"
+    android:background="@color/gcg__sands_of_time"
     android:orientation="vertical" >
 
     <include layout="@layout/gcg__horizontal_node_navigation_panel" />
@@ -11,7 +11,7 @@
         android:id="@+id/navigation_context_divider"
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:background="@color/portobello" />
+        android:background="@color/gcg__portobello" />
 
     <LinearLayout
         android:id="@+id/fms_node_activity__content_body"
@@ -34,7 +34,7 @@
                 android:id="@+id/gcg__activity_curtain"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/portobello"
+                android:background="@color/gcg__portobello"
                 android:visibility="gone" />
 
             <com.flywheelms.library.fse.perspective_flipper.FsePerspectiveFlipper

@@ -3,7 +3,7 @@
         android:id="@+id/gcg_wizard__navigation_bar"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:background="@color/sands_of_time"
+        android:background="@color/gcg__sands_of_time"
         android:gravity="center"
         android:orientation="horizontal" >
 
@@ -23,9 +23,9 @@
             android:layout_marginRight="30dp"
             android:paddingLeft="230dp"
             android:paddingRight="230dp"
-            android:background="@color/portobello"
+            android:background="@color/gcg__portobello"
             android:gravity="center"
-            android:textColor="@color/yellow"
+            android:textColor="@color/w3c__yellow"
             android:text="Step  0  of  0" />
 
         <Button

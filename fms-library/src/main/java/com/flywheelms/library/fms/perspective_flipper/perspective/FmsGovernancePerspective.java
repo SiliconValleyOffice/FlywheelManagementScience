@@ -86,7 +86,7 @@ public class FmsGovernancePerspective extends FmsPerspectiveFlipperView implemen
 
 	@Override
 	public int getFrameMenuSpacerBackgroundResourceId() {
-		return R.color.sand_dollar;
+		return R.color.gcg__sand_dollar;
 	}
 
 	@Override

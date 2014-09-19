@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center_vertical"
-    android:background="@color/fms__wizard_step_2__background"
+    android:background="@color/gcg__wizard_step_2__background"
     android:orientation="vertical" >
 
     <include
@@ -63,7 +63,7 @@
                         android:drawablePadding="6dp"
                         android:paddingLeft="10dp"
                         android:text="Android - downloads directory"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/w3c__black" />
 
                     <CheckBox
                         android:id="@+id/file_storage__android__check_box"
@@ -102,7 +102,7 @@
                         android:drawablePadding="6dp"
                         android:paddingLeft="10dp"
                         android:text="DropBox"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/w3c__black" />
 
                     <CheckBox
                         android:id="@+id/file_storage__dropbox__check_box"
@@ -122,7 +122,7 @@
                     <EditText
                         android:id="@+id/dropbox_directory__data"
                         style="@style/NodeData"
-                        android:background="@color/WhiteSmoke"
+                        android:background="@color/x11__WhiteSmoke"
                         android:hint="choose a subdirectory" />
                 </TableRow>
             </TableLayout>
@@ -271,7 +271,7 @@
                     android:layout_marginLeft="17dp"
                     android:layout_marginTop="6dp"
                     android:layout_span="3"
-                    android:background="@color/WhiteSmoke"
+                    android:background="@color/x11__WhiteSmoke"
                     android:fadeScrollbars="false"
                     android:hint="email message body"
                     android:paddingTop="4dp"

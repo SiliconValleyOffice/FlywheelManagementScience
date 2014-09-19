@@ -102,7 +102,7 @@
         android:id="@+id/fse__document__scrollview__frame"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/portobello" >
+        android:background="@color/gcg__portobello" >
 
         <LinearLayout
             android:id="@+id/fse__document__scrollview__background"
@@ -115,7 +115,7 @@
                 android:layout_width="@dimen/fse__paragraph_menu__width"
                 android:layout_height="match_parent"
                 android:layout_margin="0dp"
-                android:background="@color/sand_dollar"
+                android:background="@color/gcg__sand_dollar"
                 android:orientation="vertical" >
             </LinearLayout>
 

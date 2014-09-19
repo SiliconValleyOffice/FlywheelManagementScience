@@ -105,7 +105,7 @@ public class TribKnPerspectiveFlipper extends FmsPerspectiveFlipper {
 
 	@Override
 	public int getFrameMenuSpacerCurtainBackgroundResourceId() {
-		return R.color.sands_of_time;
+		return R.color.gcg__sands_of_time;
 	}
 
 	@Override

@@ -52,7 +52,7 @@ import java.util.Hashtable;
 
 public enum FseInsertModificationState {
 	
-	MODIFIED ("Modified", R.drawable.fse__paragraph__new, R.color.red),
+	MODIFIED ("Modified", R.drawable.fse__paragraph__new, R.color.w3c__red),
 	UNCHANGED ("Unchanged", R.drawable.gcg__null_drawable_32, R.color.pdf__transparent);
 	
 	private static final Hashtable<String, FseInsertModificationState> nameTable = new Hashtable<String, FseInsertModificationState>();

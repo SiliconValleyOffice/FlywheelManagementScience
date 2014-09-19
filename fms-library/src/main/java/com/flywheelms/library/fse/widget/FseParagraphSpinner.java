@@ -140,7 +140,7 @@ public class FseParagraphSpinner extends Spinner {
 			public boolean onTouch(View aView, MotionEvent aMotionEvent) {
 				if (aMotionEvent.getAction() == MotionEvent.ACTION_DOWN) {
 					ViewGroup aViewGroup = (ViewGroup) aView;
-					aViewGroup.getChildAt(0).setBackgroundResource(R.color.WhiteSmoke);
+					aViewGroup.getChildAt(0).setBackgroundResource(R.color.x11__WhiteSmoke);
 					long theCurrentTime = System.currentTimeMillis();
 					switch (this.clickState) {
 					case TRIPLE:

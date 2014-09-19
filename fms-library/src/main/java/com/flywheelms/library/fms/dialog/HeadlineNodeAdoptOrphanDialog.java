@@ -193,7 +193,7 @@ public abstract class HeadlineNodeAdoptOrphanDialog extends FmsCancelOkApplyFdkD
 		this.filterHeadlineCriteria.setEnabled(bChecked);
 		this.filterHeadlineCriteria.inputEnabled(bChecked);
 		((View) this.filterHeadlineCriteria.getParent()).setBackgroundResource(
-				bChecked ? R.color.gcg__dialog__background : R.color.sand_dollar);
+				bChecked ? R.color.gcg__dialog__background : R.color.gcg__sand_dollar);
 		if(bChecked) {
 			this.filterHeadlineCriteria.setDataStatus();
 			this.unfilteredGcgGuiableList = (ArrayList<GcgGuiable>) this.adoptionCandidateWidgetSpinner.getGcgGuiableList();

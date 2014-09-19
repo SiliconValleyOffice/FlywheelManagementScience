@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/fms__wizard_step_1__background"
+    android:background="@color/gcg__wizard_step_1__background"
     android:clickable="true"
     android:orientation="vertical" >
 
@@ -49,7 +49,7 @@
                     android:layout_marginBottom="11dp"
                     android:layout_marginLeft="30dp"
                     android:text="@string/fmm_template__explanation__existing_private"
-                    android:textColor="@color/Gray" />
+                    android:textColor="@color/x11__Gray" />
 
                 <RadioButton
                     android:id="@+id/template_source__existing_shared"
@@ -65,7 +65,7 @@
                     android:layout_marginBottom="11dp"
                     android:layout_marginLeft="30dp"
                     android:text="@string/fmm_template__explanation__existing_shared"
-                    android:textColor="@color/Gray" />
+                    android:textColor="@color/x11__Gray" />
 
                 <RadioButton
                     android:id="@+id/template_source__existing_team"
@@ -81,7 +81,7 @@
                     android:layout_marginBottom="11dp"
                     android:layout_marginLeft="30dp"
                     android:text="@string/fmm_template__explanation__existing_team"
-                    android:textColor="@color/Gray" />
+                    android:textColor="@color/x11__Gray" />
 
                 <RadioButton
                     android:id="@+id/template_source__fmm_assets"
@@ -97,7 +97,7 @@
                     android:layout_marginBottom="11dp"
                     android:layout_marginLeft="30dp"
                     android:text="@string/fmm_template__explanation__assets"
-                    android:textColor="@color/Gray" />
+                    android:textColor="@color/x11__Gray" />
 
                 <RadioButton
                     android:id="@+id/template_source__cloud"
@@ -112,7 +112,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30dp"
                     android:text="@string/fmm_template__explanation__cloud"
-                    android:textColor="@color/Gray" />
+                    android:textColor="@color/x11__Gray" />
             </RadioGroup>
         </com.flywheelms.library.gcg.container.GcgContainerGroupBoxLinear>
 
@@ -150,7 +150,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="140dp"
                 android:text="Must include \&#39;.db\&#39; file name extension."
-                android:textColor="@color/Gray"
+                android:textColor="@color/x11__Gray"
                 tools:ignore="HardcodedText" />
 
             <TextView
@@ -160,7 +160,7 @@
                 android:layout_marginLeft="140dp"
                 android:text="ERROR - file name exists - ERROR"
                 tools:ignore="HardcodedText"
-                android:textColor="@color/Gray" />
+                android:textColor="@color/x11__Gray" />
         </LinearLayout>
     </LinearLayout>
 

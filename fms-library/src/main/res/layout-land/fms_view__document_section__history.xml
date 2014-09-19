@@ -30,10 +30,10 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/gcg__menu__label_height"
             android:layout_marginBottom="8dp"
-            android:background="@color/Gray"
+            android:background="@color/x11__Gray"
             android:gravity="center"
             android:text="Filter"
-            android:textColor="@color/White"
+            android:textColor="@color/x11__White"
             android:textSize="14.0dp" />
 
         <RadioGroup

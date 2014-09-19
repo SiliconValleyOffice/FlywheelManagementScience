@@ -296,7 +296,7 @@ public abstract class GcgWidgetEditText extends GcgWidget {
 		this.labelTextView.setEnabled(bEnable);
 		setDataStatus(bEnable == false ? true : isMinimumInput());
 		if(! bEnable) {
-			this.editText.setBackgroundResource(R.color.silver);
+			this.editText.setBackgroundResource(R.color.w3c__silver);
 		}
 	}
 	

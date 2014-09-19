@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="0dp"
-    android:background="@color/activity_background"
+    android:background="@color/deckangl__activity_background"
     android:orientation="vertical" >
                 
         <TableLayout
@@ -212,9 +212,9 @@
 
                     <TextView
                         android:text="@string/deckangl__glyph_zone__top"
-                        android:background="@color/Silver"
+                        android:background="@color/x11__Silver"
                         style="@style/NodeLabelSmall"
-                        android:textColor="@color/Snow"
+                        android:textColor="@color/x11__Snow"
                         android:width="210dip"
                         android:gravity="left"
                     	android:layout_gravity="right"
@@ -271,9 +271,9 @@
 
                     <TextView
                         android:text="@string/deckangl__glyph_zone__left"
-                        android:background="@color/Silver"
+                        android:background="@color/x11__Silver"
                         style="@style/NodeLabelSmall"
-                        android:textColor="@color/Snow"
+                        android:textColor="@color/x11__Snow"
                         android:width="210dip"
                         android:gravity="left"
                    		android:layout_gravity="right"
@@ -344,9 +344,9 @@
 
                     <TextView
                         android:text="@string/deckangl__glyph_zone__bottom"
-                        android:background="@color/Silver"
+                        android:background="@color/x11__Silver"
                         style="@style/NodeLabelSmall"
-                        android:textColor="@color/Snow"
+                        android:textColor="@color/x11__Snow"
                         android:width="210dip"
                         android:gravity="left"
                     	android:layout_gravity="right"
@@ -402,9 +402,9 @@
 
                     <TextView
                         android:text="@string/deckangl__glyph_zone__right"
-                        android:background="@color/Silver"
+                        android:background="@color/x11__Silver"
                         style="@style/NodeLabelSmall"
-                        android:textColor="@color/Snow"
+                        android:textColor="@color/x11__Snow"
                         android:width="210dip"
                         android:gravity="left"
                     	android:layout_gravity="right"

@@ -2,7 +2,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="0dp"
-    android:background="@color/activity_background"
+    android:background="@color/deckangl__activity_background"
     android:orientation="vertical" >
 
     <LinearLayout
@@ -211,11 +211,11 @@
                     android:padding="0dip" >
 
                     <TextView
-                        android:background="@color/WhiteSmoke"
+                        android:background="@color/x11__WhiteSmoke"
                         android:gravity="center"
                         android:text="@string/deckangl__glyph_zone__top"
                         android:textSize="10sp"
-                        android:textColor="@color/black"
+                        android:textColor="@color/w3c__black"
                         android:width="210dp" />
                 </TableRow>
 
@@ -268,11 +268,11 @@
                     android:padding="0dip" >
 
                     <TextView
-                        android:background="@color/WhiteSmoke"
+                        android:background="@color/x11__WhiteSmoke"
                         android:gravity="center"
                         android:text="@string/deckangl__glyph_zone__left"
                         android:textSize="10sp"
-                        android:textColor="@color/black"
+                        android:textColor="@color/w3c__black"
                         android:width="210dp" />
                 </TableRow>
 
@@ -338,11 +338,11 @@
                     android:padding="0dip" >
 
                     <TextView
-                        android:background="@color/WhiteSmoke"
+                        android:background="@color/x11__WhiteSmoke"
                         android:gravity="center"
                         android:text="@string/deckangl__glyph_zone__right"
                         android:textSize="10sp"
-                        android:textColor="@color/black"
+                        android:textColor="@color/w3c__black"
                         android:width="210dp" />
                 </TableRow>
 
@@ -394,11 +394,11 @@
                     android:padding="0dip" >
 
                     <TextView
-                        android:background="@color/WhiteSmoke"
+                        android:background="@color/x11__WhiteSmoke"
                         android:gravity="center"
                         android:text="@string/deckangl__glyph_zone__bottom"
                         android:textSize="10sp"
-                        android:textColor="@color/black"
+                        android:textColor="@color/w3c__black"
                         android:width="210dp" />
                 </TableRow>
 

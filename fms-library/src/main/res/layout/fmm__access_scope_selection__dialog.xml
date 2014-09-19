@@ -50,7 +50,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="25dp"
                 android:layout_marginBottom="10dp"
-                android:textColor="@color/Gray"
+                android:textColor="@color/x11__Gray"
                 android:text="@string/fmm__access_scope__private__explanation" />
 
             <RadioButton
@@ -66,7 +66,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="25dp"
                 android:layout_marginBottom="10dp"
-                android:textColor="@color/Gray"
+                android:textColor="@color/x11__Gray"
                 android:text="@string/fmm__access_scope__shared__explanation" />
 
             <RadioButton
@@ -82,7 +82,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="25dp"
                 android:layout_marginBottom="15dp"
-                android:textColor="@color/Gray"
+                android:textColor="@color/x11__Gray"
                 android:text="@string/fmm__access_scope__team__explanation" />
         </RadioGroup>
     </RelativeLayout>

@@ -96,7 +96,7 @@ public abstract class GcgTreeViewAdapter extends BaseAdapter {
 		
 		@Override
 		public boolean onLongClick(View aView) {
-			GcgTreeViewAdapter.this.setRowBackground(aView, R.color.silver);
+			GcgTreeViewAdapter.this.setRowBackground(aView, R.color.w3c__silver);
 			final GcgTreeNodeInfo theLaunchNodeInfo = (GcgTreeNodeInfo) aView.getTag();
 			GcgTreeNodeInfo theParentNodeInfo = GcgTreeViewAdapter.this.treeViewMediator.getParent(theLaunchNodeInfo);
 			final ArrayList<GcgTreeNodeInfo> thePeerNodeList = GcgTreeViewAdapter.this.getPeerTreeNodeInfoList(theLaunchNodeInfo);

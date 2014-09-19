@@ -91,7 +91,7 @@ public abstract class GcgViewFlipperChildView extends LinearLayout implements Gc
 	}
 
 	public int getFrameMenuSpacerBackgroundResourceId() {
-		return R.color.sands_of_time;
+		return R.color.gcg__sands_of_time;
 	}
 
 	public void initializeTitleBar() {

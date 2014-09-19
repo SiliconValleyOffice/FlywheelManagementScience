@@ -179,7 +179,7 @@ public class GcgWidgetDatePicker extends GcgWidgetTextView {
 	@Override
 	protected void manageBackgroundState() {
 		this.textView.setBackgroundResource(enabled() ? isMinimumInput() ?
-					R.drawable.gcg__date_picker__background : R.drawable.gcg__date_picker__background__invalid : R.color.silver );
+					R.drawable.gcg__date_picker__background : R.drawable.gcg__date_picker__background__invalid : R.color.w3c__silver);
 	}
 
 	@Override

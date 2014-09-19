@@ -64,7 +64,7 @@
             android:gravity="center_horizontal"
             android:paddingTop="7dp"
             android:text="@string/fse__document_section__heading"
-            android:textColor="@color/yellow"
+            android:textColor="@color/w3c__yellow"
             android:textSize="12.0dp" />
 
         <TextView
@@ -76,7 +76,7 @@
             android:gravity="center_horizontal"
             android:paddingTop="7dp"
             android:text="@string/fse__transaction_paragraphs_new__heading"
-            android:textColor="@color/yellow"
+            android:textColor="@color/w3c__yellow"
             android:textSize="12.0dp" />
 
         <TextView
@@ -88,7 +88,7 @@
             android:gravity="center_horizontal"
             android:paddingTop="7dp"
             android:text="@string/fse__transaction_paragraphs_modified__heading_abreviated"
-            android:textColor="@color/yellow"
+            android:textColor="@color/w3c__yellow"
             android:textSize="12.0dp" />
 
         <TextView
@@ -100,7 +100,7 @@
             android:gravity="center_horizontal"
             android:paddingTop="7dp"
             android:text="@string/fse__transaction_paragraphs_deleted__heading_abreviated"
-            android:textColor="@color/yellow"
+            android:textColor="@color/w3c__yellow"
             android:textSize="12.0dp" />
         
     </LinearLayout>
@@ -109,7 +109,7 @@
         android:id="@+id/fse__transaction_scrollview__frame"
         android:layout_width="match_parent"
         android:layout_height="745dp"
-        android:background="@color/portobello" >
+        android:background="@color/gcg__portobello" >
 
         <LinearLayout
             android:id="@+id/fse__transaction_scrollview__background"
@@ -122,7 +122,7 @@
                 android:layout_width="@dimen/fse__transaction_number__width"
                 android:layout_height="match_parent"
                 android:layout_margin="0dp"
-                android:background="@color/sand_dollar"
+                android:background="@color/gcg__sand_dollar"
                 android:orientation="vertical" />
 
             <LinearLayout
@@ -138,7 +138,7 @@
                 android:layout_width="@dimen/fse__transaction_community_member__width"
                 android:layout_height="match_parent"
                 android:layout_margin="0dp"
-                android:background="@color/sand_dollar"
+                android:background="@color/gcg__sand_dollar"
                 android:orientation="vertical" />
 
             <LinearLayout
@@ -154,7 +154,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="0dp"
-                android:background="@color/sand_dollar"
+                android:background="@color/gcg__sand_dollar"
                 android:orientation="vertical" />
         </LinearLayout>
 

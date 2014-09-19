@@ -644,7 +644,7 @@ public class FsePerspectiveFlipper extends FmsPerspectiveFlipper implements GcgS
 
 	@Override
 	public int getFrameMenuSpacerCurtainBackgroundResourceId() {
-		return R.color.sands_of_time;
+		return R.color.gcg__sands_of_time;
 	}
 
 	public FseDocument getDisplayedFseDocument() {

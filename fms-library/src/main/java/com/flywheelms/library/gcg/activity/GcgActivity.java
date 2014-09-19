@@ -326,7 +326,7 @@ public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNo
 	}
 
 	protected int getRootLayoutBackgroundResourceId() {
-		return R.color.portobello;
+		return R.color.gcg__portobello;
 	}
 
 	protected void initializeGui() {

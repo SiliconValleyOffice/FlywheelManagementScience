@@ -49,18 +49,18 @@ import java.util.ArrayList;
 
 public enum GcgMultiShiftState {
 	
-	OFF (1, false, false, R.drawable.gcg__multi_shift_state_list__off, R.color.Brown), // gray
-	CTL (2, false, true, R.drawable.gcg__multi_shift_state_list__ctl, R.color.Magenta),
-	SHIFT (3, false, true, R.drawable.gcg__multi_shift_state_list__shift, R.color.Blue),
-	ALT (4, false, false, R.drawable.gcg__multi_shift_state_list__alt, R.color.Yellow),
-	CANCEL_SHIFT (5, true, false, R.drawable.gcg__multi_shift_state_list__cancel, R.color.Brown), // red X
+	OFF (1, false, false, R.drawable.gcg__multi_shift_state_list__off, R.color.x11__Brown), // gray
+	CTL (2, false, true, R.drawable.gcg__multi_shift_state_list__ctl, R.color.x11__Magenta),
+	SHIFT (3, false, true, R.drawable.gcg__multi_shift_state_list__shift, R.color.x11__Blue),
+	ALT (4, false, false, R.drawable.gcg__multi_shift_state_list__alt, R.color.x11__Yellow),
+	CANCEL_SHIFT (5, true, false, R.drawable.gcg__multi_shift_state_list__cancel, R.color.x11__Brown), // red X
 //	ALT_SHIFT (5, false, R.drawable.gcg__multi_shift_state_list__alt_shift, R.color.Orange),
 //	CTL_SHIFT (6, false, R.drawable.gcg__multi_shift_state_list__ctl_shift, R.color.Green),
-	LOWER_CASE (1, false, false, R.drawable.gcg__multi_shift_state_list__gray, R.color.Brown), // gray
-	INITIAL_CAPS (2, false, false, R.drawable.gcg__multi_shift_state_list__blue, R.color.Blue),
-	CAMEL_CASE (3, false, false, R.drawable.gcg__multi_shift_state_list__yellow, R.color.Yellow),
-	ALL_CAPS (4, false, false, R.drawable.gcg__multi_shift_state_list__orange, R.color.Orange),
-	CANCEL_CASE (5, true, false, R.drawable.gcg__multi_shift_state_list__cancel, R.color.Brown); // red X
+	LOWER_CASE (1, false, false, R.drawable.gcg__multi_shift_state_list__gray, R.color.x11__Brown), // gray
+	INITIAL_CAPS (2, false, false, R.drawable.gcg__multi_shift_state_list__blue, R.color.x11__Blue),
+	CAMEL_CASE (3, false, false, R.drawable.gcg__multi_shift_state_list__yellow, R.color.x11__Yellow),
+	ALL_CAPS (4, false, false, R.drawable.gcg__multi_shift_state_list__orange, R.color.x11__Orange),
+	CANCEL_CASE (5, true, false, R.drawable.gcg__multi_shift_state_list__cancel, R.color.x11__Brown); // red X
 	
 	static {
 		OFF.setNextState(CTL);

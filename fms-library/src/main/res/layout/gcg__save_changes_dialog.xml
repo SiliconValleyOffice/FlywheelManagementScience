@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/fms__wizard_step__background__last"
+    android:background="@color/gcg__wizard_step__background__last"
     android:gravity="center_horizontal"
     android:orientation="vertical" >
 
@@ -15,7 +15,7 @@
         android:layout_margin="15dp"
         android:gravity="center_horizontal"
         android:text="@string/gcg__data_changes__not_resolved"
-        android:textColor="@color/white"
+        android:textColor="@color/w3c__white"
         android:textSize="25sp"
         android:textStyle="bold" />
 

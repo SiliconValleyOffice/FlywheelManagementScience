@@ -5,7 +5,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">center_horizontal</item>
         <item name="android:layout_marginTop">0dp</item>
-        <item name="android:textColor">@color/portobello</item>
+        <item name="android:textColor">@color/gcg__portobello</item>
     </style>
     
     <style name="GroupBoxLabel" parent="@android:style/TextAppearance.Small">
@@ -13,8 +13,8 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">center_horizontal</item>
         <item name="android:layout_marginTop">0dp</item>
-        <item name="android:background">@color/portobello</item>
-        <item name="android:textColor">@color/divine_white</item>
+        <item name="android:background">@color/gcg__portobello</item>
+        <item name="android:textColor">@color/gcg__divine_white</item>
     </style>
     
     <style name="NodeLabelSmall" parent="@android:style/TextAppearance.Small">
@@ -109,7 +109,7 @@
         <item name="android:paddingLeft">3dp</item>
         <item name="android:paddingTop">2dp</item>
         <item name="android:paddingBottom">5dp</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/w3c__black</item>
         <item name="android:textSize">16.0dp</item>
         <item name="android:lines">1</item>
     </style>
@@ -151,7 +151,7 @@
     </style>
     
     <style name="TableDataOddColumn" parent="TableDataEvenColumn">
-        <item name="android:background">@color/sand_dollar</item>
+        <item name="android:background">@color/gcg__sand_dollar</item>
     </style>
     
     <style name="FlipPageTitle">

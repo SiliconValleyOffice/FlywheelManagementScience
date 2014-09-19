@@ -54,10 +54,10 @@ public enum FdkKeyboardState {
 	
 	// NOTE - this is the keyboard state, not the dictation state (which is boolean)
 
-	ACTIVE ("Active", R.drawable.flywheel_dictation_keyboard_off, R.color.green),
-	ALWAYS_ACTIVE ("AlwaysActive", R.drawable.gcg__null_drawable_32, R.color.green),
-	AVAILABLE ("Available", R.drawable.flywheel_dictation_keyboard, R.color.yellow),
-	DISABLED ("Disabled", R.drawable.gcg__null_drawable_32, R.color.gray);
+	ACTIVE ("Active", R.drawable.flywheel_dictation_keyboard_off, R.color.w3c__green),
+	ALWAYS_ACTIVE ("AlwaysActive", R.drawable.gcg__null_drawable_32, R.color.w3c__green),
+	AVAILABLE ("Available", R.drawable.flywheel_dictation_keyboard, R.color.w3c__yellow),
+	DISABLED ("Disabled", R.drawable.gcg__null_drawable_32, R.color.w3c__gray);
 	
 	private static final Hashtable<String, FdkKeyboardState> nameTable = new Hashtable<String, FdkKeyboardState>();
 	static {
