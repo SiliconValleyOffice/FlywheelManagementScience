@@ -93,55 +93,55 @@ public class FmsDecoratorChildFractals extends DecKanGlDecoratorEnumeration {
 			"No Child Fractals",
 			R.string.decorator__child_fractals__none,
 			TribKnQualityNormalizedDescription.NONE,
-			R.integer.decorator__child_fractals__none__quality_index,
+			R.integer.fmm__decorator__child_fractals__none__quality_index,
 			DecKanGlDecoratorColor.RED );
 	public static FmsDecoratorChildFractals CHILD_FRACTALS_SWAG = new FmsDecoratorChildFractals(
 			"Child Fractals SWAG",
 			R.string.decorator__child_fractals__swag,
 			TribKnQualityNormalizedDescription.SWAG,
-			R.integer.decorator__child_fractals__swag__quality_index,
+			R.integer.fmm__decorator__child_fractals__swag__quality_index,
 			DecKanGlDecoratorColor.YELLOW );
 	public static FmsDecoratorChildFractals SUGGESTED_CHILD_FRACTALS = new FmsDecoratorChildFractals(
 			"Suggested Child Fractals",
 			R.string.decorator__child_fractals__suggested,
 			TribKnQualityNormalizedDescription.SUGGESTED,
-			R.integer.decorator__child_fractals__suggested__quality_index,
+			R.integer.fmm__decorator__child_fractals__suggested__quality_index,
 			DecKanGlDecoratorColor.BLUE );
 	public static FmsDecoratorChildFractals PROPOSED_CHILD_FRACTALS = new FmsDecoratorChildFractals(
 			"Proposed Child Fractals",
 			R.string.decorator__child_fractals__proposed,
 			TribKnQualityNormalizedDescription.PROPOSED,
-			R.integer.decorator__child_fractals__proposed__quality_index,
+			R.integer.fmm__decorator__child_fractals__proposed__quality_index,
 			DecKanGlDecoratorColor.PINK );
 	public static FmsDecoratorChildFractals CONFIRMED_CHILD_FRACTALS = new FmsDecoratorChildFractals(
 			"Confirmed Child Fractals",
 			R.string.decorator__child_fractals__confirmed,
 			TribKnQualityNormalizedDescription.CONFIRMED,
-			R.integer.decorator__child_fractals__confirmed__quality_index,
+			R.integer.fmm__decorator__child_fractals__confirmed__quality_index,
 			DecKanGlDecoratorColor.TRANSPARENT );
 	public static FmsDecoratorChildFractals CONFIRMED_EXCESSIVE_CHILD_FRACTALS = new FmsDecoratorChildFractals(
 			"Complete Child Fractals",
 			R.string.decorator__child_fractals__excessive,
 			TribKnQualityNormalizedDescription.EXCESSIVE,
-			R.integer.decorator__child_fractals__excessive__quality_index,
+			R.integer.fmm__decorator__child_fractals__excessive__quality_index,
 			DecKanGlDecoratorColor.ORANGE );
 	public static FmsDecoratorChildFractals UNKNOWN_CHILD_FRACTALS_QUALITY = new FmsDecoratorChildFractals(
 			"Unknown Child Fractal Quality",
 			R.string.decorator__child_fractals__unknown_quality,
 			TribKnQualityNormalizedDescription.UNKNOWN,
-			R.integer.decorator__child_fractals__unknown_quality__quality_index,
+			R.integer.fmm__decorator__child_fractals__unknown_quality__quality_index,
 			DecKanGlDecoratorColor.GRAY );
 	public static FmsDecoratorChildFractals CHILD_FRACTALS_QUALITY_NOT_APPLICABLE = new FmsDecoratorChildFractals(
 			"Child Fractals Not Applicable",
 			R.string.decorator__child_fractals__not_applicable,
 			TribKnQualityNormalizedDescription.UNKNOWN,
-			R.integer.decorator__child_fractals__not_applicable__quality_index,
+			R.integer.fmm__decorator__child_fractals__not_applicable__quality_index,
 			DecKanGlDecoratorColor.TRANSPARENT );
 	public static FmsDecoratorChildFractals CHILD_FRACTAL_QUALITY_NOT_ENABLED = new FmsDecoratorChildFractals(
 			"Child Fractal Quality Not Enabled",
 			R.string.decorator__child_fractals__not_enabled,
 			TribKnQualityNormalizedDescription.NOT_ENABLED,
-			R.integer.decorator__child_fractals__not_enabled__quality_index,
+			R.integer.fmm__decorator__child_fractals__not_enabled__quality_index,
 			DecKanGlDecoratorColor.DISABLED );
 	
 	protected static ArrayList<DecKanGlDecoratorEnumeration> valuesList =

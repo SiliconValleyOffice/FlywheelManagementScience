@@ -93,55 +93,55 @@ public class FmsDecoratorWorkTaskBudget extends DecKanGlDecoratorEnumeration {
 			"No Task Budget",
 			R.string.decorator__task_budget__none,
 			TribKnQualityNormalizedDescription.NONE,
-			R.integer.decorator__task_budget__none__quality_index,
+			R.integer.fmm__decorator__task_budget__none__quality_index,
 			DecKanGlDecoratorColor.RED );
 	public static FmsDecoratorWorkTaskBudget TASK_BUDGET_SWAG = new FmsDecoratorWorkTaskBudget(
 			"Task Budget SWAG",
 			R.string.decorator__task_budget__swag,
 			TribKnQualityNormalizedDescription.SWAG,
-			R.integer.decorator__task_budget__swag__quality_index,
+			R.integer.fmm__decorator__task_budget__swag__quality_index,
 			DecKanGlDecoratorColor.YELLOW );
 	public static FmsDecoratorWorkTaskBudget SUGGESTED_TASK_BUDGET = new FmsDecoratorWorkTaskBudget(
 			"Suggested Task Budget",
 			R.string.decorator__task_budget__suggested,
 			TribKnQualityNormalizedDescription.SUGGESTED,
-			R.integer.decorator__task_budget__suggested__quality_index,
+			R.integer.fmm__decorator__task_budget__suggested__quality_index,
 			DecKanGlDecoratorColor.BLUE );
 	public static FmsDecoratorWorkTaskBudget PROPOSED_TASK_BUDGET = new FmsDecoratorWorkTaskBudget(
 			"Proposed Task Budget",
 			R.string.decorator__task_budget__proposed,
 			TribKnQualityNormalizedDescription.PROPOSED,
-			R.integer.decorator__task_budget__proposed__quality_index,
+			R.integer.fmm__decorator__task_budget__proposed__quality_index,
 			DecKanGlDecoratorColor.PINK );
 	public static FmsDecoratorWorkTaskBudget CONFIRMED_TASK_BUDGET = new FmsDecoratorWorkTaskBudget(
 			"Confirmed Task Budget",
 			R.string.decorator__task_budget__confirmed,
 			TribKnQualityNormalizedDescription.CONFIRMED,
-			R.integer.decorator__task_budget__confirmed__quality_index,
+			R.integer.fmm__decorator__task_budget__confirmed__quality_index,
 			DecKanGlDecoratorColor.TRANSPARENT );
 	public static FmsDecoratorWorkTaskBudget TASKS_OVER_BUDGET = new FmsDecoratorWorkTaskBudget(
 			"Tasks Over Budget",
 			R.string.decorator__task_budget__over_budget,
 			TribKnQualityNormalizedDescription.OVER_BUDGET,
-			R.integer.decorator__task_budget__over_budget__quality_index,
+			R.integer.fmm__decorator__task_budget__over_budget__quality_index,
 			DecKanGlDecoratorColor.ORANGE );
 	public static FmsDecoratorWorkTaskBudget UNKNOWN_TASK_BUDGET_QUALITY = new FmsDecoratorWorkTaskBudget(
 			"Unknown Task Budget Quality",
 			R.string.decorator__task_budget__unknown_quality,
 			TribKnQualityNormalizedDescription.UNKNOWN,
-			R.integer.decorator__task_budget__unknown_quality__quality_index,
+			R.integer.fmm__decorator__task_budget__unknown_quality__quality_index,
 			DecKanGlDecoratorColor.GRAY );
 	public static FmsDecoratorWorkTaskBudget TASK_BUDGET_QUALITY_NOT_APPLICABLE = new FmsDecoratorWorkTaskBudget(
 			"Task Budget Quality Not Applicable",
 			R.string.decorator__task_budget__not_applicable,
 			TribKnQualityNormalizedDescription.NOT_APPLICABLE,
-			R.integer.decorator__task_budget__not_applicable__quality_index,
+			R.integer.fmm__decorator__task_budget__not_applicable__quality_index,
 			DecKanGlDecoratorColor.TRANSPARENT );
 	public static FmsDecoratorWorkTaskBudget BUDGET_QUALITY_NOT_ENABLED = new FmsDecoratorWorkTaskBudget(
 			"Task Budget Quality Not Enabled",
 			R.string.decorator__task_budget__not_enabled,
 			TribKnQualityNormalizedDescription.NOT_ENABLED,
-			R.integer.decorator__task_budget__not_enabled__quality_index,
+			R.integer.fmm__decorator__task_budget__not_enabled__quality_index,
 			DecKanGlDecoratorColor.DISABLED );
 	
 	protected static ArrayList<DecKanGlDecoratorEnumeration> valuesList =

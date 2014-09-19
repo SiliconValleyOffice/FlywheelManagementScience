@@ -93,55 +93,55 @@ public class FmsDecoratorStory extends DecKanGlDecoratorEnumeration {
 			"No Story",
 			R.string.decorator__story__none,
 			TribKnQualityNormalizedDescription.NONE,
-			R.integer.decorator__story__none__quality_index,
+			R.integer.fmm__fmm__decorator__story__none__quality_index,
 			DecKanGlDecoratorColor.RED );
 	public static FmsDecoratorStory STORY_SWAG = new FmsDecoratorStory(
 			"Story SWAG",
 			R.string.decorator__story__swag,
 			TribKnQualityNormalizedDescription.SWAG,
-			R.integer.decorator__story__swag__quality_index,
+			R.integer.fmm__decorator__story__swag__quality_index,
 			DecKanGlDecoratorColor.YELLOW );
 	public static FmsDecoratorStory SUGGESTED_STORY = new FmsDecoratorStory(
 			"Suggested Story",
 			R.string.decorator__story__suggested,
 			TribKnQualityNormalizedDescription.SUGGESTED,
-			R.integer.decorator__story__suggested__quality_index,
+			R.integer.fmm__decorator__story__suggested__quality_index,
 			DecKanGlDecoratorColor.BLUE );
 	public static FmsDecoratorStory PROPOSED_STORY = new FmsDecoratorStory(
 			"Proposed Story",
 			R.string.decorator__story__proposed,
 			TribKnQualityNormalizedDescription.PROPOSED,
-			R.integer.decorator__story__proposed__quality_index,
+			R.integer.fmm__decorator__story__proposed__quality_index,
 			DecKanGlDecoratorColor.PINK );
 	public static FmsDecoratorStory CONFIRMED_STORY = new FmsDecoratorStory(
 			"Confirmed Story",
 			R.string.decorator__story__confirmed,
 			TribKnQualityNormalizedDescription.CONFIRMED,
-			R.integer.decorator__story__confirmed__quality_index,
+			R.integer.fmm__decorator__story__confirmed__quality_index,
 			DecKanGlDecoratorColor.TRANSPARENT );
 	public static FmsDecoratorStory MODIFIED_SINCE_CONFIRMED_STORY = new FmsDecoratorStory(
 			"Story Modified Since Confirmed",
 			R.string.decorator__story__modified_since_confirmed,
 			TribKnQualityNormalizedDescription.MODIFIED_SINCE_CONFIRMED,
-			R.integer.decorator__story__modified_since_confirmed__quality_index,
+			R.integer.fmm__decorator__story__modified_since_confirmed__quality_index,
 			DecKanGlDecoratorColor.ORANGE );
 	public static FmsDecoratorStory UNKNOWN_STORY_QUALITY = new FmsDecoratorStory(
 			"Unknown Story Quality",
 			R.string.decorator__story__unknown_quality,
 			TribKnQualityNormalizedDescription.UNKNOWN,
-			R.integer.decorator__story__unknown_quality__quality_index,
+			R.integer.fmm__decorator__story__unknown_quality__quality_index,
 			DecKanGlDecoratorColor.GRAY );
 	public static FmsDecoratorStory STORY_QUALITY_NOT_APPLICABLE = new FmsDecoratorStory(
 			"Story Quality Not Applicable",
 			R.string.decorator__story__not_applicable,
 			TribKnQualityNormalizedDescription.NOT_APPLICABLE,
-			R.integer.decorator__story__not_applicable__quality_index,
+			R.integer.fmm__decorator__story__not_applicable__quality_index,
 			DecKanGlDecoratorColor.GRAY );
 	public static FmsDecoratorStory STORY_QUALITY_NOT_ENABLED = new FmsDecoratorStory(
 			"Story Quality Not Enabled",
 			R.string.decorator__story__not_enabled,
 			TribKnQualityNormalizedDescription.NOT_ENABLED,
-			R.integer.decorator__story__not_enabled__quality_index,
+			R.integer.fmm__decorator__story__not_enabled__quality_index,
 			DecKanGlDecoratorColor.DISABLED );
 	
 	protected static ArrayList<DecKanGlDecoratorEnumeration> valuesList =

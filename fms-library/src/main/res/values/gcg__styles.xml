@@ -1,6 +1,9 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <style name="GroupLabel" parent="@android:style/TextAppearance.Small">
+    <style name="AppTheme" parent="android:Theme.Light">
+    </style>
+
+    <style name="GcgGroupLabel" parent="@android:style/TextAppearance.Small">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">center_horizontal</item>
@@ -8,7 +11,7 @@
         <item name="android:textColor">@color/gcg__portobello</item>
     </style>
     
-    <style name="GroupBoxLabel" parent="@android:style/TextAppearance.Small">
+    <style name="GcgGroupBoxLabel" parent="@android:style/TextAppearance.Small">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">center_horizontal</item>
@@ -17,7 +20,7 @@
         <item name="android:textColor">@color/gcg__divine_white</item>
     </style>
     
-    <style name="NodeLabelSmall" parent="@android:style/TextAppearance.Small">
+    <style name="GcgLabelSmall" parent="@android:style/TextAppearance.Small">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">right|bottom</item>
@@ -28,7 +31,7 @@
         <item name="android:textSize">12.0dp</item>
     </style>
     
-    <style name="NodeLabel" parent="@android:style/TextAppearance.Small">
+    <style name="gcgLabel" parent="@android:style/TextAppearance.Small">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">right|bottom</item>
@@ -39,7 +42,7 @@
         <item name="android:textSize">16.0dp</item>
     </style>
     
-    <style name="NodeData" parent="@android:style/TextAppearance.Small">
+    <style name="GcgData" parent="@android:style/TextAppearance.Small">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">left</item>
@@ -49,7 +52,7 @@
         <item name="android:textSize">16.0dp</item>
     </style>
     
-    <style name="NodeDataWithDrawable" parent="@style/NodeData">
+    <style name="GcgDataWithDrawable" parent="@GcgData">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:drawablePadding">@dimen/gcg__widget__label__padding_right</item>
     </style>
@@ -126,11 +129,11 @@
         <item name="android:textSize">14.0dp</item>
     </style>
     
-    <style name="WidgetDataWithDrawableHorizontalContainer" parent="@style/GcgWidgetData">
+    <style name="GcgWidgetDataWithDrawableHorizontalContainer" parent="@style/GcgWidgetData">
         <item name="android:drawablePadding">@dimen/gcg__widget__label__padding_right</item>
     </style>
     
-    <style name="TableColumnHeading" parent="@android:style/TextAppearance.Small">
+    <style name="GcgTableColumnHeading" parent="@android:style/TextAppearance.Small">
         <item name="android:layout_height">match_parent</item>
         <item name="android:gravity">center_horizontal</item>
         <item name="android:paddingBottom">4dp</item>
@@ -140,7 +143,7 @@
         <item name="android:textSize">12.0dp</item>
     </style>
     
-    <style name="TableDataEvenColumn" parent="@android:style/TextAppearance.Small">
+    <style name="GcgTableDataEvenColumn" parent="@android:style/TextAppearance.Small">
         <item name="android:layout_height">match_parent</item>
         <item name="android:paddingBottom">1dp</item>
         <item name="android:paddingTop">3dp</item>
@@ -150,11 +153,11 @@
         <item name="android:textSize">14.0dp</item>
     </style>
     
-    <style name="TableDataOddColumn" parent="TableDataEvenColumn">
+    <style name="GcgTableDataOddColumn" parent="GcgTableDataEvenColumn">
         <item name="android:background">@color/gcg__sand_dollar</item>
     </style>
     
-    <style name="FlipPageTitle">
+    <style name="GcgFlipPageTitle">
         <item name="android:layout_height">24dp</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:gravity">center</item>
@@ -163,7 +166,7 @@
         <item name="android:textSize">12.0dp</item>
     </style>
     
-    <style name="FlipPageTitleDim" parent="FlipPageTitle">
+    <style name="GcgFlipPageTitleDim" parent="GcgFlipPageTitle">
         <item name="android:textColor">@color/gcg__title_strip__text_dim</item>
         <item name="android:layout_width">150dp</item>
     </style>

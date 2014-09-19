@@ -43,7 +43,7 @@
                     android:gravity="center_horizontal" >
 
                     <TextView
-                        style="@style/GroupLabel"
+                        style="@style/GcgGroupLabel"
                         android:text="File Storage" />
                 </TableRow>
 
@@ -58,7 +58,7 @@
 
                     <TextView
                         android:id="@+id/file_storage__android__label"
-                        style="@style/NodeLabel"
+                        style="@style/gcgLabel"
                         android:drawableLeft="@drawable/android__32"
                         android:drawablePadding="6dp"
                         android:paddingLeft="10dp"
@@ -82,7 +82,7 @@
 
                     <TextView
                         android:id="@+id/file_name__data"
-                        style="@style/NodeLabel" />
+                        style="@style/gcgLabel" />
                 </TableRow>
 
                 <TableRow
@@ -97,7 +97,7 @@
 
                     <TextView
                         android:id="@+id/file_storage__dropbox__label"
-                        style="@style/NodeLabel"
+                        style="@style/gcgLabel"
                         android:drawableLeft="@drawable/dropbox__32"
                         android:drawablePadding="6dp"
                         android:paddingLeft="10dp"
@@ -121,7 +121,7 @@
 
                     <EditText
                         android:id="@+id/dropbox_directory__data"
-                        style="@style/NodeData"
+                        style="@style/GcgData"
                         android:background="@color/x11__WhiteSmoke"
                         android:hint="choose a subdirectory" />
                 </TableRow>
@@ -151,7 +151,7 @@
                         android:gravity="center_horizontal" >
 
                         <TextView
-                            style="@style/GroupLabel"
+                            style="@style/GcgGroupLabel"
                             android:text="Print" />
                     </TableRow>
 
@@ -167,7 +167,7 @@
 
                         <TextView
                             android:id="@+id/printer__label"
-                            style="@style/NodeLabel"
+                            style="@style/gcgLabel"
                             android:drawableLeft="@drawable/gcg__printer"
                             android:drawablePadding="6dp"
                             android:paddingLeft="10dp"
@@ -202,7 +202,7 @@
                 android:gravity="center_horizontal" >
 
                 <TextView
-                    style="@style/GroupLabel"
+                    style="@style/GcgGroupLabel"
                     android:text="Email Recipients" />
             </TableRow>
 
@@ -264,7 +264,7 @@
 
                 <EditText
                     android:id="@+id/email_message_body__data"
-                    style="@style/NodeData"
+                    style="@style/GcgData"
                     android:layout_width="250dp"
                     android:layout_height="64dp"
                     android:layout_marginBottom="6dp"

@@ -93,55 +93,55 @@ public class FmsDecoratorGovernance extends DecKanGlDecoratorEnumeration {
 			"No Governance",
 			R.string.decorator__governance__none,
 			TribKnQualityNormalizedDescription.NONE,
-			R.integer.decorator__governance__none__quality_index,
+			R.integer.fmm__decorator__governance__none__quality_index,
 			DecKanGlDecoratorColor.RED );
 	public static FmsDecoratorGovernance SUGGESTED_GOVERNANCE = new FmsDecoratorGovernance(
 			"Suggested Governance",
 			R.string.decorator__governance__suggested,
 			TribKnQualityNormalizedDescription.SUGGESTED,
-			R.integer.decorator__governance__suggested__quality_index,
+			R.integer.fmm__decorator__governance__suggested__quality_index,
 			DecKanGlDecoratorColor.BLUE );
 	public static FmsDecoratorGovernance PROPOSED_GOVERNANCE = new FmsDecoratorGovernance(
 			"Proposed Governance",
 			R.string.decorator__governance__proposed,
 			TribKnQualityNormalizedDescription.PROPOSED,
-			R.integer.decorator__governance__proposed__quality_index,
+			R.integer.fmm__decorator__governance__proposed__quality_index,
 			DecKanGlDecoratorColor.PINK );
 	public static FmsDecoratorGovernance INCOMPLETE_CONFIRMED_GOVERNANCE = new FmsDecoratorGovernance(
 			"Incomplete Governance",
 			R.string.decorator__governance__incomplete,
 			TribKnQualityNormalizedDescription.INCOMPLETE,
-			R.integer.decorator__governance__incomplete__quality_index,
+			R.integer.fmm__decorator__governance__incomplete__quality_index,
 			DecKanGlDecoratorColor.ORANGE );
 	public static FmsDecoratorGovernance CONFIRMED_GOVERNANCE = new FmsDecoratorGovernance(
 			"Confirmed Governance",
 			R.string.decorator__governance__confirmed,
 			TribKnQualityNormalizedDescription.CONFIRMED,
-			R.integer.decorator__governance__confirmed__quality_index,
+			R.integer.fmm__decorator__governance__confirmed__quality_index,
 			DecKanGlDecoratorColor.TRANSPARENT );
 	public static FmsDecoratorGovernance INACTIVE_CONFIRMED_GOVERNANCE = new FmsDecoratorGovernance(
 			"Inactive Confirmed Governance",
 			R.string.decorator__governance__inactive,
 			TribKnQualityNormalizedDescription.INACTIVE,
-			R.integer.decorator__governance__inactive__quality_index,
+			R.integer.fmm__decorator__governance__inactive__quality_index,
 			DecKanGlDecoratorColor.BLUE );
 	public static FmsDecoratorGovernance UNKNOWN_GOVERNANCE_QUALITY = new FmsDecoratorGovernance(
 			"Unknown Governance Quality",
 			R.string.decorator__governance__unknown_quality,
 			TribKnQualityNormalizedDescription.UNKNOWN,
-			R.integer.decorator__governance__unknown_quality__quality_index,
+			R.integer.fmm__decorator__governance__unknown_quality__quality_index,
 			DecKanGlDecoratorColor.GRAY );
 	public static FmsDecoratorGovernance GOVERNANCE_QUALITY_NOT_APPLICABLE = new FmsDecoratorGovernance(
 			"Governance Quality Not Applicable",
 			R.string.decorator__governance__not_applicable,
 			TribKnQualityNormalizedDescription.NOT_APPLICABLE,
-			R.integer.decorator__governance__not_applicable__quality_index,
+			R.integer.fmm__decorator__governance__not_applicable__quality_index,
 			DecKanGlDecoratorColor.TRANSPARENT );
 	public static FmsDecoratorGovernance GOVERNANCE_QUALITY_NOT_ENABLED = new FmsDecoratorGovernance(
 			"Governance Quality Not Enabled",
 			R.string.decorator__governance__not_enabled,
 			TribKnQualityNormalizedDescription.NOT_ENABLED,
-			R.integer.decorator__governance__not_enabled__quality_index,
+			R.integer.fmm__decorator__governance__not_enabled__quality_index,
 			DecKanGlDecoratorColor.DISABLED );
 	
 	protected static ArrayList<DecKanGlDecoratorEnumeration> valuesList =

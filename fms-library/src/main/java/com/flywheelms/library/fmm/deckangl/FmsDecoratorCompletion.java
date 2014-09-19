@@ -93,49 +93,49 @@ public class FmsDecoratorCompletion extends DecKanGlDecoratorEnumeration {
 			"Completion Not Scheduled",
 			R.string.decorator__completion_progress__not_scheduled,
 			TribKnQualityNormalizedDescription.NOT_SCHEDULED,
-			R.integer.decorator__completion_progress__not_scheduled__quality_index,
+			R.integer.fmm__decorator__completion_progress__not_scheduled__quality_index,
 			DecKanGlDecoratorColor.RED );
 	public static FmsDecoratorCompletion TIMELY_COMPLETION_AT_RISK = new FmsDecoratorCompletion(
 			"Timely Completion At Risk",
 			R.string.decorator__completion_progress__at_risk,
 			TribKnQualityNormalizedDescription.AT_RISK,
-			R.integer.decorator__completion_progress__at_risk__quality_index,
+			R.integer.fmm__decorator__completion_progress__at_risk__quality_index,
 			DecKanGlDecoratorColor.YELLOW );
 	public static FmsDecoratorCompletion UNCONFIRMED_COMPLETION = new FmsDecoratorCompletion(
 			"Unconfirmed Completion",
 			R.string.decorator__completion_progress__unconfirmed,
 			TribKnQualityNormalizedDescription.UNCONFIRMED,
-			R.integer.decorator__completion_progress__unconfirmed__quality_index,
+			R.integer.fmm__decorator__completion_progress__unconfirmed__quality_index,
 			DecKanGlDecoratorColor.PINK );
 	public static FmsDecoratorCompletion NO_COMPLETION_ISSUES = new FmsDecoratorCompletion(
 			"No Completion Issues",
 			R.string.decorator__completion_progress__no_issues,
 			TribKnQualityNormalizedDescription.NONE,
-			R.integer.decorator__completion_progress__no_issues__quality_index,
+			R.integer.fmm__decorator__completion_progress__no_issues__quality_index,
 			DecKanGlDecoratorColor.TRANSPARENT );
 	public static FmsDecoratorCompletion COMPLETION_PAST_DUE = new FmsDecoratorCompletion(
 			"Completion is Past Due",
 			R.string.decorator__completion_progress__past_due,
 			TribKnQualityNormalizedDescription.PAST_DUE,
-			R.integer.decorator__completion_progress__past_due__quality_index,
+			R.integer.fmm__decorator__completion_progress__past_due__quality_index,
 			DecKanGlDecoratorColor.ORANGE );
 	public static FmsDecoratorCompletion UNKNOWN_COMPLETION_QUALITY = new FmsDecoratorCompletion(
 			"Unknown Completion Quality",
 			R.string.decorator__completion_progress__unknown_quality,
 			TribKnQualityNormalizedDescription.UNKNOWN,
-			R.integer.decorator__completion_progress__unknown_quality__quality_index,
+			R.integer.fmm__decorator__completion_progress__unknown_quality__quality_index,
 			DecKanGlDecoratorColor.GRAY );
 	public static FmsDecoratorCompletion COMPLETION_QUALITY_NOT_APPLICABLE = new FmsDecoratorCompletion(
 			"Completion Quality Not Applicable",
 			R.string.decorator__completion_progress__not_applicable,
 			TribKnQualityNormalizedDescription.NOT_APPLICABLE,
-			R.integer.decorator__completion_progress__not_applicable__quality_index,
+			R.integer.fmm__decorator__completion_progress__not_applicable__quality_index,
 			DecKanGlDecoratorColor.TRANSPARENT );
 	public static FmsDecoratorCompletion COMPLETION_QUALITY_NOT_ENABLED = new FmsDecoratorCompletion(
 			"Completion Quality Not Enabled",
 			R.string.decorator__completion_progress__not_enabled,
 			TribKnQualityNormalizedDescription.NOT_ENABLED,
-			R.integer.decorator__completion_progress__not_enabled__quality_index,
+			R.integer.fmm__decorator__completion_progress__not_enabled__quality_index,
 			DecKanGlDecoratorColor.DISABLED );
 	
 	protected static ArrayList<DecKanGlDecoratorEnumeration> valuesList =

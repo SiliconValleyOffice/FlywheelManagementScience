@@ -33,7 +33,7 @@
                 android:padding="0dp" >
 
                 <TextView
-                    style="@style/GroupLabel"
+                    style="@style/GcgGroupLabel"
                     android:text="@string/deckangl_tm__glyph" />
             </TableRow>
 
@@ -52,7 +52,7 @@
 
                     <TextView
                         android:id="@+id/deckangl_glyph__scale__label"
-                        style="@style/NodeLabelSmall"
+                        style="@style/GcgLabelSmall"
                         android:layout_gravity="left" />
 
                     <Spinner
@@ -99,7 +99,7 @@
                 android:padding="0dp" >
 
                 <TextView
-                    style="@style/GroupLabel"
+                    style="@style/GcgGroupLabel"
                     android:text="@string/deckangl_tm__noun" />
             </TableRow>
 
@@ -113,11 +113,11 @@
 
                 <TextView
                     android:id="@+id/deckangl_noun__label"
-                    style="@style/NodeLabelSmall" />
+                    style="@style/GcgLabelSmall" />
 
                 <Spinner
                     android:id="@+id/deckangl_noun__spinner"
-                    style="@style/NodeDataWithDrawable" />
+                    style="@style/GcgDataWithDrawable" />
             </TableRow>
 
             <TableRow
@@ -130,11 +130,11 @@
 
                 <TextView
                     android:id="@+id/deckangl__noun_state__label"
-                    style="@style/NodeLabelSmall" />
+                    style="@style/GcgLabelSmall" />
 
                 <Spinner
                     android:id="@+id/deckangl__noun_state__spinner"
-                    style="@style/NodeDataWithDrawable" />
+                    style="@style/GcgDataWithDrawable" />
             </TableRow>
 
             <TableRow
@@ -147,14 +147,14 @@
 
                 <TextView
                     android:id="@+id/deckangl_noun__noun_quality__label"
-                    style="@style/NodeLabelSmall"
+                    style="@style/GcgLabelSmall"
                     android:drawableLeft="@drawable/deckangl__noun_quality__good"
                     android:drawablePadding="6dp"
                     android:text="@string/deckangl__noun_quality_index" />
 
                 <TextView
                     android:id="@+id/deckangl_noun__noun_quality__data"
-                    style="@style/NodeData"
+                    style="@style/GcgData"
                     android:paddingLeft="8dp" />
             </TableRow>
         </TableLayout>
@@ -183,7 +183,7 @@
             android:paddingTop="0dp" >
 
             <TextView
-                style="@style/GroupLabel"
+                style="@style/GcgGroupLabel"
                 android:text="@string/deckangl_tm__noun_quality__decorators" />
         </TableRow>
 
@@ -226,11 +226,11 @@
 
                     <TextView
                         android:id="@+id/tribkn_quality_metric__governance__label"
-                        style="@style/NodeLabelSmall" />
+                        style="@style/GcgLabelSmall" />
 
                     <Spinner
                         android:id="@+id/tribkn_quality_metric__governance__spinner"
-                        style="@style/NodeDataWithDrawable" />
+                        style="@style/GcgDataWithDrawable" />
                 </TableRow>
 
                 <TableRow
@@ -240,11 +240,11 @@
 
                     <TextView
                         android:id="@+id/tribkn_quality_metric__facilitation_issue__label"
-                        style="@style/NodeLabelSmall" />
+                        style="@style/GcgLabelSmall" />
 
                     <Spinner
                         android:id="@+id/tribkn_quality_metric__facilitation_issue__spinner"
-                        style="@style/NodeDataWithDrawable" />
+                        style="@style/GcgDataWithDrawable" />
                 </TableRow>
 
                 <TableRow
@@ -254,11 +254,11 @@
 
                     <TextView
                         android:id="@+id/tribkn_quality_metric__facilitator__label"
-                        style="@style/NodeLabelSmall" />
+                        style="@style/GcgLabelSmall" />
 
                     <Spinner
                         android:id="@+id/tribkn_quality_metric__facilitator__spinner"
-                        style="@style/NodeDataWithDrawable" />
+                        style="@style/GcgDataWithDrawable" />
                 </TableRow>
 
                 <TableRow
@@ -283,11 +283,11 @@
 
                     <TextView
                         android:id="@+id/tribkn_quality_metric__parent_fractals__label"
-                        style="@style/NodeLabelSmall" />
+                        style="@style/GcgLabelSmall" />
 
                     <Spinner
                         android:id="@+id/tribkn_quality_metric__parent_fractals__spinner"
-                        style="@style/NodeDataWithDrawable" />
+                        style="@style/GcgDataWithDrawable" />
                 </TableRow>
 
                 <TableRow
@@ -297,11 +297,11 @@
 
                     <TextView
                         android:id="@+id/tribkn_quality_metric__strategic_commitment__label"
-                        style="@style/NodeLabelSmall" />
+                        style="@style/GcgLabelSmall" />
 
                     <Spinner
                         android:id="@+id/tribkn_quality_metric__strategic_commitment__spinner"
-                        style="@style/NodeDataWithDrawable" />
+                        style="@style/GcgDataWithDrawable" />
                 </TableRow>
 
                 <TableRow
@@ -311,11 +311,11 @@
 
                     <TextView
                         android:id="@+id/tribkn_quality_metric__work_task_budget__label"
-                        style="@style/NodeLabelSmall" />
+                        style="@style/GcgLabelSmall" />
 
                     <Spinner
                         android:id="@+id/tribkn_quality_metric__work_task_budget__spinner"
-                        style="@style/NodeDataWithDrawable" />
+                        style="@style/GcgDataWithDrawable" />
                 </TableRow>
             </TableLayout>
 
@@ -353,11 +353,11 @@
 
                     <TextView
                         android:id="@+id/tribkn_quality_metric__child_fractals__label"
-                        style="@style/NodeLabelSmall" />
+                        style="@style/GcgLabelSmall" />
 
                     <Spinner
                         android:id="@+id/tribkn_quality_metric__child_fractals__spinner"
-                        style="@style/NodeDataWithDrawable" />
+                        style="@style/GcgDataWithDrawable" />
                 </TableRow>
 
                 <TableRow
@@ -367,11 +367,11 @@
 
                     <TextView
                         android:id="@+id/tribkn_quality_metric__flywheel_commitment__label"
-                        style="@style/NodeLabelSmall" />
+                        style="@style/GcgLabelSmall" />
 
                     <Spinner
                         android:id="@+id/tribkn_quality_metric__flywheel_commitment__spinner"
-                        style="@style/NodeDataWithDrawable" />
+                        style="@style/GcgDataWithDrawable" />
                 </TableRow>
 
                 <TableRow
@@ -381,11 +381,11 @@
 
                     <TextView
                         android:id="@+id/tribkn_quality_metric__work_team__label"
-                        style="@style/NodeLabelSmall" />
+                        style="@style/GcgLabelSmall" />
 
                     <Spinner
                         android:id="@+id/tribkn_quality_metric__work_team__spinner"
-                        style="@style/NodeDataWithDrawable" />
+                        style="@style/GcgDataWithDrawable" />
                 </TableRow>
 
                 <TableRow
@@ -409,11 +409,11 @@
 
                     <TextView
                         android:id="@+id/tribkn_quality_metric__story__label"
-                        style="@style/NodeLabelSmall" />
+                        style="@style/GcgLabelSmall" />
 
                     <Spinner
                         android:id="@+id/tribkn_quality_metric__story__spinner"
-                        style="@style/NodeDataWithDrawable" />
+                        style="@style/GcgDataWithDrawable" />
                 </TableRow>
 
                 <TableRow
@@ -423,11 +423,11 @@
 
                     <TextView
                         android:id="@+id/tribkn_quality_metric__sequence__label"
-                        style="@style/NodeLabelSmall" />
+                        style="@style/GcgLabelSmall" />
 
                     <Spinner
                         android:id="@+id/tribkn_quality_metric__sequence__spinner"
-                        style="@style/NodeDataWithDrawable" />
+                        style="@style/GcgDataWithDrawable" />
                 </TableRow>
 
                 <TableRow
@@ -437,11 +437,11 @@
 
                     <TextView
                         android:id="@+id/tribkn_quality_metric__completion__label"
-                        style="@style/NodeLabelSmall" />
+                        style="@style/GcgLabelSmall" />
 
                     <Spinner
                         android:id="@+id/tribkn_quality_metric__completion__spinner"
-                        style="@style/NodeDataWithDrawable" />
+                        style="@style/GcgDataWithDrawable" />
                 </TableRow>
             </TableLayout>
         </TableRow>

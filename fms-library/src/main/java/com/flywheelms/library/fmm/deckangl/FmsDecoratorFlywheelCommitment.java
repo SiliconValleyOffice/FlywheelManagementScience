@@ -93,55 +93,55 @@ public class FmsDecoratorFlywheelCommitment extends DecKanGlDecoratorEnumeration
 			"No Flywheel Commitment",
 			R.string.decorator__flywheel_commitment__none,
 			TribKnQualityNormalizedDescription.NONE,
-			R.integer.decorator__flywheel_commitment__none__quality_index,
+			R.integer.fmm__decorator__flywheel_commitment__none__quality_index,
 			DecKanGlDecoratorColor.RED );
 	public static FmsDecoratorFlywheelCommitment SUGGESTED_FLYWHEEL_COMMITMENT = new FmsDecoratorFlywheelCommitment(
 			"Suggested Flywheel Commitment",
 			R.string.decorator__flywheel_commitment__suggested,
 			TribKnQualityNormalizedDescription.SUGGESTED,
-			R.integer.decorator__flywheel_commitment__suggested__quality_index,
+			R.integer.fmm__decorator__flywheel_commitment__suggested__quality_index,
 			DecKanGlDecoratorColor.BLUE );
 	public static FmsDecoratorFlywheelCommitment PROPOSED_FLYWHEEL_COMMITMENT = new FmsDecoratorFlywheelCommitment(
 			"Proposed Flywheel Commitment",
 			R.string.decorator__flywheel_commitment__proposed,
 			TribKnQualityNormalizedDescription.PROPOSED,
-			R.integer.decorator__flywheel_commitment__proposed__quality_index,
+			R.integer.fmm__decorator__flywheel_commitment__proposed__quality_index,
 			DecKanGlDecoratorColor.PINK );
 	public static FmsDecoratorFlywheelCommitment CONFIRMED_FLYWHEEL_COMMITMENT = new FmsDecoratorFlywheelCommitment(
 			"Confirmed Flywheel Commitment",
 			R.string.decorator__flywheel_commitment__confirmed,
 			TribKnQualityNormalizedDescription.CONFIRMED,
-			R.integer.decorator__flywheel_commitment__confirmed__quality_index,
+			R.integer.fmm__decorator__flywheel_commitment__confirmed__quality_index,
 			DecKanGlDecoratorColor.TRANSPARENT );
 	public static FmsDecoratorFlywheelCommitment FUTURE_FLYWHEEL_COMMITMENT = new FmsDecoratorFlywheelCommitment(
 			"Future Flywheel Commitment",
 			R.string.decorator__flywheel_commitment__future,
 			TribKnQualityNormalizedDescription.FUTURE,
-			R.integer.decorator__flywheel_commitment__future__quality_index,
+			R.integer.fmm__decorator__flywheel_commitment__future__quality_index,
 			DecKanGlDecoratorColor.YELLOW );
 	public static FmsDecoratorFlywheelCommitment MISSED_FLYWHEEL_COMMITMENT = new FmsDecoratorFlywheelCommitment(
 			"Missed Flywheel Commitment",
 			R.string.decorator__flywheel_commitment__missed,
 			TribKnQualityNormalizedDescription.MISSED,
-			R.integer.decorator__flywheel_commitment__missed__quality_index,
+			R.integer.fmm__decorator__flywheel_commitment__missed__quality_index,
 			DecKanGlDecoratorColor.ORANGE );
 	public static FmsDecoratorFlywheelCommitment UNKNOWN_FLYWHEEL_COMMITMENT_QUALITY = new FmsDecoratorFlywheelCommitment(
 			"Unknown Flywheel Commitment Quality",
 			R.string.decorator__flywheel_commitment__unknown_quality,
 			TribKnQualityNormalizedDescription.UNKNOWN,
-			R.integer.decorator__flywheel_commitment__unknown_quality__quality_index,
+			R.integer.fmm__decorator__flywheel_commitment__unknown_quality__quality_index,
 			DecKanGlDecoratorColor.GRAY );
 	public static FmsDecoratorFlywheelCommitment FLYWHEEL_COMMITMENT_QUALITY_NOT_APPLICABLE = new FmsDecoratorFlywheelCommitment(
 			"Flywheel Commitment Quality Not Applicable",
 			R.string.decorator__flywheel_commitment__not_applicable,
 			TribKnQualityNormalizedDescription.NOT_APPLICABLE,
-			R.integer.decorator__flywheel_commitment__not_applicable__quality_index,
+			R.integer.fmm__decorator__flywheel_commitment__not_applicable__quality_index,
 			DecKanGlDecoratorColor.TRANSPARENT );
 	public static FmsDecoratorFlywheelCommitment FLYWHEEL_COMMITMENT_QUALITY_NOT_ENABLED = new FmsDecoratorFlywheelCommitment(
 			"Flywheel Commitment Quality Not Enabled",
 			R.string.decorator__flywheel_commitment__not_enabled,
 			TribKnQualityNormalizedDescription.NOT_ENABLED,
-			R.integer.decorator__flywheel_commitment__not_enabled__quality_index,
+			R.integer.fmm__decorator__flywheel_commitment__not_enabled__quality_index,
 			DecKanGlDecoratorColor.DISABLED );
 	
 	protected static ArrayList<DecKanGlDecoratorEnumeration> valuesList =

@@ -89,55 +89,55 @@ public class FmsDecoratorSequence extends DecKanGlDecoratorEnumeration {
 			"No Sequence",
 			R.string.decorator__sequence__none,
 			TribKnQualityNormalizedDescription.NONE,
-			R.integer.decorator__sequence__none__quality_index,
+			R.integer.fmm__decorator__sequence__none__quality_index,
 			DecKanGlDecoratorColor.RED );
 	public static FmsDecoratorSequence SEQUENCE_SWAG = new FmsDecoratorSequence(
 			"Sequence SWAG",
 			R.string.decorator__sequence__swag,
 			TribKnQualityNormalizedDescription.SWAG,
-			R.integer.decorator__sequence__swag__quality_index,
+			R.integer.fmm__decorator__sequence__swag__quality_index,
 			DecKanGlDecoratorColor.YELLOW );
 	public static FmsDecoratorSequence SUGGESTED_SEQUENCE = new FmsDecoratorSequence(
 			"Suggested Sequence",
 			R.string.decorator__sequence__suggested,
 			TribKnQualityNormalizedDescription.SUGGESTED,
-			R.integer.decorator__sequence__suggested__quality_index,
+			R.integer.fmm__decorator__sequence__suggested__quality_index,
 			DecKanGlDecoratorColor.BLUE );
 	public static FmsDecoratorSequence PROPOSED_SEQUENCE = new FmsDecoratorSequence(
 			"Proposed Sequence",
 			R.string.decorator__sequence__proposed,
 			TribKnQualityNormalizedDescription.PROPOSED,
-			R.integer.decorator__sequence__proposed__quality_index,
+			R.integer.fmm__decorator__sequence__proposed__quality_index,
 			DecKanGlDecoratorColor.PINK );
 	public static FmsDecoratorSequence CONFIRMED_SEQUENCE = new FmsDecoratorSequence(
 			"Confirmed Sequence",
 			R.string.decorator__sequence__confirmed,
 			TribKnQualityNormalizedDescription.CONFIRMED,
-			R.integer.decorator__sequence__confirmed__quality_index,
+			R.integer.fmm__decorator__sequence__confirmed__quality_index,
 			DecKanGlDecoratorColor.TRANSPARENT );
 	public static FmsDecoratorSequence MODIFIED_SINCE_CONFIRMED_SEQUENCE = new FmsDecoratorSequence(
 			"Sequence Modified Since Confirmed",
 			R.string.decorator__sequence__modified_since_confirmed,
 			TribKnQualityNormalizedDescription.MODIFIED_SINCE_CONFIRMED,
-			R.integer.decorator__sequence__modified_since_confirmed__quality_index,
+			R.integer.fmm__decorator__sequence__modified_since_confirmed__quality_index,
 			DecKanGlDecoratorColor.ORANGE );
 	public static FmsDecoratorSequence UNKNOWN_SEQUENCE_QUALITY = new FmsDecoratorSequence(
 			"Unknown Sequence Quality",
 			R.string.decorator__sequence__unknown_quality,
 			TribKnQualityNormalizedDescription.UNKNOWN,
-			R.integer.decorator__sequence__unknown_quality__quality_index,
+			R.integer.fmm__decorator__sequence__unknown_quality__quality_index,
 			DecKanGlDecoratorColor.GRAY );
 	public static FmsDecoratorSequence SEQUENCE_QUALITY_NOT_APPLICABLE = new FmsDecoratorSequence(
 			"Sequence Quality Not Applicable",
 			R.string.decorator__sequence__not_applicable,
 			TribKnQualityNormalizedDescription.NOT_APPLICABLE,
-			R.integer.decorator__sequence__not_applicable__quality_index,
+			R.integer.fmm__decorator__sequence__not_applicable__quality_index,
 			DecKanGlDecoratorColor.GRAY );
 	public static FmsDecoratorSequence SEQUENCE_QUALITY_NOT_ENABLED = new FmsDecoratorSequence(
 			"Sequence Quality Not Enabled",
 			R.string.decorator__sequence__not_enabled,
 			TribKnQualityNormalizedDescription.NOT_ENABLED,
-			R.integer.decorator__sequence__not_enabled__quality_index,
+			R.integer.fmm__decorator__sequence__not_enabled__quality_index,
 			DecKanGlDecoratorColor.DISABLED );
 	
 	protected static ArrayList<DecKanGlDecoratorEnumeration> valuesList =

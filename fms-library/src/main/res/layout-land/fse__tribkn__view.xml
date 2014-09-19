@@ -13,7 +13,7 @@
 
         <TextView
             android:id="@+id/tribkn__headline__label"
-            style="@style/NodeLabel"
+            style="@style/gcgLabel"
             android:layout_marginLeft="10dp"
             android:layout_alignParentTop="true"
             android:textColor="@color/gcg__portobello"
@@ -21,7 +21,7 @@
 
         <TextView
             android:id="@+id/tribkn__headline__data"
-            style="@style/NodeData"
+            style="@style/GcgData"
             android:layout_width="match_parent"
             android:paddingLeft="10dp"
             android:paddingBottom="3dp"
@@ -41,7 +41,7 @@
 	
 			<TextView
 				android:id="@+id/deckangl_annotated_glyph__heading"
-				style="@style/GroupBoxLabel"
+				style="@style/GcgGroupBoxLabel"
 				android:text="@string/deckangl_tm__annotated_glyph" />
 	
 			<LinearLayout

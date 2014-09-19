@@ -89,37 +89,37 @@ public class FmsDecoratorFacilitationIssue extends DecKanGlDecoratorEnumeration 
 			"Proposed Facilitation Issue",
 			R.string.decorator__facilitation_issue__proposed,
 			TribKnQualityNormalizedDescription.PROPOSED,
-			R.integer.decorator__facilitation_issue__proposed__quality_index,
+			R.integer.fmm__decorator__facilitation_issue__proposed__quality_index,
 			DecKanGlDecoratorColor.PINK );
 	public static FmsDecoratorFacilitationIssue CONFIRMED_FACILITATION_ISSUE = new FmsDecoratorFacilitationIssue(
 			"Confirmed Facilitation Issue",
 			R.string.decorator__facilitation_issue__confirmed,
 			TribKnQualityNormalizedDescription.CONFIRMED,
-			R.integer.decorator__facilitation_issue__confirmed__quality_index,
+			R.integer.fmm__decorator__facilitation_issue__confirmed__quality_index,
 			DecKanGlDecoratorColor.ORANGE );
 	public static FmsDecoratorFacilitationIssue NO_FACILITATION_ISSUE = new FmsDecoratorFacilitationIssue(
 			"No Facilitation Issue",
 			R.string.decorator__facilitation_issue__none,
 			TribKnQualityNormalizedDescription.NONE,
-			R.integer.decorator__facilitation_issue__none__quality_index,
+			R.integer.fmm__decorator__facilitation_issue__none__quality_index,
 			DecKanGlDecoratorColor.TRANSPARENT );
 	public static FmsDecoratorFacilitationIssue UNKNOWN_FACILITATION_ISSUE_QUALITY = new FmsDecoratorFacilitationIssue(
 			"Unknown Facilitation Issue Quality",
 			R.string.decorator__facilitation_issue__unknown_quality,
 			TribKnQualityNormalizedDescription.UNKNOWN,
-			R.integer.decorator__facilitation_issue__unknown_quality__quality_index,
+			R.integer.fmm__decorator__facilitation_issue__unknown_quality__quality_index,
 			DecKanGlDecoratorColor.GRAY );
 	public static FmsDecoratorFacilitationIssue FACILITATION_ISSUE_QUALITY_NOT_APPLICABLE = new FmsDecoratorFacilitationIssue(
 			"Facilitation Issue Quality Not Applicable",
 			R.string.decorator__facilitation_issue__not_applicable,
 			TribKnQualityNormalizedDescription.NOT_APPLICABLE,
-			R.integer.decorator__facilitation_issue__not_applicable__quality_index,
+			R.integer.fmm__decorator__facilitation_issue__not_applicable__quality_index,
 			DecKanGlDecoratorColor.TRANSPARENT );
 	public static FmsDecoratorFacilitationIssue FACILITATION_ISSUE_QUALITY_NOT_ENABLED = new FmsDecoratorFacilitationIssue(
 			"Facilitation Issue Quality Not Enabled",
 			R.string.decorator__facilitation_issue__not_enabled,
 			TribKnQualityNormalizedDescription.NOT_ENABLED,
-			R.integer.decorator__facilitation_issue__not_enabled__quality_index,
+			R.integer.fmm__decorator__facilitation_issue__not_enabled__quality_index,
 			DecKanGlDecoratorColor.DISABLED );
 	
 	protected static ArrayList<DecKanGlDecoratorEnumeration> valuesList =

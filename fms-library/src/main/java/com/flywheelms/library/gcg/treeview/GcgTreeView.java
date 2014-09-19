@@ -88,29 +88,29 @@ public class GcgTreeView extends ListView {
 
     private void parseAttributes(final Context aContext, final AttributeSet anAttributeSet) {
         final TypedArray theStyledAttributesArray =
-        		aContext.obtainStyledAttributes(anAttributeSet, R.styleable.TreeViewList);
-        this.expandedNodeButtonDrawable = theStyledAttributesArray.getDrawable(R.styleable.TreeViewList_src_expanded);
+        		aContext.obtainStyledAttributes(anAttributeSet, R.styleable.GcgTreeViewList);
+        this.expandedNodeButtonDrawable = theStyledAttributesArray.getDrawable(R.styleable.GcgTreeViewList_src_expanded);
         if (this.expandedNodeButtonDrawable == null) {
         	this.expandedNodeButtonDrawable = aContext.getResources().getDrawable(
                     default__COLLAPSED_NODE_BUTTON_RESOURCE_ID);
         }
         this.collapsedNodeButtonDrawable = theStyledAttributesArray
-                .getDrawable(R.styleable.TreeViewList_src_collapsed);
+                .getDrawable(R.styleable.GcgTreeViewList_src_collapsed);
         if (this.collapsedNodeButtonDrawable == null) {
         	this.collapsedNodeButtonDrawable = aContext.getResources().getDrawable(
                     default__EXPANDED_NODE_BUTTON_RESOURCE_ID);
         }
         this.indentWidth = theStyledAttributesArray.getDimensionPixelSize(
-                R.styleable.TreeViewList_indent_width, default__NODE_ROW_INDENT);
+                R.styleable.GcgTreeViewList_indent_width, default__NODE_ROW_INDENT);
         this.indicatorGravity = theStyledAttributesArray.getInteger(
-                R.styleable.TreeViewList_indicator_gravity, default__NODE_ROW_GRAVITY);
+                R.styleable.GcgTreeViewList_indicator_gravity, default__NODE_ROW_GRAVITY);
         this.indicatorBackgroundDrawable = theStyledAttributesArray
-                .getDrawable(R.styleable.TreeViewList_indicator_background);
+                .getDrawable(R.styleable.GcgTreeViewList_indicator_background);
         this.nodeRowBackgroundDrawable = theStyledAttributesArray
-                .getDrawable(R.styleable.TreeViewList_row_background);
-        this.collapsible = theStyledAttributesArray.getBoolean(R.styleable.TreeViewList_collapsible, true);
+                .getDrawable(R.styleable.GcgTreeViewList_row_background);
+        this.collapsible = theStyledAttributesArray.getBoolean(R.styleable.GcgTreeViewList_collapsible, true);
         this.handleTrackballPress = theStyledAttributesArray.getBoolean(
-                R.styleable.TreeViewList_handle_trackball_press, true);
+                R.styleable.GcgTreeViewList_handle_trackball_press, true);
     }
 
     @Override

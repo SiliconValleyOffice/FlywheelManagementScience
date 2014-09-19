@@ -11,7 +11,7 @@
         
 	    <TextView
 	        android:id="@+id/governance__role__data"
-	        style="@style/TableDataEvenColumn"
+	        style="@style/GcgTableDataEvenColumn"
 	        android:layout_width="@dimen/governance__role__width" />
 	    
 	    <ImageView
@@ -23,22 +23,22 @@
 
     <TextView
         android:id="@+id/governance__community_member__data"
-        style="@style/TableDataOddColumn"
+        style="@style/GcgTableDataOddColumn"
         android:layout_width="@dimen/governance__community_member__width" />
 
     <TextView
         android:id="@+id/governance__commitment__data"
-        style="@style/TableDataOddColumn"
+        style="@style/GcgTableDataOddColumn"
         android:layout_width="@dimen/governance__commitment__width" />
 
     <TextView
         android:id="@+id/governance__commitment_timestamp__data"
-        style="@style/TableDataEvenColumn"
+        style="@style/GcgTableDataEvenColumn"
         android:layout_width="@dimen/governance__timestamp__width" />
 
     <TextView
         android:id="@+id/governance__proposed_by__data"
-        style="@style/TableDataOddColumn"
+        style="@style/GcgTableDataOddColumn"
         android:layout_width="@dimen/governance__community_member__width" />
 
 </TableRow>

@@ -7,7 +7,7 @@
 
     <Button
         android:id="@+id/view_flipper_view__title__prev"
-        style="@style/FlipPageTitleDim"
+        style="@style/GcgFlipPageTitleDim"
         android:layout_gravity="left"
         android:paddingLeft="12dp"
         android:background="@drawable/gcg__background_state_list__null_21"
@@ -15,14 +15,14 @@
 
     <TextView
         android:id="@+id/view_flipper_view__title"
-        style="@style/FlipPageTitle"
+        style="@style/GcgFlipPageTitle"
         android:layout_gravity="center_horizontal"
         android:layout_weight="100"
         android:text="Title" />
 
     <Button
         android:id="@+id/view_flipper_view__title__next"
-        style="@style/FlipPageTitleDim"
+        style="@style/GcgFlipPageTitleDim"
         android:layout_gravity="right"
         android:paddingRight="12dp"
         android:background="@drawable/gcg__background_state_list__null_21"

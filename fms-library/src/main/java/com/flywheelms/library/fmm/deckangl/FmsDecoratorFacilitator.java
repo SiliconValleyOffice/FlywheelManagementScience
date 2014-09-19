@@ -93,49 +93,49 @@ public class FmsDecoratorFacilitator extends DecKanGlDecoratorEnumeration {
 			"No Facilitator",
 			R.string.decorator__facilitator__no_facilitator,
 			TribKnQualityNormalizedDescription.NONE,
-			R.integer.decorator__facilitator__no_facilitator__quality_index,
+			R.integer.fmm__decorator__facilitator__no_facilitator__quality_index,
 			DecKanGlDecoratorColor.RED );
 	public static FmsDecoratorFacilitator INACTIVE_FACILITATOR = new FmsDecoratorFacilitator(
 			"Inactive Facilitator",
 			R.string.decorator__facilitator__inactive_facilitator,
 			TribKnQualityNormalizedDescription.INACTIVE,
-			R.integer.decorator__facilitator__inactive_facilitator__quality_index,
+			R.integer.fmm__decorator__facilitator__inactive_facilitator__quality_index,
 			DecKanGlDecoratorColor.ORANGE );
 	public static FmsDecoratorFacilitator SUGGESTED_FACILITATOR = new FmsDecoratorFacilitator(
 			"Suggested Facilitator",
 			R.string.decorator__facilitator__suggested_facilitator,
 			TribKnQualityNormalizedDescription.SUGGESTED,
-			R.integer.decorator__facilitator__suggested_facilitator__quality_index,
+			R.integer.fmm__decorator__facilitator__suggested_facilitator__quality_index,
 			DecKanGlDecoratorColor.BLUE );
 	public static FmsDecoratorFacilitator PROPOSED_FACILITATOR = new FmsDecoratorFacilitator(
 			"Proposed Facilitator",
 			R.string.decorator__facilitator__proposed_facilitator,
 			TribKnQualityNormalizedDescription.PROPOSED,
-			R.integer.decorator__facilitator__proposed_facilitator__quality_index,
+			R.integer.fmm__decorator__facilitator__proposed_facilitator__quality_index,
 			DecKanGlDecoratorColor.PINK );
 	public static FmsDecoratorFacilitator CONFIRMED_FACILITATOR = new FmsDecoratorFacilitator(
 			"Confirmed Facilitator",
 			R.string.decorator__facilitator__confirmed,
 			TribKnQualityNormalizedDescription.CONFIRMED,
-			R.integer.decorator__facilitator__confirmed__quality_index,
+			R.integer.fmm__decorator__facilitator__confirmed__quality_index,
 			DecKanGlDecoratorColor.TRANSPARENT );
 	public static FmsDecoratorFacilitator UNKNOWN_FACILITATOR_QUALITY = new FmsDecoratorFacilitator(
 			"Unknown Facilitator Quality",
 			R.string.decorator__facilitator__unknown_quality,
 			TribKnQualityNormalizedDescription.UNKNOWN,
-			R.integer.decorator__facilitator__unknown_quality__quality_index,
+			R.integer.fmm__decorator__facilitator__unknown_quality__quality_index,
 			DecKanGlDecoratorColor.GRAY );
 	public static FmsDecoratorFacilitator FACILITATOR_QUALITY_NOT_APPLICABLE = new FmsDecoratorFacilitator(
 			"Facilitator Quality Not Applicable",
 			R.string.decorator__facilitator__not_applicable,
 			TribKnQualityNormalizedDescription.NOT_APPLICABLE,
-			R.integer.decorator__facilitator__not_applicable__quality_index,
+			R.integer.fmm__decorator__facilitator__not_applicable__quality_index,
 			DecKanGlDecoratorColor.TRANSPARENT );
 	public static FmsDecoratorFacilitator FACILITATOR_QUALITY_NOT_ENABLED = new FmsDecoratorFacilitator(
 			"Facilitator Quality Not Enabled",
 			R.string.decorator__facilitator__not_enabled,
 			TribKnQualityNormalizedDescription.NOT_ENABLED,
-			R.integer.decorator__facilitator__not_enabled__quality_index,
+			R.integer.fmm__decorator__facilitator__not_enabled__quality_index,
 			DecKanGlDecoratorColor.DISABLED );
 	
 	protected static ArrayList<DecKanGlDecoratorEnumeration> valuesList =

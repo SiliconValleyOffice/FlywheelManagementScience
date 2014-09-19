@@ -36,7 +36,7 @@
                 android:gravity="center_horizontal" >
 
                 <TextView
-                    style="@style/GroupLabel"
+                    style="@style/GcgGroupLabel"
                     android:text="@string/pdf_enhancements" />
             </TableRow>
 
@@ -51,7 +51,7 @@
 
                 <TextView
                     android:id="@+id/pdf__title_page__label"
-                    style="@style/NodeLabel"
+                    style="@style/gcgLabel"
                     android:paddingLeft="10dp"
                     android:text="Title Page" />
 
@@ -72,7 +72,7 @@
 
                 <TextView
                     android:id="@+id/pdf__table_of_contents__label"
-                    style="@style/NodeLabel"
+                    style="@style/gcgLabel"
                     android:paddingLeft="10dp"
                     android:text="@string/fse__table_of_contents" />
 
@@ -93,7 +93,7 @@
 
                 <TextView
                     android:id="@+id/pdf__paragraph_markup__label"
-                    style="@style/NodeLabel"
+                    style="@style/gcgLabel"
                     android:layout_span="3"
                     android:text="Paragraph Markup"
                     android:textColor="@color/w3c__black"
@@ -111,7 +111,7 @@
 
                 <TextView
                     android:id="@+id/pdf__locks__label"
-                    style="@style/NodeLabel"
+                    style="@style/gcgLabel"
                     android:paddingLeft="10dp"
                     android:text="Locks" />
 
@@ -132,7 +132,7 @@
 
                 <TextView
                     android:id="@+id/pdf__paragraph_numbering__label"
-                    style="@style/NodeLabel"
+                    style="@style/gcgLabel"
                     android:paddingLeft="10dp"
                     android:text="Paragraph Numbering" />
 
@@ -153,7 +153,7 @@
 
                 <TextView
                     android:id="@+id/pdf__content_modification__label"
-                    style="@style/NodeLabel"
+                    style="@style/gcgLabel"
                     android:paddingLeft="10dp"
                     android:text="Content Modification" />
 
@@ -190,7 +190,7 @@
                 android:gravity="center_horizontal" >
 
                 <TextView
-                    style="@style/GroupLabel"
+                    style="@style/GcgGroupLabel"
                     android:text="@string/fse__document" />
             </TableRow>
 
@@ -206,7 +206,7 @@
 
                 <TextView
                     android:id="@+id/fse__document_section__story__label"
-                    style="@style/NodeLabel"
+                    style="@style/gcgLabel"
                     android:drawableLeft="@drawable/fse__story__32"
                     android:drawablePadding="6dp"
                     android:text="@string/fse__document_section__story" />
@@ -230,7 +230,7 @@
 
                 <TextView
                     android:id="@+id/fse__document_section__notes__label"
-                    style="@style/NodeLabel"
+                    style="@style/gcgLabel"
                     android:drawableLeft="@drawable/fse__notes__32"
                     android:drawablePadding="6dp"
                     android:text="@string/fse__document_section__notes" />
@@ -253,7 +253,7 @@
 
                 <TextView
                     android:id="@+id/fse__document_section__history__label"
-                    style="@style/NodeLabel"
+                    style="@style/gcgLabel"
                     android:drawableLeft="@drawable/fse__document_history"
                     android:drawablePadding="6dp"
                     android:text="@string/fse__document_section__history" />
@@ -276,7 +276,7 @@
 
                 <TextView
                     android:id="@+id/fse__document_section__collaborators__label"
-                    style="@style/NodeLabel"
+                    style="@style/gcgLabel"
                     android:drawableLeft="@drawable/collaborators"
                     android:drawablePadding="6dp"
                     android:text="@string/fse__document_section__community" />
@@ -317,7 +317,7 @@
                         android:gravity="center_horizontal" >
 
                         <TextView
-                            style="@style/GroupLabel"
+                            style="@style/GcgGroupLabel"
                             android:text="@string/tribkn" />
                     </TableRow>
 
@@ -332,7 +332,7 @@
 
                         <TextView
                             android:id="@+id/tribkn__deckangl__label"
-                            style="@style/NodeLabel"
+                            style="@style/gcgLabel"
                             android:drawableLeft="@drawable/tribkn_button__deckangl"
                             android:drawablePadding="6dp"
                             android:text="@string/deckangl_tm" />
@@ -354,7 +354,7 @@
 
                         <TextView
                             android:id="@+id/tribkn__governance__label"
-                            style="@style/NodeLabel"
+                            style="@style/gcgLabel"
                             android:drawableLeft="@drawable/perspective__governance__32"
                             android:drawablePadding="6dp"
                             android:text="@string/fmm_perspective__governance" />
@@ -376,7 +376,7 @@
 
                         <TextView
                             android:id="@+id/tribkn__commitments__label"
-                            style="@style/NodeLabel"
+                            style="@style/gcgLabel"
                             android:drawableLeft="@drawable/perspective__commitments__32"
                             android:drawablePadding="6dp"
                             android:text="@string/todo__commitments" />
@@ -399,7 +399,7 @@
 
                         <TextView
                             android:id="@+id/tribkn__community__label"
-                            style="@style/NodeLabel"
+                            style="@style/gcgLabel"
                             android:drawableLeft="@drawable/perspective__community__32"
                             android:drawablePadding="6dp"
                             android:text="@string/fmm_frame__teams" />
@@ -430,7 +430,7 @@
                         android:gravity="center_horizontal" >
 
                         <TextView
-                            style="@style/GroupLabel"
+                            style="@style/GcgGroupLabel"
                             android:text="@string/context" />
                     </TableRow>
 
@@ -445,7 +445,7 @@
 
                         <TextView
                             android:id="@+id/context__strategic_planning__label"
-                            style="@style/NodeLabel"
+                            style="@style/gcgLabel"
                             android:drawableLeft="@drawable/perspective__strategic_planning__32"
                             android:drawablePadding="6dp"
                             android:text="@string/fmm_perspective__strategic_planning" />
@@ -467,7 +467,7 @@
 
                         <TextView
                             android:id="@+id/context__work_breakdown__label"
-                            style="@style/NodeLabel"
+                            style="@style/gcgLabel"
                             android:drawableLeft="@drawable/perspective__work_breakdown__32"
                             android:drawablePadding="6dp"
                             android:text="@string/fmm_perspective__work_breakdown" />
@@ -489,7 +489,7 @@
 
                         <TextView
                             android:id="@+id/context__work_planning__label"
-                            style="@style/NodeLabel"
+                            style="@style/gcgLabel"
                             android:drawableLeft="@drawable/perspective__work_planning__32"
                             android:drawablePadding="6dp"
                             android:text="@string/fmm_perspective__work_planning" />
@@ -512,7 +512,7 @@
 
                         <TextView
                             android:id="@+id/context__analysis__label"
-                            style="@style/NodeLabel"
+                            style="@style/gcgLabel"
                             android:drawableLeft="@drawable/perspective__analysis__32"
                             android:drawablePadding="6dp"
                             android:text="@string/fmm_perspective__analysis" />

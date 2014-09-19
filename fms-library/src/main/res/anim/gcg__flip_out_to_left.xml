@@ -2,7 +2,7 @@
     android:shareInterpolator="false" >
 
     <translate
-        android:duration="@integer/page_flip_duration"
+        android:duration="@integer/gcg__page_flip_duration"
         android:fromXDelta="0%"
         android:fromYDelta="0%"
         android:toXDelta="-100%"

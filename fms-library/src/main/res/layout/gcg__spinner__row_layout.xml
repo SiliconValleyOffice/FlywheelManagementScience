@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/row_text"
-    style="@style/WidgetDataWithDrawableHorizontalContainer"
+    style="@style/GcgWidgetDataWithDrawableHorizontalContainer"
     android:drawableLeft="@drawable/gcg__icon_undefined"
     android:singleLine="true"
-    android:text="@string/undefined"
+    android:text="@string/gcg__undefined"
     android:textSize="24sp">
 
 </TextView>

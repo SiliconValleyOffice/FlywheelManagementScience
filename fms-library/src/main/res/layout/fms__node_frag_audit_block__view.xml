@@ -6,7 +6,7 @@
 
     <TextView
         android:id="@+id/audit_block__heading"
-        style="@style/GroupBoxLabel"
+        style="@style/GcgGroupBoxLabel"
         android:text="@string/fmm_node_definition__node_frag__audit_block__label_text" />
 
     <LinearLayout
@@ -21,7 +21,7 @@
 
             <TextView
                 android:id="@+id/audit_block__created_by__label"
-                style="@style/NodeLabel"
+                style="@style/gcgLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 		        android:paddingLeft="10dp"
@@ -29,7 +29,7 @@
 
             <TextView
                 android:id="@+id/audit_block__created_timestamp__label"
-                style="@style/NodeLabel"
+                style="@style/gcgLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 		        android:paddingLeft="10dp"
@@ -37,7 +37,7 @@
 
             <TextView
                 android:id="@+id/audit_block__last_updated_by__label"
-                style="@style/NodeLabel"
+                style="@style/gcgLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 		        android:paddingLeft="10dp"
@@ -45,7 +45,7 @@
 
             <TextView
                 android:id="@+id/audit_block__last_updated_timestamp__label"
-                style="@style/NodeLabel"
+                style="@style/gcgLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 		        android:paddingLeft="10dp"
@@ -53,7 +53,7 @@
 
             <TextView
                 android:id="@+id/audit_block__locked_by__label"
-                style="@style/NodeLabel"
+                style="@style/gcgLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 		        android:paddingLeft="10dp"
@@ -61,7 +61,7 @@
 
             <TextView
                 android:id="@+id/audit_block__locked_timestamp__label"
-                style="@style/NodeLabel"
+                style="@style/gcgLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 		        android:paddingLeft="10dp"
@@ -69,7 +69,7 @@
 
             <TextView
                 android:id="@+id/audit_block__locked_status__label"
-                style="@style/NodeLabel"
+                style="@style/gcgLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 		        android:paddingLeft="10dp"
@@ -83,7 +83,7 @@
 
             <TextView
                 android:id="@+id/audit_block__created_by__data"
-                style="@style/NodeData"
+                style="@style/GcgData"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 		        android:paddingRight="10dp"
@@ -91,7 +91,7 @@
 
             <TextView
                 android:id="@+id/audit_block__created_timestamp__data"
-                style="@style/NodeData"
+                style="@style/GcgData"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 		        android:paddingRight="10dp"
@@ -99,7 +99,7 @@
 
             <TextView
                 android:id="@+id/audit_block__last_updated_by__data"
-                style="@style/NodeData"
+                style="@style/GcgData"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 		        android:paddingRight="10dp"
@@ -107,7 +107,7 @@
 
             <TextView
                 android:id="@+id/audit_block__last_updated_timestamp__data"
-                style="@style/NodeData"
+                style="@style/GcgData"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 		        android:paddingRight="10dp"
@@ -115,7 +115,7 @@
 
             <TextView
                 android:id="@+id/audit_block__locked_by__data"
-                style="@style/NodeData"
+                style="@style/GcgData"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 		        android:paddingRight="10dp"
@@ -123,7 +123,7 @@
 
             <TextView
                 android:id="@+id/audit_block__locked_timestamp__data"
-                style="@style/NodeData"
+                style="@style/GcgData"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 		        android:paddingRight="10dp"
@@ -131,7 +131,7 @@
             
             <TextView
                 android:id="@+id/audit_block__locked_status__data"
-                style="@style/NodeData"
+                style="@style/GcgData"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 		        android:paddingRight="10dp"

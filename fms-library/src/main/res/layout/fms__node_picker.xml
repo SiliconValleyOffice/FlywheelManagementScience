@@ -19,7 +19,7 @@
 
             <TextView
                 android:id="@+id/search_type__label"
-                style="@style/NodeLabel"
+                style="@style/gcgLabel"
                 android:layout_gravity="left"
                 android:layout_span="3"
                 android:paddingLeft="9dp"
@@ -64,14 +64,14 @@
 
                 <TextView
                     android:id="@+id/node_type__label"
-                    style="@style/NodeLabel"
+                    style="@style/gcgLabel"
                     android:paddingLeft="9dp"
                     android:text="Unspecified Node Type"
                     android:textColor="@color/w3c__black" />
 
                 <TextView
                     android:id="@+id/list_action__label"
-                    style="@style/NodeLabel"
+                    style="@style/gcgLabel"
                     android:text=" (select one)"
                     android:textColor="@color/w3c__yellow" />
             </LinearLayout>
@@ -86,7 +86,7 @@
 
             <ListView
                 android:id="@+id/node_list"
-                style="@style/NodeData"
+                style="@style/GcgData"
                 android:layout_width="160dp"
                 android:layout_height="345dp"
                 android:layout_span="3"

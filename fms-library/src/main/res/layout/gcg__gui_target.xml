@@ -18,7 +18,7 @@
         android:gravity="center_horizontal" >
 
         <TextView
-            style="@style/GroupLabel"
+            style="@style/GcgGroupLabel"
             android:text="Target" />
     </TableRow>
 
@@ -34,7 +34,7 @@
 
         <TextView
             android:id="@+id/activity_name__data"
-            style="@style/NodeLabel"
+            style="@style/gcgLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -52,7 +52,7 @@
 
         <TextView
             android:id="@+id/target_detail__data"
-            style="@style/NodeLabel"
+            style="@style/gcgLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"

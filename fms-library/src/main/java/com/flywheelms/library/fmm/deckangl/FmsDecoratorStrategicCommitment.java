@@ -89,55 +89,55 @@ public class FmsDecoratorStrategicCommitment extends DecKanGlDecoratorEnumeratio
 			"No Strategic Commitment",
 			R.string.decorator__strategic_commitment__none,
 			TribKnQualityNormalizedDescription.NONE,
-			R.integer.decorator__strategic_commitment__none__quality_index,
+			R.integer.fmm__decorator__strategic_commitment__none__quality_index,
 			DecKanGlDecoratorColor.RED );
 	public static FmsDecoratorStrategicCommitment SUGGESTED_STRATEGIC_COMMITMENT = new FmsDecoratorStrategicCommitment(
 			"Suggested Strategic Commitment",
 			R.string.decorator__strategic_commitment__suggested,
 			TribKnQualityNormalizedDescription.SUGGESTED,
-			R.integer.decorator__strategic_commitment__suggested__quality_index,
+			R.integer.fmm__decorator__strategic_commitment__suggested__quality_index,
 			DecKanGlDecoratorColor.BLUE );
 	public static FmsDecoratorStrategicCommitment PROPOSED_STRATEGIC_COMMITMENT = new FmsDecoratorStrategicCommitment(
 			"Proposed Strategic Commitment",
 			R.string.decorator__strategic_commitment__proposed,
 			TribKnQualityNormalizedDescription.PROPOSED,
-			R.integer.decorator__strategic_commitment__proposed__quality_index,
+			R.integer.fmm__decorator__strategic_commitment__proposed__quality_index,
 			DecKanGlDecoratorColor.PINK );
 	public static FmsDecoratorStrategicCommitment CONFIRMED_STRATEGIC_COMMITMENT = new FmsDecoratorStrategicCommitment(
 			"Confirmed Strategic Commitment",
 			R.string.decorator__strategic_commitment__confirmed,
 			TribKnQualityNormalizedDescription.CONFIRMED,
-			R.integer.decorator__strategic_commitment__confirmed__quality_index,
+			R.integer.fmm__decorator__strategic_commitment__confirmed__quality_index,
 			DecKanGlDecoratorColor.TRANSPARENT );
 	public static FmsDecoratorStrategicCommitment FUTURE_CONFIRMED_STRATEGIC_COMMITMENT = new FmsDecoratorStrategicCommitment(
 			"Future Confirmed Strategic Commitment",
 			R.string.decorator__strategic_commitment__future,
 			TribKnQualityNormalizedDescription.FUTURE,
-			R.integer.decorator__strategic_commitment__future__quality_index,
+			R.integer.fmm__decorator__strategic_commitment__future__quality_index,
 			DecKanGlDecoratorColor.YELLOW );
 	public static FmsDecoratorStrategicCommitment MISSED_STRATEGIC_COMMITMENT = new FmsDecoratorStrategicCommitment(
 			"Missed Strategic Commitment",
 			R.string.decorator__strategic_commitment__missed,
 			TribKnQualityNormalizedDescription.MISSED,
-			R.integer.decorator__strategic_commitment__missed__quality_index,
+			R.integer.fmm__decorator__strategic_commitment__missed__quality_index,
 			DecKanGlDecoratorColor.ORANGE );
 	public static FmsDecoratorStrategicCommitment UNKNOWN_STRATEGIC_COMMITMENT_QUALITY = new FmsDecoratorStrategicCommitment(
 			"Unknown Strategic Commitment Quality",
 			R.string.decorator__strategic_commitment__unknown_quality,
 			TribKnQualityNormalizedDescription.UNKNOWN,
-			R.integer.decorator__strategic_commitment__unknown_quality__quality_index,
+			R.integer.fmm__decorator__strategic_commitment__unknown_quality__quality_index,
 			DecKanGlDecoratorColor.GRAY );
 	public static FmsDecoratorStrategicCommitment STRATEGIC_COMMITMENT_QUALITY_NOT_APPLICABLE = new FmsDecoratorStrategicCommitment(
 			"Strategic Commitment Quality Not Applicable",
 			R.string.decorator__strategic_commitment__not_applicable,
 			TribKnQualityNormalizedDescription.NOT_APPLICABLE,
-			R.integer.decorator__strategic_commitment__not_applicable__quality_index,
+			R.integer.fmm__decorator__strategic_commitment__not_applicable__quality_index,
 			DecKanGlDecoratorColor.TRANSPARENT );
 	public static FmsDecoratorStrategicCommitment STRATEGIC_COMMITMENT_QUALITY_NOT_ENABLED = new FmsDecoratorStrategicCommitment(
 			"Strategic Commitment Quality Not Enabled",
 			R.string.decorator__strategic_commitment__not_enabled,
 			TribKnQualityNormalizedDescription.NOT_ENABLED,
-			R.integer.decorator__strategic_commitment__not_enabled__quality_index,
+			R.integer.fmm__decorator__strategic_commitment__not_enabled__quality_index,
 			DecKanGlDecoratorColor.DISABLED );
 	
 	protected static ArrayList<DecKanGlDecoratorEnumeration> valuesList =
