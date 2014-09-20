@@ -53,7 +53,7 @@ import com.flywheelms.library.gcg.interfaces.GcgGuiable;
 
 import java.util.Date;
 
-public enum TribKnElement implements FmmEnumNode {
+public enum FmmTribKnElement implements FmmEnumNode {
 	
 	GOVERNANCE (R.string.tribkn_quality_metric__governance, R.string.tribkn_quality_metric__governance__description, R.drawable.tribkn_quality_metric__governance),
 	FACILITATION_ISSUE (R.string.tribkn_quality_metric__facilitation_issue, R.string.tribkn_quality_metric__facilitation_issue__description, R.drawable.tribkn_quality_metric__facilitation_issue),
@@ -70,8 +70,8 @@ public enum TribKnElement implements FmmEnumNode {
 	public static final String name_COLUMN_1 = "tribkn_element";
 	public static final String name_COLUMN_2 = "description";
 	
-	public static TribKnElement getObjectForName(String aName) {
-		for(TribKnElement theNodeQualityMetric : TribKnElement.values()) {
+	public static FmmTribKnElement getObjectForName(String aName) {
+		for(FmmTribKnElement theNodeQualityMetric : FmmTribKnElement.values()) {
 			if(theNodeQualityMetric.equals(aName)) {
 				return theNodeQualityMetric;
 			}
@@ -79,7 +79,7 @@ public enum TribKnElement implements FmmEnumNode {
 		return null;
 	}
 
-	private static FmmNodeDefinition fmmNodeDictionaryEntry = FmmNodeDefinition.getEntryForClass(TribKnElement.class);
+	private static FmmNodeDefinition fmmNodeDictionaryEntry = FmmNodeDefinition.getEntryForClass(FmmTribKnElement.class);
 	private static String labelText = fmmNodeDictionaryEntry.getLabelText();
 	private static Drawable labelDrawable = fmmNodeDictionaryEntry.getLabelDrawable();
 	
@@ -116,7 +116,7 @@ public enum TribKnElement implements FmmEnumNode {
 	private int drawableResourceId;
 	private Drawable drawable;
 	
-	TribKnElement(int aNameStringResourceId, int aDescriptionStringResourceId, int aDrawableResourceId) {
+	FmmTribKnElement(int aNameStringResourceId, int aDescriptionStringResourceId, int aDrawableResourceId) {
 		this.nameStringResourceId = aNameStringResourceId;
 		this.name = FmmHelper.getContext().getResources().getString(this.nameStringResourceId);
 		this.descriptionStringResourceId = aDescriptionStringResourceId;
@@ -124,7 +124,7 @@ public enum TribKnElement implements FmmEnumNode {
 		this.drawableResourceId = aDrawableResourceId;
 		this.drawable = FmmHelper.getContext().getResources().getDrawable(this.drawableResourceId);
 		this.nodeId = new NodeId(
-				FmmNodeDefinition.getEntryForClass(TribKnElement.class),
+				FmmNodeDefinition.getEntryForClass(FmmTribKnElement.class),
 				getName() );
 	}
 	

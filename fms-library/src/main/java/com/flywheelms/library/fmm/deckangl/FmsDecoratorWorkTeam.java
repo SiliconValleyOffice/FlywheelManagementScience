@@ -53,7 +53,7 @@ import com.flywheelms.library.R;
 import com.flywheelms.library.deckangl.enumerator.DecKanGlDecoratorCanvasLocation;
 import com.flywheelms.library.deckangl.enumerator.DecKanGlDecoratorColor;
 import com.flywheelms.library.deckangl.glyph.DecKanGlDecoratorEnumeration;
-import com.flywheelms.library.fmm.node.impl.enumerator.TribKnQualityNormalizedDescription;
+import com.flywheelms.library.fmm.node.impl.enumerator.FmmTribKnQualityNormalizedDescription;
 import com.flywheelms.library.gcg.GcgApplication;
 
 import java.util.ArrayList;
@@ -92,55 +92,55 @@ public class FmsDecoratorWorkTeam extends DecKanGlDecoratorEnumeration {
 	public static FmsDecoratorWorkTeam NO_WORK_TEAM = new FmsDecoratorWorkTeam(
 			"No Work Team",
 			R.string.decorator__work_team__none,
-			TribKnQualityNormalizedDescription.NONE,
+			FmmTribKnQualityNormalizedDescription.NONE,
 			R.integer.fmm__decorator__work_team__none__quality_index,
 			DecKanGlDecoratorColor.RED );
 	public static FmsDecoratorWorkTeam WORK_TEAM_SWAG = new FmsDecoratorWorkTeam(
 			"Work Team SWAG",
 			R.string.decorator__work_team__swag,
-			TribKnQualityNormalizedDescription.SWAG,
+			FmmTribKnQualityNormalizedDescription.SWAG,
 			R.integer.fmm__decorator__work_team__swag__quality_index,
 			DecKanGlDecoratorColor.YELLOW );
 	public static FmsDecoratorWorkTeam SUGGESTED_TEAM = new FmsDecoratorWorkTeam(
 			"Suggested Work Team",
 			R.string.decorator__work_team__suggested,
-			TribKnQualityNormalizedDescription.SUGGESTED,
+			FmmTribKnQualityNormalizedDescription.SUGGESTED,
 			R.integer.fmm__decorator__work_team__suggested__quality_index,
 			DecKanGlDecoratorColor.BLUE );
 	public static FmsDecoratorWorkTeam PROPOSED_TEAM = new FmsDecoratorWorkTeam(
 			"Proposed Work Team",
 			R.string.decorator__work_team__proposed,
-			TribKnQualityNormalizedDescription.PROPOSED,
+			FmmTribKnQualityNormalizedDescription.PROPOSED,
 			R.integer.fmm__decorator__work_team__proposed__quality_index,
 			DecKanGlDecoratorColor.PINK );
 	public static FmsDecoratorWorkTeam CONFIRMED_TEAM = new FmsDecoratorWorkTeam(
 			"Confirmed Team",
 			R.string.decorator__work_team__confirmed,
-			TribKnQualityNormalizedDescription.CONFIRMED,
+			FmmTribKnQualityNormalizedDescription.CONFIRMED,
 			R.integer.fmm__decorator__work_team__confirmed__quality_index,
 			DecKanGlDecoratorColor.TRANSPARENT );
 	public static FmsDecoratorWorkTeam INACTIVE_CONFIRMED_WORK_TEAM_MEMBER = new FmsDecoratorWorkTeam(
 			"Inactive Confirmed Work Team Member(s)",
 			R.string.decorator__work_team__inactive,
-			TribKnQualityNormalizedDescription.INACTIVE,
+			FmmTribKnQualityNormalizedDescription.INACTIVE,
 			R.integer.fmm__decorator__work_team__inactive__quality_index,
 			DecKanGlDecoratorColor.ORANGE );
 	public static FmsDecoratorWorkTeam UNKNOWN_TEAM_QUALITY = new FmsDecoratorWorkTeam(
 			"Unknown Team Quality",
 			R.string.decorator__work_team__unknown_quality,
-			TribKnQualityNormalizedDescription.UNKNOWN,
+			FmmTribKnQualityNormalizedDescription.UNKNOWN,
 			R.integer.fmm__decorator__work_team__unknown_quality__quality_index,
 			DecKanGlDecoratorColor.GRAY );
 	public static FmsDecoratorWorkTeam TEAM_QUALITY_NOT_APPLICABLE = new FmsDecoratorWorkTeam(
 			"Team Quality Not Applicable",
 			R.string.decorator__work_team__not_applicable,
-			TribKnQualityNormalizedDescription.NOT_APPLICABLE,
+			FmmTribKnQualityNormalizedDescription.NOT_APPLICABLE,
 			R.integer.fmm__decorator__work_team__not_applicable__quality_index,
 			DecKanGlDecoratorColor.TRANSPARENT );
 	public static FmsDecoratorWorkTeam TEAM_QUALITY_NOT_ENABLED = new FmsDecoratorWorkTeam(
 			"Team Quality Not Enabled",
 			R.string.decorator__work_team__not_enabled,
-			TribKnQualityNormalizedDescription.NOT_ENABLED,
+			FmmTribKnQualityNormalizedDescription.NOT_ENABLED,
 			R.integer.fmm__decorator__work_team__not_enabled__quality_index,
 			DecKanGlDecoratorColor.DISABLED );
 	
@@ -180,7 +180,7 @@ public class FmsDecoratorWorkTeam extends DecKanGlDecoratorEnumeration {
 	public FmsDecoratorWorkTeam(
 			String aName,
 			int aDescriptionResourceId,
-			TribKnQualityNormalizedDescription aNormalizedDescription,
+			FmmTribKnQualityNormalizedDescription aNormalizedDescription,
 			int aTribKnQualityIndexResourceId,
 			DecKanGlDecoratorColor aDecKanGlDecoratorColor ) {
 		super(

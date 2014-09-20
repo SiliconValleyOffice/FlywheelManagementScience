@@ -53,7 +53,7 @@ import com.flywheelms.library.R;
 import com.flywheelms.library.deckangl.enumerator.DecKanGlDecoratorCanvasLocation;
 import com.flywheelms.library.deckangl.enumerator.DecKanGlDecoratorColor;
 import com.flywheelms.library.deckangl.glyph.DecKanGlDecoratorEnumeration;
-import com.flywheelms.library.fmm.node.impl.enumerator.TribKnQualityNormalizedDescription;
+import com.flywheelms.library.fmm.node.impl.enumerator.FmmTribKnQualityNormalizedDescription;
 import com.flywheelms.library.gcg.GcgApplication;
 
 import java.util.ArrayList;
@@ -92,55 +92,55 @@ public class FmsDecoratorGovernance extends DecKanGlDecoratorEnumeration {
 	public static FmsDecoratorGovernance NO_GOVERNANCE = new FmsDecoratorGovernance(
 			"No Governance",
 			R.string.decorator__governance__none,
-			TribKnQualityNormalizedDescription.NONE,
+			FmmTribKnQualityNormalizedDescription.NONE,
 			R.integer.fmm__decorator__governance__none__quality_index,
 			DecKanGlDecoratorColor.RED );
 	public static FmsDecoratorGovernance SUGGESTED_GOVERNANCE = new FmsDecoratorGovernance(
 			"Suggested Governance",
 			R.string.decorator__governance__suggested,
-			TribKnQualityNormalizedDescription.SUGGESTED,
+			FmmTribKnQualityNormalizedDescription.SUGGESTED,
 			R.integer.fmm__decorator__governance__suggested__quality_index,
 			DecKanGlDecoratorColor.BLUE );
 	public static FmsDecoratorGovernance PROPOSED_GOVERNANCE = new FmsDecoratorGovernance(
 			"Proposed Governance",
 			R.string.decorator__governance__proposed,
-			TribKnQualityNormalizedDescription.PROPOSED,
+			FmmTribKnQualityNormalizedDescription.PROPOSED,
 			R.integer.fmm__decorator__governance__proposed__quality_index,
 			DecKanGlDecoratorColor.PINK );
 	public static FmsDecoratorGovernance INCOMPLETE_CONFIRMED_GOVERNANCE = new FmsDecoratorGovernance(
 			"Incomplete Governance",
 			R.string.decorator__governance__incomplete,
-			TribKnQualityNormalizedDescription.INCOMPLETE,
+			FmmTribKnQualityNormalizedDescription.INCOMPLETE,
 			R.integer.fmm__decorator__governance__incomplete__quality_index,
 			DecKanGlDecoratorColor.ORANGE );
 	public static FmsDecoratorGovernance CONFIRMED_GOVERNANCE = new FmsDecoratorGovernance(
 			"Confirmed Governance",
 			R.string.decorator__governance__confirmed,
-			TribKnQualityNormalizedDescription.CONFIRMED,
+			FmmTribKnQualityNormalizedDescription.CONFIRMED,
 			R.integer.fmm__decorator__governance__confirmed__quality_index,
 			DecKanGlDecoratorColor.TRANSPARENT );
 	public static FmsDecoratorGovernance INACTIVE_CONFIRMED_GOVERNANCE = new FmsDecoratorGovernance(
 			"Inactive Confirmed Governance",
 			R.string.decorator__governance__inactive,
-			TribKnQualityNormalizedDescription.INACTIVE,
+			FmmTribKnQualityNormalizedDescription.INACTIVE,
 			R.integer.fmm__decorator__governance__inactive__quality_index,
 			DecKanGlDecoratorColor.BLUE );
 	public static FmsDecoratorGovernance UNKNOWN_GOVERNANCE_QUALITY = new FmsDecoratorGovernance(
 			"Unknown Governance Quality",
 			R.string.decorator__governance__unknown_quality,
-			TribKnQualityNormalizedDescription.UNKNOWN,
+			FmmTribKnQualityNormalizedDescription.UNKNOWN,
 			R.integer.fmm__decorator__governance__unknown_quality__quality_index,
 			DecKanGlDecoratorColor.GRAY );
 	public static FmsDecoratorGovernance GOVERNANCE_QUALITY_NOT_APPLICABLE = new FmsDecoratorGovernance(
 			"Governance Quality Not Applicable",
 			R.string.decorator__governance__not_applicable,
-			TribKnQualityNormalizedDescription.NOT_APPLICABLE,
+			FmmTribKnQualityNormalizedDescription.NOT_APPLICABLE,
 			R.integer.fmm__decorator__governance__not_applicable__quality_index,
 			DecKanGlDecoratorColor.TRANSPARENT );
 	public static FmsDecoratorGovernance GOVERNANCE_QUALITY_NOT_ENABLED = new FmsDecoratorGovernance(
 			"Governance Quality Not Enabled",
 			R.string.decorator__governance__not_enabled,
-			TribKnQualityNormalizedDescription.NOT_ENABLED,
+			FmmTribKnQualityNormalizedDescription.NOT_ENABLED,
 			R.integer.fmm__decorator__governance__not_enabled__quality_index,
 			DecKanGlDecoratorColor.DISABLED );
 	
@@ -180,7 +180,7 @@ public class FmsDecoratorGovernance extends DecKanGlDecoratorEnumeration {
 	public FmsDecoratorGovernance(
 			String aName,
 			int aDescriptionResourceId,
-			TribKnQualityNormalizedDescription aNormalizedDescription,
+			FmmTribKnQualityNormalizedDescription aNormalizedDescription,
 			int aTribKnQualityIndexResourceId,
 			DecKanGlDecoratorColor aDecKanGlDecoratorColor ) {
 		super(

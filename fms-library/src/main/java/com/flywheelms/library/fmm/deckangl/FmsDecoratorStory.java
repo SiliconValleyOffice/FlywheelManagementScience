@@ -53,7 +53,7 @@ import com.flywheelms.library.R;
 import com.flywheelms.library.deckangl.enumerator.DecKanGlDecoratorCanvasLocation;
 import com.flywheelms.library.deckangl.enumerator.DecKanGlDecoratorColor;
 import com.flywheelms.library.deckangl.glyph.DecKanGlDecoratorEnumeration;
-import com.flywheelms.library.fmm.node.impl.enumerator.TribKnQualityNormalizedDescription;
+import com.flywheelms.library.fmm.node.impl.enumerator.FmmTribKnQualityNormalizedDescription;
 import com.flywheelms.library.gcg.GcgApplication;
 
 import java.util.ArrayList;
@@ -92,55 +92,55 @@ public class FmsDecoratorStory extends DecKanGlDecoratorEnumeration {
 	public static FmsDecoratorStory NO_STORY = new FmsDecoratorStory(
 			"No Story",
 			R.string.decorator__story__none,
-			TribKnQualityNormalizedDescription.NONE,
+			FmmTribKnQualityNormalizedDescription.NONE,
 			R.integer.fmm__fmm__decorator__story__none__quality_index,
 			DecKanGlDecoratorColor.RED );
 	public static FmsDecoratorStory STORY_SWAG = new FmsDecoratorStory(
 			"Story SWAG",
 			R.string.decorator__story__swag,
-			TribKnQualityNormalizedDescription.SWAG,
+			FmmTribKnQualityNormalizedDescription.SWAG,
 			R.integer.fmm__decorator__story__swag__quality_index,
 			DecKanGlDecoratorColor.YELLOW );
 	public static FmsDecoratorStory SUGGESTED_STORY = new FmsDecoratorStory(
 			"Suggested Story",
 			R.string.decorator__story__suggested,
-			TribKnQualityNormalizedDescription.SUGGESTED,
+			FmmTribKnQualityNormalizedDescription.SUGGESTED,
 			R.integer.fmm__decorator__story__suggested__quality_index,
 			DecKanGlDecoratorColor.BLUE );
 	public static FmsDecoratorStory PROPOSED_STORY = new FmsDecoratorStory(
 			"Proposed Story",
 			R.string.decorator__story__proposed,
-			TribKnQualityNormalizedDescription.PROPOSED,
+			FmmTribKnQualityNormalizedDescription.PROPOSED,
 			R.integer.fmm__decorator__story__proposed__quality_index,
 			DecKanGlDecoratorColor.PINK );
 	public static FmsDecoratorStory CONFIRMED_STORY = new FmsDecoratorStory(
 			"Confirmed Story",
 			R.string.decorator__story__confirmed,
-			TribKnQualityNormalizedDescription.CONFIRMED,
+			FmmTribKnQualityNormalizedDescription.CONFIRMED,
 			R.integer.fmm__decorator__story__confirmed__quality_index,
 			DecKanGlDecoratorColor.TRANSPARENT );
 	public static FmsDecoratorStory MODIFIED_SINCE_CONFIRMED_STORY = new FmsDecoratorStory(
 			"Story Modified Since Confirmed",
 			R.string.decorator__story__modified_since_confirmed,
-			TribKnQualityNormalizedDescription.MODIFIED_SINCE_CONFIRMED,
+			FmmTribKnQualityNormalizedDescription.MODIFIED_SINCE_CONFIRMED,
 			R.integer.fmm__decorator__story__modified_since_confirmed__quality_index,
 			DecKanGlDecoratorColor.ORANGE );
 	public static FmsDecoratorStory UNKNOWN_STORY_QUALITY = new FmsDecoratorStory(
 			"Unknown Story Quality",
 			R.string.decorator__story__unknown_quality,
-			TribKnQualityNormalizedDescription.UNKNOWN,
+			FmmTribKnQualityNormalizedDescription.UNKNOWN,
 			R.integer.fmm__decorator__story__unknown_quality__quality_index,
 			DecKanGlDecoratorColor.GRAY );
 	public static FmsDecoratorStory STORY_QUALITY_NOT_APPLICABLE = new FmsDecoratorStory(
 			"Story Quality Not Applicable",
 			R.string.decorator__story__not_applicable,
-			TribKnQualityNormalizedDescription.NOT_APPLICABLE,
+			FmmTribKnQualityNormalizedDescription.NOT_APPLICABLE,
 			R.integer.fmm__decorator__story__not_applicable__quality_index,
 			DecKanGlDecoratorColor.GRAY );
 	public static FmsDecoratorStory STORY_QUALITY_NOT_ENABLED = new FmsDecoratorStory(
 			"Story Quality Not Enabled",
 			R.string.decorator__story__not_enabled,
-			TribKnQualityNormalizedDescription.NOT_ENABLED,
+			FmmTribKnQualityNormalizedDescription.NOT_ENABLED,
 			R.integer.fmm__decorator__story__not_enabled__quality_index,
 			DecKanGlDecoratorColor.DISABLED );
 	
@@ -180,7 +180,7 @@ public class FmsDecoratorStory extends DecKanGlDecoratorEnumeration {
 	public FmsDecoratorStory(
 			String aName,
 			int aDescriptionResourceId,
-			TribKnQualityNormalizedDescription aNormalizedDescription,
+			FmmTribKnQualityNormalizedDescription aNormalizedDescription,
 			int aTribKnQualityIndexResourceId,
 			DecKanGlDecoratorColor aDecKanGlDecoratorColor ) {
 		super(

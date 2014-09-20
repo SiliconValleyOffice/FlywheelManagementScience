@@ -56,8 +56,7 @@ import com.flywheelms.library.deckangl.enumerator.DecKanGlDecoratedGlyphSize;
 import com.flywheelms.library.deckangl.enumerator.DecKanGlDecoratorCanvasLocation;
 import com.flywheelms.library.deckangl.enumerator.DecKanGlDecoratorColor;
 import com.flywheelms.library.deckangl.interfaces.DecKanGlDecorator;
-import com.flywheelms.library.fmm.deckangl.FmmDecKanGlDictionary;
-import com.flywheelms.library.fmm.node.impl.enumerator.TribKnQualityNormalizedDescription;
+import com.flywheelms.library.fmm.node.impl.enumerator.FmmTribKnQualityNormalizedDescription;
 import com.flywheelms.library.gcg.GcgApplication;
 
 public abstract class DecKanGlDecoratorEnumeration implements DecKanGlDecorator {
@@ -66,7 +65,7 @@ public abstract class DecKanGlDecoratorEnumeration implements DecKanGlDecorator 
 	private final String description;
 	private final int nounQualityIndex;
 	private final DecKanGlDecoratorColor decoratorColor;
-	private final TribKnQualityNormalizedDescription normalizedDescription;
+	private final FmmTribKnQualityNormalizedDescription normalizedDescription;
 
 	protected DecKanGlDecoratorEnumeration() {  // "static" Guiable instance
 		this.name = "";
@@ -79,7 +78,7 @@ public abstract class DecKanGlDecoratorEnumeration implements DecKanGlDecorator 
 	protected DecKanGlDecoratorEnumeration(
 			String aName,
 			String aDescription,
-			TribKnQualityNormalizedDescription aNormalizedDescription,
+			FmmTribKnQualityNormalizedDescription aNormalizedDescription,
 			int aNounQualityIndex,
 			DecKanGlDecoratorColor aDecKanGlDecoratorColor ) {
 		this.name = aName;
@@ -118,7 +117,7 @@ public abstract class DecKanGlDecoratorEnumeration implements DecKanGlDecorator 
 	}
 	
 	@Override
-	public TribKnQualityNormalizedDescription getNormalizedDescription() {
+	public FmmTribKnQualityNormalizedDescription getNormalizedDescription() {
 		return this.normalizedDescription;
 	}
 	
@@ -158,7 +157,7 @@ public abstract class DecKanGlDecoratorEnumeration implements DecKanGlDecorator 
 	}
 
 	public DecKanGlElementNounQualityMetric getDecKanGlNounQualityMetric() {
-		return FmmDecKanGlDictionary.getInstance().getNounQualityMetric(getQualityMetricName());
+		return DecKanGlDictionary.getInstance().getNounQualityMetric(getQualityMetricName());
 	}
 	
 	@Override

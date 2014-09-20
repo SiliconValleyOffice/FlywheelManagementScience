@@ -53,7 +53,7 @@ import com.flywheelms.library.R;
 import com.flywheelms.library.deckangl.enumerator.DecKanGlDecoratorCanvasLocation;
 import com.flywheelms.library.deckangl.enumerator.DecKanGlDecoratorColor;
 import com.flywheelms.library.deckangl.glyph.DecKanGlDecoratorEnumeration;
-import com.flywheelms.library.fmm.node.impl.enumerator.TribKnQualityNormalizedDescription;
+import com.flywheelms.library.fmm.node.impl.enumerator.FmmTribKnQualityNormalizedDescription;
 import com.flywheelms.library.gcg.GcgApplication;
 
 import java.util.ArrayList;
@@ -92,55 +92,55 @@ public class FmsDecoratorWorkTaskBudget extends DecKanGlDecoratorEnumeration {
 	public static FmsDecoratorWorkTaskBudget NO_TASK_BUDGET = new FmsDecoratorWorkTaskBudget(
 			"No Task Budget",
 			R.string.decorator__task_budget__none,
-			TribKnQualityNormalizedDescription.NONE,
+			FmmTribKnQualityNormalizedDescription.NONE,
 			R.integer.fmm__decorator__task_budget__none__quality_index,
 			DecKanGlDecoratorColor.RED );
 	public static FmsDecoratorWorkTaskBudget TASK_BUDGET_SWAG = new FmsDecoratorWorkTaskBudget(
 			"Task Budget SWAG",
 			R.string.decorator__task_budget__swag,
-			TribKnQualityNormalizedDescription.SWAG,
+			FmmTribKnQualityNormalizedDescription.SWAG,
 			R.integer.fmm__decorator__task_budget__swag__quality_index,
 			DecKanGlDecoratorColor.YELLOW );
 	public static FmsDecoratorWorkTaskBudget SUGGESTED_TASK_BUDGET = new FmsDecoratorWorkTaskBudget(
 			"Suggested Task Budget",
 			R.string.decorator__task_budget__suggested,
-			TribKnQualityNormalizedDescription.SUGGESTED,
+			FmmTribKnQualityNormalizedDescription.SUGGESTED,
 			R.integer.fmm__decorator__task_budget__suggested__quality_index,
 			DecKanGlDecoratorColor.BLUE );
 	public static FmsDecoratorWorkTaskBudget PROPOSED_TASK_BUDGET = new FmsDecoratorWorkTaskBudget(
 			"Proposed Task Budget",
 			R.string.decorator__task_budget__proposed,
-			TribKnQualityNormalizedDescription.PROPOSED,
+			FmmTribKnQualityNormalizedDescription.PROPOSED,
 			R.integer.fmm__decorator__task_budget__proposed__quality_index,
 			DecKanGlDecoratorColor.PINK );
 	public static FmsDecoratorWorkTaskBudget CONFIRMED_TASK_BUDGET = new FmsDecoratorWorkTaskBudget(
 			"Confirmed Task Budget",
 			R.string.decorator__task_budget__confirmed,
-			TribKnQualityNormalizedDescription.CONFIRMED,
+			FmmTribKnQualityNormalizedDescription.CONFIRMED,
 			R.integer.fmm__decorator__task_budget__confirmed__quality_index,
 			DecKanGlDecoratorColor.TRANSPARENT );
 	public static FmsDecoratorWorkTaskBudget TASKS_OVER_BUDGET = new FmsDecoratorWorkTaskBudget(
 			"Tasks Over Budget",
 			R.string.decorator__task_budget__over_budget,
-			TribKnQualityNormalizedDescription.OVER_BUDGET,
+			FmmTribKnQualityNormalizedDescription.OVER_BUDGET,
 			R.integer.fmm__decorator__task_budget__over_budget__quality_index,
 			DecKanGlDecoratorColor.ORANGE );
 	public static FmsDecoratorWorkTaskBudget UNKNOWN_TASK_BUDGET_QUALITY = new FmsDecoratorWorkTaskBudget(
 			"Unknown Task Budget Quality",
 			R.string.decorator__task_budget__unknown_quality,
-			TribKnQualityNormalizedDescription.UNKNOWN,
+			FmmTribKnQualityNormalizedDescription.UNKNOWN,
 			R.integer.fmm__decorator__task_budget__unknown_quality__quality_index,
 			DecKanGlDecoratorColor.GRAY );
 	public static FmsDecoratorWorkTaskBudget TASK_BUDGET_QUALITY_NOT_APPLICABLE = new FmsDecoratorWorkTaskBudget(
 			"Task Budget Quality Not Applicable",
 			R.string.decorator__task_budget__not_applicable,
-			TribKnQualityNormalizedDescription.NOT_APPLICABLE,
+			FmmTribKnQualityNormalizedDescription.NOT_APPLICABLE,
 			R.integer.fmm__decorator__task_budget__not_applicable__quality_index,
 			DecKanGlDecoratorColor.TRANSPARENT );
 	public static FmsDecoratorWorkTaskBudget BUDGET_QUALITY_NOT_ENABLED = new FmsDecoratorWorkTaskBudget(
 			"Task Budget Quality Not Enabled",
 			R.string.decorator__task_budget__not_enabled,
-			TribKnQualityNormalizedDescription.NOT_ENABLED,
+			FmmTribKnQualityNormalizedDescription.NOT_ENABLED,
 			R.integer.fmm__decorator__task_budget__not_enabled__quality_index,
 			DecKanGlDecoratorColor.DISABLED );
 	
@@ -180,7 +180,7 @@ public class FmsDecoratorWorkTaskBudget extends DecKanGlDecoratorEnumeration {
 	public FmsDecoratorWorkTaskBudget(
 			String aName,
 			int aDescriptionResourceId,
-			TribKnQualityNormalizedDescription aNormalizedDescription,
+			FmmTribKnQualityNormalizedDescription aNormalizedDescription,
 			int aTribKnQualityIndexResourceId,
 			DecKanGlDecoratorColor aDecKanGlDecoratorColor ) {
 		super(

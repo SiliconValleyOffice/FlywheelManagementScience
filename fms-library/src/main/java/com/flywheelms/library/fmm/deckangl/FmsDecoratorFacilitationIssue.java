@@ -49,7 +49,7 @@ import com.flywheelms.library.R;
 import com.flywheelms.library.deckangl.enumerator.DecKanGlDecoratorCanvasLocation;
 import com.flywheelms.library.deckangl.enumerator.DecKanGlDecoratorColor;
 import com.flywheelms.library.deckangl.glyph.DecKanGlDecoratorEnumeration;
-import com.flywheelms.library.fmm.node.impl.enumerator.TribKnQualityNormalizedDescription;
+import com.flywheelms.library.fmm.node.impl.enumerator.FmmTribKnQualityNormalizedDescription;
 import com.flywheelms.library.gcg.GcgApplication;
 
 import java.util.ArrayList;
@@ -88,37 +88,37 @@ public class FmsDecoratorFacilitationIssue extends DecKanGlDecoratorEnumeration 
 	public static FmsDecoratorFacilitationIssue PROPOSED_FACILITATION_ISSUE = new FmsDecoratorFacilitationIssue(
 			"Proposed Facilitation Issue",
 			R.string.decorator__facilitation_issue__proposed,
-			TribKnQualityNormalizedDescription.PROPOSED,
+			FmmTribKnQualityNormalizedDescription.PROPOSED,
 			R.integer.fmm__decorator__facilitation_issue__proposed__quality_index,
 			DecKanGlDecoratorColor.PINK );
 	public static FmsDecoratorFacilitationIssue CONFIRMED_FACILITATION_ISSUE = new FmsDecoratorFacilitationIssue(
 			"Confirmed Facilitation Issue",
 			R.string.decorator__facilitation_issue__confirmed,
-			TribKnQualityNormalizedDescription.CONFIRMED,
+			FmmTribKnQualityNormalizedDescription.CONFIRMED,
 			R.integer.fmm__decorator__facilitation_issue__confirmed__quality_index,
 			DecKanGlDecoratorColor.ORANGE );
 	public static FmsDecoratorFacilitationIssue NO_FACILITATION_ISSUE = new FmsDecoratorFacilitationIssue(
 			"No Facilitation Issue",
 			R.string.decorator__facilitation_issue__none,
-			TribKnQualityNormalizedDescription.NONE,
+			FmmTribKnQualityNormalizedDescription.NONE,
 			R.integer.fmm__decorator__facilitation_issue__none__quality_index,
 			DecKanGlDecoratorColor.TRANSPARENT );
 	public static FmsDecoratorFacilitationIssue UNKNOWN_FACILITATION_ISSUE_QUALITY = new FmsDecoratorFacilitationIssue(
 			"Unknown Facilitation Issue Quality",
 			R.string.decorator__facilitation_issue__unknown_quality,
-			TribKnQualityNormalizedDescription.UNKNOWN,
+			FmmTribKnQualityNormalizedDescription.UNKNOWN,
 			R.integer.fmm__decorator__facilitation_issue__unknown_quality__quality_index,
 			DecKanGlDecoratorColor.GRAY );
 	public static FmsDecoratorFacilitationIssue FACILITATION_ISSUE_QUALITY_NOT_APPLICABLE = new FmsDecoratorFacilitationIssue(
 			"Facilitation Issue Quality Not Applicable",
 			R.string.decorator__facilitation_issue__not_applicable,
-			TribKnQualityNormalizedDescription.NOT_APPLICABLE,
+			FmmTribKnQualityNormalizedDescription.NOT_APPLICABLE,
 			R.integer.fmm__decorator__facilitation_issue__not_applicable__quality_index,
 			DecKanGlDecoratorColor.TRANSPARENT );
 	public static FmsDecoratorFacilitationIssue FACILITATION_ISSUE_QUALITY_NOT_ENABLED = new FmsDecoratorFacilitationIssue(
 			"Facilitation Issue Quality Not Enabled",
 			R.string.decorator__facilitation_issue__not_enabled,
-			TribKnQualityNormalizedDescription.NOT_ENABLED,
+			FmmTribKnQualityNormalizedDescription.NOT_ENABLED,
 			R.integer.fmm__decorator__facilitation_issue__not_enabled__quality_index,
 			DecKanGlDecoratorColor.DISABLED );
 	
@@ -155,7 +155,7 @@ public class FmsDecoratorFacilitationIssue extends DecKanGlDecoratorEnumeration 
 	public FmsDecoratorFacilitationIssue(
 			String aName,
 			int aDescriptionResourceId,
-			TribKnQualityNormalizedDescription aNormalizedDescription,
+			FmmTribKnQualityNormalizedDescription aNormalizedDescription,
 			int aTribKnQualityIndexResourceId,
 			DecKanGlDecoratorColor aDecKanGlDecoratorColor ) {
 		super(

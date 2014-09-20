@@ -53,7 +53,7 @@ import com.flywheelms.library.R;
 import com.flywheelms.library.deckangl.enumerator.DecKanGlDecoratorCanvasLocation;
 import com.flywheelms.library.deckangl.enumerator.DecKanGlDecoratorColor;
 import com.flywheelms.library.deckangl.glyph.DecKanGlDecoratorEnumeration;
-import com.flywheelms.library.fmm.node.impl.enumerator.TribKnQualityNormalizedDescription;
+import com.flywheelms.library.fmm.node.impl.enumerator.FmmTribKnQualityNormalizedDescription;
 import com.flywheelms.library.gcg.GcgApplication;
 
 import java.util.ArrayList;
@@ -92,49 +92,49 @@ public class FmsDecoratorFacilitator extends DecKanGlDecoratorEnumeration {
 	public static FmsDecoratorFacilitator NO_FACILITATOR = new FmsDecoratorFacilitator(
 			"No Facilitator",
 			R.string.decorator__facilitator__no_facilitator,
-			TribKnQualityNormalizedDescription.NONE,
+			FmmTribKnQualityNormalizedDescription.NONE,
 			R.integer.fmm__decorator__facilitator__no_facilitator__quality_index,
 			DecKanGlDecoratorColor.RED );
 	public static FmsDecoratorFacilitator INACTIVE_FACILITATOR = new FmsDecoratorFacilitator(
 			"Inactive Facilitator",
 			R.string.decorator__facilitator__inactive_facilitator,
-			TribKnQualityNormalizedDescription.INACTIVE,
+			FmmTribKnQualityNormalizedDescription.INACTIVE,
 			R.integer.fmm__decorator__facilitator__inactive_facilitator__quality_index,
 			DecKanGlDecoratorColor.ORANGE );
 	public static FmsDecoratorFacilitator SUGGESTED_FACILITATOR = new FmsDecoratorFacilitator(
 			"Suggested Facilitator",
 			R.string.decorator__facilitator__suggested_facilitator,
-			TribKnQualityNormalizedDescription.SUGGESTED,
+			FmmTribKnQualityNormalizedDescription.SUGGESTED,
 			R.integer.fmm__decorator__facilitator__suggested_facilitator__quality_index,
 			DecKanGlDecoratorColor.BLUE );
 	public static FmsDecoratorFacilitator PROPOSED_FACILITATOR = new FmsDecoratorFacilitator(
 			"Proposed Facilitator",
 			R.string.decorator__facilitator__proposed_facilitator,
-			TribKnQualityNormalizedDescription.PROPOSED,
+			FmmTribKnQualityNormalizedDescription.PROPOSED,
 			R.integer.fmm__decorator__facilitator__proposed_facilitator__quality_index,
 			DecKanGlDecoratorColor.PINK );
 	public static FmsDecoratorFacilitator CONFIRMED_FACILITATOR = new FmsDecoratorFacilitator(
 			"Confirmed Facilitator",
 			R.string.decorator__facilitator__confirmed,
-			TribKnQualityNormalizedDescription.CONFIRMED,
+			FmmTribKnQualityNormalizedDescription.CONFIRMED,
 			R.integer.fmm__decorator__facilitator__confirmed__quality_index,
 			DecKanGlDecoratorColor.TRANSPARENT );
 	public static FmsDecoratorFacilitator UNKNOWN_FACILITATOR_QUALITY = new FmsDecoratorFacilitator(
 			"Unknown Facilitator Quality",
 			R.string.decorator__facilitator__unknown_quality,
-			TribKnQualityNormalizedDescription.UNKNOWN,
+			FmmTribKnQualityNormalizedDescription.UNKNOWN,
 			R.integer.fmm__decorator__facilitator__unknown_quality__quality_index,
 			DecKanGlDecoratorColor.GRAY );
 	public static FmsDecoratorFacilitator FACILITATOR_QUALITY_NOT_APPLICABLE = new FmsDecoratorFacilitator(
 			"Facilitator Quality Not Applicable",
 			R.string.decorator__facilitator__not_applicable,
-			TribKnQualityNormalizedDescription.NOT_APPLICABLE,
+			FmmTribKnQualityNormalizedDescription.NOT_APPLICABLE,
 			R.integer.fmm__decorator__facilitator__not_applicable__quality_index,
 			DecKanGlDecoratorColor.TRANSPARENT );
 	public static FmsDecoratorFacilitator FACILITATOR_QUALITY_NOT_ENABLED = new FmsDecoratorFacilitator(
 			"Facilitator Quality Not Enabled",
 			R.string.decorator__facilitator__not_enabled,
-			TribKnQualityNormalizedDescription.NOT_ENABLED,
+			FmmTribKnQualityNormalizedDescription.NOT_ENABLED,
 			R.integer.fmm__decorator__facilitator__not_enabled__quality_index,
 			DecKanGlDecoratorColor.DISABLED );
 	
@@ -172,7 +172,7 @@ public class FmsDecoratorFacilitator extends DecKanGlDecoratorEnumeration {
 	public FmsDecoratorFacilitator(
 			String aName,
 			int aDescriptionResourceId,
-			TribKnQualityNormalizedDescription aNormalizedDescription,
+			FmmTribKnQualityNormalizedDescription aNormalizedDescription,
 			int aTribKnQualityIndexResourceId,
 			DecKanGlDecoratorColor aDecKanGlDecoratorColor ) {
 		super(

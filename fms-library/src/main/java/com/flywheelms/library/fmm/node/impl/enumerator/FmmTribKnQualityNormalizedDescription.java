@@ -54,7 +54,7 @@ import com.flywheelms.library.gcg.interfaces.GcgGuiable;
 
 import java.util.Date;
 
-public enum TribKnQualityNormalizedDescription implements FmmEnumNode {
+public enum FmmTribKnQualityNormalizedDescription implements FmmEnumNode {
 	
 	AT_RISK (R.string.tribkn_quality__normalized_description__at_risk),
 	CONFIRMED (R.string.tribkn_quality__normalized_description__confirmed),
@@ -82,8 +82,8 @@ public enum TribKnQualityNormalizedDescription implements FmmEnumNode {
 	
 	public static final String name_COLUMN_1 = "tribkn_quality_normalized_description";
 	
-	public static TribKnQualityNormalizedDescription getObjectForName(String aName) {
-		for(TribKnQualityNormalizedDescription theNodeQualityNormalizedDescription : TribKnQualityNormalizedDescription.values()) {
+	public static FmmTribKnQualityNormalizedDescription getObjectForName(String aName) {
+		for(FmmTribKnQualityNormalizedDescription theNodeQualityNormalizedDescription : FmmTribKnQualityNormalizedDescription.values()) {
 			if(theNodeQualityNormalizedDescription.equals(aName)) {
 				return theNodeQualityNormalizedDescription;
 			}
@@ -91,7 +91,7 @@ public enum TribKnQualityNormalizedDescription implements FmmEnumNode {
 		return null;
 	}
 
-	private static FmmNodeDefinition fmmNodeDictionaryEntry = FmmNodeDefinition.getEntryForClass(TribKnQualityNormalizedDescription.class);
+	private static FmmNodeDefinition fmmNodeDictionaryEntry = FmmNodeDefinition.getEntryForClass(FmmTribKnQualityNormalizedDescription.class);
 	private static String labelText = fmmNodeDictionaryEntry.getLabelText();
 	private static Drawable labelDrawable = fmmNodeDictionaryEntry.getLabelDrawable();
 	
@@ -124,11 +124,11 @@ public enum TribKnQualityNormalizedDescription implements FmmEnumNode {
 	private int nameStringResourceId;
 	private String name;
 	
-	TribKnQualityNormalizedDescription(int aNameStringResourceId) {
+	FmmTribKnQualityNormalizedDescription(int aNameStringResourceId) {
 		this.nameStringResourceId = aNameStringResourceId;
 		this.name = FmmHelper.getContext().getResources().getString(this.nameStringResourceId);
 		this.nodeId = new NodeId(
-				FmmNodeDefinition.getEntryForClass(TribKnQualityNormalizedDescription.class),
+				FmmNodeDefinition.getEntryForClass(FmmTribKnQualityNormalizedDescription.class),
 				getName() );
 	}
 	

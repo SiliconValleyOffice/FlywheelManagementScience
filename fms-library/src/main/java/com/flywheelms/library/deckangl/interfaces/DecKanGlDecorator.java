@@ -53,7 +53,7 @@ import android.graphics.drawable.Drawable;
 import com.flywheelms.library.deckangl.enumerator.DecKanGlDecoratedGlyphSize;
 import com.flywheelms.library.deckangl.enumerator.DecKanGlDecoratorColor;
 import com.flywheelms.library.deckangl.glyph.DecKanGlElementNounQualityMetric;
-import com.flywheelms.library.fmm.node.impl.enumerator.TribKnQualityNormalizedDescription;
+import com.flywheelms.library.fmm.node.impl.enumerator.FmmTribKnQualityNormalizedDescription;
 import com.flywheelms.library.gcg.interfaces.GcgGuiable;
 
 /**
@@ -76,7 +76,7 @@ public interface DecKanGlDecorator extends GcgGuiable {
 	
 	public String getDescription();
 	
-	public TribKnQualityNormalizedDescription getNormalizedDescription();
+	public FmmTribKnQualityNormalizedDescription getNormalizedDescription();
 	
 	public Bitmap getBitmap();
 	

@@ -65,6 +65,8 @@ import com.flywheelms.library.fmm.node.impl.enumerator.CompletableWorkStatus;
 import com.flywheelms.library.fmm.node.impl.enumerator.CompletionCommitmentType;
 import com.flywheelms.library.fmm.node.impl.enumerator.FacilitationIssueStatus;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
+import com.flywheelms.library.fmm.node.impl.enumerator.FmmTribKnElement;
+import com.flywheelms.library.fmm.node.impl.enumerator.FmmTribKnQualityNormalizedDescription;
 import com.flywheelms.library.fmm.node.impl.enumerator.GovernanceParticipationType;
 import com.flywheelms.library.fmm.node.impl.enumerator.GovernanceRole;
 import com.flywheelms.library.fmm.node.impl.enumerator.GovernanceSatisfaction;
@@ -73,8 +75,6 @@ import com.flywheelms.library.fmm.node.impl.enumerator.LockConfig;
 import com.flywheelms.library.fmm.node.impl.enumerator.LockType;
 import com.flywheelms.library.fmm.node.impl.enumerator.OrganizationParticipation;
 import com.flywheelms.library.fmm.node.impl.enumerator.TeamMemberStatus;
-import com.flywheelms.library.fmm.node.impl.enumerator.TribKnElement;
-import com.flywheelms.library.fmm.node.impl.enumerator.TribKnQualityNormalizedDescription;
 import com.flywheelms.library.fmm.node.impl.supporting.TribKnQualityEnumeration;
 import com.flywheelms.library.fse.model.FseDocumentTransactionType;
 
@@ -115,20 +115,20 @@ public class FmmDatabaseInitializerSqLite extends FmmDatabaseInitializer {
 	}
 
 	private static void initializeTribKnElement(SQLiteDatabase aSQLiteDatabase) {
-		String theTableName = TribKnElement.class.getSimpleName();
+		String theTableName = FmmTribKnElement.class.getSimpleName();
 		ContentValues theContentValues = new ContentValues();
-		for(TribKnElement theTribKnElement : TribKnElement.values()) {
-			theContentValues.put(TribKnElement.name_COLUMN_1, theTribKnElement.getName());
-			theContentValues.put(TribKnElement.name_COLUMN_2, theTribKnElement.getDescription());
+		for(FmmTribKnElement theTribKnElement : FmmTribKnElement.values()) {
+			theContentValues.put(FmmTribKnElement.name_COLUMN_1, theTribKnElement.getName());
+			theContentValues.put(FmmTribKnElement.name_COLUMN_2, theTribKnElement.getDescription());
 			aSQLiteDatabase.insertOrThrow(theTableName, null, theContentValues);
 		}
 	}
 
 	private static void initializeTribKnQualityNormalizedDescription(SQLiteDatabase aSQLiteDatabase) {
-		String theTableName = TribKnQualityNormalizedDescription.class.getSimpleName();
+		String theTableName = FmmTribKnQualityNormalizedDescription.class.getSimpleName();
 		ContentValues theContentValues = new ContentValues();
-		for(TribKnQualityNormalizedDescription theTribKnQualityNormalizedDescription : TribKnQualityNormalizedDescription.values()) {
-			theContentValues.put(TribKnQualityNormalizedDescription.name_COLUMN_1, theTribKnQualityNormalizedDescription.getName());
+		for(FmmTribKnQualityNormalizedDescription theTribKnQualityNormalizedDescription : FmmTribKnQualityNormalizedDescription.values()) {
+			theContentValues.put(FmmTribKnQualityNormalizedDescription.name_COLUMN_1, theTribKnQualityNormalizedDescription.getName());
 			aSQLiteDatabase.insertOrThrow(theTableName, null, theContentValues);
 		}
 	}

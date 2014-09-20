@@ -56,6 +56,8 @@ import com.flywheelms.library.fmm.node.impl.enumerator.CompletableWorkStatus;
 import com.flywheelms.library.fmm.node.impl.enumerator.CompletionCommitmentType;
 import com.flywheelms.library.fmm.node.impl.enumerator.FacilitationIssueStatus;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
+import com.flywheelms.library.fmm.node.impl.enumerator.FmmTribKnElement;
+import com.flywheelms.library.fmm.node.impl.enumerator.FmmTribKnQualityNormalizedDescription;
 import com.flywheelms.library.fmm.node.impl.enumerator.GovernanceParticipationType;
 import com.flywheelms.library.fmm.node.impl.enumerator.GovernanceRole;
 import com.flywheelms.library.fmm.node.impl.enumerator.GovernanceSatisfaction;
@@ -64,8 +66,6 @@ import com.flywheelms.library.fmm.node.impl.enumerator.LockConfig;
 import com.flywheelms.library.fmm.node.impl.enumerator.LockType;
 import com.flywheelms.library.fmm.node.impl.enumerator.OrganizationParticipation;
 import com.flywheelms.library.fmm.node.impl.enumerator.TeamMemberStatus;
-import com.flywheelms.library.fmm.node.impl.enumerator.TribKnElement;
-import com.flywheelms.library.fmm.node.impl.enumerator.TribKnQualityNormalizedDescription;
 import com.flywheelms.library.fmm.node.impl.event.PdfPublication;
 import com.flywheelms.library.fmm.node.impl.governable.Bookshelf;
 import com.flywheelms.library.fmm.node.impl.governable.CommunityMember;
@@ -153,8 +153,8 @@ public class FmmDatabaseBuilderSqLite implements FmmDatabaseBuilder {
 		createTable(aSqLiteDatabase, LockConfig.class);  // TODO
 		createTable(aSqLiteDatabase, LockType.class);
 		createTable(aSqLiteDatabase, OrganizationParticipation.class);
-		createTable(aSqLiteDatabase, TribKnElement.class);
-		createTable(aSqLiteDatabase, TribKnQualityNormalizedDescription.class);
+		createTable(aSqLiteDatabase, FmmTribKnElement.class);
+		createTable(aSqLiteDatabase, FmmTribKnQualityNormalizedDescription.class);
 		createTable(aSqLiteDatabase, TribKnQualityEnumeration.class);
 		createTable(aSqLiteDatabase, TeamMemberStatus.class);
 		createTable(aSqLiteDatabase, CompletableWorkStatus.class);

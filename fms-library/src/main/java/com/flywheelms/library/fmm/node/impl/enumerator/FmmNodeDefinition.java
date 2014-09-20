@@ -1004,7 +1004,7 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // large drawables
     		10064 ),
 	TRIBKN_ELEMENT (
-			TribKnElement.class,
+			FmmTribKnElement.class,
 			"TRE",
 			R.string.fmm_node_definition__tribkn_element__label_text,
 			R.drawable.gcg__null_drawable,
@@ -1032,7 +1032,7 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // large drawables
     		10066 ),
 	TRIBKN_QUALITY_NORMALIZED__DESCRIPTION (
-			TribKnQualityNormalizedDescription.class,
+			FmmTribKnQualityNormalizedDescription.class,
 			"TRD",
 			R.string.fmm_node_definition__tribkn_quality_normalized_description__label_text,
 			R.drawable.gcg__null_drawable,

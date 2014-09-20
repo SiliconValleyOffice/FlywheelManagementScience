@@ -49,7 +49,7 @@ import com.flywheelms.library.R;
 import com.flywheelms.library.deckangl.enumerator.DecKanGlDecoratorCanvasLocation;
 import com.flywheelms.library.deckangl.enumerator.DecKanGlDecoratorColor;
 import com.flywheelms.library.deckangl.glyph.DecKanGlDecoratorEnumeration;
-import com.flywheelms.library.fmm.node.impl.enumerator.TribKnQualityNormalizedDescription;
+import com.flywheelms.library.fmm.node.impl.enumerator.FmmTribKnQualityNormalizedDescription;
 import com.flywheelms.library.gcg.GcgApplication;
 
 import java.util.ArrayList;
@@ -88,55 +88,55 @@ public class FmsDecoratorStrategicCommitment extends DecKanGlDecoratorEnumeratio
 	public static FmsDecoratorStrategicCommitment NO_STRATEGIC_COMMITMENT = new FmsDecoratorStrategicCommitment(
 			"No Strategic Commitment",
 			R.string.decorator__strategic_commitment__none,
-			TribKnQualityNormalizedDescription.NONE,
+			FmmTribKnQualityNormalizedDescription.NONE,
 			R.integer.fmm__decorator__strategic_commitment__none__quality_index,
 			DecKanGlDecoratorColor.RED );
 	public static FmsDecoratorStrategicCommitment SUGGESTED_STRATEGIC_COMMITMENT = new FmsDecoratorStrategicCommitment(
 			"Suggested Strategic Commitment",
 			R.string.decorator__strategic_commitment__suggested,
-			TribKnQualityNormalizedDescription.SUGGESTED,
+			FmmTribKnQualityNormalizedDescription.SUGGESTED,
 			R.integer.fmm__decorator__strategic_commitment__suggested__quality_index,
 			DecKanGlDecoratorColor.BLUE );
 	public static FmsDecoratorStrategicCommitment PROPOSED_STRATEGIC_COMMITMENT = new FmsDecoratorStrategicCommitment(
 			"Proposed Strategic Commitment",
 			R.string.decorator__strategic_commitment__proposed,
-			TribKnQualityNormalizedDescription.PROPOSED,
+			FmmTribKnQualityNormalizedDescription.PROPOSED,
 			R.integer.fmm__decorator__strategic_commitment__proposed__quality_index,
 			DecKanGlDecoratorColor.PINK );
 	public static FmsDecoratorStrategicCommitment CONFIRMED_STRATEGIC_COMMITMENT = new FmsDecoratorStrategicCommitment(
 			"Confirmed Strategic Commitment",
 			R.string.decorator__strategic_commitment__confirmed,
-			TribKnQualityNormalizedDescription.CONFIRMED,
+			FmmTribKnQualityNormalizedDescription.CONFIRMED,
 			R.integer.fmm__decorator__strategic_commitment__confirmed__quality_index,
 			DecKanGlDecoratorColor.TRANSPARENT );
 	public static FmsDecoratorStrategicCommitment FUTURE_CONFIRMED_STRATEGIC_COMMITMENT = new FmsDecoratorStrategicCommitment(
 			"Future Confirmed Strategic Commitment",
 			R.string.decorator__strategic_commitment__future,
-			TribKnQualityNormalizedDescription.FUTURE,
+			FmmTribKnQualityNormalizedDescription.FUTURE,
 			R.integer.fmm__decorator__strategic_commitment__future__quality_index,
 			DecKanGlDecoratorColor.YELLOW );
 	public static FmsDecoratorStrategicCommitment MISSED_STRATEGIC_COMMITMENT = new FmsDecoratorStrategicCommitment(
 			"Missed Strategic Commitment",
 			R.string.decorator__strategic_commitment__missed,
-			TribKnQualityNormalizedDescription.MISSED,
+			FmmTribKnQualityNormalizedDescription.MISSED,
 			R.integer.fmm__decorator__strategic_commitment__missed__quality_index,
 			DecKanGlDecoratorColor.ORANGE );
 	public static FmsDecoratorStrategicCommitment UNKNOWN_STRATEGIC_COMMITMENT_QUALITY = new FmsDecoratorStrategicCommitment(
 			"Unknown Strategic Commitment Quality",
 			R.string.decorator__strategic_commitment__unknown_quality,
-			TribKnQualityNormalizedDescription.UNKNOWN,
+			FmmTribKnQualityNormalizedDescription.UNKNOWN,
 			R.integer.fmm__decorator__strategic_commitment__unknown_quality__quality_index,
 			DecKanGlDecoratorColor.GRAY );
 	public static FmsDecoratorStrategicCommitment STRATEGIC_COMMITMENT_QUALITY_NOT_APPLICABLE = new FmsDecoratorStrategicCommitment(
 			"Strategic Commitment Quality Not Applicable",
 			R.string.decorator__strategic_commitment__not_applicable,
-			TribKnQualityNormalizedDescription.NOT_APPLICABLE,
+			FmmTribKnQualityNormalizedDescription.NOT_APPLICABLE,
 			R.integer.fmm__decorator__strategic_commitment__not_applicable__quality_index,
 			DecKanGlDecoratorColor.TRANSPARENT );
 	public static FmsDecoratorStrategicCommitment STRATEGIC_COMMITMENT_QUALITY_NOT_ENABLED = new FmsDecoratorStrategicCommitment(
 			"Strategic Commitment Quality Not Enabled",
 			R.string.decorator__strategic_commitment__not_enabled,
-			TribKnQualityNormalizedDescription.NOT_ENABLED,
+			FmmTribKnQualityNormalizedDescription.NOT_ENABLED,
 			R.integer.fmm__decorator__strategic_commitment__not_enabled__quality_index,
 			DecKanGlDecoratorColor.DISABLED );
 	
@@ -176,7 +176,7 @@ public class FmsDecoratorStrategicCommitment extends DecKanGlDecoratorEnumeratio
 	public FmsDecoratorStrategicCommitment(
 			String aName,
 			int aDescriptionResourceId,
-			TribKnQualityNormalizedDescription aNormalizedDescription,
+			FmmTribKnQualityNormalizedDescription aNormalizedDescription,
 			int aTribKnQualityIndexResourceId,
 			DecKanGlDecoratorColor aDecKanGlDecoratorColor ) {
 		super(

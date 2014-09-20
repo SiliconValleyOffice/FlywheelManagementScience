@@ -53,7 +53,7 @@ import com.flywheelms.library.R;
 import com.flywheelms.library.deckangl.enumerator.DecKanGlDecoratorCanvasLocation;
 import com.flywheelms.library.deckangl.enumerator.DecKanGlDecoratorColor;
 import com.flywheelms.library.deckangl.glyph.DecKanGlDecoratorEnumeration;
-import com.flywheelms.library.fmm.node.impl.enumerator.TribKnQualityNormalizedDescription;
+import com.flywheelms.library.fmm.node.impl.enumerator.FmmTribKnQualityNormalizedDescription;
 import com.flywheelms.library.gcg.GcgApplication;
 
 import java.util.ArrayList;
@@ -92,49 +92,49 @@ public class FmsDecoratorCompletion extends DecKanGlDecoratorEnumeration {
 	public static FmsDecoratorCompletion COMPLETION_NOT_SCHEDULED = new FmsDecoratorCompletion(
 			"Completion Not Scheduled",
 			R.string.decorator__completion_progress__not_scheduled,
-			TribKnQualityNormalizedDescription.NOT_SCHEDULED,
+			FmmTribKnQualityNormalizedDescription.NOT_SCHEDULED,
 			R.integer.fmm__decorator__completion_progress__not_scheduled__quality_index,
 			DecKanGlDecoratorColor.RED );
 	public static FmsDecoratorCompletion TIMELY_COMPLETION_AT_RISK = new FmsDecoratorCompletion(
 			"Timely Completion At Risk",
 			R.string.decorator__completion_progress__at_risk,
-			TribKnQualityNormalizedDescription.AT_RISK,
+			FmmTribKnQualityNormalizedDescription.AT_RISK,
 			R.integer.fmm__decorator__completion_progress__at_risk__quality_index,
 			DecKanGlDecoratorColor.YELLOW );
 	public static FmsDecoratorCompletion UNCONFIRMED_COMPLETION = new FmsDecoratorCompletion(
 			"Unconfirmed Completion",
 			R.string.decorator__completion_progress__unconfirmed,
-			TribKnQualityNormalizedDescription.UNCONFIRMED,
+			FmmTribKnQualityNormalizedDescription.UNCONFIRMED,
 			R.integer.fmm__decorator__completion_progress__unconfirmed__quality_index,
 			DecKanGlDecoratorColor.PINK );
 	public static FmsDecoratorCompletion NO_COMPLETION_ISSUES = new FmsDecoratorCompletion(
 			"No Completion Issues",
 			R.string.decorator__completion_progress__no_issues,
-			TribKnQualityNormalizedDescription.NONE,
+			FmmTribKnQualityNormalizedDescription.NONE,
 			R.integer.fmm__decorator__completion_progress__no_issues__quality_index,
 			DecKanGlDecoratorColor.TRANSPARENT );
 	public static FmsDecoratorCompletion COMPLETION_PAST_DUE = new FmsDecoratorCompletion(
 			"Completion is Past Due",
 			R.string.decorator__completion_progress__past_due,
-			TribKnQualityNormalizedDescription.PAST_DUE,
+			FmmTribKnQualityNormalizedDescription.PAST_DUE,
 			R.integer.fmm__decorator__completion_progress__past_due__quality_index,
 			DecKanGlDecoratorColor.ORANGE );
 	public static FmsDecoratorCompletion UNKNOWN_COMPLETION_QUALITY = new FmsDecoratorCompletion(
 			"Unknown Completion Quality",
 			R.string.decorator__completion_progress__unknown_quality,
-			TribKnQualityNormalizedDescription.UNKNOWN,
+			FmmTribKnQualityNormalizedDescription.UNKNOWN,
 			R.integer.fmm__decorator__completion_progress__unknown_quality__quality_index,
 			DecKanGlDecoratorColor.GRAY );
 	public static FmsDecoratorCompletion COMPLETION_QUALITY_NOT_APPLICABLE = new FmsDecoratorCompletion(
 			"Completion Quality Not Applicable",
 			R.string.decorator__completion_progress__not_applicable,
-			TribKnQualityNormalizedDescription.NOT_APPLICABLE,
+			FmmTribKnQualityNormalizedDescription.NOT_APPLICABLE,
 			R.integer.fmm__decorator__completion_progress__not_applicable__quality_index,
 			DecKanGlDecoratorColor.TRANSPARENT );
 	public static FmsDecoratorCompletion COMPLETION_QUALITY_NOT_ENABLED = new FmsDecoratorCompletion(
 			"Completion Quality Not Enabled",
 			R.string.decorator__completion_progress__not_enabled,
-			TribKnQualityNormalizedDescription.NOT_ENABLED,
+			FmmTribKnQualityNormalizedDescription.NOT_ENABLED,
 			R.integer.fmm__decorator__completion_progress__not_enabled__quality_index,
 			DecKanGlDecoratorColor.DISABLED );
 	
@@ -173,7 +173,7 @@ public class FmsDecoratorCompletion extends DecKanGlDecoratorEnumeration {
 	public FmsDecoratorCompletion(
 			String aName,
 			int aDescriptionResourceId,
-			TribKnQualityNormalizedDescription aNormalizedDescription,
+			FmmTribKnQualityNormalizedDescription aNormalizedDescription,
 			int aTribKnQualityIndexResourceId,
 			DecKanGlDecoratorColor aDecKanGlDecoratorColor ) {
 		super(
