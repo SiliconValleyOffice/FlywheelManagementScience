@@ -1,4 +1,4 @@
-package com.flywheelms.dashboard;
+package com.flywheelms.dashboard.junk;
 
 import android.app.Activity;
 import android.content.Intent;

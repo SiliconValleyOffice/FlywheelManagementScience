@@ -1,3 +1,4 @@
-include ':fms-gcongui', ':fms-dashboard'
+include ':fms-gcongui'
 include ':fms-library'
 include ':fms-workbench'
+include ':fms-dashboard'
