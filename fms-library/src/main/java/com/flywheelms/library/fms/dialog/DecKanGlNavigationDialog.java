@@ -46,14 +46,14 @@ package com.flywheelms.library.fms.dialog;
 import com.flywheelms.library.R;
 import com.flywheelms.library.deckangl.component.DecKanGlNavigationComponentParent;
 import com.flywheelms.library.deckangl.glyph.DecKanGlGlyph;
-import com.flywheelms.library.fmm.context.FmmFrame;
-import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fmm.node.FmmHeadlineNodeShallow;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.fms.component.FmsDecKanGlNavigationComponent;
 import com.flywheelms.library.fms.interfaces.FmsDecKanGlNavigationDialogParent;
 import com.flywheelms.library.fms.widget.text_view.HeadlineWidgetTextView;
 import com.flywheelms.library.gcg.activity.GcgActivity;
+import com.flywheelms.library.gcg.context.GcgFrame;
+import com.flywheelms.library.gcg.interfaces.GcgPerspective;
 
 import java.util.ArrayList;
 
@@ -98,7 +98,7 @@ public class DecKanGlNavigationDialog extends FmsCancelDialog implements DecKanG
 	}
 	
 	@Override
-	public void activityGlNavigation(FmmFrame aFrame, FmmPerspective aPerspective) {
+	public void activityNavigation(GcgFrame aFrame, GcgPerspective aPerspective) {
 		((FmsDecKanGlNavigationDialogParent) this.gcgActivity).decKanGlNavigation(
 			aFrame,
 			aPerspective,
@@ -108,7 +108,7 @@ public class DecKanGlNavigationDialog extends FmsCancelDialog implements DecKanG
 		this.gcgActivity.stopDialog();
 	}
 
-	@Override
+    @Override
 	public DecKanGlGlyph getDecKanGlGlyph() {
 		return getFmmHeadlineNode().getDecKanGlGlyph();
 	}

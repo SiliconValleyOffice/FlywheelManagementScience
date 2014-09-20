@@ -51,6 +51,7 @@ import com.flywheelms.library.deckangl.component.DecKanGlNavigationComponentPare
 import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fms.component.FmsDecKanGlNavigationComponent;
 import com.flywheelms.library.fms.helper.FmsHelpIndex;
+import com.flywheelms.library.gcg.context.GcgFrame;
 import com.flywheelms.library.gcg.interfaces.GcgPerspective;
 
 public class FmsDecKanGlPerspective extends FmsPerspectiveFlipperView implements DecKanGlNavigationComponentParent {
@@ -94,4 +95,8 @@ public class FmsDecKanGlPerspective extends FmsPerspectiveFlipperView implements
 		this.decKanGlGlyphNavigationWidget.viewData();
 	}
 
+    @Override
+    public void activityNavigation(GcgFrame aFrame, GcgPerspective aPerspective) {
+
+    }
 }

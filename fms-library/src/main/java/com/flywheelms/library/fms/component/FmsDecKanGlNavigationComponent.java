@@ -100,9 +100,9 @@ public class FmsDecKanGlNavigationComponent extends DecKanGlNavigationComponent 
 			//$FALL-THROUGH$
 		default:
 		}
-		this.decKanGlNavigationParent.activityGlNavigation(
-				theFrame,
-				thePerspective );
+		this.decKanGlNavigationParent.activityNavigation(
+                theFrame,
+                thePerspective);
 	}
 
 }

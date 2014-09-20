@@ -44,12 +44,12 @@
 package com.flywheelms.library.deckangl.component;
 
 import com.flywheelms.library.deckangl.glyph.DecKanGlGlyph;
-import com.flywheelms.library.fmm.context.FmmFrame;
-import com.flywheelms.library.fmm.context.FmmPerspective;
+import com.flywheelms.library.gcg.context.GcgFrame;
+import com.flywheelms.library.gcg.interfaces.GcgPerspective;
 
 public interface DecKanGlNavigationComponentParent {
 
-	void activityGlNavigation(FmmFrame aFrame, FmmPerspective aPerspective);
+	void activityNavigation(GcgFrame aFrame, GcgPerspective aPerspective);
 	
 	DecKanGlGlyph getDecKanGlGlyph();
 

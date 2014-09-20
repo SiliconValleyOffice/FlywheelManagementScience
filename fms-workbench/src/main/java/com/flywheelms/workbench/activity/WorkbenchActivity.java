@@ -54,7 +54,6 @@ import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.FmmDatabaseTemplate;
 import com.flywheelms.library.fmm.context.FmmFrame;
-import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fmm.deckangl.FmmDecKanGlDictionary;
 import com.flywheelms.library.fmm.node.FmmHeadlineNodeShallow;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
@@ -68,6 +67,7 @@ import com.flywheelms.library.gcg.context.GcgApplicationContext;
 import com.flywheelms.library.gcg.context.GcgFrame;
 import com.flywheelms.library.gcg.helper.GcgPerspectiveMenu;
 import com.flywheelms.library.gcg.interfaces.GcgGuiable;
+import com.flywheelms.library.gcg.interfaces.GcgPerspective;
 import com.flywheelms.library.gcg.menu.GcgFrameSpinner;
 import com.flywheelms.library.gcg.menu.GcgPerspectiveMenuButton;
 import com.flywheelms.library.gcg.viewflipper.GcgPerspectiveFlipper;
@@ -393,8 +393,8 @@ public class WorkbenchActivity extends FmsActivity implements FmsDecKanGlNavigat
 
 	@Override
 	public void decKanGlNavigation(
-			FmmFrame aFrame,
-			FmmPerspective aPerspective,
+			GcgFrame aFrame,
+			GcgPerspective aPerspective,
 			String aParentNodeIdString,
 			ArrayList<FmmHeadlineNodeShallow> aPeerHeadlineNodeShallowList,
 			String aTargetNodeIdString ) {

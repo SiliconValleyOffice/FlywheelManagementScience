@@ -43,17 +43,17 @@
 
 package com.flywheelms.library.fms.interfaces;
 
-import com.flywheelms.library.fmm.context.FmmFrame;
-import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fmm.node.FmmHeadlineNodeShallow;
+import com.flywheelms.library.gcg.context.GcgFrame;
+import com.flywheelms.library.gcg.interfaces.GcgPerspective;
 
 import java.util.ArrayList;
 
 public interface FmsDecKanGlNavigationDialogParent {
 
 	void decKanGlNavigation(
-			FmmFrame aFrame,
-			FmmPerspective aPerspective,
+			GcgFrame aFrame,
+			GcgPerspective aPerspective,
 			String aParentNodeIdString,
 			ArrayList<FmmHeadlineNodeShallow> aPeerHeadlineNodeShallowList,
 			String aTargetNodeIdString);

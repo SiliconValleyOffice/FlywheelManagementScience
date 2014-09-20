@@ -59,8 +59,10 @@ import com.flywheelms.library.fms.activity.PdfPublicationWizard;
 import com.flywheelms.library.fse.activity.FseDocumentHistoryBrowserActivity;
 import com.flywheelms.library.gcg.GcgApplication;
 import com.flywheelms.library.gcg.activity.GcgActivity;
+import com.flywheelms.library.gcg.context.GcgFrame;
 import com.flywheelms.library.gcg.helper.GcgActivityHelper;
 import com.flywheelms.library.gcg.helper.GcgHelper;
+import com.flywheelms.library.gcg.interfaces.GcgPerspective;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -128,8 +130,8 @@ public class FmsActivityHelper extends GcgActivityHelper {
 			ArrayList<FmmHeadlineNodeShallow> anFmmHeadlineNodeShallowList,
 			String aNodeListParentNodeIdString,
 			String anInitialNodeIdStringToDisplay,
-			FmmFrame anInitialFrame,
-			FmmPerspective anInitialPerspective) {
+			GcgFrame anInitialFrame,
+			GcgPerspective anInitialPerspective) {
 		FmmNodeDefinition theDictionaryEntry = FmmNodeDefinition.getEntryForNodeIdString(anInitialNodeIdStringToDisplay);
 		if(theDictionaryEntry == null) {
 			GcgHelper.makeToast("ERROR - Unknown FMM Node = " + anInitialNodeIdStringToDisplay);
@@ -151,8 +153,8 @@ public class FmsActivityHelper extends GcgActivityHelper {
 			ArrayList<FmmHeadlineNodeShallow> aPeerHeadlineNodeShallowList,
 			String anInitialNodeIdToDisplay,
 			FmmNodeDefinition anFmmNodeDefinition,
-			FmmFrame anInitialFrame,
-			FmmPerspective anInitialPerspective ) {
+			GcgFrame anInitialFrame,
+			GcgPerspective anInitialPerspective ) {
 		aParentActivity.startBlueActivityStatusAnimation();
 		String theActivityClassName = anFmmNodeDefinition.getNodeClass().getSimpleName() + "EditorActivity";
 		Intent theIntent;
