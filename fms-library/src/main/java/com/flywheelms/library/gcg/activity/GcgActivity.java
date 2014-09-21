@@ -177,8 +177,8 @@ public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNo
 	protected void processExtras() {
 		try {
 			if(getIntent().getExtras() != null) {
-				if(getIntent().hasExtra(GcgActivityHelper.bundle_key__GCG_CONTEXT)) {
-					setGcgApplicationContext(new GcgApplicationContext(new JSONObject(getIntent().getExtras().getString(GcgActivityHelper.bundle_key__GCG_CONTEXT))));
+				if(getIntent().hasExtra(GcgActivityHelper.bundle_key__GCG__APPLICATION_CONTEXT)) {
+					setGcgApplicationContext(new GcgApplicationContext(new JSONObject(getIntent().getExtras().getString(GcgActivityHelper.bundle_key__GCG__APPLICATION_CONTEXT))));
 				}
 			}
 		} catch (JSONException e) {
@@ -238,7 +238,7 @@ public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNo
 	public void onSaveInstanceState(Bundle theBundle) {
 		super.onSaveInstanceState(theBundle);
 		if(getGcgApplicationContext() != null) {
-			theBundle.putString(GcgActivityHelper.bundle_key__GCG_CONTEXT, getGcgApplicationContext().getSerialized());
+			theBundle.putString(GcgActivityHelper.bundle_key__GCG__APPLICATION_CONTEXT, getGcgApplicationContext().getSerialized());
 		}
 	}
 	

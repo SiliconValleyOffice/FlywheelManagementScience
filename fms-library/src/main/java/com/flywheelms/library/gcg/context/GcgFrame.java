@@ -113,12 +113,18 @@ public class GcgFrame {
     }
 
     public int getPerspectiveMenuItemPosition(GcgPerspective aPerspective) {
-        // TODO - may need to return the goofy view flipper order
         return this.gcgPerspectiveList.indexOf(aPerspective);
     }
 
     public GcgPerspective getPerspectiveAt(int aPerspectiveIndex) {
-        // TODO - may need to return the perspective based upon goofy view flipper order
         return this.gcgPerspectiveList.get(aPerspectiveIndex);
+    }
+
+    public static int getPerspectiveIndexForViewFlipperIndex(int aPerspectiveCount, int aFrameViewIndex) {  // correct for goofy view flipper order
+        int theAdjustedIndex = 0;
+        if(aFrameViewIndex != 0) {
+            theAdjustedIndex = aPerspectiveCount - aFrameViewIndex;
+        }
+        return theAdjustedIndex;
     }
 }

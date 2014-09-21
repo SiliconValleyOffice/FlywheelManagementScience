@@ -123,7 +123,7 @@ public abstract class FmmNodeEditorActivity extends FmsHorizontalNodeNavigatorAc
 		String theClassName = aSavedInstanceState.getString(FmsActivityHelper.bundle_key__NAVIGATION_PARENT_CLASS_NAME);
 		this.navigationParentFmmNodeDefinition = FmmNodeDefinition.getEntryForNodeClassName(theClassName);
 		try {
-			setGcgApplicationContext(new GcgApplicationContext(new JSONObject(aSavedInstanceState.getString(GcgActivityHelper.bundle_key__GCG_CONTEXT))));
+			setGcgApplicationContext(new GcgApplicationContext(new JSONObject(aSavedInstanceState.getString(GcgActivityHelper.bundle_key__GCG__APPLICATION_CONTEXT))));
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

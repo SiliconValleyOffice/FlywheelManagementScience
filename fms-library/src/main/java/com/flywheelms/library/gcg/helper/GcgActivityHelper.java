@@ -58,7 +58,7 @@ public class GcgActivityHelper {
     public static final String bundle_key__INITIAL_PERSPECTIVE_TO_DISPLAY = "InitialPerspectiveToDisplay";
     public static final String bundle_key__LIST_ACTION_LABEL = "ListActionLabel";
     public static final String bundle_key__MUST_SELECT_DATA_SOURCE = "MustSelectDataSource";
-    public static final String bundle_key__GCG_CONTEXT = "GcgApplicationContext";
+    public static final String bundle_key__GCG__APPLICATION_CONTEXT = "GcgApplicationContext";
     public static final String bundle_key__MODIFIED_TREE_NODE__LIST = "ModifiedFmmNodeIdList";
     public static final String bundle_key__DATA_REFRESH__ALL = "DataRefreshAll";
     public static final String bundle_key__DATA_REFRESH__NOTICE_LIST = "DataRefreshNoticeList";

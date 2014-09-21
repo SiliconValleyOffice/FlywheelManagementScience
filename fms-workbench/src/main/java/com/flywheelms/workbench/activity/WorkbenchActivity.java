@@ -99,6 +99,11 @@ public class WorkbenchActivity extends FmsActivity implements FmsDecKanGlNavigat
 		FmmDatabaseTemplate.initializeTemplates();
 	}
 
+    @Override
+    protected int getContentViewResourceId() {
+        return com.flywheelms.workbench.R.layout.workbench__frame_spinner__layout;
+    }
+
 	@Override
 	protected void onCreate(Bundle aSavedInstanceState) {
 		if(aSavedInstanceState != null) {
@@ -197,11 +202,6 @@ public class WorkbenchActivity extends FmsActivity implements FmsDecKanGlNavigat
 		FmmDatabaseMediator.closeActiveFmm();
 		resetApplicationContext();
 		this.mustSelectDataSource = true;
-	}
-
-	@Override
-	protected int getContentViewResourceId() {
-		return com.flywheelms.workbench.R.layout.workbench__frame_spinner__layout;
 	}
 
 	@Override

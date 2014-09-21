@@ -171,7 +171,7 @@ public class FmsActivityHelper extends GcgActivityHelper {
 		theIntent.putExtra(bundle_key__INITIAL_FRAME_TO_DISPLAY, anInitialFrame == null ? FmmFrame.FSE.getName() : anInitialFrame.getName());
 		theIntent.putExtra(bundle_key__INITIAL_PERSPECTIVE_TO_DISPLAY, anInitialPerspective == null ? FmmPerspective.STORY.getName() : anInitialPerspective.getName());
 		theIntent.putExtra(bundle_key__NAVIGATION_PARENT_NODE_ID, aNodeListParentNodeId);
-		theIntent.putExtra(bundle_key__GCG_CONTEXT, aParentActivity.getChildGcgApplicationContext().getSerialized());
+		theIntent.putExtra(bundle_key__GCG__APPLICATION_CONTEXT, aParentActivity.getChildGcgApplicationContext().getSerialized());
 		aParentActivity.startActivityForResult(theIntent, anFmmNodeDefinition.getNodeEditorActivityRequestCode());
 	}
 
@@ -191,7 +191,7 @@ public class FmsActivityHelper extends GcgActivityHelper {
 			e.printStackTrace();
 			return;
 		}
-		theIntent.putExtra(bundle_key__GCG_CONTEXT, aParentActivity.getChildGcgApplicationContext().getSerialized());
+		theIntent.putExtra(bundle_key__GCG__APPLICATION_CONTEXT, aParentActivity.getChildGcgApplicationContext().getSerialized());
 		theIntent.putExtra(bundle_key__INITIAL_WHERE_CLAUSE, aWhereClause);
 		theIntent.putExtra(bundle_key__NODE_ID_EXLUSION_LIST, aNodeIdExclusionList);
 		theIntent.putExtra(bundle_key__LIST_ACTION_LABEL, aListActionLabel);
@@ -204,7 +204,7 @@ public class FmsActivityHelper extends GcgActivityHelper {
         aParentActivity.startBlueActivityStatusAnimation();
         Intent theIntent = new Intent(aParentActivity, PdfPublicationWizard.class);
         theIntent.putExtra(bundle_key__FMM_NODE__ID_STRING, anFmmNodeIdString);
-        theIntent.putExtra(bundle_key__GCG_CONTEXT, aParentActivity.getChildGcgApplicationContext().getSerialized());
+        theIntent.putExtra(bundle_key__GCG__APPLICATION_CONTEXT, aParentActivity.getChildGcgApplicationContext().getSerialized());
         aParentActivity.startActivityForResult(theIntent, FmmNodeDefinition.PDF_PUBLICATION.getNodeEditorActivityRequestCode());
     }
 
@@ -214,7 +214,7 @@ public class FmsActivityHelper extends GcgActivityHelper {
 		aParentActivity.startBlueActivityStatusAnimation();
 		Intent theIntent = new Intent(aParentActivity, CreateFmmWizard.class);
 		if(aParentActivity.getChildGcgApplicationContext() != null) {
-			theIntent.putExtra(bundle_key__GCG_CONTEXT, aParentActivity.getChildGcgApplicationContext().getSerialized());
+			theIntent.putExtra(bundle_key__GCG__APPLICATION_CONTEXT, aParentActivity.getChildGcgApplicationContext().getSerialized());
 		}
 		theIntent.putExtra(bundle_key__FMM_CONFIGURATION_SCOPE, anAccessScope.getName());
 		aParentActivity.startActivityForResult(theIntent, FmmNodeDefinition.FMM_CONFIGURATION.getNodeCreateActivityRequestCode());
@@ -228,7 +228,7 @@ public class FmsActivityHelper extends GcgActivityHelper {
 		Intent theIntent = new Intent(aParentActivity, FseDocumentHistoryBrowserActivity.class);
 		theIntent.putExtra(bundle_key__FSE_DOCUMENT_NODE_ID, anFseDocumentNodeIdString);
 		theIntent.putExtra(bundle_key__FSE_DOCUMENT_TRANSACTION_INDEX, anInitialTransactionIndexToDisplay);
-		theIntent.putExtra(bundle_key__GCG_CONTEXT, aParentActivity.getChildGcgApplicationContext().getSerialized());
+		theIntent.putExtra(bundle_key__GCG__APPLICATION_CONTEXT, aParentActivity.getChildGcgApplicationContext().getSerialized());
 		aParentActivity.startActivityForResult(theIntent, FmmNodeDefinition.FSE_DOCUMENT_TRANSACTION.getNodeEditorActivityRequestCode());
 	}
 

@@ -78,7 +78,7 @@ public abstract class GcgPerspectiveFlipper extends GcgViewFlipper {
 	}
 	
 	public GcgPerspective getGcgPerspective() {
-		return this.gcgFrame.getPerspectiveAt(getViewFlipperViewIndex());
+		return this.gcgFrame.getPerspectiveAt(GcgFrame.getPerspectiveIndexForViewFlipperIndex(getChildCount(), getViewFlipperViewIndex()));
 	}
 
 	@Override

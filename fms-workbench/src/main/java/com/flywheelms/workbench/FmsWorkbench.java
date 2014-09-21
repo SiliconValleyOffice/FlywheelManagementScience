@@ -1,4 +1,4 @@
-/* @(#)FlywheelMs.java
+/* @(#)FmsWorkbench.java
  ** 
  ** Copyright (C) 2012 by Steven D. Stamps
  **
