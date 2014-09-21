@@ -140,6 +140,14 @@ public abstract class GcgApplication extends Application {
 	public abstract void setMinorRelease();
 	public abstract void setIncrementalRelease();
 
+//    public abstract ArrayList<? extends GcgFrame> getFrameList();
+//    public abstract GcgFrame getFrameForName(String aName);
+//    public abstract ArrayList<? extends GcgPerspective> getPerspectiveList();
+//    public abstract GcgPerspective getPerspectiveForName(String aName);
+//
+//    public abstract Class getDecKanGlDictionaryClass();
+//    public abstract <T extends DecKanGlDictionary> T getDecKanGlDefinition(String aName);
+
 	public static void hideSoftInputFromWindow(IBinder aWindowToken) {
 		GcgApplication.getInputMethodManager().hideSoftInputFromWindow(aWindowToken, 0);
 	}
