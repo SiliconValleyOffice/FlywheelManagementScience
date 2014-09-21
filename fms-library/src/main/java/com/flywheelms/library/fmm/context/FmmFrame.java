@@ -128,12 +128,12 @@ public class FmmFrame extends GcgFrame {
         return (FmmFrame) getObjectForName(aName);
     }
 
-    private FmmFrame(int aNameResourceId, GcgPerspective[] anGcgPerspectiveArray) {
-       super(aNameResourceId, anGcgPerspectiveArray);
+    private FmmFrame(int aNameResourceId, GcgPerspective[] aGcgPerspectiveArray) {
+       super(aNameResourceId, aGcgPerspectiveArray);
     }
 
-    private FmmFrame(int aNameResourceId, int aHeadingResourceId, GcgPerspective[] anGcgPerspectiveArray) {
-        super(aNameResourceId, aHeadingResourceId, anGcgPerspectiveArray);
+    private FmmFrame(int aNameResourceId, int aHeadingResourceId, GcgPerspective[] aGcgPerspectiveArray) {
+        super(aNameResourceId, aHeadingResourceId, aGcgPerspectiveArray);
         
     }
 

@@ -41,7 +41,11 @@
  */
 package com.flywheelms.workbench;
 
+import com.flywheelms.library.fmm.context.FmmFrame;
+import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.gcg.GcgApplication;
+
+import java.util.ArrayList;
 
 public class FmsWorkbench extends GcgApplication {
 	
@@ -64,5 +68,29 @@ public class FmsWorkbench extends GcgApplication {
 	public void setIncrementalRelease() {
 		this.incrementalRelease = 0;
 	}
+    
+    // START - Support application-specific context
+
+    static {
+        GcgApplication.subClass = FmsWorkbench.class;
+    }
+
+    public static ArrayList<FmmFrame> getFrameList() {
+        return FmmFrame.getFmmValues();
+    }
+
+    public static FmmFrame getFrameForName(String aName) {
+        return FmmFrame.getFmmObjectForName(aName);
+    }
+
+    public static ArrayList<FmmPerspective> getPerspectiveList() {
+        return FmmPerspective.getFmmValues();
+    }
+
+    public static FmmPerspective getPerspectiveForName(String aName) {
+        return FmmPerspective.getFmmObjectForName(aName);
+    }
+
+    // END - Support application-specific context
 
 }

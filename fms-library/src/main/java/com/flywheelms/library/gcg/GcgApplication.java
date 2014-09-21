@@ -53,6 +53,13 @@ import android.os.IBinder;
 import android.view.LayoutInflater;
 import android.view.inputmethod.InputMethodManager;
 
+import com.flywheelms.library.gcg.context.GcgFrame;
+import com.flywheelms.library.gcg.interfaces.GcgPerspective;
+
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+
 public abstract class GcgApplication extends Application {
 
 	private static GcgApplication instance;
@@ -140,11 +147,65 @@ public abstract class GcgApplication extends Application {
 	public abstract void setMinorRelease();
 	public abstract void setIncrementalRelease();
 
-//    public abstract ArrayList<? extends GcgFrame> getFrameList();
-//    public abstract GcgFrame getFrameForName(String aName);
-//    public abstract ArrayList<? extends GcgPerspective> getPerspectiveList();
-//    public abstract GcgPerspective getPerspectiveForName(String aName);
-//
+    // must initialize in a static block of the sub-class
+    protected static Class<? extends GcgApplication> subClass;
+
+    private static Method getFrameListMethod;
+    private static Method getFrameListMethod() {
+        if(GcgApplication.getFrameListMethod == null) {
+            try {
+                GcgApplication.getFrameListMethod = GcgApplication.subClass.getMethod("getFrameList");
+            } catch (NoSuchMethodException e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        return GcgApplication.getFrameListMethod;
+    }
+
+    private static Method getPerspectiveListMethod;
+    private static Method getPerspectiveListMethod() {
+        if(GcgApplication.getPerspectiveListMethod == null) {
+            try {
+                GcgApplication.getPerspectiveListMethod = GcgApplication.subClass.getMethod("getPerspectiveList");
+            } catch (NoSuchMethodException e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        return GcgApplication.getPerspectiveListMethod;
+    }
+
+    // must implement static getFrameList() in sub-class
+    public static ArrayList<GcgFrame> getAppFrameList() {
+        Object theObject = null;
+        try {
+            theObject = getFrameListMethod().invoke(null);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+            return null;
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+            return null;
+        }
+        return (ArrayList<GcgFrame>) theObject;
+    }
+
+    // must implement static getPerspectiveList() in sub-class
+    public static ArrayList<GcgPerspective> getAppPerspectiveList() {
+        Object theObject = null;
+        try {
+            theObject = getPerspectiveListMethod().invoke(null);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+            return null;
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+            return null;
+        }
+        return (ArrayList<GcgPerspective>) theObject;
+    }
+
 //    public abstract Class getDecKanGlDictionaryClass();
 //    public abstract <T extends DecKanGlDictionary> T getDecKanGlDefinition(String aName);
 
