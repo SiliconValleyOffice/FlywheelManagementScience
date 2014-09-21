@@ -862,6 +862,16 @@ public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNo
 		return theChildContext;
 	}
 
+    protected boolean pruneLastApplicationContextBreadcrumb() {
+        return false;
+    }
+
+    public void pruneLastApplicationContextBreadcrumb(GcgActivityBreadcrumb theLastActivityBreadcrumb) {
+       if(pruneLastApplicationContextBreadcrumb()) {
+           theLastActivityBreadcrumb.setFrameBreadcrumb(null);
+       }
+    }
+
 	public void updatePerspectiveContext(ArrayList<GcgGuiable> aContextList) {
 		this.perspectiveContext = aContextList;
 	}

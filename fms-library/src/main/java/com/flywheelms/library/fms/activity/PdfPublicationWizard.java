@@ -76,6 +76,10 @@ public class PdfPublicationWizard extends FmsNodeWizardActivity {
 		return R.layout.fmm_node__publication__wizard;
 	}
 
+    protected boolean pruneLastApplicationContextBreadcrumb() {
+        return true;
+    }
+
 	@Override
 	protected void onActivityResult(int aRequestCode, int aResultCode, Intent anIntent) {
 		if(anIntent == null) {

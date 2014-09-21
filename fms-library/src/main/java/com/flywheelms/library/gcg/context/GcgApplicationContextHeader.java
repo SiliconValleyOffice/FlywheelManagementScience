@@ -130,11 +130,19 @@ public class GcgApplicationContextHeader extends LinearLayout {
 
 	private void displayLastActivityBreadcrumb() {
 		GcgActivityBreadcrumb theLastActivityBreadcrumb = this.applicationContext.getActivityBreadcrumbList().get(this.applicationContext.getActivityBreadcrumbList().size() - 1);
+        this.gcgActivity.pruneLastApplicationContextBreadcrumb(theLastActivityBreadcrumb);
 		LinearLayout theActivityBreadcrumbContainer = GcgHelper.inflateLinearLayout(getContext(), R.layout.gcg__application_context__activity_breadcrumb, this.activityBreadcrumbListContainer);
 		((ImageView) theActivityBreadcrumbContainer.getChildAt(index__ACTIVITY_DRAWABLE)).setImageResource(
 				theLastActivityBreadcrumb.getActivityDrawableResourceId());
 		((TextView) theActivityBreadcrumbContainer.getChildAt(index__ACTIVITY_TEXT_VIEW)).setText(
 				theLastActivityBreadcrumb.getActivityName());
+        if(theLastActivityBreadcrumb.getFrameBreadcrumb() == null) {
+            theActivityBreadcrumbContainer.removeViewAt(index__PERSPECTIVE_CONTEXT_CONTAINER);
+            theActivityBreadcrumbContainer.removeViewAt(index__PERSPECTIVE_DRAWABLE);
+            theActivityBreadcrumbContainer.removeViewAt(index__FRAME_TEXT_VIEW);
+            theActivityBreadcrumbContainer.removeViewAt(index__FRAME_DRAWABLE);
+            return;
+        }
 		if(theLastActivityBreadcrumb.getFrameBreadcrumb().hasText()) {
 			((TextView) theActivityBreadcrumbContainer.getChildAt(index__FRAME_TEXT_VIEW)).setText(
 					theLastActivityBreadcrumb.getFrameBreadcrumb().getText());
