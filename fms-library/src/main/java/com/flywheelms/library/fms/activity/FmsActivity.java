@@ -95,8 +95,12 @@ public abstract class FmsActivity extends GcgActivity{
         }
     }
 
-    private void processDataRefreshNoticeList() {
+    private void initializeDataRefreshNoticeList() {
         this.dataRefreshList = new ArrayList<FmmDataRefreshNotice>();
+    }
+
+    private void initializeParentDataRefreshNoticeList() {
+        this.parentDataRefreshList = new ArrayList<FmmDataRefreshNotice>();
     }
 
     protected void updateDataModificationListForContextNavigation(Intent anIntent) {
@@ -127,11 +131,7 @@ public abstract class FmsActivity extends GcgActivity{
     }
 
     protected String getSerializedParentDataRefreshNoticeList() {
-        String theString = "";
-        for(@SuppressWarnings("unused") FmmDataRefreshNotice theDataRefreshNotice : this.parentDataRefreshList) {
-            // TODO - unfinished
-        }
-        return theString;
+        return FmsActivityHelper.getSerializedModifiedNodeTable(this.modifiedFmmNodeIdList);
     }
 
     public Hashtable<String, FmmNodeTransactionType> getModifiedFmmNodeIdTable() {
@@ -162,13 +162,14 @@ public abstract class FmsActivity extends GcgActivity{
         return this.parentDataRefreshList;
     }
 
-    public void seParenttDataRefreshList(ArrayList<FmmDataRefreshNotice> aDataRefreshList) {
+    public void setParentDataRefreshList(ArrayList<FmmDataRefreshNotice> aDataRefreshList) {
         this.parentDataRefreshList = aDataRefreshList;
     }
 
     public void updateParentDataRefreshList(FmmDataRefreshNotice aDataRefreshNotice) {
+        this.parentDataRefreshAll = true;  // TODO - HACK ALERT !!!
         if(this.parentDataRefreshList == null) {
-            processDataRefreshNoticeList();
+            initializeParentDataRefreshNoticeList();
         }
         this.parentDataRefreshList.add(aDataRefreshNotice);
     }
