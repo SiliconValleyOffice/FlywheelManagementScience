@@ -52,18 +52,18 @@ import com.flywheelms.library.fmm.node.impl.governable.Project;
 import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
 import com.flywheelms.library.fmm.node.impl.governable.WorkPackage;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
+import com.flywheelms.library.fms.treeview.filter.FmsTreeViewAdapter;
 import com.flywheelms.library.fms.widget.spinner.PortfolioWidgetSpinner;
 import com.flywheelms.library.fms.widget.spinner.ProjectAssetWidgetSpinner;
 import com.flywheelms.library.fms.widget.spinner.ProjectWidgetSpinner;
 import com.flywheelms.library.fms.widget.spinner.WorkPackageWidgetSpinner;
 import com.flywheelms.library.gcg.activity.GcgActivity;
-import com.flywheelms.library.gcg.treeview.GcgTreeViewAdapter;
 
 import java.util.ArrayList;
 
 public class WorkPackageDeleteDialog extends HeadlineNodeDeleteDialog {
 
-	public WorkPackageDeleteDialog(GcgActivity aLibraryActivity, GcgTreeViewAdapter aTreeViewAdapter, FmmHeadlineNode aHeadlineNode) {
+	public WorkPackageDeleteDialog(GcgActivity aLibraryActivity, FmsTreeViewAdapter aTreeViewAdapter, FmmHeadlineNode aHeadlineNode) {
 		super(aLibraryActivity, aTreeViewAdapter, aHeadlineNode);
 	}
 

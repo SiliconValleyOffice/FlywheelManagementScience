@@ -70,6 +70,7 @@ public class GcgSaveChangesDialog extends GcgDialog {
 	public GcgSaveChangesDialog(GcgActivity aLibraryActivity, String aViewGroupName, int aNextAction) {
 		super(aLibraryActivity, aViewGroupName, "");
 		this.nextAction = aNextAction;
+        initialSetup();
 	}
 
 	@Override

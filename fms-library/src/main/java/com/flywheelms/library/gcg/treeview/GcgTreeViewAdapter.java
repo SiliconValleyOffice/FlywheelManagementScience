@@ -60,7 +60,6 @@ import android.widget.PopupMenu;
 
 import com.flywheelms.library.R;
 import com.flywheelms.library.deckangl.enumerator.DecKanGlDecoratedGlyphSize;
-import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.gcg.GcgApplication;
 import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.gcg.helper.GcgHelper;
@@ -486,44 +485,49 @@ public abstract class GcgTreeViewAdapter extends BaseAdapter {
 		return theTreeViewAdapter;
 	}
 
-	protected abstract void sequenceDown(GcgTreeNodeInfo aLaunchTreeNodeInfo, FmmHeadlineNode aHeadlineNode, FmmHeadlineNode aParentHeadlineNode);
+    protected GcgActivity getGcgActivity() {
+        return this.gcgTreeViewParent.getGcgActivity();
+    }
 
-	protected abstract void sequenceUp(GcgTreeNodeInfo aLaunchTreeNodeInfo, FmmHeadlineNode aHeadlineNode, FmmHeadlineNode aParentHeadlineNode);
-
-	protected abstract void sequenceFirst(GcgTreeNodeInfo aLaunchTreeNodeInfo, FmmHeadlineNode aHeadlineNode, FmmHeadlineNode aParentHeadlineNode);
-
-	protected abstract void sequenceLast(GcgTreeNodeInfo aLaunchTreeNodeInfo, FmmHeadlineNode aHeadlineNode, FmmHeadlineNode aParentHeadlineNode);
-	
-	protected GcgActivity getGcgActivity() {
-		return this.gcgTreeViewParent.getGcgActivity();
-	}
-	
-	public GcgTreeViewAdapter addNewHeadlineNode(@SuppressWarnings("unused") FmmHeadlineNode aHeadlineNode) {
-		// TODO - may be able to optimize repaint using aFiscalYear argument
-		return rebuildTreeView();
-	}
-
-	public GcgTreeViewAdapter updateHeadlineNodeHeadline(FmmHeadlineNode aHeadlineNode) {
-		// TODO - may be able to optimize repaint using aFiscalYear argument
-		return rebuildTreeView();
-	}
-	
-	public GcgTreeNodeInfo getTreeNodeInfoForObject(Object anObject) {
-		return null;
-	}
-
-	public void deleteHeadlineNode(@SuppressWarnings("unused") FmmHeadlineNode aHeadlineNode) {
-		// TODO - may be able to optimize repaint using aHeadlineNode argument
-		rebuildTreeView();
-	}
-
-	public void editTreeNode(Object anObject) {
-		this.treeViewMediator = this.gcgTreeViewParent.getGcgTreeViewMediator();
-		GcgTreeNodeInfo theTreeNodeInfo = this.treeViewMediator.getTreeNodeInfoForObject(anObject);
-		if(theTreeNodeInfo != null) {
-			launchDefaultNodeEditorActivity(theTreeNodeInfo);
-		}
-	}
+//	protected abstract void sequenceDown(GcgTreeNodeInfo aLaunchTreeNodeInfo, FmmHeadlineNode aHeadlineNode, FmmHeadlineNode aParentHeadlineNode);
+//
+//	protected abstract void sequenceUp(GcgTreeNodeInfo aLaunchTreeNodeInfo, FmmHeadlineNode aHeadlineNode, FmmHeadlineNode aParentHeadlineNode);
+//
+//	protected abstract void sequenceFirst(GcgTreeNodeInfo aLaunchTreeNodeInfo, FmmHeadlineNode aHeadlineNode, FmmHeadlineNode aParentHeadlineNode);
+//
+//	protected abstract void sequenceLast(GcgTreeNodeInfo aLaunchTreeNodeInfo, FmmHeadlineNode aHeadlineNode, FmmHeadlineNode aParentHeadlineNode);
+//
+//	public GcgTreeViewAdapter addNewHeadlineNode(@SuppressWarnings("unused") FmmHeadlineNode aHeadlineNode) {
+//		// TODO - may be able to optimize repaint using aFiscalYear argument
+//		return rebuildTreeView();
+//	}
+//
+//	public GcgTreeViewAdapter updateHeadlineNodeHeadline(FmmHeadlineNode aHeadlineNode) {
+//		// TODO - may be able to optimize repaint using aFiscalYear argument
+//		return rebuildTreeView();
+//	}
+//
+//	public GcgTreeNodeInfo getTreeNodeInfoForObject(Object anObject) {
+//		return null;
+//	}
+//
+//	public void deleteHeadlineNode(@SuppressWarnings("unused") FmmHeadlineNode aHeadlineNode) {
+//		// TODO - may be able to optimize repaint using aHeadlineNode argument
+//		rebuildTreeView();
+//	}
+//
+//    public GcgTreeViewAdapter updateSecondaryHeadline(String aSecondaryHeadline) {
+//        // TODO - heavy hammer.  Optimize.
+//        return rebuildTreeView();
+//    }
+//
+//	public void editTreeNode(Object anObject) {
+//		this.treeViewMediator = this.gcgTreeViewParent.getGcgTreeViewMediator();
+//		GcgTreeNodeInfo theTreeNodeInfo = this.treeViewMediator.getTreeNodeInfoForObject(anObject);
+//		if(theTreeNodeInfo != null) {
+//			launchDefaultNodeEditorActivity(theTreeNodeInfo);
+//		}
+//	}
 
 	protected abstract void launchDefaultNodeEditorActivity(GcgTreeNodeInfo aTreeNodeInfo);
 
@@ -533,11 +537,6 @@ public abstract class GcgTreeViewAdapter extends BaseAdapter {
 
 	public int getPosition(GcgTreeNodeInfo aFirstVisibleTreeNodeInfo) {
 		return 0;
-	}
-
-	public GcgTreeViewAdapter updateSecondaryHeadline(String aSecondaryHeadline) {
-		// TODO - may be able to optimize repaint using aFiscalYear argument
-		return rebuildTreeView();
 	}
 
 }

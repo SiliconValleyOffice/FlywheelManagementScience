@@ -53,17 +53,17 @@ import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
+import com.flywheelms.library.fms.treeview.filter.FmsTreeViewAdapter;
 import com.flywheelms.library.fms.widget.edit_text.HeadlineWidgetEditText;
 import com.flywheelms.library.fms.widget.text_view.FmmNodeTypeWidgetTextView;
 import com.flywheelms.library.fms.widget.text_view.HeadlineWidgetTextView;
 import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.gcg.container.GcgContainerGroupBoxLinear;
 import com.flywheelms.library.gcg.helper.GcgHelper;
-import com.flywheelms.library.gcg.treeview.GcgTreeViewAdapter;
 
 public class HeadlineNodeCreateDialog extends FmsCancelOkApplyFdkDialog {
 
-	GcgTreeViewAdapter treeViewAdapter;
+	FmsTreeViewAdapter treeViewAdapter;
 	protected final FmmHeadlineNode launchHeadlineNode;
 	protected final FmmHeadlineNode logicalParentHeadlineNode;
 	protected final int launchNodeSequence;
@@ -80,7 +80,7 @@ public class HeadlineNodeCreateDialog extends FmsCancelOkApplyFdkDialog {
 
 	public HeadlineNodeCreateDialog(
 			GcgActivity aLibraryActivity,
-			GcgTreeViewAdapter aTreeViewAdapter,
+			FmsTreeViewAdapter aTreeViewAdapter,
 			FmmNodeDefinition anFmmNodeDefinition,
 			FmmHeadlineNode aLaunchHeadlineNode,
 			FmmHeadlineNode aParentHeadlineNode,

@@ -52,20 +52,20 @@ import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.governable.Portfolio;
+import com.flywheelms.library.fms.treeview.filter.FmsTreeViewAdapter;
 import com.flywheelms.library.fms.widget.edit_text.HeadlineWidgetEditText;
 import com.flywheelms.library.fms.widget.text_view.FmmNodeTypeWidgetTextView;
 import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.gcg.helper.GcgHelper;
-import com.flywheelms.library.gcg.treeview.GcgTreeViewAdapter;
 
 public class PortfolioCreateDialog extends FmsCancelOkApplyFdkDialog {
 
-	GcgTreeViewAdapter treeViewAdapter;
+	FmsTreeViewAdapter treeViewAdapter;
 	protected FmmNodeTypeWidgetTextView fmmNodeTypeWidget;
     protected HeadlineWidgetEditText headlineWidget;
 	protected CheckBox editNewPortfolio;
 
-	public PortfolioCreateDialog(GcgActivity aLibraryActivity, GcgTreeViewAdapter aTreeViewAdapter) {
+	public PortfolioCreateDialog(GcgActivity aLibraryActivity, FmsTreeViewAdapter aTreeViewAdapter) {
 		super(aLibraryActivity, FmmNodeDefinition.PORTFOLIO);
 		this.treeViewAdapter = aTreeViewAdapter;
         initializeDialogBodyLate();

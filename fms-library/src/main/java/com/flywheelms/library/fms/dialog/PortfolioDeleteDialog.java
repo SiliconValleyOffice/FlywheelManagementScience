@@ -49,16 +49,16 @@ import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.node.impl.governable.Portfolio;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
+import com.flywheelms.library.fms.treeview.filter.FmsTreeViewAdapter;
 import com.flywheelms.library.fms.widget.FmmHeadlineNodeWidgetSpinner;
 import com.flywheelms.library.fms.widget.spinner.PortfolioWidgetSpinner;
 import com.flywheelms.library.gcg.activity.GcgActivity;
-import com.flywheelms.library.gcg.treeview.GcgTreeViewAdapter;
 
 import java.util.ArrayList;
 
 public class PortfolioDeleteDialog extends HeadlineNodeDeleteDialog {
 
-	public PortfolioDeleteDialog(GcgActivity aLibraryActivity, GcgTreeViewAdapter aTreeViewAdapter, FmmHeadlineNode aHeadlineNode) {
+	public PortfolioDeleteDialog(GcgActivity aLibraryActivity, FmsTreeViewAdapter aTreeViewAdapter, FmmHeadlineNode aHeadlineNode) {
 		super(aLibraryActivity, aTreeViewAdapter, aHeadlineNode);
 	}
 

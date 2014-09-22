@@ -457,7 +457,6 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
 	}
 
     // logical validation of this operation was already done in FmmPopupBuilder
-	@Override
 	protected void sequenceDown(GcgTreeNodeInfo aLaunchTreeNodeInfo, FmmHeadlineNode aHeadlineNode, FmmHeadlineNode aParentHeadlineNode) {
 		getGcgActivity().startGreenActivityStatusAnimation();
 		FmmDatabaseMediator.getActiveMediator().swapSequence(aHeadlineNode, (FmmHeadlineNode) getNextPeerObject(aLaunchTreeNodeInfo), aParentHeadlineNode);
@@ -466,7 +465,6 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
 	}
 
 	// logical validation of this operation was already done in FmmPopupBuilder
-	@Override
 	protected void sequenceUp(GcgTreeNodeInfo aLaunchTreeNodeInfo, FmmHeadlineNode aHeadlineNode, FmmHeadlineNode aParentHeadlineNode) {
 		getGcgActivity().startGreenActivityStatusAnimation();
 		FmmDatabaseMediator.getActiveMediator().swapSequence(aHeadlineNode, (FmmHeadlineNode) getPreviousPeerObject(aLaunchTreeNodeInfo), aParentHeadlineNode);
@@ -475,7 +473,6 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
 	}
 
 	// logical validation of this operation was already done in FmmPopupBuilder
-	@Override
 	protected void sequenceFirst(GcgTreeNodeInfo aLaunchTreeNodeInfo, FmmHeadlineNode aHeadlineNode, FmmHeadlineNode aParentHeadlineNode) {
 		getGcgActivity().startGreenActivityStatusAnimation();
 		FmmDatabaseMediator.getActiveMediator().sequenceFirst(aHeadlineNode, aParentHeadlineNode);
@@ -484,7 +481,6 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
 	}
 
 	// logical validation of this operation was already done in FmmPopupBuilder
-	@Override
 	protected void sequenceLast(GcgTreeNodeInfo aLaunchTreeNodeInfo, FmmHeadlineNode aHeadlineNode, FmmHeadlineNode aParentHeadlineNode) {
 		getGcgActivity().startGreenActivityStatusAnimation();
 		FmmDatabaseMediator.getActiveMediator().sequenceLast(aHeadlineNode, aParentHeadlineNode);
@@ -649,5 +645,37 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
         }
         return theChildHeadlineNodeShallowList;
     }
+
+    public FmsTreeViewAdapter addNewHeadlineNode(@SuppressWarnings("unused") FmmHeadlineNode aHeadlineNode) {
+        // TODO - may be able to optimize repaint using aFiscalYear argument
+        return (FmsTreeViewAdapter) rebuildTreeView();
+    }
+
+    public FmsTreeViewAdapter updateHeadlineNodeHeadline(FmmHeadlineNode aHeadlineNode) {
+        // TODO - may be able to optimize repaint using aFiscalYear argument
+        return (FmsTreeViewAdapter) rebuildTreeView();
+    }
+
+    public GcgTreeNodeInfo getTreeNodeInfoForObject(Object anObject) {
+        return null;
+    }
+
+    public void deleteHeadlineNode(@SuppressWarnings("unused") FmmHeadlineNode aHeadlineNode) {
+        // TODO - may be able to optimize repaint using aHeadlineNode argument
+        rebuildTreeView();
+    }
+
+    public FmsTreeViewAdapter updateSecondaryHeadline(String aSecondaryHeadline) {
+        // TODO - heavy hammer.  Optimize.
+        return (FmsTreeViewAdapter) rebuildTreeView();
+    }
+
+	public void editTreeNode(Object anObject) {
+		this.treeViewMediator = this.gcgTreeViewParent.getGcgTreeViewMediator();
+		GcgTreeNodeInfo theTreeNodeInfo = this.treeViewMediator.getTreeNodeInfoForObject(anObject);
+		if(theTreeNodeInfo != null) {
+			launchDefaultNodeEditorActivity(theTreeNodeInfo);
+		}
+	}
 
 }

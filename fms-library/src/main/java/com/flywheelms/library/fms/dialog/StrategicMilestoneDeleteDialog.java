@@ -50,16 +50,16 @@ import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
 import com.flywheelms.library.fmm.node.impl.governable.StrategicMilestone;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
+import com.flywheelms.library.fms.treeview.filter.FmsTreeViewAdapter;
 import com.flywheelms.library.fms.widget.spinner.FiscalYearWidgetSpinner;
 import com.flywheelms.library.fms.widget.spinner.StrategicMilestoneWidgetSpinner;
 import com.flywheelms.library.gcg.activity.GcgActivity;
-import com.flywheelms.library.gcg.treeview.GcgTreeViewAdapter;
 
 import java.util.ArrayList;
 
 public class StrategicMilestoneDeleteDialog extends HeadlineNodeDeleteDialog {
 
-	public StrategicMilestoneDeleteDialog(GcgActivity aLibraryActivity, GcgTreeViewAdapter aTreeViewAdapter, FmmHeadlineNode aHeadlineNode) {
+	public StrategicMilestoneDeleteDialog(GcgActivity aLibraryActivity, FmsTreeViewAdapter aTreeViewAdapter, FmmHeadlineNode aHeadlineNode) {
 		super(aLibraryActivity, aTreeViewAdapter, aHeadlineNode);
 	}
 

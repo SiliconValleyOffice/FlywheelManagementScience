@@ -50,20 +50,20 @@ import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
+import com.flywheelms.library.fms.treeview.filter.FmsTreeViewAdapter;
 import com.flywheelms.library.fms.widget.spinner.FiscalYearForCreateWidgetSpinner;
 import com.flywheelms.library.fms.widget.text_view.FmmNodeTypeWidgetTextView;
 import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.gcg.helper.GcgHelper;
-import com.flywheelms.library.gcg.treeview.GcgTreeViewAdapter;
 
 public class FiscalYearCreateDialog extends FmsCancelOkApplyDialog {
 
-	GcgTreeViewAdapter treeViewAdapter;
+	FmsTreeViewAdapter treeViewAdapter;
 	protected FmmNodeTypeWidgetTextView fmmNodeTypeWidget;
 	protected FiscalYearForCreateWidgetSpinner fiscalYearWidget;
 	protected CheckBox editNewFiscalYear;
 
-	public FiscalYearCreateDialog(GcgActivity aLibraryActivity, GcgTreeViewAdapter aTreeViewAdapter) {
+	public FiscalYearCreateDialog(GcgActivity aLibraryActivity, FmsTreeViewAdapter aTreeViewAdapter) {
 		super(aLibraryActivity, FmmNodeDefinition.FISCAL_YEAR);
 		this.treeViewAdapter = aTreeViewAdapter;
 	}

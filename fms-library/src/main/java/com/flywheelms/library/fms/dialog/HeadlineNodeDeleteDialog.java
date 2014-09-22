@@ -56,6 +56,7 @@ import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
+import com.flywheelms.library.fms.treeview.filter.FmsTreeViewAdapter;
 import com.flywheelms.library.fms.widget.FmmHeadlineNodeWidgetSpinner;
 import com.flywheelms.library.fms.widget.spinner.SequencePositionWidgetSpinner;
 import com.flywheelms.library.fms.widget.text_view.FmmNodeTypeWidgetTextView;
@@ -65,14 +66,13 @@ import com.flywheelms.library.gcg.container.GcgContainerTabbedLayout;
 import com.flywheelms.library.gcg.container.tabbed.GcgTabSpec;
 import com.flywheelms.library.gcg.helper.GcgGuiHelper;
 import com.flywheelms.library.gcg.helper.GcgHelper;
-import com.flywheelms.library.gcg.treeview.GcgTreeViewAdapter;
 import com.flywheelms.library.gcg.widget.GcgWidgetZoomableHeading;
 
 import java.util.ArrayList;
 
 public abstract class HeadlineNodeDeleteDialog  extends FmsCancelOkDialog {
 
-	GcgTreeViewAdapter treeViewAdapter;
+	FmsTreeViewAdapter treeViewAdapter;
 	protected FmmNodeTypeWidgetTextView fmmNodeTypeWidget;
 	protected HeadlineWidgetTextView headlineWidgetTextView;
 	protected DeleteDisposition primaryChildDeleteDisposition;
@@ -81,7 +81,7 @@ public abstract class HeadlineNodeDeleteDialog  extends FmsCancelOkDialog {
 	protected LinearLayout dispositionContainerLayout;
 	protected int dispositionTabCount;
 
-	public HeadlineNodeDeleteDialog(GcgActivity aLibraryActivity, GcgTreeViewAdapter aTreeViewAdapter, FmmHeadlineNode aHeadlineNode) {
+	public HeadlineNodeDeleteDialog(GcgActivity aLibraryActivity, FmsTreeViewAdapter aTreeViewAdapter, FmmHeadlineNode aHeadlineNode) {
 		super(aLibraryActivity, aHeadlineNode);
 		this.treeViewAdapter = aTreeViewAdapter;
 	}
