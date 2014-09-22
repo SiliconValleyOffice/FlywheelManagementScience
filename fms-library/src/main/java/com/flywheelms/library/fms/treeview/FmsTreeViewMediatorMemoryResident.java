@@ -68,7 +68,7 @@ public class FmsTreeViewMediatorMemoryResident extends GcgTreeViewMediatorMemory
 		GcgTreeNodeInfo theObjectTreeNodeInfo = null;
 		for(GcgTreeNodeInfo theTreeNodeInfo : this.treeNodeMap.keySet()) {
 			GcgTreeNodeTargetObject theTargetObject = theTreeNodeInfo.getTargetObject();
-			if(theTargetObject.getNodeIdString().equals(aNodeIdString)) {
+			if(theTargetObject.getIdString().equals(aNodeIdString)) {
 				theObjectTreeNodeInfo = theTreeNodeInfo;
 				break;
 			}

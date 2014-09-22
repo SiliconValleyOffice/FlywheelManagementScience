@@ -90,6 +90,7 @@ import com.flywheelms.library.fms.dialog.WorkPackageOrphanDialog;
 import com.flywheelms.library.fms.popup_menu.FmmHeadlineNodePopupListener;
 import com.flywheelms.library.fms.popup_menu.FmmPopupBuilder;
 import com.flywheelms.library.gcg.GcgApplication;
+import com.flywheelms.library.gcg.interfaces.GcgPerspective;
 import com.flywheelms.library.gcg.treeview.GcgTreeViewAdapter;
 import com.flywheelms.library.gcg.treeview.GcgTreeViewMediator;
 import com.flywheelms.library.gcg.treeview.node.GcgTreeNodeInfo;
@@ -423,7 +424,7 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
 		} else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__ADOPT_ORPHAN_WORK_PACKAGE)) {
 			adoptOrphanWorkPackage(aLaunchHeadlineNode);
         } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__MOVE_WORK_PACKAGE)) {
-            moveWorkPackage(aLaunchHeadlineNode, aParentHeadlineNode, aLaunchTreeNodeInfo.getFmmPerspective());
+            moveWorkPackage(aLaunchHeadlineNode, aParentHeadlineNode, aLaunchTreeNodeInfo.getGcgPerspective());
         } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__CREATE_WORK_TASK)) {
             createFmmHeadlineNode(
                     FmmNodeDefinition.WORK_TASK,
@@ -586,8 +587,8 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
 
     // TODO !!! push down into subclass for StrategicPlanningTreeViewAdapter
     // logical validation of this operation was already done in FmmPopupBuilder
-    private void moveWorkPackage(FmmHeadlineNode aLaunchHeadlineNode, FmmHeadlineNode aParentHeadlineNode, FmmPerspective anFmmPerspective) {
-        if(anFmmPerspective == FmmPerspective.WORK_BREAKDOWN) {
+    private void moveWorkPackage(FmmHeadlineNode aLaunchHeadlineNode, FmmHeadlineNode aParentHeadlineNode, GcgPerspective aGcgPerspective) {
+        if(aGcgPerspective == FmmPerspective.WORK_BREAKDOWN) {
             getGcgActivity().startDialog(new WorkPackageMoveWorkBreakdownDialog(getGcgActivity(), this, (WorkPackage) aLaunchHeadlineNode, aParentHeadlineNode));
         }
     }

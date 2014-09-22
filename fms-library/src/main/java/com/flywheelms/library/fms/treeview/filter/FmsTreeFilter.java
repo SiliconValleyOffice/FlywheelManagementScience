@@ -45,6 +45,7 @@ package com.flywheelms.library.fms.treeview.filter;
 
 import android.view.View;
 
+import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmTreeNodeTargetObject;
 import com.flywheelms.library.gcg.treeview.GcgTreeFilter;
 import com.flywheelms.library.gcg.treeview.node.GcgTreeNode;
 
@@ -68,7 +69,7 @@ public class FmsTreeFilter extends GcgTreeFilter {
 		} else if (aTreeNodeInfo.getLevel() + 1 >= getFmsTreeViewParent().getShowNodeCompletionLevel()) {
 			return true;
 		} else {
-			return !aTreeNodeInfo.getTargetObject().isComplete();
+			return !((FmmTreeNodeTargetObject) aTreeNodeInfo.getTargetObject()).isComplete();
 		}
 	}
 

@@ -90,7 +90,7 @@ public abstract class GcgTreeViewMediatorMemoryResident implements GcgTreeViewMe
 	public void restoreTreeNodeStates(HashMap<String, GcgTreeNodeInfo> aSavedTreeNodeInfoMap) {
 		GcgTreeNodeInfo theLiveTreeNodeInfo;
 		for(GcgTreeNodeInfo theTreeNodeInfo : this.visibleTreeNodeInfoList) {
-			String theNodeIdString = theTreeNodeInfo.getTargetObject().getNodeIdString();
+			String theNodeIdString = theTreeNodeInfo.getTargetObject().getIdString();
 			theLiveTreeNodeInfo = aSavedTreeNodeInfoMap.get(theNodeIdString);
 			if(theLiveTreeNodeInfo != null) {
 				if(! theLiveTreeNodeInfo.isExpanded() && theLiveTreeNodeInfo.hasChildren()) {

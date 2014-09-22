@@ -1,5 +1,5 @@
-/* @(#)GcgTreeNodeTargetObject.java
-** 
+/* @(#)FmmTreeNodeTargetObject.java
+**
 ** Copyright (C) 2012 by Steven D. Stamps
 **
 **             Trademarks & Copyrights
@@ -36,49 +36,19 @@
 ** <http://www.gnu.org/licenses/gpl-3.0.html>.
 */
 
-package com.flywheelms.library.gcg.treeview.node;
+package com.flywheelms.library.fmm.node.interfaces.horizontal;
 
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
+import com.flywheelms.library.fmm.node.NodeId;
+import com.flywheelms.library.fmm.node.impl.enumerator.CompletableWorkStatus;
+import com.flywheelms.library.gcg.treeview.node.GcgTreeNodeTargetObject;
 
-import com.flywheelms.library.deckangl.enumerator.DecKanGlDecoratedGlyphSize;
-import com.flywheelms.library.deckangl.enumerator.DecKanGlNounStateDrawableSize;
-import com.flywheelms.library.gcg.interfaces.GcgPerspective;
+public interface FmmTreeNodeTargetObject extends GcgTreeNodeTargetObject {
 
-import java.io.Serializable;
+    public NodeId getNodeId();
 
-public interface GcgTreeNodeTargetObject extends Serializable {
+    public String getNodeIdString();
 
-    public String getIdString();
-	
-	public Bitmap getDecKanGlBitmap();
-	
-	public Bitmap getDecKanGlBitmap(DecKanGlDecoratedGlyphSize aGlyphSize);
-	
-	public String getHeadline();
+    public boolean isComplete();
 
-    public boolean hasSecondaryHeadline();
-
-    public String getSecondaryHeadline();
-	
-	boolean hasNodeSummary(GcgPerspective anGcgPerspective);
-	
-	boolean hasNodeQuality();
-	
-	public String getNodeSummaryPrefix(GcgPerspective anGcgPerspective);
-	
-	public int getNodeSummaryDrawableResourceId(GcgPerspective anGcgPerspective);
-	
-	public String getNodeSummarySuffix(GcgPerspective anGcgPerspective);
-	
-	public int getNodeQualityIndex();
-
-	public BitmapDrawable getDecKanGlElementNounStateDrawable();
-
-	public BitmapDrawable getDecKanGlElementNounStateDrawable(DecKanGlNounStateDrawableSize aDrawableSize);
-
-	public BitmapDrawable getUpdatedNounStatusDrawable();
-	
-	public BitmapDrawable getUpdatedNounStatusDrawable(DecKanGlNounStateDrawableSize aDrawableSize);
-
+    public CompletableWorkStatus getCompletableWorkStatus();
 }

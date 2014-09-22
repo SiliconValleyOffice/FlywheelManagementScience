@@ -46,7 +46,7 @@ package com.flywheelms.library.gcg.treeview.node;
 import android.graphics.Bitmap;
 
 import com.flywheelms.library.deckangl.enumerator.DecKanGlDecoratedGlyphSize;
-import com.flywheelms.library.fmm.context.FmmPerspective;
+import com.flywheelms.library.gcg.interfaces.GcgPerspective;
 
 import java.io.Serializable;
 import java.util.UUID;
@@ -61,7 +61,7 @@ public class GcgTreeNodeInfo implements Serializable {
     private final boolean withChildren;
     private boolean expanded;
     private DecKanGlDecoratedGlyphSize decKanGlGlyphSize;
-    private FmmPerspective fmmPerspective;
+    private GcgPerspective GcgPerspective;
 
     public GcgTreeNodeInfo(
     		final GcgTreeNodeTargetObject aTreeNodeTargetObject,
@@ -70,7 +70,7 @@ public class GcgTreeNodeInfo implements Serializable {
             final boolean bVisible,
             final boolean bExpanded,
             DecKanGlDecoratedGlyphSize aDecKanGlGlyphSize,
-            final FmmPerspective anFmmPerspective ) {
+            final GcgPerspective anGcgPerspective ) {
         super();
         this.targetObject = aTreeNodeTargetObject;
         this.level = aLevel;
@@ -78,23 +78,23 @@ public class GcgTreeNodeInfo implements Serializable {
         this.visible = bVisible;
         this.expanded = bExpanded;
         this.decKanGlGlyphSize = aDecKanGlGlyphSize;
-        this.fmmPerspective = anFmmPerspective;
+        this.GcgPerspective = anGcgPerspective;
     }
 
     public GcgTreeNodeInfo(
     		final GcgTreeNodeTargetObject aTreeNodeTargetObject,
     		final int aLevel,
             final boolean bHasChildren,
-            final FmmPerspective anFmmPerspective) {
-    	this(aTreeNodeTargetObject, aLevel, bHasChildren, true, bHasChildren, DecKanGlDecoratedGlyphSize.SMALL, anFmmPerspective);
+            final GcgPerspective anGcgPerspective) {
+    	this(aTreeNodeTargetObject, aLevel, bHasChildren, true, bHasChildren, DecKanGlDecoratedGlyphSize.SMALL, anGcgPerspective);
     }
 
-    public FmmPerspective getFmmPerspective() {
-		return this.fmmPerspective;
+    public GcgPerspective getGcgPerspective() {
+		return this.GcgPerspective;
 	}
 
-	public void setFmmPerspective(FmmPerspective fmmPerspective) {
-		this.fmmPerspective = fmmPerspective;
+	public void setGcgPerspective(GcgPerspective GcgPerspective) {
+		this.GcgPerspective = GcgPerspective;
 	}
 
 	public boolean hasChildren() {
@@ -175,19 +175,15 @@ public class GcgTreeNodeInfo implements Serializable {
 	}
 	
 	public String getNodeSummaryPrefix() {
-		return getTargetObject().getNodeSummaryPrefix(getFmmPerspective());
+		return getTargetObject().getNodeSummaryPrefix(getGcgPerspective());
 	}
 	
 	public int getNodeSummaryDrawableResourceId() {
-		return getTargetObject().getNodeSummaryDrawableResourceId(getFmmPerspective());
+		return getTargetObject().getNodeSummaryDrawableResourceId(getGcgPerspective());
 	}
 	
 	public String getNodeSummarySuffix() {
-		return getTargetObject().getNodeSummarySuffix(getFmmPerspective());
-	}
-	
-	public boolean hasNodeCompletion() {
-		return getTargetObject().isComplete();
+		return getTargetObject().getNodeSummarySuffix(getGcgPerspective());
 	}
 
 	public boolean hasNodeQuality() {
@@ -195,7 +191,7 @@ public class GcgTreeNodeInfo implements Serializable {
 	}
 
 	public boolean hasNodeSummary() {
-		return getTargetObject().hasNodeSummary(getFmmPerspective());
+		return getTargetObject().hasNodeSummary(getGcgPerspective());
 	}
 
 	public void setDecKanGlGlyphSize(int theEmphasisLevel) {

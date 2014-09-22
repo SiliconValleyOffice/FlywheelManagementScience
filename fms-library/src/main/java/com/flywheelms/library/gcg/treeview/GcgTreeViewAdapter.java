@@ -188,7 +188,7 @@ public abstract class GcgTreeViewAdapter extends BaseAdapter {
 	protected void saveTreeNodeStates() {
 		this.savedTreeNodeInfoMap = new HashMap<String, GcgTreeNodeInfo>();
 		for(GcgTreeNodeInfo theTreeNodeInfo : this.treeViewMediator.getAllVisibleTreeNodeInfoList()) {
-			this.savedTreeNodeInfoMap.put(theTreeNodeInfo.getTargetObject().getNodeIdString(), theTreeNodeInfo);
+			this.savedTreeNodeInfoMap.put(theTreeNodeInfo.getTargetObject().getIdString(), theTreeNodeInfo);
 		}
 	}
 

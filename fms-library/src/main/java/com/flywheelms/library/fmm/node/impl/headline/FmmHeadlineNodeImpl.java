@@ -81,10 +81,11 @@ import com.flywheelms.library.fmm.node.impl.enumerator.CompletableWorkStatus;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragTribKnQuality;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
+import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmTreeNodeTargetObject;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
 import com.flywheelms.library.fse.model.FseDocument;
 import com.flywheelms.library.gcg.activity.GcgActivity;
-import com.flywheelms.library.gcg.treeview.node.GcgTreeNodeTargetObject;
+import com.flywheelms.library.gcg.interfaces.GcgPerspective;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -94,7 +95,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public abstract class FmmHeadlineNodeImpl extends FmmHistoryNodeImpl
-		implements FmmHeadlineNode, GcgTreeNodeTargetObject, FmsDecKanGlNoun {
+		implements FmmHeadlineNode, FmmTreeNodeTargetObject, FmsDecKanGlNoun {
 	
 	private static final long serialVersionUID = 1L;
 	private transient DecKanGlGlyph decKanGlGlyph;
@@ -120,6 +121,11 @@ public abstract class FmmHeadlineNodeImpl extends FmmHistoryNodeImpl
 	protected void initializeNodeCompletionSummaryMap() {
 		this.nodeCompletionSummaryMap = new HashMap<FmmPerspective, NodeCompletionSummary>();
 	}
+
+    @Override
+    public String getIdString() {
+        return getNodeIdString();
+    }
 
 	@SuppressWarnings("unused")
 	public void updateNodeCompletionSummary(FmmPerspective anFmmPerspective, NodeCompletionSummary aNodeSummary) {
@@ -202,28 +208,27 @@ public abstract class FmmHeadlineNodeImpl extends FmmHistoryNodeImpl
 	}
 
 	@Override
-	public boolean hasNodeSummary(FmmPerspective anFmmPerspective) {
-		NodeCompletionSummary theNodeSummary = getNodeSummaryMap().get(anFmmPerspective);
+	public boolean hasNodeSummary(GcgPerspective aGcgPerspective) {
+		NodeCompletionSummary theNodeSummary = getNodeSummaryMap().get(aGcgPerspective);
 		return theNodeSummary == null ? false : theNodeSummary.isShowNodeSummary();
 	}
 
-	@Override
-	public String getNodeSummaryPrefix(FmmPerspective anFmmPerspective) {
-		NodeCompletionSummary theNodeSummary = getNodeSummaryMap().get(anFmmPerspective);
+	public String getNodeSummaryPrefix(GcgPerspective aGcgPerspective) {
+		NodeCompletionSummary theNodeSummary = getNodeSummaryMap().get(aGcgPerspective);
 		return theNodeSummary == null ? "" : theNodeSummary.getSummaryPrefix();
 	}
 
 	@Override
-	public int getNodeSummaryDrawableResourceId(FmmPerspective anFmmPerspective) {
-		NodeCompletionSummary theNodeSummary = getNodeSummaryMap().get(anFmmPerspective);
+	public int getNodeSummaryDrawableResourceId(GcgPerspective aGcgPerspective) {
+		NodeCompletionSummary theNodeSummary = getNodeSummaryMap().get(aGcgPerspective);
 		return theNodeSummary == null
 				? R.drawable.gcg__empty_bitmap
 				: theNodeSummary.getSummaryDrawableResourceId();
 	}
 
 	@Override
-	public String getNodeSummarySuffix(FmmPerspective anFmmPerspective) {
-		NodeCompletionSummary theNodeSummary = getNodeSummaryMap().get(anFmmPerspective);
+	public String getNodeSummarySuffix(GcgPerspective aGcgPerspective) {
+		NodeCompletionSummary theNodeSummary = getNodeSummaryMap().get(aGcgPerspective);
 		return theNodeSummary == null ? "" : theNodeSummary.getSummarySuffix();
 	}
 
@@ -450,12 +455,12 @@ public abstract class FmmHeadlineNodeImpl extends FmmHistoryNodeImpl
 	}
 
 	@Override
-	public BitmapDrawable getUpdatedWorkStatusDrawable() {
-		return getUpdatedWorkStatusDrawable(DecKanGlNounStateDrawableSize.SMALL);
+	public BitmapDrawable getUpdatedNounStatusDrawable() {
+		return getUpdatedNounStatusDrawable(DecKanGlNounStateDrawableSize.SMALL);
 	}
 
 	@Override
-	public BitmapDrawable getUpdatedWorkStatusDrawable(DecKanGlNounStateDrawableSize aDrawableSize) {
+	public BitmapDrawable getUpdatedNounStatusDrawable(DecKanGlNounStateDrawableSize aDrawableSize) {
 		this.decKanGlGlyph = FmmDecKanGlDictionary.getInstance().getDecKanGlGlyph(this);
 		return this.decKanGlGlyph.getNounStateDrawable(aDrawableSize);
 	}

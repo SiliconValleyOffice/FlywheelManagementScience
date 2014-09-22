@@ -1,5 +1,5 @@
-/* @(#)GcgTreeNodeTargetObject.java
-** 
+/* @(#)FmmTreeNodeInfo.java
+**
 ** Copyright (C) 2012 by Steven D. Stamps
 **
 **             Trademarks & Copyrights
@@ -12,6 +12,11 @@
 ** DecKanGL (Decorated Kanban Glyph Language) and TribKn (Tribal Knowledge)
 ** are also exclusive trademarks of Steven D. Stamps.  These may be used
 ** freely within the unforked FlywheelMS application and documentation.
+** All other rights are reserved.
+**
+** gConGUI (game Controller Graphical User Interface) is an exclusive
+** trademark of Steven D. Stamps.  This trademark may be used freely
+** within the unforked FlywheelMS application and documentation.
 ** All other rights are reserved.
 **
 ** Trademark information is available at
@@ -36,49 +41,43 @@
 ** <http://www.gnu.org/licenses/gpl-3.0.html>.
 */
 
-package com.flywheelms.library.gcg.treeview.node;
-
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
+package com.flywheelms.library.fmm.tree;
 
 import com.flywheelms.library.deckangl.enumerator.DecKanGlDecoratedGlyphSize;
-import com.flywheelms.library.deckangl.enumerator.DecKanGlNounStateDrawableSize;
-import com.flywheelms.library.gcg.interfaces.GcgPerspective;
+import com.flywheelms.library.fmm.context.FmmPerspective;
+import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmTreeNodeTargetObject;
+import com.flywheelms.library.gcg.treeview.node.GcgTreeNodeInfo;
+import com.flywheelms.library.gcg.treeview.node.GcgTreeNodeTargetObject;
 
-import java.io.Serializable;
+public class FmmTreeNodeInfo extends GcgTreeNodeInfo {
 
-public interface GcgTreeNodeTargetObject extends Serializable {
+    public FmmTreeNodeInfo(
+            final GcgTreeNodeTargetObject aTreeNodeTargetObject,
+            final int aLevel,
+            final boolean bHasChildren,
+            final boolean bVisible,
+            final boolean bExpanded,
+            DecKanGlDecoratedGlyphSize aDecKanGlGlyphSize,
+            final FmmPerspective anFmmPerspective ) {
+        super(
+            aTreeNodeTargetObject,
+            aLevel,
+            bHasChildren,
+            bVisible,
+            bExpanded,
+            aDecKanGlGlyphSize,
+            anFmmPerspective );
+    }
 
-    public String getIdString();
-	
-	public Bitmap getDecKanGlBitmap();
-	
-	public Bitmap getDecKanGlBitmap(DecKanGlDecoratedGlyphSize aGlyphSize);
-	
-	public String getHeadline();
+    public FmmTreeNodeInfo(
+            final GcgTreeNodeTargetObject aTreeNodeTargetObject,
+            final int aLevel,
+            final boolean bHasChildren,
+            final FmmPerspective anFmmPerspective) {
+        super(aTreeNodeTargetObject, aLevel, bHasChildren, true, bHasChildren, DecKanGlDecoratedGlyphSize.SMALL, anFmmPerspective);
+    }
 
-    public boolean hasSecondaryHeadline();
-
-    public String getSecondaryHeadline();
-	
-	boolean hasNodeSummary(GcgPerspective anGcgPerspective);
-	
-	boolean hasNodeQuality();
-	
-	public String getNodeSummaryPrefix(GcgPerspective anGcgPerspective);
-	
-	public int getNodeSummaryDrawableResourceId(GcgPerspective anGcgPerspective);
-	
-	public String getNodeSummarySuffix(GcgPerspective anGcgPerspective);
-	
-	public int getNodeQualityIndex();
-
-	public BitmapDrawable getDecKanGlElementNounStateDrawable();
-
-	public BitmapDrawable getDecKanGlElementNounStateDrawable(DecKanGlNounStateDrawableSize aDrawableSize);
-
-	public BitmapDrawable getUpdatedNounStatusDrawable();
-	
-	public BitmapDrawable getUpdatedNounStatusDrawable(DecKanGlNounStateDrawableSize aDrawableSize);
-
+    public boolean hasNodeCompletion() {
+        return ((FmmTreeNodeTargetObject) getTargetObject()).isComplete();
+    }
 }

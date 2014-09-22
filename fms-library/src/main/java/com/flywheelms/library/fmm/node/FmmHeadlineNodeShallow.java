@@ -134,7 +134,7 @@ public class FmmHeadlineNodeShallow implements FmmHeadlineNode {
 	}
 
 	public FmmHeadlineNodeShallow(GcgTreeNodeInfo theTreeNodeInfo) {
-		this.nodeIdString = theTreeNodeInfo.getTargetObject().getNodeIdString();
+		this.nodeIdString = theTreeNodeInfo.getTargetObject().getIdString();
 		this.headline = theTreeNodeInfo.getHeadline();
 		this.workStateDrawable = theTreeNodeInfo.getTargetObject().getDecKanGlElementNounStateDrawable(DecKanGlNounStateDrawableSize.SMALL);
 	}
