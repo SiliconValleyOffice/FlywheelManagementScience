@@ -107,10 +107,16 @@ public class FdkHostSupport implements FdkHost {
 	protected FdkKeyboard fdkKeyboard;
 	
 	public FdkHostSupport(FdkHost anFdkHost) {
+        this(anFdkHost, true);
+    }
+
+    public FdkHostSupport(FdkHost anFdkHost, boolean bInitSpeechRecognition) {
 		this.fdkHost = anFdkHost;
 		this.audioManager = (AudioManager) this.fdkHost.getContext().getSystemService(Context.AUDIO_SERVICE);
+        if(bInitSpeechRecognition) {
+            initSpeechRecognition();
+        }
 //		initializeBluetoothHeadset();  // TODO
-		initSpeechRecognition();
 	}
 
 	///////   start of FDK code   ////////////
@@ -209,6 +215,10 @@ public class FdkHostSupport implements FdkHost {
 	private boolean isBluetoothHeadsetConnected() {
 		return this.bluetoothHeadset == null ? false : this.bluetoothHeadset.getConnectedDevices().size() > 0;
 	}
+
+    public void createServices() {
+        this.speechRecognizer = SpeechRecognizer.createSpeechRecognizer(this.fdkHost.getContext());
+    }
 	
 	@SuppressWarnings("deprecation")
 	public void initSpeechRecognition() {
@@ -216,7 +226,7 @@ public class FdkHostSupport implements FdkHost {
 			this.speechRecognitionSupported = false;
 			return;
 		}
-		this.speechRecognizer = SpeechRecognizer.createSpeechRecognizer(this.fdkHost.getContext());
+        createServices();
 		this.dictationListener = new FdkDictationListener(this.fdkHost);
 		this.speechRecognizer.setRecognitionListener(this.dictationListener);
 		this.speechRecognizerIntent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
@@ -886,7 +896,7 @@ public class FdkHostSupport implements FdkHost {
 	
 	////////////////////////////////////////
 
-	public void destroy() {
+	public void destroyServices() {
 		if(this.speechRecognizer != null) {
 			this.speechRecognizer.destroy();
 			this.audioManager.stopBluetoothSco();

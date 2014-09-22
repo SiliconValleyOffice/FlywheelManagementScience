@@ -149,6 +149,12 @@ public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNo
     }
 	
 	@Override
+	public void onResume() {
+        super.onResume();
+        this.fdkHostSupport.initSpeechRecognition();
+    }
+
+	@Override
 	public void onPostResume() {
 		super.onPostResume();
 		if(this.dataRefreshAll) {
@@ -161,6 +167,7 @@ public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNo
 	@Override
 	public void onPause() {
 		super.onPause();
+        this.fdkHostSupport.destroyServices();
 		resetSoftKeyboard();
 	}
 
@@ -259,7 +266,7 @@ public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNo
 	protected void onCreate(Bundle aSavedInstanceState) {
 		super.onCreate(aSavedInstanceState);
 		this.savedInstanceState = aSavedInstanceState;
-		this.fdkHostSupport = new FdkHostSupport(this);
+		this.fdkHostSupport = new FdkHostSupport(this, false);
 		buildContentViewForDataSource();
 	}
 	
@@ -349,7 +356,7 @@ public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNo
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
-		this.fdkHostSupport.destroy();
+		this.fdkHostSupport.destroyServices();
 	}
 
 	@Override
