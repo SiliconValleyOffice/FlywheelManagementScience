@@ -79,7 +79,7 @@ public class GcgWidgetMonthSpinner extends GcgWidgetSpinner {
 		return GcgDateHelper.getMonthGuiableList();
 	}
 	
-	public GcgMonth getSelectedFmmMonth() {
+	public GcgMonth getSelectedGcgMonth() {
 		return GcgMonth.getObjectForName(super.getSelectedItem().getDataText());
 	}
 

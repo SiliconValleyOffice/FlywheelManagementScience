@@ -54,10 +54,8 @@ import android.widget.EditText;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fdk.FdkHostSupport;
 import com.flywheelms.library.fdk.enumerator.FdkKeyboardStyle;
-import com.flywheelms.library.fmm.node.impl.enumerator.CompletableWorkStatus;
 import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.gcg.button.multi_shift.GcgMultiShiftState;
-import com.flywheelms.library.gcg.interfaces.GcgGuiable;
 
 import java.util.ArrayList;
 
@@ -206,10 +204,6 @@ public abstract class GcgWidgetEditText extends GcgWidget {
 	public void setText(int aStringResourceId) {
 		this.editText.setText(aStringResourceId);
 		notifyOnSetTextListenerList(this.editText.getText().toString());
-	}
-
-	protected GcgGuiable[] getGuiableList() {
-		return CompletableWorkStatus.values();
 	}
 
 	@Override

@@ -60,7 +60,6 @@ import com.flywheelms.library.gcg.interfaces.GcgGuiPreferencesClient;
 import com.flywheelms.library.gcg.interfaces.GcgPerspective;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 public abstract class GcgViewFlipperChildView extends LinearLayout implements GcgGuiPreferencesClient {
 
@@ -74,7 +73,6 @@ public abstract class GcgViewFlipperChildView extends LinearLayout implements Gc
 	protected int pageNumber;
 	protected String pageTitle;
 	protected String abreviatedPageTitle;
-	protected Date fmmTimestamp;
 	protected Drawable menuSpacerDrawable = null;
 	protected boolean enableMultiShiftControls = false;
 	protected ArrayList<FseMultiShiftButton> multiShiftButtonList;
