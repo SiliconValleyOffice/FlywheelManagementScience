@@ -43,8 +43,11 @@
 
 package com.flywheelms.library.fms.treeview.filter;
 
+import com.flywheelms.library.fmm.context.FmmFrame;
+import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fmm.node.FmmHeadlineNodeShallow;
 import com.flywheelms.library.gcg.treeview.interfaces.GcgTreeViewParent;
+import com.flywheelms.library.gcg.treeview.node.GcgTreeNodeInfo;
 
 import java.util.ArrayList;
 
@@ -53,6 +56,16 @@ public interface FmsTreeViewParent extends GcgTreeViewParent {
 	boolean isShowAllNodeCompletions();
 
 	int getShowNodeCompletionLevel();
+
+    boolean isShowNodeQuality();
+
+    int getShowNodeQualityLevel();
+
+    void launchNodeEditorActivity(GcgTreeNodeInfo aTreeNodeInfo, FmmFrame aFrame, FmmPerspective aPerspective);
+
+    void launchNodeQualityDialog(GcgTreeNodeInfo aTreeNodeInfo);
+
+    void launchNodeDecKanGlNavigationDialog(GcgTreeNodeInfo aTreeNodeInfo);
 	
 	void startActivityForNode(
 			ArrayList<FmmHeadlineNodeShallow> aPeerHeadlineNodeShallowList,

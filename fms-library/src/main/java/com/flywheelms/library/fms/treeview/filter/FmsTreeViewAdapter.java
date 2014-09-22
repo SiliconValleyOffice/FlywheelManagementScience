@@ -230,8 +230,8 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
 	}
 
 	private boolean showNodeQuality(final GcgTreeNodeInfo aTreeNodeInfo) {
-		return this.gcgTreeViewParent.isShowNodeQuality() && aTreeNodeInfo.hasNodeQuality() &&
-				(aTreeNodeInfo.getLevel() + 1 >= this.gcgTreeViewParent.getShowNodeQualityLevel());
+		return getFmsTreeViewParent().isShowNodeQuality() && aTreeNodeInfo.hasNodeQuality() &&
+				(aTreeNodeInfo.getLevel() + 1 >= getFmsTreeViewParent().getShowNodeQualityLevel());
 	}
 
 	private void buildNodeQuality(
@@ -301,27 +301,27 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
 	}
 	
 	protected void launchNodeDecKanGlDialog(GcgTreeNodeInfo aTreeNodeInfo) {
-		this.gcgTreeViewParent.launchNodeDecKanGlNavigationDialog(aTreeNodeInfo);
+		getFmsTreeViewParent().launchNodeDecKanGlNavigationDialog(aTreeNodeInfo);
 	}
 	
 	protected void launchNodeQualityDialog(GcgTreeNodeInfo aTreeNodeInfo) {
-		this.gcgTreeViewParent.launchNodeQualityDialog(aTreeNodeInfo);
+        getFmsTreeViewParent().launchNodeQualityDialog(aTreeNodeInfo);
 	}
 
 	protected void launchNodeEditorToDecKanGlActivity(GcgTreeNodeInfo aTreeNodeInfo) {
-		this.gcgTreeViewParent.launchNodeEditorActivity(aTreeNodeInfo, FmmFrame.TRIBKN, FmmPerspective.DECKANGL);
+        getFmsTreeViewParent().launchNodeEditorActivity(aTreeNodeInfo, FmmFrame.TRIBKN, FmmPerspective.DECKANGL);
 	}
 
 	protected void launchNodeEditorToStoryActivity(GcgTreeNodeInfo aTreeNodeInfo) {
-		this.gcgTreeViewParent.launchNodeEditorActivity(aTreeNodeInfo, FmmFrame.FSE, FmmPerspective.STORY);
+        getFmsTreeViewParent().launchNodeEditorActivity(aTreeNodeInfo, FmmFrame.FSE, FmmPerspective.STORY);
 	}
 
 	protected void launchNodeEditorToChildrenActivity(GcgTreeNodeInfo aTreeNodeInfo) {
-		this.gcgTreeViewParent.launchNodeEditorActivity(aTreeNodeInfo, FmmFrame.CONTEXT_FOR_NODE, FmmPerspective.WORK_BREAKDOWN);
+        getFmsTreeViewParent().launchNodeEditorActivity(aTreeNodeInfo, FmmFrame.CONTEXT_FOR_NODE, FmmPerspective.WORK_BREAKDOWN);
 	}
 
 	protected void launchNodeEditorToQualityActivity(GcgTreeNodeInfo aTreeNodeInfo) {
-		this.gcgTreeViewParent.launchNodeEditorActivity(aTreeNodeInfo, FmmFrame.TRIBKN, FmmPerspective.DECKANGL);
+        getFmsTreeViewParent().launchNodeEditorActivity(aTreeNodeInfo, FmmFrame.TRIBKN, FmmPerspective.DECKANGL);
 	}
 
 	@Override

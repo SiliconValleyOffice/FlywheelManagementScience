@@ -43,8 +43,6 @@
 
 package com.flywheelms.library.gcg.treeview.interfaces;
 
-import com.flywheelms.library.fmm.context.FmmFrame;
-import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.gcg.treeview.GcgTreeViewAdapter;
 import com.flywheelms.library.gcg.treeview.GcgTreeViewMediator;
@@ -55,16 +53,6 @@ public interface GcgTreeViewParent {
 	boolean isShowNodeChildSummary();
 
 	int getShowNodeChildSummaryLevel();
-
-	boolean isShowNodeQuality();
-
-	int getShowNodeQualityLevel();
-
-	void launchNodeEditorActivity(GcgTreeNodeInfo aTreeNodeInfo, FmmFrame aFrame, FmmPerspective aPerspective);
-
-	void launchNodeQualityDialog(GcgTreeNodeInfo aTreeNodeInfo);
-
-	void launchNodeDecKanGlNavigationDialog(GcgTreeNodeInfo aTreeNodeInfo);
 	
 	GcgActivity getGcgActivity();
 
