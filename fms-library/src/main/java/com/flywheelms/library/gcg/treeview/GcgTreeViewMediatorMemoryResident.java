@@ -45,8 +45,6 @@ package com.flywheelms.library.gcg.treeview;
 
 import android.database.DataSetObserver;
 
-import com.flywheelms.library.fmm.FmmDatabaseMediator;
-import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.gcg.treeview.exception.NodeAlreadyInTreeException;
 import com.flywheelms.library.gcg.treeview.exception.NodeNotInTreeException;
 import com.flywheelms.library.gcg.treeview.node.GcgTreeNode;
@@ -61,16 +59,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-/*
- * TODO - need to create super class GcgTreeContentMediator and "pull" most of this up into the new class
- *        when implementing the GcgTreeContentMediatorDatabaseResident
- */
 public abstract class GcgTreeViewMediatorMemoryResident implements GcgTreeViewMediator {
 	
     private static final long serialVersionUID = 1L;
     protected final Map<GcgTreeNodeInfo, GcgTreeNode> treeNodeMap = new HashMap<GcgTreeNodeInfo, GcgTreeNode>();
-    private final GcgTreeNodeInfo rootTreeNodeInfo =
-    		new GcgTreeNodeInfo(FmmDatabaseMediator.getActiveMediator().getFmmOwner(), -1, true, FmmPerspective.STRATEGIC_PLANNING);
+    private final GcgTreeNodeInfo rootTreeNodeInfo = createRootTreeNodeInfo();
+
+    protected abstract GcgTreeNodeInfo createRootTreeNodeInfo();
+
     private final GcgTreeNode rootTreeNode = new GcgTreeNode(this.rootTreeNodeInfo, null, -1, true);
     private GcgTreeNodeInfo firstVisibleTreeNodeInfo;
     private transient List<GcgTreeNodeInfo> visibleTreeNodeInfoList = null;

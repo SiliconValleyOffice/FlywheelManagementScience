@@ -43,6 +43,8 @@
 
 package com.flywheelms.library.fms.treeview;
 
+import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.gcg.treeview.GcgTreeFilter;
 import com.flywheelms.library.gcg.treeview.GcgTreeViewMediatorMemoryResident;
 import com.flywheelms.library.gcg.treeview.node.GcgTreeNodeInfo;
@@ -52,7 +54,12 @@ public class FmsTreeViewMediatorMemoryResident extends GcgTreeViewMediatorMemory
 	
 	private static final long serialVersionUID = 1L;
 
-	public FmsTreeViewMediatorMemoryResident(GcgTreeFilter aTreeFilter) {
+    @Override
+    protected GcgTreeNodeInfo createRootTreeNodeInfo() {
+        return new GcgTreeNodeInfo(FmmDatabaseMediator.getActiveMediator().getFmmOwner(), -1, true, FmmPerspective.STRATEGIC_PLANNING);
+    }
+
+    public FmsTreeViewMediatorMemoryResident(GcgTreeFilter aTreeFilter) {
 		super(aTreeFilter);
 	}
 
