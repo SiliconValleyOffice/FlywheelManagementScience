@@ -489,45 +489,14 @@ public abstract class GcgTreeViewAdapter extends BaseAdapter {
         return this.gcgTreeViewParent.getGcgActivity();
     }
 
-//	protected abstract void sequenceDown(GcgTreeNodeInfo aLaunchTreeNodeInfo, FmmHeadlineNode aHeadlineNode, FmmHeadlineNode aParentHeadlineNode);
+//	protected abstract void sequenceDown(GcgTreeNodeInfo aLaunchTreeNodeInfo);
 //
-//	protected abstract void sequenceUp(GcgTreeNodeInfo aLaunchTreeNodeInfo, FmmHeadlineNode aHeadlineNode, FmmHeadlineNode aParentHeadlineNode);
+//	protected abstract void sequenceUp(GcgTreeNodeInfo aLaunchTreeNodeInfo);
 //
-//	protected abstract void sequenceFirst(GcgTreeNodeInfo aLaunchTreeNodeInfo, FmmHeadlineNode aHeadlineNode, FmmHeadlineNode aParentHeadlineNode);
+//	protected abstract void sequenceFirst(GcgTreeNodeInfo aLaunchTreeNodeInfo);
 //
-//	protected abstract void sequenceLast(GcgTreeNodeInfo aLaunchTreeNodeInfo, FmmHeadlineNode aHeadlineNode, FmmHeadlineNode aParentHeadlineNode);
+//	protected abstract void sequenceLast(GcgTreeNodeInfo aLaunchTreeNodeInfo);
 //
-//	public GcgTreeViewAdapter addNewHeadlineNode(@SuppressWarnings("unused") FmmHeadlineNode aHeadlineNode) {
-//		// TODO - may be able to optimize repaint using aFiscalYear argument
-//		return rebuildTreeView();
-//	}
-//
-//	public GcgTreeViewAdapter updateHeadlineNodeHeadline(FmmHeadlineNode aHeadlineNode) {
-//		// TODO - may be able to optimize repaint using aFiscalYear argument
-//		return rebuildTreeView();
-//	}
-//
-//	public GcgTreeNodeInfo getTreeNodeInfoForObject(Object anObject) {
-//		return null;
-//	}
-//
-//	public void deleteHeadlineNode(@SuppressWarnings("unused") FmmHeadlineNode aHeadlineNode) {
-//		// TODO - may be able to optimize repaint using aHeadlineNode argument
-//		rebuildTreeView();
-//	}
-//
-//    public GcgTreeViewAdapter updateSecondaryHeadline(String aSecondaryHeadline) {
-//        // TODO - heavy hammer.  Optimize.
-//        return rebuildTreeView();
-//    }
-//
-//	public void editTreeNode(Object anObject) {
-//		this.treeViewMediator = this.gcgTreeViewParent.getGcgTreeViewMediator();
-//		GcgTreeNodeInfo theTreeNodeInfo = this.treeViewMediator.getTreeNodeInfoForObject(anObject);
-//		if(theTreeNodeInfo != null) {
-//			launchDefaultNodeEditorActivity(theTreeNodeInfo);
-//		}
-//	}
 
 	protected abstract void launchDefaultNodeEditorActivity(GcgTreeNodeInfo aTreeNodeInfo);
 
