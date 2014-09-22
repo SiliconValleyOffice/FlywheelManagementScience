@@ -1,4 +1,4 @@
-/* @(#)GuiHelper.java
+/* @(#)GcgGuiHelper.java
 ** 
 ** Copyright (C) 2012 by Steven D. Stamps
 **
@@ -55,29 +55,17 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
-import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmNode;
 import com.flywheelms.library.gcg.GcgApplication;
 import com.flywheelms.library.gcg.interfaces.GcgGuiable;
 
-public class GuiHelper {
+public class GcgGuiHelper {
 
 	public static final int MAX_DRAWABLE_WIDTH =
-			GcgApplication.getInstance().getResources().getDrawable(R.drawable.fmm_noun__portfolio__gray).getIntrinsicWidth();
+			GcgApplication.getAppResources().getDrawable(R.drawable.gcg__null_drawable_16).getIntrinsicWidth();
 	public static final int MINIMUM_PADDING_BEFORE_DRAWABLE =
 			GcgApplication.getInstance().getResources().getDimensionPixelOffset(R.dimen.gcg__data__minimum_padding_before_drawable);
 	public static final int MINIMUM_PADDING_BEFORE_TEXT =
 			GcgApplication.getInstance().getResources().getDimensionPixelOffset(R.dimen.gcg__data__minimum_padding_before_text);
-	
-	public static String getLabelTextForFmmNode(Class<? extends FmmNode> aClass) {
-		return FmmNodeDefinition.getLabelTextForClass(aClass);
-	}
-
-	public static void initializeTextViewLabelForFmmNode(Class<? extends FmmNode> aNodeClass, TextView aTextViewLabel) {
-		FmmNodeDefinition anFmmNodeDefinition = FmmNodeDefinition.getEntryForClass(aNodeClass);
-		aTextViewLabel.setText(anFmmNodeDefinition.getLabelText());
-		aTextViewLabel.setCompoundDrawablesWithIntrinsicBounds(null, null, anFmmNodeDefinition.getLabelDrawable(), null);
-	}
 
 	public static void initializeTextViewLabelForGuiable(GcgGuiable aGuiableInstance, TextView aTextViewLabel) {
 		aTextViewLabel.setText(aGuiableInstance.getLabelText());

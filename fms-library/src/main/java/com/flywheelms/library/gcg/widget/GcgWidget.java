@@ -61,8 +61,8 @@ import com.flywheelms.library.fdk.interfaces.FdkListener;
 import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.gcg.button.multi_shift.GcgMultiShiftState;
 import com.flywheelms.library.gcg.dialog.GcgDialog;
+import com.flywheelms.library.gcg.helper.GcgGuiHelper;
 import com.flywheelms.library.gcg.helper.GcgHelper;
-import com.flywheelms.library.gcg.helper.GuiHelper;
 
 import java.util.ArrayList;
 
@@ -391,20 +391,20 @@ public abstract class GcgWidget extends RelativeLayout implements FdkDictationRe
 	
 	public void setContainerWidth(int aContainerWidthInDp) {
 		LayoutParams theLayoutParams = (LayoutParams) this.widgetContainer.getLayoutParams();
-		theLayoutParams.width = GuiHelper.getPixelsForDp(aContainerWidthInDp);
+		theLayoutParams.width = GcgGuiHelper.getPixelsForDp(aContainerWidthInDp);
 		this.widgetContainer.setLayoutParams(theLayoutParams);
 	}
 	
 	public void setContainerHeight(int aContainerHeightInDp) {
 		LayoutParams theLayoutParams = (LayoutParams) this.widgetContainer.getLayoutParams();
-		theLayoutParams.height = GuiHelper.getPixelsForDp(aContainerHeightInDp);
+		theLayoutParams.height = GcgGuiHelper.getPixelsForDp(aContainerHeightInDp);
 		this.widgetContainer.setLayoutParams(theLayoutParams);
 	}
 	
 	public void setContainerDimensions(int aContainerWidthInDp, int aContainerHeightInDp) {
 		LayoutParams theLayoutParams = (LayoutParams) this.widgetContainer.getLayoutParams();
-		theLayoutParams.width = GuiHelper.getPixelsForDp(aContainerWidthInDp);
-		theLayoutParams.height = GuiHelper.getPixelsForDp(aContainerHeightInDp);
+		theLayoutParams.width = GcgGuiHelper.getPixelsForDp(aContainerWidthInDp);
+		theLayoutParams.height = GcgGuiHelper.getPixelsForDp(aContainerHeightInDp);
 		this.widgetContainer.setLayoutParams(theLayoutParams);
 	}
 	

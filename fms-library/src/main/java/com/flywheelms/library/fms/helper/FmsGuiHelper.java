@@ -1,5 +1,5 @@
-/* @(#)CustomerWidgetTextView.java
-** 
+/* @(#)FmsGuiHelper.java
+**
 ** Copyright (C) 2012 by Steven D. Stamps
 **
 **             Trademarks & Copyrights
@@ -41,33 +41,22 @@
 ** <http://www.gnu.org/licenses/gpl-3.0.html>.
 */
 
-package com.flywheelms.library.fms.widget.text_view;
+package com.flywheelms.library.fms.helper;
 
-import android.content.Context;
-import android.graphics.Color;
-import android.util.AttributeSet;
+import android.widget.TextView;
 
-import com.flywheelms.library.fmm.node.impl.enumerator.GovernanceRole;
-import com.flywheelms.library.gcg.helper.GcgGuiHelper;
-import com.flywheelms.library.gcg.widget.GcgWidgetTextView;
+import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
+import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmNode;
 
-// com.flywheelms.library.fms.widget.text_view.CustomerWidgetTextView
-public class CustomerWidgetTextView extends GcgWidgetTextView {
-	
-	public CustomerWidgetTextView(Context aContext, AttributeSet anAttributeSet) {
-		super(aContext, anAttributeSet);
-	}
+public class FmsGuiHelper {
 
-	@Override
-	protected String getLabelText() {
-		return GovernanceRole.CUSTOMER.getName();
-	}
-	
-	@Override
-	public void setText(String aString) {
-		if(aString == null || aString.equals("")) {
-			this.textView.setText(GcgGuiHelper.getColorString("None", Color.RED));
-		}
-	}
-	
+    public static String getLabelTextForFmmNode(Class<? extends FmmNode> aClass) {
+        return FmmNodeDefinition.getLabelTextForClass(aClass);
+    }
+
+    public static void initializeTextViewLabelForFmmNode(Class<? extends FmmNode> aNodeClass, TextView aTextViewLabel) {
+        FmmNodeDefinition anFmmNodeDefinition = FmmNodeDefinition.getEntryForClass(aNodeClass);
+        aTextViewLabel.setText(anFmmNodeDefinition.getLabelText());
+        aTextViewLabel.setCompoundDrawablesWithIntrinsicBounds(null, null, anFmmNodeDefinition.getLabelDrawable(), null);
+    }
 }

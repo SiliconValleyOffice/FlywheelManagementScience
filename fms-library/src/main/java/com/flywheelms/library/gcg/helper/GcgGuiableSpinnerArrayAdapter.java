@@ -111,9 +111,9 @@ public class GcgGuiableSpinnerArrayAdapter extends ArrayAdapter<GcgGuiable> {
 		theTextView.setText(theGuiable.getDataText());
 		theTextView.setCompoundDrawablesWithIntrinsicBounds(theGuiable.getDataDrawable(), null, null, null);
 		if(this.maxDrawawbleWidth == 0) {
-			GuiHelper.setCompoundDrawablePadding(theTextView);
+			GcgGuiHelper.setCompoundDrawablePadding(theTextView);
 		} else {
-			GuiHelper.setCompoundDrawablePadding(theTextView, theGuiable.getDataDrawable());
+			GcgGuiHelper.setCompoundDrawablePadding(theTextView, theGuiable.getDataDrawable());
 		}
 		return theRowView;
 	}
@@ -133,9 +133,9 @@ public class GcgGuiableSpinnerArrayAdapter extends ArrayAdapter<GcgGuiable> {
 		theTextView.setText("");
 		theTextView.setCompoundDrawablesWithIntrinsicBounds(theGuiable.getDataDrawable(), null, null, null);
 		if(this.maxDrawawbleWidth == 0) {
-			GuiHelper.setCompoundDrawablePadding(theTextView);
+			GcgGuiHelper.setCompoundDrawablePadding(theTextView);
 		} else {
-			GuiHelper.setCompoundDrawablePadding(theTextView, theGuiable.getDataDrawable());
+			GcgGuiHelper.setCompoundDrawablePadding(theTextView, theGuiable.getDataDrawable());
 		}
 		return theRowView;
 	}
@@ -156,9 +156,9 @@ public class GcgGuiableSpinnerArrayAdapter extends ArrayAdapter<GcgGuiable> {
 		theTextView.setText(theGuiable.getDataText());
 		theTextView.setCompoundDrawablesWithIntrinsicBounds(theGuiable.getDataDrawable(), null, null, null);
 		if(this.maxDrawawbleWidth == 0) {
-			GuiHelper.setCompoundDrawablePadding(theTextView);
+			GcgGuiHelper.setCompoundDrawablePadding(theTextView);
 		} else {
-			GuiHelper.setCompoundDrawablePadding(theTextView, theGuiable.getDataDrawable());
+			GcgGuiHelper.setCompoundDrawablePadding(theTextView, theGuiable.getDataDrawable());
 		}
 		return theRowView;
 	}

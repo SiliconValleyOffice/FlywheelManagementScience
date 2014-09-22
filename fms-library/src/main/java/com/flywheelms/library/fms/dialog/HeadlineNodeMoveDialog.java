@@ -54,8 +54,8 @@ import com.flywheelms.library.fms.widget.spinner.SequencePositionWidgetSpinner;
 import com.flywheelms.library.fms.widget.text_view.FmmNodeTypeWidgetTextView;
 import com.flywheelms.library.fms.widget.text_view.HeadlineWidgetTextView;
 import com.flywheelms.library.gcg.activity.GcgActivity;
+import com.flywheelms.library.gcg.helper.GcgGuiHelper;
 import com.flywheelms.library.gcg.helper.GcgHelper;
-import com.flywheelms.library.gcg.helper.GuiHelper;
 import com.flywheelms.library.gcg.treeview.GcgTreeViewAdapter;
 
 public abstract class HeadlineNodeMoveDialog extends FmsCancelOkDialog {
@@ -106,7 +106,7 @@ public abstract class HeadlineNodeMoveDialog extends FmsCancelOkDialog {
 		this.fmmNodeTypeWidget = (FmmNodeTypeWidgetTextView) this.dialogBodyView.findViewById(R.id.fmm_node__type);
 		this.fmmNodeTypeWidget.setText(getFmmNodeDefinition().getLabelTextResourceId());
 		this.headlineWidgetTextView = (HeadlineWidgetTextView) this.dialogBodyView.findViewById(R.id.headline);
-		this.headlineWidgetTextView.setText(GuiHelper.getColorString(getFmmHeadlineNode().getDataText(), Color.RED));
+		this.headlineWidgetTextView.setText(GcgGuiHelper.getColorString(getFmmHeadlineNode().getDataText(), Color.RED));
 		initializeDispositionLayout();
 		manageButtonState();
 	}

@@ -68,6 +68,7 @@ import com.flywheelms.library.fdk.FdkHostSupport;
 import com.flywheelms.library.fdk.enumerator.FdkKeyboardState;
 import com.flywheelms.library.fdk.interfaces.FdkHost;
 import com.flywheelms.library.fdk.widget.FdkKeyboard;
+import com.flywheelms.library.fms.helper.FmsActivityHelper;
 import com.flywheelms.library.gcg.GcgApplication;
 import com.flywheelms.library.gcg.context.GcgActivityBreadcrumb;
 import com.flywheelms.library.gcg.context.GcgApplicationContext;
@@ -708,7 +709,7 @@ public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNo
 			theIntent = new Intent();
 		}
 		if(hasDataRefreshList()) {
-			theIntent.putExtra(GcgActivityHelper.bundle_key__MODIFIED_TREE_NODE__LIST, getSerializedDataRefreshNoticeList());
+			theIntent.putExtra(FmsActivityHelper.bundle_key__MODIFIED_TREE_NODE__LIST, getSerializedDataRefreshNoticeList());
 		}
 		if(this.parentDataRefreshAll) {
 			theIntent.putExtra(GcgActivityHelper.bundle_key__DATA_REFRESH__ALL, "");

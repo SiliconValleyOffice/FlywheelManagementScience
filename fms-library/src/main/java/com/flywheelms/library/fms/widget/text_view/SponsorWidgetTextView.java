@@ -48,7 +48,7 @@ import android.graphics.Color;
 import android.util.AttributeSet;
 
 import com.flywheelms.library.fmm.node.impl.enumerator.GovernanceRole;
-import com.flywheelms.library.gcg.helper.GuiHelper;
+import com.flywheelms.library.gcg.helper.GcgGuiHelper;
 import com.flywheelms.library.gcg.widget.GcgWidgetTextView;
 
 public class SponsorWidgetTextView extends GcgWidgetTextView {
@@ -65,7 +65,7 @@ public class SponsorWidgetTextView extends GcgWidgetTextView {
 	@Override
 	public void setText(String aString) {
 		if(aString == null || aString.equals("")) {
-			this.textView.setText(GuiHelper.getColorString("None", Color.RED));
+			this.textView.setText(GcgGuiHelper.getColorString("None", Color.RED));
 		}
 	}
 	

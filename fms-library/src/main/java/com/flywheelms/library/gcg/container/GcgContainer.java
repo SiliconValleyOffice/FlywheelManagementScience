@@ -54,7 +54,7 @@ import android.widget.TextView;
 import com.flywheelms.library.R;
 import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.gcg.button.multi_shift.GcgMultiShiftState;
-import com.flywheelms.library.gcg.helper.GuiHelper;
+import com.flywheelms.library.gcg.helper.GcgGuiHelper;
 
 public abstract class GcgContainer extends LinearLayout {
 	
@@ -224,20 +224,20 @@ public abstract class GcgContainer extends LinearLayout {
 	
 	public void setContainerWidth(int aContainerWidthInDp) {
 		LayoutParams theLayoutParams = (LayoutParams) this.containerParent.getLayoutParams();
-		theLayoutParams.width = GuiHelper.getPixelsForDp(aContainerWidthInDp);
+		theLayoutParams.width = GcgGuiHelper.getPixelsForDp(aContainerWidthInDp);
 		this.containerParent.setLayoutParams(theLayoutParams);
 	}
 	
 	public void setContainerHeight(int aContainerHeightInDp) {
 		LayoutParams theLayoutParams = (LayoutParams) this.containerParent.getLayoutParams();
-		theLayoutParams.height = GuiHelper.getPixelsForDp(aContainerHeightInDp);
+		theLayoutParams.height = GcgGuiHelper.getPixelsForDp(aContainerHeightInDp);
 		this.containerParent.setLayoutParams(theLayoutParams);
 	}
 	
 	public void setContainerDimensions(int aContainerWidthInDp, int aContainerHeightInDp) {
 		LayoutParams theLayoutParams = (LayoutParams) this.containerParent.getLayoutParams();
-		theLayoutParams.width = GuiHelper.getPixelsForDp(aContainerWidthInDp);
-		theLayoutParams.height = GuiHelper.getPixelsForDp(aContainerHeightInDp);
+		theLayoutParams.width = GcgGuiHelper.getPixelsForDp(aContainerWidthInDp);
+		theLayoutParams.height = GcgGuiHelper.getPixelsForDp(aContainerHeightInDp);
 		this.containerParent.setLayoutParams(theLayoutParams);
 	}
 	

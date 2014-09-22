@@ -53,7 +53,7 @@ import android.widget.TextView;
 
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.node.FmmHeadlineNodeShallow;
-import com.flywheelms.library.gcg.helper.GuiHelper;
+import com.flywheelms.library.gcg.helper.GcgGuiHelper;
 
 import java.util.ArrayList;
 
@@ -82,7 +82,7 @@ public class FmsHeadlineNodeShallowArrayAdapter extends ArrayAdapter<FmmHeadline
 		theTextView.setText(theListItem.getHeadline());
 		Drawable theDrawable = theListItem.getDecKanGlElementNounStateBitmapDrawable();
 		theTextView.setCompoundDrawablesWithIntrinsicBounds(theDrawable, null, null, null);
-		GuiHelper.setCompoundDrawablePadding(theTextView, theDrawable);
+		GcgGuiHelper.setCompoundDrawablePadding(theTextView, theDrawable);
 		return theView;
 	}
 
@@ -98,7 +98,7 @@ public class FmsHeadlineNodeShallowArrayAdapter extends ArrayAdapter<FmmHeadline
 		theTextView.setText(theListItem.getHeadline());
 		Drawable theDrawable = theListItem.getDecKanGlElementNounStateBitmapDrawable();
 		theTextView.setCompoundDrawablesWithIntrinsicBounds(theDrawable, null, null, null);
-		GuiHelper.setCompoundDrawablePadding(theTextView, theDrawable);
+		GcgGuiHelper.setCompoundDrawablePadding(theTextView, theDrawable);
 		return theView;
 	}
 

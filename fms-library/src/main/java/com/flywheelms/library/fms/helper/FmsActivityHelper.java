@@ -92,6 +92,7 @@ public class FmsActivityHelper extends GcgActivityHelper {
 	public static final String bundle_key__FSE_DOCUMENT_SECTION_TYPE = "FseDocumentSectionType";
 	public static final String bundle_key__DISPLAYED_FSE_DOCUMENT = "DisplayedFseDocument";
 	public static final String bundle_key__FSE_DOCUMENT_VIEW = "FseDocumentView";
+    public static final String bundle_key__MODIFIED_TREE_NODE__LIST = "ModifiedFmmNodeIdList";
 	public static final int request_code__ANDROID_CONTACT_PICKER_FOR_SPONSOR = GcgApplication.getIntegerResource(R.integer.request_code__android_contact_picker__sponsor);
 	public static final int request_code__ANDROID_CONTACT_PICKER_FOR_CUSTOMER = GcgApplication.getIntegerResource(R.integer.request_code__android_contact_picker__customer);
 	public static final int request_code__ANDROID_CONTACT_PICKER_FOR_FACILITATOR = GcgApplication.getIntegerResource(R.integer.request_code__android_contact_picker__facilitator);

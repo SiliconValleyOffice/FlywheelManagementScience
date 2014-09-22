@@ -87,8 +87,8 @@ import com.flywheelms.library.fmm.deckangl.FmsDecoratorWorkTaskBudget;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorWorkTeam;
 import com.flywheelms.library.fmm.node.impl.enumerator.CompletableWorkStatus;
 import com.flywheelms.library.fms.helper.FmsHelpIndex;
+import com.flywheelms.library.gcg.helper.GcgGuiHelper;
 import com.flywheelms.library.gcg.helper.GcgSpinnerHelper;
-import com.flywheelms.library.gcg.helper.GuiHelper;
 import com.flywheelms.library.gcg.interfaces.GcgGuiable;
 
 import java.util.Arrays;
@@ -169,7 +169,7 @@ public class DecKanGlDictionaryActivity extends Activity implements DecKanGlAppl
 		} else {
 			theBitmap = aDecKanGlGlyph.getDecoratedNounBitmap(DecKanGlDecoratedGlyphSize.TINY);
 		}
-		GuiHelper.updateScaledImageViewInTableRow(theImageView, theBitmap);
+		GcgGuiHelper.updateScaledImageViewInTableRow(theImageView, theBitmap);
 		updateNodeQualityView();
 	}
 
@@ -184,7 +184,7 @@ public class DecKanGlDictionaryActivity extends Activity implements DecKanGlAppl
 		theDrawable.setBounds(0, 0, theDrawable.getIntrinsicWidth(), theDrawable.getIntrinsicHeight());
 		theLabelView.setCompoundDrawablesWithIntrinsicBounds(theDrawable, null, null, null);
 		TextView theIntegerView = (TextView) this.findViewById(R.id.deckangl_noun__noun_quality__data);
-		GuiHelper.updateIntegerView(theIntegerView, getDecKanGlGlyph().getNounQualityIndex());
+		GcgGuiHelper.updateIntegerView(theIntegerView, getDecKanGlGlyph().getNounQualityIndex());
 	}
 
 	private void initializeSpinners() {

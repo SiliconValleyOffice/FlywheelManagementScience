@@ -52,7 +52,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.flywheelms.library.fmm.helper.FmmHelper;
 import com.flywheelms.library.gcg.GcgApplication;
 import com.flywheelms.library.gcg.interfaces.GcgGuiable;
 
@@ -65,7 +64,7 @@ public class GcgSpinnerHelper {
 
 	public static void initializeGuiableSpinner(Activity anActivity, int aTextViewLabelId, int aSpinnerViewId, int aLabelTextResourceId, int aDrawableResourceId, Collection<? extends GcgGuiable> aGuiableCollection, GcgGuiable anInitialValue, int aMaxDrawableWidth) {
 		TextView theTextViewLabel = (TextView) anActivity.findViewById(aTextViewLabelId);
-		GuiHelper.initializeTextViewLabel(theTextViewLabel, aDrawableResourceId, aLabelTextResourceId);
+		GcgGuiHelper.initializeTextViewLabel(theTextViewLabel, aDrawableResourceId, aLabelTextResourceId);
 		Spinner theSpinner = (Spinner) anActivity.findViewById(aSpinnerViewId);
 		GcgGuiableSpinnerArrayAdapter theArrayAdapter = new GcgGuiableSpinnerArrayAdapter(GcgApplication.getContext(), new ArrayList<GcgGuiable>(aGuiableCollection), aMaxDrawableWidth);
 		theSpinner.setAdapter(theArrayAdapter);
@@ -97,7 +96,7 @@ public class GcgSpinnerHelper {
 
 	public static void initializeGuiableSpinner(Activity anActivity, int aTextViewLabelId, int aSpinnerViewId, GcgGuiable aGuiableInstance, List<? extends GcgGuiable> aGuiableList, GcgGuiable anInitialValue, int aMaxDrawableWidth) {
 		TextView theTextViewLabel = (TextView) anActivity.findViewById(aTextViewLabelId);
-		GuiHelper.initializeTextViewLabelForGuiable(aGuiableInstance, theTextViewLabel);
+		GcgGuiHelper.initializeTextViewLabelForGuiable(aGuiableInstance, theTextViewLabel);
 		Spinner theSpinner = (Spinner) anActivity.findViewById(aSpinnerViewId);
 		GcgGuiableSpinnerArrayAdapter theArrayAdapter = new GcgGuiableSpinnerArrayAdapter(GcgApplication.getContext(), new ArrayList<GcgGuiable>(aGuiableList), aMaxDrawableWidth);
 		theSpinner.setAdapter(theArrayAdapter);
@@ -136,13 +135,13 @@ public class GcgSpinnerHelper {
 
 		@Override
 		public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-			this.toast = Toast.makeText(FmmHelper.getContext(), "Item selected at position: " + position, Toast.LENGTH_LONG);
+			this.toast = Toast.makeText(GcgApplication.getContext(), "Item selected at position: " + position, Toast.LENGTH_LONG);
 			this.toast.show();
 		}
 
 		@Override
 		public void onNothingSelected(AdapterView<?> parentView){
-			this.toast = Toast.makeText(FmmHelper.getContext(), "Nothing selected", Toast.LENGTH_LONG);
+			this.toast = Toast.makeText(GcgApplication.getContext(), "Nothing selected", Toast.LENGTH_LONG);
 			this.toast.show();
 		}
 
@@ -161,11 +160,11 @@ public class GcgSpinnerHelper {
 		@Override
 		public void onItemSelected(AdapterView<?> aParentView, View aView, int aPosition, long anId) {
 			if (this.lastPosition == aPosition) {
-				Toast theToast = Toast.makeText(FmmHelper.getContext(), "Ignoring onItemSelected for same position: " + aPosition, Toast.LENGTH_LONG);
+				Toast theToast = Toast.makeText(GcgApplication.getContext(), "Ignoring onItemSelected for same position: " + aPosition, Toast.LENGTH_LONG);
 				theToast.show();
 			}
 			else {
-				Toast theToast = Toast.makeText(FmmHelper.getContext(), "Processing new item selected: " + aPosition, Toast.LENGTH_LONG);
+				Toast theToast = Toast.makeText(GcgApplication.getContext(), "Processing new item selected: " + aPosition, Toast.LENGTH_LONG);
 				theToast.show();
 				this.listener.onItemSelected(aParentView, aView, aPosition, anId);
 			}
