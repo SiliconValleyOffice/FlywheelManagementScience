@@ -46,6 +46,7 @@ import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.flywheelms.library.deckangl.glyph.DecKanGlDecoratorEnumeration;
+import com.flywheelms.library.deckangl.glyph.DecKanGlTribKnQualityNormalizedDescription;
 import com.flywheelms.library.fmm.database.FmmDatabaseInitializer;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorChildFractals;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorCompletion;
@@ -127,7 +128,7 @@ public class FmmDatabaseInitializerSqLite extends FmmDatabaseInitializer {
 	private static void initializeTribKnQualityNormalizedDescription(SQLiteDatabase aSQLiteDatabase) {
 		String theTableName = FmmTribKnQualityNormalizedDescription.class.getSimpleName();
 		ContentValues theContentValues = new ContentValues();
-		for(FmmTribKnQualityNormalizedDescription theTribKnQualityNormalizedDescription : FmmTribKnQualityNormalizedDescription.values()) {
+		for(DecKanGlTribKnQualityNormalizedDescription theTribKnQualityNormalizedDescription : FmmTribKnQualityNormalizedDescription.values()) {
 			theContentValues.put(FmmTribKnQualityNormalizedDescription.name_COLUMN_1, theTribKnQualityNormalizedDescription.getName());
 			aSQLiteDatabase.insertOrThrow(theTableName, null, theContentValues);
 		}

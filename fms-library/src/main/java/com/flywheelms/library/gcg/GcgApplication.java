@@ -151,29 +151,17 @@ public abstract class GcgApplication extends Application {
     protected static Class<? extends GcgApplication> subClass;
 
     private static Method getFrameListMethod;
+
     private static Method getFrameListMethod() {
         if(GcgApplication.getFrameListMethod == null) {
             try {
-                GcgApplication.getFrameListMethod = GcgApplication.subClass.getMethod("getFrameList");
+                GcgApplication.getFrameListMethod = GcgApplication.subClass.getMethod("getFrameList");  // Must implement in sub-class
             } catch (NoSuchMethodException e) {
                 e.printStackTrace();
                 return null;
             }
         }
         return GcgApplication.getFrameListMethod;
-    }
-
-    private static Method getPerspectiveListMethod;
-    private static Method getPerspectiveListMethod() {
-        if(GcgApplication.getPerspectiveListMethod == null) {
-            try {
-                GcgApplication.getPerspectiveListMethod = GcgApplication.subClass.getMethod("getPerspectiveList");
-            } catch (NoSuchMethodException e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return GcgApplication.getPerspectiveListMethod;
     }
 
     // must implement static getFrameList() in sub-class
@@ -189,6 +177,20 @@ public abstract class GcgApplication extends Application {
             return null;
         }
         return (ArrayList<GcgFrame>) theObject;
+    }
+
+    private static Method getPerspectiveListMethod;
+
+    private static Method getPerspectiveListMethod() {
+        if(GcgApplication.getPerspectiveListMethod == null) {
+            try {
+                GcgApplication.getPerspectiveListMethod = GcgApplication.subClass.getMethod("getPerspectiveList");  // Must implement in sub-class
+            } catch (NoSuchMethodException e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        return GcgApplication.getPerspectiveListMethod;
     }
 
     // must implement static getPerspectiveList() in sub-class

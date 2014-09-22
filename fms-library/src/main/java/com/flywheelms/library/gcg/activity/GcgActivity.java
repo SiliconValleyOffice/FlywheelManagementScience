@@ -813,10 +813,6 @@ public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNo
 		return this.activityLabel;
 	}
 
-
-
-
-
 	public GcgFrame getGcgFrame() {
 		return this.frameSpinner == null ? null : this.frameSpinner.getFrame();
 	}

@@ -1,4 +1,4 @@
-/* @(#)NodeQualityNormalizedDescription.java
+/* @(#)FmmTribKnQualityNormalizedDescription.java
 ** 
 ** Copyright (C) 2012 by Steven D. Stamps
 **
@@ -42,48 +42,78 @@
 
 package com.flywheelms.library.fmm.node.impl.enumerator;
 
-import android.graphics.drawable.Drawable;
-
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.helper.FmmHelper;
+import com.flywheelms.library.deckangl.glyph.DecKanGlTribKnQualityNormalizedDescription;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.FmmNodeImpl;
 import com.flywheelms.library.fmm.node.interfaces.FmmEnumNode;
-import com.flywheelms.library.gcg.GcgApplication;
 import com.flywheelms.library.gcg.interfaces.GcgGuiable;
 
+import java.util.ArrayList;
 import java.util.Date;
 
-public enum FmmTribKnQualityNormalizedDescription implements FmmEnumNode {
+public class FmmTribKnQualityNormalizedDescription extends DecKanGlTribKnQualityNormalizedDescription implements FmmEnumNode {
 	
-	AT_RISK (R.string.tribkn_quality__normalized_description__at_risk),
-	CONFIRMED (R.string.tribkn_quality__normalized_description__confirmed),
-	EXCESSIVE (R.string.tribkn_quality__normalized_description__excessive),
-	FACILITATION_ISSUE (R.string.tribkn_quality__normalized_description__facilitation_issue),
-	FUTURE (R.string.tribkn_quality__normalized_description__future),
-	GOOD (R.string.tribkn_quality__normalized_description__good),
-	INACTIVE (R.string.tribkn_quality__normalized_description__inactive),
-	INCOMPLETE (R.string.tribkn_quality__normalized_description__incomplete),
-	MISSED (R.string.tribkn_quality__normalized_description__missed),
-	MODIFIED_SINCE_CONFIRMED (R.string.tribkn_quality__normalized_description__modified_since_confirmed),
-	MULTIPLE_SPECIFIED (R.string.tribkn_quality__normalized_description__multiple_specified),
-	NOT_APPLICABLE (R.string.tribkn_quality__normalized_description__not_applicable),
-	NONE (R.string.tribkn_quality__normalized_description__none),
-	NOT_ENABLED (R.string.tribkn_quality__normalized_description__not_enabled),
-	NOT_SCHEDULED (R.string.tribkn_quality__normalized_description__not_scheduled),
-	ONE_SPECIFIED (R.string.tribkn_quality__normalized_description__one_specified),
-	OVER_BUDGET (R.string.tribkn_quality__normalized_description__over_budget),
-	PAST_DUE (R.string.tribkn_quality__normalized_description__past_due),
-	PROPOSED (R.string.tribkn_quality__normalized_description__proposed),
-	SUGGESTED (R.string.tribkn_quality__normalized_description__suggested),
-	SWAG (R.string.tribkn_quality__normalized_description__swag),
-	UNCONFIRMED (R.string.tribkn_quality__normalized_description__unconfirmed),
-	UNKNOWN (R.string.tribkn_quality__normalized_description__unspecified);
+	public static final FmmTribKnQualityNormalizedDescription AT_RISK = new FmmTribKnQualityNormalizedDescription(R.string.tribkn_quality__normalized_description__at_risk);
+    public static final FmmTribKnQualityNormalizedDescription CONFIRMED = new FmmTribKnQualityNormalizedDescription(R.string.tribkn_quality__normalized_description__confirmed);
+    public static final FmmTribKnQualityNormalizedDescription EXCESSIVE = new FmmTribKnQualityNormalizedDescription(R.string.tribkn_quality__normalized_description__excessive);
+    public static final FmmTribKnQualityNormalizedDescription FACILITATION_ISSUE = new FmmTribKnQualityNormalizedDescription(R.string.tribkn_quality__normalized_description__facilitation_issue);
+    public static final FmmTribKnQualityNormalizedDescription FUTURE = new FmmTribKnQualityNormalizedDescription(R.string.tribkn_quality__normalized_description__future);
+    public static final FmmTribKnQualityNormalizedDescription GOOD = new FmmTribKnQualityNormalizedDescription(R.string.tribkn_quality__normalized_description__good);
+    public static final FmmTribKnQualityNormalizedDescription INACTIVE = new FmmTribKnQualityNormalizedDescription(R.string.tribkn_quality__normalized_description__inactive);
+    public static final FmmTribKnQualityNormalizedDescription INCOMPLETE = new FmmTribKnQualityNormalizedDescription(R.string.tribkn_quality__normalized_description__incomplete);
+    public static final FmmTribKnQualityNormalizedDescription MISSED = new FmmTribKnQualityNormalizedDescription(R.string.tribkn_quality__normalized_description__missed);
+    public static final FmmTribKnQualityNormalizedDescription MODIFIED_SINCE_CONFIRMED = new FmmTribKnQualityNormalizedDescription(R.string.tribkn_quality__normalized_description__modified_since_confirmed);
+    public static final FmmTribKnQualityNormalizedDescription MULTIPLE_SPECIFIED = new FmmTribKnQualityNormalizedDescription(R.string.tribkn_quality__normalized_description__multiple_specified);
+    public static final FmmTribKnQualityNormalizedDescription NOT_APPLICABLE = new FmmTribKnQualityNormalizedDescription(R.string.tribkn_quality__normalized_description__not_applicable);
+    public static final FmmTribKnQualityNormalizedDescription NONE = new FmmTribKnQualityNormalizedDescription(R.string.tribkn_quality__normalized_description__none);
+    public static final FmmTribKnQualityNormalizedDescription NOT_ENABLED = new FmmTribKnQualityNormalizedDescription(R.string.tribkn_quality__normalized_description__not_enabled);
+    public static final FmmTribKnQualityNormalizedDescription NOT_SCHEDULED = new FmmTribKnQualityNormalizedDescription(R.string.tribkn_quality__normalized_description__not_scheduled);
+    public static final FmmTribKnQualityNormalizedDescription ONE_SPECIFIED = new FmmTribKnQualityNormalizedDescription(R.string.tribkn_quality__normalized_description__one_specified);
+    public static final FmmTribKnQualityNormalizedDescription OVER_BUDGET = new FmmTribKnQualityNormalizedDescription(R.string.tribkn_quality__normalized_description__over_budget);
+    public static final FmmTribKnQualityNormalizedDescription PAST_DUE = new FmmTribKnQualityNormalizedDescription(R.string.tribkn_quality__normalized_description__past_due);
+    public static final FmmTribKnQualityNormalizedDescription PROPOSED = new FmmTribKnQualityNormalizedDescription(R.string.tribkn_quality__normalized_description__proposed);
+    public static final FmmTribKnQualityNormalizedDescription SUGGESTED = new FmmTribKnQualityNormalizedDescription(R.string.tribkn_quality__normalized_description__suggested);
+    public static final FmmTribKnQualityNormalizedDescription SWAG = new FmmTribKnQualityNormalizedDescription(R.string.tribkn_quality__normalized_description__swag);
+    public static final FmmTribKnQualityNormalizedDescription UNCONFIRMED = new FmmTribKnQualityNormalizedDescription(R.string.tribkn_quality__normalized_description__unconfirmed);
+    public static final FmmTribKnQualityNormalizedDescription UNKNOWN = new FmmTribKnQualityNormalizedDescription(R.string.tribkn_quality__normalized_description__unspecified);
+    
+    private static final ArrayList<FmmTribKnQualityNormalizedDescription> VALUES = new ArrayList<FmmTribKnQualityNormalizedDescription>();
+
+    static {
+        FmmTribKnQualityNormalizedDescription.VALUES.add(AT_RISK);
+        FmmTribKnQualityNormalizedDescription.VALUES.add(CONFIRMED);
+        FmmTribKnQualityNormalizedDescription.VALUES.add(EXCESSIVE);
+        FmmTribKnQualityNormalizedDescription.VALUES.add(FACILITATION_ISSUE);
+        FmmTribKnQualityNormalizedDescription.VALUES.add(FUTURE);
+        FmmTribKnQualityNormalizedDescription.VALUES.add(GOOD);
+        FmmTribKnQualityNormalizedDescription.VALUES.add(INACTIVE);
+        FmmTribKnQualityNormalizedDescription.VALUES.add(INCOMPLETE);
+        FmmTribKnQualityNormalizedDescription.VALUES.add(MISSED);
+        FmmTribKnQualityNormalizedDescription.VALUES.add(MODIFIED_SINCE_CONFIRMED);
+        FmmTribKnQualityNormalizedDescription.VALUES.add(MULTIPLE_SPECIFIED);
+        FmmTribKnQualityNormalizedDescription.VALUES.add(NOT_APPLICABLE);
+        FmmTribKnQualityNormalizedDescription.VALUES.add(NONE);
+        FmmTribKnQualityNormalizedDescription.VALUES.add(NOT_ENABLED);
+        FmmTribKnQualityNormalizedDescription.VALUES.add(NOT_SCHEDULED);
+        FmmTribKnQualityNormalizedDescription.VALUES.add(ONE_SPECIFIED);
+        FmmTribKnQualityNormalizedDescription.VALUES.add(OVER_BUDGET);
+        FmmTribKnQualityNormalizedDescription.VALUES.add(PAST_DUE);
+        FmmTribKnQualityNormalizedDescription.VALUES.add(PROPOSED);
+        FmmTribKnQualityNormalizedDescription.VALUES.add(SUGGESTED);
+        FmmTribKnQualityNormalizedDescription.VALUES.add(SWAG);
+        FmmTribKnQualityNormalizedDescription.VALUES.add(UNCONFIRMED);
+        FmmTribKnQualityNormalizedDescription.VALUES.add(UNKNOWN);
+    }
+
+    public static ArrayList<FmmTribKnQualityNormalizedDescription> getImplementationValues() {  // call from super-class through reflection
+        return FmmTribKnQualityNormalizedDescription.VALUES;
+    }
 	
 	public static final String name_COLUMN_1 = "tribkn_quality_normalized_description";
 	
-	public static FmmTribKnQualityNormalizedDescription getObjectForName(String aName) {
-		for(FmmTribKnQualityNormalizedDescription theNodeQualityNormalizedDescription : FmmTribKnQualityNormalizedDescription.values()) {
+	public static FmmTribKnQualityNormalizedDescription getImplementationObjectForName(String aName) {  // call from super-class through reflection
+		for(FmmTribKnQualityNormalizedDescription theNodeQualityNormalizedDescription : FmmTribKnQualityNormalizedDescription.VALUES) {
 			if(theNodeQualityNormalizedDescription.equals(aName)) {
 				return theNodeQualityNormalizedDescription;
 			}
@@ -92,48 +122,19 @@ public enum FmmTribKnQualityNormalizedDescription implements FmmEnumNode {
 	}
 
 	private static FmmNodeDefinition fmmNodeDictionaryEntry = FmmNodeDefinition.getEntryForClass(FmmTribKnQualityNormalizedDescription.class);
-	private static String labelText = fmmNodeDictionaryEntry.getLabelText();
-	private static Drawable labelDrawable = fmmNodeDictionaryEntry.getLabelDrawable();
-	
-	public static GcgGuiable getStaticInstance() {
+
+	public static GcgGuiable getStaticSubclassInstance() {  // call from super-class through reflection
 		return AT_RISK;
-	}
-
-	@Override
-	public String getLabelText() {
-		return labelText;
-	}
-
-	@Override
-	public Drawable getLabelDrawable() {
-		return labelDrawable;
-	}
-
-	@Override
-	public int getLabelDrawableResourceId() {
-		return fmmNodeDictionaryEntry.getLabelDrawableResourceId();
-	}
-
-	@Override
-	public int getDataDrawableResourceId() {
-		return R.drawable.gcg__null_drawable;
 	}
 
 	private NodeId nodeId;
 	private Date timestamp = new Date(0);
-	private int nameStringResourceId;
-	private String name;
-	
-	FmmTribKnQualityNormalizedDescription(int aNameStringResourceId) {
-		this.nameStringResourceId = aNameStringResourceId;
-		this.name = FmmHelper.getContext().getResources().getString(this.nameStringResourceId);
+
+	FmmTribKnQualityNormalizedDescription(int aNameResourceId) {
+        super(aNameResourceId);
 		this.nodeId = new NodeId(
 				FmmNodeDefinition.getEntryForClass(FmmTribKnQualityNormalizedDescription.class),
 				getName() );
-	}
-	
-	public String getName() {
-		return this.name;
 	}
 	
 	@Override
@@ -143,18 +144,8 @@ public enum FmmTribKnQualityNormalizedDescription implements FmmEnumNode {
 	
 	@Override
 	public String getAbbreviatedNodeIdString() {
-		return getNodeId().getAbbreviatedNodeIdString();
-	}
-
-	@Override
-	public Drawable getDataDrawable() {
-		return GcgApplication.getContext().getResources().getDrawable(R.drawable.gcg__null_drawable);
-	}
-
-	@Override
-	public String getDataText() {
-		return getName();
-	}
+        return getNodeId().getAbbreviatedNodeIdString();
+    }
 
 	@Override
 	public NodeId getNodeId() {
@@ -203,13 +194,11 @@ public enum FmmTribKnQualityNormalizedDescription implements FmmEnumNode {
 
 	@Override
 	public boolean isModified(String aSerializedObject) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public FmmNodeImpl getClone() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 	

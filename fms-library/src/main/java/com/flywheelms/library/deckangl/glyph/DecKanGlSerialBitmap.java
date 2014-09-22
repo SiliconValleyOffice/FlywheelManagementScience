@@ -50,13 +50,13 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.Serializable;
 // SerialBitmap
-	public class SerialBitmap implements Serializable {
+	public class DecKanGlSerialBitmap implements Serializable {
 
 		private static final long serialVersionUID = 1L;
 		public Bitmap bitmap;
 
 	    // TODO: Finish this constructor
-	    SerialBitmap(Bitmap aBitmap) {
+	    DecKanGlSerialBitmap(Bitmap aBitmap) {
 	        this.bitmap = aBitmap;
 	    }
 
