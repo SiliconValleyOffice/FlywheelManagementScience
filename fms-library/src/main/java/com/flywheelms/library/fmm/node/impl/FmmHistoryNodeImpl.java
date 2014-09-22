@@ -43,16 +43,16 @@
 
 package com.flywheelms.library.fmm.node.impl;
 
+import com.flywheelms.library.fmm.interfaces.FmmHistory;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.audit.FmmAuditNodeImpl;
 import com.flywheelms.library.fmm.node.impl.nodefrag.FmmHistoryEvent.HistoryEventData;
-import com.flywheelms.library.gcg.interfaces.GcgHistory;
 
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class FmmHistoryNodeImpl extends FmmAuditNodeImpl implements GcgHistory {
+public class FmmHistoryNodeImpl extends FmmAuditNodeImpl implements FmmHistory {
 	
 	protected String serializedBaseline;
 	

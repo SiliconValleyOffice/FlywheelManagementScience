@@ -1,4 +1,4 @@
-/* @(#)GcgHistory.java
+/* @(#)FmmHistory.java
 ** 
 ** Copyright (C) 2012 by Steven D. Stamps
 **
@@ -41,13 +41,14 @@
 ** <http://www.gnu.org/licenses/gpl-3.0.html>.
 */
 
-package com.flywheelms.library.gcg.interfaces;
+package com.flywheelms.library.fmm.interfaces;
 
 import com.flywheelms.library.fmm.node.impl.nodefrag.FmmHistoryEvent.HistoryEventData;
+import com.flywheelms.library.gcg.interfaces.GcgSerialization;
 
 import java.util.ArrayList;
 
-public interface GcgHistory extends GcgSerialization {
+public interface FmmHistory extends GcgSerialization {
 
 	String getSerializedBaseline();
 	

@@ -63,15 +63,15 @@ import com.flywheelms.library.fmm.deckangl.FmsDecoratorStory;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorStrategicCommitment;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorWorkTaskBudget;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorWorkTeam;
+import com.flywheelms.library.fmm.interfaces.FmmHistory;
 import com.flywheelms.library.fmm.node.FmmHeadlineNodeShallow;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragTribKnQuality;
 import com.flywheelms.library.fse.model.FseDocument;
-import com.flywheelms.library.gcg.interfaces.GcgHistory;
 
 import java.util.HashMap;
 
-public interface FmmHeadlineNode extends FmmNode, FmmNodeAudit, GcgHistory {
+public interface FmmHeadlineNode extends FmmNode, FmmNodeAudit, FmmHistory {
 	
 	FmmHeadlineNodeShallow getFmmHeadlineNodeShallow();
 	
