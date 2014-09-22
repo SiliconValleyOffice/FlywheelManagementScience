@@ -43,7 +43,6 @@
 
 package com.flywheelms.library.gcg.context;
 
-import com.flywheelms.library.fmm.context.GcgImplementationHelper;
 import com.flywheelms.library.gcg.interfaces.GcgPerspective;
 
 import org.json.JSONException;
@@ -133,7 +132,7 @@ public class GcgNavigationTarget {
 		if(! isPerspective()) {
 			return null;
 		}
-		return GcgImplementationHelper.getPerspectiveObjectForName(this.headline);
+		return GcgPerspective.getObjectForName(this.headline);
 	}
 	
 }

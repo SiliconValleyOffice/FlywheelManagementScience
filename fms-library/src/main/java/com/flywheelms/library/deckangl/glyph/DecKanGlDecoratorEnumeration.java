@@ -56,7 +56,6 @@ import com.flywheelms.library.deckangl.enumerator.DecKanGlDecoratedGlyphSize;
 import com.flywheelms.library.deckangl.enumerator.DecKanGlDecoratorCanvasLocation;
 import com.flywheelms.library.deckangl.enumerator.DecKanGlDecoratorColor;
 import com.flywheelms.library.deckangl.interfaces.DecKanGlDecorator;
-import com.flywheelms.library.fmm.node.impl.enumerator.FmmTribKnQualityNormalizedDescription;
 import com.flywheelms.library.gcg.GcgApplication;
 
 public abstract class DecKanGlDecoratorEnumeration implements DecKanGlDecorator {
@@ -65,7 +64,7 @@ public abstract class DecKanGlDecoratorEnumeration implements DecKanGlDecorator 
 	private final String description;
 	private final int nounQualityIndex;
 	private final DecKanGlDecoratorColor decoratorColor;
-	private final FmmTribKnQualityNormalizedDescription normalizedDescription;
+	private final DecKanGlTribKnQualityNormalizedDescription normalizedDescription;
 
 	protected DecKanGlDecoratorEnumeration() {  // "static" Guiable instance
 		this.name = "";
@@ -78,7 +77,7 @@ public abstract class DecKanGlDecoratorEnumeration implements DecKanGlDecorator 
 	protected DecKanGlDecoratorEnumeration(
 			String aName,
 			String aDescription,
-			FmmTribKnQualityNormalizedDescription aNormalizedDescription,
+			DecKanGlTribKnQualityNormalizedDescription aNormalizedDescription,
 			int aNounQualityIndex,
 			DecKanGlDecoratorColor aDecKanGlDecoratorColor ) {
 		this.name = aName;
@@ -117,7 +116,7 @@ public abstract class DecKanGlDecoratorEnumeration implements DecKanGlDecorator 
 	}
 	
 	@Override
-	public FmmTribKnQualityNormalizedDescription getNormalizedDescription() {
+	public DecKanGlTribKnQualityNormalizedDescription getNormalizedDescription() {
 		return this.normalizedDescription;
 	}
 	
