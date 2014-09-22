@@ -52,12 +52,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.context.FmmFrame;
-import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fse.widget.FseMultiShiftButton;
 import com.flywheelms.library.gcg.activity.GcgActivity;
+import com.flywheelms.library.gcg.context.GcgFrame;
 import com.flywheelms.library.gcg.dialog.GcgGuiPreferencesDialog;
 import com.flywheelms.library.gcg.interfaces.GcgGuiPreferencesClient;
+import com.flywheelms.library.gcg.interfaces.GcgPerspective;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -251,14 +251,6 @@ public abstract class GcgViewFlipperChildView extends LinearLayout implements Gc
 	public String getAbreviatedPageTitle() {
 		return this.abreviatedPageTitle == null ? "" : this.abreviatedPageTitle;
 	}
-
-	public Date getFmmTimestamp() {
-		return this.fmmTimestamp;
-	}
-
-	protected void setFmmTimestamp(Date fmmTimestamp) {
-		this.fmmTimestamp = fmmTimestamp;
-	}
 	
 	////  GUI Preferences  /////////////////
 	
@@ -291,7 +283,7 @@ public abstract class GcgViewFlipperChildView extends LinearLayout implements Gc
 		return;
 	}
 
-	public void activityGlNavigation(FmmFrame aFrame, FmmPerspective aPerspective) {
+	public void activityNavigation(GcgFrame aFrame, GcgPerspective aPerspective) {
 		getGcgActivity().activityNavigation(aFrame, aPerspective);
 	}
 	
