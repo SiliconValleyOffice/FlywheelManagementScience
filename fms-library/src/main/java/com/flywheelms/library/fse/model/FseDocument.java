@@ -43,7 +43,8 @@
 
 package com.flywheelms.library.fse.model;
 
-import com.flywheelms.library.deckangl.glyph.DecKanGlGlyph;
+import com.flywheelms.gcongui.deckangl.glyph.DecKanGlGlyph;
+import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
 import com.flywheelms.library.fca.FlywheelCommunityAuthentication;
 import com.flywheelms.library.fmm.enumerator.FmmLockStatus;
 import com.flywheelms.library.fmm.meta_data.IdNodeMetaData;
@@ -68,7 +69,6 @@ import com.flywheelms.library.fse.perspective_flipper.perspective.FseDocumentSec
 import com.flywheelms.library.fse.perspective_flipper.perspective.FseDocumentSectionStoryPerspective;
 import com.flywheelms.library.fse.perspective_flipper.perspective.FseDocumentSectionTribKnPerspective;
 import com.flywheelms.library.fse.util.FseDocumentSerialization;
-import com.flywheelms.library.gcg.widget.date.GcgDateHelper;
 
 import org.json.JSONException;
 import org.json.JSONObject;

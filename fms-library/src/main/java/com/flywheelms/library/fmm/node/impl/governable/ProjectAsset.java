@@ -45,8 +45,9 @@ package com.flywheelms.library.fmm.node.impl.governable;
 
 import android.content.Intent;
 
-import com.flywheelms.library.deckangl.enumerator.DecKanGlDecoratorCanvasLocation;
-import com.flywheelms.library.deckangl.interfaces.DecKanGlDecorator;
+import com.flywheelms.gcongui.deckangl.enumerator.DecKanGlDecoratorCanvasLocation;
+import com.flywheelms.gcongui.deckangl.interfaces.DecKanGlDecorator;
+import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorChildFractals;
@@ -73,7 +74,6 @@ import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
 import com.flywheelms.library.fmm.node.interfaces.FmmSequencedNode;
 import com.flywheelms.library.fmm.transaction.FmmNodeGlyphType;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
-import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.util.JsonHelper;
 
 import org.json.JSONArray;

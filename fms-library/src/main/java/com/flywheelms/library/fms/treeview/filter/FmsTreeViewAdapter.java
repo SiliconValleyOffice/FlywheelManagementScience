@@ -52,6 +52,11 @@ import android.widget.LinearLayout;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 
+import com.flywheelms.gcongui.gcg.GcgApplication;
+import com.flywheelms.gcongui.gcg.interfaces.GcgPerspective;
+import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewAdapter;
+import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewMediator;
+import com.flywheelms.gcongui.gcg.treeview.node.GcgTreeNodeInfo;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.context.FmmFrame;
@@ -89,11 +94,6 @@ import com.flywheelms.library.fms.dialog.WorkPackageMoveWorkBreakdownDialog;
 import com.flywheelms.library.fms.dialog.WorkPackageOrphanDialog;
 import com.flywheelms.library.fms.popup_menu.FmmHeadlineNodePopupListener;
 import com.flywheelms.library.fms.popup_menu.FmmPopupBuilder;
-import com.flywheelms.library.gcg.GcgApplication;
-import com.flywheelms.library.gcg.interfaces.GcgPerspective;
-import com.flywheelms.library.gcg.treeview.GcgTreeViewAdapter;
-import com.flywheelms.library.gcg.treeview.GcgTreeViewMediator;
-import com.flywheelms.library.gcg.treeview.node.GcgTreeNodeInfo;
 
 import java.util.ArrayList;
 

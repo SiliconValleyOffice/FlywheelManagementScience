@@ -46,10 +46,10 @@ package com.flywheelms.library.fms.perspective_flipper.perspective;
 import android.content.Context;
 import android.util.AttributeSet;
 
+import com.flywheelms.gcongui.gcg.interfaces.GcgPerspective;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fms.helper.FmsHelpIndex;
-import com.flywheelms.library.gcg.interfaces.GcgPerspective;
 
 
 public class FmsCommitmentsPerspective extends FmsPerspectiveFlipperView {

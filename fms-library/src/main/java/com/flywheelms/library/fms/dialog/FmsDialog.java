@@ -43,10 +43,10 @@
 
 package com.flywheelms.library.fms.dialog;
 
+import com.flywheelms.gcongui.gcg.activity.GcgActivity;
+import com.flywheelms.gcongui.gcg.dialog.GcgDialog;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
-import com.flywheelms.library.gcg.activity.GcgActivity;
-import com.flywheelms.library.gcg.dialog.GcgDialog;
 
 public abstract class FmsDialog extends GcgDialog {
 

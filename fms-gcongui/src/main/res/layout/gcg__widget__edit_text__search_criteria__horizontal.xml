@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/GcgWidgetRowHorizontal" >
+    
+    <TextView
+        android:id="@+id/widget_label"
+        style="@style/GcgWidgetLabelHorizontalContainer"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true" />
+    
+    <TextView
+        android:id="@+id/widget_fdk_cursor"
+        android:layout_width="6dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:visibility="gone"
+        android:background="@color/x11__Orange" />
+    
+    <Button
+        android:id="@+id/search__button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/gcg__button_state_list__action__search" />
+
+    <com.flywheelms.gcongui.gcg.widget.GcgEditText
+        android:id="@+id/widget_data"
+        style="@style/GcgWidgetData"
+        android:layout_width="match_parent"
+        android:layout_marginRight="0dp"
+        android:layout_toRightOf="@id/widget_label"
+        android:layout_toLeftOf="@id/widget_fdk_cursor"
+        android:layout_centerVertical="true"
+		android:textCursorDrawable="@drawable/gcg__cursor"
+        android:lines="1"
+		android:maxLines="1"
+		android:singleLine="true" />
+</RelativeLayout>

@@ -45,12 +45,12 @@ package com.flywheelms.library.fms.activity;
 
 import android.content.Intent;
 
+import com.flywheelms.gcongui.gcg.context.GcgNavigationTarget;
+import com.flywheelms.gcongui.gcg.wizard.GcgWizardActivity;
 import com.flywheelms.library.fmm.enumerator.FmmNodeTransactionType;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.transaction.FmmDataRefreshNotice;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
-import com.flywheelms.library.gcg.context.GcgNavigationTarget;
-import com.flywheelms.library.gcg.wizard.GcgWizardActivity;
 
 import java.util.ArrayList;
 import java.util.Hashtable;

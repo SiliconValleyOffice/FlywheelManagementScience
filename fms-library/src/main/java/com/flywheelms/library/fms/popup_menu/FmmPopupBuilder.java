@@ -46,8 +46,8 @@ package com.flywheelms.library.fms.popup_menu;
 import android.view.View;
 import android.widget.PopupMenu;
 
+import com.flywheelms.gcongui.gcg.treeview.node.GcgTreeNodeInfo;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
-import com.flywheelms.library.gcg.treeview.node.GcgTreeNodeInfo;
 
 /*
  * on the surface, the purpose of this class is to build context-sensitive popup menus for FMM Nodes.

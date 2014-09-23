@@ -46,8 +46,8 @@ package com.flywheelms.library.fms.widget.text_view;
 import android.content.Context;
 import android.util.AttributeSet;
 
+import com.flywheelms.gcongui.gcg.widget.GcgWidgetTextView;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
-import com.flywheelms.library.gcg.widget.GcgWidgetTextView;
 
 public class FiscalYearWidgetTextView extends GcgWidgetTextView {
 	

@@ -43,9 +43,9 @@
 
 package com.flywheelms.library.fse.model;
 
+import com.flywheelms.gcongui.gcg.interfaces.GcgSerialization;
+import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
 import com.flywheelms.library.fse.util.FseDocumentSerialization;
-import com.flywheelms.library.gcg.interfaces.GcgSerialization;
-import com.flywheelms.library.gcg.widget.date.GcgDateHelper;
 import com.flywheelms.library.util.JsonHelper;
 
 import org.json.JSONException;

@@ -48,12 +48,12 @@ import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.flywheelms.gcongui.gcg.helper.GcgHelper;
+import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fca.FlywheelCommunityAuthentication;
 import com.flywheelms.library.fse.FseDocumentSectionType;
 import com.flywheelms.library.fse.model.FseDocumentTransaction;
-import com.flywheelms.library.gcg.helper.GcgHelper;
-import com.flywheelms.library.gcg.widget.date.GcgDateHelper;
 
 public class FseDocumentTransactionRowView extends LinearLayout {
 	

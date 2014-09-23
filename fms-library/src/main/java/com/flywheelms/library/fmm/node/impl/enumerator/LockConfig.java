@@ -44,10 +44,10 @@ package com.flywheelms.library.fmm.node.impl.enumerator;
 
 import android.graphics.drawable.Drawable;
 
+import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.FmmNodeImpl;
 import com.flywheelms.library.fmm.node.interfaces.FmmEnumNode;
-import com.flywheelms.library.gcg.interfaces.GcgGuiable;
 
 import java.util.ArrayList;
 import java.util.Date;

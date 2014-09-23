@@ -46,12 +46,12 @@ package com.flywheelms.library.fse.perspective_flipper.perspective;
 import android.content.Context;
 import android.util.AttributeSet;
 
+import com.flywheelms.gcongui.gcg.interfaces.GcgPerspective;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fms.helper.FmsHelpIndex;
 import com.flywheelms.library.fse.FseDocumentSectionType;
 import com.flywheelms.library.fse.model.FseDocumentSectionStory;
-import com.flywheelms.library.gcg.interfaces.GcgPerspective;
 
 // com.flywheelms.library.fse.views.FseDocumentSectionStoryView
 public class FseDocumentSectionStoryPerspective extends FseDocumentSectionParagraphEditorPerspective {

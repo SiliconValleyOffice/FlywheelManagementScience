@@ -43,11 +43,11 @@
 
 package com.flywheelms.library.fms.dialog;
 
+import com.flywheelms.gcongui.gcg.activity.GcgActivity;
+import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewAdapter;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.node.impl.governable.Portfolio;
 import com.flywheelms.library.fmm.node.impl.governable.Project;
-import com.flywheelms.library.gcg.activity.GcgActivity;
-import com.flywheelms.library.gcg.treeview.GcgTreeViewAdapter;
 
 public class ProjectOrphanDialog extends HeadlineNodeOrphanDialog {
 

@@ -46,9 +46,9 @@ package com.flywheelms.library.fms.widget.spinner;
 import android.content.Context;
 import android.util.AttributeSet;
 
+import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
+import com.flywheelms.gcongui.gcg.widget.GcgWidgetSpinner;
 import com.flywheelms.library.fmm.node.impl.enumerator.CompletableWorkStatus;
-import com.flywheelms.library.gcg.interfaces.GcgGuiable;
-import com.flywheelms.library.gcg.widget.GcgWidgetSpinner;
 
 import java.util.ArrayList;
 import java.util.Arrays;

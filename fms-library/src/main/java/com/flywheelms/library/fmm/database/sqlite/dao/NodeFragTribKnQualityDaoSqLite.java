@@ -46,6 +46,7 @@ package com.flywheelms.library.fmm.database.sqlite.dao;
 import android.content.ContentValues;
 import android.database.Cursor;
 
+import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorChildFractals;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorCompletion;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorFacilitationIssue;
@@ -63,7 +64,6 @@ import com.flywheelms.library.fmm.meta_data.NodeFragMetaData;
 import com.flywheelms.library.fmm.meta_data.NodeFragTribKnQualityMetaData;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragTribKnQuality;
-import com.flywheelms.library.gcg.widget.date.GcgDateHelper;
 
 import java.util.HashMap;
 

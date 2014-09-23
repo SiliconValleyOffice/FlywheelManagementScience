@@ -52,14 +52,14 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.flywheelms.gcongui.gcg.dialog.GcgSaveChangesDialog;
+import com.flywheelms.gcongui.gcg.helper.GcgHelper;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.node.FmmHeadlineNodeShallow;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
 import com.flywheelms.library.fms.miscellaneous.FmsHeadlineNodeShallowArrayAdapter;
-import com.flywheelms.library.gcg.dialog.GcgSaveChangesDialog;
-import com.flywheelms.library.gcg.helper.GcgHelper;
 
 import java.util.ArrayList;
 

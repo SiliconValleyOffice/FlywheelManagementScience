@@ -54,11 +54,11 @@ import android.view.inputmethod.InputConnectionWrapper;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.flywheelms.gcongui.gcg.helper.GcgHelper;
 import com.flywheelms.library.fse.FseDocumentSectionType;
 import com.flywheelms.library.fse.interfaces.FseParagraphContentView;
 import com.flywheelms.library.fse.listeners.FseParagraphTextWatcher;
 import com.flywheelms.library.fse.perspective_flipper.FsePerspectiveFlipper;
-import com.flywheelms.library.gcg.helper.GcgHelper;
 
 import java.util.Locale;
 

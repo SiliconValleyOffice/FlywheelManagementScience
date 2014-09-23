@@ -43,11 +43,11 @@
 
 package com.flywheelms.library.fwb.treeview.treebuilder;
 
+import com.flywheelms.gcongui.gcg.treeview.GcgTreeBuilder;
+import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewMediator;
+import com.flywheelms.gcongui.gcg.treeview.node.GcgTreeNodeInfo;
+import com.flywheelms.gcongui.gcg.treeview.node.GcgTreeNodeTargetObject;
 import com.flywheelms.library.fmm.context.FmmPerspective;
-import com.flywheelms.library.gcg.treeview.GcgTreeBuilder;
-import com.flywheelms.library.gcg.treeview.GcgTreeViewMediator;
-import com.flywheelms.library.gcg.treeview.node.GcgTreeNodeInfo;
-import com.flywheelms.library.gcg.treeview.node.GcgTreeNodeTargetObject;
 
 public class FmsTreeBuilder extends GcgTreeBuilder {
 

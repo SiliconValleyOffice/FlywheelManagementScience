@@ -52,6 +52,13 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.flywheelms.gcongui.gcg.activity.GcgActivity;
+import com.flywheelms.gcongui.gcg.android.AndroidContact;
+import com.flywheelms.gcongui.gcg.helper.GcgHelper;
+import com.flywheelms.gcongui.gcg.preferences.GcgPreferencesHelper;
+import com.flywheelms.gcongui.gcg.viewflipper.GcgViewFlipper;
+import com.flywheelms.gcongui.gcg.widget.list_view.AndroidContactsWidgetListView;
+import com.flywheelms.gcongui.gcg.wizard.step.GcgWizardStepView;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.node.impl.governable.CommunityMember;
 import com.flywheelms.library.fms.activity.FmsNodeWizardActivity;
@@ -60,13 +67,6 @@ import com.flywheelms.library.fms.helper.FmsTextHelper;
 import com.flywheelms.library.fms.preferences.GuiPreferenceAttribute;
 import com.flywheelms.library.fms.preferences.GuiPreferencesBundle;
 import com.flywheelms.library.fms.widget.list_view.CommunityMemberWidgetListView;
-import com.flywheelms.library.gcg.activity.GcgActivity;
-import com.flywheelms.library.gcg.android.AndroidContact;
-import com.flywheelms.library.gcg.helper.GcgHelper;
-import com.flywheelms.library.gcg.preferences.GcgPreferencesHelper;
-import com.flywheelms.library.gcg.viewflipper.GcgViewFlipper;
-import com.flywheelms.library.gcg.widget.list_view.AndroidContactsWidgetListView;
-import com.flywheelms.library.gcg.wizard.step.GcgWizardStepView;
 
 import java.util.ArrayList;
 

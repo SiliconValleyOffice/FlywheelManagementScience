@@ -38,9 +38,9 @@
 
 package com.flywheelms.library.fmm.node.interfaces.horizontal;
 
+import com.flywheelms.gcongui.gcg.treeview.node.GcgTreeNodeTargetObject;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.enumerator.CompletableWorkStatus;
-import com.flywheelms.library.gcg.treeview.node.GcgTreeNodeTargetObject;
 
 public interface FmmTreeNodeTargetObject extends GcgTreeNodeTargetObject {
 

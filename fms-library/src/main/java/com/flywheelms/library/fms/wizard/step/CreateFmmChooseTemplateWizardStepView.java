@@ -51,16 +51,16 @@ import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.TextView;
 
+import com.flywheelms.gcongui.fdk.wizard.FdkWizardStepView;
+import com.flywheelms.gcongui.gcg.activity.GcgActivity;
+import com.flywheelms.gcongui.gcg.helper.GcgHelper;
+import com.flywheelms.gcongui.gcg.viewflipper.GcgViewFlipper;
+import com.flywheelms.gcongui.gcg.widget.edit_text.GcgWidgetFileNameEditText;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fdk.wizard.FdkWizardStepView;
 import com.flywheelms.library.fmm.repository.FmmConfigurationTemplateSource;
 import com.flywheelms.library.fms.helper.FmsHelpIndex;
 import com.flywheelms.library.fms.widget.spinner.FmmTemplateWidgetSpinner;
 import com.flywheelms.library.fms.wizard.CreateFmmWizardStepFlipper;
-import com.flywheelms.library.gcg.activity.GcgActivity;
-import com.flywheelms.library.gcg.helper.GcgHelper;
-import com.flywheelms.library.gcg.viewflipper.GcgViewFlipper;
-import com.flywheelms.library.gcg.widget.edit_text.GcgWidgetFileNameEditText;
 
 public class CreateFmmChooseTemplateWizardStepView extends FdkWizardStepView {
 

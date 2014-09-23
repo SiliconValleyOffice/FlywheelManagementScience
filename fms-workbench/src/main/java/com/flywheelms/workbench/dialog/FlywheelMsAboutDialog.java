@@ -43,8 +43,8 @@
 
 package com.flywheelms.workbench.dialog;
 
+import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.library.fms.dialog.FmsDialog;
-import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.workbench.R;
 
 public class FlywheelMsAboutDialog extends FmsDialog {

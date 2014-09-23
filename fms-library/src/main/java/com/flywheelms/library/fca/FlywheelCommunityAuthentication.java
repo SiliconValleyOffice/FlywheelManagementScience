@@ -43,11 +43,11 @@
 
 package com.flywheelms.library.fca;
 
+import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
 import com.flywheelms.library.fca.enumerator.FcaAuthority;
 import com.flywheelms.library.fca.util.FcaUserCredentials;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.node.impl.governable.CommunityMember;
-import com.flywheelms.library.gcg.widget.date.GcgDateHelper;
 
 public class FlywheelCommunityAuthentication {
 	

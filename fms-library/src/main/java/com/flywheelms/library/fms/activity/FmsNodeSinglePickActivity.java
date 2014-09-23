@@ -65,11 +65,11 @@ import android.widget.PopupMenu.OnDismissListener;
 import android.widget.PopupMenu.OnMenuItemClickListener;
 import android.widget.TextView;
 
+import com.flywheelms.gcongui.fdk.FdkHostSupport;
+import com.flywheelms.gcongui.fdk.enumerator.FdkKeyboardState;
+import com.flywheelms.gcongui.fdk.enumerator.FdkKeyboardStyle;
+import com.flywheelms.gcongui.fdk.widget.FdkKeyboard;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fdk.FdkHostSupport;
-import com.flywheelms.library.fdk.enumerator.FdkKeyboardState;
-import com.flywheelms.library.fdk.enumerator.FdkKeyboardStyle;
-import com.flywheelms.library.fdk.widget.FdkKeyboard;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.node.FmmHeadlineNodeShallow;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;

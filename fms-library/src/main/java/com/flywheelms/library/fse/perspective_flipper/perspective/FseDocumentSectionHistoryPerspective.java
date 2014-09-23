@@ -49,6 +49,10 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
+import com.flywheelms.gcongui.gcg.activity.GcgActivity;
+import com.flywheelms.gcongui.gcg.dialog.GcgSaveChangesDialog;
+import com.flywheelms.gcongui.gcg.interfaces.GcgPerspective;
+import com.flywheelms.gcongui.gcg.viewflipper.GcgViewFlipper;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fms.dialog.FseRevertCancelOkDialog;
@@ -63,10 +67,6 @@ import com.flywheelms.library.fse.model.FseDocumentSectionParagraphAudit;
 import com.flywheelms.library.fse.model.FseDocumentTransactionType;
 import com.flywheelms.library.fse.perspective_flipper.FsePerspectiveFlipper;
 import com.flywheelms.library.fse.views.FseTransactionTableView;
-import com.flywheelms.library.gcg.activity.GcgActivity;
-import com.flywheelms.library.gcg.dialog.GcgSaveChangesDialog;
-import com.flywheelms.library.gcg.interfaces.GcgPerspective;
-import com.flywheelms.library.gcg.viewflipper.GcgViewFlipper;
 
 import org.json.JSONObject;
 

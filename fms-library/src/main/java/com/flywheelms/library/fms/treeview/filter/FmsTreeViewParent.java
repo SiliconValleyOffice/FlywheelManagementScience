@@ -43,11 +43,11 @@
 
 package com.flywheelms.library.fms.treeview.filter;
 
+import com.flywheelms.gcongui.gcg.treeview.interfaces.GcgTreeViewParent;
+import com.flywheelms.gcongui.gcg.treeview.node.GcgTreeNodeInfo;
 import com.flywheelms.library.fmm.context.FmmFrame;
 import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fmm.node.FmmHeadlineNodeShallow;
-import com.flywheelms.library.gcg.treeview.interfaces.GcgTreeViewParent;
-import com.flywheelms.library.gcg.treeview.node.GcgTreeNodeInfo;
 
 import java.util.ArrayList;
 

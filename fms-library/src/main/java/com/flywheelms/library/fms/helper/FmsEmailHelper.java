@@ -47,10 +47,10 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 
+import com.flywheelms.gcongui.gcg.GcgApplication;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
-import com.flywheelms.library.gcg.GcgApplication;
 
 import java.io.File;
 

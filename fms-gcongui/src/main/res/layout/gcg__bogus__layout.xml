@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/fdk__left_keypad__peer_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" />
+
+    <TextView
+        android:id="@+id/gcg__activity_curtain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gcg__portobello"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:id="@+id/gcg__menu_curtain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gcg__thumb_menu__background" />
+
+    <Button
+        android:id="@+id/gcg__gui_preferences"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="25dp"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/gcg__button_state_list__gui_preferences" />
+
+    <View
+        android:id="@+id/gcg__tree_node_filler"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_weight="1"
+        android:layout_marginLeft="8dp"
+        android:background="@color/gcg__tree_view__node_filler_line" />
+
+    <com.flywheelms.gcongui.gcg.wizard.GcgWizardStepFlipper
+        android:id="@+id/gcg__wizard__step_flipper"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+</LinearLayout>

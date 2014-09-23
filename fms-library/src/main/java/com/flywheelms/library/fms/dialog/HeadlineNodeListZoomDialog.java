@@ -52,8 +52,12 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.flywheelms.gcongui.deckangl.enumerator.DecKanGlAnnotatedGlyphSize;
+import com.flywheelms.gcongui.gcg.activity.GcgActivity;
+import com.flywheelms.gcongui.gcg.container.GcgContainerTabbedLayout;
+import com.flywheelms.gcongui.gcg.container.tabbed.GcgTabSpec;
+import com.flywheelms.gcongui.gcg.helper.GcgHelper;
 import com.flywheelms.library.R;
-import com.flywheelms.library.deckangl.enumerator.DecKanGlAnnotatedGlyphSize;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.fms.miscellaneous.FmsHeadlineNodeArrayAdapter;
 import com.flywheelms.library.fms.widget.FmmHeadlineNodeWidgetSpinner;
@@ -61,10 +65,6 @@ import com.flywheelms.library.fms.widget.text_view.CustomerWidgetTextView;
 import com.flywheelms.library.fms.widget.text_view.FacilitatorWidgetTextView;
 import com.flywheelms.library.fms.widget.text_view.FseStoryWidget;
 import com.flywheelms.library.fms.widget.text_view.SponsorWidgetTextView;
-import com.flywheelms.library.gcg.activity.GcgActivity;
-import com.flywheelms.library.gcg.container.GcgContainerTabbedLayout;
-import com.flywheelms.library.gcg.container.tabbed.GcgTabSpec;
-import com.flywheelms.library.gcg.helper.GcgHelper;
 
 import java.util.ArrayList;
 

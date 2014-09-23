@@ -43,12 +43,12 @@
 
 package com.flywheelms.library.fmm.node.impl.nodefrag;
 
+import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
 import com.flywheelms.library.fca.FlywheelCommunityAuthentication;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.governable.CommunityMember;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmCompletionNode;
-import com.flywheelms.library.gcg.widget.date.GcgDateHelper;
 
 import java.util.Date;
 

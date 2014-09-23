@@ -49,15 +49,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 
+import com.flywheelms.gcongui.gcg.GcgApplication;
+import com.flywheelms.gcongui.gcg.helper.GcgGuiableSpinnerArrayAdapter;
+import com.flywheelms.gcongui.gcg.helper.GcgHelper;
+import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
+import com.flywheelms.gcongui.gcg.widget.GcgWidgetSpinner;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmNode;
 import com.flywheelms.library.fms.dialog.HeadlineNodeListZoomDialog;
-import com.flywheelms.library.gcg.GcgApplication;
-import com.flywheelms.library.gcg.helper.GcgGuiableSpinnerArrayAdapter;
-import com.flywheelms.library.gcg.helper.GcgHelper;
-import com.flywheelms.library.gcg.interfaces.GcgGuiable;
-import com.flywheelms.library.gcg.widget.GcgWidgetSpinner;
 
 import java.util.ArrayList;
 

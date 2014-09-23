@@ -45,8 +45,8 @@ package com.flywheelms.library.fms.treeview.filter;
 
 import android.view.View;
 
-import com.flywheelms.library.gcg.treeview.GcgTreeFilter;
-import com.flywheelms.library.gcg.treeview.node.GcgTreeNode;
+import com.flywheelms.gcongui.gcg.treeview.GcgTreeFilter;
+import com.flywheelms.gcongui.gcg.treeview.node.GcgTreeNode;
 
 public class GovernanceTreeFilter extends GcgTreeFilter {
 

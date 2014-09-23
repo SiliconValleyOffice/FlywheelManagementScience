@@ -18,7 +18,7 @@
         android:layout_height="0dp"
         android:layout_weight="1.0" >
 
-        <com.flywheelms.library.gcg.widget.GcgWidgetTextViewSummaryBox
+        <com.flywheelms.gcongui.gcg.widget.GcgWidgetTextViewSummaryBox
             android:id="@+id/summary__step_1"
             android:layout_width="440dp"
             android:layout_height="170dp"
@@ -28,7 +28,7 @@
             android:layout_marginTop="10dp"
             gcg:labelText="@string/create__fmm_repository__headline__summary_box" />
 
-        <com.flywheelms.library.gcg.widget.GcgWidgetTextViewSummaryBox
+        <com.flywheelms.gcongui.gcg.widget.GcgWidgetTextViewSummaryBox
             android:id="@+id/summary__step_3"
             android:layout_width="440dp"
             android:layout_height="170dp"
@@ -38,7 +38,7 @@
             android:layout_marginTop="13dp"
             gcg:labelText="@string/create__fmm_repository__organization__summary_box" />
 
-        <com.flywheelms.library.gcg.widget.GcgWidgetTextViewSummaryBox
+        <com.flywheelms.gcongui.gcg.widget.GcgWidgetTextViewSummaryBox
             android:id="@+id/summary__step_2"
             android:layout_width="440dp"
             android:layout_height="170dp"
@@ -48,7 +48,7 @@
             android:layout_marginRight="24dp"
             gcg:labelText="@string/create__fmm_repository__fmm_template__summary_box" />
 
-        <com.flywheelms.library.gcg.widget.GcgWidgetTextViewSummaryBox
+        <com.flywheelms.gcongui.gcg.widget.GcgWidgetTextViewSummaryBox
             android:id="@+id/summary__step_4"
             android:layout_width="440dp"
             android:layout_height="170dp"

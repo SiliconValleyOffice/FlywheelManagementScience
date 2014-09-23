@@ -43,9 +43,9 @@
 
 package com.flywheelms.library.fmm.helper;
 
+import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.enumerator.GovernanceRole;
-import com.flywheelms.library.gcg.interfaces.GcgGuiable;
 
 import java.util.ArrayList;
 

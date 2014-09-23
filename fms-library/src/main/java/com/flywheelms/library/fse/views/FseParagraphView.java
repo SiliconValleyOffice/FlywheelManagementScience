@@ -51,6 +51,7 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
 import com.flywheelms.library.fca.FlywheelCommunityAuthentication;
 import com.flywheelms.library.fmm.enumerator.FmmLockStatus;
 import com.flywheelms.library.fmm.node.NodeId;
@@ -71,7 +72,6 @@ import com.flywheelms.library.fse.model.FseTemplateParagraph;
 import com.flywheelms.library.fse.perspective_flipper.FsePerspectiveFlipper;
 import com.flywheelms.library.fse.util.FseDocumentSerialization;
 import com.flywheelms.library.fse.widget.FseParagraphSpinner;
-import com.flywheelms.library.gcg.widget.date.GcgDateHelper;
 
 import org.json.JSONException;
 import org.json.JSONObject;

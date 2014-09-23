@@ -46,13 +46,13 @@ package com.flywheelms.library.fms.perspective_flipper.perspective;
 import android.content.Context;
 import android.util.AttributeSet;
 
+import com.flywheelms.gcongui.deckangl.component.DecKanGlNavigationComponentParent;
+import com.flywheelms.gcongui.gcg.context.GcgFrame;
+import com.flywheelms.gcongui.gcg.interfaces.GcgPerspective;
 import com.flywheelms.library.R;
-import com.flywheelms.library.deckangl.component.DecKanGlNavigationComponentParent;
 import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fms.component.FmsDecKanGlNavigationComponent;
 import com.flywheelms.library.fms.helper.FmsHelpIndex;
-import com.flywheelms.library.gcg.context.GcgFrame;
-import com.flywheelms.library.gcg.interfaces.GcgPerspective;
 
 public class FmsDecKanGlPerspective extends FmsPerspectiveFlipperView implements DecKanGlNavigationComponentParent {
 	

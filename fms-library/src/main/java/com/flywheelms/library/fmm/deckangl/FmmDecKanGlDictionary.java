@@ -47,10 +47,10 @@
 
 package com.flywheelms.library.fmm.deckangl;
 
-import com.flywheelms.library.deckangl.glyph.DecKanGlDictionary;
-import com.flywheelms.library.deckangl.glyph.DecKanGlElementNoun;
-import com.flywheelms.library.deckangl.glyph.DecKanGlElementNounQualityMetric;
-import com.flywheelms.library.deckangl.glyph.DecKanGlElementNounState;
+import com.flywheelms.gcongui.deckangl.glyph.DecKanGlDictionary;
+import com.flywheelms.gcongui.deckangl.glyph.DecKanGlElementNoun;
+import com.flywheelms.gcongui.deckangl.glyph.DecKanGlElementNounQualityMetric;
+import com.flywheelms.gcongui.deckangl.glyph.DecKanGlElementNounState;
 import com.flywheelms.library.fmm.node.impl.enumerator.CompletableWorkStatus;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 

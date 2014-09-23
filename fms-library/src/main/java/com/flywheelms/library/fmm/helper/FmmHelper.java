@@ -44,9 +44,9 @@ package com.flywheelms.library.fmm.helper;
 import android.content.Context;
 import android.content.res.Resources;
 
+import com.flywheelms.gcongui.gcg.GcgApplication;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.repository.FmmConfigurationPrivate;
-import com.flywheelms.library.gcg.GcgApplication;
 
 public class FmmHelper {
 	

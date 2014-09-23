@@ -47,15 +47,15 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
 
+import com.flywheelms.gcongui.gcg.GcgApplication;
+import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
+import com.flywheelms.gcongui.gcg.widget.GcgWidgetSpinner;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.node.impl.enumerator.GovernanceRole;
 import com.flywheelms.library.fmm.node.impl.enumerator.GovernanceTarget;
 import com.flywheelms.library.fmm.node.impl.governable.CommunityMember;
 import com.flywheelms.library.fmm.node.impl.governable.FmsOrganization;
-import com.flywheelms.library.gcg.GcgApplication;
-import com.flywheelms.library.gcg.interfaces.GcgGuiable;
-import com.flywheelms.library.gcg.widget.GcgWidgetSpinner;
 
 import java.util.ArrayList;
 

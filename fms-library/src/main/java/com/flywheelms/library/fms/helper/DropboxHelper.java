@@ -43,7 +43,7 @@
 
 package com.flywheelms.library.fms.helper;
 
-import com.flywheelms.library.gcg.GcgApplication;
+import com.flywheelms.gcongui.gcg.GcgApplication;
 
 public class DropboxHelper {
 	

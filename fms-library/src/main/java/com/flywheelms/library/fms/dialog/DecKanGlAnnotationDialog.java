@@ -45,12 +45,12 @@ package com.flywheelms.library.fms.dialog;
 
 import android.widget.ImageView;
 
+import com.flywheelms.gcongui.deckangl.enumerator.DecKanGlAnnotatedGlyphSize;
+import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.library.R;
-import com.flywheelms.library.deckangl.enumerator.DecKanGlAnnotatedGlyphSize;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.fms.widget.text_view.FmmNodeTypeWidgetTextView;
 import com.flywheelms.library.fms.widget.text_view.HeadlineWidgetTextView;
-import com.flywheelms.library.gcg.activity.GcgActivity;
 
 public class DecKanGlAnnotationDialog extends FmsCancelDialog {
 	

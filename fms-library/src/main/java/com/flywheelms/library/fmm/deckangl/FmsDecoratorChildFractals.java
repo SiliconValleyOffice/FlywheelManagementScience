@@ -49,12 +49,12 @@ package com.flywheelms.library.fmm.deckangl;
 
 import android.graphics.drawable.Drawable;
 
+import com.flywheelms.gcongui.deckangl.enumerator.DecKanGlDecoratorCanvasLocation;
+import com.flywheelms.gcongui.deckangl.enumerator.DecKanGlDecoratorColor;
+import com.flywheelms.gcongui.deckangl.glyph.DecKanGlDecoratorEnumeration;
+import com.flywheelms.gcongui.gcg.GcgApplication;
 import com.flywheelms.library.R;
-import com.flywheelms.library.deckangl.enumerator.DecKanGlDecoratorCanvasLocation;
-import com.flywheelms.library.deckangl.enumerator.DecKanGlDecoratorColor;
-import com.flywheelms.library.deckangl.glyph.DecKanGlDecoratorEnumeration;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmTribKnQualityNormalizedDescription;
-import com.flywheelms.library.gcg.GcgApplication;
 
 import java.util.ArrayList;
 import java.util.HashMap;

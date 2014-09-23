@@ -48,6 +48,8 @@ import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
+import com.flywheelms.gcongui.gcg.activity.GcgActivity;
+import com.flywheelms.gcongui.gcg.viewflipper.GcgViewFlipper;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fms.helper.FmsHelpIndex;
 import com.flywheelms.library.fse.FseDocumentSectionType;
@@ -55,8 +57,6 @@ import com.flywheelms.library.fse.enumerator.FseContentModificationState;
 import com.flywheelms.library.fse.enumerator.FseNumberingModificationState;
 import com.flywheelms.library.fse.interfaces.FmsPerspectiveFlipperParent;
 import com.flywheelms.library.fse.model.FseDocumentSection;
-import com.flywheelms.library.gcg.activity.GcgActivity;
-import com.flywheelms.library.gcg.viewflipper.GcgViewFlipper;
 
 public class FseDocumentSectionNotesBrowserPerspective extends FseDocumentSectionNotesPerspective {
 

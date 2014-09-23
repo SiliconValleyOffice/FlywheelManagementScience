@@ -1,0 +1,53 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/gcg__left_menu__width"
+    android:layout_height="@dimen/fdk__keypad__height"
+    android:background="@color/fdk__keypad__background"
+    android:gravity="left"
+    android:orientation="vertical" >
+    
+    <com.flywheelms.gcongui.fdk.widget.FdkKeypadButton
+        android:id="@+id/fdk__button__start"
+        android:layout_width="@dimen/fdk__key__width"
+        android:layout_height="@dimen/fdk__key__height"
+		android:background="@drawable/fdk__button_state_list__start"
+        android:layout_marginTop="@dimen/fdk__top_key__margin_top" />
+    
+    <TextView
+        android:layout_width="@dimen/fdk__key__width"
+        android:layout_height="@dimen/fdk__key__height"
+        android:layout_marginTop="@dimen/fdk__key__margin_top" />
+
+    <com.flywheelms.gcongui.fdk.widget.FdkKeypadButton
+        android:id="@+id/fdk__button__delete"
+        android:layout_width="@dimen/fdk__key__width"
+        android:layout_height="@dimen/fdk__key__height"
+		android:background="@drawable/fdk__button_state_list__delete"
+        android:layout_marginTop="@dimen/fdk__key__margin_top" />
+    
+    <TextView
+        android:layout_width="@dimen/fdk__key__width"
+        android:layout_height="@dimen/fdk__key__height"
+        android:layout_marginTop="@dimen/fdk__key__margin_top" />
+
+    <com.flywheelms.gcongui.fdk.widget.FdkKeypadButton
+        android:id="@+id/fdk__button__cursor_up"
+        android:layout_width="@dimen/fdk__key__width"
+        android:layout_height="@dimen/fdk__key__height"
+        android:layout_marginTop="@dimen/fdk__key__margin_top"
+        android:background="@drawable/fdk__button_state_list__cursor_up__only" />
+
+    <com.flywheelms.gcongui.fdk.widget.FdkKeypadButton
+        android:id="@+id/fdk__button__cursor_left"
+        android:layout_width="@dimen/fdk__key__width"
+        android:layout_height="@dimen/fdk__key__height"
+		android:background="@drawable/fdk__button_state_list__cursor_left"
+        android:layout_marginTop="@dimen/fdk__key__margin_top" />
+
+    <com.flywheelms.gcongui.fdk.widget.FdkMultiShiftButton
+        android:id="@+id/multi_shift__left_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="14dp"
+        android:layout_marginTop="@dimen/fdk__key__margin_top" />
+    
+  </LinearLayout>

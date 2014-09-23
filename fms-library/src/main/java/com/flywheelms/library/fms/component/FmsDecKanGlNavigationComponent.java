@@ -46,8 +46,8 @@ package com.flywheelms.library.fms.component;
 import android.content.Context;
 import android.util.AttributeSet;
 
-import com.flywheelms.library.deckangl.component.DecKanGlNavigationComponent;
-import com.flywheelms.library.deckangl.enumerator.DecKanGlDecoratorCanvasLocation;
+import com.flywheelms.gcongui.deckangl.component.DecKanGlNavigationComponent;
+import com.flywheelms.gcongui.deckangl.enumerator.DecKanGlDecoratorCanvasLocation;
 import com.flywheelms.library.fmm.context.FmmFrame;
 import com.flywheelms.library.fmm.context.FmmPerspective;
 

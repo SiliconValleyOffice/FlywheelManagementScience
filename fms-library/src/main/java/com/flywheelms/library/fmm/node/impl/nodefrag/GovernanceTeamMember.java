@@ -43,13 +43,13 @@
 
 package com.flywheelms.library.fmm.node.impl.nodefrag;
 
+import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
 import com.flywheelms.library.fca.FlywheelCommunityAuthentication;
 import com.flywheelms.library.fmm.node.impl.enumerator.AssignmentCommitmentType;
 import com.flywheelms.library.fmm.node.impl.enumerator.GovernanceParticipationType;
 import com.flywheelms.library.fmm.node.impl.enumerator.GovernanceRole;
 import com.flywheelms.library.fmm.node.impl.enumerator.GovernanceSatisfaction;
 import com.flywheelms.library.fmm.node.impl.governable.CommunityMember;
-import com.flywheelms.library.gcg.widget.date.GcgDateHelper;
 
 import java.util.Date;
 

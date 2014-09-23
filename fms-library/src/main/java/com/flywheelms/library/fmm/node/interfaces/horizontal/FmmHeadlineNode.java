@@ -46,11 +46,11 @@ package com.flywheelms.library.fmm.node.interfaces.horizontal;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 
-import com.flywheelms.library.deckangl.enumerator.DecKanGlDecoratorCanvasLocation;
-import com.flywheelms.library.deckangl.enumerator.DecKanGlNounStateColor;
-import com.flywheelms.library.deckangl.enumerator.DecKanGlNounStateDrawableSize;
-import com.flywheelms.library.deckangl.glyph.DecKanGlGlyph;
-import com.flywheelms.library.deckangl.interfaces.DecKanGlDecorator;
+import com.flywheelms.gcongui.deckangl.enumerator.DecKanGlDecoratorCanvasLocation;
+import com.flywheelms.gcongui.deckangl.enumerator.DecKanGlNounStateColor;
+import com.flywheelms.gcongui.deckangl.enumerator.DecKanGlNounStateDrawableSize;
+import com.flywheelms.gcongui.deckangl.glyph.DecKanGlGlyph;
+import com.flywheelms.gcongui.deckangl.interfaces.DecKanGlDecorator;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorChildFractals;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorCompletion;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorFacilitationIssue;

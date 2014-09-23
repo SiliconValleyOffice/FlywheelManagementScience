@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:baselineAligned="false"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/widget_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_vertical"
+        android:layout_alignParentLeft="true"
+        android:textColor="@color/x11__DarkSlateGray"
+        android:contentDescription="menu option" />
+
+    <com.flywheelms.gcongui.gcg.button.GcgIncrementalStateButton
+        android:id="@+id/widget_button"
+        android:layout_width="28dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="right|end|center_vertical" />
+
+</RelativeLayout>

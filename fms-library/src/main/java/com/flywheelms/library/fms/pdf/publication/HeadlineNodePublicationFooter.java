@@ -43,10 +43,10 @@
 
 package com.flywheelms.library.fms.pdf.publication;
 
+import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
 import com.flywheelms.library.fms.pdf.PdfColors;
 import com.flywheelms.library.fms.pdf.PdfFonts;
 import com.flywheelms.library.fms.pdf.PdfUtil;
-import com.flywheelms.library.gcg.widget.date.GcgDateHelper;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Phrase;

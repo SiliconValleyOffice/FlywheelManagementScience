@@ -42,10 +42,10 @@
 
 package com.flywheelms.library.fmm.node.interfaces.horizontal;
 
+import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.FmmNodeImpl;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
-import com.flywheelms.library.gcg.interfaces.GcgGuiable;
 
 import java.util.Date;
 

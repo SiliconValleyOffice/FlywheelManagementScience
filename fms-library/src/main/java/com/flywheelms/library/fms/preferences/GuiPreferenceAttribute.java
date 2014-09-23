@@ -43,7 +43,7 @@
 
 package com.flywheelms.library.fms.preferences;
 
-import com.flywheelms.library.gcg.preferences.GcgPreferenceDataType;
+import com.flywheelms.gcongui.gcg.preferences.GcgPreferenceDataType;
 
 public enum GuiPreferenceAttribute {
 

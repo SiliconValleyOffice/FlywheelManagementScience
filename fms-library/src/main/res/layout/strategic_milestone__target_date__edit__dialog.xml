@@ -25,7 +25,7 @@
         gcg:labelWidth="180"
         gcg:labelPrefix="Original " />
 
-    <com.flywheelms.library.gcg.container.GcgContainerGroupBoxLinear
+    <com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear
         android:id="@+id/group_box__left"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -59,7 +59,7 @@
                 android:checked="true"
                 android:text="Month End" />
 
-            <com.flywheelms.library.gcg.widget.date.GcgWidgetMonthSpinner
+            <com.flywheelms.gcongui.gcg.widget.date.GcgWidgetMonthSpinner
                 android:id="@+id/gcg__month__spinner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -73,7 +73,7 @@
                 android:layout_height="wrap_content"
                 android:text="Specific Date" />
 
-            <com.flywheelms.library.gcg.widget.date.GcgWidgetDatePicker
+            <com.flywheelms.gcongui.gcg.widget.date.GcgWidgetDatePicker
                 android:id="@+id/gcg__date_chooser"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -88,6 +88,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="Enable Reverse Planning" />
-    </com.flywheelms.library.gcg.container.GcgContainerGroupBoxLinear>
+    </com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear>
 
 </LinearLayout>

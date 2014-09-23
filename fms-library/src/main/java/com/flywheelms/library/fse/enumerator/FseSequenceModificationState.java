@@ -45,8 +45,8 @@ package com.flywheelms.library.fse.enumerator;
 
 import android.graphics.drawable.Drawable;
 
+import com.flywheelms.gcongui.gcg.GcgApplication;
 import com.flywheelms.library.R;
-import com.flywheelms.library.gcg.GcgApplication;
 
 import java.util.Hashtable;
 

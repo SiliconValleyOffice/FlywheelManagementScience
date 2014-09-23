@@ -45,9 +45,9 @@ package com.flywheelms.library.fms.treeview.filter;
 
 import android.view.View;
 
+import com.flywheelms.gcongui.gcg.treeview.GcgTreeFilter;
+import com.flywheelms.gcongui.gcg.treeview.node.GcgTreeNode;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmTreeNodeTargetObject;
-import com.flywheelms.library.gcg.treeview.GcgTreeFilter;
-import com.flywheelms.library.gcg.treeview.node.GcgTreeNode;
 
 public class FmsTreeFilter extends GcgTreeFilter {
 

@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:background="@color/gcg__dialog__background" >
 
-    <com.flywheelms.library.gcg.container.GcgContainerGroupBoxLinear
+    <com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear
         android:id="@+id/group_box__left"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -27,6 +27,6 @@
             gcg:filterId="@string/filter_id__primary_parent__primary_child__move_target"
             gcg:zoomable="true"
             gcg:labelWidth="180" />
-    </com.flywheelms.library.gcg.container.GcgContainerGroupBoxLinear>
+    </com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear>
 
 </LinearLayout>

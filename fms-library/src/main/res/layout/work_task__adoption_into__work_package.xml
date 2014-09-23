@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:background="@color/gcg__dialog__background" >
 
-    <com.flywheelms.library.gcg.container.GcgContainerGroupBoxLinear
+    <com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear
         android:id="@+id/group_box__adoption_candidate"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -37,6 +37,6 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             gcg:labelWidth="155" />
-    </com.flywheelms.library.gcg.container.GcgContainerGroupBoxLinear>
+    </com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear>
 
 </LinearLayout>

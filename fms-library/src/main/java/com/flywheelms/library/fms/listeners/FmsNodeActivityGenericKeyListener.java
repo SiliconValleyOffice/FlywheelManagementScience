@@ -48,8 +48,8 @@ import android.text.method.KeyListener;
 import android.view.KeyEvent;
 import android.view.View;
 
+import com.flywheelms.gcongui.gcg.helper.GcgHelper;
 import com.flywheelms.library.fse.perspective_flipper.FsePerspectiveFlipper;
-import com.flywheelms.library.gcg.helper.GcgHelper;
 
 public class FmsNodeActivityGenericKeyListener implements KeyListener {
 	

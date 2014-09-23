@@ -14,7 +14,7 @@
     android:paddingRight="10dp"
     android:paddingTop="4dp" >
 
-    <com.flywheelms.library.gcg.widget.GcgWidgetZoomableHeading
+    <com.flywheelms.gcongui.gcg.widget.GcgWidgetZoomableHeading
         android:id="@+id/disposition__heading"
         style="@style/GcgWidgetLabelHorizontalContainer"
         android:layout_width="match_parent"

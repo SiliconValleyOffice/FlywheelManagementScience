@@ -49,6 +49,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
+import com.flywheelms.gcongui.gcg.interfaces.GcgPerspective;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragAuditBlock;
@@ -62,7 +63,6 @@ import com.flywheelms.library.fse.model.FseDocumentSectionCollaborators;
 import com.flywheelms.library.fse.model.FseDocumentTransactionType;
 import com.flywheelms.library.fse.perspective_flipper.FsePerspectiveFlipper;
 import com.flywheelms.library.fse.views.FseCollaboratorSummaryView;
-import com.flywheelms.library.gcg.interfaces.GcgPerspective;
 
 import org.json.JSONObject;
 

@@ -43,9 +43,9 @@
 
 package com.flywheelms.library.fms.interfaces;
 
+import com.flywheelms.gcongui.gcg.context.GcgFrame;
+import com.flywheelms.gcongui.gcg.interfaces.GcgPerspective;
 import com.flywheelms.library.fmm.node.FmmHeadlineNodeShallow;
-import com.flywheelms.library.gcg.context.GcgFrame;
-import com.flywheelms.library.gcg.interfaces.GcgPerspective;
 
 import java.util.ArrayList;
 

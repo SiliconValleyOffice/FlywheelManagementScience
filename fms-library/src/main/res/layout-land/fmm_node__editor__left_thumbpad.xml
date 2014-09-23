@@ -53,7 +53,7 @@
                             android:layout_height="wrap_content"
                             android:orientation="vertical" >
 
-                            <com.flywheelms.library.gcg.menu.GcgPerspectiveMenuButton
+                            <com.flywheelms.gcongui.gcg.menu.GcgPerspectiveMenuButton
                                 android:id="@+id/fse_button__story"
                                 style="?android:attr/borderlessButtonStyle"
                                 android:layout_width="65dp"
@@ -65,7 +65,7 @@
                                 gcg:frameNumber="0"
                                 gcg:perspectiveNumber="0" />
 
-                            <com.flywheelms.library.gcg.menu.GcgPerspectiveMenuButton
+                            <com.flywheelms.gcongui.gcg.menu.GcgPerspectiveMenuButton
                                 android:id="@+id/fse_button__notes"
                                 style="?android:attr/borderlessButtonStyle"
                                 android:layout_width="65dp"
@@ -78,7 +78,7 @@
                                 gcg:frameNumber="0"
                                 gcg:perspectiveNumber="1" />
 
-                            <com.flywheelms.library.gcg.menu.GcgPerspectiveMenuButton
+                            <com.flywheelms.gcongui.gcg.menu.GcgPerspectiveMenuButton
                                 android:id="@+id/fse_button__history"
                                 style="?android:attr/borderlessButtonStyle"
                                 android:layout_width="65dp"
@@ -91,7 +91,7 @@
                                 gcg:frameNumber="0"
                                 gcg:perspectiveNumber="2" />
 
-                            <com.flywheelms.library.gcg.menu.GcgPerspectiveMenuButton
+                            <com.flywheelms.gcongui.gcg.menu.GcgPerspectiveMenuButton
                                 android:id="@+id/fse_button__community"
                                 style="?android:attr/borderlessButtonStyle"
                                 android:layout_width="65dp"
@@ -112,7 +112,7 @@
                             android:layout_alignParentLeft="true"
                             android:orientation="vertical" >
 
-                            <com.flywheelms.library.gcg.menu.GcgPerspectiveMenuButton
+                            <com.flywheelms.gcongui.gcg.menu.GcgPerspectiveMenuButton
                                 android:id="@+id/tribkn_button__deckangl"
                                 style="?android:attr/borderlessButtonStyle"
                                 android:layout_width="65dp"
@@ -125,7 +125,7 @@
                                 gcg:frameNumber="1"
                                 gcg:perspectiveNumber="0" />
 
-                            <com.flywheelms.library.gcg.menu.GcgPerspectiveMenuButton
+                            <com.flywheelms.gcongui.gcg.menu.GcgPerspectiveMenuButton
                                 android:id="@+id/tribkn_button__governance"
                                 style="?android:attr/borderlessButtonStyle"
                                 android:layout_width="65dp"
@@ -138,7 +138,7 @@
                                 gcg:frameNumber="1"
                                 gcg:perspectiveNumber="1" />
 
-                            <com.flywheelms.library.gcg.menu.GcgPerspectiveMenuButton
+                            <com.flywheelms.gcongui.gcg.menu.GcgPerspectiveMenuButton
                                 android:id="@+id/tribkn_button__commitments"
                                 style="?android:attr/borderlessButtonStyle"
                                 android:layout_width="65dp"
@@ -151,7 +151,7 @@
                                 gcg:frameNumber="1"
                                 gcg:perspectiveNumber="2" />
 
-                            <com.flywheelms.library.gcg.menu.GcgPerspectiveMenuButton
+                            <com.flywheelms.gcongui.gcg.menu.GcgPerspectiveMenuButton
                                 android:id="@+id/tribkn_button__community"
                                 style="?android:attr/borderlessButtonStyle"
                                 android:layout_width="65dp"
@@ -172,7 +172,7 @@
                             android:layout_alignParentLeft="true"
                             android:orientation="vertical" >
 
-                            <com.flywheelms.library.gcg.menu.GcgPerspectiveMenuButton
+                            <com.flywheelms.gcongui.gcg.menu.GcgPerspectiveMenuButton
                                 android:id="@+id/context_button__strategic_planning"
                                 style="?android:attr/borderlessButtonStyle"
                                 android:layout_width="65dp"
@@ -184,7 +184,7 @@
                                 gcg:frameNumber="2"
                                 gcg:perspectiveNumber="0" />
 
-                            <com.flywheelms.library.gcg.menu.GcgPerspectiveMenuButton
+                            <com.flywheelms.gcongui.gcg.menu.GcgPerspectiveMenuButton
                                 android:id="@+id/context_button__work_breakdown"
                                 style="?android:attr/borderlessButtonStyle"
                                 android:layout_width="65dp"
@@ -196,7 +196,7 @@
                                 gcg:frameNumber="2"
                                 gcg:perspectiveNumber="1" />
 
-                            <com.flywheelms.library.gcg.menu.GcgPerspectiveMenuButton
+                            <com.flywheelms.gcongui.gcg.menu.GcgPerspectiveMenuButton
                                 android:id="@+id/context_button__work_planning"
                                 style="?android:attr/borderlessButtonStyle"
                                 android:layout_width="65dp"
@@ -208,7 +208,7 @@
                                 gcg:frameNumber="2"
                                 gcg:perspectiveNumber="2" />
 
-                            <com.flywheelms.library.gcg.menu.GcgPerspectiveMenuButton
+                            <com.flywheelms.gcongui.gcg.menu.GcgPerspectiveMenuButton
                                 android:id="@+id/context_button__analysis"
                                 style="?android:attr/borderlessButtonStyle"
                                 android:layout_width="65dp"
@@ -229,7 +229,7 @@
                 </LinearLayout>
 
                 <RelativeLayout
-                    android:id="@+id/menu_curtain"
+                    android:id="@+id/gcg__menu_curtain"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@color/gcg__thumb_menu__background" >

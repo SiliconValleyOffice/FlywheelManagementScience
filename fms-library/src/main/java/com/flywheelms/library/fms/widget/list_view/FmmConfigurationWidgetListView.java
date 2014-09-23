@@ -52,6 +52,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.PopupMenu;
 
+import com.flywheelms.gcongui.gcg.GcgApplication;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.repository.FmmAccessScope;
@@ -60,7 +61,6 @@ import com.flywheelms.library.fms.helper.FmmConfigurationHelper;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
 import com.flywheelms.library.fms.popup_menu.FmmPopupBuilder;
 import com.flywheelms.library.fms.widget.FmsWidgetListView;
-import com.flywheelms.library.gcg.GcgApplication;
 
 import java.util.ArrayList;
 

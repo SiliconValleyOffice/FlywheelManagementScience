@@ -47,9 +47,9 @@ import android.content.Context;
 import android.graphics.Color;
 import android.util.AttributeSet;
 
+import com.flywheelms.gcongui.gcg.helper.GcgGuiHelper;
+import com.flywheelms.gcongui.gcg.widget.GcgWidgetTextView;
 import com.flywheelms.library.fmm.node.impl.enumerator.GovernanceRole;
-import com.flywheelms.library.gcg.helper.GcgGuiHelper;
-import com.flywheelms.library.gcg.widget.GcgWidgetTextView;
 
 public class SponsorWidgetTextView extends GcgWidgetTextView {
 	

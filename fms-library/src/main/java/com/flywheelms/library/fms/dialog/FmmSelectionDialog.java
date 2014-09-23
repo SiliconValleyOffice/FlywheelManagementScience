@@ -50,10 +50,10 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Button;
 import android.widget.CheckBox;
 
+import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fms.widget.spinner.FmmAccessScopeWidgetSpinner;
 import com.flywheelms.library.fms.widget.spinner.FmmConfigurationWidgetSpinner;
-import com.flywheelms.library.gcg.activity.GcgActivity;
 
 public class FmmSelectionDialog extends FmsCancelOkDialog {
 	

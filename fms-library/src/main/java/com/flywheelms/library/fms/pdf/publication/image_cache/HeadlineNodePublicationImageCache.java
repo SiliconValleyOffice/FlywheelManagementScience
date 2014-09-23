@@ -45,8 +45,8 @@ package com.flywheelms.library.fms.pdf.publication.image_cache;
 
 import android.util.Log;
 
-import com.flywheelms.library.deckangl.enumerator.DecKanGlAnnotatedGlyphSize;
-import com.flywheelms.library.deckangl.enumerator.DecKanGlDecoratedGlyphSize;
+import com.flywheelms.gcongui.deckangl.enumerator.DecKanGlAnnotatedGlyphSize;
+import com.flywheelms.gcongui.deckangl.enumerator.DecKanGlDecoratedGlyphSize;
 import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
 import com.flywheelms.library.fms.pdf.publication.HeadlineNodePublication;
 import com.flywheelms.library.fms.pdf.publication.HeadlineNodePublicationComposite;

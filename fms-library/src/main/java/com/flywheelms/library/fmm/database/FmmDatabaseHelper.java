@@ -47,6 +47,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.flywheelms.gcongui.gcg.GcgApplication;
 import com.flywheelms.library.fmm.database.sqlite.dao.FmmConfigurationDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.FmsOrganizationDaoSqLite;
 import com.flywheelms.library.fmm.meta_data.FiscalYearMetaData;
@@ -54,7 +55,6 @@ import com.flywheelms.library.fmm.meta_data.IdNodeMetaData;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.governable.FmsOrganization;
 import com.flywheelms.library.fmm.repository.FmmConfiguration;
-import com.flywheelms.library.gcg.GcgApplication;
 
 
 public class FmmDatabaseHelper {

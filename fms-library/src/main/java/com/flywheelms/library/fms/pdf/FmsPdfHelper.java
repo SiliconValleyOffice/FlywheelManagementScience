@@ -49,12 +49,12 @@ import android.content.Intent;
 import android.net.Uri;
 import android.util.Log;
 
+import com.flywheelms.gcongui.gcg.helper.GcgHelper;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
 import com.flywheelms.library.fms.helper.FmsFileHelper;
 import com.flywheelms.library.fms.pdf.publication.HeadlineNodePublication;
 import com.flywheelms.library.fms.wizard.step.FmsNodePublishingContentSelectionWizardStepView;
-import com.flywheelms.library.gcg.helper.GcgHelper;
 import com.itextpdf.text.DocumentException;
 
 import java.io.ByteArrayOutputStream;

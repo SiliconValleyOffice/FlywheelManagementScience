@@ -47,7 +47,7 @@
                     android:paddingBottom="55dp"
                     android:orientation="vertical" >
 
-                    <com.flywheelms.library.gcg.button.GcgIncrementalButton
+                    <com.flywheelms.gcongui.gcg.button.GcgIncrementalButton
                         android:id="@+id/show_button__node_child_summary"
                         android:layout_width="105dp"
                         android:layout_height="38dp"
@@ -59,7 +59,7 @@
                         gcg:initialState="1"
                         gcg:numberOfStates="5" />
 
-                    <com.flywheelms.library.gcg.button.GcgIncrementalButton
+                    <com.flywheelms.gcongui.gcg.button.GcgIncrementalButton
                         android:id="@+id/show_button__node_quality"
                         android:layout_width="105dp"
                         android:layout_height="38dp"
@@ -70,7 +70,7 @@
                         gcg:initialState="1"
                         gcg:numberOfStates="5" />
 
-                    <com.flywheelms.library.gcg.button.GcgIncrementalButton
+                    <com.flywheelms.gcongui.gcg.button.GcgIncrementalButton
                         android:id="@+id/show_button__collapse_to_tree_depth"
                         android:layout_width="105dp"
                         android:layout_height="38dp"
@@ -81,7 +81,7 @@
                         gcg:initialState="1"
                         gcg:numberOfStates="4" />
 
-                    <com.flywheelms.library.gcg.button.GcgIncrementalButton
+                    <com.flywheelms.gcongui.gcg.button.GcgIncrementalButton
                         android:id="@+id/show_button__emphasis_level"
                         android:layout_width="105dp"
                         android:layout_height="38dp"

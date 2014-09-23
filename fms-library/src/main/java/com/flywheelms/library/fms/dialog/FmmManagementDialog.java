@@ -47,13 +47,13 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 
+import com.flywheelms.gcongui.gcg.activity.GcgActivity;
+import com.flywheelms.gcongui.gcg.dialog.GcgCancelDialog;
+import com.flywheelms.gcongui.gcg.helper.GcgHelper;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.repository.FmmAccessScope;
 import com.flywheelms.library.fms.widget.list_view.FmmConfigurationWidgetListView;
 import com.flywheelms.library.fms.widget.spinner.FmmAccessScopeWidgetSpinner;
-import com.flywheelms.library.gcg.activity.GcgActivity;
-import com.flywheelms.library.gcg.dialog.GcgCancelDialog;
-import com.flywheelms.library.gcg.helper.GcgHelper;
 
 public class FmmManagementDialog extends GcgCancelDialog {
 	

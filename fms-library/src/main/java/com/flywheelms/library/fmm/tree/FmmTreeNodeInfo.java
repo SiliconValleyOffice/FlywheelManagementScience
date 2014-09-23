@@ -43,11 +43,11 @@
 
 package com.flywheelms.library.fmm.tree;
 
-import com.flywheelms.library.deckangl.enumerator.DecKanGlDecoratedGlyphSize;
+import com.flywheelms.gcongui.deckangl.enumerator.DecKanGlDecoratedGlyphSize;
+import com.flywheelms.gcongui.gcg.treeview.node.GcgTreeNodeInfo;
+import com.flywheelms.gcongui.gcg.treeview.node.GcgTreeNodeTargetObject;
 import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmTreeNodeTargetObject;
-import com.flywheelms.library.gcg.treeview.node.GcgTreeNodeInfo;
-import com.flywheelms.library.gcg.treeview.node.GcgTreeNodeTargetObject;
 
 public class FmmTreeNodeInfo extends GcgTreeNodeInfo {
 

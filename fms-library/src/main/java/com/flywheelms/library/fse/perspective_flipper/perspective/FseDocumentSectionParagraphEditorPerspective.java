@@ -54,6 +54,13 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 
+import com.flywheelms.gcongui.gcg.button.multi_shift.GcgMultiShiftButton;
+import com.flywheelms.gcongui.gcg.button.multi_shift.GcgMultiShiftClientButton;
+import com.flywheelms.gcongui.gcg.button.multi_shift.GcgMultiShiftKeysetController;
+import com.flywheelms.gcongui.gcg.button.multi_shift.GcgMultiShiftState;
+import com.flywheelms.gcongui.gcg.helper.GcgHelper;
+import com.flywheelms.gcongui.gcg.interfaces.GcgMultiShiftControllerParent;
+import com.flywheelms.gcongui.gcg.menu.GcgSpinnableMenu;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.enumerator.FmmLockStatus;
 import com.flywheelms.library.fse.enumerator.FseContentModificationState;
@@ -72,12 +79,6 @@ import com.flywheelms.library.fse.util.FseDocumentSerialization;
 import com.flywheelms.library.fse.views.FseParagraphEditor;
 import com.flywheelms.library.fse.views.FseParagraphView;
 import com.flywheelms.library.fse.widget.FseMultiShiftButton;
-import com.flywheelms.library.gcg.button.multi_shift.GcgMultiShiftClientButton;
-import com.flywheelms.library.gcg.button.multi_shift.GcgMultiShiftKeysetController;
-import com.flywheelms.library.gcg.button.multi_shift.GcgMultiShiftState;
-import com.flywheelms.library.gcg.helper.GcgHelper;
-import com.flywheelms.library.gcg.interfaces.GcgMultiShiftControllerParent;
-import com.flywheelms.library.gcg.menu.GcgSpinnableMenu;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -128,7 +129,7 @@ public abstract class FseDocumentSectionParagraphEditorPerspective extends FseDo
 	private GcgMultiShiftClientButton paragraphLockButton;
 	private GcgMultiShiftClientButton paragraphUnlockButton;
 	private Button paragraphHistoryButton;
-	
+
 	// END - data members that are NULL in portrait mode
 	boolean doNotChangeModificationState = true;
 
@@ -344,7 +345,7 @@ public abstract class FseDocumentSectionParagraphEditorPerspective extends FseDo
 		        FseDocumentSectionParagraphEditorPerspective.this.getDocumentPerspectiveFlipper().getActiveDocumentSectionView().getMultiShiftController().onRightButtonClick();
 		    } 
 		});
-		this.multiShiftButtonList = new ArrayList<FseMultiShiftButton>();
+		this.multiShiftButtonList = new ArrayList<GcgMultiShiftButton>();
 		this.multiShiftButtonList.add(theLeftTouchShiftButton);
 		this.multiShiftButtonList.add(theRightTouchShiftButton);
 		this.multiShiftController = new GcgMultiShiftKeysetController(this);
@@ -773,7 +774,7 @@ public abstract class FseDocumentSectionParagraphEditorPerspective extends FseDo
 	}
 
 	@Override
-	public ArrayList<FseMultiShiftButton> getShiftButtonList() {
+	public ArrayList<GcgMultiShiftButton> getShiftButtonList() {
 		return this.multiShiftButtonList;
 	}
 	

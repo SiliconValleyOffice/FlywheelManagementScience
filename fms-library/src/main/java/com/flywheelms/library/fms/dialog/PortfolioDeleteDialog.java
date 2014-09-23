@@ -45,6 +45,7 @@ package com.flywheelms.library.fms.dialog;
 
 import android.widget.LinearLayout;
 
+import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.node.impl.governable.Portfolio;
@@ -52,7 +53,6 @@ import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.fms.treeview.filter.FmsTreeViewAdapter;
 import com.flywheelms.library.fms.widget.FmmHeadlineNodeWidgetSpinner;
 import com.flywheelms.library.fms.widget.spinner.PortfolioWidgetSpinner;
-import com.flywheelms.library.gcg.activity.GcgActivity;
 
 import java.util.ArrayList;
 

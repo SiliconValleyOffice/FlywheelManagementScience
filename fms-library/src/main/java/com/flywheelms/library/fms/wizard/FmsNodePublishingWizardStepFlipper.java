@@ -46,6 +46,8 @@ package com.flywheelms.library.fms.wizard;
 import android.content.Context;
 import android.util.AttributeSet;
 
+import com.flywheelms.gcongui.gcg.android.AndroidContact;
+import com.flywheelms.gcongui.gcg.helper.GcgHelper;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.node.impl.governable.CommunityMember;
 import com.flywheelms.library.fms.activity.FmsNodeWizardActivity;
@@ -55,8 +57,6 @@ import com.flywheelms.library.fms.pdf.FmsPdfHelper;
 import com.flywheelms.library.fms.wizard.step.FmsNodePublishingContentSelectionWizardStepView;
 import com.flywheelms.library.fms.wizard.step.FmsNodePublishingDestinationWizardStepView;
 import com.flywheelms.library.fms.wizard.step.FmsNodePublishingDoItNowStepView;
-import com.flywheelms.library.gcg.android.AndroidContact;
-import com.flywheelms.library.gcg.helper.GcgHelper;
 
 import java.io.File;
 import java.util.ArrayList;

@@ -43,9 +43,9 @@
 
 package com.flywheelms.library.fmm.node.impl.completable;
 
-import com.flywheelms.library.deckangl.enumerator.DecKanGlNounStateColor;
-import com.flywheelms.library.deckangl.glyph.DecKanGlDictionary;
-import com.flywheelms.library.deckangl.glyph.DecKanGlElementNounState;
+import com.flywheelms.gcongui.deckangl.enumerator.DecKanGlNounStateColor;
+import com.flywheelms.gcongui.deckangl.glyph.DecKanGlDictionary;
+import com.flywheelms.gcongui.deckangl.glyph.DecKanGlElementNounState;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.node.FmmNodeInfo;
 import com.flywheelms.library.fmm.node.NodeId;

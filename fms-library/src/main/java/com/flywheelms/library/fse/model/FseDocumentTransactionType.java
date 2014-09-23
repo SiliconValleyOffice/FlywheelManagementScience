@@ -45,14 +45,14 @@ package com.flywheelms.library.fse.model;
 
 import android.graphics.drawable.Drawable;
 
+import com.flywheelms.gcongui.gcg.GcgApplication;
+import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
+import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.FmmNodeImpl;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.interfaces.FmmEnumNode;
-import com.flywheelms.library.gcg.GcgApplication;
-import com.flywheelms.library.gcg.interfaces.GcgGuiable;
-import com.flywheelms.library.gcg.widget.date.GcgDateHelper;
 
 import java.util.Date;
 

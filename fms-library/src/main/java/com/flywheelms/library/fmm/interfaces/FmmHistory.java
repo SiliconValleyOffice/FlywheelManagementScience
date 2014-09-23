@@ -43,8 +43,8 @@
 
 package com.flywheelms.library.fmm.interfaces;
 
+import com.flywheelms.gcongui.gcg.interfaces.GcgSerialization;
 import com.flywheelms.library.fmm.node.impl.nodefrag.FmmHistoryEvent.HistoryEventData;
-import com.flywheelms.library.gcg.interfaces.GcgSerialization;
 
 import java.util.ArrayList;
 

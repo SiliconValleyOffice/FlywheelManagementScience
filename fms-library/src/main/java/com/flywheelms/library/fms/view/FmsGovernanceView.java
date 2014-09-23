@@ -53,13 +53,13 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import com.flywheelms.gcongui.gcg.helper.GcgHelper;
+import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.enumerator.FmmLockStatus;
 import com.flywheelms.library.fmm.node.impl.enumerator.AssignmentCommitmentType;
 import com.flywheelms.library.fmm.node.impl.nodefrag.GovernanceTeamMember;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragGovernance;
-import com.flywheelms.library.gcg.helper.GcgHelper;
-import com.flywheelms.library.gcg.widget.date.GcgDateHelper;
 
 public class FmsGovernanceView extends LinearLayout {
 	

@@ -41,9 +41,9 @@
  */
 package com.flywheelms.workbench;
 
+import com.flywheelms.gcongui.gcg.GcgApplication;
 import com.flywheelms.library.fmm.context.FmmFrame;
 import com.flywheelms.library.fmm.context.FmmPerspective;
-import com.flywheelms.library.gcg.GcgApplication;
 
 import java.util.ArrayList;
 

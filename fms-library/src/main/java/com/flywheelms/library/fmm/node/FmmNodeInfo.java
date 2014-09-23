@@ -45,8 +45,8 @@ package com.flywheelms.library.fmm.node;
 
 import android.graphics.drawable.Drawable;
 
-import com.flywheelms.library.deckangl.glyph.DecKanGlElementNounState;
-import com.flywheelms.library.deckangl.glyph.DecKanGlGlyph;
+import com.flywheelms.gcongui.deckangl.glyph.DecKanGlElementNounState;
+import com.flywheelms.gcongui.deckangl.glyph.DecKanGlGlyph;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 
 public interface FmmNodeInfo {

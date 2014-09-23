@@ -46,9 +46,9 @@ package com.flywheelms.library.fmm;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.flywheelms.gcongui.gcg.GcgApplication;
 import com.flywheelms.library.fmm.database.sqlite.DatabaseRowLoaderSqLite;
 import com.flywheelms.library.fmm.database.sqlite.FmmDatabaseBuilderSqLite;
-import com.flywheelms.library.gcg.GcgApplication;
 
 import java.io.File;
 import java.io.IOException;

@@ -27,7 +27,7 @@
             android:enabled="false"
             android:text="use Governance from template" />
         
-        <com.flywheelms.library.gcg.widget.chooser_result.AndroidContactWidgetPickerResult
+        <com.flywheelms.gcongui.gcg.widget.chooser_result.AndroidContactWidgetPickerResult
         	android:id="@+id/node_picker__sponsor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -39,7 +39,7 @@
             gcg:requestCode="@integer/request_code__android_contact_picker__sponsor"
             gcg:requestCode2="@integer/request_code__android_contact_editor__sponsor" />
         
-        <com.flywheelms.library.gcg.widget.chooser_result.AndroidContactWidgetPickerResult
+        <com.flywheelms.gcongui.gcg.widget.chooser_result.AndroidContactWidgetPickerResult
         	android:id="@+id/node_picker__customer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -51,7 +51,7 @@
             gcg:requestCode="@integer/request_code__android_contact_picker__customer"
             gcg:requestCode2="@integer/request_code__android_contact_editor__customer" />
         
-        <com.flywheelms.library.gcg.widget.chooser_result.AndroidContactWidgetPickerResult
+        <com.flywheelms.gcongui.gcg.widget.chooser_result.AndroidContactWidgetPickerResult
         	android:id="@+id/node_picker__facilitator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -63,7 +63,7 @@
             gcg:requestCode="@integer/request_code__android_contact_picker__facilitator"
             gcg:requestCode2="@integer/request_code__android_contact_editor__facilitator" />
         
-        <com.flywheelms.library.gcg.widget.chooser_result.AndroidContactWidgetPickerResult
+        <com.flywheelms.gcongui.gcg.widget.chooser_result.AndroidContactWidgetPickerResult
         	android:id="@+id/node_picker__administrator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

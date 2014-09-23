@@ -46,9 +46,9 @@ package com.flywheelms.library.fse.widget;
 import android.content.Context;
 import android.util.AttributeSet;
 
+import com.flywheelms.gcongui.gcg.menu.GcgDrawableSpinner;
+import com.flywheelms.gcongui.gcg.menu.GcgDrawableSpinnerArrayAdapter;
 import com.flywheelms.library.R;
-import com.flywheelms.library.gcg.menu.GcgDrawableSpinner;
-import com.flywheelms.library.gcg.menu.GcgDrawableSpinnerArrayAdapter;
 
 // com.flywheelms.fse.widget.FseEditScopeSpinner
 public class FseEditScopeSpinner extends GcgDrawableSpinner {

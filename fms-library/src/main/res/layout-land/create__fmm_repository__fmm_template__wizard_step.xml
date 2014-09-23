@@ -19,7 +19,7 @@
         android:layout_weight="1.0"
         android:orientation="horizontal" >
 
-        <com.flywheelms.library.gcg.container.GcgContainerGroupBoxLinear
+        <com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear
             android:id="@+id/group_box__left"
             android:layout_width="345dp"
             android:layout_height="match_parent"
@@ -114,7 +114,7 @@
                     android:text="@string/fmm_template__explanation__cloud"
                     android:textColor="@color/x11__Gray" />
             </RadioGroup>
-        </com.flywheelms.library.gcg.container.GcgContainerGroupBoxLinear>
+        </com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear>
 
         <LinearLayout
             android:layout_width="0dp"
@@ -134,7 +134,7 @@
                 gcg:labelWidth="120"
             	gcg:fdkCursorEnabled="true" />
 
-            <com.flywheelms.library.gcg.widget.edit_text.GcgWidgetFileNameEditText
+            <com.flywheelms.gcongui.gcg.widget.edit_text.GcgWidgetFileNameEditText
                 android:id="@+id/fmm_repository__file_name"
                 android:layout_width="410dp"
                 android:layout_height="wrap_content"

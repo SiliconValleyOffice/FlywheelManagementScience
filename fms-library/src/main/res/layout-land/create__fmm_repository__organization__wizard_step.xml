@@ -47,7 +47,7 @@
             android:checked="true"
             android:text="retain Community from template" />
         
-        <com.flywheelms.library.gcg.widget.list_view.AndroidContactsWidgetListView
+        <com.flywheelms.gcongui.gcg.widget.list_view.AndroidContactsWidgetListView
             android:id="@+id/android_contacts__widget"
             android:layout_width="match_parent"
             android:layout_height="210dp"

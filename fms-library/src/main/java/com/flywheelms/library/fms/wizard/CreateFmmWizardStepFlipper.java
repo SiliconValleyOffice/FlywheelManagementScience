@@ -46,6 +46,9 @@ package com.flywheelms.library.fms.wizard;
 import android.content.Context;
 import android.util.AttributeSet;
 
+import com.flywheelms.gcongui.gcg.helper.GcgHelper;
+import com.flywheelms.gcongui.gcg.interfaces.GcgFileNameValidator;
+import com.flywheelms.gcongui.gcg.wizard.GcgWizardStepFlipper;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.database.FmmDatabaseHelper;
@@ -64,9 +67,6 @@ import com.flywheelms.library.fms.wizard.step.CreateFmmDoItNowWizardStepView;
 import com.flywheelms.library.fms.wizard.step.CreateFmmGovernanceWizardStepView;
 import com.flywheelms.library.fms.wizard.step.CreateFmmHeadlineWizardStepView;
 import com.flywheelms.library.fms.wizard.step.CreateFmmOrganizationWizardStepView;
-import com.flywheelms.library.gcg.helper.GcgHelper;
-import com.flywheelms.library.gcg.interfaces.GcgFileNameValidator;
-import com.flywheelms.library.gcg.wizard.GcgWizardStepFlipper;
 
 import java.io.File;
 

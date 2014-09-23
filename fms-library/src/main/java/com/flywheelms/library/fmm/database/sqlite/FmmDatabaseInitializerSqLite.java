@@ -45,8 +45,8 @@ package com.flywheelms.library.fmm.database.sqlite;
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.flywheelms.library.deckangl.glyph.DecKanGlDecoratorEnumeration;
-import com.flywheelms.library.deckangl.glyph.DecKanGlTribKnQualityNormalizedDescription;
+import com.flywheelms.gcongui.deckangl.glyph.DecKanGlDecoratorEnumeration;
+import com.flywheelms.gcongui.deckangl.glyph.DecKanGlTribKnQualityNormalizedDescription;
 import com.flywheelms.library.fmm.database.FmmDatabaseInitializer;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorChildFractals;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorCompletion;

@@ -43,8 +43,8 @@
 
 package com.flywheelms.library.fse.model;
 
-import com.flywheelms.library.deckangl.glyph.DecKanGlGlyph;
-import com.flywheelms.library.deckangl.serialization.DecKanGlGlyphSerialization;
+import com.flywheelms.gcongui.deckangl.glyph.DecKanGlGlyph;
+import com.flywheelms.gcongui.deckangl.serialization.DecKanGlGlyphSerialization;
 import com.flywheelms.library.fmm.deckangl.FmmDecKanGlDictionary;
 import com.flywheelms.library.fmm.meta_data.NodeFragGovernanceMetaData;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragGovernance;

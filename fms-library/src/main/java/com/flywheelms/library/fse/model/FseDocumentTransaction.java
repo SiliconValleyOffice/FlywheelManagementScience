@@ -45,6 +45,7 @@ package com.flywheelms.library.fse.model;
 
 import android.graphics.drawable.Drawable;
 
+import com.flywheelms.gcongui.gcg.interfaces.GcgSerialization;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.node.NodeId;
@@ -54,7 +55,6 @@ import com.flywheelms.library.fmm.node.impl.governable.CommunityMember;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmNode;
 import com.flywheelms.library.fse.FseDocumentSectionType;
 import com.flywheelms.library.fse.util.FseDocumentSerialization;
-import com.flywheelms.library.gcg.interfaces.GcgSerialization;
 import com.flywheelms.library.util.JsonHelper;
 
 import org.json.JSONException;

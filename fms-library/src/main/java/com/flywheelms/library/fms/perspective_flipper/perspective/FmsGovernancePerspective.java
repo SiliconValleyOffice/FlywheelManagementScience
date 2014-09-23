@@ -46,6 +46,9 @@ package com.flywheelms.library.fms.perspective_flipper.perspective;
 import android.content.Context;
 import android.util.AttributeSet;
 
+import com.flywheelms.gcongui.gcg.activity.GcgActivity;
+import com.flywheelms.gcongui.gcg.interfaces.GcgPerspective;
+import com.flywheelms.gcongui.gcg.viewflipper.GcgViewFlipper;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fmm.node.impl.enumerator.GovernanceTarget;
@@ -53,9 +56,6 @@ import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragGovernance;
 import com.flywheelms.library.fms.component.FmsGovernanceComponent;
 import com.flywheelms.library.fms.component.FmsGovernanceComponentParent;
 import com.flywheelms.library.fms.helper.FmsHelpIndex;
-import com.flywheelms.library.gcg.activity.GcgActivity;
-import com.flywheelms.library.gcg.interfaces.GcgPerspective;
-import com.flywheelms.library.gcg.viewflipper.GcgViewFlipper;
 
 public class FmsGovernancePerspective extends FmsPerspectiveFlipperView implements FmsGovernanceComponentParent {
 	

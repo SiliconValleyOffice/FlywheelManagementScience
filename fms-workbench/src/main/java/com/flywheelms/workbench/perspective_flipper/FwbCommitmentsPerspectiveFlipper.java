@@ -46,11 +46,11 @@ package com.flywheelms.workbench.perspective_flipper;
 import android.content.Context;
 import android.util.AttributeSet;
 
+import com.flywheelms.gcongui.gcg.activity.GcgActivity;
+import com.flywheelms.gcongui.gcg.menu.GcgFrameSpinner;
+import com.flywheelms.gcongui.gcg.viewflipper.GcgPerspectiveFlipper;
+import com.flywheelms.gcongui.gcg.viewflipper.GcgViewFlipperListener;
 import com.flywheelms.library.fmm.context.FmmFrame;
-import com.flywheelms.library.gcg.activity.GcgActivity;
-import com.flywheelms.library.gcg.menu.GcgFrameSpinner;
-import com.flywheelms.library.gcg.viewflipper.GcgPerspectiveFlipper;
-import com.flywheelms.library.gcg.viewflipper.GcgViewFlipperListener;
 import com.flywheelms.workbench.R;
 import com.flywheelms.workbench.perspective.FwbCommitmentsConfirmedPerspective;
 import com.flywheelms.workbench.perspective.FwbCommitmentsDeclinedPerspective;

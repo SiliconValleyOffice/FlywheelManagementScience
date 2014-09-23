@@ -47,12 +47,12 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.flywheelms.gcongui.gcg.wizard.GcgWizardActivity;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.repository.FmmAccessScope;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
 import com.flywheelms.library.fms.helper.FmsHelpIndex;
 import com.flywheelms.library.fms.wizard.CreateFmmWizardStepFlipper;
-import com.flywheelms.library.gcg.wizard.GcgWizardActivity;
 
 public class CreateFmmWizard extends GcgWizardActivity {
 	

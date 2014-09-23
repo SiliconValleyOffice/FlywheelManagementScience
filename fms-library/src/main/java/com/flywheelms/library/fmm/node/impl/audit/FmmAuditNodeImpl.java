@@ -43,6 +43,7 @@
 
 package com.flywheelms.library.fmm.node.impl.audit;
 
+import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
 import com.flywheelms.library.fca.FlywheelCommunityAuthentication;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.enumerator.FmmLockStatus;
@@ -51,7 +52,6 @@ import com.flywheelms.library.fmm.node.impl.FmmNodeImpl;
 import com.flywheelms.library.fmm.node.impl.governable.CommunityMember;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragAuditBlock;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmNodeAudit;
-import com.flywheelms.library.gcg.widget.date.GcgDateHelper;
 
 import org.json.JSONObject;
 

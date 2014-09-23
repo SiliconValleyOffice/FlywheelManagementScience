@@ -47,12 +47,13 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 
+import com.flywheelms.gcongui.deckangl.enumerator.DecKanGlDecoratorCanvasLocation;
+import com.flywheelms.gcongui.deckangl.enumerator.DecKanGlNounStateColor;
+import com.flywheelms.gcongui.deckangl.enumerator.DecKanGlNounStateDrawableSize;
+import com.flywheelms.gcongui.deckangl.glyph.DecKanGlGlyph;
+import com.flywheelms.gcongui.deckangl.interfaces.DecKanGlDecorator;
+import com.flywheelms.gcongui.gcg.treeview.node.GcgTreeNodeInfo;
 import com.flywheelms.library.R;
-import com.flywheelms.library.deckangl.enumerator.DecKanGlDecoratorCanvasLocation;
-import com.flywheelms.library.deckangl.enumerator.DecKanGlNounStateColor;
-import com.flywheelms.library.deckangl.enumerator.DecKanGlNounStateDrawableSize;
-import com.flywheelms.library.deckangl.glyph.DecKanGlGlyph;
-import com.flywheelms.library.deckangl.interfaces.DecKanGlDecorator;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorChildFractals;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorCompletion;
@@ -77,7 +78,6 @@ import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragAuditBlock;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragTribKnQuality;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.fse.model.FseDocument;
-import com.flywheelms.library.gcg.treeview.node.GcgTreeNodeInfo;
 
 import org.json.JSONException;
 import org.json.JSONObject;

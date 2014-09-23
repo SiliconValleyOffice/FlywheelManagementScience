@@ -46,8 +46,9 @@ package com.flywheelms.library.fmm.node.impl.enumerator;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 
+import com.flywheelms.gcongui.deckangl.enumerator.DecKanGlNounStateColor;
+import com.flywheelms.gcongui.gcg.GcgApplication;
 import com.flywheelms.library.R;
-import com.flywheelms.library.deckangl.enumerator.DecKanGlNounStateColor;
 import com.flywheelms.library.fmm.helper.FmmHelper;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.FmmNodeImpl;
@@ -108,7 +109,6 @@ import com.flywheelms.library.fse.model.FseDocument;
 import com.flywheelms.library.fse.model.FseDocumentTransaction;
 import com.flywheelms.library.fse.model.FseDocumentTransactionType;
 import com.flywheelms.library.fse.model.FseParagraph;
-import com.flywheelms.library.gcg.GcgApplication;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -222,7 +222,7 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     		CompletableWorkStatus.class,
     		"CWS",
     		R.string.fmm_node_definition__completable_work_status__label_text,
-    		R.drawable.completable_work_status,
+    		R.drawable.deckangl__noun_status,
     		0,
     		R.drawable.gcg__unspecified_glyph,
     		R.drawable.gcg__unspecified_glyph,

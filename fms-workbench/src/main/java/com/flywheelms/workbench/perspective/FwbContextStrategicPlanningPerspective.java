@@ -50,6 +50,10 @@ import android.view.View;
 import android.widget.PopupMenu;
 import android.widget.PopupMenu.OnMenuItemClickListener;
 
+import com.flywheelms.gcongui.gcg.interfaces.GcgPerspective;
+import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewAdapter;
+import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewMediator;
+import com.flywheelms.gcongui.gcg.treeview.node.GcgTreeNodeInfo;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.context.FmmPerspective;
@@ -64,10 +68,6 @@ import com.flywheelms.library.fms.treeview.FmsTreeViewMediatorMemoryResident;
 import com.flywheelms.library.fms.treeview.filter.FmsTreeViewAdapter;
 import com.flywheelms.library.fms.treeview.filter.StrategicPlanningTreeFilter;
 import com.flywheelms.library.fwb.treeview.treebuilder.FmsTreeBuilder;
-import com.flywheelms.library.gcg.interfaces.GcgPerspective;
-import com.flywheelms.library.gcg.treeview.GcgTreeViewAdapter;
-import com.flywheelms.library.gcg.treeview.GcgTreeViewMediator;
-import com.flywheelms.library.gcg.treeview.node.GcgTreeNodeInfo;
 
 import java.util.Collection;
 

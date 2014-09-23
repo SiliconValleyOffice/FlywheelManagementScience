@@ -43,9 +43,9 @@
 
 package com.flywheelms.library.fse.history;
 
+import com.flywheelms.gcongui.gcg.activity.GcgActivity;
+import com.flywheelms.gcongui.gcg.dialog.GcgCancelDialog;
 import com.flywheelms.library.R;
-import com.flywheelms.library.gcg.activity.GcgActivity;
-import com.flywheelms.library.gcg.dialog.GcgCancelDialog;
 
 public class FseParagraphHistoryDialog extends GcgCancelDialog {
 	

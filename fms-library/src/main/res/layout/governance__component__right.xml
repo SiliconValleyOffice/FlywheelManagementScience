@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.flywheelms.library.gcg.container.GcgContainerGroupBoxLinear xmlns:android="http://schemas.android.com/apk/res/android"
+<com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:gcg="http://schemas.android.com/apk/res-auto"
     android:id="@+id/group_box__facilitator"
     android:layout_width="400dp"
@@ -80,4 +80,4 @@
         android:layout_marginRight="5dp"
         gcg:labelWidth="135" />
 
-</com.flywheelms.library.gcg.container.GcgContainerGroupBoxLinear>
+</com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear>

@@ -49,6 +49,13 @@ import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.RadioButton;
 
+import com.flywheelms.gcongui.gcg.activity.GcgActivity;
+import com.flywheelms.gcongui.gcg.helper.GcgHelper;
+import com.flywheelms.gcongui.gcg.widget.GcgOnSetTextListener;
+import com.flywheelms.gcongui.gcg.widget.GcgWidget;
+import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
+import com.flywheelms.gcongui.gcg.widget.date.GcgWidgetDatePicker;
+import com.flywheelms.gcongui.gcg.widget.date.GcgWidgetMonthSpinner;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.node.impl.governable.StrategicMilestone;
@@ -58,13 +65,6 @@ import com.flywheelms.library.fms.treeview.filter.FmsTreeViewAdapter;
 import com.flywheelms.library.fms.widget.text_view.FmmNodeTypeWidgetTextView;
 import com.flywheelms.library.fms.widget.text_view.HeadlineWidgetTextView;
 import com.flywheelms.library.fms.widget.text_view.TargetDateWidgetTextView;
-import com.flywheelms.library.gcg.activity.GcgActivity;
-import com.flywheelms.library.gcg.helper.GcgHelper;
-import com.flywheelms.library.gcg.widget.GcgOnSetTextListener;
-import com.flywheelms.library.gcg.widget.GcgWidget;
-import com.flywheelms.library.gcg.widget.date.GcgDateHelper;
-import com.flywheelms.library.gcg.widget.date.GcgWidgetDatePicker;
-import com.flywheelms.library.gcg.widget.date.GcgWidgetMonthSpinner;
 
 import java.util.Date;
 

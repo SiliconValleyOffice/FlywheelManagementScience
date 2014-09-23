@@ -47,7 +47,7 @@
 
 package com.flywheelms.library.fmm.deckangl;
 
-import com.flywheelms.library.deckangl.interfaces.DecKanGlApplicationNoun;
+import com.flywheelms.gcongui.deckangl.interfaces.DecKanGlApplicationNoun;
 
 /**
  * @author sstamps

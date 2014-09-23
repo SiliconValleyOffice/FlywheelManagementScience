@@ -46,9 +46,9 @@ package com.flywheelms.library.fms.widget;
 import android.content.Context;
 import android.util.AttributeSet;
 
+import com.flywheelms.gcongui.gcg.widget.GcgWidgetListView;
 import com.flywheelms.library.fmm.node.FmmHeadlineNodeShallow;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
-import com.flywheelms.library.gcg.widget.GcgWidgetListView;
 
 import java.util.ArrayList;
 

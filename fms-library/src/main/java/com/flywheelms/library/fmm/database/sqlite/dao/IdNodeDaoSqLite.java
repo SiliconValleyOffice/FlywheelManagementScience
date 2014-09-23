@@ -46,9 +46,9 @@ package com.flywheelms.library.fmm.database.sqlite.dao;
 import android.content.ContentValues;
 import android.database.Cursor;
 
+import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
 import com.flywheelms.library.fmm.meta_data.IdNodeMetaData;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmNode;
-import com.flywheelms.library.gcg.widget.date.GcgDateHelper;
 
 import java.util.HashMap;
 

@@ -46,9 +46,9 @@ package com.flywheelms.library.fms.perspective_flipper.perspective;
 import android.content.Context;
 import android.util.AttributeSet;
 
-import com.flywheelms.library.deckangl.glyph.DecKanGlGlyph;
+import com.flywheelms.gcongui.deckangl.glyph.DecKanGlGlyph;
+import com.flywheelms.gcongui.gcg.viewflipper.GcgPerspectiveFlipperChildView;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
-import com.flywheelms.library.gcg.viewflipper.GcgPerspectiveFlipperChildView;
 
 public abstract class FmsPerspectiveFlipperView extends GcgPerspectiveFlipperChildView {
 

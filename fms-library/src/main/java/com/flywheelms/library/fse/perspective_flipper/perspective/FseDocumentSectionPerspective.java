@@ -49,18 +49,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
+import com.flywheelms.gcongui.fdk.enumerator.FdkKeyboardStyle;
+import com.flywheelms.gcongui.fdk.viewflipper.GcgViewFlipperChildFdkView;
+import com.flywheelms.gcongui.gcg.activity.GcgActivity;
+import com.flywheelms.gcongui.gcg.button.multi_shift.GcgMultiShiftKeysetController;
+import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
+import com.flywheelms.gcongui.gcg.interfaces.GcgPerspectiveView;
+import com.flywheelms.gcongui.gcg.viewflipper.GcgViewFlipper;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fdk.enumerator.FdkKeyboardStyle;
-import com.flywheelms.library.fdk.viewflipper.GcgViewFlipperChildFdkView;
 import com.flywheelms.library.fse.FseDocumentSectionType;
 import com.flywheelms.library.fse.interfaces.FmsPerspectiveFlipperParent;
 import com.flywheelms.library.fse.model.FseDocumentSection;
 import com.flywheelms.library.fse.perspective_flipper.FsePerspectiveFlipper;
-import com.flywheelms.library.gcg.activity.GcgActivity;
-import com.flywheelms.library.gcg.button.multi_shift.GcgMultiShiftKeysetController;
-import com.flywheelms.library.gcg.interfaces.GcgGuiable;
-import com.flywheelms.library.gcg.interfaces.GcgPerspectiveView;
-import com.flywheelms.library.gcg.viewflipper.GcgViewFlipper;
 
 import java.util.ArrayList;
 

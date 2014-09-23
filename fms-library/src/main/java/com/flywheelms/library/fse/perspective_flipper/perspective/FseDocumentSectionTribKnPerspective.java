@@ -51,8 +51,11 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.flywheelms.gcongui.deckangl.enumerator.DecKanGlAnnotatedGlyphSize;
+import com.flywheelms.gcongui.gcg.GcgApplication;
+import com.flywheelms.gcongui.gcg.helper.GcgHelper;
+import com.flywheelms.gcongui.gcg.interfaces.GcgPerspective;
 import com.flywheelms.library.R;
-import com.flywheelms.library.deckangl.enumerator.DecKanGlAnnotatedGlyphSize;
 import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fms.helper.FmsHelpIndex;
 import com.flywheelms.library.fms.view.FmsGovernanceView;
@@ -60,9 +63,6 @@ import com.flywheelms.library.fse.FseDocumentSectionType;
 import com.flywheelms.library.fse.model.FseDocumentSection;
 import com.flywheelms.library.fse.model.FseDocumentSectionTribKn;
 import com.flywheelms.library.fse.perspective_flipper.FsePerspectiveFlipper;
-import com.flywheelms.library.gcg.GcgApplication;
-import com.flywheelms.library.gcg.helper.GcgHelper;
-import com.flywheelms.library.gcg.interfaces.GcgPerspective;
 
 import java.util.ArrayList;
 

@@ -45,6 +45,7 @@ package com.flywheelms.library.fmm.repository;
 
 import android.content.Intent;
 
+import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.meta_data.HeadlineNodeMetaData;
 import com.flywheelms.library.fmm.meta_data.IdNodeMetaData;
@@ -57,7 +58,6 @@ import com.flywheelms.library.fmm.persistence.PersistenceServiceProvider;
 import com.flywheelms.library.fmm.persistence.PersistenceTechnology;
 import com.flywheelms.library.fmm.persistence.PersistenceTechnologyDelegate;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
-import com.flywheelms.library.gcg.activity.GcgActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;

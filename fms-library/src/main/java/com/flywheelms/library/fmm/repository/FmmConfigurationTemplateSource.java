@@ -45,10 +45,10 @@ package com.flywheelms.library.fmm.repository;
 
 import android.graphics.drawable.Drawable;
 
+import com.flywheelms.gcongui.gcg.GcgApplication;
+import com.flywheelms.gcongui.gcg.helper.GcgHelper;
+import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
 import com.flywheelms.library.R;
-import com.flywheelms.library.gcg.GcgApplication;
-import com.flywheelms.library.gcg.helper.GcgHelper;
-import com.flywheelms.library.gcg.interfaces.GcgGuiable;
 
 import java.util.ArrayList;
 import java.util.Arrays;

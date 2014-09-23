@@ -49,9 +49,13 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
+import com.flywheelms.gcongui.fdk.widget.FdkLeftKeypad;
+import com.flywheelms.gcongui.gcg.helper.GcgHelper;
+import com.flywheelms.gcongui.gcg.interfaces.GcgSerialization;
+import com.flywheelms.gcongui.gcg.menu.GcgSpinnableMenu;
+import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fca.FlywheelCommunityAuthentication;
-import com.flywheelms.library.fdk.widget.FdkLeftKeypad;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.enumerator.FmmLockStatus;
 import com.flywheelms.library.fmm.node.NodeId;
@@ -74,10 +78,6 @@ import com.flywheelms.library.fse.perspective_flipper.perspective.FseDocumentSec
 import com.flywheelms.library.fse.perspective_flipper.perspective.FseDocumentSectionPerspective;
 import com.flywheelms.library.fse.perspective_flipper.perspective.FseDocumentSectionStoryPerspective;
 import com.flywheelms.library.fse.perspective_flipper.perspective.FseDocumentSectionTribKnPerspective;
-import com.flywheelms.library.gcg.helper.GcgHelper;
-import com.flywheelms.library.gcg.interfaces.GcgSerialization;
-import com.flywheelms.library.gcg.menu.GcgSpinnableMenu;
-import com.flywheelms.library.gcg.widget.date.GcgDateHelper;
 
 import org.json.JSONObject;
 

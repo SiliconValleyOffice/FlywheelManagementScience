@@ -43,6 +43,7 @@
 
 package com.flywheelms.library.fmm.node.impl.commitment;
 
+import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.FmmHistoryNodeImpl;
@@ -50,7 +51,6 @@ import com.flywheelms.library.fmm.node.impl.enumerator.CompletionCommitmentType;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.governable.CommunityMember;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmCommitmentNode;
-import com.flywheelms.library.gcg.widget.date.GcgDateHelper;
 
 import java.util.Date;
 

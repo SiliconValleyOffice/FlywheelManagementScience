@@ -46,6 +46,8 @@ package com.flywheelms.library.fmm.node.impl.governable;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 
+import com.flywheelms.gcongui.gcg.GcgApplication;
+import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.meta_data.CommunityMemberMetaData;
@@ -56,8 +58,6 @@ import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
 import com.flywheelms.library.fmm.node.interfaces.FmmSupportingNode;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
-import com.flywheelms.library.gcg.GcgApplication;
-import com.flywheelms.library.gcg.activity.GcgActivity;
 import com.flywheelms.library.util.JsonHelper;
 
 import org.json.JSONException;

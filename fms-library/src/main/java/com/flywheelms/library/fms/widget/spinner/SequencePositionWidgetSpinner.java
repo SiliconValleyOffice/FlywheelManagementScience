@@ -46,9 +46,9 @@ package com.flywheelms.library.fms.widget.spinner;
 import android.content.Context;
 import android.util.AttributeSet;
 
-import com.flywheelms.library.gcg.interfaces.GcgGuiable;
-import com.flywheelms.library.gcg.interfaces.GuiableString;
-import com.flywheelms.library.gcg.widget.GcgWidgetSpinner;
+import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
+import com.flywheelms.gcongui.gcg.interfaces.GuiableString;
+import com.flywheelms.gcongui.gcg.widget.GcgWidgetSpinner;
 
 import java.util.ArrayList;
 

@@ -46,8 +46,8 @@ package com.flywheelms.library.fms.wizard;
 import android.content.Context;
 import android.util.AttributeSet;
 
+import com.flywheelms.gcongui.gcg.wizard.GcgWizardStepFlipper;
 import com.flywheelms.library.fms.activity.FmsWizardActivity;
-import com.flywheelms.library.gcg.wizard.GcgWizardStepFlipper;
 
 public abstract class FmsWizardStepFlipper extends GcgWizardStepFlipper {
 

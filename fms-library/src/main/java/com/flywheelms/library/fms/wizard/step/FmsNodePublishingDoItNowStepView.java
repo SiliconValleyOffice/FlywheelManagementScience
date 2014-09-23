@@ -47,13 +47,13 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
+import com.flywheelms.gcongui.gcg.activity.GcgActivity;
+import com.flywheelms.gcongui.gcg.helper.GcgHelper;
+import com.flywheelms.gcongui.gcg.viewflipper.GcgViewFlipper;
+import com.flywheelms.gcongui.gcg.wizard.step.GcgWizardStepView;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fms.helper.FmsHelpIndex;
 import com.flywheelms.library.fms.wizard.FmsNodePublishingWizardStepFlipper;
-import com.flywheelms.library.gcg.activity.GcgActivity;
-import com.flywheelms.library.gcg.helper.GcgHelper;
-import com.flywheelms.library.gcg.viewflipper.GcgViewFlipper;
-import com.flywheelms.library.gcg.wizard.step.GcgWizardStepView;
 
 public class FmsNodePublishingDoItNowStepView extends GcgWizardStepView {
 	

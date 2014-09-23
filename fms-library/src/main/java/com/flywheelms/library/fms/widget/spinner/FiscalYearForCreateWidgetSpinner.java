@@ -46,10 +46,10 @@ package com.flywheelms.library.fms.widget.spinner;
 import android.content.Context;
 import android.util.AttributeSet;
 
+import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
+import com.flywheelms.gcongui.gcg.interfaces.GuiableString;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
-import com.flywheelms.library.gcg.interfaces.GcgGuiable;
-import com.flywheelms.library.gcg.interfaces.GuiableString;
 
 import java.util.ArrayList;
 import java.util.Calendar;

@@ -49,6 +49,9 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.RadioButton;
 
+import com.flywheelms.gcongui.gcg.activity.GcgActivity;
+import com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear;
+import com.flywheelms.gcongui.gcg.helper.GcgHelper;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
@@ -57,9 +60,6 @@ import com.flywheelms.library.fms.treeview.filter.FmsTreeViewAdapter;
 import com.flywheelms.library.fms.widget.edit_text.HeadlineWidgetEditText;
 import com.flywheelms.library.fms.widget.text_view.FmmNodeTypeWidgetTextView;
 import com.flywheelms.library.fms.widget.text_view.HeadlineWidgetTextView;
-import com.flywheelms.library.gcg.activity.GcgActivity;
-import com.flywheelms.library.gcg.container.GcgContainerGroupBoxLinear;
-import com.flywheelms.library.gcg.helper.GcgHelper;
 
 public class HeadlineNodeCreateDialog extends FmsCancelOkApplyFdkDialog {
 

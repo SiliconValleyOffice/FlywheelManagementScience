@@ -50,13 +50,13 @@ import android.view.View;
 import android.widget.PopupMenu;
 import android.widget.PopupMenu.OnMenuItemClickListener;
 
+import com.flywheelms.gcongui.gcg.interfaces.GcgPerspective;
+import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewAdapter;
+import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewMediator;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fms.helper.FmsHelpIndex;
 import com.flywheelms.library.fms.tree_view_flipper.tree_view.FmsPerspectiveFlipperTreeView;
-import com.flywheelms.library.gcg.interfaces.GcgPerspective;
-import com.flywheelms.library.gcg.treeview.GcgTreeViewAdapter;
-import com.flywheelms.library.gcg.treeview.GcgTreeViewMediator;
 
 public class FwbVelocityBudgetingPerspective extends FmsPerspectiveFlipperTreeView {
 	

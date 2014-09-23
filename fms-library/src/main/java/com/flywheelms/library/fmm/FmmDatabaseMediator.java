@@ -42,6 +42,8 @@
 
 package com.flywheelms.library.fmm;
 
+import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
+import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
 import com.flywheelms.library.fca.FlywheelCommunityAuthentication;
 import com.flywheelms.library.fmm.helper.FmmHelper;
 import com.flywheelms.library.fmm.meta_data.CommunityMemberMetaData;
@@ -107,8 +109,6 @@ import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.fmm.persistence.PersistenceTechnologyDelegate;
 import com.flywheelms.library.fmm.repository.FmmConfiguration;
 import com.flywheelms.library.fse.model.FseDocument;
-import com.flywheelms.library.gcg.interfaces.GcgGuiable;
-import com.flywheelms.library.gcg.widget.date.GcgDateHelper;
 
 import java.util.ArrayList;
 import java.util.Collection;

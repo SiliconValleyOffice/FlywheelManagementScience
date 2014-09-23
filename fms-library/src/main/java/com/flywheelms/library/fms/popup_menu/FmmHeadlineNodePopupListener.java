@@ -46,8 +46,8 @@ package com.flywheelms.library.fms.popup_menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.flywheelms.gcongui.gcg.treeview.node.GcgTreeNodeInfo;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
-import com.flywheelms.library.gcg.treeview.node.GcgTreeNodeInfo;
 
 public interface FmmHeadlineNodePopupListener {
 	

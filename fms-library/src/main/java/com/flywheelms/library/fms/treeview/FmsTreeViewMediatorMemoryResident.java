@@ -43,12 +43,12 @@
 
 package com.flywheelms.library.fms.treeview;
 
+import com.flywheelms.gcongui.gcg.treeview.GcgTreeFilter;
+import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewMediatorMemoryResident;
+import com.flywheelms.gcongui.gcg.treeview.node.GcgTreeNodeInfo;
+import com.flywheelms.gcongui.gcg.treeview.node.GcgTreeNodeTargetObject;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.context.FmmPerspective;
-import com.flywheelms.library.gcg.treeview.GcgTreeFilter;
-import com.flywheelms.library.gcg.treeview.GcgTreeViewMediatorMemoryResident;
-import com.flywheelms.library.gcg.treeview.node.GcgTreeNodeInfo;
-import com.flywheelms.library.gcg.treeview.node.GcgTreeNodeTargetObject;
 
 public class FmsTreeViewMediatorMemoryResident extends GcgTreeViewMediatorMemoryResident {
 	

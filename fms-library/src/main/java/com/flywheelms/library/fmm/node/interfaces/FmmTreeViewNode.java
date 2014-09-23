@@ -43,7 +43,7 @@
 
 package com.flywheelms.library.fmm.node.interfaces;
 
-import com.flywheelms.library.deckangl.glyph.DecKanGlGlyph;
+import com.flywheelms.gcongui.deckangl.glyph.DecKanGlGlyph;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmNode;
 
 public interface FmmTreeViewNode extends FmmNode {

@@ -52,6 +52,12 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import com.flywheelms.gcongui.gcg.activity.GcgActivity;
+import com.flywheelms.gcongui.gcg.container.GcgContainerTabbedLayout;
+import com.flywheelms.gcongui.gcg.container.tabbed.GcgTabSpec;
+import com.flywheelms.gcongui.gcg.helper.GcgGuiHelper;
+import com.flywheelms.gcongui.gcg.helper.GcgHelper;
+import com.flywheelms.gcongui.gcg.widget.GcgWidgetZoomableHeading;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
@@ -61,12 +67,6 @@ import com.flywheelms.library.fms.widget.FmmHeadlineNodeWidgetSpinner;
 import com.flywheelms.library.fms.widget.spinner.SequencePositionWidgetSpinner;
 import com.flywheelms.library.fms.widget.text_view.FmmNodeTypeWidgetTextView;
 import com.flywheelms.library.fms.widget.text_view.HeadlineWidgetTextView;
-import com.flywheelms.library.gcg.activity.GcgActivity;
-import com.flywheelms.library.gcg.container.GcgContainerTabbedLayout;
-import com.flywheelms.library.gcg.container.tabbed.GcgTabSpec;
-import com.flywheelms.library.gcg.helper.GcgGuiHelper;
-import com.flywheelms.library.gcg.helper.GcgHelper;
-import com.flywheelms.library.gcg.widget.GcgWidgetZoomableHeading;
 
 import java.util.ArrayList;
 

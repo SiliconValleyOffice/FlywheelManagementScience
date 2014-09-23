@@ -52,8 +52,10 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.flywheelms.gcongui.fdk.widget.FdkKeyboard;
+import com.flywheelms.gcongui.gcg.helper.GcgButtonMenu;
+import com.flywheelms.gcongui.gcg.helper.GcgHelper;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fdk.widget.FdkKeyboard;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fms.activity.FmsActivity;
@@ -68,8 +70,6 @@ import com.flywheelms.library.fse.perspective_flipper.FseHistoryBrowserPerspecti
 import com.flywheelms.library.fse.perspective_flipper.FsePerspectiveFlipper;
 import com.flywheelms.library.fse.perspective_flipper.perspective.FseDocumentSectionNotesBrowserPerspective;
 import com.flywheelms.library.fse.perspective_flipper.perspective.FseDocumentSectionStoryBrowserPerspective;
-import com.flywheelms.library.gcg.helper.GcgButtonMenu;
-import com.flywheelms.library.gcg.helper.GcgHelper;
 
 import java.util.ArrayList;
 import java.util.Collections;

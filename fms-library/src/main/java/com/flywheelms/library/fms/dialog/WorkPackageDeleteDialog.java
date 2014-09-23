@@ -45,6 +45,7 @@ package com.flywheelms.library.fms.dialog;
 
 import android.widget.LinearLayout;
 
+import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.node.impl.governable.Portfolio;
@@ -57,7 +58,6 @@ import com.flywheelms.library.fms.widget.spinner.PortfolioWidgetSpinner;
 import com.flywheelms.library.fms.widget.spinner.ProjectAssetWidgetSpinner;
 import com.flywheelms.library.fms.widget.spinner.ProjectWidgetSpinner;
 import com.flywheelms.library.fms.widget.spinner.WorkPackageWidgetSpinner;
-import com.flywheelms.library.gcg.activity.GcgActivity;
 
 import java.util.ArrayList;
 

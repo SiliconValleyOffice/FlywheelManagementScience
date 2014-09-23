@@ -46,10 +46,10 @@ package com.flywheelms.library.fmm.helper;
 import android.content.res.AssetManager;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.flywheelms.gcongui.gcg.GcgApplication;
 import com.flywheelms.library.fmm.repository.FmmConfiguration;
 import com.flywheelms.library.fmm.repository.FmmConfigurationPrivate;
 import com.flywheelms.library.fms.helper.FmsFileHelper;
-import com.flywheelms.library.gcg.GcgApplication;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;

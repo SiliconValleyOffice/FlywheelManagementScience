@@ -42,7 +42,7 @@
         android:background="@color/x11__Orange"
         android:visibility="invisible" />
 
-    <com.flywheelms.library.gcg.widget.GcgSpinner
+    <com.flywheelms.gcongui.gcg.widget.GcgSpinner
         android:id="@+id/widget_spinner"
         style="@style/GcgWidgetData"
         android:layout_width="match_parent"

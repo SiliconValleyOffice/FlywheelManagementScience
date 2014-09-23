@@ -43,6 +43,7 @@
 
 package com.flywheelms.library.fmm.persistence;
 
+import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
 import com.flywheelms.library.fmm.node.impl.commitment.StrategicCommitment;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.enumerator.GovernanceRole;
@@ -70,7 +71,6 @@ import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragTribKnQuality;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragWorkTaskBudget;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.fmm.repository.FmmConfiguration;
-import com.flywheelms.library.gcg.interfaces.GcgGuiable;
 
 import java.util.ArrayList;
 import java.util.Collection;

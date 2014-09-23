@@ -43,17 +43,17 @@
 
 package com.flywheelms.library.fms.dialog;
 
+import com.flywheelms.gcongui.deckangl.component.DecKanGlNavigationComponentParent;
+import com.flywheelms.gcongui.deckangl.glyph.DecKanGlGlyph;
+import com.flywheelms.gcongui.gcg.activity.GcgActivity;
+import com.flywheelms.gcongui.gcg.context.GcgFrame;
+import com.flywheelms.gcongui.gcg.interfaces.GcgPerspective;
 import com.flywheelms.library.R;
-import com.flywheelms.library.deckangl.component.DecKanGlNavigationComponentParent;
-import com.flywheelms.library.deckangl.glyph.DecKanGlGlyph;
 import com.flywheelms.library.fmm.node.FmmHeadlineNodeShallow;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.fms.component.FmsDecKanGlNavigationComponent;
 import com.flywheelms.library.fms.interfaces.FmsDecKanGlNavigationDialogParent;
 import com.flywheelms.library.fms.widget.text_view.HeadlineWidgetTextView;
-import com.flywheelms.library.gcg.activity.GcgActivity;
-import com.flywheelms.library.gcg.context.GcgFrame;
-import com.flywheelms.library.gcg.interfaces.GcgPerspective;
 
 import java.util.ArrayList;
 

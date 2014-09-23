@@ -46,7 +46,7 @@ package com.flywheelms.library.fms.widget.text_view;
 import android.content.Context;
 import android.util.AttributeSet;
 
-import com.flywheelms.library.gcg.widget.GcgWidgetTextView;
+import com.flywheelms.gcongui.gcg.widget.GcgWidgetTextView;
 
 public class FmmNodeTypeWidgetTextView extends GcgWidgetTextView {
 	

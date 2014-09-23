@@ -46,8 +46,8 @@ package com.flywheelms.library.fse.widget;
 import android.content.Context;
 import android.util.AttributeSet;
 
-import com.flywheelms.library.gcg.button.multi_shift.GcgMultiShiftButton;
-import com.flywheelms.library.gcg.button.multi_shift.GcgMultiShiftState;
+import com.flywheelms.gcongui.gcg.button.multi_shift.GcgMultiShiftButton;
+import com.flywheelms.gcongui.gcg.button.multi_shift.GcgMultiShiftState;
 
 public class FseMultiShiftButton extends GcgMultiShiftButton {
 

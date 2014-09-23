@@ -43,8 +43,8 @@
 
 package com.flywheelms.library.fms.miscellaneous;
 
+import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
-import com.flywheelms.library.gcg.activity.GcgActivity;
 
 import java.io.File;
 

@@ -46,8 +46,8 @@ package com.flywheelms.library.fms.widget.text_view;
 import android.content.Context;
 import android.util.AttributeSet;
 
+import com.flywheelms.gcongui.gcg.widget.GcgWidgetTextView;
 import com.flywheelms.library.fmm.repository.FmmAccessScope;
-import com.flywheelms.library.gcg.widget.GcgWidgetTextView;
 
 public class FmmAccessScopeTextView extends GcgWidgetTextView {
 	

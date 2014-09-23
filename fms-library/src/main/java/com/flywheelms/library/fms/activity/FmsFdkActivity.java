@@ -2,12 +2,12 @@ package com.flywheelms.library.fms.activity;
 
 import android.content.Intent;
 
-import com.flywheelms.library.fdk.activity.FdkActivity;
+import com.flywheelms.gcongui.fdk.activity.FdkActivity;
+import com.flywheelms.gcongui.gcg.context.GcgNavigationTarget;
 import com.flywheelms.library.fmm.enumerator.FmmNodeTransactionType;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.transaction.FmmDataRefreshNotice;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
-import com.flywheelms.library.gcg.context.GcgNavigationTarget;
 
 import java.util.ArrayList;
 import java.util.Hashtable;

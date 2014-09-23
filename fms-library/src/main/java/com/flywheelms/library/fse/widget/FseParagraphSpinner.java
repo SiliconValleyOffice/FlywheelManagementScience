@@ -55,11 +55,11 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.flywheelms.gcongui.gcg.button.multi_shift.GcgMultiShiftState;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fse.enumerator.FseParagraphStyle;
 import com.flywheelms.library.fse.perspective_flipper.FsePerspectiveFlipper;
 import com.flywheelms.library.fse.views.FseParagraphView;
-import com.flywheelms.library.gcg.button.multi_shift.GcgMultiShiftState;
 
 @SuppressLint("ViewConstructor")
 public class FseParagraphSpinner extends Spinner {

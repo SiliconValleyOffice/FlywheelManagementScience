@@ -45,6 +45,12 @@ package com.flywheelms.library.fms.helper;
 
 import android.content.Intent;
 
+import com.flywheelms.gcongui.gcg.GcgApplication;
+import com.flywheelms.gcongui.gcg.activity.GcgActivity;
+import com.flywheelms.gcongui.gcg.context.GcgFrame;
+import com.flywheelms.gcongui.gcg.helper.GcgActivityHelper;
+import com.flywheelms.gcongui.gcg.helper.GcgHelper;
+import com.flywheelms.gcongui.gcg.interfaces.GcgPerspective;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.context.FmmFrame;
 import com.flywheelms.library.fmm.context.FmmPerspective;
@@ -57,12 +63,6 @@ import com.flywheelms.library.fms.activity.DecKanGlDictionaryActivity;
 import com.flywheelms.library.fms.activity.FiscalYearEditorActivity;
 import com.flywheelms.library.fms.activity.PdfPublicationWizard;
 import com.flywheelms.library.fse.activity.FseDocumentHistoryBrowserActivity;
-import com.flywheelms.library.gcg.GcgApplication;
-import com.flywheelms.library.gcg.activity.GcgActivity;
-import com.flywheelms.library.gcg.context.GcgFrame;
-import com.flywheelms.library.gcg.helper.GcgActivityHelper;
-import com.flywheelms.library.gcg.helper.GcgHelper;
-import com.flywheelms.library.gcg.interfaces.GcgPerspective;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -92,7 +92,6 @@ public class FmsActivityHelper extends GcgActivityHelper {
 	public static final String bundle_key__FSE_DOCUMENT_SECTION_TYPE = "FseDocumentSectionType";
 	public static final String bundle_key__DISPLAYED_FSE_DOCUMENT = "DisplayedFseDocument";
 	public static final String bundle_key__FSE_DOCUMENT_VIEW = "FseDocumentView";
-    public static final String bundle_key__MODIFIED_TREE_NODE__LIST = "ModifiedFmmNodeIdList";
 	public static final int request_code__ANDROID_CONTACT_PICKER_FOR_SPONSOR = GcgApplication.getIntegerResource(R.integer.request_code__android_contact_picker__sponsor);
 	public static final int request_code__ANDROID_CONTACT_PICKER_FOR_CUSTOMER = GcgApplication.getIntegerResource(R.integer.request_code__android_contact_picker__customer);
 	public static final int request_code__ANDROID_CONTACT_PICKER_FOR_FACILITATOR = GcgApplication.getIntegerResource(R.integer.request_code__android_contact_picker__facilitator);

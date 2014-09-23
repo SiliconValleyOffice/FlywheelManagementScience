@@ -43,7 +43,7 @@
 
 package com.flywheelms.library.util;
 
-import com.flywheelms.library.gcg.widget.date.GcgDateHelper;
+import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
 
 import org.json.JSONException;
 import org.json.JSONObject;

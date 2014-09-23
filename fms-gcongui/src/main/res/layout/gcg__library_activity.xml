@@ -1,0 +1,13 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/gcg_library_activity__layout_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gcg__sands_of_time"
+    android:orientation="vertical" >
+
+    <com.flywheelms.gcongui.gcg.context.GcgApplicationContextHeader
+        android:id="@+id/gcg__application_context__header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

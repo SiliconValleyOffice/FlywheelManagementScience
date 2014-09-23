@@ -43,12 +43,12 @@
 
 package com.flywheelms.library.fms.helper;
 
+import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
 import com.flywheelms.library.fmm.helper.FmmAssetsHelper;
 import com.flywheelms.library.fmm.repository.FmmAccessScope;
 import com.flywheelms.library.fmm.repository.FmmConfiguration;
 import com.flywheelms.library.fmm.repository.FmmConfigurationPrivate;
 import com.flywheelms.library.fmm.repository.FmmConfigurationTemplateSource;
-import com.flywheelms.library.gcg.interfaces.GcgGuiable;
 
 import org.json.JSONArray;
 import org.json.JSONException;

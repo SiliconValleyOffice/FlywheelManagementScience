@@ -51,9 +51,9 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.flywheelms.gcongui.gcg.helper.GcgGuiHelper;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.node.FmmHeadlineNodeShallow;
-import com.flywheelms.library.gcg.helper.GcgGuiHelper;
 
 import java.util.ArrayList;
 

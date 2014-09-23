@@ -46,6 +46,7 @@ package com.flywheelms.library.fse.perspective_flipper;
 import android.content.Context;
 import android.util.AttributeSet;
 
+import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
 import com.flywheelms.library.fca.FlywheelCommunityAuthentication;
 import com.flywheelms.library.fmm.enumerator.FmmLockStatus;
 import com.flywheelms.library.fmm.node.NodeId;
@@ -57,7 +58,6 @@ import com.flywheelms.library.fse.enumerator.FseContentModificationState;
 import com.flywheelms.library.fse.model.FseDocument;
 import com.flywheelms.library.fse.perspective_flipper.perspective.FseDocumentSectionParagraphEditorPerspective;
 import com.flywheelms.library.fse.perspective_flipper.perspective.FseDocumentSectionPerspective;
-import com.flywheelms.library.gcg.widget.date.GcgDateHelper;
 
 import org.json.JSONObject;
 

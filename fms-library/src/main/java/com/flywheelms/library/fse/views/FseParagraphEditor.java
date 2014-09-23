@@ -49,6 +49,9 @@ import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
+import com.flywheelms.gcongui.gcg.activity.GcgActivity;
+import com.flywheelms.gcongui.gcg.button.multi_shift.GcgMultiShiftState;
+import com.flywheelms.gcongui.gcg.interfaces.GcgMultiShiftStateListener;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fse.enumerator.FseContentModificationState;
 import com.flywheelms.library.fse.enumerator.FseInsertModificationState;
@@ -64,9 +67,6 @@ import com.flywheelms.library.fse.model.FseParagraph;
 import com.flywheelms.library.fse.perspective_flipper.FsePerspectiveFlipper;
 import com.flywheelms.library.fse.perspective_flipper.perspective.FseDocumentSectionParagraphEditorPerspective;
 import com.flywheelms.library.fse.widget.GcgClickState;
-import com.flywheelms.library.gcg.activity.GcgActivity;
-import com.flywheelms.library.gcg.button.multi_shift.GcgMultiShiftState;
-import com.flywheelms.library.gcg.interfaces.GcgMultiShiftStateListener;
 
 import java.util.ArrayList;
 import java.util.Arrays;

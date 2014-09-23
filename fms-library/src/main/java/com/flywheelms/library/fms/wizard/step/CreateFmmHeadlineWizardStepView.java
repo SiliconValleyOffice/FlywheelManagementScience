@@ -48,9 +48,10 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
 
+import com.flywheelms.gcongui.fdk.enumerator.FdkKeyboardStyle;
+import com.flywheelms.gcongui.fdk.wizard.FdkWizardStepView;
+import com.flywheelms.gcongui.gcg.helper.GcgHelper;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fdk.enumerator.FdkKeyboardStyle;
-import com.flywheelms.library.fdk.wizard.FdkWizardStepView;
 import com.flywheelms.library.fmm.persistence.PersistenceServiceProvider;
 import com.flywheelms.library.fmm.repository.FmmAccessScope;
 import com.flywheelms.library.fms.helper.FmsHelpIndex;
@@ -58,7 +59,6 @@ import com.flywheelms.library.fms.widget.edit_text.HeadlineWidgetEditText;
 import com.flywheelms.library.fms.widget.spinner.PersistenceServiceProviderWidgetSpinner;
 import com.flywheelms.library.fms.widget.text_view.FmmAccessScopeTextView;
 import com.flywheelms.library.fms.wizard.CreateFmmWizardStepFlipper;
-import com.flywheelms.library.gcg.helper.GcgHelper;
 
 public class CreateFmmHeadlineWizardStepView extends FdkWizardStepView {
 
