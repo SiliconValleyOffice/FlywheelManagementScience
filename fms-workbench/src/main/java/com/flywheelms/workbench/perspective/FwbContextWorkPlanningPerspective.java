@@ -53,10 +53,21 @@ import android.widget.PopupMenu.OnMenuItemClickListener;
 import com.flywheelms.gcongui.gcg.interfaces.GcgPerspective;
 import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewAdapter;
 import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewMediator;
+import com.flywheelms.gcongui.gcg.treeview.node.GcgTreeNodeInfo;
 import com.flywheelms.library.R;
+import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.context.FmmPerspective;
+import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
 import com.flywheelms.library.fms.helper.FmsHelpIndex;
+import com.flywheelms.library.fms.popup_menu.FmmPopupBuilder;
+import com.flywheelms.library.fms.preferences.GuiPreferencesBundle;
 import com.flywheelms.library.fms.tree_view_flipper.tree_view.FmsPerspectiveFlipperTreeView;
+import com.flywheelms.library.fms.treeview.FmsTreeViewMediatorMemoryResident;
+import com.flywheelms.library.fms.treeview.filter.FmsTreeViewAdapter;
+import com.flywheelms.library.fms.treeview.filter.StrategicPlanningTreeFilter;
+import com.flywheelms.library.fwb.treeview.treebuilder.FmsTreeBuilder;
+
+import java.util.Collection;
 
 public class FwbContextWorkPlanningPerspective extends FmsPerspectiveFlipperTreeView {
 	
@@ -70,47 +81,122 @@ public class FwbContextWorkPlanningPerspective extends FmsPerspectiveFlipperTree
 	}
 
     @Override
-    protected void initializeRightMenu() {
-        // TODO - get rid of this over ride when class is fully implemented - SDS
-        return;
+    protected int getPageTitleResourceId() {
+        return R.string.fmm_perspective__work_planning;
     }
 
-	@Override
-	public void guiPreferencesApply() {
-		// TODO - get rid of this over ride when class is fully implemented - SDS
-	}
+    @Override
+    protected String getHelpContextUrlString() {
+        return FmsHelpIndex.PERSPECTIVE__CONTEXT__WORK_PLANNING;
+    }
 
-	@Override
-	protected int getPageTitleResourceId() {
-		return R.string.fmm_perspective__work_planning;
-	}
+    @Override
+    protected int getRightMenuHeadingArrayResourceId() {
+        return R.array.context__work_planning__right_menu__heading_array;
+    }
 
-	@Override
-	protected GcgTreeViewMediator createGcgTreeViewMediator() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    protected int getRightMenuLayoutResourceId() {
+        return R.layout.context__work_breakdown__right_menu;
+    }
 
-	@Override
-	protected String getHelpContextUrlString() {
-		return FmsHelpIndex.PERSPECTIVE__CONTEXT__WORK_PLANNING;
-	}
+    @Override
+    protected int[] getRightMenuBodyResourceIdArray() {
+        return new int[]{
+                R.id.show_menu__body,
+                R.id.governance__menu_body,
+                R.id.work_status__menu_body,
+                R.id.team__menu_body};
+    }
 
-	@Override
-	protected PopupMenu getTreeViewBackgroundPopupMenu(View aView, final GcgTreeViewAdapter aTreeViewAdapter) {
-		PopupMenu thePopupMenu = new PopupMenu(getContext(), aView);
-		thePopupMenu.setOnMenuItemClickListener(new OnMenuItemClickListener() {
-			
-			@Override
-			public boolean onMenuItemClick(MenuItem aMenuItem) {
-//				if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__CREATE_FISCAL_YEAR)) {
-//					aTreeViewAdapter.createFiscalYear();
-//				}
-				return true;
-			}
-		});
-//		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_FISCAL_YEAR);
-		return thePopupMenu;
-	}
+    @Override
+    protected GcgTreeViewMediator createGcgTreeViewMediator() {
+        GcgTreeViewMediator theTreeContentMediator =
+                new FmsTreeViewMediatorMemoryResident(new StrategicPlanningTreeFilter(this));
+        final FmsTreeBuilder theTreeBuilder = new FmsTreeBuilder(theTreeContentMediator);
+        Collection<FiscalYear> theFiscalYearCollection = FmmDatabaseMediator.getActiveMediator().getFiscalYearList(
+                FmmDatabaseMediator.getActiveMediator().getFmmOwner() );
+        for(FiscalYear theFiscalYear : theFiscalYearCollection) {
+            GcgTreeNodeInfo theFiscalYearTreeNodeInfo = theTreeBuilder.addTopNode(
+                    theFiscalYear, false, FmmPerspective.WORK_PLANNING );
+//            Collection<FlywheelMilestone> theFlywheelMilestoneCollection =
+//                    FmmDatabaseMediator.getActiveMediator().getFlywheelMilestoneList(theFiscalYear);
+//            GcgTreeNodeInfo theFiscalYearTreeNodeInfo = theTreeBuilder.addTopNode(
+//                    theFiscalYear, theFlywheelMilestoneCollection.size()>0, FmmPerspective.WORK_PLANNING );
+//            for(FlywheelMilestone theFlywheelMilestone : theFlywheelMilestoneCollection) {
+//                Collection<WorkPlan> theWorkPlanCollection =
+//                        FmmDatabaseMediator.getActiveMediator().listWorkPlan(theFlywheelMilestone);
+//                GcgTreeNodeInfo theFlywheelMilestoneTreeNodeInfo = theTreeBuilder.addChildNode(
+//                        theFlywheelMilestone, theWorkPlanCollection.size()>0, theFiscalYearTreeNodeInfo, FmmPerspective.WORK_PLANNING);
+//                for(WorkPlan theWorkPlan : theWorkPlanCollection) {
+//                    theTreeBuilder.addLeafNode(
+//                            theWorkPlan, theFlywheelMilestoneTreeNodeInfo, FmmPerspective.WORK_PLANNING);
+//                }
+//            }
+        }
+        return theTreeContentMediator;
+    }
+
+    @Override
+    protected PopupMenu getTreeViewBackgroundPopupMenu(View aView, final GcgTreeViewAdapter aTreeViewAdapter) {
+        PopupMenu thePopupMenu = new PopupMenu(getContext(), aView);
+        // TODO - conditional for API 19 and above
+//		PopupMenu thePopupMenu = new PopupMenu(getContext(), aView, Gravity.CENTER | Gravity,LEFT);  // target API 19
+        thePopupMenu.setOnMenuItemClickListener(new OnMenuItemClickListener() {
+
+            @Override
+            public boolean onMenuItemClick(MenuItem aMenuItem) {
+                if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__CREATE_FISCAL_YEAR)) {
+                    ((FmsTreeViewAdapter) aTreeViewAdapter).createFiscalYear();
+                }
+                return true;
+            }
+        });
+        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_FISCAL_YEAR);
+        return thePopupMenu;
+    }
+
+    @Override
+    public boolean startButtonEnabled() {
+        return true;
+    }
+
+    @Override
+    protected int getStartButtonBackgroundResourceId() {
+        return R.drawable.fms__button_state_list__start__fiscal_year;
+    }
+
+    @Override
+    protected void initializeStartButtonListener() {
+        this.startButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View aView) {
+                ((FmsTreeViewAdapter) FwbContextWorkPlanningPerspective.this.getGcgTreeViewAdapter()).createFiscalYear();
+            }
+        });
+    }
+
+    @Override
+    public String getPreferencesBundleNameShowMenu() {
+        return GuiPreferencesBundle.FWB__CONTEXT__WORK_PLANNING__SHOW.getKey();
+    }
+
+    @Override
+    public String getPreferencesBundleNameGovernanceMenu() {
+        return GuiPreferencesBundle.FWB__CONTEXT__WORK_PLANNING__GOVERNANCE.getKey();
+    }
+
+    @Override
+    public String getPreferencesBundleNameWorkStatusMenu() {
+        return GuiPreferencesBundle.FWB__CONTEXT__WORK_PLANNING__WORK_STATUS.getKey();
+    }
+
+    @Override
+    public String getPreferencesBundleNameTeamMenu() {
+        return GuiPreferencesBundle.FWB__CONTEXT__WORK_PLANNING__TEAM.getKey();
+    }
+
+    protected void initWorkStatusMenu() {
+    }
 
 }
