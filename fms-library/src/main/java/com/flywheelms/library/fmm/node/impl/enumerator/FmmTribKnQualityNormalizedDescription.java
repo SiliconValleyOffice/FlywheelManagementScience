@@ -53,7 +53,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class FmmTribKnQualityNormalizedDescription extends DecKanGlTribKnQualityNormalizedDescription implements FmmEnumNode {
-	
+
 	public static final FmmTribKnQualityNormalizedDescription AT_RISK = new FmmTribKnQualityNormalizedDescription(R.string.tribkn_quality__normalized_description__at_risk);
     public static final FmmTribKnQualityNormalizedDescription CONFIRMED = new FmmTribKnQualityNormalizedDescription(R.string.tribkn_quality__normalized_description__confirmed);
     public static final FmmTribKnQualityNormalizedDescription EXCESSIVE = new FmmTribKnQualityNormalizedDescription(R.string.tribkn_quality__normalized_description__excessive);
@@ -205,4 +205,7 @@ public class FmmTribKnQualityNormalizedDescription extends DecKanGlTribKnQuality
 	@Override
 	public Date updateRowTimestamp() { return null; }
 
+    public static void init() {
+        DecKanGlTribKnQualityNormalizedDescription.subClass = FmmTribKnQualityNormalizedDescription.class;
+    }
 }

@@ -96,7 +96,7 @@ public class FmmDatabaseInitializerSqLite extends FmmDatabaseInitializer {
 
 	private static void initializeEnumTables(SQLiteDatabase aSQLiteDatabase) {
 		initializeTribKnElement(aSQLiteDatabase);
-		initializeTribKnQualityNormalizedDescription(aSQLiteDatabase);
+		initializeFmmTribKnQualityNormalizedDescription(aSQLiteDatabase);
 		initializeTribKnQualityEnumeration(aSQLiteDatabase);
 		initializeAssignmentCommitmentType(aSQLiteDatabase);
 		initializeCommunityMemberStatus(aSQLiteDatabase);
@@ -125,7 +125,8 @@ public class FmmDatabaseInitializerSqLite extends FmmDatabaseInitializer {
 		}
 	}
 
-	private static void initializeTribKnQualityNormalizedDescription(SQLiteDatabase aSQLiteDatabase) {
+	private static void initializeFmmTribKnQualityNormalizedDescription(SQLiteDatabase aSQLiteDatabase) {
+        FmmTribKnQualityNormalizedDescription.init();
 		String theTableName = FmmTribKnQualityNormalizedDescription.class.getSimpleName();
 		ContentValues theContentValues = new ContentValues();
 		for(DecKanGlTribKnQualityNormalizedDescription theTribKnQualityNormalizedDescription : FmmTribKnQualityNormalizedDescription.values()) {

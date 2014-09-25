@@ -70,6 +70,10 @@ public enum FmmDatabaseTemplate {
 	public String getName() {
 		return this.name;
 	}
+
+    public String getDbName() {
+        return this.name + ".db";
+    }
 	
 	/*
 	 * used by developers to generate new templates when the DDL or rows have been changed.
@@ -81,14 +85,14 @@ public enum FmmDatabaseTemplate {
 	 */
 	public static boolean initializeTemplates() {
 		for(FmmDatabaseTemplate theTemplate : values()) {
-			if(templateExists(theTemplate.getName())) {
-				continue;
-			}
-			SQLiteDatabase theDatabase = GcgApplication.getContext().openOrCreateDatabase(theTemplate.getName() + ".db", Context.MODE_PRIVATE, null);
-			FmmDatabaseBuilderSqLite.createDatabaseTables(theDatabase);
-			DatabaseRowLoaderSqLite.insertTemplateRows(theDatabase, theTemplate.getName());
-			theDatabase.close();
-		}
+			if(! templateExists(theTemplate.getName())) {
+                GcgApplication.getContext().deleteDatabase(theTemplate.getDbName());
+                SQLiteDatabase theDatabase = GcgApplication.getContext().openOrCreateDatabase(theTemplate.getDbName(), Context.MODE_PRIVATE, null);
+                FmmDatabaseBuilderSqLite.createDatabaseTables(theDatabase);
+                DatabaseRowLoaderSqLite.insertTemplateRows(theDatabase, theTemplate.getName());
+                theDatabase.close();
+            }
+        }
 		return true;
 	}
 
