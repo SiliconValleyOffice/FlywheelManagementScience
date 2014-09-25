@@ -1,4 +1,4 @@
-/* @(#)TacticalMilestone.java
+/* @(#)FlywheelCadenceMetaData.java
 ** 
 ** Copyright (C) 2012 by Steven D. Stamps
 **
@@ -41,54 +41,16 @@
 ** <http://www.gnu.org/licenses/gpl-3.0.html>.
 */
 
-package com.flywheelms.library.fmm.node.impl.governable;
+package com.flywheelms.library.fmm.meta_data;
 
-import com.flywheelms.library.fmm.node.NodeId;
-import com.flywheelms.library.fmm.node.impl.completable.FmmCompletableNodeImpl;
+public class FlywheelCadenceMetaData extends CompletableNodeMetaData {
 
-import java.util.Date;
-
-public class FlywheelMilestone extends FmmCompletableNodeImpl {
-
-	private static final long serialVersionUID = -7058798359923528163L;
-	private String fiscalYearId;
-	private Date startDate;
-	private Date endDate;
-
-	public FlywheelMilestone(NodeId aNodeId) {
-		super(aNodeId);
-	}
-
-	public String getFiscalYearId() {
-		return this.fiscalYearId;
-	}
-
-	public void setFiscalYearId(String fiscalYearId) {
-		this.fiscalYearId = fiscalYearId;
-	}
-
-	public Date getStartDate() {
-		return this.startDate;
-	}
-
-	public void setStartDate(Date startDate) {
-		this.startDate = startDate;
-	}
-
-	public Date getEndDate() {
-		return this.endDate;
-	}
-
-	public void setEndDate(Date endDate) {
-		this.endDate = endDate;
-	}
-
-	public boolean isWorkPackageMoveTarget() {
-		return true;
-	}
-
-	public boolean isWorkPlanMoveTarget() {
-		return true;
-	}
+	public static final String column_FISCAL_YEAR_ID = "FiscalYear__id";
+	public static final String column_SCHEDULED_START_DATE = "scheduled_start_date";
+	public static final String column_SCHEDULED_END_DATE = "scheduled_end_date";
+	public static final String child_fractals_WORK_PACKAGE_LIST = "WorkPackageList";
+	public static final String child_fractals_WORK_PLAN_LIST = "WorkPlanList";
+	
+	public static void init() { return; }
 
 }

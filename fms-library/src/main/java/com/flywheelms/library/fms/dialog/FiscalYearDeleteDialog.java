@@ -69,7 +69,7 @@ public class FiscalYearDeleteDialog extends HeadlineNodeDeleteDialog {
 
 	@Override
 	protected int getSecondaryChildrenDispositionLayoutResourceId() {
-		return R.layout.flywheel_milestone__disposition;
+		return R.layout.flywheel_cadence__disposition;
 	}
 
 	@Override
@@ -84,7 +84,7 @@ public class FiscalYearDeleteDialog extends HeadlineNodeDeleteDialog {
 
 	@Override
 	protected ArrayList<? extends FmmHeadlineNode> getSecondaryChildHeadlineNodeList() {
-		return FmmDatabaseMediator.getActiveMediator().getFlywheelMilestoneListForFiscalYear(getFmmHeadlineNode().getNodeIdString());
+		return FmmDatabaseMediator.getActiveMediator().getFlywheelCadenceListForFiscalYear(getFmmHeadlineNode().getNodeIdString());
 	}
 	
 	@Override

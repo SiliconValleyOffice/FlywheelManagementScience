@@ -85,7 +85,7 @@ public class FiscalYear extends FmmCompletableNodeImpl implements Comparable<Fis
 	private String organizationNodeIdString;
 	private FmsOrganization organization;
 	private int year = 0;
-	private int flywheelTempo = 4;  // number of Work Plans per Flywheel Milestone
+	private int flywheelTempo = 4;  // number of Work Plans per Flywheel Cadence
 	private ArrayList<StrategicMilestone> strategicMilestoneList;
 	
 	// create a new Fiscal Year

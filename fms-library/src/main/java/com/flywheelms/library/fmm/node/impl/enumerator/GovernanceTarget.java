@@ -100,8 +100,8 @@ public enum GovernanceTarget implements FmmEnumNode {
 			GovernanceParticipationType.NONE,
 			GovernanceParticipationType.NONE,
 			false),
-	FLYWHEEL_MILESTONE (
-			FmmNodeDefinition.FLYWHEEL_MILESTONE,
+	FLYWHEEL_CADENCE (
+			FmmNodeDefinition.FLYWHEEL_CADENCE,
 			GovernanceParticipationType.REQUIRED,
 			GovernanceParticipationType.REQUIRED,
 			GovernanceParticipationType.NONE,

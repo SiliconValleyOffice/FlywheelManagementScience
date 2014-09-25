@@ -64,7 +64,7 @@ public class WorkPackageOrphanDialog extends HeadlineNodeOrphanDialog {
 	protected boolean orphanHeadlineNode() {
         return this.parentHeadlineNode.getFmmNodeDefinition() == FmmNodeDefinition.PROJECT_ASSET ?
             FmmDatabaseMediator.getActiveMediator().orphanSingleWorkPackageFromProjectAsset(getFmmHeadlineNode().getNodeIdString(), this.parentHeadlineNode.getNodeIdString(), true) :
-            FmmDatabaseMediator.getActiveMediator().orphanSingleWorkPackageFromFlywheelMilestone(getFmmHeadlineNode().getNodeIdString(), this.parentHeadlineNode.getNodeIdString(), true);
+            FmmDatabaseMediator.getActiveMediator().orphanSingleWorkPackageFromFlywheelCadence(getFmmHeadlineNode().getNodeIdString(), this.parentHeadlineNode.getNodeIdString(), true);
 	}
 
 }

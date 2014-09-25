@@ -51,7 +51,7 @@ import com.flywheelms.library.fmm.node.impl.enumerator.GovernanceTarget;
 import com.flywheelms.library.fmm.node.impl.event.PdfPublication;
 import com.flywheelms.library.fmm.node.impl.governable.CommunityMember;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
-import com.flywheelms.library.fmm.node.impl.governable.FlywheelMilestone;
+import com.flywheelms.library.fmm.node.impl.governable.FlywheelCadence;
 import com.flywheelms.library.fmm.node.impl.governable.FlywheelTeam;
 import com.flywheelms.library.fmm.node.impl.governable.FmsOrganization;
 import com.flywheelms.library.fmm.node.impl.governable.Portfolio;
@@ -245,9 +245,9 @@ public abstract class PersistenceTechnologyDelegate {
 
 	public abstract ArrayList<FiscalYear> dbListFiscalYearForWorkPackageMoveTarget(FmsOrganization anOrganization, ProjectAsset aProjectAssetException);
 
-	public abstract int dbCountFiscalYearForFlywheelMilestoneMoveTarget(FmsOrganization anOrganization, FiscalYear aFiscalYearException);
+	public abstract int dbCountFiscalYearForFlywheelCadenceMoveTarget(FmsOrganization anOrganization, FiscalYear aFiscalYearException);
 
-	public abstract ArrayList<FiscalYear> dbListFiscalYearForFlywheelMilestoneMoveTarget(FmsOrganization anOrganization, FiscalYear aFiscalYearException);
+	public abstract ArrayList<FiscalYear> dbListFiscalYearForFlywheelCadenceMoveTarget(FmsOrganization anOrganization, FiscalYear aFiscalYearException);
 	
 	public abstract FiscalYear dbRetrieveFiscalYear(String aNodeIdString);
 
@@ -672,7 +672,7 @@ public abstract class PersistenceTechnologyDelegate {
 
 		public abstract ArrayList<WorkPackage> dbListWorkPackagesForProjectAsset(String aProjectAssetId);
 
-		public abstract ArrayList<WorkPackage> dbListWorkPackageForFlywheelMilestone(String aFlywheelMilestoneId);
+		public abstract ArrayList<WorkPackage> dbListWorkPackageForFlywheelCadence(String aFlywheelCadenceId);
 
 		public abstract ArrayList<WorkPackage> dbListWorkPackagesForWorkTaskMoveTarget(String aParentNodeId, String aWorkPackageExceptionId, boolean bPrimaryParent);
 		
@@ -684,15 +684,15 @@ public abstract class PersistenceTechnologyDelegate {
 
 		public abstract boolean dbOrphanAllWorkPackagesFromProjectAsset(String aProjectAssetNodeId, boolean bAtomicTransaction);
 
-        public abstract boolean dbOrphanAllWorkPackagesFromFlywheelMilestone(String aFlywheelMilestoneId, boolean bAtomicTransaction);
+        public abstract boolean dbOrphanAllWorkPackagesFromFlywheelCadence(String aFlywheelCadenceId, boolean bAtomicTransaction);
 
         public abstract boolean dbOrphanSingleWorkPackageFromProjectAsset(String aWorkPackageId, String aProjectAssetId, boolean bAtomicTransaction);
 
-        public abstract boolean dbOrphanSingleWorkPackageFromFlywheelMilestone(String aWorkPackageId, String aFlywheelMilestoneId, boolean bAtomicTransaction);
+        public abstract boolean dbOrphanSingleWorkPackageFromFlywheelCadence(String aWorkPackageId, String aFlywheelCadenceId, boolean bAtomicTransaction);
 
 		public abstract ArrayList<WorkPackage> dbListWorkPackageOrphansFromProjectAsset();
 
-		public abstract ArrayList<WorkPackage> dbListWorkPackageOrphansFromFlywheelMilestone();
+		public abstract ArrayList<WorkPackage> dbListWorkPackageOrphansFromFlywheelCadence();
 
 		public abstract boolean dbAdoptOrphanWorkPackageIntoProjectAsset(
 				String aWorkPackageId,
@@ -749,11 +749,11 @@ public abstract class PersistenceTechnologyDelegate {
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////  Node - FLYWHEEL MILESTONE  ///////////////////////////////////////////////////////////////////////////////////
 
-    public abstract ArrayList<FlywheelMilestone> dbListFlywheelMilestone(String aFiscalYearId);
+    public abstract ArrayList<FlywheelCadence> dbListFlywheelCadence(String aFiscalYearId);
 
-    public abstract ArrayList<FlywheelMilestone> dbListFlywheelMilestone(FiscalYear aFiscalYear);
+    public abstract ArrayList<FlywheelCadence> dbListFlywheelCadence(FiscalYear aFiscalYear);
 
-    public abstract ArrayList<FlywheelMilestone> dbListFlywheelMilestone(FiscalYear aFiscalYear, FlywheelMilestone aFlywheelMilestoneException);
+    public abstract ArrayList<FlywheelCadence> dbListFlywheelCadence(FiscalYear aFiscalYear, FlywheelCadence aFlywheelCadenceException);
 
-    public abstract ArrayList<FlywheelMilestone> dbListFlywheelMilestoneForFiscalYear(String aFiscalYearId, String aFlywheelMilestoneExceptiionId);
+    public abstract ArrayList<FlywheelCadence> dbListFlywheelCadenceForFiscalYear(String aFiscalYearId, String aFlywheelCadenceExceptiionId);
 }

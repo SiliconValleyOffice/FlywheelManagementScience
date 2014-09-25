@@ -139,9 +139,9 @@
     <string name="lock_type__service_requests">Service Requests Lock</string>
     <string name="lock_type__service_requests__description">Service Requests cannot be added or deleted.  They may be re-sequenced.  Headlines for Service Requests cannot be modified.</string>
     <string name="lock_type__strategic_milestones">Strategic Milestones Lock</string>
-    <string name="lock_type__strategic_milestones__description">Strategic Milestones cannot be added, deleted, or re-sequenced.  Headlines for Strategic Milestones cannot be modified.</string>
-    <string name="lock_type__flywheel_milestones">Flywheel Milestones Lock</string>
-    <string name="lock_type__flywheel_milestones__description">Flywheel Milestones cannot be added, deleted, or re-sequenced.  Headlines for Flywheel Milestones cannot be modified.</string>
+    <string name="lock_type__strategic_milestones__description">A Strategic Milestone cannot be added, deleted, or re-sequenced.  Headlines for Strategic Milestones cannot be modified.</string>
+    <string name="lock_type__flywheel_cadences">Flywheel Cadences Lock</string>
+    <string name="lock_type__flywheel_cadences__description">A Flywheel Cadence cannot be added, deleted, or re-sequenced.  Headlines for Flywheel Cadences cannot be modified.</string>
     <string name="lock_type__work_packages">Work Packages Lock</string>
     <string name="lock_type__work_packages__description">Work Packages cannot be added, deleted or re-sequenced.  Headlines for Work Packages cannot be modified.</string>
     <string name="lock_type__work_plans">Work Plans Lock</string>
@@ -237,7 +237,7 @@
     <string name="fmm_node_definition__facilitation_issue_link_to_work_task__label_text">Facilitation Issue Link To Work Task</string>
     <string name="fmm_node_definition__fiscal_year__label_text">Fiscal Year</string>
     <string name="fmm_node_definition__flywheel_commitment__label_text">Flywheel Commitment</string>
-    <string name="fmm_node_definition__flywheel_milestone__label_text">Flywheel Milestone</string>
+    <string name="fmm_node_definition__flywheel_cadence__label_text">Flywheel Cadence</string>
     <string name="fmm_node_definition__flywheel_team__label_text">Flywheel Team</string>
     <string name="fmm_node_definition__flywheel_team_community_member__label_text">Flywheel Team Community Member</string>
     <string name="fmm_node_definition__flywheel_team_work_task_budget__label_text">Flywheel Team Work Task Budget</string>

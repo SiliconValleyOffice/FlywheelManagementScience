@@ -45,7 +45,7 @@ package com.flywheelms.library.fmm.meta_data;
 
 public class FlywheelWorkPackageCommitmentMetaData extends CommitmentNodeMetaData {
 	
-	public static final String column_FLYWHEEL_MILESTONE_ID = "FlywheelMilestone__id";
+	public static final String column_FLYWHEEL_CADENCE_ID = "FlywheelCadence__id";
 	public static final String column_WORK_PACKAGE_ID = "WorkPackage__id";
 	
 }

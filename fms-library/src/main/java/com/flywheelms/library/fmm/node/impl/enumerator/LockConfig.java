@@ -135,28 +135,28 @@ public enum LockConfig implements FmmEnumNode {
 			FmmNodeDefinition.FLYWHEEL_WORK_PACKAGE_COMMITMENT,
 			LockType.NOTES,
 			true, true, false, true ),
-	FLYWHEEL_MILESTONE_NODE (
-			FmmNodeDefinition.FLYWHEEL_MILESTONE,
+	FLYWHEEL_CADENCE_NODE (
+			FmmNodeDefinition.FLYWHEEL_CADENCE,
 			LockType.NODE,
 			true, true, false, true ),
-	FLYWHEEL_MILESTONE_STORY (
-			FmmNodeDefinition.FLYWHEEL_MILESTONE,
+	FLYWHEEL_CADENCE_STORY (
+			FmmNodeDefinition.FLYWHEEL_CADENCE,
 			LockType.STORY,
 			true, true, false, true ),
-	FLYWHEEL_MILESTONE_NOTES (
-			FmmNodeDefinition.FLYWHEEL_MILESTONE,
+	FLYWHEEL_CADENCE_NOTES (
+			FmmNodeDefinition.FLYWHEEL_CADENCE,
 			LockType.NOTES,
 			true, true, false, true ),
-	FLYWHEEL_MILESTONE_WORK_PLANS (
-			FmmNodeDefinition.FLYWHEEL_MILESTONE,
+	FLYWHEEL_CADENCE_WORK_PLANS (
+			FmmNodeDefinition.FLYWHEEL_CADENCE,
 			LockType.WORK_PLANS,
 			true, true, false, true ),
-	FLYWHEEL_MILESTONE_WORK_PACKAGES (
-			FmmNodeDefinition.FLYWHEEL_MILESTONE,
+	FLYWHEEL_CADENCE_WORK_PACKAGES (
+			FmmNodeDefinition.FLYWHEEL_CADENCE,
 			LockType.WORK_PACKAGES,
 			true, true, false, true ),
-	FLYWHEEL_MILESTONE_SERVICE_REQUESTS (
-			FmmNodeDefinition.FLYWHEEL_MILESTONE,
+	FLYWHEEL_CADENCE_SERVICE_REQUESTS (
+			FmmNodeDefinition.FLYWHEEL_CADENCE,
 			LockType.SERVICE_REQUESTS,
 			true, true, false, true ),
 	FLYWHEEL_TEAM_NODE (

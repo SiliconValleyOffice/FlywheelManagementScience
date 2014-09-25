@@ -62,7 +62,7 @@ import com.flywheelms.library.fmm.node.impl.governable.CommunityMember;
 import com.flywheelms.library.fmm.node.impl.governable.DiscussionTopic;
 import com.flywheelms.library.fmm.node.impl.governable.FacilitationIssue;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
-import com.flywheelms.library.fmm.node.impl.governable.FlywheelMilestone;
+import com.flywheelms.library.fmm.node.impl.governable.FlywheelCadence;
 import com.flywheelms.library.fmm.node.impl.governable.FlywheelTeam;
 import com.flywheelms.library.fmm.node.impl.governable.FmsOrganization;
 import com.flywheelms.library.fmm.node.impl.governable.FunctionalTeam;
@@ -330,11 +330,11 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // medium drawables
     		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // large drawables
     		10015 ),
-	FLYWHEEL_MILESTONE (
-			FlywheelMilestone.class,
+	FLYWHEEL_CADENCE (
+			FlywheelCadence.class,
 			"FMS",
-			R.string.fmm_node_definition__flywheel_milestone__label_text,
-			R.drawable.fmm_noun__flywheel_milestone__gray,
+			R.string.fmm_node_definition__flywheel_cadence__label_text,
+			R.drawable.fmm_noun__flywheel_cadence__gray,
 			0,
     		R.drawable.gcg__unspecified_glyph,
     		R.drawable.gcg__unspecified_glyph,
@@ -1184,7 +1184,7 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.DISCUSSION_TOPIC.getNodeTypeCode());
 		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.FACILITATION_ISSUE.getNodeTypeCode());
 		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.FISCAL_YEAR.getNodeTypeCode());
-		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.FLYWHEEL_MILESTONE.getNodeTypeCode());
+		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.FLYWHEEL_CADENCE.getNodeTypeCode());
 		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.FLYWHEEL_TEAM.getNodeTypeCode());
 		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.FUNCTIONAL_TEAM.getNodeTypeCode());
 		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.NOTEBOOK.getNodeTypeCode());
@@ -1224,7 +1224,7 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 		DECKANGL__NODE_LIST.add(FmmNodeDefinition.DISCUSSION_TOPIC);
 		DECKANGL__NODE_LIST.add(FmmNodeDefinition.FACILITATION_ISSUE);
 		DECKANGL__NODE_LIST.add(FmmNodeDefinition.FISCAL_YEAR);
-		DECKANGL__NODE_LIST.add(FmmNodeDefinition.FLYWHEEL_MILESTONE);
+		DECKANGL__NODE_LIST.add(FmmNodeDefinition.FLYWHEEL_CADENCE);
 		DECKANGL__NODE_LIST.add(FmmNodeDefinition.FLYWHEEL_TEAM);
 		DECKANGL__NODE_LIST.add(FmmNodeDefinition.FUNCTIONAL_TEAM);
 		DECKANGL__NODE_LIST.add(FmmNodeDefinition.NOTEBOOK);
@@ -1321,16 +1321,16 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 		FmmNodeDefinition.FISCAL_YEAR.getNounStateBitmapTableTiny().put(
 				DecKanGlNounStateColor.GREEN, (BitmapDrawable) GcgApplication.getAppResources().getDrawable(R.drawable.fmm_noun__fiscal_year__green__tiny) );
 
-		FmmNodeDefinition.FLYWHEEL_MILESTONE.getNounStateBitmapTableTiny().put(
-				DecKanGlNounStateColor.GRAY, (BitmapDrawable) GcgApplication.getAppResources().getDrawable(R.drawable.fmm_noun__flywheel_milestone__gray__tiny) );
-		FmmNodeDefinition.FLYWHEEL_MILESTONE.getNounStateBitmapTableTiny().put(
-				DecKanGlNounStateColor.YELLOW, (BitmapDrawable) GcgApplication.getAppResources().getDrawable(R.drawable.fmm_noun__flywheel_milestone__yellow__tiny) );
-		FmmNodeDefinition.FLYWHEEL_MILESTONE.getNounStateBitmapTableTiny().put(
-				DecKanGlNounStateColor.ORANGE, (BitmapDrawable) GcgApplication.getAppResources().getDrawable(R.drawable.fmm_noun__flywheel_milestone__orange__tiny) );
-		FmmNodeDefinition.FLYWHEEL_MILESTONE.getNounStateBitmapTableTiny().put(
-				DecKanGlNounStateColor.PINK, (BitmapDrawable) GcgApplication.getAppResources().getDrawable(R.drawable.fmm_noun__flywheel_milestone__pink__tiny) );
-		FmmNodeDefinition.FLYWHEEL_MILESTONE.getNounStateBitmapTableTiny().put(
-				DecKanGlNounStateColor.GREEN, (BitmapDrawable) GcgApplication.getAppResources().getDrawable(R.drawable.fmm_noun__flywheel_milestone__green__tiny) );
+		FmmNodeDefinition.FLYWHEEL_CADENCE.getNounStateBitmapTableTiny().put(
+				DecKanGlNounStateColor.GRAY, (BitmapDrawable) GcgApplication.getAppResources().getDrawable(R.drawable.fmm_noun__flywheel_cadence__gray__tiny) );
+		FmmNodeDefinition.FLYWHEEL_CADENCE.getNounStateBitmapTableTiny().put(
+				DecKanGlNounStateColor.YELLOW, (BitmapDrawable) GcgApplication.getAppResources().getDrawable(R.drawable.fmm_noun__flywheel_cadence__yellow__tiny) );
+		FmmNodeDefinition.FLYWHEEL_CADENCE.getNounStateBitmapTableTiny().put(
+				DecKanGlNounStateColor.ORANGE, (BitmapDrawable) GcgApplication.getAppResources().getDrawable(R.drawable.fmm_noun__flywheel_cadence__orange__tiny) );
+		FmmNodeDefinition.FLYWHEEL_CADENCE.getNounStateBitmapTableTiny().put(
+				DecKanGlNounStateColor.PINK, (BitmapDrawable) GcgApplication.getAppResources().getDrawable(R.drawable.fmm_noun__flywheel_cadence__pink__tiny) );
+		FmmNodeDefinition.FLYWHEEL_CADENCE.getNounStateBitmapTableTiny().put(
+				DecKanGlNounStateColor.GREEN, (BitmapDrawable) GcgApplication.getAppResources().getDrawable(R.drawable.fmm_noun__flywheel_cadence__green__tiny) );
 
 		FmmNodeDefinition.FLYWHEEL_TEAM.getNounStateBitmapTableTiny().put(
 				DecKanGlNounStateColor.GRAY, (BitmapDrawable) GcgApplication.getAppResources().getDrawable(R.drawable.fmm_noun__flywheel_team__tiny) );
@@ -1565,28 +1565,28 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 		FmmNodeDefinition.FISCAL_YEAR.getNodeGlyphResourceIdMap().put(
 				FmmNodeGlyphType.YELLOW, R.drawable.fmm_noun__fiscal_year__yellow);
 		//  FLYWHEEL MILESTONE
-		FmmNodeDefinition.FLYWHEEL_MILESTONE.getNodeGlyphResourceIdMap().put(
-				FmmNodeGlyphType.DESTROY, R.drawable.fmm_noun__flywheel_milestone__delete);
-		FmmNodeDefinition.FLYWHEEL_MILESTONE.getNodeGlyphResourceIdMap().put(
-				FmmNodeGlyphType.EDIT, R.drawable.fmm_noun__flywheel_milestone__edit);
-		FmmNodeDefinition.FLYWHEEL_MILESTONE.getNodeGlyphResourceIdMap().put(
-				FmmNodeGlyphType.GRAY, R.drawable.fmm_noun__flywheel_milestone__gray);
-		FmmNodeDefinition.FLYWHEEL_MILESTONE.getNodeGlyphResourceIdMap().put(
-				FmmNodeGlyphType.GREEN, R.drawable.fmm_noun__flywheel_milestone__green);
-		FmmNodeDefinition.FLYWHEEL_MILESTONE.getNodeGlyphResourceIdMap().put(
-				FmmNodeGlyphType.MOVE, R.drawable.fmm_noun__flywheel_milestone__move);
-		FmmNodeDefinition.FLYWHEEL_MILESTONE.getNodeGlyphResourceIdMap().put(
-				FmmNodeGlyphType.NEW, R.drawable.fmm_noun__flywheel_milestone__new);
-		FmmNodeDefinition.FLYWHEEL_MILESTONE.getNodeGlyphResourceIdMap().put(
-				FmmNodeGlyphType.ORANGE, R.drawable.fmm_noun__flywheel_milestone__orange);
-		FmmNodeDefinition.FLYWHEEL_MILESTONE.getNodeGlyphResourceIdMap().put(
-				FmmNodeGlyphType.PINK, R.drawable.fmm_noun__flywheel_milestone__pink);
-		FmmNodeDefinition.FLYWHEEL_MILESTONE.getNodeGlyphResourceIdMap().put(
-				FmmNodeGlyphType.QUESTION, R.drawable.fmm_noun__flywheel_milestone__question);
-		FmmNodeDefinition.FLYWHEEL_MILESTONE.getNodeGlyphResourceIdMap().put(
-				FmmNodeGlyphType.RENAME, R.drawable.fmm_noun__flywheel_milestone__rename);
-		FmmNodeDefinition.FLYWHEEL_MILESTONE.getNodeGlyphResourceIdMap().put(
-				FmmNodeGlyphType.YELLOW, R.drawable.fmm_noun__flywheel_milestone__yellow);
+		FmmNodeDefinition.FLYWHEEL_CADENCE.getNodeGlyphResourceIdMap().put(
+				FmmNodeGlyphType.DESTROY, R.drawable.fmm_noun__flywheel_cadence__delete);
+		FmmNodeDefinition.FLYWHEEL_CADENCE.getNodeGlyphResourceIdMap().put(
+				FmmNodeGlyphType.EDIT, R.drawable.fmm_noun__flywheel_cadence__edit);
+		FmmNodeDefinition.FLYWHEEL_CADENCE.getNodeGlyphResourceIdMap().put(
+				FmmNodeGlyphType.GRAY, R.drawable.fmm_noun__flywheel_cadence__gray);
+		FmmNodeDefinition.FLYWHEEL_CADENCE.getNodeGlyphResourceIdMap().put(
+				FmmNodeGlyphType.GREEN, R.drawable.fmm_noun__flywheel_cadence__green);
+		FmmNodeDefinition.FLYWHEEL_CADENCE.getNodeGlyphResourceIdMap().put(
+				FmmNodeGlyphType.MOVE, R.drawable.fmm_noun__flywheel_cadence__move);
+		FmmNodeDefinition.FLYWHEEL_CADENCE.getNodeGlyphResourceIdMap().put(
+				FmmNodeGlyphType.NEW, R.drawable.fmm_noun__flywheel_cadence__new);
+		FmmNodeDefinition.FLYWHEEL_CADENCE.getNodeGlyphResourceIdMap().put(
+				FmmNodeGlyphType.ORANGE, R.drawable.fmm_noun__flywheel_cadence__orange);
+		FmmNodeDefinition.FLYWHEEL_CADENCE.getNodeGlyphResourceIdMap().put(
+				FmmNodeGlyphType.PINK, R.drawable.fmm_noun__flywheel_cadence__pink);
+		FmmNodeDefinition.FLYWHEEL_CADENCE.getNodeGlyphResourceIdMap().put(
+				FmmNodeGlyphType.QUESTION, R.drawable.fmm_noun__flywheel_cadence__question);
+		FmmNodeDefinition.FLYWHEEL_CADENCE.getNodeGlyphResourceIdMap().put(
+				FmmNodeGlyphType.RENAME, R.drawable.fmm_noun__flywheel_cadence__rename);
+		FmmNodeDefinition.FLYWHEEL_CADENCE.getNodeGlyphResourceIdMap().put(
+				FmmNodeGlyphType.YELLOW, R.drawable.fmm_noun__flywheel_cadence__yellow);
 		//  FMM_CONFIGURATION
 		FmmNodeDefinition.FMM_CONFIGURATION.getNodeGlyphResourceIdMap().put(
 				FmmNodeGlyphType.EDIT, R.drawable.fmm_repository__edit);
@@ -1916,13 +1916,13 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 		COMMUNITY_MEMBER.setSecondaryParentNodeDefinition(FmmNodeDefinition.FLYWHEEL_TEAM);
 		DISCUSSION_TOPIC.setPrimaryParentNodeDefinition(FmmNodeDefinition.NOTEBOOK);
 		DISCUSSION_TOPIC.setSecondaryParentNodeDefinition(FmmNodeDefinition.DISCUSSION_TOPIC);
-		FACILITATION_ISSUE.setPrimaryParentNodeDefinition(FmmNodeDefinition.FLYWHEEL_MILESTONE);
+		FACILITATION_ISSUE.setPrimaryParentNodeDefinition(FmmNodeDefinition.FLYWHEEL_CADENCE);
 		FACILITATION_ISSUE.setSecondaryParentNodeDefinition(FmmNodeDefinition.COMMUNITY_MEMBER);
 		FISCAL_YEAR.setPrimaryParentNodeDefinition(FmmNodeDefinition.FMS_ORGANIZATION);
 		FISCAL_YEAR.setPrimaryChildNodeDefinition(FmmNodeDefinition.STRATEGIC_MILESTONE);
-		FISCAL_YEAR.setSecondaryChildNodeDefinition(FmmNodeDefinition.FLYWHEEL_MILESTONE);
-		FLYWHEEL_MILESTONE.setPrimaryParentNodeDefinition(FmmNodeDefinition.FISCAL_YEAR);
-		FLYWHEEL_MILESTONE.setPrimaryChildNodeDefinition(FmmNodeDefinition.WORK_PLAN);
+		FISCAL_YEAR.setSecondaryChildNodeDefinition(FmmNodeDefinition.FLYWHEEL_CADENCE);
+		FLYWHEEL_CADENCE.setPrimaryParentNodeDefinition(FmmNodeDefinition.FISCAL_YEAR);
+		FLYWHEEL_CADENCE.setPrimaryChildNodeDefinition(FmmNodeDefinition.WORK_PLAN);
 		FLYWHEEL_TEAM.setPrimaryParentNodeDefinition(FmmNodeDefinition.FMS_ORGANIZATION);
 		FUNCTIONAL_TEAM.setPrimaryParentNodeDefinition(FmmNodeDefinition.FMS_ORGANIZATION);
 		NOTEBOOK.setPrimaryParentNodeDefinition(FmmNodeDefinition.BOOKSHELF);
@@ -1936,7 +1936,7 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 		PROJECT_ASSET.setSecondaryLinkNodeDefinition(FmmNodeDefinition.STRATEGIC_COMMITMENT);
 		PROJECT_ASSET.setPrimaryChildNodeDefinition(FmmNodeDefinition.WORK_PACKAGE);
 		SERVICE_OFFERING.setPrimaryParentNodeDefinition(FmmNodeDefinition.SERVICE_OFFERING_SLA);
-		SERVICE_OFFERING.setPrimaryParentNodeDefinition(FmmNodeDefinition.FLYWHEEL_MILESTONE);
+		SERVICE_OFFERING.setPrimaryParentNodeDefinition(FmmNodeDefinition.FLYWHEEL_CADENCE);
 		SERVICE_OFFERING.setPrimaryChildNodeDefinition(FmmNodeDefinition.SERVICE_REQUEST);
 		SERVICE_OFFERING_SLA.setPrimaryParentNodeDefinition(FmmNodeDefinition.FISCAL_YEAR);
 		SERVICE_OFFERING_SLA.setPrimaryChildNodeDefinition(FmmNodeDefinition.SERVICE_OFFERING);
@@ -1946,10 +1946,10 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 		STRATEGIC_MILESTONE.setPrimaryLinkNodeDefinition(FmmNodeDefinition.PROJECT_ASSET);
 		STRATEGY_TEAM.setPrimaryParentNodeDefinition(FmmNodeDefinition.FMS_ORGANIZATION);
 		WORK_PACKAGE.setPrimaryParentNodeDefinition(FmmNodeDefinition.PROJECT_ASSET);
-		WORK_PACKAGE.setSecondaryParentNodeDefinition(FmmNodeDefinition.FLYWHEEL_MILESTONE);
+		WORK_PACKAGE.setSecondaryParentNodeDefinition(FmmNodeDefinition.FLYWHEEL_CADENCE);
 		WORK_PACKAGE.setSecondaryLinkNodeDefinition(FmmNodeDefinition.FLYWHEEL_WORK_PACKAGE_COMMITMENT);
 		WORK_PACKAGE.setPrimaryChildNodeDefinition(FmmNodeDefinition.WORK_TASK);
-		WORK_PLAN.setPrimaryParentNodeDefinition(FmmNodeDefinition.FLYWHEEL_MILESTONE);
+		WORK_PLAN.setPrimaryParentNodeDefinition(FmmNodeDefinition.FLYWHEEL_CADENCE);
 		WORK_TASK.setPrimaryParentNodeDefinition(FmmNodeDefinition.WORK_PACKAGE);
 		WORK_TASK.setSecondaryParentNodeDefinition(FmmNodeDefinition.WORK_PLAN);
 	}

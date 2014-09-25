@@ -45,7 +45,7 @@ package com.flywheelms.library.fmm.meta_data;
 
 public class WorkPlanMetaData extends CompletableNodeMetaData {
 
-	public static final String column_FLYWHEEL_MILESTONE_ID = "FlywheelMilestone__id";
+	public static final String column_FLYWHEEL_CADENCE_ID = "FlywheelCadence__id";
 	public static final String column_SCHEDULED_START_DATE = "scheduled_start_date";
 	public static final String column_SCHEDULED_END_DATE = "scheduled_end_date";
 	public static final String child_fractals_WORK_PACKAGE_LIST = "WorkPackageList";

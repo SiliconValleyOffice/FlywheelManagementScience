@@ -66,9 +66,9 @@ public class FmmPopupBuilder {
 	public static final String menu_item__REMOVE_DISCUSSION_TOPIC = "Remove Discussion Topic...";
 	public static final String menu_item__CREATE_FISCAL_YEAR = "Create Fiscal Year...";
 	public static final String menu_item__DELETE_FISCAL_YEAR = "Delete Fiscal Year...";
-	public static final String menu_item__CREATE_FLYWHEEL_MILESTONE = "Create Flywheel Milestone...";
-	public static final String menu_item__DELETE_FLYWHEEL_MILESTONE = "Delete Flywheel Milestone...";
-	public static final String menu_item__MOVE_FLYWHEEL_MILESTONE = "Move Flywheel Milestone...";
+	public static final String menu_item__CREATE_FLYWHEEL_CADENCE = "Create Flywheel Cadence...";
+	public static final String menu_item__DELETE_FLYWHEEL_CADENCE = "Delete Flywheel Cadence...";
+	public static final String menu_item__MOVE_FLYWHEEL_CADENCE = "Move Flywheel Cadence...";
 	public static final String menu_item__ADOPT_ORPHAN_NOTEBOOK = "Adopt orphan Notebook...";
 	public static final String menu_item__CREATE_NOTEBOOK = "Create Notebook...";
 	public static final String menu_item__DELETE_NOTEBOOK = "Delete Notebook...";
@@ -300,7 +300,7 @@ public class FmmPopupBuilder {
 		return thePopupMenu;
 	}
 
-	private static PopupMenu createFlywheelMilestonePopupMenu(
+	private static PopupMenu createFlywheelCadencePopupMenu(
 			FmmHeadlineNodePopupListener aNodePopupListener,
 			GcgTreeNodeInfo aLaunchTreeNodeInfo,
 			FmmHeadlineNode aLaunchHeadlineNode,
@@ -315,12 +315,12 @@ public class FmmPopupBuilder {
 			int aLaunchNodeChildCount ) {
 		FmmHeadlineNodePopupMenu thePopupMenu = new FmmHeadlineNodePopupMenu(
 				aNodePopupListener, aView, aLaunchHeadlineNode, aParentHeadlineNode, aLaunchTreeNodeInfo, aLaunchNodeSequence, aLaunchNodeChildCount );
-		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_FLYWHEEL_MILESTONE);
+		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_FLYWHEEL_CADENCE);
 		if(bCanDelete) {
-			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__DELETE_FLYWHEEL_MILESTONE);
+			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__DELETE_FLYWHEEL_CADENCE);
 		}
 		if(bCanMove) {
-			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__MOVE_FLYWHEEL_MILESTONE);
+			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__MOVE_FLYWHEEL_CADENCE);
 		}
 		if(bCanSequenceUp) {
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__SEQUENCE_FIRST);

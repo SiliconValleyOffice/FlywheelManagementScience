@@ -100,7 +100,7 @@ import com.flywheelms.library.fmm.node.impl.enumerator.GovernanceTarget;
 import com.flywheelms.library.fmm.node.impl.event.PdfPublication;
 import com.flywheelms.library.fmm.node.impl.governable.CommunityMember;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
-import com.flywheelms.library.fmm.node.impl.governable.FlywheelMilestone;
+import com.flywheelms.library.fmm.node.impl.governable.FlywheelCadence;
 import com.flywheelms.library.fmm.node.impl.governable.FlywheelTeam;
 import com.flywheelms.library.fmm.node.impl.governable.FmsOrganization;
 import com.flywheelms.library.fmm.node.impl.governable.Portfolio;
@@ -1271,7 +1271,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
 	// TODO - should use MOVE_TARGET view and not include confirmed or proposed completions
 	@Override
-	public int dbCountFiscalYearForFlywheelMilestoneMoveTarget(FmsOrganization anOrganization, FiscalYear aFiscalYearException) {
+	public int dbCountFiscalYearForFlywheelCadenceMoveTarget(FmsOrganization anOrganization, FiscalYear aFiscalYearException) {
 		String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.FISCAL_YEAR.getName() +
 				" WHERE " + FiscalYearMetaData.column_ORGANIZATION_ID + " = '" + anOrganization.getNodeIdString() + "'";
 		if(aFiscalYearException != null) {
@@ -1284,7 +1284,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	// TODO - should use MOVE_TARGET view and not include confirmed or proposed completions
 	@SuppressWarnings("resource")
 	@Override
-	public ArrayList<FiscalYear> dbListFiscalYearForFlywheelMilestoneMoveTarget(FmsOrganization anOrganization, FiscalYear aFiscalYearException) {
+	public ArrayList<FiscalYear> dbListFiscalYearForFlywheelCadenceMoveTarget(FmsOrganization anOrganization, FiscalYear aFiscalYearException) {
 		String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.FISCAL_YEAR.getName() +
 				" WHERE " + FiscalYearMetaData.column_ORGANIZATION_ID + " = '" + anOrganization.getNodeIdString() + "'";
 		if(aFiscalYearException != null) {
@@ -2303,7 +2303,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	}
 
 	@Override
-	public ArrayList<WorkPackage> dbListWorkPackageForFlywheelMilestone(String aFlywheelMilestoneId) {
+	public ArrayList<WorkPackage> dbListWorkPackageForFlywheelCadence(String aFlywheelCadenceId) {
 //				FmmNodeDefinition.FLYWHEEL_WORK_PACKAGE_COMMITMENT
 		return null;
 	}
@@ -2321,7 +2321,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 				theRawQuery += " ORDER BY " + CompletableNodeMetaData.column_SEQUENCE + " ASC";
 				theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
 		} else {
-			String theAndClause = FmmNodeDefinition.FLYWHEEL_WORK_PACKAGE_COMMITMENT.getName() + "." + FlywheelWorkPackageCommitmentMetaData.column_FLYWHEEL_MILESTONE_ID + " = '" + aParentNodeId + "'";
+			String theAndClause = FmmNodeDefinition.FLYWHEEL_WORK_PACKAGE_COMMITMENT.getName() + "." + FlywheelWorkPackageCommitmentMetaData.column_FLYWHEEL_CADENCE_ID + " = '" + aParentNodeId + "'";
 			if(aWorkPackageExceptionId != null) {
 				theAndClause += " AND " + FmmNodeDefinition.FLYWHEEL_WORK_PACKAGE_COMMITMENT.getName() + "." + FlywheelWorkPackageCommitmentMetaData.column_WORK_PACKAGE_ID + " != '" + aWorkPackageExceptionId + "'";
 			}
@@ -2361,7 +2361,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	}
 
     @Override
-    public boolean dbOrphanAllWorkPackagesFromFlywheelMilestone(String aFlywheelMilestoneId, boolean bAtomicTransaction) {
+    public boolean dbOrphanAllWorkPackagesFromFlywheelCadence(String aFlywheelCadenceId, boolean bAtomicTransaction) {
         return false;
     }
 
@@ -2378,7 +2378,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
         return bSuccess;
     }
 
-    public boolean dbOrphanSingleWorkPackageFromFlywheelMilestone(String aWorkPackageId, String aFlywheelMilestoneId, boolean bAtomicTransaction) {
+    public boolean dbOrphanSingleWorkPackageFromFlywheelCadence(String aWorkPackageId, String aFlywheelCadenceId, boolean bAtomicTransaction) {
         return false;
     }
 
@@ -2393,7 +2393,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	}
 
 	@Override
-	public ArrayList<WorkPackage> dbListWorkPackageOrphansFromFlywheelMilestone() {
+	public ArrayList<WorkPackage> dbListWorkPackageOrphansFromFlywheelCadence() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -2985,8 +2985,8 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
 
 //    @Override
-//    public ArrayList<FlywheelMilestone> dbListFlywheelMilestoneForFiscalYear(FiscalYear aFiscalYear, FlywheelMilestone aFlywheelMilestoneException) {
-//        return dbListFlywheelMilestoneForFiscalYear(aFiscalYear.getNodeIdString(), aFlywheelMilestoneException == null ? null : aFlywheelMilestoneException.getNodeIdString());
+//    public ArrayList<FlywheelCadence> dbListFlywheelCadenceForFiscalYear(FiscalYear aFiscalYear, FlywheelCadence aFlywheelCadenceException) {
+//        return dbListFlywheelCadenceForFiscalYear(aFiscalYear.getNodeIdString(), aFlywheelCadenceException == null ? null : aFlywheelCadenceException.getNodeIdString());
 //    }
 //
 //    @SuppressWarnings("resource")
@@ -3004,28 +3004,28 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
 
 
-    public ArrayList<FlywheelMilestone> dbListFlywheelMilestone(FiscalYear aFiscalYear) {
-        return dbListFlywheelMilestoneForFiscalYear(aFiscalYear.getNodeIdString(), null);
+    public ArrayList<FlywheelCadence> dbListFlywheelCadence(FiscalYear aFiscalYear) {
+        return dbListFlywheelCadenceForFiscalYear(aFiscalYear.getNodeIdString(), null);
     }
     
-    public ArrayList<FlywheelMilestone> dbListFlywheelMilestone(String aFiscalYearId) {
-        return dbListFlywheelMilestoneForFiscalYear(aFiscalYearId, null);
+    public ArrayList<FlywheelCadence> dbListFlywheelCadence(String aFiscalYearId) {
+        return dbListFlywheelCadenceForFiscalYear(aFiscalYearId, null);
     }
 
-    public ArrayList<FlywheelMilestone> dbListFlywheelMilestone(FiscalYear aFiscalYear, FlywheelMilestone aFlywheelMilestoneException) {
-        return dbListFlywheelMilestoneForFiscalYear(aFiscalYear.getNodeIdString(), aFlywheelMilestoneException == null ? null : aFlywheelMilestoneException.getNodeIdString());
+    public ArrayList<FlywheelCadence> dbListFlywheelCadence(FiscalYear aFiscalYear, FlywheelCadence aFlywheelCadenceException) {
+        return dbListFlywheelCadenceForFiscalYear(aFiscalYear.getNodeIdString(), aFlywheelCadenceException == null ? null : aFlywheelCadenceException.getNodeIdString());
     }
 
-    public ArrayList<FlywheelMilestone> dbListFlywheelMilestoneForFiscalYear(String aFiscalYearId, String aFlywheelMilestoneExceptiionId) {
-//        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.FLYWHEEL_MILESTONE.getClassName() +
-//                " WHERE " + FlywheelMilestoneMetaData.column_FISCAL_YEAR_ID + " = '" + aFiscalYearId + "'";
-//        if(aFlywheelMilestoneExceptionId != null) {
-//            theRawQuery += " AND " + IdNodeMetaData.column_ID + " != '" + aFlywheelMilestoneExceptionId + "'";
+    public ArrayList<FlywheelCadence> dbListFlywheelCadenceForFiscalYear(String aFiscalYearId, String aFlywheelCadenceExceptiionId) {
+//        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.FLYWHEEL_CADENCE.getClassName() +
+//                " WHERE " + FlywheelCadenceMetaData.column_FISCAL_YEAR_ID + " = '" + aFiscalYearId + "'";
+//        if(aFlywheelCadenceExceptionId != null) {
+//            theRawQuery += " AND " + IdNodeMetaData.column_ID + " != '" + aFlywheelCadenceExceptionId + "'";
 //        }
 //        theRawQuery += " ORDER BY " + CompletableNodeMetaData.column_SEQUENCE + " ASC";
 //        Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
-//        return FlywheelMilestoneDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
-        return new ArrayList<FlywheelMilestone>();
+//        return FlywheelCadenceDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
+        return new ArrayList<FlywheelCadence>();
     }
 	
 }

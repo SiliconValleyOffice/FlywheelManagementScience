@@ -69,7 +69,7 @@ public class FlywheelWorkPackageCommitmentDaoSqLite extends CommitmentNodeDaoSqL
 
 	@Override
 	protected String getParentIdColumnName() {
-		return FlywheelWorkPackageCommitmentMetaData.column_FLYWHEEL_MILESTONE_ID;
+		return FlywheelWorkPackageCommitmentMetaData.column_FLYWHEEL_CADENCE_ID;
 	}
 
 	@Override
@@ -81,7 +81,7 @@ public class FlywheelWorkPackageCommitmentDaoSqLite extends CommitmentNodeDaoSqL
 	protected void getColumnValues(HashMap<String, Integer> aHashMap,
 			Cursor aCursor, FlywheelWorkPackageCommitment aCommitmentNode) {
 		super.getColumnValues(aHashMap, aCursor, aCommitmentNode);
-		aCommitmentNode.setFlywheelMilestoneNodeId(aCursor.getString(aHashMap.get(FlywheelWorkPackageCommitmentMetaData.column_FLYWHEEL_MILESTONE_ID)));
+		aCommitmentNode.setFlywheelCadenceNodeId(aCursor.getString(aHashMap.get(FlywheelWorkPackageCommitmentMetaData.column_FLYWHEEL_CADENCE_ID)));
 		aCommitmentNode.setWorkPackageNodeId(aCursor.getString(aHashMap.get(FlywheelWorkPackageCommitmentMetaData.column_WORK_PACKAGE_ID)));
 	}
 
@@ -89,7 +89,7 @@ public class FlywheelWorkPackageCommitmentDaoSqLite extends CommitmentNodeDaoSqL
 	protected FlywheelWorkPackageCommitment getNextObjectFromCursor(Cursor aCursor) {
 		FlywheelWorkPackageCommitment theFlywheelWorkPackageCommitment = null;
 		theFlywheelWorkPackageCommitment = new FlywheelWorkPackageCommitment(
-				aCursor.getString(this.columnIndexMap.get(FlywheelWorkPackageCommitmentMetaData.column_FLYWHEEL_MILESTONE_ID)),
+				aCursor.getString(this.columnIndexMap.get(FlywheelWorkPackageCommitmentMetaData.column_FLYWHEEL_CADENCE_ID)),
 				aCursor.getString(this.columnIndexMap.get(FlywheelWorkPackageCommitmentMetaData.column_WORK_PACKAGE_ID)));
 		getColumnValues(this.columnIndexMap, aCursor, theFlywheelWorkPackageCommitment);
 		return theFlywheelWorkPackageCommitment;

@@ -72,7 +72,7 @@ import com.flywheelms.library.fmm.node.impl.governable.CommunityMember;
 import com.flywheelms.library.fmm.node.impl.governable.DiscussionTopic;
 import com.flywheelms.library.fmm.node.impl.governable.FacilitationIssue;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
-import com.flywheelms.library.fmm.node.impl.governable.FlywheelMilestone;
+import com.flywheelms.library.fmm.node.impl.governable.FlywheelCadence;
 import com.flywheelms.library.fmm.node.impl.governable.FlywheelTeam;
 import com.flywheelms.library.fmm.node.impl.governable.FmsOrganization;
 import com.flywheelms.library.fmm.node.impl.governable.FunctionalTeam;
@@ -180,7 +180,7 @@ public class FmmDatabaseBuilderSqLite implements FmmDatabaseBuilder {
 		createTable(aSqLiteDatabase, StrategicMilestone.class);
 		createTable(aSqLiteDatabase, StrategyTeam.class);
 		createTable(aSqLiteDatabase, FlywheelWorkPackageCommitment.class);
-		createTable(aSqLiteDatabase, FlywheelMilestone.class);
+		createTable(aSqLiteDatabase, FlywheelCadence.class);
 		createTable(aSqLiteDatabase, WorkPackage.class);
 		createTable(aSqLiteDatabase, WorkPlan.class);
 		createTable(aSqLiteDatabase, WorkTask.class);

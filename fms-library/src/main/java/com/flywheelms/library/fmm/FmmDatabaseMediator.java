@@ -49,7 +49,7 @@ import com.flywheelms.library.fmm.helper.FmmHelper;
 import com.flywheelms.library.fmm.meta_data.CommunityMemberMetaData;
 import com.flywheelms.library.fmm.meta_data.CompletableNodeMetaData;
 import com.flywheelms.library.fmm.meta_data.FiscalYearMetaData;
-import com.flywheelms.library.fmm.meta_data.FlywheelMilestoneMetaData;
+import com.flywheelms.library.fmm.meta_data.FlywheelCadenceMetaData;
 import com.flywheelms.library.fmm.meta_data.FlywheelTeamMetaData;
 import com.flywheelms.library.fmm.meta_data.FmmConfigurationMetaData;
 import com.flywheelms.library.fmm.meta_data.FmsOrganizationMetaData;
@@ -82,7 +82,7 @@ import com.flywheelms.library.fmm.node.impl.enumerator.GovernanceTarget;
 import com.flywheelms.library.fmm.node.impl.event.PdfPublication;
 import com.flywheelms.library.fmm.node.impl.governable.CommunityMember;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
-import com.flywheelms.library.fmm.node.impl.governable.FlywheelMilestone;
+import com.flywheelms.library.fmm.node.impl.governable.FlywheelCadence;
 import com.flywheelms.library.fmm.node.impl.governable.FlywheelTeam;
 import com.flywheelms.library.fmm.node.impl.governable.FmsOrganization;
 import com.flywheelms.library.fmm.node.impl.governable.Portfolio;
@@ -149,7 +149,7 @@ public class FmmDatabaseMediator {
 		CommunityMemberMetaData.init();
 		CompletableNodeMetaData.init();
 		FiscalYearMetaData.init();
-		FlywheelMilestoneMetaData.init();
+		FlywheelCadenceMetaData.init();
 		FlywheelTeamMetaData.init();
 		FmmConfigurationMetaData.init();
 		FmsOrganizationMetaData.init();
@@ -386,7 +386,7 @@ public class FmmDatabaseMediator {
 			break;
 		case FISCAL_YEAR:  // handled by newFmmRootNode()
 			break;
-		case FLYWHEEL_MILESTONE:
+		case FLYWHEEL_CADENCE:
 			break;
 		case NOTEBOOK:
 			break;
@@ -604,8 +604,8 @@ public class FmmDatabaseMediator {
 			//				return getFacilitationIssue(anFmmId);
 		case FISCAL_YEAR:
 			return getFiscalYear(anFmmId);
-		case FLYWHEEL_MILESTONE:
-			//				return getFlywheelMilestone(anFmmId);
+		case FLYWHEEL_CADENCE:
+			//				return getFlywheelCadence(anFmmId);
 		case NOTEBOOK:
 			//				return getNotebook(anFmmId);
 		case PORTFOLIO:
@@ -1212,12 +1212,12 @@ public class FmmDatabaseMediator {
 		return this.persistenceTechnologyDelegate.dbListFiscalYearForWorkPackageMoveTarget(anFmsOrganization, aProjectAssetException);
 	}
 
-	public int countFiscalYearForFlywheelMilestoneMoveTarget(FmsOrganization anFmsOrganization, FiscalYear aFiscalYearTargetException) {
-		return this.persistenceTechnologyDelegate.dbCountFiscalYearForFlywheelMilestoneMoveTarget(anFmsOrganization, aFiscalYearTargetException);
+	public int countFiscalYearForFlywheelCadenceMoveTarget(FmsOrganization anFmsOrganization, FiscalYear aFiscalYearTargetException) {
+		return this.persistenceTechnologyDelegate.dbCountFiscalYearForFlywheelCadenceMoveTarget(anFmsOrganization, aFiscalYearTargetException);
 	}
 
-	public ArrayList<FiscalYear> listFiscalYearForFlywheelMilestoneMoveTarget(FmsOrganization anFmsOrganization, FiscalYear aFiscalYearTargetException) {
-		return this.persistenceTechnologyDelegate.dbListFiscalYearForFlywheelMilestoneMoveTarget(anFmsOrganization, aFiscalYearTargetException);
+	public ArrayList<FiscalYear> listFiscalYearForFlywheelCadenceMoveTarget(FmsOrganization anFmsOrganization, FiscalYear aFiscalYearTargetException) {
+		return this.persistenceTechnologyDelegate.dbListFiscalYearForFlywheelCadenceMoveTarget(anFmsOrganization, aFiscalYearTargetException);
 	}
 
 	public FiscalYear getFiscalYear(String aNodeIdString) {
@@ -2406,12 +2406,12 @@ public class FmmDatabaseMediator {
 		return listWorkPackageForProjectAsset(aProjectAsset.getNodeIdString());
 	}
 
-	public ArrayList<WorkPackage> listWorkPackageForFlywheelMilestone(String aFlywheelMilestoneId) {
-		return this.persistenceTechnologyDelegate.dbListWorkPackageForFlywheelMilestone(aFlywheelMilestoneId);
+	public ArrayList<WorkPackage> listWorkPackageForFlywheelCadence(String aFlywheelCadenceId) {
+		return this.persistenceTechnologyDelegate.dbListWorkPackageForFlywheelCadence(aFlywheelCadenceId);
 	}
 
-	public ArrayList<WorkPackage> listWorkPackage(FlywheelMilestone aFlywheelMilestone) {
-		return listWorkPackageForFlywheelMilestone(aFlywheelMilestone.getNodeIdString());
+	public ArrayList<WorkPackage> listWorkPackage(FlywheelCadence aFlywheelCadence) {
+		return listWorkPackageForFlywheelCadence(aFlywheelCadence.getNodeIdString());
 	}
 
 	public ArrayList<WorkPackage> listWorkPackageForWorkTaskMoveTarget(ProjectAsset aProjectAsset, WorkPackage aWorkPackageException) {
@@ -2419,17 +2419,17 @@ public class FmmDatabaseMediator {
                 aProjectAsset.getNodeIdString(), aWorkPackageException.getNodeIdString(), true);
 	}
 
-	public ArrayList<WorkPackage> listWorkPackageForWorkTaskMoveTarget(FlywheelMilestone aFlywheelMilestone, WorkPackage aWorkPackageException) {
+	public ArrayList<WorkPackage> listWorkPackageForWorkTaskMoveTarget(FlywheelCadence aFlywheelCadence, WorkPackage aWorkPackageException) {
 		return this.persistenceTechnologyDelegate.dbListWorkPackagesForWorkTaskMoveTarget(
-                aFlywheelMilestone.getNodeIdString(), aWorkPackageException.getNodeIdString(), true);
+                aFlywheelCadence.getNodeIdString(), aWorkPackageException.getNodeIdString(), true);
 	}
 
 	public ArrayList<WorkPackage> listWorkPackageOrphansFromProjectAsset() {
 		return this.persistenceTechnologyDelegate.dbListWorkPackageOrphansFromProjectAsset();
 	}
 
-	public ArrayList<WorkPackage> listWorkPackageOrphansFromFlywheelMilestone() {
-		return this.persistenceTechnologyDelegate.dbListWorkPackageOrphansFromFlywheelMilestone();
+	public ArrayList<WorkPackage> listWorkPackageOrphansFromFlywheelCadence() {
+		return this.persistenceTechnologyDelegate.dbListWorkPackageOrphansFromFlywheelCadence();
 	}
 
 	public boolean adoptOrphanWorkPackageIntoProjectAsset(
@@ -2467,7 +2467,7 @@ public class FmmDatabaseMediator {
 			boolean bSequenceAtEnd ) {
 		return aParentNode.getFmmNodeDefinition() == FmmNodeDefinition.PROJECT_ASSET ?
 				newWorkPackageForProjectAsset(aHeadline, aParentNode, aPeerNode, bSequenceAtEnd) :
-					newWorkPackageForFlywheelMilestone(aHeadline, aParentNode, aPeerNode, bSequenceAtEnd);
+					newWorkPackageForFlywheelCadence(aHeadline, aParentNode, aPeerNode, bSequenceAtEnd);
 	}
 
 	private WorkPackage newWorkPackageForProjectAsset(
@@ -2490,7 +2490,7 @@ public class FmmDatabaseMediator {
 		return theNewWorkPackage;
 	}
 
-	private WorkPackage newWorkPackageForFlywheelMilestone(String aHeadline,
+	private WorkPackage newWorkPackageForFlywheelCadence(String aHeadline,
 			FmmHeadlineNode aParentNode, FmmHeadlineNode aPeerNode,
 			boolean bSequenceBeforeFlag) {
 		// TODO Auto-generated method stub
@@ -2536,22 +2536,22 @@ public class FmmDatabaseMediator {
         return isSuccess;
     }
 
-    public boolean orphanAllWorkPackagesFromFlywheelMilestone(String aFlywheelMilestoneId, boolean bAtomicTransaction) {
+    public boolean orphanAllWorkPackagesFromFlywheelCadence(String aFlywheelCadenceId, boolean bAtomicTransaction) {
         if(bAtomicTransaction) {
             startTransaction();
         }
-        boolean isSuccess = this.persistenceTechnologyDelegate.dbOrphanAllWorkPackagesFromFlywheelMilestone(aFlywheelMilestoneId, bAtomicTransaction);
+        boolean isSuccess = this.persistenceTechnologyDelegate.dbOrphanAllWorkPackagesFromFlywheelCadence(aFlywheelCadenceId, bAtomicTransaction);
         if(bAtomicTransaction) {
             endTransaction(isSuccess);
         }
         return isSuccess;
     }
 
-    public boolean orphanSingleWorkPackageFromFlywheelMilestone(String aWorkPackageId, String aFlywheelMilestoneId, boolean bAtomicTransaction) {
+    public boolean orphanSingleWorkPackageFromFlywheelCadence(String aWorkPackageId, String aFlywheelCadenceId, boolean bAtomicTransaction) {
         if(bAtomicTransaction) {
             startTransaction();
         }
-        boolean isSuccess = this.persistenceTechnologyDelegate.dbOrphanSingleWorkPackageFromFlywheelMilestone(aWorkPackageId, aFlywheelMilestoneId, bAtomicTransaction);
+        boolean isSuccess = this.persistenceTechnologyDelegate.dbOrphanSingleWorkPackageFromFlywheelCadence(aWorkPackageId, aFlywheelCadenceId, bAtomicTransaction);
         if(bAtomicTransaction) {
             endTransaction(isSuccess);
         }
@@ -2619,19 +2619,19 @@ public class FmmDatabaseMediator {
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////  Node - FLYWHEEL MILESTONE  /////////////////////////////////////////////////////////////////////////
 
-    public ArrayList<FlywheelMilestone> getFlywheelMilestoneListForFiscalYear(String aFiscalYearId) {
-        return this.persistenceTechnologyDelegate.dbListFlywheelMilestone(aFiscalYearId);
+    public ArrayList<FlywheelCadence> getFlywheelCadenceListForFiscalYear(String aFiscalYearId) {
+        return this.persistenceTechnologyDelegate.dbListFlywheelCadence(aFiscalYearId);
     }
 
-    public ArrayList<FlywheelMilestone> getFlywheelMilestoneList(FiscalYear aFiscalYear) {
-        return this.persistenceTechnologyDelegate.dbListFlywheelMilestone(aFiscalYear);
+    public ArrayList<FlywheelCadence> getFlywheelCadenceList(FiscalYear aFiscalYear) {
+        return this.persistenceTechnologyDelegate.dbListFlywheelCadence(aFiscalYear);
     }
 
-    public ArrayList<FlywheelMilestone> getFlywheelMilestoneListForFiscalYear(String aFiscalYearId, String aFlywheelMilestoneExceptionId) {
-        return this.persistenceTechnologyDelegate.dbListFlywheelMilestoneForFiscalYear(aFiscalYearId, aFlywheelMilestoneExceptionId);
+    public ArrayList<FlywheelCadence> getFlywheelCadenceListForFiscalYear(String aFiscalYearId, String aFlywheelCadenceExceptionId) {
+        return this.persistenceTechnologyDelegate.dbListFlywheelCadenceForFiscalYear(aFiscalYearId, aFlywheelCadenceExceptionId);
     }
 
-    public ArrayList<FlywheelMilestone> getFlywheelMilestoneList(FiscalYear aFiscalYear, FlywheelMilestone aFlywheelMilestoneException) {
-        return this.persistenceTechnologyDelegate.dbListFlywheelMilestone(aFiscalYear, aFlywheelMilestoneException);
+    public ArrayList<FlywheelCadence> getFlywheelCadenceList(FiscalYear aFiscalYear, FlywheelCadence aFlywheelCadenceException) {
+        return this.persistenceTechnologyDelegate.dbListFlywheelCadence(aFiscalYear, aFlywheelCadenceException);
     }
 }

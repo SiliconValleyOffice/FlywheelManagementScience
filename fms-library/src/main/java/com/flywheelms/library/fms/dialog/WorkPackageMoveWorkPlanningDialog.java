@@ -62,7 +62,7 @@ public class WorkPackageMoveWorkPlanningDialog extends HeadlineNodeMoveDialog {
 
 	@Override
 	protected int getMoveDispositionLayoutResourceId() {
-        return R.layout.work_package__move_into__flywheel_milestone;
+        return R.layout.work_package__move_into__flywheel_cadence;
 	}
 
 	@Override
