@@ -48,6 +48,7 @@ import android.database.Cursor;
 
 import com.flywheelms.library.fmm.meta_data.CompletableNodeMetaData;
 import com.flywheelms.library.fmm.meta_data.FlywheelCadenceMetaData;
+import com.flywheelms.library.fmm.meta_data.IdNodeMetaData;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.governable.FlywheelCadence;
 
@@ -81,21 +82,14 @@ public class FlywheelCadenceDaoSqLite extends CompletableNodeDaoSqLite<FlywheelC
     @Override
     protected void getColumnValues(HashMap<String, Integer> aHashMap, Cursor aCursor, FlywheelCadence aFlywheelCadence) {
         super.getColumnValues(aHashMap, aCursor, aFlywheelCadence);
-//        aFlywheelCadence.setFiscalYearNodeIdString(aCursor.getString(aHashMap.get(FlywheelCadenceMetaData.column_FISCAL_YEAR_ID)));
-//        aFlywheelCadence.setSequence(aCursor.getInt(aHashMap.get(CompletableNodeMetaData.column_SEQUENCE)));
-//        aFlywheelCadence.setTargetMonthEnd(aCursor.getInt(aHashMap.get(FlywheelCadenceMetaData.column_TARGET_MONTH_END)));
-//        aFlywheelCadence.setTargetDate(aCursor.getLong(aHashMap.get(FlywheelCadenceMetaData.column_TARGET_DATE)));
-//        aFlywheelCadence.setTargetIsReversePlanning(aCursor.getInt(aHashMap.get(FlywheelCadenceMetaData.column_TARGET_IS_REVERSE_PLANNING)));
     }
 
     @Override
     public ContentValues buildContentValues(FlywheelCadence aFlywheelCadence) {
         ContentValues theContentValues = super.buildContentValues(aFlywheelCadence);
-//        theContentValues.put(FlywheelCadenceMetaData.column_FISCAL_YEAR_ID, aFlywheelCadence.getFiscalYearNodeIdString());
-//        theContentValues.put(CompletableNodeMetaData.column_SEQUENCE, aFlywheelCadence.getSequence());
-//        theContentValues.put(FlywheelCadenceMetaData.column_TARGET_MONTH_END, aFlywheelCadence.getTargetMonthEnd());
-//        theContentValues.put(FlywheelCadenceMetaData.column_TARGET_DATE, aFlywheelCadence.getTargetDateFormattedUtcLong());
-//        theContentValues.put(FlywheelCadenceMetaData.column_TARGET_IS_REVERSE_PLANNING, aFlywheelCadence.targetIsReversePlanningAsInt());
+        theContentValues.put(FlywheelCadenceMetaData.column_FISCAL_YEAR_ID, aFlywheelCadence.getFiscalYearId());
+        theContentValues.put(FlywheelCadenceMetaData.column_SCHEDULED_START_DATE, aFlywheelCadence.getScheduledStartDateFormattedUtcLong());
+        theContentValues.put(FlywheelCadenceMetaData.column_SCHEDULED_END_DATE, aFlywheelCadence.getScheduledEndDateFormattedUtcLong());
         return theContentValues;
     }
 
@@ -106,12 +100,13 @@ public class FlywheelCadenceDaoSqLite extends CompletableNodeDaoSqLite<FlywheelC
 
     @Override
     protected FlywheelCadence getNextObjectFromCursor(Cursor aCursor) {
-//        FlywheelCadence theFlywheelCadence = new FlywheelCadence(
-//                aCursor.getString(this.columnIndexMap.get(IdNodeMetaData.column_ID)),
-//                aCursor.getString(this.columnIndexMap.get(FlywheelCadenceMetaData.column_FISCAL_YEAR_ID)) );
-//        getColumnValues(this.columnIndexMap, aCursor, theFlywheelCadence);
-//        return theFlywheelCadence;
-        return null;
+        FlywheelCadence theFlywheelCadence = new FlywheelCadence(
+                aCursor.getString(this.columnIndexMap.get(IdNodeMetaData.column_ID)),
+                aCursor.getString(this.columnIndexMap.get(FlywheelCadenceMetaData.column_FISCAL_YEAR_ID)),
+                aCursor.getLong(this.columnIndexMap.get(FlywheelCadenceMetaData.column_SCHEDULED_START_DATE)),
+                aCursor.getLong(this.columnIndexMap.get(FlywheelCadenceMetaData.column_SCHEDULED_START_DATE)) );
+        getColumnValues(this.columnIndexMap, aCursor, theFlywheelCadence);
+        return theFlywheelCadence;
     }
 
 }

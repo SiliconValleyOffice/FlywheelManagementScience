@@ -332,7 +332,7 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     		10015 ),
 	FLYWHEEL_CADENCE (
 			FlywheelCadence.class,
-			"FMS",
+			"FCA",
 			R.string.fmm_node_definition__flywheel_cadence__label_text,
 			R.drawable.fmm_noun__flywheel_cadence__gray,
 			0,
