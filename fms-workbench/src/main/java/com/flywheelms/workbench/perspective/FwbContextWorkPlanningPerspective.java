@@ -58,6 +58,7 @@ import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
+import com.flywheelms.library.fmm.node.impl.governable.FlywheelCadence;
 import com.flywheelms.library.fms.helper.FmsHelpIndex;
 import com.flywheelms.library.fms.popup_menu.FmmPopupBuilder;
 import com.flywheelms.library.fms.preferences.GuiPreferencesBundle;
@@ -117,13 +118,13 @@ public class FwbContextWorkPlanningPerspective extends FmsPerspectiveFlipperTree
         Collection<FiscalYear> theFiscalYearCollection = FmmDatabaseMediator.getActiveMediator().getFiscalYearList(
                 FmmDatabaseMediator.getActiveMediator().getFmmOwner() );
         for(FiscalYear theFiscalYear : theFiscalYearCollection) {
+            Collection<FlywheelCadence> theFlywheelCadenceCollection =
+                    FmmDatabaseMediator.getActiveMediator().getFlywheelCadenceList(theFiscalYear);
             GcgTreeNodeInfo theFiscalYearTreeNodeInfo = theTreeBuilder.addTopNode(
-                    theFiscalYear, false, FmmPerspective.WORK_PLANNING );
-//            Collection<FlywheelCadence> theFlywheelCadenceCollection =
-//                    FmmDatabaseMediator.getActiveMediator().getFlywheelCadenceList(theFiscalYear);
-//            GcgTreeNodeInfo theFiscalYearTreeNodeInfo = theTreeBuilder.addTopNode(
-//                    theFiscalYear, theFlywheelCadenceCollection.size()>0, FmmPerspective.WORK_PLANNING );
-//            for(FlywheelCadence theFlywheelCadence : theFlywheelCadenceCollection) {
+                    theFiscalYear, theFlywheelCadenceCollection.size()>0, FmmPerspective.WORK_PLANNING );
+            for(FlywheelCadence theFlywheelCadence : theFlywheelCadenceCollection) {
+                GcgTreeNodeInfo theFlywheelCadenceTreeNodeInfo = theTreeBuilder.addChildNode(
+                        theFlywheelCadence, false, theFiscalYearTreeNodeInfo, FmmPerspective.WORK_PLANNING);
 //                Collection<WorkPlan> theWorkPlanCollection =
 //                        FmmDatabaseMediator.getActiveMediator().listWorkPlan(theFlywheelCadence);
 //                GcgTreeNodeInfo theFlywheelCadenceTreeNodeInfo = theTreeBuilder.addChildNode(
@@ -132,7 +133,7 @@ public class FwbContextWorkPlanningPerspective extends FmsPerspectiveFlipperTree
 //                    theTreeBuilder.addLeafNode(
 //                            theWorkPlan, theFlywheelCadenceTreeNodeInfo, FmmPerspective.WORK_PLANNING);
 //                }
-//            }
+            }
         }
         return theTreeContentMediator;
     }

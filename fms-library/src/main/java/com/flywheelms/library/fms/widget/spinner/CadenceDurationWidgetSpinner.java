@@ -1,5 +1,4 @@
-/* @(#)GcgTreeViewParent.java
-** 
+/*
 ** Copyright (C) 2012 by Steven D. Stamps
 **
 **             Trademarks & Copyrights
@@ -41,45 +40,15 @@
 ** <http://www.gnu.org/licenses/gpl-3.0.html>.
 */
 
-package com.flywheelms.gcongui.gcg.treeview.interfaces;
+package com.flywheelms.library.fms.widget.spinner;
 
-import com.flywheelms.gcongui.gcg.activity.GcgActivity;
-import com.flywheelms.gcongui.gcg.context.GcgFrame;
-import com.flywheelms.gcongui.gcg.interfaces.GcgPerspective;
-import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewAdapter;
-import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewMediator;
-import com.flywheelms.gcongui.gcg.treeview.node.GcgTreeNodeInfo;
+import android.content.Context;
+import android.util.AttributeSet;
+import android.widget.Spinner;
 
-public interface GcgTreeViewParent {
+public class CadenceDurationWidgetSpinner extends Spinner {
 
-	boolean isShowNodeChildSummary();
-
-	int getShowNodeChildSummaryLevel();
-	
-	GcgActivity getGcgActivity();
-
-	GcgTreeViewAdapter rebuildTreeView();
-
-	int getShowEmphasisLevel();
-
-	GcgTreeViewAdapter getGcgTreeViewAdapter();
-
-	GcgTreeViewMediator getGcgTreeViewMediator();
-	
-	void guiPreferencesApply();
-	
-	void setSelection(int anAdapterPosition);
-
-	void setSelection(GcgTreeNodeInfo aFirstVisibleTreeNodeInfo);
-
-	void setSelection(GcgTreeNodeInfo aFirstVisibleTreeNodeInfo, GcgTreeNodeInfo aTreeNodeInfoThatMustBeVisible);
-
-	int getFirstPosition();
-	
-	GcgTreeNodeInfo getFirstVisibleTreeNodeInfo();
-
-    GcgFrame getGcgFrame();
-
-    GcgPerspective getGcgPerspective();
-
+    public CadenceDurationWidgetSpinner(Context context, AttributeSet attrs) {
+        super(context, attrs);
+    }
 }

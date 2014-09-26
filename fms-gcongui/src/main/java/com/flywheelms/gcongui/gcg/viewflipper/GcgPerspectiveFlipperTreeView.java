@@ -46,12 +46,17 @@ package com.flywheelms.gcongui.gcg.viewflipper;
 import android.content.Context;
 import android.util.AttributeSet;
 
+import com.flywheelms.gcongui.gcg.context.GcgFrame;
 import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
+import com.flywheelms.gcongui.gcg.interfaces.GcgPerspective;
 import com.flywheelms.gcongui.gcg.interfaces.GcgPerspectiveView;
 
 import java.util.ArrayList;
 
 public abstract class GcgPerspectiveFlipperTreeView extends GcgViewFlipperTreeView implements GcgPerspectiveView {
+
+    GcgFrame gcgFrame;
+    GcgPerspective gcgPerspective;
 	
 	protected ArrayList<GcgGuiable> perspectiveContext = new ArrayList<GcgGuiable>();
 
@@ -64,4 +69,20 @@ public abstract class GcgPerspectiveFlipperTreeView extends GcgViewFlipperTreeVi
 		return this.perspectiveContext;
 	}
 
+
+    public GcgFrame getGcgFrame() {
+        return this.gcgFrame;
+    }
+    
+    public void setGcgFrame(GcgFrame aFrame) {
+        this.gcgFrame = aFrame;
+    }
+
+    public GcgPerspective getGcgPerspective() {
+        return this.gcgPerspective;
+    }
+
+    public void setGcgPerspective(GcgPerspective aPerspective) {
+        this.gcgPerspective = aPerspective;
+    }
 }

@@ -123,7 +123,7 @@ public class FmmPopupBuilder {
 			boolean bCanOrphan,
 			boolean bCanSequenceUp,
 			boolean bCanSequenceDown,
-			int aLauncNodeSequence,
+			int aLaunchNodeSequence,
 			int aLaunchNodeChildCount ) {
 		FmmHeadlineNode theLaunchHeadlineNode = (FmmHeadlineNode) aLaunchTreeNodeInfo.getTargetObject();
 		FmmHeadlineNode theParentHeadlineNode = (FmmHeadlineNode) aParentTreeNodeInfo.getTargetObject();
@@ -131,17 +131,17 @@ public class FmmPopupBuilder {
 		case FISCAL_YEAR:
 			return createFiscalYearPopupMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, aLaunchNodeChildCount);
 		case PROJECT_ASSET:
-			return createProjectAssetPopupMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, bCanMove, bCanOrphan, bCanSequenceDown, bCanSequenceUp, aLauncNodeSequence, aLaunchNodeChildCount);
+			return createProjectAssetPopupMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, bCanMove, bCanOrphan, bCanSequenceDown, bCanSequenceUp, aLaunchNodeSequence, aLaunchNodeChildCount);
 		case STRATEGIC_MILESTONE:
-			return createStrategicMilestonePopupMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, bCanMove, bCanOrphan, bCanSequenceDown, bCanSequenceUp, aLauncNodeSequence, aLaunchNodeChildCount);
+			return createStrategicMilestonePopupMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, bCanMove, bCanOrphan, bCanSequenceDown, bCanSequenceUp, aLaunchNodeSequence, aLaunchNodeChildCount);
         case PORTFOLIO:
             return createPortfolioPopupMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, aLaunchNodeChildCount);
         case PROJECT:
-            return createProjectPopupMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, bCanMove, bCanOrphan, bCanSequenceDown, bCanSequenceUp, aLauncNodeSequence, aLaunchNodeChildCount);
+            return createProjectPopupMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, bCanMove, bCanOrphan, bCanSequenceDown, bCanSequenceUp, aLaunchNodeSequence, aLaunchNodeChildCount);
         case WORK_PACKAGE:
-            return createWorkPackagePopupMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, bCanMove, bCanOrphan, bCanSequenceDown, bCanSequenceUp, aLauncNodeSequence, aLaunchNodeChildCount);
+            return createWorkPackagePopupMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, bCanMove, bCanOrphan, bCanSequenceDown, bCanSequenceUp, aLaunchNodeSequence, aLaunchNodeChildCount);
         case WORK_TASK:
-            return createWorkTaskPopupMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, bCanMove, bCanOrphan, bCanSequenceDown, bCanSequenceUp, aLauncNodeSequence, aLaunchNodeChildCount);
+            return createWorkTaskPopupMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, bCanMove, bCanOrphan, bCanSequenceDown, bCanSequenceUp, aLaunchNodeSequence, aLaunchNodeChildCount);
 		default:
 			return null;
 		}
