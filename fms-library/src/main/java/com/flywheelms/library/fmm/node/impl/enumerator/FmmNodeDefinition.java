@@ -336,8 +336,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 			R.string.fmm_node_definition__flywheel_cadence__label_text,
 			R.drawable.fmm_noun__flywheel_cadence__gray,
 			0,
-    		R.drawable.gcg__unspecified_glyph,
-    		R.drawable.gcg__unspecified_glyph,
+    		R.drawable.fms_activity__flywheel_cadence,
+    		R.drawable.fms_dialog__flywheel_cadence,
 			new HashMap<FmmNodeGlyphType, Integer>(),
 			new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // tiny drawables
 			new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // small drawables

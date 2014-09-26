@@ -14,6 +14,7 @@
     
     <string name="fms__cancel">Cancel</string>
     <string name="fms__create">Create</string>
+    <string name="fms__create_all">Create All</string>
     <string name="fms__delete">Delete</string>
     <string name="fms__edit_headline">Edit Headline</string>
     <string name="fms__move">Move</string>
@@ -28,8 +29,9 @@
 
     <string name="enable_holiday_slack">Enable holiday slack time</string>
     <string name="holiday_slack__option">Holiday slack option</string>
-    <string name="cadence_duration">Cadence duration</string>
-    <string name="flywheel_cadence__creation__explanation">All Work Plans for a Fiscal Year are organized into groups called Flywheel Cadences.\nA Flywheel Cadence is the largest unit of rhythmic work in a Fiscal Year.\nThis dialog enables the creation of all Flywheel Cadences for a Fiscal Year.\n</string>
+    <string name="work_plan__first_day_of_week">Work Plan first day of week</string>
+    <string name="cadence_duration">Cadence duration (weeks)</string>
+    <string name="flywheel_cadence__creation__explanation">All Work Plans for a Fiscal Year are organized into groups called a Flywheel Cadence.\n\nA Flywheel Cadence is the largest unit of rhythmic work in a Fiscal Year.\nAll of the Flywheel Cadences for a Fiscal Year are usually the same duration (in weeks).\n\n<b>Use this dialog to create all Flywheel Cadences for a Fiscal Year</b>.\n</string>
 
     <string name="edit_new_headline_node">Edit new headline node</string>
     <string name="edit_new_fiscal_year">Edit new Fiscal Year</string>

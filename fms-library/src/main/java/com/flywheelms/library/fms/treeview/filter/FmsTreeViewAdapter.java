@@ -71,6 +71,7 @@ import com.flywheelms.library.fmm.node.impl.governable.WorkPackage;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.fms.dialog.FiscalYearCreateDialog;
 import com.flywheelms.library.fms.dialog.FiscalYearDeleteDialog;
+import com.flywheelms.library.fms.dialog.FlywheelCadenceCreateForYearDialog;
 import com.flywheelms.library.fms.dialog.HeadlineNodeCreateDialog;
 import com.flywheelms.library.fms.dialog.HeadlineNodeHeadlineEditDialog;
 import com.flywheelms.library.fms.dialog.PortfolioAdoptOrphanProjectDialog;
@@ -136,7 +137,7 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
 		super(aTreeViewParent, aTreeStateMediator, R.layout.fms__tree_view__row_target_object, aFontSizeArray);
 	}
 
-	protected FmsTreeViewParent getFmsTreeViewParent() {
+	public FmsTreeViewParent getFmsTreeViewParent() {
 		return (FmsTreeViewParent) this.gcgTreeViewParent;
 	}
 
@@ -372,6 +373,8 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
 					aParentHeadlineNode,
 					aLaunchNodeSequence,
 					aLaunchNodeCount );
+        } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__CREATE_ALL_FLYWHEEL_CADENCES)) {
+            createAllFlywheelCadences(aLaunchHeadlineNode);
 		} else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__DELETE_STRATEGIC_MILESTONE)) {
 			deleteStrategicMilestone(aLaunchHeadlineNode);
         } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__EDIT_STRATEGIC_MILESTONE_TARGET_DATE)) {
@@ -505,6 +508,13 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
     // logical validation of this operation was already done in FmmPopupBuilder
     private void deletePortfolio(FmmHeadlineNode aPortfolioHeadlineNode) {
         getGcgActivity().startDialog(new PortfolioDeleteDialog(getGcgActivity(), this, aPortfolioHeadlineNode));
+    }
+
+    private void createAllFlywheelCadences(FmmHeadlineNode aLaunchHeadlineNode) {
+        this.getGcgActivity().startDialog(new FlywheelCadenceCreateForYearDialog(
+                getGcgActivity(),
+                this,
+                (FiscalYear) aLaunchHeadlineNode ));
     }
 
 	// logical validation of this operation was already done in FmmPopupBuilder

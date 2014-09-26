@@ -44,11 +44,40 @@ package com.flywheelms.library.fms.widget.spinner;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.widget.Spinner;
 
-public class CadenceDurationWidgetSpinner extends Spinner {
+import com.flywheelms.gcongui.gcg.GcgApplication;
+import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
+import com.flywheelms.gcongui.gcg.interfaces.GcgGuiableImpl;
+import com.flywheelms.gcongui.gcg.widget.GcgWidgetSpinner;
+import com.flywheelms.library.R;
+
+import java.util.ArrayList;
+
+public class CadenceDurationWidgetSpinner extends GcgWidgetSpinner {
 
     public CadenceDurationWidgetSpinner(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
+
+    @Override
+    protected ArrayList<? extends GcgGuiable> updateGuiableList() {
+        ArrayList<GcgGuiable> theGuiableList = new ArrayList<GcgGuiable>();
+        theGuiableList.add(new GcgGuiableImpl(getLabelText(),"2"));
+        theGuiableList.add(new GcgGuiableImpl(getLabelText(),"3"));
+        theGuiableList.add(new GcgGuiableImpl(getLabelText(),"4"));
+        theGuiableList.add(new GcgGuiableImpl(getLabelText(),"5"));
+        theGuiableList.add(new GcgGuiableImpl(getLabelText(),"6"));
+        return theGuiableList;
+    }
+
+    @Override
+    protected String getLabelText() {
+        return GcgApplication.getAppResources().getString(R.string.cadence_duration);
+    }
+
+    @Override
+    public void setInitialValue() {
+        this.spinner.setSelection(1);
+    }
+
 }

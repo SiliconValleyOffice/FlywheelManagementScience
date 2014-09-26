@@ -45,6 +45,7 @@ package com.flywheelms.gcongui.gcg.interfaces;
 
 import android.graphics.drawable.Drawable;
 
+import com.flywheelms.gcongui.R;
 import com.flywheelms.gcongui.gcg.GcgApplication;
 
 import org.json.JSONException;
@@ -65,18 +66,24 @@ public class GcgGuiableImpl implements GcgGuiable {
 	
 	public GcgGuiableImpl(
 			String aLabelText,
-			Drawable aLabelDrawable,
-			int aLabelDrawableResourceId,
-			String aDataText,
-			Drawable aDataDrawable,
-			int aDataDrawableResourceId ) {
-		this.labelText = aLabelText;
-		this.labelDrawable = aLabelDrawable;
-		this.labelDrawableResourceId = aLabelDrawableResourceId;
-		this.dataText = aDataText;
-		this.dataDrawable = aDataDrawable;
-		this.dataDrawableResourceId = aDataDrawableResourceId;
+			String aDataText ) {
+		this(aLabelText, null, R.drawable.gcg__null_drawable, aDataText, null, R.drawable.gcg__null_drawable);
 	}
+
+    public GcgGuiableImpl(
+            String aLabelText,
+            Drawable aLabelDrawable,
+            int aLabelDrawableResourceId,
+            String aDataText,
+            Drawable aDataDrawable,
+            int aDataDrawableResourceId ) {
+        this.labelText = aLabelText;
+        this.labelDrawable = aLabelDrawable;
+        this.labelDrawableResourceId = aLabelDrawableResourceId;
+        this.dataText = aDataText;
+        this.dataDrawable = aDataDrawable;
+        this.dataDrawableResourceId = aDataDrawableResourceId;
+    }
 	
 	GcgGuiableImpl(GcgGuiable aGcgGuiable) {
 		this.labelText = aGcgGuiable.getLabelText();

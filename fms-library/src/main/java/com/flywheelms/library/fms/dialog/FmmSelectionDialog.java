@@ -77,6 +77,11 @@ public class FmmSelectionDialog extends FmsCancelOkDialog {
 		return R.drawable.fmm_repository;
 	}
 
+    @Override
+    protected int getDialogBodyLayoutResourceId() {
+        return R.layout.fmm__selection__dialog;
+    }
+
 	@Override
 	protected void initializeDialogBody() {
 		super.initializeDialogBody();
@@ -124,11 +129,6 @@ public class FmmSelectionDialog extends FmsCancelOkDialog {
 		} else {
 			this.buttonOk.setVisibility(View.INVISIBLE);
 		}
-	}
-
-	@Override
-	protected int getDialogBodyLayoutResourceId() {
-		return R.layout.fmm__selection__dialog;
 	}
 
 	@Override

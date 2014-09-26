@@ -47,7 +47,9 @@ import android.view.View;
 import android.widget.PopupMenu;
 
 import com.flywheelms.gcongui.gcg.treeview.node.GcgTreeNodeInfo;
+import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
+import com.flywheelms.library.fms.treeview.filter.FmsTreeViewAdapter;
 
 /*
  * on the surface, the purpose of this class is to build context-sensitive popup menus for FMM Nodes.
@@ -66,7 +68,7 @@ public class FmmPopupBuilder {
 	public static final String menu_item__REMOVE_DISCUSSION_TOPIC = "Remove Discussion Topic...";
 	public static final String menu_item__CREATE_FISCAL_YEAR = "Create Fiscal Year...";
 	public static final String menu_item__DELETE_FISCAL_YEAR = "Delete Fiscal Year...";
-	public static final String menu_item__CREATE_FLYWHEEL_CADENCE = "Create Flywheel Cadence...";
+	public static final String menu_item__CREATE_ALL_FLYWHEEL_CADENCES = "Create all Flywheel Cadences...";
 	public static final String menu_item__DELETE_FLYWHEEL_CADENCE = "Delete Flywheel Cadence...";
 	public static final String menu_item__MOVE_FLYWHEEL_CADENCE = "Move Flywheel Cadence...";
 	public static final String menu_item__ADOPT_ORPHAN_NOTEBOOK = "Adopt orphan Notebook...";
@@ -114,7 +116,7 @@ public class FmmPopupBuilder {
 	public static final String menu_item__CREATE_FMM_CONFIGURATION = "Create FMM Configuration...";
 
 	public static PopupMenu createPopupMenu(
-			FmmHeadlineNodePopupListener aNodePopupListener,
+            FmsTreeViewAdapter aNodePopupListener,
 			GcgTreeNodeInfo aLaunchTreeNodeInfo,
 			GcgTreeNodeInfo aParentTreeNodeInfo,
 			View aView,
@@ -148,21 +150,25 @@ public class FmmPopupBuilder {
 	}
 
 	private static PopupMenu createFiscalYearPopupMenu(
-			FmmHeadlineNodePopupListener aNodePopupListener,
+            FmsTreeViewAdapter aNodePopupListener,
 			GcgTreeNodeInfo aLaunchTreeNodeInfo,
 			FmmHeadlineNode aLaunchHeadlineNode,
 			FmmHeadlineNode aParentHeadlineNode,
 			View aView,
 			boolean bCanDelete,
 			int aLaunchNodeChildCount ) {
-		FmmHeadlineNodePopupMenu thePopupMenu = new FmmHeadlineNodePopupMenu(
-				aNodePopupListener, aView, aLaunchHeadlineNode, aParentHeadlineNode, aLaunchTreeNodeInfo, aLaunchNodeChildCount );
-		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_FISCAL_YEAR);
-		if(bCanDelete) {
-			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__DELETE_FISCAL_YEAR);
-		}
-		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_STRATEGIC_MILESTONE);
-		return thePopupMenu;
+        FmmHeadlineNodePopupMenu thePopupMenu = new FmmHeadlineNodePopupMenu(
+                aNodePopupListener, aView, aLaunchHeadlineNode, aParentHeadlineNode, aLaunchTreeNodeInfo, aLaunchNodeChildCount );
+        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_FISCAL_YEAR);
+        if(bCanDelete) {
+            thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__DELETE_FISCAL_YEAR);
+        }
+        if(aNodePopupListener.getFmsTreeViewParent().getGcgPerspective() == FmmPerspective.STRATEGIC_PLANNING) {
+            thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_STRATEGIC_MILESTONE);
+        } else {
+            thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_ALL_FLYWHEEL_CADENCES);
+        }
+        return thePopupMenu;
 	}
 
 	private static PopupMenu createStrategicMilestonePopupMenu(
@@ -315,7 +321,7 @@ public class FmmPopupBuilder {
 			int aLaunchNodeChildCount ) {
 		FmmHeadlineNodePopupMenu thePopupMenu = new FmmHeadlineNodePopupMenu(
 				aNodePopupListener, aView, aLaunchHeadlineNode, aParentHeadlineNode, aLaunchTreeNodeInfo, aLaunchNodeSequence, aLaunchNodeChildCount );
-		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_FLYWHEEL_CADENCE);
+		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_ALL_FLYWHEEL_CADENCES);
 		if(bCanDelete) {
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__DELETE_FLYWHEEL_CADENCE);
 		}

@@ -48,8 +48,12 @@ import android.util.AttributeSet;
 
 import com.flywheelms.gcongui.gcg.widget.GcgWidgetTextView;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
+import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
 
+// com.flywheelms.library.fms.widget.text_view.FiscalYearWidgetTextView
 public class FiscalYearWidgetTextView extends GcgWidgetTextView {
+
+    private FiscalYear fiscalYear;
 	
 	public FiscalYearWidgetTextView(Context aContext, AttributeSet anAttributeSet) {
 		super(aContext, anAttributeSet);
@@ -67,4 +71,13 @@ public class FiscalYearWidgetTextView extends GcgWidgetTextView {
 		}
 		super.setup();
 	}
+
+    public FiscalYear getFiscalYear() {
+        return fiscalYear;
+    }
+
+    public void setFiscalYear(FiscalYear aFiscalYear) {
+        this.fiscalYear = aFiscalYear;
+        this.textView.setText(this.fiscalYear.getHeadline());
+    }
 }

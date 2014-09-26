@@ -43,32 +43,31 @@
 
 package com.flywheelms.library.fms.dialog;
 
-import android.widget.CheckBox;
-
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
+import com.flywheelms.library.fmm.node.impl.governable.FlywheelCadence;
 import com.flywheelms.library.fms.treeview.filter.FmsTreeViewAdapter;
-import com.flywheelms.library.fms.widget.edit_text.HeadlineWidgetEditText;
 import com.flywheelms.library.fms.widget.spinner.CadenceDurationWidgetSpinner;
 import com.flywheelms.library.fms.widget.spinner.HolidaySlackOptionWidgetSpinner;
-import com.flywheelms.library.fms.widget.text_view.FmmNodeTypeWidgetTextView;
+import com.flywheelms.library.fms.widget.spinner.WorkPlanFirstDayOfWeekWidgetSpinner;
+import com.flywheelms.library.fms.widget.text_view.FiscalYearWidgetTextView;
 import com.flywheelms.library.fms.widget.text_view.HeadlineWidgetTextView;
+
+import java.util.ArrayList;
 
 public class FlywheelCadenceCreateForYearDialog extends FmsCancelOkDialog {
 
     FmsTreeViewAdapter treeViewAdapter;
     protected final FiscalYear fiscalYear;
-    protected FmmNodeTypeWidgetTextView fmmNodeTypeWidget;
-    protected HeadlineWidgetEditText headlineWidget;
-    protected FmmNodeTypeWidgetTextView parentFmmNodeTypeWidget;
+    protected FiscalYearWidgetTextView fiscalYearWidgetTextView;
     protected HeadlineWidgetTextView parentHeadlineWidget;
     protected GcgContainerGroupBoxLinear cadenceParametersLayout;  // cadence duration and holiday slack checkbox and spinner
     protected CadenceDurationWidgetSpinner cadenceDurationSpinner;
-    protected CheckBox enableHolidaySlackCheckbox;
     protected HolidaySlackOptionWidgetSpinner holidaySlackOptions;
+    protected WorkPlanFirstDayOfWeekWidgetSpinner workPlanFirstDayOfWeekWidgetSpinner;
 
     public FlywheelCadenceCreateForYearDialog(
             GcgActivity aLibraryActivity,
@@ -84,8 +83,13 @@ public class FlywheelCadenceCreateForYearDialog extends FmsCancelOkDialog {
 
     @Override
     protected int getDialogTitleStringResourceId() {
-        return R.string.fms__create;
+        return R.string.fms__create_all;
     }
+
+//    @Override
+//    protected int getDialogBodyLayoutResourceId() {
+//        return R.layout.flywheel_cadence__create_for_year__dialog_2;
+//    }
 
     @Override
     protected int getCustomDialogContentsResourceId() {
@@ -99,17 +103,30 @@ public class FlywheelCadenceCreateForYearDialog extends FmsCancelOkDialog {
 
     protected void initializeDialogBodyLate() {
         super.initializeDialogBody();
-        this.fmmNodeTypeWidget = (FmmNodeTypeWidgetTextView) this.dialogBodyView.findViewById(R.id.fmm_node__type);
-        this.fmmNodeTypeWidget.setText(getFmmNodeDefinition().getLabelTextResourceId());
-        this.parentFmmNodeTypeWidget = (FmmNodeTypeWidgetTextView) this.dialogBodyView.findViewById(R.id.fmm_node__type__parent_node);
-        this.parentHeadlineWidget = (HeadlineWidgetTextView) this.dialogBodyView.findViewById(R.id.headline__parent_node);
+        this.fiscalYearWidgetTextView = (FiscalYearWidgetTextView) this.dialogBodyView.findViewById(R.id.fiscal_year__text_view);
+        this.fiscalYearWidgetTextView.setFiscalYear(this.fiscalYear);
         this.cadenceParametersLayout = (GcgContainerGroupBoxLinear) this.dialogBodyView.findViewById(R.id.group_box__cadence_parameters);
         this.cadenceDurationSpinner = (CadenceDurationWidgetSpinner) this.dialogBodyView.findViewById(R.id.cadence_duration__spinner);
-        this.enableHolidaySlackCheckbox = (CheckBox) this.dialogBodyView.findViewById(R.id.enable_holiday_slack__checkbox);
         this.holidaySlackOptions = (HolidaySlackOptionWidgetSpinner) this.dialogBodyView.findViewById(R.id.holiday_slack_option__spinner);
+        this.workPlanFirstDayOfWeekWidgetSpinner = (WorkPlanFirstDayOfWeekWidgetSpinner) this.dialogBodyView.findViewById(R.id.work_plan__first_day_of_week__spinner);
     }
 
     private void createFlywheelCadencesForFiscalYear(boolean bOkButtonEvent) {
+        // update FiscalYear with Cadence Parameters
+        // create Flywheel Cadence collection
+    }
+
+    protected void onClickButtonPreview() {
+        this.gcgActivity.startDialog(new FlywheelCadencePreviewDialog(
+                this.gcgActivity,
+                this.cadenceDurationSpinner.getSelectedItem().getDataText(),
+                this.holidaySlackOptions.getSelectedItem().getDataText(),
+                this.workPlanFirstDayOfWeekWidgetSpinner.getSelectedItem().getDataText(),
+                generateFlywheelCadenceList()));
+    }
+
+    private ArrayList<FlywheelCadence> generateFlywheelCadenceList() {
+        return null;
     }
 
     @Override

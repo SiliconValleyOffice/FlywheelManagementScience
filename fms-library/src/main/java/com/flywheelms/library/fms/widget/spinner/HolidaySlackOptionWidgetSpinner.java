@@ -44,12 +44,37 @@ package com.flywheelms.library.fms.widget.spinner;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.widget.Spinner;
+
+import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
+import com.flywheelms.gcongui.gcg.widget.GcgWidgetSpinner;
+import com.flywheelms.library.fmm.enumerator.HolidaySlackOption;
+
+import java.util.ArrayList;
 
 // com.flywheelms.library.fms.widget.spinner.HolidaySlackOptionWidgetSpinner
-public class HolidaySlackOptionWidgetSpinner extends Spinner {
+public class HolidaySlackOptionWidgetSpinner extends GcgWidgetSpinner {
 
     public HolidaySlackOptionWidgetSpinner(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
+
+    @Override
+    protected ArrayList<? extends GcgGuiable> updateGuiableList() {
+        ArrayList<GcgGuiable> theGuiableList = new ArrayList<GcgGuiable>();
+        for(HolidaySlackOption theSlackOption : HolidaySlackOption.values()) {
+            theGuiableList.add(theSlackOption);
+        }
+        return theGuiableList;
+    }
+
+    @Override
+    protected String getLabelText() {
+        return HolidaySlackOption.GENEROUS.getLabelText();
+    }
+
+    @Override
+    public void setInitialValue() {
+        this.spinner.setSelection(2);
+    }
+
 }

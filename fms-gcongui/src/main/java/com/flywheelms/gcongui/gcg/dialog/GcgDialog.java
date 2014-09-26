@@ -131,22 +131,26 @@ public abstract class GcgDialog {
 
     public void processDialog() {
         if(this.alertDialog == null) {
-            this.alertDialog = this.dialogBuilder.create();
-            this.alertDialog.setOnKeyListener(new AlertDialog.OnKeyListener() {
-
-                @Override
-                public boolean onKey(DialogInterface arg0, int aKeyCode, KeyEvent aKeyEvent) {
-                    if (aKeyCode == KeyEvent.KEYCODE_BACK && aKeyEvent.getAction() == KeyEvent.ACTION_DOWN) {
-                        GcgDialog.this.gcgActivity.stopDialog();
-                        return true;
-                    }
-                    return false;
-                }
-            });
-            this.alertDialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+            createAlertDialog();
         }
         refreshDialog();
         this.alertDialog.show();
+    }
+
+    private void createAlertDialog() {
+        this.alertDialog = this.dialogBuilder.create();
+        this.alertDialog.setOnKeyListener(new AlertDialog.OnKeyListener() {
+
+            @Override
+            public boolean onKey(DialogInterface arg0, int aKeyCode, KeyEvent aKeyEvent) {
+                if (aKeyCode == KeyEvent.KEYCODE_BACK && aKeyEvent.getAction() == KeyEvent.ACTION_DOWN) {
+                    GcgDialog.this.gcgActivity.stopDialog();
+                    return true;
+                }
+                return false;
+            }
+        });
+        this.alertDialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
     }
 
     public void restartDialog() {
