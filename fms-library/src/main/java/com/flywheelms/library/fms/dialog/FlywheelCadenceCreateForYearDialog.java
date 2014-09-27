@@ -45,6 +45,7 @@ package com.flywheelms.library.fms.dialog;
 
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear;
@@ -54,7 +55,6 @@ import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
 import com.flywheelms.library.fmm.node.impl.governable.FlywheelCadence;
 import com.flywheelms.library.fms.treeview.filter.FmsTreeViewAdapter;
 import com.flywheelms.library.fms.widget.spinner.CadenceDurationWidgetSpinner;
-import com.flywheelms.library.fms.widget.spinner.HolidaySlackOptionWidgetSpinner;
 import com.flywheelms.library.fms.widget.spinner.WorkPlanFirstDayOfWeekWidgetSpinner;
 import com.flywheelms.library.fms.widget.text_view.FiscalYearWidgetTextView;
 import com.flywheelms.library.fms.widget.text_view.HeadlineWidgetTextView;
@@ -69,7 +69,7 @@ public class FlywheelCadenceCreateForYearDialog extends FmsCancelOkDialog {
     protected HeadlineWidgetTextView parentHeadlineWidget;
     protected GcgContainerGroupBoxLinear cadenceParametersLayout;  // cadence duration and holiday slack checkbox and spinner
     protected CadenceDurationWidgetSpinner cadenceDurationSpinner;
-    protected HolidaySlackOptionWidgetSpinner holidaySlackOptions;
+    protected CheckBox scheduleHolidayBreaks;
     protected WorkPlanFirstDayOfWeekWidgetSpinner workPlanFirstDayOfWeekWidgetSpinner;
     protected Button previewButton;
 
@@ -111,7 +111,6 @@ public class FlywheelCadenceCreateForYearDialog extends FmsCancelOkDialog {
         this.fiscalYearWidgetTextView.setFiscalYear(this.fiscalYear);
         this.cadenceParametersLayout = (GcgContainerGroupBoxLinear) this.dialogBodyView.findViewById(R.id.group_box__cadence_parameters);
         this.cadenceDurationSpinner = (CadenceDurationWidgetSpinner) this.dialogBodyView.findViewById(R.id.cadence_duration__spinner);
-        this.holidaySlackOptions = (HolidaySlackOptionWidgetSpinner) this.dialogBodyView.findViewById(R.id.holiday_slack_option__spinner);
         this.workPlanFirstDayOfWeekWidgetSpinner = (WorkPlanFirstDayOfWeekWidgetSpinner) this.dialogBodyView.findViewById(R.id.work_plan__first_day_of_week__spinner);
         this.previewButton = (Button) this.dialogBodyView.findViewById(R.id.button__preview);
         this.previewButton.setOnClickListener(new View.OnClickListener() {
@@ -128,15 +127,18 @@ public class FlywheelCadenceCreateForYearDialog extends FmsCancelOkDialog {
     }
 
     protected void onClickButtonPreview() {
-        this.gcgActivity.startDialog(new FlywheelCadencePreviewDialog(
-                this.gcgActivity,
-                this.cadenceDurationSpinner.getSelectedItem().getDataText(),
-                this.holidaySlackOptions.getSelectedItem().getDataText(),
-                this.workPlanFirstDayOfWeekWidgetSpinner.getSelectedItem().getDataText(),
-                generateFlywheelCadenceList()));
+//        this.gcgActivity.startDialog(new FlywheelCadencePreviewDialog(
+//                this.gcgActivity,
+//                this.cadenceDurationSpinner.getSelectedItem().getDataText(),
+//                // TODO - send over list of initialized holidays
+//                this.workPlanFirstDayOfWeekWidgetSpinner.getSelectedItem().getDataText(),
+//                generateFlywheelCadenceList()));
     }
 
     private ArrayList<FlywheelCadence> generateFlywheelCadenceList() {
+        // create ArrayList of all HolidaySlack
+        // loop to create Arraylist of HolidaySlack and FlywheelCadence
+        // can create shorter or longer cadence if needed
         return null;
     }
 

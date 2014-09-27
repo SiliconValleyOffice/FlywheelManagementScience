@@ -447,7 +447,7 @@ public class FmmPerspective extends GcgPerspective {
 
     public static FmmPerspective WORK_PLANNING = new FmmPerspective(
             R.string.fmm_perspective__work_planning,
-            R.drawable.perspective__work_planning,
+            R.drawable.fmm_noun__flywheel_cadence__yellow,
 //		R.id.perspective_button__work_planning,
             0,
                     2,

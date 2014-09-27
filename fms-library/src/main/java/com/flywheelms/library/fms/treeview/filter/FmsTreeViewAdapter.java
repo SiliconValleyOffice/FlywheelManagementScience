@@ -71,7 +71,6 @@ import com.flywheelms.library.fmm.node.impl.governable.WorkPackage;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.fms.dialog.FiscalYearCreateDialog;
 import com.flywheelms.library.fms.dialog.FiscalYearDeleteDialog;
-import com.flywheelms.library.fms.dialog.FlywheelCadenceCreateForYearDialog;
 import com.flywheelms.library.fms.dialog.HeadlineNodeCreateDialog;
 import com.flywheelms.library.fms.dialog.HeadlineNodeHeadlineEditDialog;
 import com.flywheelms.library.fms.dialog.PortfolioAdoptOrphanProjectDialog;
@@ -93,6 +92,7 @@ import com.flywheelms.library.fms.dialog.WorkPackageAdoptOrphanWorkTaskDialog;
 import com.flywheelms.library.fms.dialog.WorkPackageDeleteDialog;
 import com.flywheelms.library.fms.dialog.WorkPackageMoveWorkBreakdownDialog;
 import com.flywheelms.library.fms.dialog.WorkPackageOrphanDialog;
+import com.flywheelms.library.fms.helper.FmsActivityHelper;
 import com.flywheelms.library.fms.popup_menu.FmmHeadlineNodePopupListener;
 import com.flywheelms.library.fms.popup_menu.FmmPopupBuilder;
 
@@ -460,7 +460,6 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
 		}
 	}
 
-    // logical validation of this operation was already done in FmmPopupBuilder
 	protected void sequenceDown(GcgTreeNodeInfo aLaunchTreeNodeInfo, FmmHeadlineNode aHeadlineNode, FmmHeadlineNode aParentHeadlineNode) {
 		getGcgActivity().startGreenActivityStatusAnimation();
 		FmmDatabaseMediator.getActiveMediator().swapSequence(aHeadlineNode, (FmmHeadlineNode) getNextPeerObject(aLaunchTreeNodeInfo), aParentHeadlineNode);
@@ -468,7 +467,6 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
 		getGcgActivity().stopActivityStatusAnimation();
 	}
 
-	// logical validation of this operation was already done in FmmPopupBuilder
 	protected void sequenceUp(GcgTreeNodeInfo aLaunchTreeNodeInfo, FmmHeadlineNode aHeadlineNode, FmmHeadlineNode aParentHeadlineNode) {
 		getGcgActivity().startGreenActivityStatusAnimation();
 		FmmDatabaseMediator.getActiveMediator().swapSequence(aHeadlineNode, (FmmHeadlineNode) getPreviousPeerObject(aLaunchTreeNodeInfo), aParentHeadlineNode);
@@ -476,7 +474,6 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
 		getGcgActivity().stopActivityStatusAnimation();
 	}
 
-	// logical validation of this operation was already done in FmmPopupBuilder
 	protected void sequenceFirst(GcgTreeNodeInfo aLaunchTreeNodeInfo, FmmHeadlineNode aHeadlineNode, FmmHeadlineNode aParentHeadlineNode) {
 		getGcgActivity().startGreenActivityStatusAnimation();
 		FmmDatabaseMediator.getActiveMediator().sequenceFirst(aHeadlineNode, aParentHeadlineNode);
@@ -484,7 +481,6 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
 		getGcgActivity().stopActivityStatusAnimation();
 	}
 
-	// logical validation of this operation was already done in FmmPopupBuilder
 	protected void sequenceLast(GcgTreeNodeInfo aLaunchTreeNodeInfo, FmmHeadlineNode aHeadlineNode, FmmHeadlineNode aParentHeadlineNode) {
 		getGcgActivity().startGreenActivityStatusAnimation();
 		FmmDatabaseMediator.getActiveMediator().sequenceLast(aHeadlineNode, aParentHeadlineNode);
@@ -496,7 +492,6 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
 		this.getGcgActivity().startDialog(new FiscalYearCreateDialog(getGcgActivity(), this));
 	}
 
-	// logical validation of this operation was already done in FmmPopupBuilder
 	private void deleteFiscalYear(FmmHeadlineNode aFiscalYearHeadlineNode) {
 		getGcgActivity().startDialog(new FiscalYearDeleteDialog(getGcgActivity(), this, aFiscalYearHeadlineNode));
 	}
@@ -505,19 +500,14 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
         this.getGcgActivity().startDialog(new PortfolioCreateDialog(getGcgActivity(), this));
     }
 
-    // logical validation of this operation was already done in FmmPopupBuilder
     private void deletePortfolio(FmmHeadlineNode aPortfolioHeadlineNode) {
         getGcgActivity().startDialog(new PortfolioDeleteDialog(getGcgActivity(), this, aPortfolioHeadlineNode));
     }
 
     private void createAllFlywheelCadences(FmmHeadlineNode aLaunchHeadlineNode) {
-        this.getGcgActivity().startDialog(new FlywheelCadenceCreateForYearDialog(
-                getGcgActivity(),
-                this,
-                (FiscalYear) aLaunchHeadlineNode ));
+        FmsActivityHelper.startCreateAllFlywheelCadenceForYearWizard(getGcgActivity(), aLaunchHeadlineNode.getNodeIdString());
     }
 
-	// logical validation of this operation was already done in FmmPopupBuilder
 	private void createFmmHeadlineNode(
 			FmmNodeDefinition anFmmNodeDefinition,
 			FmmHeadlineNode aLaunchHeadlineNode,
@@ -534,17 +524,14 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
 				aLaunchNodeChildNodeCount ));
 	}
 
-	// logical validation of this operation was already done in FmmPopupBuilder
 	private void deleteStrategicMilestone(FmmHeadlineNode aStrategicMilestoneHeadlineNode) {
 		getGcgActivity().startDialog(new StrategicMilestoneDeleteDialog(getGcgActivity(), this, aStrategicMilestoneHeadlineNode));
 	}
 
-	// logical validation of this operation was already done in FmmPopupBuilder
 	private void editStrategicMilestoneTargetDate(FmmHeadlineNode aStrategicMilestoneHeadlineNode) {
 		getGcgActivity().startDialog(new StrategicMilestoneTargetDateEditDialog(getGcgActivity(), this, aStrategicMilestoneHeadlineNode));
 	}
 
-    // logical validation of this operation was already done in FmmPopupBuilder
     private void orphanProject(FmmHeadlineNode aProjectHeadlineNode, FmmHeadlineNode aPortfolioHeadlineNode) {
         getGcgActivity().startDialog(new ProjectOrphanDialog(getGcgActivity(), this, (Project) aProjectHeadlineNode, (Portfolio) aPortfolioHeadlineNode));
     }
@@ -553,29 +540,22 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
         getGcgActivity().startDialog(new ProjectMoveDialog(getGcgActivity(), this, (Project) aProject, (Portfolio) aPortfolioException));
     }
 
-    // TODO !!! push down into subclass for StrategicPlanningTreeViewAdapter
-    // logical validation of this operation was already done in FmmPopupBuilder
     private void adoptOrphanProject(FmmHeadlineNode aPortfolioNode) {
         getGcgActivity().startDialog(new PortfolioAdoptOrphanProjectDialog(getGcgActivity(), this, aPortfolioNode));
     }
 
-    // logical validation of this operation was already done in FmmPopupBuilder
     private void deleteProject(FmmHeadlineNode aProjectNode) {
         getGcgActivity().startDialog(new ProjectDeleteDialog(getGcgActivity(), this, aProjectNode));
     }
 
-	// logical validation of this operation was already done in FmmPopupBuilder
 	private void deleteProjectAsset(FmmHeadlineNode aProjectAssetHeadlineNode) {
 		getGcgActivity().startDialog(new ProjectAssetDeleteDialog(getGcgActivity(), this, aProjectAssetHeadlineNode));
 	}
 
-	// logical validation of this operation was already done in FmmPopupBuilder
 	private void orphanProjectAsset(FmmHeadlineNode aProjectAssetHeadlineNode, FmmHeadlineNode aParentHeadlineNode) {
             getGcgActivity().startDialog(new ProjectAssetOrphanDialog(getGcgActivity(), this, (ProjectAsset) aProjectAssetHeadlineNode, aParentHeadlineNode));
 	}
 
-	// TODO !!! push down into subclass for StrategicPlanningTreeViewAdapter
-	// logical validation of this operation was already done in FmmPopupBuilder
 	private void adoptOrphanProjectAsset(FmmHeadlineNode aParentHeadlineNode) {
         if(aParentHeadlineNode.getFmmNodeDefinition() == FmmNodeDefinition.STRATEGIC_MILESTONE) {
             getGcgActivity().startDialog(new StrategicMilestoneAdoptOrphanProjectAssetDialog(getGcgActivity(), this, aParentHeadlineNode));
@@ -584,37 +564,28 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
         }
 	}
 
-	// logical validation of this operation was already done in FmmPopupBuilder
 	private void deleteWorkPackage(FmmHeadlineNode aWorkPackageNode) {
         getGcgActivity().startDialog(new WorkPackageDeleteDialog(getGcgActivity(), this, aWorkPackageNode));
 	}
 
-	// TODO !!! push down into subclass for StrategicPlanningTreeViewAdapter
-	// logical validation of this operation was already done in FmmPopupBuilder
 	private void adoptOrphanWorkPackage(FmmHeadlineNode aProjectAssetHeadlineNode) {
 		getGcgActivity().startDialog(new ProjectAssetAdoptOrphanWorkPackageDialog(getGcgActivity(), this, aProjectAssetHeadlineNode));
 	}
 
-    // TODO !!! push down into subclass for StrategicPlanningTreeViewAdapter
-    // logical validation of this operation was already done in FmmPopupBuilder
     private void moveWorkPackage(FmmHeadlineNode aLaunchHeadlineNode, FmmHeadlineNode aParentHeadlineNode, GcgPerspective aGcgPerspective) {
         if(aGcgPerspective == FmmPerspective.WORK_BREAKDOWN) {
             getGcgActivity().startDialog(new WorkPackageMoveWorkBreakdownDialog(getGcgActivity(), this, (WorkPackage) aLaunchHeadlineNode, aParentHeadlineNode));
         }
     }
 
-    // logical validation of this operation was already done in FmmPopupBuilder
     private void orphanWorkPackage(FmmHeadlineNode aWorkPackageHeadlineNode, FmmHeadlineNode aParentHeadlineNode) {
         getGcgActivity().startDialog(new WorkPackageOrphanDialog(getGcgActivity(), this, (WorkPackage) aWorkPackageHeadlineNode, aParentHeadlineNode));
     }
 
-    // TODO !!! push down into subclass for StrategicPlanningTreeViewAdapter
-    // logical validation of this operation was already done in FmmPopupBuilder
     private void adoptOrphanWorkTask(FmmHeadlineNode aWorkPackageHeadlineNode) {
         getGcgActivity().startDialog(new WorkPackageAdoptOrphanWorkTaskDialog(getGcgActivity(), this, aWorkPackageHeadlineNode));
     }
 
-    // logical validation of this operation was already done in FmmPopupBuilder
     private void deleteWorkTask(@SuppressWarnings("unused") FmmHeadlineNode aFiscalYearHeadlineNode) {
         // TODO
     }
@@ -627,12 +598,10 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
 
     }
     
-	// logical validation of this operation was already done in FmmPopupBuilder
 	private void moveStrategicMilestone(FmmHeadlineNode aHeadlineNode, FmmHeadlineNode aTargetHeadlineNodeException) {
 		getGcgActivity().startDialog(new StrategicMilestoneMoveDialog(getGcgActivity(), this, aHeadlineNode, (FiscalYear) aTargetHeadlineNodeException));
 	}
 
-	// logical validation of this operation was already done in FmmPopupBuilder
 	private void moveProjectAsset(FmmHeadlineNode aHeadlineNode, FmmHeadlineNode aTargetHeadlineNodeException) {
 		getGcgActivity().startDialog(new ProjectAssetMoveDialog(getGcgActivity(), this, (ProjectAsset) aHeadlineNode, aTargetHeadlineNodeException));
 	}

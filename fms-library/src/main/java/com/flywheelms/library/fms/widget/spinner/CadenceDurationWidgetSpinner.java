@@ -62,7 +62,6 @@ public class CadenceDurationWidgetSpinner extends GcgWidgetSpinner {
     @Override
     protected ArrayList<? extends GcgGuiable> updateGuiableList() {
         ArrayList<GcgGuiable> theGuiableList = new ArrayList<GcgGuiable>();
-        theGuiableList.add(new GcgGuiableImpl(getLabelText(),"2"));
         theGuiableList.add(new GcgGuiableImpl(getLabelText(),"3"));
         theGuiableList.add(new GcgGuiableImpl(getLabelText(),"4"));
         theGuiableList.add(new GcgGuiableImpl(getLabelText(),"5"));
@@ -77,7 +76,7 @@ public class CadenceDurationWidgetSpinner extends GcgWidgetSpinner {
 
     @Override
     public void setInitialValue() {
-        this.spinner.setSelection(1);
+        this.spinner.setSelection(0);
     }
 
 }

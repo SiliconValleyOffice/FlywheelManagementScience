@@ -48,14 +48,6 @@
             android:layout_gravity="left"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
-            gcg:labelWidth="200"   />
-
-        <com.flywheelms.library.fms.widget.spinner.HolidaySlackOptionWidgetSpinner
-            android:id="@+id/holiday_slack_option__spinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:layout_marginBottom="5dp"
             gcg:labelWidth="200" />
 
         <com.flywheelms.library.fms.widget.spinner.WorkPlanFirstDayOfWeekWidgetSpinner

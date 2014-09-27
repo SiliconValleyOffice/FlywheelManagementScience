@@ -40,65 +40,62 @@
  * * <http://www.gnu.org/licenses/gpl-3.0.html>.
  */
 
-package com.flywheelms.library.fmm.enumerator;
+package com.flywheelms.library.fms.activity;
 
-import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 
-import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
+import com.flywheelms.gcongui.gcg.wizard.GcgWizardActivity;
+import com.flywheelms.library.R;
+import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
+import com.flywheelms.library.fms.helper.FmsActivityHelper;
+import com.flywheelms.library.fms.helper.FmsHelpIndex;
+import com.flywheelms.library.fms.wizard.CreateAllCadenceForYearWizardStepFlipper;
 
-public enum HolidaySlackOption implements GcgGuiable {
+public class CreateAllFlywheelCadenceForYearWizard extends GcgWizardActivity {
 
-    NONE("None"),
-    MINIMAL("Minimal"),
-    STANDARD("Standard"),
-    GENEROUS("Generous");
+    private FiscalYear fiscalYear;
 
-    public static HolidaySlackOption getObjectForName(String aName) {
-        for(HolidaySlackOption aSlackOption : values()) {
-            if(aSlackOption.getName().equals(aName)) {
-                return aSlackOption;
-            }
-        }
-        return null;
-    }
+	private CreateAllCadenceForYearWizardStepFlipper wizardStepFlipper;
 
-    private String name;
+	public CreateAllFlywheelCadenceForYearWizard() {
+		super(FmsHelpIndex.CREATE__ALL_CADENCE_FOR_YEAR__WIZARD);
+	}
+	
+	@Override
+	public void onCreate(Bundle aSavedInstanceState) {
+	    super.onCreate(aSavedInstanceState);
+	    this.wizardStepFlipper = (CreateAllCadenceForYearWizardStepFlipper) findViewById(R.id.gcg__wizard__step_flipper);
+		this.setDisplayHome = false;
+	}
 
-    private HolidaySlackOption(String aName) {
-        this.name = aName;
-    }
+	@Override
+	protected void processExtras() {
+		super.processExtras();
+        this.fiscalYear = FmmDatabaseMediator.getActiveMediator().getFiscalYear(getIntent().getExtras().getString(FmsActivityHelper.bundle_key__FMM_NODE__ID_STRING));
+	}
+
+	@Override
+	protected int getContentViewResourceId() {
+		return R.layout.create__all_cadence_for_year__wizard;
+	}
 
     @Override
-    public String getLabelText() {
-        return "Holiday slack option";
-    }
-
-    @Override
-    public Drawable getLabelDrawable() {
-        return null;
-    }
-
-    @Override
-    public int getLabelDrawableResourceId() {
+    protected int getBreadcrumbDrawableResourceId() {
         return 0;
     }
 
     @Override
-    public String getDataText() {
-        return this.name;
-    }
+	protected String getBreadcrumbHeadline() {
+		return "Create All Flywheel Cadence for Fiscal Year";
+	}
 
-    @Override
-    public Drawable getDataDrawable() {
-        return null;
-    }
+	@Override
+	protected String getBreadcrumbTargetNodeIdString() {
+		return "";
+	}
 
-    @Override
-    public int getDataDrawableResourceId() {
-        return 0;
-    }
-
-    public String getName() {
-        return this.name;
+    public FiscalYear getFiscalYear() {
+        return this.fiscalYear;
     }
 }

@@ -44,6 +44,7 @@
 package com.flywheelms.library.fmm.node.impl.governable;
 
 import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
+import com.flywheelms.library.fmm.enumerator.FmmHoliday;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.completable.FmmCompletableNodeImpl;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
@@ -56,6 +57,7 @@ public class FlywheelCadence extends FmmCompletableNodeImpl {
 	private String fiscalYearId;
 	private Date scheduledStartDate;
 	private Date scheduledEndDate;
+    private FmmHoliday fmmHoliday;
 
 	public FlywheelCadence(NodeId aNodeId, String aFiscalYearId, Date aScheduledStartDate, Date aScheduledEndDate) {
 		super(aNodeId);
@@ -123,4 +125,15 @@ public class FlywheelCadence extends FmmCompletableNodeImpl {
 		return true;
 	}
 
+    public boolean isHolidaySlack() {
+        return this.fmmHoliday != null;
+    }
+
+    public FmmHoliday getHolidaySlack() {
+        return this.fmmHoliday;
+    }
+
+    public void setHolidaySlack(FmmHoliday aHoliday) {
+        this.fmmHoliday = aHoliday;
+    }
 }
