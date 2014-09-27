@@ -43,24 +43,37 @@
 package com.flywheelms.library.fms.dialog;
 
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
-import com.flywheelms.gcongui.gcg.dialog.GcgDialog;
+import com.flywheelms.gcongui.gcg.dialog.GcgCancelDialog;
+import com.flywheelms.library.R;
+import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.governable.FlywheelCadence;
 
 import java.util.ArrayList;
 
-public class FlywheelCadencePreviewDialog extends GcgDialog {
+public class FlywheelCadencePreviewDialog extends GcgCancelDialog {
 
     public FlywheelCadencePreviewDialog(GcgActivity aGcgActivity, String dataText, String dataText1, String dataText2, ArrayList<FlywheelCadence> flywheelCadences) {
         super(aGcgActivity);
+        initialSetup();
+    }
+
+    @Override
+    protected int getDialogTitleIconResourceId() {
+        return FmmNodeDefinition.FLYWHEEL_CADENCE.getDialogDrawableResourceId();
     }
 
     @Override
     protected int getDialogTitleStringResourceId() {
-        return 0;
+        return R.string.gcg__button_label__preview;
+    }
+
+    @Override
+    protected int getCustomDialogContentsResourceId() {
+        return R.layout.flywheel_cadence__create_for_year__preview__dialog;
     }
 
     @Override
     protected void initializeDialogBody() {
-
+        super.initializeDialogBody();
     }
 }

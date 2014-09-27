@@ -5,66 +5,96 @@
     android:layout_height="wrap_content"
     android:orientation="vertical" >
 
-        <TextView
-            android:id="@+id/dialog__explanation"
-            android:layout_width="800dp"
-            android:layout_height="wrap_content"
-            android:paddingTop="10dp"
-            android:paddingBottom="9dp"
-            android:gravity="center_horizontal"
-            android:background="@color/gcg__dialog_info__background"
-            android:textColor="@color/gcg__dialog_info__text"
-            android:textSize="18sp"
-            android:text="@string/flywheel_cadence__creation__explanation" />
+    <TextView
+        android:id="@+id/dialog__explanation"
+        android:layout_width="800dp"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingBottom="4dp"
+        android:gravity="center_horizontal"
+        android:background="@color/gcg__dialog_info__background"
+        android:textColor="@color/gcg__dialog_info__text"
+        android:textSize="18sp"
+        android:text="@string/flywheel_cadence__creation__explanation" />
 
-        <TextView
-            android:id="@+id/dialog__explanation_border"
+    <TextView
+        android:id="@+id/dialog__explanation_border"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gcg__dialog_info__border" />
+
+    <com.flywheelms.library.fms.widget.text_view.FiscalYearWidgetTextView
+        android:id="@+id/fiscal_year__text_view"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="5dp" />
+
+    <com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear
+        android:id="@+id/group_box__cadence_parameters"
+        android:layout_width="510dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical"
+        gcg:borderStyle="3"
+        gcg:headingText="Cadence Parameters"
+        gcg:headingGravity="left" >
+
+        <com.flywheelms.library.fms.widget.spinner.CadenceDurationWidgetSpinner
+            android:id="@+id/cadence_duration__spinner"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/gcg__dialog_info__border" />
-
-        <com.flywheelms.library.fms.widget.text_view.FiscalYearWidgetTextView
-            android:id="@+id/fiscal_year__text_view"
-            android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="5dp" />
+            android:layout_gravity="left"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            gcg:labelWidth="200"   />
 
-        <com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear
-            android:id="@+id/group_box__cadence_parameters"
-            android:layout_width="510dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal"
+        <com.flywheelms.library.fms.widget.spinner.HolidaySlackOptionWidgetSpinner
+            android:id="@+id/holiday_slack_option__spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginBottom="5dp"
+            gcg:labelWidth="200" />
+
+        <com.flywheelms.library.fms.widget.spinner.WorkPlanFirstDayOfWeekWidgetSpinner
+            android:id="@+id/work_plan__first_day_of_week__spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
             android:layout_marginBottom="10dp"
-            android:orientation="vertical"
-            gcg:borderStyle="3"
-            gcg:headingText="Cadence Parameters"
-            gcg:headingGravity="left" >
+            gcg:labelWidth="200" />
+    </com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear>
 
-            <com.flywheelms.library.fms.widget.spinner.CadenceDurationWidgetSpinner
-                android:id="@+id/cadence_duration__spinner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                gcg:labelWidth="200"   />
+    <RelativeLayout
+        style="@style/GcgButtonRowHorizontal" >
 
-            <com.flywheelms.library.fms.widget.spinner.HolidaySlackOptionWidgetSpinner
-                android:id="@+id/holiday_slack_option__spinner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:layout_marginBottom="5dp"
-                gcg:labelWidth="200" />
+        <Button
+            android:id="@+id/button__cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/gcg__button__height"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/gcg__button_state_list__button_background"
+            android:text="@string/gcg__button_label__cancel" />
 
-            <com.flywheelms.library.fms.widget.spinner.WorkPlanFirstDayOfWeekWidgetSpinner
-                android:id="@+id/work_plan__first_day_of_week__spinner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:layout_marginBottom="10dp"
-                gcg:labelWidth="200" />
-        </com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear>
+        <Button
+            android:id="@+id/button__ok"
+            android:layout_width="@dimen/gcg__button__minimum_width"
+            android:layout_height="@dimen/gcg__button__height"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/gcg__button_state_list__button_background"
+            android:text="@string/gcg__button_label__ok" />
+
+        <Button
+            android:id="@+id/button__preview"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/gcg__button__height"
+            android:layout_toRightOf="@+id/button__cancel"
+            android:layout_marginLeft="60dp"
+            android:background="@drawable/gcg__button_state_list__button_background"
+            android:text="@string/gcg__button_label__preview" />
+
+    </RelativeLayout>
 
 </LinearLayout>

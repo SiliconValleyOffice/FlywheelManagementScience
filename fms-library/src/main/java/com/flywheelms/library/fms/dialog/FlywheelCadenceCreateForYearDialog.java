@@ -43,6 +43,9 @@
 
 package com.flywheelms.library.fms.dialog;
 
+import android.view.View;
+import android.widget.Button;
+
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear;
 import com.flywheelms.library.R;
@@ -68,6 +71,7 @@ public class FlywheelCadenceCreateForYearDialog extends FmsCancelOkDialog {
     protected CadenceDurationWidgetSpinner cadenceDurationSpinner;
     protected HolidaySlackOptionWidgetSpinner holidaySlackOptions;
     protected WorkPlanFirstDayOfWeekWidgetSpinner workPlanFirstDayOfWeekWidgetSpinner;
+    protected Button previewButton;
 
     public FlywheelCadenceCreateForYearDialog(
             GcgActivity aLibraryActivity,
@@ -86,15 +90,15 @@ public class FlywheelCadenceCreateForYearDialog extends FmsCancelOkDialog {
         return R.string.fms__create_all;
     }
 
-//    @Override
-//    protected int getDialogBodyLayoutResourceId() {
-//        return R.layout.flywheel_cadence__create_for_year__dialog_2;
-//    }
-
     @Override
-    protected int getCustomDialogContentsResourceId() {
+    protected int getDialogBodyLayoutResourceId() {
         return R.layout.flywheel_cadence__create_for_year__dialog;
     }
+
+//    @Override
+//    protected int getCustomDialogContentsResourceId() {
+//        return R.layout.flywheel_cadence__create_for_year__dialog;
+//    }
 
     @Override
     protected void initializeDialogBody() {
@@ -109,6 +113,13 @@ public class FlywheelCadenceCreateForYearDialog extends FmsCancelOkDialog {
         this.cadenceDurationSpinner = (CadenceDurationWidgetSpinner) this.dialogBodyView.findViewById(R.id.cadence_duration__spinner);
         this.holidaySlackOptions = (HolidaySlackOptionWidgetSpinner) this.dialogBodyView.findViewById(R.id.holiday_slack_option__spinner);
         this.workPlanFirstDayOfWeekWidgetSpinner = (WorkPlanFirstDayOfWeekWidgetSpinner) this.dialogBodyView.findViewById(R.id.work_plan__first_day_of_week__spinner);
+        this.previewButton = (Button) this.dialogBodyView.findViewById(R.id.button__preview);
+        this.previewButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FlywheelCadenceCreateForYearDialog.this.onClickButtonPreview();
+            }
+        });
     }
 
     private void createFlywheelCadencesForFiscalYear(boolean bOkButtonEvent) {
