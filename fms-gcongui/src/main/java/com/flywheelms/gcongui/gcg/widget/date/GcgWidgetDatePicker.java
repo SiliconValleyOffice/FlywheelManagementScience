@@ -90,6 +90,10 @@ public class GcgWidgetDatePicker extends GcgWidgetTextView {
 			}
 		});
 	}
+
+    protected boolean hasLabel() {
+        return this.labelTextString != null;
+    }
 	
 	private DatePickerDialog getDatePickerDialog() {
 		DatePickerDialog theDatePickerDialog =  new DatePickerDialog(this.gcgActivity, new DatePickerDialog.OnDateSetListener() {

@@ -60,7 +60,6 @@ import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.node.impl.governable.StrategicMilestone;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
-import com.flywheelms.library.fms.activity.FmmNodeEditorActivity;
 import com.flywheelms.library.fms.treeview.filter.FmsTreeViewAdapter;
 import com.flywheelms.library.fms.widget.text_view.FmmNodeTypeWidgetTextView;
 import com.flywheelms.library.fms.widget.text_view.HeadlineWidgetTextView;
@@ -84,7 +83,7 @@ public class StrategicMilestoneTargetDateEditDialog extends FmsCancelOkDialog {
 	public StrategicMilestoneTargetDateEditDialog(GcgActivity aGcgActivity, FmsTreeViewAdapter aTreeViewAdapter, FmmHeadlineNode aHeadlineNode ) {
 		super(aGcgActivity, aHeadlineNode);
 		this.fmsDialogExtension.treeViewAdapter = aTreeViewAdapter;
-		this.fmsDialogExtension.nodeEditorActivity = (FmmNodeEditorActivity) getFmmHeadlineNode();
+//		this.fmsDialogExtension.nodeEditorActivity = (FmmNodeEditorActivity) getFmmHeadlineNode();
 		this.strategicMilestone = (StrategicMilestone) aHeadlineNode;
 		initializeDialogBodyLate();
 	}

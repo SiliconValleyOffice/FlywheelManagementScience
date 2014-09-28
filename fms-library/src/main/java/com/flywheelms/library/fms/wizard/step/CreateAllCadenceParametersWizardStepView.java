@@ -108,4 +108,12 @@ public class CreateAllCadenceParametersWizardStepView extends GcgWizardStepView 
 		return FmsHelpIndex.CADENCE_PARAMETERS__WIZARD_STEP;
 	}
 
+    public int getCadenceDuration() {
+        return Integer.decode(this.cadenceDurationSpinner.getSelectedItem().getDataText());
+    }
+
+    public String getGregorianDayOfWeek() {
+        return this.workPlanFirstDayOfWeekWidgetSpinner.getGregorianDayOfWeek();
+    }
+
 }

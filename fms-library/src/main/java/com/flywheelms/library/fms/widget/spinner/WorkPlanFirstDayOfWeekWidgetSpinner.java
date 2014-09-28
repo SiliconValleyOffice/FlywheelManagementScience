@@ -78,4 +78,8 @@ public class WorkPlanFirstDayOfWeekWidgetSpinner extends GcgWidgetSpinner {
         this.spinner.setSelection(2);
     }
 
+    public String getGregorianDayOfWeek() {
+        return getSelectedItem().getDataText().substring(0, 2);
+    }
+
 }

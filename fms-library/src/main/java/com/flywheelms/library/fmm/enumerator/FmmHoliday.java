@@ -44,19 +44,21 @@ package com.flywheelms.library.fmm.enumerator;
 
 import android.graphics.drawable.Drawable;
 
+import com.flywheelms.gcongui.gcg.GcgApplication;
 import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
 import com.flywheelms.library.R;
 
 import java.util.Date;
 
 public enum FmmHoliday implements GcgGuiable {
-    
-    MEMORIAL_DAY("Memorial Day", R.drawable.holiday__memorial_day),
-    FOURTH_OF_JULY("4th of July",R.drawable.holiday__4th_of_july),
-    LABOR_DAY("Labor Day",R.drawable.holiday__labor_day),
-    THANKSGIVING("Thanksgiving",R.drawable.holiday__thanksgiving),
-    CHRISTMAS("Christmas",R.drawable.holiday__christmas),
-    NEW_YEARS_DAY("New Years Day",R.drawable.holiday__new_years_day);
+
+    NEW_YEARS_DAY(R.string.holiday__new_years_day,R.drawable.holiday__new_years_day),
+    PRESIDENTS_DAY(R.string.holiday__presidents_day, R.drawable.holiday__presidents_day),
+    MEMORIAL_DAY(R.string.holiday__memorial_day, R.drawable.holiday__memorial_day),
+    FOURTH_OF_JULY(R.string.holiday__independence_day,R.drawable.holiday__independence_day),
+    LABOR_DAY(R.string.holiday__labor_day,R.drawable.holiday__labor_day),
+    THANKSGIVING(R.string.holiday__thanksgiving,R.drawable.holiday__thanksgiving),
+    CHRISTMAS(R.string.holiday__christmas,R.drawable.holiday__christmas);
 
     public static FmmHoliday getObjectForName(String aName) {
         for(FmmHoliday aHoliday : values()) {
@@ -67,6 +69,7 @@ public enum FmmHoliday implements GcgGuiable {
         return null;
     }
 
+    private int nameResourceId;
     private String name;
     private int drawableResourceId;
     private int year;
@@ -74,8 +77,9 @@ public enum FmmHoliday implements GcgGuiable {
     private Date firstDayOfHolidayBreak;
     private Date lastDayOfHolidayBreak;
 
-    private FmmHoliday(String aName, int aDrawableResourceId) {
-        this.name = aName;
+    private FmmHoliday(int aNameResourceId, int aDrawableResourceId) {
+        this.nameResourceId = aNameResourceId;
+        this.name = GcgApplication.getAppResources().getString(this.nameResourceId);
         this.drawableResourceId = aDrawableResourceId;
     }
 

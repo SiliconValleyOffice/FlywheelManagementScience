@@ -42,6 +42,7 @@
   -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:gcg="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/gcg__wizard_step_1__background"
@@ -58,6 +59,73 @@
         android:layout_marginLeft="10dp"
         android:layout_height="0dp"
         android:layout_weight="1.0" >
+
+        <com.flywheelms.library.fms.widget.text_view.FiscalYearWidgetTextView
+            android:id="@+id/fiscal_year__text_view"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="5dp" />
+
+        <com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear
+            android:id="@+id/group_box__cadence_parameters"
+            android:layout_width="850dp"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/fiscal_year__text_view"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"
+            android:orientation="vertical"
+            gcg:borderStyle="3"
+            gcg:headingText="Dates for Holiday Breaks"
+            gcg:headingGravity="left" >
+
+            <LinearLayout
+                android:id="@+id/holiday__new_years_day__layout"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:gravity="left|bottom"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:src="@drawable/holiday__new_years_day"/>
+
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="3dp"
+                    android:text="@string/holiday__new_years_day"/>
+
+                <com.flywheelms.gcongui.gcg.widget.date.GcgWidgetDatePicker
+                    android:id="@+id/holiday__new_years_day__day"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    gcg:noLabel="true" />
+
+                <com.flywheelms.gcongui.gcg.widget.date.GcgWidgetDatePicker
+                    android:id="@+id/holiday__new_years_day__break_first_day"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    gcg:labelText="First Day" />
+
+                <com.flywheelms.gcongui.gcg.widget.date.GcgWidgetDatePicker
+                    android:id="@+id/holiday__new_years_day__break_last_day"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    gcg:labelText="Last Day" />
+
+            </LinearLayout>
+        </com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear>
         
     </RelativeLayout>
 
