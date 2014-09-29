@@ -46,19 +46,99 @@ import android.graphics.drawable.Drawable;
 
 import com.flywheelms.gcongui.gcg.GcgApplication;
 import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
+import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
 import com.flywheelms.library.R;
 
 import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.HashMap;
 
 public enum FmmHoliday implements GcgGuiable {
 
-    NEW_YEARS_DAY(R.string.holiday__new_years_day,R.drawable.holiday__new_years_day),
-    PRESIDENTS_DAY(R.string.holiday__presidents_day, R.drawable.holiday__presidents_day),
-    MEMORIAL_DAY(R.string.holiday__memorial_day, R.drawable.holiday__memorial_day),
-    INDEPENDENCE_DAY(R.string.holiday__independence_day,R.drawable.holiday__independence_day),
-    LABOR_DAY(R.string.holiday__labor_day,R.drawable.holiday__labor_day),
-    THANKSGIVING(R.string.holiday__thanksgiving,R.drawable.holiday__thanksgiving),
-    CHRISTMAS(R.string.holiday__christmas,R.drawable.holiday__christmas);
+    NEW_YEARS_DAY(R.string.holiday__new_years_day,R.drawable.holiday__new_years_day, new Date[] {
+            new GregorianCalendar(2014, 0, 1).getTime(),
+            new GregorianCalendar(2015, 0, 1).getTime(),
+            new GregorianCalendar(2016, 0, 1).getTime(),
+            new GregorianCalendar(2017, 0, 1).getTime(),
+            new GregorianCalendar(2018, 0, 1).getTime(),
+            new GregorianCalendar(2019, 0, 1).getTime(),
+            new GregorianCalendar(2020, 0, 1).getTime(),
+            new GregorianCalendar(2021, 0, 1).getTime(),
+            new GregorianCalendar(2022, 0, 1).getTime(),
+            new GregorianCalendar(2023, 0, 1).getTime()
+    }),
+    PRESIDENTS_DAY(R.string.holiday__presidents_day, R.drawable.holiday__presidents_day, new Date[] {
+            new GregorianCalendar(2014, 1, 17).getTime(),
+            new GregorianCalendar(2015, 1, 16).getTime(),
+            new GregorianCalendar(2016, 1, 15).getTime(),
+            new GregorianCalendar(2017, 1, 20).getTime(),
+            new GregorianCalendar(2018, 1, 19).getTime(),
+            new GregorianCalendar(2019, 1, 18).getTime(),
+            new GregorianCalendar(2020, 1, 17).getTime(),
+            new GregorianCalendar(2021, 1, 15).getTime(),
+            new GregorianCalendar(2022, 1, 21).getTime(),
+            new GregorianCalendar(2023, 1, 20).getTime()
+    }),
+    MEMORIAL_DAY(R.string.holiday__memorial_day, R.drawable.holiday__memorial_day, new Date[] {
+            new GregorianCalendar(2014, 4, 26).getTime(),
+            new GregorianCalendar(2015, 4, 25).getTime(),
+            new GregorianCalendar(2016, 4, 30).getTime(),
+            new GregorianCalendar(2017, 4, 29).getTime(),
+            new GregorianCalendar(2018, 4, 28).getTime(),
+            new GregorianCalendar(2019, 4, 27).getTime(),
+            new GregorianCalendar(2020, 4, 25).getTime(),
+            new GregorianCalendar(2021, 4, 31).getTime(),
+            new GregorianCalendar(2022, 4, 30).getTime(),
+            new GregorianCalendar(2023, 4, 29).getTime()
+    }),
+    INDEPENDENCE_DAY(R.string.holiday__independence_day,R.drawable.holiday__independence_day, new Date[] {
+            new GregorianCalendar(2014, 6, 4).getTime(),
+            new GregorianCalendar(2015, 6, 4).getTime(),
+            new GregorianCalendar(2016, 6, 4).getTime(),
+            new GregorianCalendar(2017, 6, 4).getTime(),
+            new GregorianCalendar(2018, 6, 4).getTime(),
+            new GregorianCalendar(2019, 6, 4).getTime(),
+            new GregorianCalendar(2020, 6, 4).getTime(),
+            new GregorianCalendar(2021, 6, 4).getTime(),
+            new GregorianCalendar(2022, 6, 4).getTime(),
+            new GregorianCalendar(2023, 6, 4).getTime()
+    }),
+    LABOR_DAY(R.string.holiday__labor_day,R.drawable.holiday__labor_day, new Date[] {
+            new GregorianCalendar(2014, 8, 1).getTime(),
+            new GregorianCalendar(2015, 8, 7).getTime(),
+            new GregorianCalendar(2016, 8, 5).getTime(),
+            new GregorianCalendar(2017, 8, 4).getTime(),
+            new GregorianCalendar(2018, 8, 3).getTime(),
+            new GregorianCalendar(2019, 8, 2).getTime(),
+            new GregorianCalendar(2020, 8, 7).getTime(),
+            new GregorianCalendar(2021, 8, 6).getTime(),
+            new GregorianCalendar(2022, 8, 5).getTime(),
+            new GregorianCalendar(2023, 8, 4).getTime()
+    }),
+    THANKSGIVING(R.string.holiday__thanksgiving,R.drawable.holiday__thanksgiving, new Date[] {
+            new GregorianCalendar(2014, 10, 27).getTime(),
+            new GregorianCalendar(2015, 10, 26).getTime(),
+            new GregorianCalendar(2016, 10, 24).getTime(),
+            new GregorianCalendar(2017, 10, 23).getTime(),
+            new GregorianCalendar(2018, 10, 22).getTime(),
+            new GregorianCalendar(2019, 10, 28).getTime(),
+            new GregorianCalendar(2020, 10, 26).getTime(),
+            new GregorianCalendar(2021, 10, 25).getTime(),
+            new GregorianCalendar(2022, 10, 24).getTime(),
+            new GregorianCalendar(2023, 10, 23).getTime()
+    }),
+    CHRISTMAS(R.string.holiday__christmas,R.drawable.holiday__christmas, new Date[] {
+            new GregorianCalendar(2014, 11, 25).getTime(),
+            new GregorianCalendar(2015, 11, 25).getTime(),
+            new GregorianCalendar(2016, 11, 25).getTime(),
+            new GregorianCalendar(2017, 11, 25).getTime(),
+            new GregorianCalendar(2018, 11, 25).getTime(),
+            new GregorianCalendar(2019, 11, 25).getTime(),
+            new GregorianCalendar(2020, 11, 25).getTime(),
+            new GregorianCalendar(2021, 11, 25).getTime(),
+            new GregorianCalendar(2022, 11, 25).getTime(),
+            new GregorianCalendar(2023, 11, 25).getTime()
+    });
 
     public static FmmHoliday getObjectForName(String aName) {
         for(FmmHoliday aHoliday : values()) {
@@ -72,15 +152,17 @@ public enum FmmHoliday implements GcgGuiable {
     private int nameResourceId;
     private String name;
     private int drawableResourceId;
-    private int year;
-    private Date date;
     private Date firstDayOfHolidayBreak;
     private Date lastDayOfHolidayBreak;
+    private HashMap<Integer, Date> dateMap = new HashMap<Integer, Date>();
 
-    private FmmHoliday(int aNameResourceId, int aDrawableResourceId) {
+    private FmmHoliday(int aNameResourceId, int aDrawableResourceId, Date[] aDateArray) {
         this.nameResourceId = aNameResourceId;
         this.name = GcgApplication.getAppResources().getString(this.nameResourceId);
         this.drawableResourceId = aDrawableResourceId;
+        for(Date aDate : aDateArray) {
+            this.dateMap.put(new Integer(GcgDateHelper.getYear(aDate)), aDate);
+        }
     }
 
     @Override
@@ -110,19 +192,11 @@ public enum FmmHoliday implements GcgGuiable {
 
     @Override
     public int getDataDrawableResourceId() {
-        return 0;
+        return this.drawableResourceId;
     }
 
     public String getName() {
         return this.name;
-    }
-
-    public int getYear() {
-        return this.year;
-    }
-
-    public void setYear(int year) {
-        this.year = year;
     }
 
     public Date getLastDayOfHolidayBreak() {
@@ -142,12 +216,7 @@ public enum FmmHoliday implements GcgGuiable {
         this.firstDayOfHolidayBreak = firstDayOfHolidayBreak;
     }
 
-    public Date getDate() {
-
-        return this.date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
+    public Date getHolidayDate(Integer aYear) {
+        return this.dateMap.get(aYear);
     }
 }

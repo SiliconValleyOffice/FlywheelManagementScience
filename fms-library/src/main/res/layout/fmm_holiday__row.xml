@@ -43,69 +43,62 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:gcg="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/holiday_break__row__layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/gcg__wizard_step_1__background"
-    android:clickable="true"
-    android:orientation="vertical">
+    android:layout_height="32dp"
+    android:gravity="bottom"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    android:orientation="horizontal" >
 
-    <include
-        android:id="@+id/gcg_view_flipper__title_bar__include"
-        layout="@layout/gcg__view_flipper__title_bar" />
-
-    <RelativeLayout
-        android:id="@+id/wizard_step_body__wrapper"
-        android:layout_width="match_parent"
+    <CheckBox
+        android:id="@+id/holiday__checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
-        android:layout_height="0dp"
-        android:layout_weight="1.0" >
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="1dp"
+        android:checked="true" />
 
-        <com.flywheelms.library.fms.widget.text_view.FiscalYearWidgetTextView
-            android:id="@+id/fiscal_year__text_view"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="5dp" />
+    <ImageView
+        android:id="@+id/holiday__image"
+        android:layout_width="32dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="15dp"
+        android:src="@drawable/gcg__unspecified_glyph"/>
 
-        <com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear
-            android:id="@+id/group_box__holiday_parameters"
-            android:layout_width="920dp"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/fiscal_year__text_view"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="10dp"
-            android:orientation="vertical"
-            gcg:borderStyle="3"
-            gcg:headingText="Dates for Holiday Breaks"
-            gcg:headingGravity="left" >
+    <TextView
+        android:id="@+id/holiday__text"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="7dp"
+        android:layout_marginBottom="1dp"
+        android:text="@string/gcg__undefined"/>
 
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fillViewport="true"
-                android:scrollbarAlwaysDrawVerticalTrack="true"
-                android:scrollbarFadeDuration="9999999"
-                android:scrollbars="vertical"
-                android:smoothScrollbar="true" >
+    <com.flywheelms.gcongui.gcg.widget.date.GcgWidgetDatePicker
+        android:id="@+id/holiday__day"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="9dp"
+        android:layout_marginBottom="3dp"
+        gcg:labelText="Date"
+        gcg:dataFormat="5" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
+    <com.flywheelms.gcongui.gcg.widget.date.GcgWidgetDatePicker
+        android:id="@+id/holiday__break_first_day"
+        android:layout_width="235dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="9dp"
+        android:layout_marginBottom="3dp"
+        gcg:labelText="First Day"
+        gcg:dataFormat="5" />
 
-                    <!-- add rows at run time -->
-
-                </LinearLayout>
-
-            </ScrollView>
-
-        </com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear>
-        
-    </RelativeLayout>
-
-    <include
-        android:id="@+id/gcg_wizard__navigation_bar__include"
-        layout="@layout/gcg__wizard__navigation_bar" />
+    <com.flywheelms.gcongui.gcg.widget.date.GcgWidgetDatePicker
+        android:id="@+id/holiday__break_last_day"
+        android:layout_width="235dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
+        gcg:labelText="Last Day"
+        gcg:dataFormat="5" />
 
 </LinearLayout>
