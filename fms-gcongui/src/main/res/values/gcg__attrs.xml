@@ -29,6 +29,7 @@
         <attr name="enableCopyButton" format="boolean" />
         <attr name="deferDataInitialization" format="boolean" />
         <attr name="zoomable" format="boolean" />
+        <attr name="dataFormat" format="integer" />
     </declare-styleable>
     
     <declare-styleable name="GcgPerspectiveMenuButton">

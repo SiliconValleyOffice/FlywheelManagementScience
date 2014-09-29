@@ -117,6 +117,7 @@ public abstract class GcgWidget extends RelativeLayout implements FdkDictationRe
 	protected boolean deferDataInitialization = false;
 	protected boolean isFiltered = false;
 	protected boolean noLabel = false;
+    protected int dataFormat = 1;
 
 	public int getInputType() {
 		return InputType.TYPE_NULL;
@@ -164,50 +165,52 @@ public abstract class GcgWidget extends RelativeLayout implements FdkDictationRe
 		final int theArraySize = aTypedArray.getIndexCount();
 		for (int theIndex = 0; theIndex < theArraySize; ++theIndex) {
 			int theAttributeIndex = aTypedArray.getIndex(theIndex);
-			switch (theAttributeIndex) {
-				case R.styleable.GcgWidget_containerLayout:
-					this.containerLayout = aTypedArray.getString(theAttributeIndex);
-					break;
-				case R.styleable.GcgWidget_scrollableContent:
-					this.scrollableContent = aTypedArray.getBoolean(theAttributeIndex, false);
-					break;
-				case R.styleable.GcgWidget_onClick:
-					this.onClick = aTypedArray.getString(theAttributeIndex);
-					break;
-				case R.styleable.GcgWidget_onLongClick:
-					this.onClick = aTypedArray.getString(theAttributeIndex);
-					break;
-				case R.styleable.GcgWidget_transparentBackground:
-					this.isTransparentBackground = aTypedArray.getBoolean(theAttributeIndex, false);
-					break;
-				case R.styleable.GcgWidget_inputEnabled:
-					this.inputEnabled = aTypedArray.getBoolean(theAttributeIndex, true);
-					break;
-				case R.styleable.GcgWidget_enableCopyButton:
-					this.enableCopyButton = aTypedArray.getBoolean(theAttributeIndex, false);
-					break;
-				case R.styleable.GcgWidget_fdkCursorEnabled:
-					this.fdkCursorEnabled = aTypedArray.getBoolean(theAttributeIndex, true);
-					break;
-				case R.styleable.GcgWidget_minimumDataLength:
-					this.minimumDataLength = aTypedArray.getInteger(theAttributeIndex, 0);
-					break;
-				case R.styleable.GcgWidget_inputRequired:
-					this.inputRequired = aTypedArray.getBoolean(theAttributeIndex, false);
-					break;
-				case R.styleable.GcgWidget_deferDataInitialization:
-					this.deferDataInitialization = aTypedArray.getBoolean(theAttributeIndex, false);
-					break;
-				case R.styleable.GcgWidget_requestCode:
-					this.requestCode = aTypedArray.getInt(theAttributeIndex, 0);
-					break;
-				case R.styleable.GcgWidget_requestCode2:
-					this.requestCode2 = aTypedArray.getInt(theAttributeIndex, 0);
-					break;
-				case R.styleable.GcgWidget_zoomable:
-					this.zoomable = aTypedArray.getBoolean(theAttributeIndex, true);
-					break;
-			}
+            if (theAttributeIndex == R.styleable.GcgWidget_containerLayout) {
+                this.containerLayout = aTypedArray.getString(theAttributeIndex);
+
+            } else if (theAttributeIndex == R.styleable.GcgWidget_scrollableContent) {
+                this.scrollableContent = aTypedArray.getBoolean(theAttributeIndex, false);
+
+            } else if (theAttributeIndex == R.styleable.GcgWidget_onClick) {
+                this.onClick = aTypedArray.getString(theAttributeIndex);
+
+            } else if (theAttributeIndex == R.styleable.GcgWidget_onLongClick) {
+                this.onClick = aTypedArray.getString(theAttributeIndex);
+
+            } else if (theAttributeIndex == R.styleable.GcgWidget_transparentBackground) {
+                this.isTransparentBackground = aTypedArray.getBoolean(theAttributeIndex, false);
+
+            } else if (theAttributeIndex == R.styleable.GcgWidget_inputEnabled) {
+                this.inputEnabled = aTypedArray.getBoolean(theAttributeIndex, true);
+
+            } else if (theAttributeIndex == R.styleable.GcgWidget_enableCopyButton) {
+                this.enableCopyButton = aTypedArray.getBoolean(theAttributeIndex, false);
+
+            } else if (theAttributeIndex == R.styleable.GcgWidget_fdkCursorEnabled) {
+                this.fdkCursorEnabled = aTypedArray.getBoolean(theAttributeIndex, true);
+
+            } else if (theAttributeIndex == R.styleable.GcgWidget_minimumDataLength) {
+                this.minimumDataLength = aTypedArray.getInteger(theAttributeIndex, 0);
+
+            } else if (theAttributeIndex == R.styleable.GcgWidget_inputRequired) {
+                this.inputRequired = aTypedArray.getBoolean(theAttributeIndex, false);
+
+            } else if (theAttributeIndex == R.styleable.GcgWidget_deferDataInitialization) {
+                this.deferDataInitialization = aTypedArray.getBoolean(theAttributeIndex, false);
+
+            } else if (theAttributeIndex == R.styleable.GcgWidget_requestCode) {
+                this.requestCode = aTypedArray.getInt(theAttributeIndex, 0);
+
+            } else if (theAttributeIndex == R.styleable.GcgWidget_requestCode2) {
+                this.requestCode2 = aTypedArray.getInt(theAttributeIndex, 0);
+
+            } else if (theAttributeIndex == R.styleable.GcgWidget_dataFormat) {
+                this.dataFormat = aTypedArray.getInt(theAttributeIndex, 1);
+
+            } else if (theAttributeIndex == R.styleable.GcgWidget_zoomable) {
+                this.zoomable = aTypedArray.getBoolean(theAttributeIndex, true);
+
+            }
 		}
 		aTypedArray.recycle();
 	}

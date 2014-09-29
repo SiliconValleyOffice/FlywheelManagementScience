@@ -112,6 +112,9 @@ public class StrategicMilestone extends FmmCompletableNodeImpl implements Compar
 			validateSerializationFormatVersion(aJsonObject.getString(JsonHelper.key__SERIALIZATION_FORMAT_VERSION));
 			setSequence(aJsonObject.getInt(SequencedLinkNodeMetaData.column_SEQUENCE));
 			setFiscalYearNodeIdString(aJsonObject.getString(StrategicMilestoneMetaData.column_FISCAL_YEAR_ID));
+			setTargetMonthEnd(aJsonObject.getInt(StrategicMilestoneMetaData.column_TARGET_MONTH_END));
+			setTargetDate(aJsonObject.getLong(StrategicMilestoneMetaData.column_TARGET_DATE));
+            setTargetIsReversePlanning(aJsonObject.getInt(StrategicMilestoneMetaData.column_TARGET_IS_REVERSE_PLANNING));
 			setProjectAssetList(aJsonObject.getJSONArray(StrategicMilestoneMetaData.child_fractals_PROJECT_ASSET));
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
@@ -217,6 +220,9 @@ public class StrategicMilestone extends FmmCompletableNodeImpl implements Compar
 			theJsonObject.put(JsonHelper.key__SERIALIZATION_FORMAT_VERSION, SERIALIZATION_FORMAT_VERSION);
 			theJsonObject.put(SequencedLinkNodeMetaData.column_SEQUENCE, getSequence());
 			theJsonObject.put(StrategicMilestoneMetaData.column_FISCAL_YEAR_ID, getFiscalYearNodeIdString());
+			theJsonObject.put(StrategicMilestoneMetaData.column_TARGET_MONTH_END, getTargetMonthEnd());
+			theJsonObject.put(StrategicMilestoneMetaData.column_TARGET_DATE, getTargetDateFormattedUtcLong());
+			theJsonObject.put(StrategicMilestoneMetaData.column_TARGET_IS_REVERSE_PLANNING, targetIsReversePlanningAsInt());
 			theJsonObject.put(StrategicMilestoneMetaData.child_fractals_PROJECT_ASSET, getProjectAssetNodeIdStringJsonArray());
 		} catch (JSONException e) {
 			e.printStackTrace();

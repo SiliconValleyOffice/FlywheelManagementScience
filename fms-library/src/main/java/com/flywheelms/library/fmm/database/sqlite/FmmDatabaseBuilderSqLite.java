@@ -88,6 +88,7 @@ import com.flywheelms.library.fmm.node.impl.governable.StrategyTeam;
 import com.flywheelms.library.fmm.node.impl.governable.WorkPackage;
 import com.flywheelms.library.fmm.node.impl.governable.WorkPlan;
 import com.flywheelms.library.fmm.node.impl.governable.WorkTask;
+import com.flywheelms.library.fmm.node.impl.headline.FiscalYearHolidayBreak;
 import com.flywheelms.library.fmm.node.impl.link.BookshelfLinkToNotebook;
 import com.flywheelms.library.fmm.node.impl.link.CommunityMemberFlywheelTeamGovernanceAuthority;
 import com.flywheelms.library.fmm.node.impl.link.DiscussionTopicLinkToNodeFragAuditBlock;
@@ -188,6 +189,7 @@ public class FmmDatabaseBuilderSqLite implements FmmDatabaseBuilder {
 	
 	private static void createSupportingNodeTables(SQLiteDatabase aSqLiteDatabase) {
 		createTable(aSqLiteDatabase, CommunityMember.class);
+		createTable(aSqLiteDatabase, FiscalYearHolidayBreak.class);
 		createTable(aSqLiteDatabase, FmmConfiguration.class);
 		createTable(aSqLiteDatabase, ServiceRequestTriageLog.class);
 	}

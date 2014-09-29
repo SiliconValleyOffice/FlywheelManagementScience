@@ -78,6 +78,7 @@ import com.flywheelms.library.fmm.node.impl.governable.StrategyTeam;
 import com.flywheelms.library.fmm.node.impl.governable.WorkPackage;
 import com.flywheelms.library.fmm.node.impl.governable.WorkPlan;
 import com.flywheelms.library.fmm.node.impl.governable.WorkTask;
+import com.flywheelms.library.fmm.node.impl.headline.FiscalYearHolidayBreak;
 import com.flywheelms.library.fmm.node.impl.link.BookshelfLinkToNotebook;
 import com.flywheelms.library.fmm.node.impl.link.CommunityMemberFlywheelTeamGovernanceAuthority;
 import com.flywheelms.library.fmm.node.impl.link.DiscussionTopicLinkToNodeFragAuditBlock;
@@ -330,6 +331,20 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // medium drawables
     		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // large drawables
     		10015 ),
+    FISCAL_YEAR_HOLIDAY_BREAK (
+            FiscalYearHolidayBreak.class,
+            "FHB",
+            R.string.fmm_node_definition__fiscal_year_holiday_break__label_text,
+            R.drawable.fmm_noun__fiscal_year_holiday_break,
+            0,
+            R.drawable.fms_activity__fiscal_year_holiday_break,
+            R.drawable.fms_dialog__fiscal_year_holiday_break,
+            new HashMap<FmmNodeGlyphType, Integer>(),
+            new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // tiny drawables
+            new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // small drawables
+            new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // medium drawables
+            new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // large drawables
+            10015 ),
 	FLYWHEEL_CADENCE (
 			FlywheelCadence.class,
 			"FCA",

@@ -55,7 +55,7 @@ public enum FmmHoliday implements GcgGuiable {
     NEW_YEARS_DAY(R.string.holiday__new_years_day,R.drawable.holiday__new_years_day),
     PRESIDENTS_DAY(R.string.holiday__presidents_day, R.drawable.holiday__presidents_day),
     MEMORIAL_DAY(R.string.holiday__memorial_day, R.drawable.holiday__memorial_day),
-    FOURTH_OF_JULY(R.string.holiday__independence_day,R.drawable.holiday__independence_day),
+    INDEPENDENCE_DAY(R.string.holiday__independence_day,R.drawable.holiday__independence_day),
     LABOR_DAY(R.string.holiday__labor_day,R.drawable.holiday__labor_day),
     THANKSGIVING(R.string.holiday__thanksgiving,R.drawable.holiday__thanksgiving),
     CHRISTMAS(R.string.holiday__christmas,R.drawable.holiday__christmas);

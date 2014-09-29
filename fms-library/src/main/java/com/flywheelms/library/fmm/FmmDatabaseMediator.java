@@ -48,6 +48,7 @@ import com.flywheelms.library.fca.FlywheelCommunityAuthentication;
 import com.flywheelms.library.fmm.helper.FmmHelper;
 import com.flywheelms.library.fmm.meta_data.CommunityMemberMetaData;
 import com.flywheelms.library.fmm.meta_data.CompletableNodeMetaData;
+import com.flywheelms.library.fmm.meta_data.FiscalYearHolidayBreakMetaData;
 import com.flywheelms.library.fmm.meta_data.FiscalYearMetaData;
 import com.flywheelms.library.fmm.meta_data.FlywheelCadenceMetaData;
 import com.flywheelms.library.fmm.meta_data.FlywheelTeamMetaData;
@@ -149,7 +150,8 @@ public class FmmDatabaseMediator {
 		CommunityMemberMetaData.init();
 		CompletableNodeMetaData.init();
 		FiscalYearMetaData.init();
-		FlywheelCadenceMetaData.init();
+        FiscalYearHolidayBreakMetaData.init();
+        FlywheelCadenceMetaData.init();
 		FlywheelTeamMetaData.init();
 		FmmConfigurationMetaData.init();
 		FmsOrganizationMetaData.init();

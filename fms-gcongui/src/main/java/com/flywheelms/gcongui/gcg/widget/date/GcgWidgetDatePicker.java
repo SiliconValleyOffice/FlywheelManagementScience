@@ -142,11 +142,35 @@ public class GcgWidgetDatePicker extends GcgWidgetTextView {
 	
 	protected void setSelectedDate(int aYear, int aMonth, int aDay) {
 		this.gregorianCalendar.set(aYear, aMonth, aDay);
-		setText(GcgDateHelper.getGuiDateString3(this.gregorianCalendar.getTime()));
+		setText(getDateString());
 		manageBackgroundState();
 	}
-	
-	public Date getOriginalDate() {
+
+    private String getDateString() {
+        String theString;
+        switch(this.dataFormat) {
+            case 1:
+                theString = GcgDateHelper.getGuiDateString1(this.gregorianCalendar.getTime());
+                break;
+            case 2:
+                theString = GcgDateHelper.getGuiDateString2(this.gregorianCalendar.getTime());
+                break;
+            case 3:
+                theString = GcgDateHelper.getGuiDateString3(this.gregorianCalendar.getTime());
+                break;
+            case 4:
+                theString = GcgDateHelper.getGuiDateString4(this.gregorianCalendar.getTime());
+                break;
+            case 5:
+                theString = GcgDateHelper.getGuiDateString5(this.gregorianCalendar.getTime());
+                break;
+            default:
+                theString = GcgDateHelper.getGuiDateString3(this.gregorianCalendar.getTime());
+        }
+        return theString;
+    }
+
+    public Date getOriginalDate() {
 		return this.originalDate;
 	}
 
@@ -183,7 +207,7 @@ public class GcgWidgetDatePicker extends GcgWidgetTextView {
 	@Override
 	protected void manageBackgroundState() {
 		this.textView.setBackgroundResource(enabled() ? isMinimumInput() ?
-					R.drawable.gcg__date_picker__background : R.drawable.gcg__date_picker__background__invalid : R.color.w3c__silver);
+					R.drawable.gcg__date_picker__background : R.drawable.gcg__button_state_list__date_picker__background__invalid : R.color.w3c__silver);
 	}
 
 	@Override
