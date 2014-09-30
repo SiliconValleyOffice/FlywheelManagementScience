@@ -47,7 +47,9 @@ public class FiscalYearMetaData extends CompletableNodeMetaData {
 
 	public static final String column_ORGANIZATION_ID = "Organization__id";
 	public static final String column_YEAR_NUMBER = "year_number";
-	
+	public static final String column_CADENCE_DURATION = "cadence_duration";
+	public static final String column_WORK_PLAN_FIRST_DAY_OF_WEEK = "work_plan_first_day_of_week";
+
 	public static void init() { return; }
 
 }

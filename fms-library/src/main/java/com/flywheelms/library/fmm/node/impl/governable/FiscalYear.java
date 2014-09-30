@@ -85,7 +85,8 @@ public class FiscalYear extends FmmCompletableNodeImpl implements Comparable<Fis
 	private String organizationNodeIdString;
 	private FmsOrganization organization;
 	private int year = 0;
-	private int flywheelTempo = 4;  // number of Work Plans per Flywheel Cadence
+    private int cadenceDuration = 3;
+    private String workPlanFirstDayOfWeek = "Tue";
 	private ArrayList<StrategicMilestone> strategicMilestoneList;
 	
 	// create a new Fiscal Year
@@ -317,17 +318,19 @@ public class FiscalYear extends FmmCompletableNodeImpl implements Comparable<Fis
 		FmsActivityHelper.startHeadlineNodePickerActivity(anActivity, FmmNodeDefinition.FISCAL_YEAR, aNodeIdExclusionList, aWhereClause, aListActionLabel);
 	}
 
-    // TODO - junk???
-//	public static FiscalYear getFmmConfiguration(Intent anIntent) {
-//		return FmmDatabaseMediator.getActiveMediator().getFiscalYear(NodeId.getNodeIdString(anIntent));
-//	}
+    public int getCadenceDuration() {
+        return this.cadenceDuration;
+    }
 
-//	public int getFlywheelTempo() {
-//		return this.flywheelTempo;
-//	}
-//
-//	public void setFlywheelTempo(int flywheelTempo) {
-//		this.flywheelTempo = flywheelTempo;
-//	}
-	
+    public void setCadenceDuration(int cadenceDuration) {
+        this.cadenceDuration = cadenceDuration;
+    }
+
+    public String getWorkPlanFirstDayOfWeek() {
+        return this.workPlanFirstDayOfWeek;
+    }
+
+    public void setWorkPlanFirstDayOfWeek(String workPlanFirstDayOfWeek) {
+        this.workPlanFirstDayOfWeek = workPlanFirstDayOfWeek;
+    }
 }
