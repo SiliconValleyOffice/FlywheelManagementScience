@@ -266,4 +266,22 @@ public class GcgDateHelper {
     public static int getDayOfYear(Date aDate) {
         return Integer.decode(new SimpleDateFormat("D", Locale.US).format(aDate));
     }
+
+    public static String getDayOfWeek(Date aDate) {
+        return new SimpleDateFormat("EEE", Locale.US).format(aDate);
+    }
+
+    public static Date adjustByDays(Date aDate, int anAdjustment) {
+        if(anAdjustment == 0) {
+            return aDate;
+        }
+//        GregorianCalendar theCalendar = new GregorianCalendar();
+//        theCalendar.setTime(aDate);
+//        theCalendar.roll(GregorianCalendar.DATE, anAdjustment);  // has a BUG for decrimenting Jan 1
+//        return theCalendar.getTime();
+        Calendar theCalendar = Calendar.getInstance();
+        theCalendar.setTime(aDate);
+        theCalendar.add(Calendar.DATE, anAdjustment);
+        return theCalendar.getTime();
+    }
 }

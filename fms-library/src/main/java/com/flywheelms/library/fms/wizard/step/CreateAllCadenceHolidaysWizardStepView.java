@@ -157,10 +157,10 @@ public class CreateAllCadenceHolidaysWizardStepView extends GcgWizardStepView {
             this.holidayDate.setOriginalDate(anFmmHoliday.getHolidayDate(getFiscalYear().getYearAsInt()));
             this.breakFirstDay = (GcgWidgetDatePicker) theRowLayout.getChildAt(4);
             this.breakFirstDay.setGcgActivity(anActivity);
-            this.breakFirstDay.setOriginalDate(anFmmHoliday.getHolidayDate(getFiscalYear().getYearAsInt()));
+            this.breakFirstDay.setOriginalDate(anFmmHoliday.getRecommendedFirstDayOfHolidayBreak(getFiscalYear().getYearAsInt()));
             this.breakLastDay = (GcgWidgetDatePicker) theRowLayout.getChildAt(5);
             this.breakLastDay.setGcgActivity(anActivity);
-            this.breakLastDay.setOriginalDate(anFmmHoliday.getHolidayDate(getFiscalYear().getYearAsInt()));
+            this.breakLastDay.setOriginalDate(anFmmHoliday.getRecommendedLastDayOfHolidayBreak(getFiscalYear().getYearAsInt()));
             this.checkbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton aCompoundButton, boolean bChecked) {

@@ -207,9 +207,66 @@ public enum FmmHoliday implements GcgGuiable {
         this.lastDayOfHolidayBreak = lastDayOfHolidayBreak;
     }
 
-    public Date getFirstDayOfHolidayBreak() {
+    public Date getRecommendedLastDayOfHolidayBreak(Integer aYear) {
+        int theAdjustment = 0;
+        String theDayOfWeek = GcgDateHelper.getDayOfWeek(getHolidayDate(aYear));
+        switch (theDayOfWeek) {
+            case "Sun":
+                theAdjustment = 1;
+                break;
+            case "Mon":
+                theAdjustment = 0;
+                break;
+            case "Tue":
+                theAdjustment = 0;
+                break;
+            case "Wed":
+                theAdjustment = 4;
+                break;
+            case "Thu":
+                theAdjustment = 3;
+                break;
+            case "Fri":
+                theAdjustment = 2;
+                break;
+            case "Sat":
+                theAdjustment = 1;
+                break;
+        }
+        return GcgDateHelper.adjustByDays(getHolidayDate(aYear), theAdjustment);
+    }
 
+    public Date getFirstDayOfHolidayBreak() {
         return this.firstDayOfHolidayBreak;
+    }
+
+    public Date getRecommendedFirstDayOfHolidayBreak(Integer aYear) {
+        int theAdjustment = 0;
+        String theDayOfWeek = GcgDateHelper.getDayOfWeek(getHolidayDate(aYear));
+        switch (theDayOfWeek) {
+            case "Sun":
+                theAdjustment = -1;
+                break;
+            case "Mon":
+                theAdjustment = -2;
+                break;
+            case "Tue":
+                theAdjustment = -3;
+                break;
+            case "Wed":
+                theAdjustment = -4;
+                break;
+            case "Thu":
+                theAdjustment = 0;
+                break;
+            case "Fri":
+                theAdjustment = 0;
+                break;
+            case "Sat":
+                theAdjustment = 0;
+                break;
+        }
+        return GcgDateHelper.adjustByDays(getHolidayDate(aYear), theAdjustment);
     }
 
     public void setFirstDayOfHolidayBreak(Date firstDayOfHolidayBreak) {
