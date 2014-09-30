@@ -45,8 +45,10 @@ package com.flywheelms.library.fms.wizard.step;
 import android.content.Context;
 import android.util.AttributeSet;
 
+import com.flywheelms.gcongui.gcg.GcgApplication;
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear;
+import com.flywheelms.gcongui.gcg.helper.GcgHelper;
 import com.flywheelms.gcongui.gcg.viewflipper.GcgViewFlipper;
 import com.flywheelms.gcongui.gcg.wizard.step.GcgWizardStepView;
 import com.flywheelms.library.R;
@@ -97,8 +99,15 @@ public class CreateAllCadenceParametersWizardStepView extends GcgWizardStepView 
         return ((CreateAllCadenceForYearWizardStepFlipper) getViewFlipper()).getFiscalYear();
     }
 
-	@Override
-	public String getSummaryText() { return "Not implemented."; }
+    @Override
+    public String getSummaryText() {
+        StringBuffer theStringBuffer = new StringBuffer();
+        theStringBuffer.append("<font color='#0000FF'>" + GcgApplication.getAppResources().getString(R.string.cadence_duration) + "</font><br/>");
+        theStringBuffer.append(GcgHelper.html__INDENT + this.cadenceDurationSpinner.getSelectedItem().getDataText() + GcgHelper.html__NEW_LINE + GcgHelper.html__NEW_LINE);
+        theStringBuffer.append("<font color='#0000FF'>" + GcgApplication.getAppResources().getString(R.string.work_plan__first_day_of_week) + "</font><br/>");
+        theStringBuffer.append(GcgHelper.html__INDENT + this.workPlanFirstDayOfWeekWidgetSpinner.getSelectedItem().getDataText());
+        return theStringBuffer.toString();
+    }
 
 	@Override
 	public boolean validWizardStepData() { return true; }

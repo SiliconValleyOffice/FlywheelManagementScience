@@ -78,27 +78,17 @@ public class CreateAllCadenceForYearWizardStepFlipper extends GcgWizardStepFlipp
 
 	@Override
 	public void doItNow() {
-		GcgHelper.makeToast("Creating Flywheel Cadence for Fiscal Year " + getFiscalYear().getHeadline() + "...");
-//		FmsOrganization theFmsOrganization = new FmsOrganization(this.organizationWizardStepView.getHeadline(), true);
-//		FmmConfiguration theFmmConfiguration = updateFmmConfigurationFile(theFmsOrganization);
-//		switch(theFmmConfiguration.getFmmAccessScope()) {
-//			case PRIVATE:
-//				createPrivateFmmDatabaseFromTemplate(theFmmConfiguration, theFmsOrganization);
-//				break;
-//			case SHARED:
-//				createSharedFmmDatabaseFromTemplate(theFmmConfiguration, theFmsOrganization);
-//				break;
-//			case TEAM:
-//				createTeamFmmDatabaseFromTemplate(theFmmConfiguration, theFmsOrganization);
-//			//$FALL-THROUGH$
-//			default:
-//		}
+		GcgHelper.makeToast("Creating all Flywheel Cadence for Fiscal Year " + getFiscalYear().getHeadline() + "...");
+        // update FiscalYear
+        // create all FiscalYear holiday break rows
+        // create all FlywheelCadence rows
 		getGcgActivity().finish();
 	}
 
 	@Override
 	public boolean validWizardData() {
-		return false;
+        return this.parametersWizardStepView.validWizardStepData() &&
+                this.holidaysWizardStepView.validWizardStepData();
 	}
 
     public CreateAllCadenceParametersWizardStepView getWizardStepView1() {

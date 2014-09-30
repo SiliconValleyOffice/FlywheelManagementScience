@@ -52,11 +52,14 @@ import com.flywheelms.gcongui.gcg.viewflipper.GcgViewFlipper;
 import com.flywheelms.gcongui.gcg.widget.GcgWidgetTextViewSummaryBox;
 import com.flywheelms.gcongui.gcg.wizard.step.GcgWizardStepView;
 import com.flywheelms.library.R;
+import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
 import com.flywheelms.library.fms.helper.FmsHelpIndex;
+import com.flywheelms.library.fms.widget.text_view.FiscalYearWidgetTextView;
 import com.flywheelms.library.fms.wizard.CreateAllCadenceForYearWizardStepFlipper;
 
 public class CreateAllCadenceDoItNowWizardStepView extends GcgWizardStepView {
 
+    protected FiscalYearWidgetTextView fiscalYearWidgetTextView;
 	private GcgWidgetTextViewSummaryBox summaryBoxStep1;
 	private GcgWidgetTextViewSummaryBox summaryBoxStep2;
     protected Button previewButton;
@@ -78,6 +81,8 @@ public class CreateAllCadenceDoItNowWizardStepView extends GcgWizardStepView {
 	@Override
 	public void initialize(GcgActivity anGcgActivity, GcgViewFlipper aViewFlipper, int aPageNumber) {
 		super.initialize(anGcgActivity, aViewFlipper, aPageNumber);
+        this.fiscalYearWidgetTextView = (FiscalYearWidgetTextView) findViewById(R.id.fiscal_year__text_view);
+        this.fiscalYearWidgetTextView.setFiscalYear(getFiscalYear());
 		this.summaryBoxStep1 = (GcgWidgetTextViewSummaryBox) findViewById(R.id.summary__step_1);
 		this.summaryBoxStep2 = (GcgWidgetTextViewSummaryBox) findViewById(R.id.summary__step_2);
 	}
@@ -89,6 +94,10 @@ public class CreateAllCadenceDoItNowWizardStepView extends GcgWizardStepView {
 		this.summaryBoxStep1.setText(Html.fromHtml(theWizardStepFlipper.getWizardStepView1().getSummaryText()));
 		this.summaryBoxStep2.setText(Html.fromHtml(theWizardStepFlipper.getWizardStepView2().getSummaryText()));
 	}
+
+    private FiscalYear getFiscalYear() {
+        return ((CreateAllCadenceForYearWizardStepFlipper) getViewFlipper()).getFiscalYear();
+    }
 
 	@Override
 	public String getSummaryText() { return null; }

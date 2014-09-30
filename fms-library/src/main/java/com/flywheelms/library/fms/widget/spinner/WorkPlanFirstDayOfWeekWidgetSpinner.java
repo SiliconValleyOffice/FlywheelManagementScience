@@ -75,7 +75,7 @@ public class WorkPlanFirstDayOfWeekWidgetSpinner extends GcgWidgetSpinner {
 
     @Override
     public void setInitialValue() {
-        this.spinner.setSelection(2);
+        this.spinner.setSelection(0);
     }
 
     public String getGregorianDayOfWeek() {
