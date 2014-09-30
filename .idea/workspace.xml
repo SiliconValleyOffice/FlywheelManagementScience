@@ -42,14 +42,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c0b3b16b-24dc-4ad0-83f8-e1821de85d20" name="Default" comment="incremental - FlywheelCadenceCreateForYearWizard">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/design/gui/Image Library/FmsActivityDrawable.xcf" afterPath="$PROJECT_DIR$/design/gui/Image Library/FmsActivityDrawable.xcf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/wizard/step/CreateAllCadenceDoItNowWizardStepView.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/wizard/step/CreateAllCadenceDoItNowWizardStepView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/wizard/CreateAllCadenceForYearWizardStepFlipper.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/wizard/CreateAllCadenceForYearWizardStepFlipper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/wizard/step/CreateAllCadenceParametersWizardStepView.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/wizard/step/CreateAllCadenceParametersWizardStepView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/widget/spinner/WorkPlanFirstDayOfWeekWidgetSpinner.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/widget/spinner/WorkPlanFirstDayOfWeekWidgetSpinner.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/wizard/step/CreateAllCadenceHolidaysWizardStepView.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/wizard/step/CreateAllCadenceHolidaysWizardStepView.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout-land/create__all_cadence_for_year__do_id_now__wizard_step.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout-land/create__all_cadence_for_year__do_id_now__wizard_step.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/values/fms__strings.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/values/fms__strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="flywheelms-hd.iws" />
@@ -76,8 +71,8 @@
       <file leaf-file-name="CreateAllCadenceHolidaysWizardStepView.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/wizard/step/CreateAllCadenceHolidaysWizardStepView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1669" max-vertical-offset="3298">
-              <caret line="162" column="73" selection-start-line="162" selection-start-column="73" selection-end-line="162" selection-end-column="73" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="2754" max-vertical-offset="3638">
+              <caret line="162" column="66" selection-start-line="162" selection-start-column="66" selection-end-line="162" selection-end-column="66" />
               <folding />
             </state>
           </provider>
@@ -86,36 +81,43 @@
       <file leaf-file-name="CreateAllCadenceParametersWizardStepView.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/wizard/step/CreateAllCadenceParametersWizardStepView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1214" max-vertical-offset="2210">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1343" max-vertical-offset="2278">
               <caret line="79" column="60" selection-start-line="79" selection-start-column="60" selection-end-line="79" selection-end-column="60" />
-              <folding>
-                <element signature="e#0#6038#0" expanded="true" />
-                <element signature="imports" expanded="true" />
-                <element signature="e#3688#3715#0" expanded="true" />
-                <element signature="e#4983#5052#0" expanded="true" />
-                <element signature="e#5302#5383#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="create__all_cadence_for_year__parameters__wizard_step.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/layout-land/create__all_cadence_for_year__parameters__wizard_step.xml">
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-14.384615" vertical-offset="1530" max-vertical-offset="2312">
               <caret line="112" column="78" selection-start-line="112" selection-start-column="78" selection-end-line="112" selection-end-column="78" />
               <folding />
             </state>
           </provider>
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
         </entry>
       </file>
-      <file leaf-file-name="WorkPlanFirstDayOfWeekWidgetSpinner.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="create__all_cadence_for_year__do_id_now__wizard_step.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/layout-land/create__all_cadence_for_year__do_id_now__wizard_step.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.6257669" vertical-offset="1020" max-vertical-offset="1768">
+              <caret line="84" column="37" selection-start-line="84" selection-start-column="37" selection-end-line="84" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WorkPlanFirstDayOfWeekWidgetSpinner.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/widget/spinner/WorkPlanFirstDayOfWeekWidgetSpinner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.62684363" vertical-offset="0" max-vertical-offset="680">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="680">
               <caret line="74" column="0" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
               <folding />
             </state>
@@ -135,7 +137,7 @@
       <file leaf-file-name="GcgHelper.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/helper/GcgHelper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="5848">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1938" max-vertical-offset="7871">
               <caret line="114" column="31" selection-start-line="114" selection-start-column="31" selection-end-line="114" selection-end-column="31" />
               <folding />
             </state>
@@ -2863,11 +2865,11 @@
         <option value="$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/widget/date/GcgDateHelper.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/wizard/CreateAllCadenceForYearWizardStepFlipper.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/wizard/step/CreateFmmDoItNowWizardStepView.java" />
-        <option value="$PROJECT_DIR$/fms-library/src/main/res/layout-land/create__all_cadence_for_year__do_id_now__wizard_step.xml" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/wizard/step/CreateAllCadenceDoItNowWizardStepView.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/wizard/step/CreateAllCadenceParametersWizardStepView.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/res/values/fms__strings.xml" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/widget/spinner/WorkPlanFirstDayOfWeekWidgetSpinner.java" />
+        <option value="$PROJECT_DIR$/fms-library/src/main/res/layout-land/create__all_cadence_for_year__do_id_now__wizard_step.xml" />
       </list>
     </option>
   </component>
@@ -2903,6 +2905,9 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -2913,9 +2918,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -3719,7 +3721,11 @@
       <created>1412085323596</created>
       <updated>1412085323596</updated>
     </task>
-    <option name="localTasksCounter" value="133" />
+    <task id="LOCAL-00133" summary="incremental - FlywheelCadenceCreateForYearWizard">
+      <created>1412090472632</created>
+      <updated>1412090472632</updated>
+    </task>
+    <option name="localTasksCounter" value="134" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -3740,7 +3746,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32893497" sideWeight="0.4989953" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32987747" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32987747" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33553252" sideWeight="0.4989953" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33553252" sideWeight="0.4989953" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33553252" sideWeight="0.5010047" order="13" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26121902" sideWeight="0.49361703" order="0" side_tool="false" content_ui="combo" />
@@ -3928,7 +3934,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.37814313" vertical-offset="0" max-vertical-offset="1034">
           <caret line="71" column="14" selection-start-line="71" selection-start-column="14" selection-end-line="71" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4029,13 +4034,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/fms-gcongui/src/main/res/layout/gcg__widget__date_picker__horizontal.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.69044006" vertical-offset="191" max-vertical-offset="850">
           <caret line="38" column="66" selection-start-line="38" selection-start-column="66" selection-end-line="38" selection-end-column="66" />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/fms-gcongui/src/main/res/values/gcg__colors.xml">
@@ -4076,13 +4081,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/layout/fmm_holiday__row.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.2868098" vertical-offset="793" max-vertical-offset="1853">
           <caret line="96" column="34" selection-start-line="96" selection-start-column="34" selection-end-line="96" selection-end-column="34" />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/StrategicMilestoneTargetDateEditDialog.java">
@@ -4100,44 +4105,44 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/fms-gcongui/src/main/res/layout/gcg__widget__text_view__vertical__scrollable.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.103186645" vertical-offset="0" max-vertical-offset="659">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-gcongui/src/main/res/layout/gcg__application_context__header.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-gcongui/src/main/res/layout/gcg__application_context__header.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7936267" vertical-offset="480" max-vertical-offset="1139">
           <caret line="59" column="16" selection-start-line="59" selection-start-column="16" selection-end-line="59" selection-end-column="16" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-dashboard/src/main/res/layout/gcg__login__activity.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-dashboard/src/main/res/layout/gcg__login__activity.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.69044006" vertical-offset="1245" max-vertical-offset="1904">
           <caret line="100" column="6" selection-start-line="100" selection-start-column="6" selection-end-line="100" selection-end-column="6" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/layout-land/create__all_cadence_for_year__holidays__wizard_step.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/layout-land/create__all_cadence_for_year__holidays__wizard_step.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-16.538462" vertical-offset="1168" max-vertical-offset="1989">
           <caret line="94" column="49" selection-start-line="94" selection-start-column="49" selection-end-line="94" selection-end-column="49" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/widget/date/GcgWidgetDatePicker.java">
@@ -4165,14 +4170,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="3687" max-vertical-offset="4352">
           <caret line="333" column="35" selection-start-line="333" selection-start-column="35" selection-end-line="333" selection-end-column="35" />
-          <folding>
-            <element signature="e#13398#13399#0" expanded="false" />
-            <element signature="e#13441#13442#0" expanded="false" />
-            <element signature="e#13603#13604#0" expanded="false" />
-            <element signature="e#13653#13654#0" expanded="false" />
-            <element signature="e#13603#13604#0" expanded="false" />
-            <element signature="e#13653#13654#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -4180,7 +4177,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="1173">
           <caret line="95" column="123" selection-start-line="95" selection-start-column="123" selection-end-line="95" selection-end-column="123" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4200,8 +4196,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/wizard/step/CreateAllCadenceHolidaysWizardStepView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1669" max-vertical-offset="3298">
-          <caret line="162" column="73" selection-start-line="162" selection-start-column="73" selection-end-line="162" selection-end-column="73" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="2754" max-vertical-offset="3638">
+          <caret line="162" column="66" selection-start-line="162" selection-start-column="66" selection-end-line="162" selection-end-column="66" />
           <folding />
         </state>
       </provider>
@@ -4210,7 +4206,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="2448" max-vertical-offset="3638">
           <caret line="227" column="68" selection-start-line="223" selection-start-column="38" selection-end-line="227" selection-end-column="68" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4218,7 +4213,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2586466" vertical-offset="4333" max-vertical-offset="5066">
           <caret line="384" column="5" selection-start-line="318" selection-start-column="5" selection-end-line="384" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4229,29 +4223,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/layout-land/create__all_cadence_for_year__do_id_now__wizard_step.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.39110428" vertical-offset="918" max-vertical-offset="1768">
-          <caret line="69" column="48" selection-start-line="69" selection-start-column="48" selection-end-line="69" selection-end-column="48" />
-          <folding>
-            <element signature="e#3837#3865#0" expanded="false" />
-            <element signature="e#4300#4328#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/layout-land/create__fmm_repository__do_id_now__wizard_step.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.23466258" vertical-offset="153" max-vertical-offset="1241">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/wizard/step/CreateAllCadenceDoItNowWizardStepView.java">
@@ -4266,7 +4246,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33233082" vertical-offset="1037" max-vertical-offset="1904">
           <caret line="132" column="18" selection-start-line="132" selection-start-column="18" selection-end-line="132" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4274,7 +4253,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.44837758" vertical-offset="376" max-vertical-offset="1054">
           <caret line="91" column="101" selection-start-line="91" selection-start-column="101" selection-end-line="91" selection-end-column="101" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4298,33 +4276,38 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1214" max-vertical-offset="2210">
           <caret line="79" column="60" selection-start-line="79" selection-start-column="60" selection-end-line="79" selection-end-column="60" />
-          <folding>
-            <element signature="e#0#6038#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-            <element signature="e#3688#3715#0" expanded="true" />
-            <element signature="e#4983#5052#0" expanded="true" />
-            <element signature="e#5302#5383#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/layout-land/create__all_cadence_for_year__parameters__wizard_step.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.384615" vertical-offset="1530" max-vertical-offset="2312">
-          <caret line="112" column="78" selection-start-line="112" selection-start-column="78" selection-end-line="112" selection-end-column="78" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/widget/spinner/WorkPlanFirstDayOfWeekWidgetSpinner.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.62684363" vertical-offset="0" max-vertical-offset="680">
+        <state vertical-scroll-proportion="0.0" vertical-offset="425" max-vertical-offset="680">
           <caret line="74" column="0" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/layout-land/create__all_cadence_for_year__parameters__wizard_step.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.384615" vertical-offset="1530" max-vertical-offset="2312">
+          <caret line="112" column="78" selection-start-line="112" selection-start-column="78" selection-end-line="112" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/layout-land/create__all_cadence_for_year__do_id_now__wizard_step.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6257669" vertical-offset="1020" max-vertical-offset="1768">
+          <caret line="84" column="37" selection-start-line="84" selection-start-column="37" selection-end-line="84" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
   </component>

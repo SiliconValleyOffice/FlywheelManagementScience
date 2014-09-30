@@ -55,6 +55,7 @@ import android.widget.TextView;
 
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear;
+import com.flywheelms.gcongui.gcg.helper.GcgHelper;
 import com.flywheelms.gcongui.gcg.viewflipper.GcgViewFlipper;
 import com.flywheelms.gcongui.gcg.widget.date.GcgWidgetDatePicker;
 import com.flywheelms.gcongui.gcg.wizard.step.GcgWizardStepView;
@@ -109,7 +110,18 @@ public class CreateAllCadenceHolidaysWizardStepView extends GcgWizardStepView {
 	}
 
 	@Override
-	public String getSummaryText() { return "Not implemented."; }
+	public String getSummaryText() {
+        StringBuffer theStringBuffer = new StringBuffer();
+        for(FmmHoliday theFmmHoliday : FmmHoliday.values()) {
+            HolidayRow theHolidayRow = this.holidayRowTable.get(theFmmHoliday);
+            if(theHolidayRow != null && theHolidayRow.isEnabled()) {
+                theStringBuffer.append(GcgHelper.html__INDENT + theHolidayRow.getHeadline() + GcgHelper.html__NEW_LINE + GcgHelper.html__NEW_LINE);
+            }
+        }
+//        theStringBuffer.append("<font color='#0000FF'>" + GcgApplication.getAppResources().getString(R.string.work_plan__first_day_of_week) + "</font><br/>");
+//        theStringBuffer.append(GcgHelper.html__INDENT + this.workPlanFirstDayOfWeekWidgetSpinner.getSelectedItem().getDataText());
+        return theStringBuffer.toString();
+    }
 
 	@Override
 	public boolean validWizardStepData() { return true; }
@@ -182,7 +194,14 @@ public class CreateAllCadenceHolidaysWizardStepView extends GcgWizardStepView {
                 }
             });
         }
-        
+
+        public boolean isEnabled() {
+            return this.checkbox.isChecked();
+        }
+
+        public String getHeadline() {
+            return this.textView.getText().toString();
+        }
     }
 
 }
