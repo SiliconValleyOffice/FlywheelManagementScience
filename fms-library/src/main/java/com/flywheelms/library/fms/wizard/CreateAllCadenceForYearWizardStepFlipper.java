@@ -48,6 +48,7 @@ import android.util.AttributeSet;
 import com.flywheelms.gcongui.gcg.helper.GcgHelper;
 import com.flywheelms.gcongui.gcg.wizard.GcgWizardStepFlipper;
 import com.flywheelms.library.R;
+import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
 import com.flywheelms.library.fms.activity.CreateAllFlywheelCadenceForYearWizard;
 import com.flywheelms.library.fms.wizard.step.CreateAllCadenceDoItNowWizardStepView;
@@ -79,8 +80,10 @@ public class CreateAllCadenceForYearWizardStepFlipper extends GcgWizardStepFlipp
 	@Override
 	public void doItNow() {
 		GcgHelper.makeToast("Creating all Flywheel Cadence for Fiscal Year " + getFiscalYear().getHeadline() + "...");
-        // update FiscalYear
-        // create all FiscalYear holiday break rows
+        getFiscalYear().setCadenceDuration(getWizardStepView1().getCadenceDuration());
+        getFiscalYear().setWorkPlanFirstDayOfWeek(getWizardStepView1().getWorkPlanFirstDayOfWeek());
+        FmmDatabaseMediator.getActiveMediator().updateFiscalYear(getFiscalYear(), true);
+        FmmDatabaseMediator.getActiveMediator().insertFiscalYearHolidayBreakList(getWizardStepView2().getFiscalYearHolidayBreakList(), true);
         // create all FlywheelCadence rows
 		getGcgActivity().finish();
 	}

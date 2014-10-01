@@ -93,6 +93,7 @@ import com.flywheelms.library.fmm.node.impl.governable.StrategicMilestone;
 import com.flywheelms.library.fmm.node.impl.governable.WorkPackage;
 import com.flywheelms.library.fmm.node.impl.governable.WorkPlan;
 import com.flywheelms.library.fmm.node.impl.governable.WorkTask;
+import com.flywheelms.library.fmm.node.impl.headline.FiscalYearHolidayBreak;
 import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
 import com.flywheelms.library.fmm.node.impl.link.OrganizationCommunityMember;
 import com.flywheelms.library.fmm.node.impl.nodefrag.CompletionNodeTrash;
@@ -1278,7 +1279,45 @@ public class FmmDatabaseMediator {
 	}
 
 
-	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////  Node - FISCAL YEAR HOLIDAY BREAK  ///////////////////////////////////////////////////////////////////
+
+    public ArrayList<FiscalYearHolidayBreak> getFiscalYearHolidayBreakList(FiscalYear aFiscalYear) {
+        return this.persistenceTechnologyDelegate.dbGetFiscalYearHolidayBreakList(aFiscalYear);
+    }
+
+    public FiscalYearHolidayBreak retrieveFiscalYearHolidayBreak(String aNodeIdString) {
+        return this.persistenceTechnologyDelegate.dbRetrieveFiscalYearHolidayBreak(aNodeIdString);
+    }
+
+    public boolean insertFiscalYearHolidayBreak(FiscalYearHolidayBreak aFiscalYearHolidayBreak, boolean bAtomicTransaction) {
+        return this.persistenceTechnologyDelegate.dbInsertFiscalYearHolidayBreak(aFiscalYearHolidayBreak, bAtomicTransaction);
+    }
+
+    public boolean insertFiscalYearHolidayBreakList(ArrayList<FiscalYearHolidayBreak> aFiscalYearHolidayBreakList, boolean bAtomicTransaction) {
+        boolean isSuccess = true;
+        if(bAtomicTransaction) {
+            startTransaction();
+        }
+        for(FiscalYearHolidayBreak theHolidayBreak : aFiscalYearHolidayBreakList) {
+            insertFiscalYearHolidayBreak(theHolidayBreak, bAtomicTransaction);
+        }
+        if(bAtomicTransaction) {
+            endTransaction(isSuccess);
+        }
+        return isSuccess;
+    }
+
+    public boolean updateFiscalYearHolidayBreak(FiscalYearHolidayBreak aFiscalYearHolidayBreak, boolean bAtomicTransaction) {
+        return this.persistenceTechnologyDelegate.dbUpdateFiscalYearHolidayBreak(aFiscalYearHolidayBreak, bAtomicTransaction);
+    }
+
+    public boolean deleteFiscalYearHolidayBreak(FiscalYearHolidayBreak aFiscalYearHolidayBreak, boolean bAtomicTransaction) {
+        return this.persistenceTechnologyDelegate.dbDeleteFiscalYearHolidayBreak(aFiscalYearHolidayBreak, bAtomicTransaction);
+    }
+
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//////  Node - FLYWHEEL TEAM  ///////////////////////////////////////////////////////////////////////////////
 
 	public Collection<FlywheelTeam> getFlywheelTeamCollection() {

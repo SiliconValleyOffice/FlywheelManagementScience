@@ -44,8 +44,10 @@ package com.flywheelms.library.fmm.node.impl.headline;
 
 import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.enumerator.FmmHoliday;
 import com.flywheelms.library.fmm.meta_data.FiscalYearHolidayBreakMetaData;
 import com.flywheelms.library.fmm.node.NodeId;
+import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
 import com.flywheelms.library.util.JsonHelper;
 
@@ -58,17 +60,18 @@ public class FiscalYearHolidayBreak extends FmmHeadlineNodeImpl {
 
     private String fiscalYearNodeIdString;
     private FiscalYear fiscalYear;
+    private FmmHoliday fmmHoliday;
     private Date holidayDate;
-    private Date startDate;
-    private Date endDate;
+    private Date firstDay;
+    private Date lastDay;
 
     public FiscalYearHolidayBreak(NodeId aNodeId, FiscalYear aFiscalYear, Date aHolidayDate, Date aStartDate, Date anEndDate) {
         super(aNodeId);
         this.fiscalYearNodeIdString = aFiscalYear.getNodeIdString();
         this.fiscalYear = aFiscalYear;
         this.holidayDate = aHolidayDate;
-        this.startDate = aStartDate;
-        this.endDate = anEndDate;
+        this.firstDay = aStartDate;
+        this.lastDay = anEndDate;
     }
 
     public FiscalYearHolidayBreak(Class<? extends FmmHeadlineNodeImpl> aClass, JSONObject aJsonObject) {
@@ -93,6 +96,15 @@ public class FiscalYearHolidayBreak extends FmmHeadlineNodeImpl {
         setHolidayDate(aHolidayDateLong);
         setStartDate(aBreakStartDateLong);
         setEndDate(aBreakEndDateLong);
+    }
+
+    public FiscalYearHolidayBreak(FiscalYear aFiscalYear, FmmHoliday anFmmHoliday, Date aHolidayDate, Date aBreakFirstDay, Date aBreakLastDay) {
+        super(new NodeId(FmmNodeDefinition.FISCAL_YEAR_HOLIDAY_BREAK));
+        setFiscalYear(aFiscalYear);
+        this.fmmHoliday = anFmmHoliday;
+        this.holidayDate = aHolidayDate;
+        this.firstDay = aBreakFirstDay;
+        this.lastDay = aBreakLastDay;
     }
 
     @Override
@@ -134,6 +146,14 @@ public class FiscalYearHolidayBreak extends FmmHeadlineNodeImpl {
         this.fiscalYearNodeIdString = aFiscalYear.getNodeId().getNodeIdString();
     }
 
+    public FmmHoliday getFmmHoliday() {
+        return this.fmmHoliday;
+    }
+
+    public void setFmmHoliday(FmmHoliday fmmHoliday) {
+        this.fmmHoliday = fmmHoliday;
+    }
+
     public Date getHolidayDate() {
         return this.holidayDate;
     }
@@ -150,35 +170,35 @@ public class FiscalYearHolidayBreak extends FmmHeadlineNodeImpl {
         this.holidayDate = GcgDateHelper.getDateFromFormattedUtcLong(aLongDate);
     }
 
-    public Date getStartDate() {
-        return this.startDate;
+    public Date getFirstDay() {
+        return this.firstDay;
     }
 
     public Long getStartDateFormattedUtcLong() {
-        return GcgDateHelper.getFormattedUtcLong(this.startDate);
+        return GcgDateHelper.getFormattedUtcLong(this.firstDay);
     }
 
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
+    public void setFirstDay(Date firstDay) {
+        this.firstDay = firstDay;
     }
 
     public void setStartDate(Long aLongDate) {
-        this.startDate = GcgDateHelper.getDateFromFormattedUtcLong(aLongDate);
+        this.firstDay = GcgDateHelper.getDateFromFormattedUtcLong(aLongDate);
     }
 
-    public Date getEndDate() {
-        return this.endDate;
+    public Date getLastDay() {
+        return this.lastDay;
     }
 
     public Long getEndDateFormattedUtcLong() {
-        return GcgDateHelper.getFormattedUtcLong(this.endDate);
+        return GcgDateHelper.getFormattedUtcLong(this.lastDay);
     }
 
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
+    public void setLastDay(Date lastDay) {
+        this.lastDay = lastDay;
     }
 
     public void setEndDate(Long aLongDate) {
-        this.endDate = GcgDateHelper.getDateFromFormattedUtcLong(aLongDate);
+        this.lastDay = GcgDateHelper.getDateFromFormattedUtcLong(aLongDate);
     }
 }

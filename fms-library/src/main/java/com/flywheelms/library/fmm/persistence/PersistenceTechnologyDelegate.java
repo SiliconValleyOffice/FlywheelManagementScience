@@ -60,6 +60,7 @@ import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
 import com.flywheelms.library.fmm.node.impl.governable.StrategicMilestone;
 import com.flywheelms.library.fmm.node.impl.governable.WorkPackage;
 import com.flywheelms.library.fmm.node.impl.governable.WorkTask;
+import com.flywheelms.library.fmm.node.impl.headline.FiscalYearHolidayBreak;
 import com.flywheelms.library.fmm.node.impl.link.OrganizationCommunityMember;
 import com.flywheelms.library.fmm.node.impl.nodefrag.CompletionNodeTrash;
 import com.flywheelms.library.fmm.node.impl.nodefrag.FragLock;
@@ -229,6 +230,7 @@ public abstract class PersistenceTechnologyDelegate {
 
     public abstract Portfolio dbRetrievePortfolio(String aNodeIdString);
     
+    
 	//////  Node - FISCAL YEAR  ////////////////////////////////////////////////////////////////////////////////
 
 	public abstract ArrayList<FiscalYear> dbListFiscalYear(FmsOrganization anOrganization, FiscalYear aFiscalYearException);
@@ -258,6 +260,19 @@ public abstract class PersistenceTechnologyDelegate {
 	public abstract boolean dbUpdateFiscalYear(FiscalYear aFiscalYear, boolean bAtomicTransaction);
 
 	public abstract boolean dbDeleteFiscalYear(FiscalYear aFiscalYear, boolean bAtomicTransaction);
+
+
+    //////  Node - FISCAL YEAR HOLIDAY BREAK  ////////////////////////////////////////////////////////////////////////////////
+
+    public abstract ArrayList<FiscalYearHolidayBreak> dbGetFiscalYearHolidayBreakList(FiscalYear aFiscalYear);
+
+    public abstract FiscalYearHolidayBreak dbRetrieveFiscalYearHolidayBreak(String aNodeIdString);
+
+    public abstract boolean dbInsertFiscalYearHolidayBreak(FiscalYearHolidayBreak aFiscalYearHolidayBreak, boolean bAtomicTransaction);
+
+    public abstract boolean dbUpdateFiscalYearHolidayBreak(FiscalYearHolidayBreak aFiscalYearHolidayBreak, boolean bAtomicTransaction);
+
+    public abstract boolean dbDeleteFiscalYearHolidayBreak(FiscalYearHolidayBreak aFiscalYearHolidayBreak, boolean bAtomicTransaction);
 
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////

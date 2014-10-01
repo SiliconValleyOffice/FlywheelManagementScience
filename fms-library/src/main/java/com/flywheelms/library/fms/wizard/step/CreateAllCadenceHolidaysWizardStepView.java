@@ -135,8 +135,19 @@ public class CreateAllCadenceHolidaysWizardStepView extends GcgWizardStepView {
         return ((CreateAllCadenceForYearWizardStepFlipper) getViewFlipper()).getFiscalYear();
     }
     
-    public ArrayList<FiscalYearHolidayBreak> getHolidayBreakList() {
+    public ArrayList<FiscalYearHolidayBreak> getFiscalYearHolidayBreakList() {
         ArrayList<FiscalYearHolidayBreak> theBreakList = new ArrayList<FiscalYearHolidayBreak>();
+        for(HolidayRow theHolidayRow : this.holidayRowTable.values()) {
+            if(theHolidayRow.isEnabled()) {
+                theBreakList.add(new FiscalYearHolidayBreak(
+                        getFiscalYear(),
+                        theHolidayRow.fmmHoliday,
+                        theHolidayRow.holidayDate.getSelectedDate(),
+                        theHolidayRow.breakFirstDay.getSelectedDate(),
+                        theHolidayRow.breakLastDay.getSelectedDate()
+                ));
+            }
+        }
         return theBreakList;
     }
     

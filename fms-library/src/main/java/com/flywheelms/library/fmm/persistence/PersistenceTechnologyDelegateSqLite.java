@@ -52,6 +52,7 @@ import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
 import com.flywheelms.library.fmm.database.sqlite.dao.CommunityMemberDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.CompletionNodeTrashDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.FiscalYearDaoSqLite;
+import com.flywheelms.library.fmm.database.sqlite.dao.FiscalYearHolidayBreakDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.FlywheelTeamDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.FmmConfigurationDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.FmmNodeDaoSqLite;
@@ -76,6 +77,7 @@ import com.flywheelms.library.fmm.helper.FmmOpenHelper;
 import com.flywheelms.library.fmm.meta_data.CommunityMemberMetaData;
 import com.flywheelms.library.fmm.meta_data.CommunityMemberOrganizationGovernanceAuthorityMetaData;
 import com.flywheelms.library.fmm.meta_data.CompletableNodeMetaData;
+import com.flywheelms.library.fmm.meta_data.FiscalYearHolidayBreakMetaData;
 import com.flywheelms.library.fmm.meta_data.FiscalYearMetaData;
 import com.flywheelms.library.fmm.meta_data.FlywheelWorkPackageCommitmentMetaData;
 import com.flywheelms.library.fmm.meta_data.FmmConfigurationMetaData;
@@ -109,6 +111,7 @@ import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
 import com.flywheelms.library.fmm.node.impl.governable.StrategicMilestone;
 import com.flywheelms.library.fmm.node.impl.governable.WorkPackage;
 import com.flywheelms.library.fmm.node.impl.governable.WorkTask;
+import com.flywheelms.library.fmm.node.impl.headline.FiscalYearHolidayBreak;
 import com.flywheelms.library.fmm.node.impl.link.OrganizationCommunityMember;
 import com.flywheelms.library.fmm.node.impl.nodefrag.CompletionNodeTrash;
 import com.flywheelms.library.fmm.node.impl.nodefrag.FragLock;
@@ -1318,10 +1321,46 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
     	return deleteRowFromSimpleIdTable(aFiscalYear.getNodeIdString(), FmmNodeDefinition.FISCAL_YEAR, bAtomicTransaction);
 	}
 
-	@Override
-	public boolean dbExistsFiscalYear(String aNodeIdString) {
-		return dbRetrieveFiscalYear(aNodeIdString) != null;
-	}
+    @Override
+    public boolean dbExistsFiscalYear(String aNodeIdString) {
+        return dbRetrieveFiscalYear(aNodeIdString) != null;
+    }
+
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////  Node - FISCAL YEAR HOLIDAY BREAK  /////////////////////////////////////////////////////////////////////////////////////
+
+    @Override
+    public ArrayList<FiscalYearHolidayBreak> dbGetFiscalYearHolidayBreakList(FiscalYear aFiscalYear) {
+        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.FISCAL_YEAR_HOLIDAY_BREAK.getName() +
+                " WHERE " + FiscalYearHolidayBreakMetaData.column_FISCAL_YEAR_ID + " = '" + aFiscalYear.getNodeIdString() + "'";
+        theRawQuery += " ORDER BY " + FiscalYearHolidayBreakMetaData.column_HOLIDAY_DATE + " ASC";
+        Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
+        return FiscalYearHolidayBreakDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
+    }
+
+    @Override
+    public FiscalYearHolidayBreak dbRetrieveFiscalYearHolidayBreak(String aNodeIdString) {
+        return (FiscalYearHolidayBreak) retrieveFmmNodeFromSimpleIdTable(aNodeIdString, FiscalYearHolidayBreakDaoSqLite.getInstance());
+    }
+
+    @Override
+    public boolean dbInsertFiscalYearHolidayBreak(FiscalYearHolidayBreak aFiscalYearHolidayBreak, boolean bAtomicTransaction) {
+        return insertSimpleIdTable(
+                aFiscalYearHolidayBreak, FiscalYearHolidayBreakDaoSqLite.getInstance(), bAtomicTransaction);
+    }
+
+    @Override
+    public boolean dbUpdateFiscalYearHolidayBreak(FiscalYearHolidayBreak aFiscalYearHolidayBreak, boolean bAtomicTransaction) {
+        return updateSimpleIdTable(
+                aFiscalYearHolidayBreak, FiscalYearHolidayBreakDaoSqLite.getInstance(), bAtomicTransaction);
+    }
+
+    @Override
+    public boolean dbDeleteFiscalYearHolidayBreak(FiscalYearHolidayBreak aFiscalYearHolidayBreak, boolean bAtomicTransaction) {
+        return deleteRowFromSimpleIdTable(aFiscalYearHolidayBreak.getNodeIdString(), FmmNodeDefinition.FISCAL_YEAR_HOLIDAY_BREAK, bAtomicTransaction);
+    }
+
 
 	////  Node - FLYWHEEL TEAM  ////////////////////////////////////////////////////////////////////////////////
 

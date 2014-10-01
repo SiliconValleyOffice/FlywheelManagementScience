@@ -81,6 +81,12 @@ public class NodeId {
 		this.nodeTypeName = getNodeTypeNameForClass(aClass);
 		this.nodeIdString = NodeId.generateNodeIdFromParent(this.nodeTypeCode, aParentNodeIdString);
 	}
+
+    public NodeId(FmmNodeDefinition anFmmNodeDefinition) {
+        this.nodeTypeCode = anFmmNodeDefinition.getNodeTypeCode();
+        this.nodeTypeName = anFmmNodeDefinition.getNodeTypeName();
+        this.nodeIdString = NodeId.generateNodeId(this.nodeTypeCode);
+    }
 	
 	// only for Node Fragments
 	public NodeId(String aNodeFragTypeCode, String aParentNodeIdString) {

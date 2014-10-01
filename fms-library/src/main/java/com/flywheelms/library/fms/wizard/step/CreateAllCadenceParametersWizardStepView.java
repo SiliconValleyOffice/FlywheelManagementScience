@@ -121,7 +121,7 @@ public class CreateAllCadenceParametersWizardStepView extends GcgWizardStepView 
         return Integer.decode(this.cadenceDurationSpinner.getSelectedItem().getDataText());
     }
 
-    public String getGregorianDayOfWeek() {
+    public String getWorkPlanFirstDayOfWeek() {
         return this.workPlanFirstDayOfWeekWidgetSpinner.getGregorianDayOfWeek();
     }
 
