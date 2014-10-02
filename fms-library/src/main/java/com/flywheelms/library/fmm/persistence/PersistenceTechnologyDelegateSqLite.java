@@ -53,6 +53,7 @@ import com.flywheelms.library.fmm.database.sqlite.dao.CommunityMemberDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.CompletionNodeTrashDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.FiscalYearDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.FiscalYearHolidayBreakDaoSqLite;
+import com.flywheelms.library.fmm.database.sqlite.dao.FlywheelCadenceDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.FlywheelTeamDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.FmmConfigurationDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.FmmNodeDaoSqLite;
@@ -72,6 +73,7 @@ import com.flywheelms.library.fmm.database.sqlite.dao.ProjectDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.StrategicCommitmentDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.StrategicMilestoneDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.WorkPackageDaoSqLite;
+import com.flywheelms.library.fmm.database.sqlite.dao.WorkPlanDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.WorkTaskDaoSqLite;
 import com.flywheelms.library.fmm.helper.FmmOpenHelper;
 import com.flywheelms.library.fmm.meta_data.CommunityMemberMetaData;
@@ -79,6 +81,7 @@ import com.flywheelms.library.fmm.meta_data.CommunityMemberOrganizationGovernanc
 import com.flywheelms.library.fmm.meta_data.CompletableNodeMetaData;
 import com.flywheelms.library.fmm.meta_data.FiscalYearHolidayBreakMetaData;
 import com.flywheelms.library.fmm.meta_data.FiscalYearMetaData;
+import com.flywheelms.library.fmm.meta_data.FlywheelCadenceMetaData;
 import com.flywheelms.library.fmm.meta_data.FlywheelWorkPackageCommitmentMetaData;
 import com.flywheelms.library.fmm.meta_data.FmmConfigurationMetaData;
 import com.flywheelms.library.fmm.meta_data.HeadlineNodeMetaData;
@@ -94,6 +97,7 @@ import com.flywheelms.library.fmm.meta_data.SequencedLinkNodeMetaData;
 import com.flywheelms.library.fmm.meta_data.StrategicCommitmentMetaData;
 import com.flywheelms.library.fmm.meta_data.StrategicMilestoneMetaData;
 import com.flywheelms.library.fmm.meta_data.WorkPackageMetaData;
+import com.flywheelms.library.fmm.meta_data.WorkPlanMetaData;
 import com.flywheelms.library.fmm.meta_data.WorkTaskMetaData;
 import com.flywheelms.library.fmm.node.impl.commitment.StrategicCommitment;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
@@ -110,6 +114,7 @@ import com.flywheelms.library.fmm.node.impl.governable.Project;
 import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
 import com.flywheelms.library.fmm.node.impl.governable.StrategicMilestone;
 import com.flywheelms.library.fmm.node.impl.governable.WorkPackage;
+import com.flywheelms.library.fmm.node.impl.governable.WorkPlan;
 import com.flywheelms.library.fmm.node.impl.governable.WorkTask;
 import com.flywheelms.library.fmm.node.impl.headline.FiscalYearHolidayBreak;
 import com.flywheelms.library.fmm.node.impl.link.OrganizationCommunityMember;
@@ -431,7 +436,18 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
     	}
     	return theBoolean;
 	}
-	
+
+	private boolean deleteAllRowFromSimpleIdTable(String aWhereClause, FmmNodeDefinition anFmmNodeDefinition, boolean bAtomicTransaction) {
+		if(bAtomicTransaction) {
+			startTransaction();
+		}
+    	boolean theBoolean = getSqLiteDatabase().delete(anFmmNodeDefinition.getClassName(), aWhereClause, null) > 0;
+    	if(bAtomicTransaction) {
+    		endTransaction(theBoolean);
+    	}
+    	return theBoolean;
+	}
+
 	private boolean deleteRows(String aColumnValue, String aColumnName, FmmNodeDefinition anFmmNodeDefinition, boolean bAtomicTransaction) {
 		if(bAtomicTransaction) {
 			startTransaction();
@@ -1359,6 +1375,117 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
     @Override
     public boolean dbDeleteFiscalYearHolidayBreak(FiscalYearHolidayBreak aFiscalYearHolidayBreak, boolean bAtomicTransaction) {
         return deleteRowFromSimpleIdTable(aFiscalYearHolidayBreak.getNodeIdString(), FmmNodeDefinition.FISCAL_YEAR_HOLIDAY_BREAK, bAtomicTransaction);
+    }
+
+    @Override
+    public boolean dbDeleteAllFiscalYearHolidayBreaks(FiscalYear aFiscalYear, boolean bAtomicTransaction) {
+        return deleteAllRowFromSimpleIdTable(
+                FiscalYearHolidayBreakMetaData.column_FISCAL_YEAR_ID + " = '" + aFiscalYear.getNodeIdString() + "'",
+                FmmNodeDefinition.FISCAL_YEAR_HOLIDAY_BREAK, bAtomicTransaction);
+    }
+
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////  Node - FLYWHEEL CADENCE  ////////////////////////////////////////////////////////////////////////////////
+
+    @Override
+    public ArrayList<FlywheelCadence> dbGetFlywheelCadenceList(FiscalYear aFiscalYear) {
+        return dbGetFlywheelCadenceListForFiscalYear(aFiscalYear.getNodeIdString());
+    }
+
+    @Override
+    public ArrayList<FlywheelCadence> dbGetFlywheelCadenceListForFiscalYear(String aFiscalYearId) {
+        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.FLYWHEEL_CADENCE.getName() +
+                " WHERE " + FlywheelCadenceMetaData.column_FISCAL_YEAR_ID + " = '" + aFiscalYearId + "'";
+        theRawQuery += " ORDER BY " + FlywheelCadenceMetaData.column_SCHEDULED_END_DATE + " ASC";
+        Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
+        return FlywheelCadenceDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
+    }
+
+    @Override
+    public FlywheelCadence dbRetrieveFlywheelCadence(String aNodeIdString) {
+        return (FlywheelCadence) retrieveFmmNodeFromSimpleIdTable(aNodeIdString, FlywheelCadenceDaoSqLite.getInstance());
+    }
+
+    @Override
+    public boolean dbInsertFlywheelCadence(FlywheelCadence aFlywheelCadence, boolean bAtomicTransaction) {
+        return insertSimpleIdTable(
+                aFlywheelCadence, FlywheelCadenceDaoSqLite.getInstance(), bAtomicTransaction);
+    }
+
+    @Override
+    public boolean dbUpdateFlywheelCadence(FlywheelCadence aFlywheelCadence, boolean bAtomicTransaction) {
+        return updateSimpleIdTable(
+                aFlywheelCadence, FlywheelCadenceDaoSqLite.getInstance(), bAtomicTransaction);
+    }
+
+    @Override
+    public boolean dbDeleteFlywheelCadence(FlywheelCadence aFlywheelCadence, boolean bAtomicTransaction) {
+        return deleteRowFromSimpleIdTable(aFlywheelCadence.getNodeIdString(), FmmNodeDefinition.FLYWHEEL_CADENCE, bAtomicTransaction);
+    }
+
+    @Override
+    public boolean dbDeleteAllFlywheelCadences(FiscalYear aFiscalYear, boolean bAtomicTransaction) {
+        return deleteAllRowFromSimpleIdTable(
+                FlywheelCadenceMetaData.column_FISCAL_YEAR_ID + " = '" + aFiscalYear.getNodeIdString() + "'",
+                FmmNodeDefinition.FLYWHEEL_CADENCE, bAtomicTransaction);
+    }
+
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////  Node - WORK PLAN  ///////////////////////////////////////////////////////////////////////////////////////
+
+    @Override
+    public ArrayList<WorkPlan> dbGetWorkPlanList(FlywheelCadence aFlywheelCadence) {
+        return dbGetWorkPlanListForFlywheelCadence(aFlywheelCadence.getNodeIdString());
+    }
+
+    @Override
+    public ArrayList<WorkPlan> dbGetWorkPlanListForFlywheelCadence(String aFlywheelCadenceId) {
+        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.WORK_PLAN.getName() +
+                " WHERE " + WorkPlanMetaData.column_FLYWHEEL_CADENCE_ID + " = '" + aFlywheelCadenceId + "'";
+        theRawQuery += " ORDER BY " + WorkPlanMetaData.column_SCHEDULED_END_DATE + " ASC";
+        Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
+        return WorkPlanDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
+    }
+
+    @Override
+    public WorkPlan dbRetrieveWorkPlan(String aNodeIdString) {
+        return (WorkPlan) retrieveFmmNodeFromSimpleIdTable(aNodeIdString, WorkPlanDaoSqLite.getInstance());
+    }
+
+    @Override
+    public boolean dbInsertWorkPlan(WorkPlan aWorkPlan, boolean bAtomicTransaction) {
+        return insertSimpleIdTable(
+                aWorkPlan, WorkPlanDaoSqLite.getInstance(), bAtomicTransaction);
+    }
+
+    @Override
+    public boolean dbUpdateWorkPlan(WorkPlan aWorkPlan, boolean bAtomicTransaction) {
+        return updateSimpleIdTable(
+                aWorkPlan, WorkPlanDaoSqLite.getInstance(), bAtomicTransaction);
+    }
+
+    @Override
+    public boolean dbDeleteWorkPlan(WorkPlan aWorkPlan, boolean bAtomicTransaction) {
+        return deleteRowFromSimpleIdTable(aWorkPlan.getNodeIdString(), FmmNodeDefinition.WORK_PLAN, bAtomicTransaction);
+    }
+
+    @Override
+    public boolean dbDeleteAllWorkPlans(FlywheelCadence aFlywheelCadence, boolean bAtomicTransaction) {
+        return deleteAllRowFromSimpleIdTable(
+                WorkPlanMetaData.column_FLYWHEEL_CADENCE_ID + " = '" + aFlywheelCadence.getNodeIdString() + "'",
+                FmmNodeDefinition.WORK_PLAN, bAtomicTransaction);
+    }
+
+    @Override
+    public boolean dbDeleteAllWorkPlans(FiscalYear aFiscalYear, boolean bAtomicTransaction) {
+        return deleteAllRowFromSimpleIdTable(
+                WorkPlanMetaData.column_FLYWHEEL_CADENCE_ID + " IN (" +
+                    " SELECT " + IdNodeMetaData.column_ID + " FROM " + FmmNodeDefinition.FLYWHEEL_CADENCE.getClassName() +
+                    " WHERE " + FlywheelCadenceMetaData.column_FISCAL_YEAR_ID + " = '" + aFiscalYear.getNodeIdString() + "'" +
+                ")",
+                FmmNodeDefinition.WORK_PLAN, bAtomicTransaction);
     }
 
 

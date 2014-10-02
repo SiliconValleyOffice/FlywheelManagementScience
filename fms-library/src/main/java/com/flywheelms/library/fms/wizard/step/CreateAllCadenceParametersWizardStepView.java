@@ -59,6 +59,8 @@ import com.flywheelms.library.fms.widget.spinner.WorkPlanFirstDayOfWeekWidgetSpi
 import com.flywheelms.library.fms.widget.text_view.FiscalYearWidgetTextView;
 import com.flywheelms.library.fms.wizard.CreateAllCadenceForYearWizardStepFlipper;
 
+import java.util.Calendar;
+
 public class CreateAllCadenceParametersWizardStepView extends GcgWizardStepView {
 
     protected FiscalYearWidgetTextView fiscalYearWidgetTextView;
@@ -122,7 +124,34 @@ public class CreateAllCadenceParametersWizardStepView extends GcgWizardStepView 
     }
 
     public String getWorkPlanFirstDayOfWeek() {
-        return this.workPlanFirstDayOfWeekWidgetSpinner.getGregorianDayOfWeek();
+        return this.workPlanFirstDayOfWeekWidgetSpinner.getDayOfWeekAbreviation();
     }
 
+    public int getWorkPlanFirstDayOfWeekAsCalendarConstant() {
+        int theCalendarConstant = 0;
+        switch (this.workPlanFirstDayOfWeekWidgetSpinner.getSelectedItem().getDataText()) {
+            case "Sunday":
+                theCalendarConstant = Calendar.SUNDAY;
+                break;
+            case "Monday":
+                theCalendarConstant = Calendar.MONDAY;
+                break;
+            case "Tuesday":
+                theCalendarConstant = Calendar.TUESDAY;
+                break;
+            case "Wednesday":
+                theCalendarConstant = Calendar.WEDNESDAY;
+                break;
+            case "Thursday":
+                theCalendarConstant = Calendar.THURSDAY;
+                break;
+            case "Friday":
+                theCalendarConstant = Calendar.FRIDAY;
+                break;
+            case "Saturday":
+                theCalendarConstant = Calendar.SATURDAY;
+                break;
+        }
+        return theCalendarConstant;
+    }
 }

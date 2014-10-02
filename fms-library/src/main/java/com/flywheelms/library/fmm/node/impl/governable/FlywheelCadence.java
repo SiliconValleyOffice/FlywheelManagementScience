@@ -44,73 +44,89 @@
 package com.flywheelms.library.fmm.node.impl.governable;
 
 import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
+import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.enumerator.FmmHoliday;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.completable.FmmCompletableNodeImpl;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class FlywheelCadence extends FmmCompletableNodeImpl {
 
 	private static final long serialVersionUID = -7058798359923528163L;
 	private String fiscalYearId;
-	private Date scheduledStartDate;
-	private Date scheduledEndDate;
+    private FiscalYear fiscalYear;
     private FmmHoliday fmmHoliday;
+    private ArrayList<WorkPlan> workPlanList;
+    private Date scheduledEndDate;
 
-	public FlywheelCadence(NodeId aNodeId, String aFiscalYearId, Date aScheduledStartDate, Date aScheduledEndDate) {
+	public FlywheelCadence(NodeId aNodeId, String aFiscalYearId) {
 		super(aNodeId);
-        this.fiscalYearId = aFiscalYearId;
-        this.scheduledStartDate = aScheduledStartDate;
-        this.scheduledEndDate = aScheduledEndDate;
+        setFiscalYearId(aFiscalYearId);
 	}
 
     public FlywheelCadence(String aFiscalYearId, Date aScheduledStartDate, Date aScheduledEndDate) {
-        this(new NodeId(FmmNodeDefinition.FLYWHEEL_CADENCE.getNodeTypeCode()), aFiscalYearId, aScheduledStartDate, aScheduledEndDate);
+        this(new NodeId(FmmNodeDefinition.FLYWHEEL_CADENCE), aFiscalYearId);
     }
 
-    public FlywheelCadence(String aNodeIdString, String aFiscalYearId, long aScheduledStartDate, long aScheduledEndDate) {
+    public FlywheelCadence(String aNodeIdString, String aFiscalYearId) {
         super(FlywheelCadence.class, aNodeIdString);
         this.fiscalYearId = aFiscalYearId;
-        setScheduledStartDate(aScheduledStartDate);
-        setScheduledEndDate(aScheduledEndDate);
     }
 
-	public String getFiscalYearId() {
-		return this.fiscalYearId;
-	}
+    public FlywheelCadence(FiscalYear aFiscalYear) {
+        super(new NodeId(FmmNodeDefinition.FLYWHEEL_CADENCE));
+        setFiscalYear(aFiscalYear);
+    }
 
-	public void setFiscalYearId(String fiscalYearId) {
-		this.fiscalYearId = fiscalYearId;
-	}
+    public String getFiscalYearId() {
+        return this.fiscalYearId;
+    }
+
+    public FiscalYear getFiscalYear() {
+        if(this.fiscalYear == null && this.fiscalYearId != null) {
+            this.fiscalYear =
+                    FmmDatabaseMediator.getActiveMediator().getFiscalYear(this.fiscalYearId);
+        }
+        return this.fiscalYear;
+    }
+
+    public void setFiscalYearId(String aNodeIdString) {
+        this.fiscalYearId = aNodeIdString;
+        if(this.fiscalYear != null && !this.fiscalYear.getNodeIdString().equals(aNodeIdString)) {
+            this.fiscalYear = null;
+        }
+    }
+
+    public void setFiscalYear(FiscalYear aFiscalYear) {
+        this.fiscalYear = aFiscalYear;
+        this.fiscalYearId = aFiscalYear.getNodeId().getNodeIdString();
+    }
 
 	public Date getScheduledStartDate() {
-		return this.scheduledStartDate;
+        Date theStartDate = null;
+        if(this.workPlanList != null && this.workPlanList.size() > 0) {
+            return this.workPlanList.get(0).getScheduledStartDate();
+        }
+		return theStartDate;
 	}
 
-    public Long getScheduledStartDateFormattedUtcLong() {
-        return GcgDateHelper.getFormattedUtcLong(this.scheduledStartDate);
+    public Date getScheduledEndDate() {
+        return this.scheduledEndDate;
     }
-
-	public void setScheduledStartDate(Date scheduledStartDate) {
-		this.scheduledStartDate = scheduledStartDate;
-	}
-
-    public void setScheduledStartDate(Long aLongDate) {
-        this.scheduledStartDate = GcgDateHelper.getDateFromFormattedUtcLong(aLongDate);
-    }
-
-	public Date getScheduledEndDate() {
-		return this.scheduledEndDate;
-	}
 
     public Long getScheduledEndDateFormattedUtcLong() {
         return GcgDateHelper.getFormattedUtcLong(this.scheduledEndDate);
     }
 
-	public void setScheduledEndDate(Date scheduledEndDate) {
-		this.scheduledEndDate = scheduledEndDate;
+	public Date getScheduledEndDateFromList() {
+        Date theEndDate = null;
+        if(this.workPlanList != null && this.workPlanList.size() > 0) {
+            return this.workPlanList.get(this.workPlanList.size() - 1).getScheduledEndDate();
+        }
+        return theEndDate;
 	}
 
     public void setScheduledEndDate(Long aLongDate) {
@@ -135,5 +151,18 @@ public class FlywheelCadence extends FmmCompletableNodeImpl {
 
     public void setHolidaySlack(FmmHoliday aHoliday) {
         this.fmmHoliday = aHoliday;
+    }
+
+    public ArrayList<WorkPlan> getWorkPlanList() {
+        return this.workPlanList;
+    }
+
+    public void setWorkPlanList(ArrayList<WorkPlan> workPlanList) {
+        this.workPlanList = workPlanList;
+        this.scheduledEndDate = getScheduledEndDateFromList();
+    }
+
+    public String getSecondaryHeadline() {
+        return "ending " + GcgDateHelper.getGuiDateString5(getScheduledEndDate());
     }
 }

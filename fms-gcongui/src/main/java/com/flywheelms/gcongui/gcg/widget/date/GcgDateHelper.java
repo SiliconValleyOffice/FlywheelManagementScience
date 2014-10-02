@@ -284,4 +284,15 @@ public class GcgDateHelper {
         theCalendar.add(Calendar.DATE, anAdjustment);
         return theCalendar.getTime();
     }
+
+    public static int getDayOfMonth(Date aDate) {
+        return Integer.decode(new SimpleDateFormat("dd", Locale.US).format(aDate));
+    }
+
+    public static GregorianCalendar cloneCalendar(GregorianCalendar aGregorianCalendar) {
+        return new GregorianCalendar(
+                aGregorianCalendar.get(Calendar.YEAR),
+                aGregorianCalendar.get(Calendar.MONTH),
+                aGregorianCalendar.get(Calendar.DAY_OF_MONTH) );
+    }
 }

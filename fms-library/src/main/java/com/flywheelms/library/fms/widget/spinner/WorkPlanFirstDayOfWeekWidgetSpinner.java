@@ -55,6 +55,8 @@ import java.util.ArrayList;
 
 public class WorkPlanFirstDayOfWeekWidgetSpinner extends GcgWidgetSpinner {
 
+    private int dayOfWeekCalendarConstant;
+
     public WorkPlanFirstDayOfWeekWidgetSpinner(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
@@ -78,8 +80,11 @@ public class WorkPlanFirstDayOfWeekWidgetSpinner extends GcgWidgetSpinner {
         this.spinner.setSelection(0);
     }
 
-    public String getGregorianDayOfWeek() {
+    public String getDayOfWeekAbreviation() {
         return getSelectedItem().getDataText().substring(0, 2);
     }
 
+    public int getDayOfWeekCalendarConstant() {
+        return dayOfWeekCalendarConstant;
+    }
 }

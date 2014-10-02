@@ -58,7 +58,7 @@ import java.util.Date;
 
 public class FiscalYearHolidayBreak extends FmmHeadlineNodeImpl {
 
-    private String fiscalYearNodeIdString;
+    private String fiscalYearId;
     private FiscalYear fiscalYear;
     private FmmHoliday fmmHoliday;
     private Date holidayDate;
@@ -67,7 +67,7 @@ public class FiscalYearHolidayBreak extends FmmHeadlineNodeImpl {
 
     public FiscalYearHolidayBreak(NodeId aNodeId, FiscalYear aFiscalYear, Date aHolidayDate, Date aStartDate, Date anEndDate) {
         super(aNodeId);
-        this.fiscalYearNodeIdString = aFiscalYear.getNodeIdString();
+        this.fiscalYearId = aFiscalYear.getNodeIdString();
         this.fiscalYear = aFiscalYear;
         this.holidayDate = aHolidayDate;
         this.firstDay = aStartDate;
@@ -78,7 +78,7 @@ public class FiscalYearHolidayBreak extends FmmHeadlineNodeImpl {
         super(FiscalYearHolidayBreak.class, aJsonObject);
         try {
             validateSerializationFormatVersion(aJsonObject.getString(JsonHelper.key__SERIALIZATION_FORMAT_VERSION));
-            setFiscalYearNodeIdString(aJsonObject.getString(FiscalYearHolidayBreakMetaData.column_FISCAL_YEAR_ID));
+            setFiscalYearId(aJsonObject.getString(FiscalYearHolidayBreakMetaData.column_FISCAL_YEAR_ID));
             setHolidayDate(aJsonObject.getLong(FiscalYearHolidayBreakMetaData.column_HOLIDAY_DATE));
             setStartDate(aJsonObject.getLong(FiscalYearHolidayBreakMetaData.column_BREAK_START_DATE));
             setEndDate(aJsonObject.getLong(FiscalYearHolidayBreakMetaData.column_BREAK_END_DATE));
@@ -92,7 +92,7 @@ public class FiscalYearHolidayBreak extends FmmHeadlineNodeImpl {
 
     public FiscalYearHolidayBreak(String aNodeIdString, String aFiscalYearId, long aHolidayDateLong, long aBreakStartDateLong, long aBreakEndDateLong) {
         super(new NodeId(FiscalYearHolidayBreak.class, aNodeIdString));
-        this.fiscalYearNodeIdString = aFiscalYearId;
+        this.fiscalYearId = aFiscalYearId;
         setHolidayDate(aHolidayDateLong);
         setStartDate(aBreakStartDateLong);
         setEndDate(aBreakEndDateLong);
@@ -112,7 +112,7 @@ public class FiscalYearHolidayBreak extends FmmHeadlineNodeImpl {
         JSONObject theJsonObject = super.getJsonObject();
         try {
             theJsonObject.put(JsonHelper.key__SERIALIZATION_FORMAT_VERSION, SERIALIZATION_FORMAT_VERSION);
-            theJsonObject.put(FiscalYearHolidayBreakMetaData.column_FISCAL_YEAR_ID, getFiscalYearNodeIdString());
+            theJsonObject.put(FiscalYearHolidayBreakMetaData.column_FISCAL_YEAR_ID, getFiscalYearId());
             theJsonObject.put(FiscalYearHolidayBreakMetaData.column_HOLIDAY_DATE, getHolidayDateFormattedUtcLong());
             theJsonObject.put(FiscalYearHolidayBreakMetaData.column_BREAK_START_DATE, getStartDateFormattedUtcLong());
             theJsonObject.put(FiscalYearHolidayBreakMetaData.column_BREAK_END_DATE, getEndDateFormattedUtcLong());
@@ -122,20 +122,20 @@ public class FiscalYearHolidayBreak extends FmmHeadlineNodeImpl {
         return theJsonObject;
     }
 
-    public String getFiscalYearNodeIdString() {
-        return this.fiscalYearNodeIdString;
+    public String getFiscalYearId() {
+        return this.fiscalYearId;
     }
 
     public FiscalYear getFiscalYear() {
-        if(this.fiscalYear == null && this.fiscalYearNodeIdString != null) {
+        if(this.fiscalYear == null && this.fiscalYearId != null) {
             this.fiscalYear =
-                    FmmDatabaseMediator.getActiveMediator().getFiscalYear(this.fiscalYearNodeIdString);
+                    FmmDatabaseMediator.getActiveMediator().getFiscalYear(this.fiscalYearId);
         }
         return this.fiscalYear;
     }
 
-    public void setFiscalYearNodeIdString(String aNodeIdString) {
-        this.fiscalYearNodeIdString = aNodeIdString;
+    public void setFiscalYearId(String aNodeIdString) {
+        this.fiscalYearId = aNodeIdString;
         if(this.fiscalYear != null && !this.fiscalYear.getNodeIdString().equals(aNodeIdString)) {
             this.fiscalYear = null;
         }
@@ -143,7 +143,7 @@ public class FiscalYearHolidayBreak extends FmmHeadlineNodeImpl {
 
     public void setFiscalYear(FiscalYear aFiscalYear) {
         this.fiscalYear = aFiscalYear;
-        this.fiscalYearNodeIdString = aFiscalYear.getNodeId().getNodeIdString();
+        this.fiscalYearId = aFiscalYear.getNodeId().getNodeIdString();
     }
 
     public FmmHoliday getFmmHoliday() {

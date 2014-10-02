@@ -59,6 +59,7 @@ import com.flywheelms.library.fmm.node.impl.governable.Project;
 import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
 import com.flywheelms.library.fmm.node.impl.governable.StrategicMilestone;
 import com.flywheelms.library.fmm.node.impl.governable.WorkPackage;
+import com.flywheelms.library.fmm.node.impl.governable.WorkPlan;
 import com.flywheelms.library.fmm.node.impl.governable.WorkTask;
 import com.flywheelms.library.fmm.node.impl.headline.FiscalYearHolidayBreak;
 import com.flywheelms.library.fmm.node.impl.link.OrganizationCommunityMember;
@@ -202,8 +203,9 @@ public abstract class PersistenceTechnologyDelegate {
 	public abstract boolean dbInsertCompletionNodeTrash(CompletionNodeTrash aCompletionNodeTrash, boolean bAtomicTransaction);
 
 	public abstract boolean dbDeleteCompletionNodeTrash(CompletionNodeTrash aCompletionNodeTrash, boolean bAtomicTransaction);
-	
 
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//////  Node - PORTFOLIO  ////////////////////////////////////////////////////////////////////////////////
 
     public abstract ArrayList<Portfolio> dbListPortfolio(FmsOrganization anOrganization);
@@ -229,8 +231,9 @@ public abstract class PersistenceTechnologyDelegate {
     public abstract boolean dbDeletePortfolio(Portfolio aPortfolio, boolean bAtomicTransaction);
 
     public abstract Portfolio dbRetrievePortfolio(String aNodeIdString);
-    
-    
+
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//////  Node - FISCAL YEAR  ////////////////////////////////////////////////////////////////////////////////
 
 	public abstract ArrayList<FiscalYear> dbListFiscalYear(FmsOrganization anOrganization, FiscalYear aFiscalYearException);
@@ -262,6 +265,7 @@ public abstract class PersistenceTechnologyDelegate {
 	public abstract boolean dbDeleteFiscalYear(FiscalYear aFiscalYear, boolean bAtomicTransaction);
 
 
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////  Node - FISCAL YEAR HOLIDAY BREAK  ////////////////////////////////////////////////////////////////////////////////
 
     public abstract ArrayList<FiscalYearHolidayBreak> dbGetFiscalYearHolidayBreakList(FiscalYear aFiscalYear);
@@ -273,6 +277,46 @@ public abstract class PersistenceTechnologyDelegate {
     public abstract boolean dbUpdateFiscalYearHolidayBreak(FiscalYearHolidayBreak aFiscalYearHolidayBreak, boolean bAtomicTransaction);
 
     public abstract boolean dbDeleteFiscalYearHolidayBreak(FiscalYearHolidayBreak aFiscalYearHolidayBreak, boolean bAtomicTransaction);
+
+    public abstract boolean dbDeleteAllFiscalYearHolidayBreaks(FiscalYear aFiscalYear, boolean bAtomicTransaction);
+
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////  Node - FLYWHEEL CADENCE  ////////////////////////////////////////////////////////////////////////////
+
+    public abstract ArrayList<FlywheelCadence> dbGetFlywheelCadenceList(FiscalYear aFiscalYear);
+
+    public abstract ArrayList<FlywheelCadence> dbGetFlywheelCadenceListForFiscalYear(String aFiscalYearId);
+
+    public abstract FlywheelCadence dbRetrieveFlywheelCadence(String aNodeIdString);
+
+    public abstract boolean dbInsertFlywheelCadence(FlywheelCadence aFlywheelCadence, boolean bAtomicTransaction);
+
+    public abstract boolean dbUpdateFlywheelCadence(FlywheelCadence aFlywheelCadence, boolean bAtomicTransaction);
+
+    public abstract boolean dbDeleteFlywheelCadence(FlywheelCadence aFlywheelCadence, boolean bAtomicTransaction);
+
+    public abstract boolean dbDeleteAllFlywheelCadences(FiscalYear aFiscalYear, boolean bAtomicTransaction);
+
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////  Node - WORK PLAN  ///////////////////////////////////////////////////////////////////////////////////
+
+    public abstract ArrayList<WorkPlan> dbGetWorkPlanList(FlywheelCadence aFlywheelCadence);
+
+    public abstract ArrayList<WorkPlan> dbGetWorkPlanListForFlywheelCadence(String aFlywheelCadenceId);
+
+    public abstract WorkPlan dbRetrieveWorkPlan(String aNodeIdString);
+
+    public abstract boolean dbInsertWorkPlan(WorkPlan aWorkPlan, boolean bAtomicTransaction);
+
+    public abstract boolean dbUpdateWorkPlan(WorkPlan aWorkPlan, boolean bAtomicTransaction);
+
+    public abstract boolean dbDeleteWorkPlan(WorkPlan aWorkPlan, boolean bAtomicTransaction);
+
+    public abstract boolean dbDeleteAllWorkPlans(FlywheelCadence aFlywheelCadence, boolean bAtomicTransaction);
+
+    public abstract boolean dbDeleteAllWorkPlans(FiscalYear aFiscalYear, boolean bAtomicTransaction);
 
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////

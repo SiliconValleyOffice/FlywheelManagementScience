@@ -43,20 +43,98 @@
 
 package com.flywheelms.library.fmm.node.impl.governable;
 
+import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
+import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.completable.FmmCompletableNodeImpl;
+import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
+
+import java.util.Date;
 
 public class WorkPlan extends FmmCompletableNodeImpl {
 
 	private static final long serialVersionUID = -5268115673220940748L;
+    private String flywheelCadenceId;
+    private FlywheelCadence flywheelCadence;
+    private Date scheduledStartDate;
+    private Date scheduledEndDate;
 
-	public WorkPlan(NodeId aNodeId) {
+    public WorkPlan(NodeId aNodeId) {
 		super(aNodeId);
 		// TODO Auto-generated constructor stub
 	}
+
+    public WorkPlan(FlywheelCadence aFlywheelCadence, Date aStartDate, Date anEndDate) {
+        super(new NodeId(FmmNodeDefinition.WORK_PLAN));
+        setScheduledStartDate(aStartDate);
+        setScheduledEndDate(anEndDate);
+    }
+
+    public WorkPlan(String anExistingNodeId) {
+        super(new NodeId(FmmNodeDefinition.WORK_PLAN, anExistingNodeId, true));
+    }
+
+    public String getFlywheelCadenceId() {
+        return this.flywheelCadenceId;
+    }
+
+    public FlywheelCadence getFlywheelCadence() {
+        if(this.flywheelCadence == null && this.flywheelCadenceId != null) {
+            this.flywheelCadence =
+                    FmmDatabaseMediator.getActiveMediator().retrieveFlywheelCadence(this.flywheelCadenceId);
+        }
+        return this.flywheelCadence;
+    }
+
+    public void setFlywheelCadenceId(String aNodeIdString) {
+        this.flywheelCadenceId = aNodeIdString;
+        if(this.flywheelCadence != null && !this.flywheelCadence.getNodeIdString().equals(aNodeIdString)) {
+            this.flywheelCadence = null;
+        }
+    }
+
+    public void setFlywheelCadence(FlywheelCadence aFlywheelCadence) {
+        this.flywheelCadence = aFlywheelCadence;
+        this.flywheelCadenceId = aFlywheelCadence.getNodeId().getNodeIdString();
+    }
 
 	public boolean isWorkTaskMoveTarget() {
 		return true;
 	}
 
+    public Date getScheduledStartDate() {
+        return this.scheduledStartDate;
+    }
+
+    public Long getScheduledStartDateFormattedUtcLong() {
+        return GcgDateHelper.getFormattedUtcLong(this.scheduledStartDate);
+    }
+
+    public void setScheduledStartDate(Date aStartDate) {
+        this.scheduledStartDate = aStartDate;
+    }
+
+    public void setScheduledStartDate(Long aLongDate) {
+        this.scheduledStartDate = GcgDateHelper.getDateFromFormattedUtcLong(aLongDate);
+    }
+
+    public Date getScheduledEndDate() {
+        return this.scheduledEndDate;
+    }
+
+    public Long getScheduledEndDateFormattedUtcLong() {
+        return GcgDateHelper.getFormattedUtcLong(this.scheduledEndDate);
+    }
+
+    public void setScheduledEndDate(Date anEndDate) {
+        this.scheduledEndDate = anEndDate;
+    }
+
+    public void setScheduledEndDate(Long aLongDate) {
+        this.scheduledEndDate = GcgDateHelper.getDateFromFormattedUtcLong(aLongDate);
+    }
+
+    public String getSecondaryHeadline() {
+        return "ending " + GcgDateHelper.getGuiDateString5(getScheduledEndDate());
+    }
 }

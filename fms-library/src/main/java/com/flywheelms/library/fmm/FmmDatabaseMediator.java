@@ -1254,6 +1254,8 @@ public class FmmDatabaseMediator {
 			startTransaction();
 		}
 		deleteCompletableNode(aFiscalYear);
+        deleteAllFiscalYearHolidayBreaks(aFiscalYear, bAtomicTransaction);
+        deleteAllFlywheelCadences(aFiscalYear, bAtomicTransaction);
 		boolean isSuccess = this.persistenceTechnologyDelegate.dbDeleteFiscalYear(aFiscalYear, false);
 		if(bAtomicTransaction) {
 			endTransaction(isSuccess);
@@ -1277,6 +1279,104 @@ public class FmmDatabaseMediator {
 	public boolean existsFiscalYear(String aNodeIdString) {
 		return getFiscalYear(aNodeIdString) != null;
 	}
+
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////  Node - FLYWHEEL CADENCE  ///////////////////////////////////////////////////////////////////
+
+    public ArrayList<FlywheelCadence> getFlywheelCadenceList(FiscalYear aFiscalYear) {
+        return this.persistenceTechnologyDelegate.dbGetFlywheelCadenceList(aFiscalYear);
+    }
+
+    public ArrayList<FlywheelCadence> getFlywheelCadenceListForFiscalYear(String aFiscalYearId) {
+        return this.persistenceTechnologyDelegate.dbGetFlywheelCadenceListForFiscalYear(aFiscalYearId);
+    }
+
+    public FlywheelCadence retrieveFlywheelCadence(String aNodeIdString) {
+        return this.persistenceTechnologyDelegate.dbRetrieveFlywheelCadence(aNodeIdString);
+    }
+
+    public boolean insertFlywheelCadence(FlywheelCadence aFlywheelCadence, boolean bAtomicTransaction) {
+        return this.persistenceTechnologyDelegate.dbInsertFlywheelCadence(aFlywheelCadence, bAtomicTransaction);
+    }
+
+    public boolean insertFlywheelCadenceList(ArrayList<FlywheelCadence> aFlywheelCadenceList, boolean bAtomicTransaction) {
+        boolean isSuccess = true;
+        if(bAtomicTransaction) {
+            startTransaction();
+        }
+        for(FlywheelCadence theFlywheelCadence : aFlywheelCadenceList) {
+            insertFlywheelCadence(theFlywheelCadence, bAtomicTransaction);
+            insertWorkPlanList(theFlywheelCadence.getWorkPlanList(), bAtomicTransaction);
+        }
+        if(bAtomicTransaction) {
+            endTransaction(isSuccess);
+        }
+        return isSuccess;
+    }
+
+    public boolean updateFlywheelCadence(FlywheelCadence aFlywheelCadence, boolean bAtomicTransaction) {
+        return this.persistenceTechnologyDelegate.dbUpdateFlywheelCadence(aFlywheelCadence, bAtomicTransaction);
+    }
+
+    public boolean deleteFlywheelCadence(FlywheelCadence aFlywheelCadence, boolean bAtomicTransaction) {
+        return this.persistenceTechnologyDelegate.dbDeleteFlywheelCadence(aFlywheelCadence, bAtomicTransaction);
+    }
+
+    public boolean deleteAllFlywheelCadences(FiscalYear aFiscalYear, boolean bAtomicTransaction) {
+        deleteAllWorkPlans(aFiscalYear, bAtomicTransaction);
+        return this.persistenceTechnologyDelegate.dbDeleteAllFlywheelCadences(aFiscalYear, bAtomicTransaction);
+    }
+
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////  Node - WORK PLAN  ///////////////////////////////////////////////////////////////////////////////////
+
+    public ArrayList<WorkPlan> getWorkPlanList(FlywheelCadence aFlywheelCadence) {
+        return this.persistenceTechnologyDelegate.dbGetWorkPlanList(aFlywheelCadence);
+    }
+
+    public ArrayList<WorkPlan> getWorkPlanListForFlywheelCadence(String aFlywheelCadenceId) {
+        return this.persistenceTechnologyDelegate.dbGetWorkPlanListForFlywheelCadence(aFlywheelCadenceId);
+    }
+
+    public WorkPlan retrieveWorkPlan(String aNodeIdString) {
+        return this.persistenceTechnologyDelegate.dbRetrieveWorkPlan(aNodeIdString);
+    }
+
+    public boolean insertWorkPlan(WorkPlan aWorkPlan, boolean bAtomicTransaction) {
+        return this.persistenceTechnologyDelegate.dbInsertWorkPlan(aWorkPlan, bAtomicTransaction);
+    }
+
+    public boolean insertWorkPlanList(ArrayList<WorkPlan> aWorkPlanList, boolean bAtomicTransaction) {
+        boolean isSuccess = true;
+        if(bAtomicTransaction) {
+            startTransaction();
+        }
+        for(WorkPlan theWorkPlan : aWorkPlanList) {
+            insertWorkPlan(theWorkPlan, bAtomicTransaction);
+        }
+        if(bAtomicTransaction) {
+            endTransaction(isSuccess);
+        }
+        return isSuccess;
+    }
+
+    public boolean updateWorkPlan(WorkPlan aWorkPlan, boolean bAtomicTransaction) {
+        return this.persistenceTechnologyDelegate.dbUpdateWorkPlan(aWorkPlan, bAtomicTransaction);
+    }
+
+    public boolean deleteWorkPlan(WorkPlan aWorkPlan, boolean bAtomicTransaction) {
+        return this.persistenceTechnologyDelegate.dbDeleteWorkPlan(aWorkPlan, bAtomicTransaction);
+    }
+
+    public boolean deleteAllWorkPlans(FlywheelCadence aFlywheelCadence, boolean bAtomicTransaction) {
+        return this.persistenceTechnologyDelegate.dbDeleteAllWorkPlans(aFlywheelCadence, bAtomicTransaction);
+    }
+
+    public boolean deleteAllWorkPlans(FiscalYear aFiscalYear, boolean bAtomicTransaction) {
+        return this.persistenceTechnologyDelegate.dbDeleteAllWorkPlans(aFiscalYear, bAtomicTransaction);
+    }
 
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1314,6 +1414,10 @@ public class FmmDatabaseMediator {
 
     public boolean deleteFiscalYearHolidayBreak(FiscalYearHolidayBreak aFiscalYearHolidayBreak, boolean bAtomicTransaction) {
         return this.persistenceTechnologyDelegate.dbDeleteFiscalYearHolidayBreak(aFiscalYearHolidayBreak, bAtomicTransaction);
+    }
+
+    public boolean deleteAllFiscalYearHolidayBreaks(FiscalYear aFiscalYear, boolean bAtomicTransaction) {
+        return this.persistenceTechnologyDelegate.dbDeleteAllFiscalYearHolidayBreaks(aFiscalYear, bAtomicTransaction);
     }
 
 
@@ -2655,24 +2759,4 @@ public class FmmDatabaseMediator {
 		}
 		return isSuccess;
 	}
-
-
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //////  Node - FLYWHEEL MILESTONE  /////////////////////////////////////////////////////////////////////////
-
-    public ArrayList<FlywheelCadence> getFlywheelCadenceListForFiscalYear(String aFiscalYearId) {
-        return this.persistenceTechnologyDelegate.dbListFlywheelCadence(aFiscalYearId);
-    }
-
-    public ArrayList<FlywheelCadence> getFlywheelCadenceList(FiscalYear aFiscalYear) {
-        return this.persistenceTechnologyDelegate.dbListFlywheelCadence(aFiscalYear);
-    }
-
-    public ArrayList<FlywheelCadence> getFlywheelCadenceListForFiscalYear(String aFiscalYearId, String aFlywheelCadenceExceptionId) {
-        return this.persistenceTechnologyDelegate.dbListFlywheelCadenceForFiscalYear(aFiscalYearId, aFlywheelCadenceExceptionId);
-    }
-
-    public ArrayList<FlywheelCadence> getFlywheelCadenceList(FiscalYear aFiscalYear, FlywheelCadence aFlywheelCadenceException) {
-        return this.persistenceTechnologyDelegate.dbListFlywheelCadence(aFiscalYear, aFlywheelCadenceException);
-    }
 }

@@ -104,6 +104,13 @@ public class NodeId {
 		this.nodeTypeName = anFmmNodeDefinition.getNodeTypeName();
 		this.nodeIdString  = generateEnumNodeId(this.nodeTypeCode, anEnumValue);
 	}
+
+    // only for enums
+    public NodeId(FmmNodeDefinition anFmmNodeDefinition, String aNodeId, boolean aMarkerArgument) {
+        this.nodeTypeCode = anFmmNodeDefinition.getNodeTypeCode();
+        this.nodeTypeName = anFmmNodeDefinition.getNodeTypeName();
+        this.nodeIdString  = aNodeId;
+    }
 	
 	// rehydrate
 	private NodeId(String aNodeTypeCode, String aNodeTypeName, String anExistingNodeIdString) {

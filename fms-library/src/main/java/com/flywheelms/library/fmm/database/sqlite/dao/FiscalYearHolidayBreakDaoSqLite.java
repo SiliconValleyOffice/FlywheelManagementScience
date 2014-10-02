@@ -86,7 +86,7 @@ public class FiscalYearHolidayBreakDaoSqLite extends HeadlineNodeDaoSqLite<Fisca
     @Override
     public ContentValues buildContentValues(FiscalYearHolidayBreak aFiscalYearHolidayBreak) {
         ContentValues theContentValues = super.buildContentValues(aFiscalYearHolidayBreak);
-        theContentValues.put(FiscalYearHolidayBreakMetaData.column_FISCAL_YEAR_ID, aFiscalYearHolidayBreak.getFiscalYearNodeIdString());
+        theContentValues.put(FiscalYearHolidayBreakMetaData.column_FISCAL_YEAR_ID, aFiscalYearHolidayBreak.getFiscalYearId());
         theContentValues.put(FiscalYearHolidayBreakMetaData.column_HOLIDAY_DATE, aFiscalYearHolidayBreak.getHolidayDateFormattedUtcLong());
         theContentValues.put(FiscalYearHolidayBreakMetaData.column_BREAK_START_DATE, aFiscalYearHolidayBreak.getStartDateFormattedUtcLong());
         theContentValues.put(FiscalYearHolidayBreakMetaData.column_BREAK_END_DATE, aFiscalYearHolidayBreak.getEndDateFormattedUtcLong());

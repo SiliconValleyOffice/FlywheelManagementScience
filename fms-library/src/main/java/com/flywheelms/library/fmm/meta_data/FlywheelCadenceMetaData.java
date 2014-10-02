@@ -46,10 +46,9 @@ package com.flywheelms.library.fmm.meta_data;
 public class FlywheelCadenceMetaData extends CompletableNodeMetaData {
 
 	public static final String column_FISCAL_YEAR_ID = "FiscalYear__id";
-	public static final String column_SCHEDULED_START_DATE = "scheduled_start_date";
-	public static final String column_SCHEDULED_END_DATE = "scheduled_end_date";
 	public static final String child_fractals_WORK_PACKAGE_LIST = "WorkPackageList";
 	public static final String child_fractals_WORK_PLAN_LIST = "WorkPlanList";
+    public static final String column_SCHEDULED_END_DATE = "scheduled_end_date";
 	
 	public static void init() { return; }
 

@@ -57,6 +57,7 @@ import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear;
 import com.flywheelms.gcongui.gcg.helper.GcgHelper;
 import com.flywheelms.gcongui.gcg.viewflipper.GcgViewFlipper;
+import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
 import com.flywheelms.gcongui.gcg.widget.date.GcgWidgetDatePicker;
 import com.flywheelms.gcongui.gcg.wizard.step.GcgWizardStepView;
 import com.flywheelms.library.R;
@@ -68,6 +69,7 @@ import com.flywheelms.library.fms.widget.text_view.FiscalYearWidgetTextView;
 import com.flywheelms.library.fms.wizard.CreateAllCadenceForYearWizardStepFlipper;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 
 public class CreateAllCadenceHolidaysWizardStepView extends GcgWizardStepView {
@@ -75,8 +77,9 @@ public class CreateAllCadenceHolidaysWizardStepView extends GcgWizardStepView {
     protected FiscalYearWidgetTextView fiscalYearWidgetTextView;
     private GcgContainerGroupBoxLinear holidayParametersGroupbox;
     private HashMap<FmmHoliday, HolidayRow> holidayRowTable = new HashMap<FmmHoliday, HolidayRow>();
+    private int dayAfterNewYearsBreakEnd;
 
-	public CreateAllCadenceHolidaysWizardStepView(Context context, AttributeSet attrs) {
+    public CreateAllCadenceHolidaysWizardStepView(Context context, AttributeSet attrs) {
 		super(context, attrs);
 	}
 
@@ -150,7 +153,19 @@ public class CreateAllCadenceHolidaysWizardStepView extends GcgWizardStepView {
         }
         return theBreakList;
     }
-    
+
+    public int getDayAfterNewYearsBreakEnd() {
+        int theDayAfterNewYearsBreak = 1;
+        HolidayRow theHolidayRow = this.holidayRowTable.get(FmmHoliday.NEW_YEARS_DAY);
+        if(theHolidayRow != null) {
+            Calendar theCalendar = Calendar.getInstance();
+            theCalendar.setTime(theHolidayRow.breakLastDay.getSelectedDate());
+            theCalendar.add(Calendar.DATE, 1);
+            theDayAfterNewYearsBreak = GcgDateHelper.getDayOfMonth(theCalendar.getTime());
+        }
+        return theDayAfterNewYearsBreak;
+    }
+
     private class HolidayRow {
 
         private FmmHoliday fmmHoliday;

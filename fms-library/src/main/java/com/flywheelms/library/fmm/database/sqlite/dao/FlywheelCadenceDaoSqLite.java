@@ -75,20 +75,19 @@ public class FlywheelCadenceDaoSqLite extends CompletableNodeDaoSqLite<FlywheelC
         super.buildColumnIndexMap(aCursor);
         putColumnIndexMapEntry(this.columnIndexMap, aCursor, FlywheelCadenceMetaData.column_FISCAL_YEAR_ID);
         putColumnIndexMapEntry(this.columnIndexMap, aCursor, CompletableNodeMetaData.column_SEQUENCE);
-        putColumnIndexMapEntry(this.columnIndexMap, aCursor, FlywheelCadenceMetaData.column_SCHEDULED_START_DATE);
         putColumnIndexMapEntry(this.columnIndexMap, aCursor, FlywheelCadenceMetaData.column_SCHEDULED_END_DATE);
     }
 
     @Override
     protected void getColumnValues(HashMap<String, Integer> aHashMap, Cursor aCursor, FlywheelCadence aFlywheelCadence) {
         super.getColumnValues(aHashMap, aCursor, aFlywheelCadence);
+        aFlywheelCadence.setScheduledEndDate(aCursor.getLong(aHashMap.get(FlywheelCadenceMetaData.column_SCHEDULED_END_DATE)));
     }
 
     @Override
     public ContentValues buildContentValues(FlywheelCadence aFlywheelCadence) {
         ContentValues theContentValues = super.buildContentValues(aFlywheelCadence);
         theContentValues.put(FlywheelCadenceMetaData.column_FISCAL_YEAR_ID, aFlywheelCadence.getFiscalYearId());
-        theContentValues.put(FlywheelCadenceMetaData.column_SCHEDULED_START_DATE, aFlywheelCadence.getScheduledStartDateFormattedUtcLong());
         theContentValues.put(FlywheelCadenceMetaData.column_SCHEDULED_END_DATE, aFlywheelCadence.getScheduledEndDateFormattedUtcLong());
         return theContentValues;
     }
@@ -102,9 +101,7 @@ public class FlywheelCadenceDaoSqLite extends CompletableNodeDaoSqLite<FlywheelC
     protected FlywheelCadence getNextObjectFromCursor(Cursor aCursor) {
         FlywheelCadence theFlywheelCadence = new FlywheelCadence(
                 aCursor.getString(this.columnIndexMap.get(IdNodeMetaData.column_ID)),
-                aCursor.getString(this.columnIndexMap.get(FlywheelCadenceMetaData.column_FISCAL_YEAR_ID)),
-                aCursor.getLong(this.columnIndexMap.get(FlywheelCadenceMetaData.column_SCHEDULED_START_DATE)),
-                aCursor.getLong(this.columnIndexMap.get(FlywheelCadenceMetaData.column_SCHEDULED_START_DATE)) );
+                aCursor.getString(this.columnIndexMap.get(FlywheelCadenceMetaData.column_FISCAL_YEAR_ID)) );
         getColumnValues(this.columnIndexMap, aCursor, theFlywheelCadence);
         return theFlywheelCadence;
     }
