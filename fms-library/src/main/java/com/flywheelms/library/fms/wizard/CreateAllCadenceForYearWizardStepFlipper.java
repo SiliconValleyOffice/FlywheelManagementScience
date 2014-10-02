@@ -77,14 +77,14 @@ public class CreateAllCadenceForYearWizardStepFlipper extends GcgWizardStepFlipp
 
     private Date getLastDayOfTheYear() {
         if(this.lastDayOfTheYear == null) {
-            this.lastDayOfTheYear = new GregorianCalendar(getFiscalYear().getYearAsInt(), 12, 31 ).getTime();
+            this.lastDayOfTheYear = new GregorianCalendar(getFiscalYear().getYearAsInt(), Calendar.DECEMBER, 31 ).getTime();
         }
         return this.lastDayOfTheYear;
     }
 
     private GregorianCalendar getLastDayOfThePreviousWorkPlan() {
         if(this.theLastDayOfThePreviousWorkPlan == null) {
-            this.theLastDayOfThePreviousWorkPlan = new GregorianCalendar(getFiscalYear().getYearAsInt() - 1, 12, 31 );
+            this.theLastDayOfThePreviousWorkPlan = new GregorianCalendar(getFiscalYear().getYearAsInt() - 1, Calendar.DECEMBER, 31 );
         }
         return this.theLastDayOfThePreviousWorkPlan;
     }
@@ -115,7 +115,7 @@ public class CreateAllCadenceForYearWizardStepFlipper extends GcgWizardStepFlipp
     private ArrayList<FlywheelCadence> generateFlywheelCadenceList() {
         ArrayList<FlywheelCadence> theCadenceList = new ArrayList<FlywheelCadence>();
         int theSequence = 1;
-        while (! getLastDayOfThePreviousWorkPlan().equals(getLastDayOfTheYear())) {
+        while (! getLastDayOfThePreviousWorkPlan().getTime().equals(getLastDayOfTheYear())) {
             theCadenceList.add(getNextFlywheelCadence(theSequence));
             ++ theSequence;
         }
@@ -172,7 +172,7 @@ public class CreateAllCadenceForYearWizardStepFlipper extends GcgWizardStepFlipp
             thePlanStartDate = GcgDateHelper.cloneCalendar(getLastDayOfThePreviousWorkPlan());
             thePlanStartDate.add(Calendar.DATE, 1);
             thePlanEndDate = GcgDateHelper.cloneCalendar(thePlanStartDate);
-            thePlanEndDate.add(Calendar.DATE, 7);
+            thePlanEndDate.add(Calendar.DATE, 6);
             WorkPlan theWorkPlan = new WorkPlan(theFlywheelCadence, thePlanStartDate.getTime(), thePlanEndDate.getTime());
             theWorkPlan.setHeadline("Work Plan " + aSequence + "-" + theIndex + 1);
             adjustWorkPlanForHolidays(theWorkPlan, thePlanEndDate);

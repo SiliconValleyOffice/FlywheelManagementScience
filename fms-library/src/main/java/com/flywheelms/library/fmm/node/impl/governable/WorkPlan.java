@@ -45,6 +45,7 @@ package com.flywheelms.library.fmm.node.impl.governable;
 
 import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.enumerator.FmmHoliday;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.completable.FmmCompletableNodeImpl;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
@@ -58,6 +59,7 @@ public class WorkPlan extends FmmCompletableNodeImpl {
     private FlywheelCadence flywheelCadence;
     private Date scheduledStartDate;
     private Date scheduledEndDate;
+    private FmmHoliday fmmHoliday;
 
     public WorkPlan(NodeId aNodeId) {
 		super(aNodeId);
@@ -134,7 +136,23 @@ public class WorkPlan extends FmmCompletableNodeImpl {
         this.scheduledEndDate = GcgDateHelper.getDateFromFormattedUtcLong(aLongDate);
     }
 
+    @Override
     public String getSecondaryHeadline() {
         return "ending " + GcgDateHelper.getGuiDateString5(getScheduledEndDate());
+    }
+
+    @Override
+    public String getHeadline() {
+      return this.fmmHoliday != null ?
+              this.headline + " - containing " + this.fmmHoliday.getName() + " break" :
+              this.headline;
+    }
+
+    public FmmHoliday getFmmHoliday() {
+        return this.fmmHoliday;
+    }
+
+    public void setFmmHoliday(FmmHoliday fmmHoliday) {
+        this.fmmHoliday = fmmHoliday;
     }
 }
