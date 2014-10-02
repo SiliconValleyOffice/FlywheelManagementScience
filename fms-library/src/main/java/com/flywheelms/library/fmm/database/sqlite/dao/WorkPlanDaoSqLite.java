@@ -66,7 +66,7 @@ public class WorkPlanDaoSqLite extends CompletableNodeDaoSqLite<WorkPlan> {
 
     @Override
     public FmmNodeDefinition getFmmNodeDefinition() {
-        return FmmNodeDefinition.FLYWHEEL_CADENCE;
+        return FmmNodeDefinition.WORK_PLAN;
     }
 
     @Override
@@ -81,6 +81,7 @@ public class WorkPlanDaoSqLite extends CompletableNodeDaoSqLite<WorkPlan> {
     @Override
     protected void getColumnValues(HashMap<String, Integer> aHashMap, Cursor aCursor, WorkPlan aWorkPlan) {
         super.getColumnValues(aHashMap, aCursor, aWorkPlan);
+        aWorkPlan.setFlywheelCadenceId(aCursor.getString(aHashMap.get(WorkPlanMetaData.column_FLYWHEEL_CADENCE_ID)));
         aWorkPlan.setScheduledStartDate(aCursor.getLong(aHashMap.get(WorkPlanMetaData.column_SCHEDULED_START_DATE)));
         aWorkPlan.setScheduledEndDate(aCursor.getLong(aHashMap.get(WorkPlanMetaData.column_SCHEDULED_END_DATE)));
     }

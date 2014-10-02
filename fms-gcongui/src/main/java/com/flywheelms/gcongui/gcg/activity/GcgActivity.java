@@ -693,6 +693,10 @@ public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNo
 	public void finish() {
 		finishOk();
 	}
+    public void finish(boolean bParentDataRefreshAll) {
+        this.parentDataRefreshAll = bParentDataRefreshAll;
+        finishOk();
+    }
 
 	public void finish(int anActivityResultCode) {
 		finish(anActivityResultCode, null);

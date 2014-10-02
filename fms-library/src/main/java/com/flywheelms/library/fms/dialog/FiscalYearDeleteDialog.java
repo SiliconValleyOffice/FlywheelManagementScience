@@ -67,10 +67,10 @@ public class FiscalYearDeleteDialog extends HeadlineNodeDeleteDialog {
 		return R.layout.strategic_milestone__disposition;
 	}
 
-	@Override
-	protected int getSecondaryChildrenDispositionLayoutResourceId() {
-		return R.layout.flywheel_cadence__disposition;
-	}
+    @Override
+    protected int getSecondaryChildrenDispositionLayoutResourceId() {
+        return R.layout.flywheel_cadence__disposition;
+    }
 
 	@Override
 	protected ArrayList<? extends FmmHeadlineNode> getPrimaryChildHeadlineNodeList() {
@@ -86,6 +86,10 @@ public class FiscalYearDeleteDialog extends HeadlineNodeDeleteDialog {
 	protected ArrayList<? extends FmmHeadlineNode> getSecondaryChildHeadlineNodeList() {
 		return FmmDatabaseMediator.getActiveMediator().getFlywheelCadenceListForFiscalYear(getFmmHeadlineNode().getNodeIdString());
 	}
+
+    protected boolean alwaysDeleteSecondaryChild() {
+        return false;
+    }
 	
 	@Override
 	protected boolean canOrphanSecondaryChild() {
@@ -119,6 +123,11 @@ public class FiscalYearDeleteDialog extends HeadlineNodeDeleteDialog {
 	protected boolean deletePrimaryChildren() {
 		return FmmDatabaseMediator.getActiveMediator().deleteStrategicMilestonesForFiscalYear(getFmmHeadlineNode().getNodeIdString(), false);
 	}
+
+    @Override
+    protected boolean deleteSecondaryChildren() {
+        return FmmDatabaseMediator.getActiveMediator().deleteFlywheelCadenceForFiscalYear(getFmmHeadlineNode().getNodeIdString(), false);
+    }
 
 	@Override
 	protected boolean movePrimaryChildrenToNewParent() {

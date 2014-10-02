@@ -1301,13 +1301,16 @@ public class FmmDatabaseMediator {
     }
 
     public boolean insertFlywheelCadenceList(ArrayList<FlywheelCadence> aFlywheelCadenceList, boolean bAtomicTransaction) {
-        boolean isSuccess = true;
+        boolean isSuccess = false;
         if(bAtomicTransaction) {
             startTransaction();
         }
         for(FlywheelCadence theFlywheelCadence : aFlywheelCadenceList) {
-            insertFlywheelCadence(theFlywheelCadence, bAtomicTransaction);
-            insertWorkPlanList(theFlywheelCadence.getWorkPlanList(), bAtomicTransaction);
+            isSuccess = insertFlywheelCadence(theFlywheelCadence, false);
+            isSuccess &= insertWorkPlanList(theFlywheelCadence.getWorkPlanList(), false);
+            if(! isSuccess) {
+                break;
+            }
         }
         if(bAtomicTransaction) {
             endTransaction(isSuccess);
@@ -1321,6 +1324,11 @@ public class FmmDatabaseMediator {
 
     public boolean deleteFlywheelCadence(FlywheelCadence aFlywheelCadence, boolean bAtomicTransaction) {
         return this.persistenceTechnologyDelegate.dbDeleteFlywheelCadence(aFlywheelCadence, bAtomicTransaction);
+    }
+
+    public boolean deleteFlywheelCadenceForFiscalYear(String aFiscalYearId, boolean bAtomicTransaction) {
+        deleteAllWorkPlansForFiscalYear(aFiscalYearId, bAtomicTransaction);
+        return this.persistenceTechnologyDelegate.dbDeleteAllFlywheelCadencesForFiscalYear(aFiscalYearId, bAtomicTransaction);
     }
 
     public boolean deleteAllFlywheelCadences(FiscalYear aFiscalYear, boolean bAtomicTransaction) {
@@ -1376,6 +1384,10 @@ public class FmmDatabaseMediator {
 
     public boolean deleteAllWorkPlans(FiscalYear aFiscalYear, boolean bAtomicTransaction) {
         return this.persistenceTechnologyDelegate.dbDeleteAllWorkPlans(aFiscalYear, bAtomicTransaction);
+    }
+
+    public boolean deleteAllWorkPlansForFiscalYear(String aFiscalYearId, boolean bAtomicTransaction) {
+        return this.persistenceTechnologyDelegate.dbDeleteAllWorkPlansForFiscalYear(aFiscalYearId, bAtomicTransaction);
     }
 
 

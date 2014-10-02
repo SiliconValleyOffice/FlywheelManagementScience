@@ -109,7 +109,7 @@ public class CreateAllCadenceForYearWizardStepFlipper extends GcgWizardStepFlipp
         FmmDatabaseMediator.getActiveMediator().updateFiscalYear(getFiscalYear(), true);
         FmmDatabaseMediator.getActiveMediator().insertFiscalYearHolidayBreakList(getWizardStepView2().getFiscalYearHolidayBreakList(), true);
         FmmDatabaseMediator.getActiveMediator().insertFlywheelCadenceList(generateFlywheelCadenceList(), true);
-		getGcgActivity().finish();
+		getGcgActivity().finish(true);
 	}
 
     private ArrayList<FlywheelCadence> generateFlywheelCadenceList() {
@@ -174,7 +174,7 @@ public class CreateAllCadenceForYearWizardStepFlipper extends GcgWizardStepFlipp
             thePlanEndDate = GcgDateHelper.cloneCalendar(thePlanStartDate);
             thePlanEndDate.add(Calendar.DATE, 6);
             WorkPlan theWorkPlan = new WorkPlan(theFlywheelCadence, thePlanStartDate.getTime(), thePlanEndDate.getTime());
-            theWorkPlan.setHeadline("Work Plan " + aSequence + "-" + theIndex + 1);
+            theWorkPlan.setHeadline("Work Plan " + aSequence + "-" + Integer.toString(theIndex + 1));
             adjustWorkPlanForHolidays(theWorkPlan, thePlanEndDate);
             theWorkPlanList.add(theWorkPlan);
             getLastDayOfThePreviousWorkPlan().setTime(theWorkPlan.getScheduledEndDate());

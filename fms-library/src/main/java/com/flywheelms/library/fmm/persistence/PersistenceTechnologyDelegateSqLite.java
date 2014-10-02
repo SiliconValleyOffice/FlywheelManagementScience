@@ -1426,8 +1426,13 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
     @Override
     public boolean dbDeleteAllFlywheelCadences(FiscalYear aFiscalYear, boolean bAtomicTransaction) {
+        return dbDeleteAllFlywheelCadencesForFiscalYear(aFiscalYear.getNodeIdString(), bAtomicTransaction);
+    }
+
+    @Override
+    public boolean dbDeleteAllFlywheelCadencesForFiscalYear(String aFiscalYearId, boolean bAtomicTransaction) {
         return deleteAllRowFromSimpleIdTable(
-                FlywheelCadenceMetaData.column_FISCAL_YEAR_ID + " = '" + aFiscalYear.getNodeIdString() + "'",
+                FlywheelCadenceMetaData.column_FISCAL_YEAR_ID + " = '" + aFiscalYearId + "'",
                 FmmNodeDefinition.FLYWHEEL_CADENCE, bAtomicTransaction);
     }
 
@@ -1480,10 +1485,15 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
     @Override
     public boolean dbDeleteAllWorkPlans(FiscalYear aFiscalYear, boolean bAtomicTransaction) {
+        return dbDeleteAllWorkPlansForFiscalYear(aFiscalYear.getNodeIdString(), bAtomicTransaction);
+    }
+
+    @Override
+    public boolean dbDeleteAllWorkPlansForFiscalYear(String aFiscalYearId, boolean bAtomicTransaction) {
         return deleteAllRowFromSimpleIdTable(
                 WorkPlanMetaData.column_FLYWHEEL_CADENCE_ID + " IN (" +
                     " SELECT " + IdNodeMetaData.column_ID + " FROM " + FmmNodeDefinition.FLYWHEEL_CADENCE.getClassName() +
-                    " WHERE " + FlywheelCadenceMetaData.column_FISCAL_YEAR_ID + " = '" + aFiscalYear.getNodeIdString() + "'" +
+                    " WHERE " + FlywheelCadenceMetaData.column_FISCAL_YEAR_ID + " = '" + aFiscalYearId + "'" +
                 ")",
                 FmmNodeDefinition.WORK_PLAN, bAtomicTransaction);
     }

@@ -122,8 +122,8 @@ public abstract class HeadlineNodeDeleteDialog  extends FmsCancelOkDialog {
 		this.secondaryChildDeleteDisposition = new DeleteDisposition();
 		this.primaryLinkDeleteDisposition = new DeleteDisposition();
 		this.primaryLinkDeleteDisposition.setLinked(true);
-		this.primaryChildDeleteDisposition.setDispositionHeadlineNodeList(getPrimaryChildHeadlineNodeList());
-		this.secondaryChildDeleteDisposition.setDispositionHeadlineNodeList(getSecondaryChildHeadlineNodeList());
+        this.primaryChildDeleteDisposition.setDispositionHeadlineNodeList(getPrimaryChildHeadlineNodeList());
+        this.secondaryChildDeleteDisposition.setDispositionHeadlineNodeList(getSecondaryChildHeadlineNodeList());
 		this.primaryLinkDeleteDisposition.setDispositionHeadlineNodeList(getPrimaryLinkHeadlineNodeList());
 		this.primaryChildDeleteDisposition.setCanOrphan(canOrphanPrimaryChild());
 		this.secondaryChildDeleteDisposition.setCanOrphan(canOrphanSecondaryChild());
@@ -347,10 +347,18 @@ public abstract class HeadlineNodeDeleteDialog  extends FmsCancelOkDialog {
 	protected boolean canOrphanPrimaryChild() {
 		return true;
 	}
+
+    protected boolean alwaysDeletePrimaryChild() {
+        return false;
+    }
 	
 	protected boolean canOrphanSecondaryChild() {
 		return true;
 	}
+
+    protected boolean alwaysDeleteSecondaryChild() {
+        return false;
+    }
 	
 	protected boolean canOrphanPrimaryLink() {
 		return true;

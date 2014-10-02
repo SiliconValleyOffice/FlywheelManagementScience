@@ -6,7 +6,7 @@
     android:layout_marginBottom="10dp"
     android:layout_marginLeft="15dp"
     android:layout_marginRight="15dp"
-    android:background="@color/gcg__sand_dollar"
+    android:background="@drawable/gcg__tab_view_border__black"
     android:gravity="left"
     android:orientation="vertical"
     android:paddingBottom="10dp"
@@ -14,7 +14,7 @@
     android:paddingRight="10dp"
     android:paddingTop="4dp" >
 
-    <TextView
+    <com.flywheelms.gcongui.gcg.widget.GcgWidgetZoomableHeading
         android:id="@+id/disposition__heading"
         style="@style/GcgWidgetLabelHorizontalContainer"
         android:layout_width="match_parent"
@@ -22,7 +22,7 @@
         android:layout_marginTop="0dp"
         android:gravity="center_horizontal"
         android:paddingTop="0dp"
-        android:text="@string/flywheel_milestone__disposition__plural" />
+        android:text="@string/strategic_milestone__disposition__plural" />
 
     <RadioGroup
         android:id="@+id/disposition__choice"
@@ -32,29 +32,27 @@
         <RadioButton
             android:id="@+id/choice__delete"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="@string/flywheel_milestone__delete__plural" />
+            android:layout_height="wrap_content" />
 
         <RadioButton
             android:id="@+id/choice__move"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/flywheel_milestone__move__plural" />
+            android:layout_height="wrap_content" />
     </RadioGroup>
 
     <com.flywheelms.library.fms.widget.spinner.FiscalYearWidgetSpinner
         android:id="@+id/disposition_target__spinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        gcg:filterId="@string/filter_id__primary_parent__primary_child__move_target"
         gcg:zoomable="true"
-        android:layout_marginLeft="83dp" />
+        gcg:labelWidth="150" />
 
     <com.flywheelms.library.fms.widget.spinner.SequencePositionWidgetSpinner
         android:id="@+id/list_position__spinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="29dp" />
+        gcg:labelWidth="150" />
 
     <TextView
         android:id="@+id/fms__no_move_target"

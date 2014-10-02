@@ -68,6 +68,7 @@ public class WorkPlan extends FmmCompletableNodeImpl {
 
     public WorkPlan(FlywheelCadence aFlywheelCadence, Date aStartDate, Date anEndDate) {
         super(new NodeId(FmmNodeDefinition.WORK_PLAN));
+        setFlywheelCadence(aFlywheelCadence);
         setScheduledStartDate(aStartDate);
         setScheduledEndDate(anEndDate);
     }
@@ -144,7 +145,7 @@ public class WorkPlan extends FmmCompletableNodeImpl {
     @Override
     public String getHeadline() {
       return this.fmmHoliday != null ?
-              this.headline + " - containing " + this.fmmHoliday.getName() + " break" :
+              this.headline + " (includes " + this.fmmHoliday.getName() + " break)" :
               this.headline;
     }
 

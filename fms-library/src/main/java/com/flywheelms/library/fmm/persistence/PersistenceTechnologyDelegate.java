@@ -298,6 +298,8 @@ public abstract class PersistenceTechnologyDelegate {
 
     public abstract boolean dbDeleteAllFlywheelCadences(FiscalYear aFiscalYear, boolean bAtomicTransaction);
 
+    public abstract boolean dbDeleteAllFlywheelCadencesForFiscalYear(String aFiscalYearId, boolean bAtomicTransaction);
+
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////  Node - WORK PLAN  ///////////////////////////////////////////////////////////////////////////////////
@@ -317,6 +319,8 @@ public abstract class PersistenceTechnologyDelegate {
     public abstract boolean dbDeleteAllWorkPlans(FlywheelCadence aFlywheelCadence, boolean bAtomicTransaction);
 
     public abstract boolean dbDeleteAllWorkPlans(FiscalYear aFiscalYear, boolean bAtomicTransaction);
+
+    public abstract boolean dbDeleteAllWorkPlansForFiscalYear(String aFiscalYearId, boolean bAtomicTransaction);
 
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
