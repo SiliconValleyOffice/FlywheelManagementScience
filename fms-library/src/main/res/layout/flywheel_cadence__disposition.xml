@@ -48,12 +48,6 @@
         gcg:zoomable="true"
         gcg:labelWidth="150" />
 
-    <com.flywheelms.library.fms.widget.spinner.SequencePositionWidgetSpinner
-        android:id="@+id/list_position__spinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        gcg:labelWidth="150" />
-
     <TextView
         android:id="@+id/fms__no_move_target"
         android:layout_width="wrap_content"
@@ -65,5 +59,9 @@
         android:textSize="18sp"
         android:text="@string/fms__no_move_target"
         android:visibility="gone" />
+    
+    <TextView
+        android:layout_width="32dp"
+        android:layout_height="72dp" />
 
 </LinearLayout>

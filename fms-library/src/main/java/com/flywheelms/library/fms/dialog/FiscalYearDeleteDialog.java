@@ -88,7 +88,7 @@ public class FiscalYearDeleteDialog extends HeadlineNodeDeleteDialog {
 	}
 
     protected boolean alwaysDeleteSecondaryChild() {
-        return false;
+        return true;
     }
 	
 	@Override

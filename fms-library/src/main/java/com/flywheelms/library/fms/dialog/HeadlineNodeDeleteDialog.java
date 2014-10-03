@@ -123,7 +123,9 @@ public abstract class HeadlineNodeDeleteDialog  extends FmsCancelOkDialog {
 		this.primaryLinkDeleteDisposition = new DeleteDisposition();
 		this.primaryLinkDeleteDisposition.setLinked(true);
         this.primaryChildDeleteDisposition.setDispositionHeadlineNodeList(getPrimaryChildHeadlineNodeList());
+        this.primaryChildDeleteDisposition.setAlwaysDelete(alwaysDeletePrimaryChild());
         this.secondaryChildDeleteDisposition.setDispositionHeadlineNodeList(getSecondaryChildHeadlineNodeList());
+        this.secondaryChildDeleteDisposition.setAlwaysDelete(alwaysDeleteSecondaryChild());
 		this.primaryLinkDeleteDisposition.setDispositionHeadlineNodeList(getPrimaryLinkHeadlineNodeList());
 		this.primaryChildDeleteDisposition.setCanOrphan(canOrphanPrimaryChild());
 		this.secondaryChildDeleteDisposition.setCanOrphan(canOrphanSecondaryChild());
@@ -214,7 +216,7 @@ public abstract class HeadlineNodeDeleteDialog  extends FmsCancelOkDialog {
 		aDeleteDisposition.setTargetGreatGrandparentWidgetSpinner(findTargetGreatGrandparentWidgetSpinner(aDeleteDisposition.getDispositionLayout()));
 		initializeDispositionSpinners(aDeleteDisposition);
 		aDeleteDisposition.setSequencePositionSpinner((SequencePositionWidgetSpinner) this.dialogBodyView.findViewById(R.id.list_position__spinner));
-		pruneDispositionOptions();
+		pruneDispositionOptions(aDeleteDisposition);
 		if(aDeleteDisposition.isSequencePositionSpinnerVisibile()) {
 			initializeSequencePositionSpinner(aDeleteDisposition);
 		}
@@ -241,18 +243,6 @@ public abstract class HeadlineNodeDeleteDialog  extends FmsCancelOkDialog {
 		setInitialTargetSpinnerSelection(aDeleteDisposition);
 	}
 
-	private void pruneDispositionOptions() {
-		if(this.primaryChildDeleteDisposition.getCount() > 0) {
-			pruneDispositionOptions(this.primaryChildDeleteDisposition);
-		}
-		if(this.secondaryChildDeleteDisposition.getCount() > 0) {
-			pruneDispositionOptions(this.secondaryChildDeleteDisposition);
-		}
-		if(this.primaryLinkDeleteDisposition.getCount() > 0) {
-			pruneDispositionOptions(this.primaryLinkDeleteDisposition);
-		}
-	}
-
 	private static void initializeSequencePositionSpinner(final DeleteDisposition aDeleteDisposition) {
 		aDeleteDisposition.setSequencePositionSpinnerOnItemSelectedListener(new OnItemSelectedListener() {
 
@@ -269,6 +259,17 @@ public abstract class HeadlineNodeDeleteDialog  extends FmsCancelOkDialog {
 	}
 
 	private static void pruneDispositionOptions(DeleteDisposition aDeleteDisposition ) {
+        if(aDeleteDisposition.getCount() < 1) {
+            return;
+        }
+        if(aDeleteDisposition.isAlwaysDelete()) {
+            aDeleteDisposition.getChoiceDeleteButton().setChecked(true);
+//            aDeleteDisposition.getChoiceOrphanButton().setVisibility(View.GONE);
+            aDeleteDisposition.getChoiceMoveButton().setVisibility(View.GONE);
+            aDeleteDisposition.getTargetWidgetSpinner().setVisibility(View.GONE);
+            aDeleteDisposition.setSequencePositionSpinnerVisibility(View.GONE);
+            return;
+        }
 		aDeleteDisposition.getChoiceMoveButton().setChecked(true);
         if(aDeleteDisposition.hasTargetGreatGrandparentWidgetSpinner()) {
             if(aDeleteDisposition.getTargetWidgetSpinner().getListSize() == 0) {
@@ -515,9 +516,9 @@ public abstract class HeadlineNodeDeleteDialog  extends FmsCancelOkDialog {
 			isTransactionSuccess = deletePrimaryChildren();
 			if(isTransactionSuccess) {
 				if(this.primaryChildDeleteDisposition.getCount() == 1) {
-					GcgHelper.makeToast("Deleted " + theChildNodeLabelText + " for" + this.fmmNodeTypeWidget.getText() + ":  " + this.headlineWidgetTextView.getText());
+					GcgHelper.makeToast("Deleted 1 " + theChildNodeLabelText + " for" + this.fmmNodeTypeWidget.getText() + ":  " + this.headlineWidgetTextView.getText());
 				} else {
-					GcgHelper.makeToast("Deleted " + theChildNodeLabelText + "s for" + this.fmmNodeTypeWidget.getText() + ":  " + this.headlineWidgetTextView.getText());
+					GcgHelper.makeToast("Deleted " + primaryChildDeleteDisposition.getCount() + " " + theChildNodeLabelText + "s for" + this.fmmNodeTypeWidget.getText() + ":  " + this.headlineWidgetTextView.getText());
 				}
 			} else {
 				if(this.primaryChildDeleteDisposition.getCount() == 1) {
@@ -530,9 +531,9 @@ public abstract class HeadlineNodeDeleteDialog  extends FmsCancelOkDialog {
 			isTransactionSuccess = orphanPrimaryChildren();
 			if(isTransactionSuccess) {
 				if(this.primaryChildDeleteDisposition.getCount() == 1) {
-					GcgHelper.makeToast("Orphaned " + theChildNodeLabelText + " for" + this.fmmNodeTypeWidget.getText() + ":  " + this.headlineWidgetTextView.getText());
+					GcgHelper.makeToast("Orphaned 1 " + theChildNodeLabelText + " for" + this.fmmNodeTypeWidget.getText() + ":  " + this.headlineWidgetTextView.getText());
 				} else {
-					GcgHelper.makeToast("Orphaned " + theChildNodeLabelText + "s for" + this.fmmNodeTypeWidget.getText() + ":  " + this.headlineWidgetTextView.getText());
+					GcgHelper.makeToast("Orphaned " + primaryChildDeleteDisposition.getCount() + " " + theChildNodeLabelText + "s for" + this.fmmNodeTypeWidget.getText() + ":  " + this.headlineWidgetTextView.getText());
 				}
 			} else {
 				if(this.primaryChildDeleteDisposition.getCount() == 1) {
@@ -545,9 +546,9 @@ public abstract class HeadlineNodeDeleteDialog  extends FmsCancelOkDialog {
 			isTransactionSuccess = movePrimaryChildrenToNewParent();
 			if(isTransactionSuccess) {
 				if(this.primaryChildDeleteDisposition.getCount() == 1) {
-					GcgHelper.makeToast("Moved " + theChildNodeLabelText + " to" + this.fmmNodeTypeWidget.getText() + ":  " + this.headlineWidgetTextView.getText());
+					GcgHelper.makeToast("Moved 1 " + theChildNodeLabelText + " to" + this.fmmNodeTypeWidget.getText() + ":  " + this.headlineWidgetTextView.getText());
 				} else {
-					GcgHelper.makeToast("Moved " + theChildNodeLabelText + "s to" + this.fmmNodeTypeWidget.getText() + ":  " + this.headlineWidgetTextView.getText());
+					GcgHelper.makeToast("Moved " + primaryChildDeleteDisposition.getCount() + " " + theChildNodeLabelText + "s to" + this.fmmNodeTypeWidget.getText() + ":  " + this.headlineWidgetTextView.getText());
 				}
 			} else {
 				if(this.primaryChildDeleteDisposition.getCount() == 1) {
@@ -568,14 +569,14 @@ public abstract class HeadlineNodeDeleteDialog  extends FmsCancelOkDialog {
 	
 	protected boolean disposeOfSecondaryChildren() {
 		boolean isTransactionSuccess;
-		String theChildNodeLabelText = getFmmHeadlineNode().getFmmNodeDefinition().getPrimaryChildNodeDefinition().getLabelText();
+		String theChildNodeLabelText = getFmmHeadlineNode().getFmmNodeDefinition().getSecondaryChildNodeDefinition().getLabelText();
 		if(this.secondaryChildDeleteDisposition.getChoiceDeleteButton().isChecked()) {
 			isTransactionSuccess = deleteSecondaryChildren();
 			if(isTransactionSuccess) {
 				if(this.secondaryChildDeleteDisposition.getCount() == 1) {
-					GcgHelper.makeToast("Deleted " + theChildNodeLabelText + " for" + this.fmmNodeTypeWidget.getText() + ":  " + this.headlineWidgetTextView.getText());
+					GcgHelper.makeToast("Deleted 1 " + theChildNodeLabelText + " for" + this.fmmNodeTypeWidget.getText() + ":  " + this.headlineWidgetTextView.getText());
 				} else {
-					GcgHelper.makeToast("Deleted " + theChildNodeLabelText + "s for" + this.fmmNodeTypeWidget.getText() + ":  " + this.headlineWidgetTextView.getText());
+					GcgHelper.makeToast("Deleted " + secondaryChildDeleteDisposition.getCount() + " " + theChildNodeLabelText + "s for" + this.fmmNodeTypeWidget.getText() + ":  " + this.headlineWidgetTextView.getText());
 				}
 			} else {
 				if(this.secondaryChildDeleteDisposition.getCount() == 1) {
@@ -588,9 +589,9 @@ public abstract class HeadlineNodeDeleteDialog  extends FmsCancelOkDialog {
 			isTransactionSuccess = orphanSecondaryChildren();
 			if(isTransactionSuccess) {
 				if(this.secondaryChildDeleteDisposition.getCount() == 1) {
-					GcgHelper.makeToast("Orphaned " + theChildNodeLabelText + " for" + this.fmmNodeTypeWidget.getText() + ":  " + this.headlineWidgetTextView.getText());
+					GcgHelper.makeToast("Orphaned 1 " + theChildNodeLabelText + " for" + this.fmmNodeTypeWidget.getText() + ":  " + this.headlineWidgetTextView.getText());
 				} else {
-					GcgHelper.makeToast("Orphaned " + theChildNodeLabelText + "s for" + this.fmmNodeTypeWidget.getText() + ":  " + this.headlineWidgetTextView.getText());
+					GcgHelper.makeToast("Orphaned " + secondaryChildDeleteDisposition.getCount() + " " + theChildNodeLabelText + "s for" + this.fmmNodeTypeWidget.getText() + ":  " + this.headlineWidgetTextView.getText());
 				}
 			} else {
 				if(this.secondaryChildDeleteDisposition.getCount() == 1) {
@@ -603,9 +604,9 @@ public abstract class HeadlineNodeDeleteDialog  extends FmsCancelOkDialog {
 			isTransactionSuccess = moveSecondaryChildrenToNewParent();
 			if(isTransactionSuccess) {
 				if(this.secondaryChildDeleteDisposition.getCount() == 1) {
-					GcgHelper.makeToast("Moved " + theChildNodeLabelText + " to" + this.fmmNodeTypeWidget.getText() + ":  " + this.headlineWidgetTextView.getText());
+					GcgHelper.makeToast("Moved 1 " + theChildNodeLabelText + " to" + this.fmmNodeTypeWidget.getText() + ":  " + this.headlineWidgetTextView.getText());
 				} else {
-					GcgHelper.makeToast("Moved " + theChildNodeLabelText + "s to" + this.fmmNodeTypeWidget.getText() + ":  " + this.headlineWidgetTextView.getText());
+					GcgHelper.makeToast("Moved " + secondaryChildDeleteDisposition.getCount() + " " + theChildNodeLabelText + "s to" + this.fmmNodeTypeWidget.getText() + ":  " + this.headlineWidgetTextView.getText());
 				}
 			} else {
 				if(this.secondaryChildDeleteDisposition.getCount() == 1) {
@@ -658,6 +659,7 @@ public abstract class HeadlineNodeDeleteDialog  extends FmsCancelOkDialog {
         protected TextView noMoveTargetTextView;
 		protected boolean isLinked = false;
 		protected boolean canOrphan = true;
+        protected boolean alwaysDelete = false;
 		
 		public DeleteDisposition() {
 			this.targetHeadlineNodeException = getFmmHeadlineNode();
@@ -814,6 +816,14 @@ public abstract class HeadlineNodeDeleteDialog  extends FmsCancelOkDialog {
 
         public boolean isSequencePositionSpinnerAtEnd() {
             return this.sequencePositionSpinner == null ? false : this.sequencePositionSpinner.getSelectedItem().getDataText().equals("End");
+        }
+
+        public boolean isAlwaysDelete() {
+            return alwaysDelete;
+        }
+
+        public void setAlwaysDelete(boolean alwaysDelete) {
+            this.alwaysDelete = alwaysDelete;
         }
     }
 
