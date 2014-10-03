@@ -390,6 +390,7 @@ public class FmmDatabaseMediator {
 		case FISCAL_YEAR:  // handled by newFmmRootNode()
 			break;
 		case FLYWHEEL_CADENCE:
+            // only created in a "batch" from the wizard
 			break;
 		case NOTEBOOK:
 			break;
@@ -416,6 +417,7 @@ public class FmmDatabaseMediator {
 			theHeadlineNode =  newWorkPackageForParent(aHeadline, aParentNode, aPeerNode, bSequenceAtEnd );
 			break;
 		case WORK_PLAN:
+            // only created in a "batch" from the FlywheelCadence wizard
 			break;
 		case WORK_TASK:
             theHeadlineNode = newWorkTaskForParent(aHeadline, aParentNode, aPeerNode, bSequenceAtEnd);
@@ -608,13 +610,13 @@ public class FmmDatabaseMediator {
 		case FISCAL_YEAR:
 			return getFiscalYear(anFmmId);
 		case FLYWHEEL_CADENCE:
-			//				return getFlywheelCadence(anFmmId);
+            return retrieveFlywheelCadence(anFmmId);
 		case NOTEBOOK:
 			//				return getNotebook(anFmmId);
 		case PORTFOLIO:
-							return getPortfolio(anFmmId);
+            return getPortfolio(anFmmId);
 		case PROJECT:
-							return getProject(anFmmId);
+            return getProject(anFmmId);
 		case PROJECT_ASSET:
 			return getProjectAsset(anFmmId);
 		case SERVICE_OFFERING:
@@ -626,13 +628,13 @@ public class FmmDatabaseMediator {
 		case SERVICE_REQUEST_TRIAGE_LOG:
 			//				return getServiceRequestTriageLog(anFmmId);
 		case STRATEGIC_MILESTONE:
-			return getStrategicMilestone(anFmmId);
+			return retrieveStrategicMilestone(anFmmId);
 		case WORK_PACKAGE:
-			return getWorkPackage(anFmmId);
+			return retrieveWorkPackage(anFmmId);
 		case WORK_PLAN:
-			//				return getWorkPlan(anFmmId);
+            return retrieveWorkPlan(anFmmId);
 		case WORK_TASK:
-							return getWorkTask(anFmmId);
+            return retrieveWorkTask(anFmmId);
 		default:
 			return null;
 		}
@@ -1322,6 +1324,18 @@ public class FmmDatabaseMediator {
         return this.persistenceTechnologyDelegate.dbUpdateFlywheelCadence(aFlywheelCadence, bAtomicTransaction);
     }
 
+    public void saveFlywheelCadence(FlywheelCadence aFlywheelCadence, boolean bAtomicTransaction) {
+        if(existsFlywheelCadence(aFlywheelCadence.getNodeIdString())) {
+            updateFlywheelCadence(aFlywheelCadence, bAtomicTransaction);
+        } else {
+            insertFlywheelCadence(aFlywheelCadence, bAtomicTransaction);
+        }
+    }
+
+    public boolean existsFlywheelCadence(String aNodeIdString) {
+        return retrieveFlywheelCadence(aNodeIdString) != null;
+    }
+
     public boolean deleteFlywheelCadence(FlywheelCadence aFlywheelCadence, boolean bAtomicTransaction) {
         return this.persistenceTechnologyDelegate.dbDeleteFlywheelCadence(aFlywheelCadence, bAtomicTransaction);
     }
@@ -1372,6 +1386,18 @@ public class FmmDatabaseMediator {
 
     public boolean updateWorkPlan(WorkPlan aWorkPlan, boolean bAtomicTransaction) {
         return this.persistenceTechnologyDelegate.dbUpdateWorkPlan(aWorkPlan, bAtomicTransaction);
+    }
+
+    public void saveWorkPlan(WorkPlan aWorkPlan, boolean bAtomicTransaction) {
+        if(existsWorkPlan(aWorkPlan.getNodeIdString())) {
+            updateWorkPlan(aWorkPlan, bAtomicTransaction);
+        } else {
+            insertWorkPlan(aWorkPlan, bAtomicTransaction);
+        }
+    }
+
+    public boolean existsWorkPlan(String aNodeIdString) {
+        return retrieveWorkPlan(aNodeIdString) != null;
     }
 
     public boolean deleteWorkPlan(WorkPlan aWorkPlan, boolean bAtomicTransaction) {
@@ -1976,7 +2002,7 @@ public class FmmDatabaseMediator {
         return this.persistenceTechnologyDelegate.dbListWorkTaskOrphansFromWorkPlan();
     }
 
-	public WorkTask getWorkTask(String aNodeIdString) {
+	public WorkTask retrieveWorkTask(String aNodeIdString) {
 		return this.persistenceTechnologyDelegate.dbRetrieveWorkTask(aNodeIdString);
 	}
 
@@ -2060,7 +2086,7 @@ public class FmmDatabaseMediator {
     }
 
     public boolean existsWorkTask(String aNodeIdString) {
-        return getWorkTask(aNodeIdString) != null;
+        return retrieveWorkTask(aNodeIdString) != null;
     }
 
     public boolean moveAllWorkTasksIntoWorkPackage(String aSourceWorkPackageId, String aDestinationWorkPackageId, boolean bSequenceAtEnd, boolean bAtomicTransaction) {
@@ -2449,7 +2475,7 @@ public class FmmDatabaseMediator {
 		return this.persistenceTechnologyDelegate.dbListStrategicMilestoneForWorkPackageMoveTarget(aFiscalYear, aProjectAssetException);
 	}
 
-	public StrategicMilestone getStrategicMilestone(String aNodeIdString) {
+	public StrategicMilestone retrieveStrategicMilestone(String aNodeIdString) {
 		return this.persistenceTechnologyDelegate.dbRetrieveStrategicMilestone(aNodeIdString);
 	}
 
@@ -2521,7 +2547,7 @@ public class FmmDatabaseMediator {
 	}
 
 	public boolean existsStrategicMilestone(String aNodeIdString) {
-		return getStrategicMilestone(aNodeIdString) != null;
+		return retrieveStrategicMilestone(aNodeIdString) != null;
 	}
 
 	public boolean moveAllStrategicMilestonesIntoFiscalYear(
@@ -2601,7 +2627,7 @@ public class FmmDatabaseMediator {
 				bAtomicTransaction );
 	}
 
-	public WorkPackage getWorkPackage(String aNodeIdString) {
+	public WorkPackage retrieveWorkPackage(String aNodeIdString) {
 		return this.persistenceTechnologyDelegate.dbRetrieveWorkPackage(aNodeIdString);
 	}
 
@@ -2668,7 +2694,7 @@ public class FmmDatabaseMediator {
     }
 
     public boolean existsWorkPackage(String aNodeIdString) {
-        return getWorkPackage(aNodeIdString) != null;
+        return retrieveWorkPackage(aNodeIdString) != null;
     }
 
 	public boolean orphanAllWorkPackagesFromProjectAsset(String aProjectAssetId, boolean bAtomicTransaction) {

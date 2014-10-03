@@ -146,7 +146,7 @@ public class WorkPackage extends FmmCompletableNodeImpl implements Comparable<Wo
 	}
 	
 	public static WorkPackage getFmmConfiguration(Intent anIntent) {
-		return FmmDatabaseMediator.getActiveMediator().getWorkPackage(NodeId.getNodeIdString(anIntent));
+		return FmmDatabaseMediator.getActiveMediator().retrieveWorkPackage(NodeId.getNodeIdString(anIntent));
 	}
 
 	public String getProjectAssetNodeIdString() {

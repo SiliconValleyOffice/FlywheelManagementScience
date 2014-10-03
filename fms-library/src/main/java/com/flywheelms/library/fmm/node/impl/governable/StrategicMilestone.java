@@ -135,6 +135,38 @@ public class StrategicMilestone extends FmmCompletableNodeImpl implements Compar
 		}
 	}
 
+    public static final String SERIALIZATION_FORMAT_VERSION = "0.1";
+
+    @Override
+    public JSONObject getJsonObject() {
+        JSONObject theJsonObject = super.getJsonObject();
+        try {
+            theJsonObject.put(JsonHelper.key__SERIALIZATION_FORMAT_VERSION, SERIALIZATION_FORMAT_VERSION);
+            theJsonObject.put(SequencedLinkNodeMetaData.column_SEQUENCE, getSequence());
+            theJsonObject.put(StrategicMilestoneMetaData.column_FISCAL_YEAR_ID, getFiscalYearNodeIdString());
+            theJsonObject.put(StrategicMilestoneMetaData.column_TARGET_MONTH_END, getTargetMonthEnd());
+            theJsonObject.put(StrategicMilestoneMetaData.column_TARGET_DATE, getTargetDateFormattedUtcLong());
+            theJsonObject.put(StrategicMilestoneMetaData.column_TARGET_IS_REVERSE_PLANNING, targetIsReversePlanningAsInt());
+            theJsonObject.put(StrategicMilestoneMetaData.child_fractals_PROJECT_ASSET, getProjectAssetNodeIdStringJsonArray());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return theJsonObject;
+    }
+
+    private JSONArray getProjectAssetNodeIdStringJsonArray() {
+        JSONArray theJsonArray = new JSONArray();
+        for(ProjectAsset theProjectAsset : getProjectAssetList()) {
+            theJsonArray.put(theProjectAsset.getNodeIdString());
+        }
+        return theJsonArray;
+    }
+
+    @Override
+    public StrategicMilestone getClone() {
+        return new StrategicMilestone(getJsonObject());
+    }
+
 	public String getFiscalYearNodeIdString() {
 		return this.fiscalYearNodeIdString;
 	}
@@ -211,38 +243,6 @@ public class StrategicMilestone extends FmmCompletableNodeImpl implements Compar
 		return theGreenCount;
 	}
 	
-	public static final String SERIALIZATION_FORMAT_VERSION = "0.1";
-	
-	@Override
-	public JSONObject getJsonObject() {
-		JSONObject theJsonObject = super.getJsonObject();
-		try {
-			theJsonObject.put(JsonHelper.key__SERIALIZATION_FORMAT_VERSION, SERIALIZATION_FORMAT_VERSION);
-			theJsonObject.put(SequencedLinkNodeMetaData.column_SEQUENCE, getSequence());
-			theJsonObject.put(StrategicMilestoneMetaData.column_FISCAL_YEAR_ID, getFiscalYearNodeIdString());
-			theJsonObject.put(StrategicMilestoneMetaData.column_TARGET_MONTH_END, getTargetMonthEnd());
-			theJsonObject.put(StrategicMilestoneMetaData.column_TARGET_DATE, getTargetDateFormattedUtcLong());
-			theJsonObject.put(StrategicMilestoneMetaData.column_TARGET_IS_REVERSE_PLANNING, targetIsReversePlanningAsInt());
-			theJsonObject.put(StrategicMilestoneMetaData.child_fractals_PROJECT_ASSET, getProjectAssetNodeIdStringJsonArray());
-		} catch (JSONException e) {
-			e.printStackTrace();
-		}
-		return theJsonObject;
-	}
-
-	private JSONArray getProjectAssetNodeIdStringJsonArray() {
-		JSONArray theJsonArray = new JSONArray();
-		for(ProjectAsset theProjectAsset : getProjectAssetList()) {
-			theJsonArray.put(theProjectAsset.getNodeIdString());
-		}
-		return theJsonArray;
-	}
-
-	@Override
-	public StrategicMilestone getClone() {
-		return new StrategicMilestone(getJsonObject());
-	}
-	
 	/////////////////////////////////////////////////
 	//////  TEMPORARY  //////////////////////////
 
@@ -303,7 +303,7 @@ public class StrategicMilestone extends FmmCompletableNodeImpl implements Compar
 	}
 	
 	public static StrategicMilestone getFmmConfiguration(Intent anIntent) {
-		return FmmDatabaseMediator.getActiveMediator().getStrategicMilestone(NodeId.getNodeIdString(anIntent));
+		return FmmDatabaseMediator.getActiveMediator().retrieveStrategicMilestone(NodeId.getNodeIdString(anIntent));
 	}
 
 	public int getTargetMonthEnd() {

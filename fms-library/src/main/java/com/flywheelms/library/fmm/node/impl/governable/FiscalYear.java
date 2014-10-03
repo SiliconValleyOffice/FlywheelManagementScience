@@ -162,8 +162,8 @@ public class FiscalYear extends FmmCompletableNodeImpl implements Comparable<Fis
 		this.strategicMilestoneList = new ArrayList<StrategicMilestone>();
 		for(int i=0; i < aJsonArray.length(); ++i) {
 			try {
-				this.strategicMilestoneList.add(FmmDatabaseMediator.getActiveMediator().getStrategicMilestone(
-						aJsonArray.getString(i) ));
+				this.strategicMilestoneList.add(FmmDatabaseMediator.getActiveMediator().retrieveStrategicMilestone(
+                        aJsonArray.getString(i)));
 			} catch (JSONException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

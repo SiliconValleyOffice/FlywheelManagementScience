@@ -68,7 +68,7 @@ public class StrategicCommitment extends FmmCommitmentNodeImpl implements Compar
 	public StrategicMilestone getStrategicMilestone() {
 		if(this.strategicMilestone == null && this.parentNodeIdString != null) {
 			this.strategicMilestone =
-					FmmDatabaseMediator.getActiveMediator().getStrategicMilestone(this.parentNodeIdString);
+					FmmDatabaseMediator.getActiveMediator().retrieveStrategicMilestone(this.parentNodeIdString);
 		}
 		return this.strategicMilestone;
 	}

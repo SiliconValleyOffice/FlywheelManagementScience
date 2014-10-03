@@ -46,9 +46,16 @@ package com.flywheelms.library.fmm.node.impl.governable;
 import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.enumerator.FmmHoliday;
+import com.flywheelms.library.fmm.meta_data.FlywheelCadenceMetaData;
+import com.flywheelms.library.fmm.meta_data.SequencedLinkNodeMetaData;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.completable.FmmCompletableNodeImpl;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
+import com.flywheelms.library.util.JsonHelper;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -60,6 +67,7 @@ public class FlywheelCadence extends FmmCompletableNodeImpl {
     private FiscalYear fiscalYear;
     private FmmHoliday fmmHoliday;
     private ArrayList<WorkPlan> workPlanList;
+    private ArrayList<WorkPackage> workPackageList;
     private Date scheduledEndDate;
 
 	public FlywheelCadence(NodeId aNodeId, String aFiscalYearId) {
@@ -79,6 +87,90 @@ public class FlywheelCadence extends FmmCompletableNodeImpl {
     public FlywheelCadence(FiscalYear aFiscalYear) {
         super(new NodeId(FmmNodeDefinition.FLYWHEEL_CADENCE));
         setFiscalYear(aFiscalYear);
+    }
+
+    public FlywheelCadence(JSONObject aJsonObject) {
+        super(FlywheelCadence.class, aJsonObject);
+        try {
+            validateSerializationFormatVersion(aJsonObject.getString(JsonHelper.key__SERIALIZATION_FORMAT_VERSION));
+            setSequence(aJsonObject.getInt(SequencedLinkNodeMetaData.column_SEQUENCE));
+            setFiscalYearId(aJsonObject.getString(FlywheelCadenceMetaData.column_FISCAL_YEAR_ID));
+            setScheduledEndDate(aJsonObject.getLong(FlywheelCadenceMetaData.column_SCHEDULED_END_DATE));
+            setWorkPlanList(aJsonObject.getJSONArray(FlywheelCadenceMetaData.child_fractals_WORK_PLAN_LIST));
+            setWorkPackageList(aJsonObject.getJSONArray(FlywheelCadenceMetaData.child_fractals_WORK_PACKAGE_LIST));
+        } catch (JSONException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+    public void setWorkPlanList(JSONArray aJsonArray) {
+        if(aJsonArray == null) {
+            return;
+        }
+        this.workPlanList = new ArrayList<WorkPlan>();
+        for(int i=0; i < aJsonArray.length(); ++i) {
+            try {
+                this.workPlanList.add(FmmDatabaseMediator.getActiveMediator().retrieveWorkPlan(
+                        aJsonArray.getString(i) ));
+            } catch (JSONException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void setWorkPackageList(JSONArray aJsonArray) {
+        if(aJsonArray == null) {
+            return;
+        }
+        this.workPackageList = new ArrayList<WorkPackage>();
+        for(int i=0; i < aJsonArray.length(); ++i) {
+            try {
+                this.workPackageList.add(FmmDatabaseMediator.getActiveMediator().retrieveWorkPackage(
+                        aJsonArray.getString(i)));
+            } catch (JSONException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static final String SERIALIZATION_FORMAT_VERSION = "0.1";
+
+    @Override
+    public JSONObject getJsonObject() {
+        JSONObject theJsonObject = super.getJsonObject();
+        try {
+            theJsonObject.put(JsonHelper.key__SERIALIZATION_FORMAT_VERSION, SERIALIZATION_FORMAT_VERSION);
+            theJsonObject.put(SequencedLinkNodeMetaData.column_SEQUENCE, getSequence());
+            theJsonObject.put(FlywheelCadenceMetaData.column_FISCAL_YEAR_ID, getFiscalYearId());
+            theJsonObject.put(FlywheelCadenceMetaData.column_SCHEDULED_END_DATE, getScheduledEndDateFormattedUtcLong());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return theJsonObject;
+    }
+
+    private JSONArray getWorkPlanNodeIdStringJsonArray() {
+        JSONArray theJsonArray = new JSONArray();
+        for(WorkPlan theWorkPlan : getWorkPlanList()) {
+            theJsonArray.put(theWorkPlan.getNodeIdString());
+        }
+        return theJsonArray;
+    }
+
+    private JSONArray getWorkPackageNodeIdStringJsonArray() {
+        JSONArray theJsonArray = new JSONArray();
+        for(WorkPackage theWorkPackage : getWorkPackageList()) {
+            theJsonArray.put(theWorkPackage.getNodeIdString());
+        }
+        return theJsonArray;
+    }
+
+    @Override
+    public FlywheelCadence getClone() {
+        return new FlywheelCadence(getJsonObject());
     }
 
     public String getFiscalYearId() {
@@ -121,7 +213,7 @@ public class FlywheelCadence extends FmmCompletableNodeImpl {
         return GcgDateHelper.getFormattedUtcLong(this.scheduledEndDate);
     }
 
-	public Date getScheduledEndDateFromList() {
+	public Date getScheduledEndDateFromWorkPlanList() {
         Date theEndDate = null;
         if(this.workPlanList != null && this.workPlanList.size() > 0) {
             return this.workPlanList.get(this.workPlanList.size() - 1).getScheduledEndDate();
@@ -157,9 +249,17 @@ public class FlywheelCadence extends FmmCompletableNodeImpl {
         return this.workPlanList;
     }
 
-    public void setWorkPlanList(ArrayList<WorkPlan> workPlanList) {
-        this.workPlanList = workPlanList;
-        this.scheduledEndDate = getScheduledEndDateFromList();
+    public void setWorkPlanList(ArrayList<WorkPlan> aWorkPlanList) {
+        this.workPlanList = aWorkPlanList;
+        this.scheduledEndDate = getScheduledEndDateFromWorkPlanList();
+    }
+
+    public ArrayList<WorkPackage> getWorkPackageList() {
+        return this.workPackageList;
+    }
+
+    public void setWorkPackageList(ArrayList<WorkPackage> aWorkPackageList) {
+        this.workPackageList = aWorkPackageList;
     }
 
     public String getSecondaryHeadline() {

@@ -463,7 +463,9 @@ public abstract class FmmNodeEditorActivity extends FmsHorizontalNodeNavigatorAc
 	
 	@Override
 	protected boolean headlineEditingEnabled() {
-		return this.fmmNodeDefinition != FmmNodeDefinition.FISCAL_YEAR;
+		return this.fmmNodeDefinition != FmmNodeDefinition.FISCAL_YEAR &&
+                this.fmmNodeDefinition != FmmNodeDefinition.FLYWHEEL_CADENCE &&
+                this.fmmNodeDefinition != FmmNodeDefinition.WORK_PLAN;
 	}
 	
 	@Override

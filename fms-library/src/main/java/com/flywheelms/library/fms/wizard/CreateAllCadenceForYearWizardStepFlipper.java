@@ -175,6 +175,7 @@ public class CreateAllCadenceForYearWizardStepFlipper extends GcgWizardStepFlipp
             thePlanEndDate.add(Calendar.DATE, 6);
             WorkPlan theWorkPlan = new WorkPlan(theFlywheelCadence, thePlanStartDate.getTime(), thePlanEndDate.getTime());
             theWorkPlan.setHeadline("Work Plan " + aSequence + "-" + Integer.toString(theIndex + 1));
+            theWorkPlan.setSequence(theIndex + 1);
             adjustWorkPlanForHolidays(theWorkPlan, thePlanEndDate);
             theWorkPlanList.add(theWorkPlan);
             getLastDayOfThePreviousWorkPlan().setTime(theWorkPlan.getScheduledEndDate());

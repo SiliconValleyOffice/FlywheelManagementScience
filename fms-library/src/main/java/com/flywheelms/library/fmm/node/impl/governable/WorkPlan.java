@@ -46,10 +46,18 @@ package com.flywheelms.library.fmm.node.impl.governable;
 import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.enumerator.FmmHoliday;
+import com.flywheelms.library.fmm.meta_data.SequencedLinkNodeMetaData;
+import com.flywheelms.library.fmm.meta_data.WorkPlanMetaData;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.completable.FmmCompletableNodeImpl;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
+import com.flywheelms.library.util.JsonHelper;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 import java.util.Date;
 
 public class WorkPlan extends FmmCompletableNodeImpl {
@@ -60,6 +68,7 @@ public class WorkPlan extends FmmCompletableNodeImpl {
     private Date scheduledStartDate;
     private Date scheduledEndDate;
     private FmmHoliday fmmHoliday;
+    private ArrayList<WorkTask> workTaskList;
 
     public WorkPlan(NodeId aNodeId) {
 		super(aNodeId);
@@ -75,6 +84,67 @@ public class WorkPlan extends FmmCompletableNodeImpl {
 
     public WorkPlan(String anExistingNodeId) {
         super(new NodeId(FmmNodeDefinition.WORK_PLAN, anExistingNodeId, true));
+    }
+
+    public WorkPlan(JSONObject aJsonObject) {
+        super(WorkPlan.class, aJsonObject);
+        try {
+            validateSerializationFormatVersion(aJsonObject.getString(JsonHelper.key__SERIALIZATION_FORMAT_VERSION));
+            setSequence(aJsonObject.getInt(SequencedLinkNodeMetaData.column_SEQUENCE));
+            setFlywheelCadenceId(aJsonObject.getString(WorkPlanMetaData.column_FLYWHEEL_CADENCE_ID));
+            setScheduledStartDate(aJsonObject.getLong(WorkPlanMetaData.column_SCHEDULED_START_DATE));
+            setScheduledEndDate(aJsonObject.getLong(WorkPlanMetaData.column_SCHEDULED_END_DATE));
+            setWorkTaskList(aJsonObject.getJSONArray(WorkPlanMetaData.child_fractals_WORK_TASK_LIST));
+        } catch (JSONException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+    public void setWorkTaskList(JSONArray aJsonArray) {
+        if(aJsonArray == null) {
+            return;
+        }
+        this.workTaskList = new ArrayList<WorkTask>();
+        for(int i=0; i < aJsonArray.length(); ++i) {
+            try {
+                this.workTaskList.add(FmmDatabaseMediator.getActiveMediator().retrieveWorkTask(
+                        aJsonArray.getString(i)));
+            } catch (JSONException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static final String SERIALIZATION_FORMAT_VERSION = "0.1";
+
+    @Override
+    public JSONObject getJsonObject() {
+        JSONObject theJsonObject = super.getJsonObject();
+        try {
+            theJsonObject.put(JsonHelper.key__SERIALIZATION_FORMAT_VERSION, SERIALIZATION_FORMAT_VERSION);
+            theJsonObject.put(SequencedLinkNodeMetaData.column_SEQUENCE, getSequence());
+            theJsonObject.put(WorkPlanMetaData.column_FLYWHEEL_CADENCE_ID, getFlywheelCadenceId());
+            theJsonObject.put(WorkPlanMetaData.column_SCHEDULED_START_DATE, getScheduledStartDateFormattedUtcLong());
+            theJsonObject.put(WorkPlanMetaData.column_SCHEDULED_END_DATE, getScheduledEndDateFormattedUtcLong());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return theJsonObject;
+    }
+
+    private JSONArray getWorkTaskNodeIdStringJsonArray() {
+        JSONArray theJsonArray = new JSONArray();
+        for(WorkTask theWorkTask : getWorkTaskList()) {
+            theJsonArray.put(theWorkTask.getNodeIdString());
+        }
+        return theJsonArray;
+    }
+
+    @Override
+    public WorkPlan getClone() {
+        return new WorkPlan(getJsonObject());
     }
 
     public String getFlywheelCadenceId() {
@@ -155,5 +225,13 @@ public class WorkPlan extends FmmCompletableNodeImpl {
 
     public void setFmmHoliday(FmmHoliday fmmHoliday) {
         this.fmmHoliday = fmmHoliday;
+    }
+
+    public ArrayList<WorkTask> getWorkTaskList() {
+        return this.workTaskList;
+    }
+
+    public void setWorkTaskList(ArrayList<WorkTask> workTaskList) {
+        this.workTaskList = workTaskList;
     }
 }

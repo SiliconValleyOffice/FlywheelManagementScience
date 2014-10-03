@@ -113,7 +113,7 @@ public class WorkTask extends FmmCompletableNodeImpl {
 	}
 	
 	public static WorkTask getWorkTask(Intent anIntent) {
-		return FmmDatabaseMediator.getActiveMediator().getWorkTask(NodeId.getNodeIdString(anIntent));
+		return FmmDatabaseMediator.getActiveMediator().retrieveWorkTask(NodeId.getNodeIdString(anIntent));
 	}
 
 	public String getWorkPackageNodeIdString() {

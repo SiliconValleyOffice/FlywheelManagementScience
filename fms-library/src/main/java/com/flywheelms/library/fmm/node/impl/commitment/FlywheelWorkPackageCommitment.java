@@ -88,7 +88,7 @@ public class FlywheelWorkPackageCommitment extends FmmCommitmentNodeImpl {
 	public WorkPackage getWorkPackage() {
 		if(this.workPackage == null) {
 			this.workPackage =
-					FmmDatabaseMediator.getActiveMediator().getWorkPackage(this.childNodeIdString);
+					FmmDatabaseMediator.getActiveMediator().retrieveWorkPackage(this.childNodeIdString);
 		}
 		return this.workPackage;
 	}

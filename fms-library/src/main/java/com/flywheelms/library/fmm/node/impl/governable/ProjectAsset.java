@@ -242,8 +242,8 @@ public class ProjectAsset extends FmmCompletableNodeImpl implements Comparable<P
 		this.workPackageList = new ArrayList<WorkPackage>();
 		for(int i=0; i < aJsonArray.length(); ++i) {
 			try {
-				this.workPackageList.add(FmmDatabaseMediator.getActiveMediator().getWorkPackage(
-						aJsonArray.getString(i) ));
+				this.workPackageList.add(FmmDatabaseMediator.getActiveMediator().retrieveWorkPackage(
+                        aJsonArray.getString(i)));
 			} catch (JSONException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

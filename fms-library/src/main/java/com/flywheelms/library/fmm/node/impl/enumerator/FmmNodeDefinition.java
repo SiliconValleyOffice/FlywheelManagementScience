@@ -1066,8 +1066,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     		R.string.fmm_node_definition__work_package__label_text,
     		R.drawable.fmm_noun__work_package__gray,
     		0,
-    		R.drawable.gcg__unspecified_glyph,
-    		R.drawable.fms__work_package__32,
+    		R.drawable.fms_activity__work_package,
+    		R.drawable.fms_dialog__work_package,
     		new HashMap<FmmNodeGlyphType, Integer>(),
     		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // tiny drawables
     		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // small drawables
@@ -1081,8 +1081,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     		R.string.fmm_node_definition__work_plan__label_text,
     		R.drawable.fmm_noun__work_plan__gray,
     		0,
-    		R.drawable.gcg__unspecified_glyph,
-    		R.drawable.gcg__unspecified_glyph,
+    		R.drawable.fms_activity__work_plan,
+    		R.drawable.fms_dialog__work_plan,
     		new HashMap<FmmNodeGlyphType, Integer>(),
     		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // tiny drawables
     		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // small drawables

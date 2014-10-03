@@ -76,6 +76,14 @@
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
        		android:configChanges="keyboardHidden|keyboard"
             android:screenOrientation="sensorLandscape" />
+
+        <activity
+            android:name="com.flywheelms.library.fms.activity.FlywheelCadenceEditorActivity"
+            android:label="@string/editor_activity__flywheel_cadence"
+            android:icon="@drawable/fms_activity__flywheel_cadence"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
+            android:configChanges="keyboardHidden|keyboard"
+            android:screenOrientation="sensorLandscape" />
         
         <activity
             android:name="com.flywheelms.library.fms.activity.ProjectAssetEditorActivity"
@@ -89,6 +97,14 @@
             android:name="com.flywheelms.library.fms.activity.WorkPackageEditorActivity"
             android:label="@string/editor_activity__work_package"
             android:icon="@drawable/fms_activity__work_package"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
+            android:configChanges="keyboardHidden|keyboard"
+            android:screenOrientation="sensorLandscape" />
+
+        <activity
+            android:name="com.flywheelms.library.fms.activity.WorkPlanEditorActivity"
+            android:label="@string/editor_activity__work_plan"
+            android:icon="@drawable/fms_activity__work_plan"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
             android:configChanges="keyboardHidden|keyboard"
             android:screenOrientation="sensorLandscape" />

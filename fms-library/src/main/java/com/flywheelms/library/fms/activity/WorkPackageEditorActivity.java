@@ -55,7 +55,7 @@ import org.json.JSONObject;
 public class WorkPackageEditorActivity extends FmmNodeEditorActivity {
 
 	public WorkPackageEditorActivity() {
-		super(FmmNodeDefinition.PROJECT, FmsHelpIndex.PROJECT_ACTIVITY);
+		super(FmmNodeDefinition.WORK_PACKAGE, FmsHelpIndex.WORK_PACKAGE_ACTIVITY);
 	}
 
 	@Override
