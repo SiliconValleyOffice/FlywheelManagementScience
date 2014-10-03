@@ -87,7 +87,8 @@ public class FiscalYear extends FmmCompletableNodeImpl implements Comparable<Fis
     private int cadenceDuration = 3;
     private String workPlanFirstDayOfWeek = "Tue";
 	private ArrayList<StrategicMilestone> strategicMilestoneList;
-	
+	private ArrayList<FlywheelCadence> flywheelCadenceList;
+
 	// create a new Fiscal Year
 	public FiscalYear(NodeId aNodeId, String anOrganizationNodeIdString, String aYear) {
 		super(aNodeId);
@@ -218,6 +219,7 @@ public class FiscalYear extends FmmCompletableNodeImpl implements Comparable<Fis
 	protected void initializeNodeCompletionSummaryMap() {
 		super.initializeNodeCompletionSummaryMap();
         initializeNodeCompletionSummaryMap(FmmPerspective.STRATEGIC_PLANNING, FmmNodeDefinition.STRATEGIC_MILESTONE);
+        initializeNodeCompletionSummaryMap(FmmPerspective.WORK_PLANNING, FmmNodeDefinition.FLYWHEEL_CADENCE);
 	}
 
 	@Override
@@ -231,7 +233,16 @@ public class FiscalYear extends FmmCompletableNodeImpl implements Comparable<Fis
 			} else {
 				aNodeSummary.setShowNodeSummary(false);
 			}
-		}
+		} else if(anFmmPerspective == FmmPerspective.WORK_PLANNING) {
+            Collection<FlywheelCadence> theFlywheelCadenceCollection = getFlywheelCadenceCollection();
+            if(theFlywheelCadenceCollection.size() > 0) {
+                aNodeSummary.setShowNodeSummary(true);
+                aNodeSummary.setSummaryPrefix("( " + countGreenFlywheelCadences() + " ");
+                aNodeSummary.setSummarySuffix(" of " + theFlywheelCadenceCollection.size() + " )");
+            } else {
+                aNodeSummary.setShowNodeSummary(false);
+            }
+        }
 	}
 
 	public Collection<StrategicMilestone> getStrategicMilestoneCollection() {
@@ -254,6 +265,27 @@ public class FiscalYear extends FmmCompletableNodeImpl implements Comparable<Fis
 		}
 		return theGreenCount;
 	}
+
+    public Collection<FlywheelCadence> getFlywheelCadenceCollection() {
+        return getFlywheelCadenceList();
+    }
+
+    public ArrayList<FlywheelCadence> getFlywheelCadenceList() {
+        if(this.flywheelCadenceList == null) {
+            this.flywheelCadenceList = FmmDatabaseMediator.getActiveMediator().getFlywheelCadenceListForFiscalYear(getNodeIdString());
+        }
+        return this.flywheelCadenceList;
+    }
+
+    private int countGreenFlywheelCadences() {
+        int theGreenCount = 0;
+        for(FlywheelCadence theFlywheelCadence : getFlywheelCadenceCollection()) {
+            if(theFlywheelCadence.isGreen()) {
+                ++theGreenCount;
+            }
+        }
+        return theGreenCount;
+    }
 	
 	/////////////////////////////////////////////////////////////////////////
 	//////  TEMPORARY for development scaffolding  //////////////////////////

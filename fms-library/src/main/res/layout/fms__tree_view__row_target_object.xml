@@ -100,7 +100,7 @@
 
     <LinearLayout
         android:id="@+id/tree_node__quality_activity_launch_zone"
-        android:layout_width="80dp"
+        android:layout_width="70dp"
         android:layout_height="60dp"
         android:background="@drawable/gcg__background_state_list__tree_row"
         android:gravity="center_vertical"
@@ -122,7 +122,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="2dip"
-            android:paddingRight="7dip"
             android:textSize="16dp" >
         </TextView>
     </LinearLayout>

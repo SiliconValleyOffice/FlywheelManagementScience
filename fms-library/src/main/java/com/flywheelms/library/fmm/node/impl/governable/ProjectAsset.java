@@ -72,7 +72,6 @@ import com.flywheelms.library.fmm.node.impl.completable.FmmCompletableNodeImpl;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
 import com.flywheelms.library.fmm.node.interfaces.FmmSequencedNode;
-import com.flywheelms.library.fmm.transaction.FmmNodeGlyphType;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
 import com.flywheelms.library.util.JsonHelper;
 
@@ -185,12 +184,8 @@ public class ProjectAsset extends FmmCompletableNodeImpl implements Comparable<P
 	@Override
 	protected void initializeNodeCompletionSummaryMap() {
 		super.initializeNodeCompletionSummaryMap();
-		NodeCompletionSummary theNodeCompletionSummary = new NodeCompletionSummary();
-		theNodeCompletionSummary.setSummaryDrawableResourceId(
-                FmmNodeDefinition.WORK_PACKAGE.getUndecoratedGlyphResourceId(FmmNodeGlyphType.GREEN));
-		updateNodeCompletionSummary(FmmPerspective.STRATEGIC_PLANNING, theNodeCompletionSummary);
-		this.nodeCompletionSummaryMap.put(FmmPerspective.STRATEGIC_PLANNING, theNodeCompletionSummary);
-		this.nodeCompletionSummaryMap.put(FmmPerspective.WORK_BREAKDOWN, theNodeCompletionSummary);
+        initializeNodeCompletionSummaryMap(FmmPerspective.STRATEGIC_PLANNING, FmmNodeDefinition.WORK_PACKAGE);
+		this.nodeCompletionSummaryMap.put(FmmPerspective.WORK_BREAKDOWN, this.nodeCompletionSummaryMap.get(FmmPerspective.STRATEGIC_PLANNING));
 	}
 
 	@Override

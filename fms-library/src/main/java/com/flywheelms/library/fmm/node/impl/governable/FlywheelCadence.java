@@ -45,6 +45,7 @@ package com.flywheelms.library.fmm.node.impl.governable;
 
 import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fmm.enumerator.FmmHoliday;
 import com.flywheelms.library.fmm.meta_data.FlywheelCadenceMetaData;
 import com.flywheelms.library.fmm.meta_data.SequencedLinkNodeMetaData;
@@ -58,6 +59,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 
 public class FlywheelCadence extends FmmCompletableNodeImpl {
@@ -245,15 +247,6 @@ public class FlywheelCadence extends FmmCompletableNodeImpl {
         this.fmmHoliday = aHoliday;
     }
 
-    public ArrayList<WorkPlan> getWorkPlanList() {
-        return this.workPlanList;
-    }
-
-    public void setWorkPlanList(ArrayList<WorkPlan> aWorkPlanList) {
-        this.workPlanList = aWorkPlanList;
-        this.scheduledEndDate = getScheduledEndDateFromWorkPlanList();
-    }
-
     public ArrayList<WorkPackage> getWorkPackageList() {
         return this.workPackageList;
     }
@@ -264,5 +257,52 @@ public class FlywheelCadence extends FmmCompletableNodeImpl {
 
     public String getSecondaryHeadline() {
         return "ending " + GcgDateHelper.getGuiDateString5(getScheduledEndDate());
+    }
+
+    @Override
+    protected void initializeNodeCompletionSummaryMap() {
+        super.initializeNodeCompletionSummaryMap();
+        initializeNodeCompletionSummaryMap(FmmPerspective.WORK_PLANNING, FmmNodeDefinition.WORK_PLAN);
+    }
+
+    @Override
+    public void updateNodeCompletionSummary(FmmPerspective anFmmPerspective, NodeCompletionSummary aNodeSummary) {
+        if(anFmmPerspective == FmmPerspective.WORK_PLANNING) {
+            Collection<WorkPlan> theWorkPlanCollection = getWorkPlanCollection();
+            if(theWorkPlanCollection.size() > 0) {
+                aNodeSummary.setShowNodeSummary(true);
+                aNodeSummary.setSummaryPrefix("( " + countGreenWorkPlans(theWorkPlanCollection) + " ");
+                aNodeSummary.setSummarySuffix(" of " + theWorkPlanCollection.size() + " )");
+            } else {
+                aNodeSummary.setShowNodeSummary(false);
+            }
+        }
+    }
+
+    private Collection<WorkPlan> getWorkPlanCollection() {
+        return FmmDatabaseMediator.getActiveMediator().getWorkPlanList(this);
+    }
+
+    public ArrayList<WorkPlan> getWorkPlanList() {
+        if(this.workPlanList == null) {
+            this.workPlanList = new ArrayList<WorkPlan>(
+                    FmmDatabaseMediator.getActiveMediator().getWorkPlanListForFlywheelCadence(this.getNodeIdString()) );
+        }
+        return this.workPlanList;
+    }
+
+    public void setWorkPlanList(ArrayList<WorkPlan> aWorkPlanList) {
+        this.workPlanList = aWorkPlanList;
+        this.scheduledEndDate = getScheduledEndDateFromWorkPlanList();
+    }
+
+    private static int countGreenWorkPlans(Collection<WorkPlan> aWorkPlanCollection) {
+        int theGreenCount = 0;
+        for(WorkPlan theWorkPlan : aWorkPlanCollection) {
+            if(theWorkPlan.isGreen()) {
+                ++theGreenCount;
+            }
+        }
+        return theGreenCount;
     }
 }

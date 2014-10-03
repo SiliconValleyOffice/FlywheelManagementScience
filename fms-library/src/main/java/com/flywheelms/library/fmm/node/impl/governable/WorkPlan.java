@@ -45,6 +45,7 @@ package com.flywheelms.library.fmm.node.impl.governable;
 
 import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fmm.enumerator.FmmHoliday;
 import com.flywheelms.library.fmm.meta_data.SequencedLinkNodeMetaData;
 import com.flywheelms.library.fmm.meta_data.WorkPlanMetaData;
@@ -58,6 +59,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 
 public class WorkPlan extends FmmCompletableNodeImpl {
@@ -227,11 +229,49 @@ public class WorkPlan extends FmmCompletableNodeImpl {
         this.fmmHoliday = fmmHoliday;
     }
 
+    public void setWorkTaskList(ArrayList<WorkTask> workTaskList) {
+        this.workTaskList = workTaskList;
+    }
+
+    @Override
+    protected void initializeNodeCompletionSummaryMap() {
+        super.initializeNodeCompletionSummaryMap();
+        initializeNodeCompletionSummaryMap(FmmPerspective.WORK_PLANNING, FmmNodeDefinition.WORK_PLAN);
+    }
+
+    @Override
+    public void updateNodeCompletionSummary(FmmPerspective anFmmPerspective, NodeCompletionSummary aNodeSummary) {
+        if(anFmmPerspective == FmmPerspective.WORK_PLANNING) {
+            Collection<WorkTask> theWorkTaskCollection = getWorkTaskCollection();
+            if(theWorkTaskCollection.size() > 0) {
+                aNodeSummary.setShowNodeSummary(true);
+                aNodeSummary.setSummaryPrefix("( " + countGreenWorkTasks(theWorkTaskCollection) + " ");
+                aNodeSummary.setSummarySuffix(" of " + theWorkTaskCollection.size() + " )");
+            } else {
+                aNodeSummary.setShowNodeSummary(false);
+            }
+        }
+    }
+
+    private Collection<WorkTask> getWorkTaskCollection() {
+        return FmmDatabaseMediator.getActiveMediator().listWorkTasks(this);
+    }
+
     public ArrayList<WorkTask> getWorkTaskList() {
+        if(this.workTaskList == null) {
+            this.workTaskList = new ArrayList<WorkTask>(
+                    FmmDatabaseMediator.getActiveMediator().listWorkTasksForWorkPlan(this.getNodeIdString()) );
+        }
         return this.workTaskList;
     }
 
-    public void setWorkTaskList(ArrayList<WorkTask> workTaskList) {
-        this.workTaskList = workTaskList;
+    private static int countGreenWorkTasks(Collection<WorkTask> aWorkTaskCollection) {
+        int theGreenCount = 0;
+        for(WorkTask theWorkTask : aWorkTaskCollection) {
+            if(theWorkTask.isGreen()) {
+                ++theGreenCount;
+            }
+        }
+        return theGreenCount;
     }
 }

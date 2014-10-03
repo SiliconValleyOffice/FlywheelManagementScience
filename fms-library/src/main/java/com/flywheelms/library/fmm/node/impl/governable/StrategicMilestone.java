@@ -71,7 +71,6 @@ import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.completable.FmmCompletableNodeImpl;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
-import com.flywheelms.library.fmm.transaction.FmmNodeGlyphType;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
 import com.flywheelms.library.util.JsonHelper;
 
@@ -194,11 +193,7 @@ public class StrategicMilestone extends FmmCompletableNodeImpl implements Compar
 	@Override
 	protected void initializeNodeCompletionSummaryMap() {
 		super.initializeNodeCompletionSummaryMap();
-		NodeCompletionSummary theStrategicPlanningSummary = new NodeCompletionSummary();
-		theStrategicPlanningSummary.setSummaryDrawableResourceId(
-				FmmNodeDefinition.PROJECT_ASSET.getUndecoratedGlyphResourceId(FmmNodeGlyphType.GREEN) );
-		updateNodeCompletionSummary(FmmPerspective.STRATEGIC_PLANNING, theStrategicPlanningSummary);
-		this.nodeCompletionSummaryMap.put(FmmPerspective.STRATEGIC_PLANNING, theStrategicPlanningSummary);
+        initializeNodeCompletionSummaryMap(FmmPerspective.STRATEGIC_PLANNING, FmmNodeDefinition.PROJECT_ASSET);
 	}
 
 	@Override
