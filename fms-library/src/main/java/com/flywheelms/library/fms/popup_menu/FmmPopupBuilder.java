@@ -104,7 +104,8 @@ public class FmmPopupBuilder {
 	public static final String menu_item__DELETE_WORK_TASK= "Delete Work Task...";
 	public static final String menu_item__MOVE_WORK_TASK = "Move Work Task...";
 	public static final String menu_item__ORPHAN_WORK_TASK = "Orphan Work Task...";
-	
+	public static final String menu_item__NO_OPTIONS = "No Options";
+
 	public static final String menu_item__SEQUENCE_DOWN = "Sequence Down";
 	public static final String menu_item__SEQUENCE_UP = "Sequence Up";
 	public static final String menu_item__SEQUENCE_FIRST = "Sequence First";
@@ -136,12 +137,16 @@ public class FmmPopupBuilder {
 			return createProjectAssetPopupMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, bCanMove, bCanOrphan, bCanSequenceDown, bCanSequenceUp, aLaunchNodeSequence, aLaunchNodeChildCount);
 		case STRATEGIC_MILESTONE:
 			return createStrategicMilestonePopupMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, bCanMove, bCanOrphan, bCanSequenceDown, bCanSequenceUp, aLaunchNodeSequence, aLaunchNodeChildCount);
+        case FLYWHEEL_CADENCE:
+            return createNoOptionsMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, bCanMove, bCanOrphan, bCanSequenceDown, bCanSequenceUp, aLaunchNodeSequence, aLaunchNodeChildCount);
         case PORTFOLIO:
             return createPortfolioPopupMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, aLaunchNodeChildCount);
         case PROJECT:
             return createProjectPopupMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, bCanMove, bCanOrphan, bCanSequenceDown, bCanSequenceUp, aLaunchNodeSequence, aLaunchNodeChildCount);
         case WORK_PACKAGE:
             return createWorkPackagePopupMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, bCanMove, bCanOrphan, bCanSequenceDown, bCanSequenceUp, aLaunchNodeSequence, aLaunchNodeChildCount);
+        case WORK_PLAN:
+            return createNoOptionsMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, bCanMove, bCanOrphan, bCanSequenceDown, bCanSequenceUp, aLaunchNodeSequence, aLaunchNodeChildCount);
         case WORK_TASK:
             return createWorkTaskPopupMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, bCanMove, bCanOrphan, bCanSequenceDown, bCanSequenceUp, aLaunchNodeSequence, aLaunchNodeChildCount);
 		default:
@@ -306,40 +311,24 @@ public class FmmPopupBuilder {
 		return thePopupMenu;
 	}
 
-	private static PopupMenu createFlywheelCadencePopupMenu(
-			FmmHeadlineNodePopupListener aNodePopupListener,
-			GcgTreeNodeInfo aLaunchTreeNodeInfo,
-			FmmHeadlineNode aLaunchHeadlineNode,
-			FmmHeadlineNode aParentHeadlineNode,
-			View aView,
-			boolean bCanDelete,
-			boolean bCanMove,
-			boolean bCanOrphan,
-			boolean bCanSequenceUp,
-			boolean bCanSequenceDown,
-			int aLaunchNodeSequence,
-			int aLaunchNodeChildCount ) {
-		FmmHeadlineNodePopupMenu thePopupMenu = new FmmHeadlineNodePopupMenu(
-				aNodePopupListener, aView, aLaunchHeadlineNode, aParentHeadlineNode, aLaunchTreeNodeInfo, aLaunchNodeSequence, aLaunchNodeChildCount );
-		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_ALL_FLYWHEEL_CADENCES);
-		if(bCanDelete) {
-			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__DELETE_FLYWHEEL_CADENCE);
-		}
-		if(bCanMove) {
-			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__MOVE_FLYWHEEL_CADENCE);
-		}
-		if(bCanSequenceUp) {
-			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__SEQUENCE_FIRST);
-			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__SEQUENCE_UP);
-		}
-		if(bCanSequenceDown) {
-			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__SEQUENCE_DOWN);
-			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__SEQUENCE_LAST);
-		}
-		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_HEADLINE);
-		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_WORK_PLAN);
-		return thePopupMenu;
-	}
+    private static PopupMenu createNoOptionsMenu(
+            FmmHeadlineNodePopupListener aNodePopupListener,
+            GcgTreeNodeInfo aLaunchTreeNodeInfo,
+            FmmHeadlineNode aLaunchHeadlineNode,
+            FmmHeadlineNode aParentHeadlineNode,
+            View aView,
+            boolean bCanDelete,
+            boolean bCanMove,
+            boolean bCanOrphan,
+            boolean bCanSequenceUp,
+            boolean bCanSequenceDown,
+            int aLaunchNodeSequence,
+            int aLaunchNodeChildCount ) {
+        FmmHeadlineNodePopupMenu thePopupMenu = new FmmHeadlineNodePopupMenu(
+                aNodePopupListener, aView, aLaunchHeadlineNode, aParentHeadlineNode, aLaunchTreeNodeInfo, aLaunchNodeSequence, aLaunchNodeChildCount );
+        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__NO_OPTIONS);
+        return thePopupMenu;
+    }
 
 	private static PopupMenu createWorkPackagePopupMenu(
 			FmmHeadlineNodePopupListener aNodePopupListener,
@@ -365,42 +354,6 @@ public class FmmPopupBuilder {
 		}
 		if(bCanOrphan) {
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__ORPHAN_WORK_PACKAGE);
-		}
-		if(bCanSequenceUp) {
-			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__SEQUENCE_FIRST);
-			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__SEQUENCE_UP);
-		}
-		if(bCanSequenceDown) {
-			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__SEQUENCE_DOWN);
-			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__SEQUENCE_LAST);
-		}
-		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_HEADLINE);
-		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_WORK_TASK);
-		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__ADOPT_ORPHAN_WORK_TASK);
-		return thePopupMenu;
-	}
-
-	private static PopupMenu createWorkPlanPopupMenu(
-			FmmHeadlineNodePopupListener aNodePopupListener,
-			GcgTreeNodeInfo aLaunchTreeNodeInfo,
-			FmmHeadlineNode aLaunchHeadlineNode,
-			FmmHeadlineNode aParentHeadlineNode,
-			View aView,
-			boolean bCanDelete,
-			boolean bCanMove,
-			boolean bCanOrphan,
-			boolean bCanSequenceUp,
-			boolean bCanSequenceDown,
-			int aLaunchNodeSequence,
-			int aLaunchNodeChildCount ) {
-		FmmHeadlineNodePopupMenu thePopupMenu = new FmmHeadlineNodePopupMenu(
-				aNodePopupListener, aView, aLaunchHeadlineNode, aParentHeadlineNode, aLaunchTreeNodeInfo, aLaunchNodeSequence, aLaunchNodeChildCount );
-		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_WORK_PLAN);
-		if(bCanDelete) {
-			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__DELETE_WORK_PLAN);
-		}
-		if(bCanMove) {
-			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__MOVE_WORK_PLAN);
 		}
 		if(bCanSequenceUp) {
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__SEQUENCE_FIRST);
