@@ -47,6 +47,7 @@ import com.flywheelms.gcongui.deckangl.enumerator.DecKanGlNounStateColor;
 import com.flywheelms.gcongui.deckangl.glyph.DecKanGlDictionary;
 import com.flywheelms.gcongui.deckangl.glyph.DecKanGlElementNounState;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fmm.node.FmmNodeInfo;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.enumerator.CompletableWorkStatus;
@@ -57,6 +58,7 @@ import com.flywheelms.library.fmm.node.impl.governable.FmmGovernableNodeImpl;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragCompletion;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragWorkTaskBudget;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmCompletionNode;
+import com.flywheelms.library.fmm.transaction.FmmNodeGlyphType;
 
 import org.json.JSONObject;
 
@@ -379,5 +381,13 @@ public abstract class FmmCompletableNodeImpl extends FmmGovernableNodeImpl
 	public int getDataDrawableResourceId() {
 		return getFmmNodeDefinition().getDataDrawableResourceId(getCompletableWorkStatus());
 	}
+
+    protected void initializeNodeCompletionSummaryMap(FmmPerspective anFmmPerspective, FmmNodeDefinition aChildNodeDefinition) {
+        NodeCompletionSummary theNodeCompletionSummary = new NodeCompletionSummary();
+        theNodeCompletionSummary.setSummaryDrawableResourceId(
+                aChildNodeDefinition.getUndecoratedGlyphResourceId(FmmNodeGlyphType.GREEN) );
+        updateNodeCompletionSummary(anFmmPerspective, theNodeCompletionSummary);
+        this.nodeCompletionSummaryMap.put(anFmmPerspective, theNodeCompletionSummary);
+    }
 
 }

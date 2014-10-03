@@ -66,7 +66,6 @@ import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.completable.FmmCompletableNodeImpl;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
-import com.flywheelms.library.fmm.transaction.FmmNodeGlyphType;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
 import com.flywheelms.library.util.JsonHelper;
 
@@ -218,11 +217,7 @@ public class FiscalYear extends FmmCompletableNodeImpl implements Comparable<Fis
 	@Override
 	protected void initializeNodeCompletionSummaryMap() {
 		super.initializeNodeCompletionSummaryMap();
-		NodeCompletionSummary theNodeCompletionSummary = new NodeCompletionSummary();
-		theNodeCompletionSummary.setSummaryDrawableResourceId(
-				FmmNodeDefinition.STRATEGIC_MILESTONE.getUndecoratedGlyphResourceId(FmmNodeGlyphType.GREEN) );
-		updateNodeCompletionSummary(FmmPerspective.STRATEGIC_PLANNING, theNodeCompletionSummary);
-		this.nodeCompletionSummaryMap.put(FmmPerspective.STRATEGIC_PLANNING, theNodeCompletionSummary);
+        initializeNodeCompletionSummaryMap(FmmPerspective.STRATEGIC_PLANNING, FmmNodeDefinition.STRATEGIC_MILESTONE);
 	}
 
 	@Override
