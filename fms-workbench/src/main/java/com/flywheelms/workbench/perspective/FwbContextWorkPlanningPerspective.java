@@ -99,7 +99,7 @@ public class FwbContextWorkPlanningPerspective extends FmsPerspectiveFlipperTree
 
     @Override
     protected int getRightMenuLayoutResourceId() {
-        return R.layout.context__work_breakdown__right_menu;
+        return R.layout.context__work_planning__right_menu;
     }
 
     @Override

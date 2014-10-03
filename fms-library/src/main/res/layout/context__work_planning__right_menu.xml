@@ -57,7 +57,7 @@
                         android:layout_marginTop="20dp"
                         gcg:buttonLabel="Child\nSummary"
                         gcg:initialState="1"
-                        gcg:numberOfStates="5" />
+                        gcg:numberOfStates="4" />
 
                     <com.flywheelms.gcongui.gcg.button.GcgIncrementalButton
                         android:id="@+id/show_button__node_quality"
@@ -68,7 +68,7 @@
                         android:layout_marginLeft="10dp"
                         gcg:buttonLabel="Node\nQuality"
                         gcg:initialState="1"
-                        gcg:numberOfStates="5" />
+                        gcg:numberOfStates="4" />
 
                     <com.flywheelms.gcongui.gcg.button.GcgIncrementalButton
                         android:id="@+id/show_button__collapse_to_tree_depth"
@@ -79,7 +79,7 @@
                         android:layout_marginLeft="10dp"
                         gcg:buttonLabel="Tree\nDepth"
                         gcg:initialState="1"
-                        gcg:numberOfStates="4" />
+                        gcg:numberOfStates="3" />
 
                     <com.flywheelms.gcongui.gcg.button.GcgIncrementalButton
                         android:id="@+id/show_button__emphasis_level"
@@ -90,7 +90,7 @@
                         android:layout_marginLeft="10dp"
                         gcg:buttonLabel="Emphasis\nLevel"
                         gcg:initialState="1"
-                        gcg:numberOfStates="5" />
+                        gcg:numberOfStates="4" />
                 </LinearLayout>
 
                 <Button
