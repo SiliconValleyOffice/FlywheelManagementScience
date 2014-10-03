@@ -91,6 +91,7 @@ public class ProjectAsset extends FmmCompletableNodeImpl implements Comparable<P
 	private String flywheelTeamNodeIdString;
 	private FlywheelTeam flywheelTeam;
 	private ArrayList<WorkPackage> workPackageList;
+    private int workPackageBudget = 0;
 	
 	public ProjectAsset() {
 		super(new NodeId(FmmNodeDefinition.PROJECT_ASSET.getNodeTypeCode()));
@@ -345,4 +346,16 @@ public class ProjectAsset extends FmmCompletableNodeImpl implements Comparable<P
 		return true;
 	}
 
+    public int getWorkPackageBudget() {
+        return this.workPackageBudget;
+    }
+
+    public void setWorkPackageBudget(int workPackageBudget) {
+        this.workPackageBudget = workPackageBudget;
+    }
+
+    public int getPhantomWorkPackageCount() {
+        int theCount = this.workPackageBudget - getWorkPackageList().size();
+        return theCount < 0 ? 0 : theCount;
+    }
 }

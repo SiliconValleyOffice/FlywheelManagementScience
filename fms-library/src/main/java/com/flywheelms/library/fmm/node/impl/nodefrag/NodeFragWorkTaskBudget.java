@@ -317,4 +317,8 @@ public class NodeFragWorkTaskBudget extends FmmNodeFragLockableImpl
 		setAverageHoursPerTaskAfterCompletion((float) aDouble);
 	}
 
+    public int getPhantomTasks() {
+        int theCount = this.estimatedTotalTaskCount - this.workBreakdownTotalTaskCount;
+        return theCount < 0 ? 0 : theCount;
+    }
 }

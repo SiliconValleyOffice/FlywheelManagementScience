@@ -68,6 +68,7 @@ public class Project extends FmmCompletableNodeImpl {
     private String portfolioNodeIdString;
     private Portfolio portfolio;
     private ArrayList<ProjectAsset> projectAssetList;
+    private int projectAssetBudget = 0;
 
     public Project(NodeId aNodeId, String aHeadline, String aPortfolioNodeIdString) {
         super(aNodeId);
@@ -180,6 +181,19 @@ public class Project extends FmmCompletableNodeImpl {
             }
         }
         return theGreenCount;
+    }
+
+    public int getWorkPackageBudget() {
+        return this.projectAssetBudget;
+    }
+
+    public void setWorkPackageBudget(int projectAssetBudget) {
+        this.projectAssetBudget = projectAssetBudget;
+    }
+
+    public int getPhantomWorkPackageCount() {
+        int theCount = this.projectAssetBudget - getProjectAssetList().size();
+        return theCount < 0 ? 0 : theCount;
     }
 
 }
