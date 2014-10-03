@@ -2044,7 +2044,8 @@ public class FmmDatabaseMediator {
             FmmHeadlineNode aPeerNode,
             boolean bSequenceAtEnd ) {
         startTransaction();
-        WorkTask theNewWorkTask = new WorkTask(aHeadline);
+        WorkTask theNewWorkTask = new WorkTask();
+        theNewWorkTask.setHeadline(aHeadline);
         theNewWorkTask.setWorkPlanNodeIdString(aParentNode.getNodeIdString());
         int theNewSequenceNumber = initializeNewSequenceNumberForTable(
                 FmmNodeDefinition.WORK_TASK,

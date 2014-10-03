@@ -146,7 +146,7 @@ public class FmmPopupBuilder {
         case WORK_PACKAGE:
             return createWorkPackagePopupMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, bCanMove, bCanOrphan, bCanSequenceDown, bCanSequenceUp, aLaunchNodeSequence, aLaunchNodeChildCount);
         case WORK_PLAN:
-            return createNoOptionsMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, bCanMove, bCanOrphan, bCanSequenceDown, bCanSequenceUp, aLaunchNodeSequence, aLaunchNodeChildCount);
+            return createWorkPlanMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, bCanMove, bCanOrphan, bCanSequenceDown, bCanSequenceUp, aLaunchNodeSequence, aLaunchNodeChildCount);
         case WORK_TASK:
             return createWorkTaskPopupMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, bCanMove, bCanOrphan, bCanSequenceDown, bCanSequenceUp, aLaunchNodeSequence, aLaunchNodeChildCount);
 		default:
@@ -327,6 +327,25 @@ public class FmmPopupBuilder {
         FmmHeadlineNodePopupMenu thePopupMenu = new FmmHeadlineNodePopupMenu(
                 aNodePopupListener, aView, aLaunchHeadlineNode, aParentHeadlineNode, aLaunchTreeNodeInfo, aLaunchNodeSequence, aLaunchNodeChildCount );
         thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__NO_OPTIONS);
+        return thePopupMenu;
+    }
+
+    private static PopupMenu createWorkPlanMenu(
+            FmmHeadlineNodePopupListener aNodePopupListener,
+            GcgTreeNodeInfo aLaunchTreeNodeInfo,
+            FmmHeadlineNode aLaunchHeadlineNode,
+            FmmHeadlineNode aParentHeadlineNode,
+            View aView,
+            boolean bCanDelete,
+            boolean bCanMove,
+            boolean bCanOrphan,
+            boolean bCanSequenceUp,
+            boolean bCanSequenceDown,
+            int aLaunchNodeSequence,
+            int aLaunchNodeChildCount ) {
+        FmmHeadlineNodePopupMenu thePopupMenu = new FmmHeadlineNodePopupMenu(
+                aNodePopupListener, aView, aLaunchHeadlineNode, aParentHeadlineNode, aLaunchTreeNodeInfo, aLaunchNodeSequence, aLaunchNodeChildCount );
+        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_WORK_TASK);
         return thePopupMenu;
     }
 
