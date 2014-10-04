@@ -1876,28 +1876,28 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 		FmmNodeDefinition.WORK_PLAN.getNodeGlyphResourceIdMap().put(
 				FmmNodeGlyphType.COUNT_GREEN, R.drawable.fmm_noun__work_plan_count__green);
 		//  WORK TASK
-		FmmNodeDefinition.WORK_TASK.getNodeGlyphResourceIdMap().put(
-				FmmNodeGlyphType.ADD, R.drawable.fmm_noun__work_task__add);
-		FmmNodeDefinition.WORK_TASK.getNodeGlyphResourceIdMap().put(
-				FmmNodeGlyphType.DESTROY, R.drawable.fmm_noun__work_task__delete);
-		FmmNodeDefinition.WORK_TASK.getNodeGlyphResourceIdMap().put(
-				FmmNodeGlyphType.EDIT, R.drawable.fmm_noun__work_task__edit);
+//		FmmNodeDefinition.WORK_TASK.getNodeGlyphResourceIdMap().put(
+//				FmmNodeGlyphType.ADD, R.drawable.fmm_noun__work_task__add);
+//		FmmNodeDefinition.WORK_TASK.getNodeGlyphResourceIdMap().put(
+//				FmmNodeGlyphType.DESTROY, R.drawable.fmm_noun__work_task__delete);
+//		FmmNodeDefinition.WORK_TASK.getNodeGlyphResourceIdMap().put(
+//				FmmNodeGlyphType.EDIT, R.drawable.fmm_noun__work_task__edit);
 		FmmNodeDefinition.WORK_TASK.getNodeGlyphResourceIdMap().put(
 				FmmNodeGlyphType.GRAY, R.drawable.fmm_noun__work_task__gray);
 		FmmNodeDefinition.WORK_TASK.getNodeGlyphResourceIdMap().put(
 				FmmNodeGlyphType.GREEN, R.drawable.fmm_noun__work_task__green);
-		FmmNodeDefinition.WORK_TASK.getNodeGlyphResourceIdMap().put(
-				FmmNodeGlyphType.MOVE, R.drawable.fmm_noun__work_task__move);
-		FmmNodeDefinition.WORK_TASK.getNodeGlyphResourceIdMap().put(
-				FmmNodeGlyphType.NEW, R.drawable.fmm_noun__work_task__new);
+//		FmmNodeDefinition.WORK_TASK.getNodeGlyphResourceIdMap().put(
+//				FmmNodeGlyphType.MOVE, R.drawable.fmm_noun__work_task__move);
+//		FmmNodeDefinition.WORK_TASK.getNodeGlyphResourceIdMap().put(
+//				FmmNodeGlyphType.NEW, R.drawable.fmm_noun__work_task__new);
 		FmmNodeDefinition.WORK_TASK.getNodeGlyphResourceIdMap().put(
 				FmmNodeGlyphType.ORANGE, R.drawable.fmm_noun__work_task__orange);
 		FmmNodeDefinition.WORK_TASK.getNodeGlyphResourceIdMap().put(
 				FmmNodeGlyphType.PINK, R.drawable.fmm_noun__work_task__pink);
-		FmmNodeDefinition.WORK_TASK.getNodeGlyphResourceIdMap().put(
-				FmmNodeGlyphType.REMOVE, R.drawable.fmm_noun__work_task__remove);
-		FmmNodeDefinition.WORK_TASK.getNodeGlyphResourceIdMap().put(
-				FmmNodeGlyphType.RENAME, R.drawable.fmm_noun__work_task__rename);
+//		FmmNodeDefinition.WORK_TASK.getNodeGlyphResourceIdMap().put(
+//				FmmNodeGlyphType.REMOVE, R.drawable.fmm_noun__work_task__remove);
+//		FmmNodeDefinition.WORK_TASK.getNodeGlyphResourceIdMap().put(
+//				FmmNodeGlyphType.RENAME, R.drawable.fmm_noun__work_task__rename);
 		FmmNodeDefinition.WORK_TASK.getNodeGlyphResourceIdMap().put(
 				FmmNodeGlyphType.YELLOW, R.drawable.fmm_noun__work_task__yellow);
 		FmmNodeDefinition.WORK_TASK.getNodeGlyphResourceIdMap().put(
