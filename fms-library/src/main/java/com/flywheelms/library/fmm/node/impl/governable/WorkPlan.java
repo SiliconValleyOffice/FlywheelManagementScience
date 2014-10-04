@@ -236,7 +236,7 @@ public class WorkPlan extends FmmCompletableNodeImpl {
     @Override
     protected void initializeNodeCompletionSummaryMap() {
         super.initializeNodeCompletionSummaryMap();
-        initializeNodeCompletionSummaryMap(FmmPerspective.WORK_PLANNING, FmmNodeDefinition.WORK_PLAN);
+        initializeNodeCompletionSummaryMap(FmmPerspective.WORK_PLANNING, FmmNodeDefinition.WORK_TASK);
     }
 
     @Override
