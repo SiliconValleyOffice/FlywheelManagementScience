@@ -207,7 +207,7 @@ public class HeadlineNodeCreateDialog extends FmsCancelOkApplyFdkDialog {
 			this.treeViewAdapter.addNewHeadlineNode(theNewHeadlineNode);
 			GcgHelper.makeToast(this.fmmNodeTypeWidget.getText() + " created.");
 			if(bOkButtonEvent && this.editNewHeadlineNode.isChecked()) {
-				this.treeViewAdapter.editTreeNode(theNewHeadlineNode);
+                this.treeViewAdapter.editFmmHeadlineNode(theNewHeadlineNode, this.launchHeadlineNode);
 			}
 		} else {
 			GcgHelper.makeToast("ERROR:  Unable to create " + this.fmmNodeTypeWidget.getText() + " " + this.headlineWidget.getText().toString());

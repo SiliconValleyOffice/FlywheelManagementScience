@@ -688,7 +688,7 @@ public abstract class FmsPerspectiveFlipperTreeView extends GcgPerspectiveFlippe
 		guiPreferencesRestoreGovernanceMenuTransient();
 		guiPreferencesRestoreWorkStatusMenuTransient();
 		guiPreferencesRestoreTeamMenuTransient();
-//		getTreeStateMediator().refreshViews();
+//		getTreeViewMediator().refreshViews();
 	}
 
 	protected void guiPreferencesSaveShowMenu() {
@@ -1062,10 +1062,10 @@ public abstract class FmsPerspectiveFlipperTreeView extends GcgPerspectiveFlippe
 	}
 	
 	@Override
-	public void startActivityForNode(
-			ArrayList<FmmHeadlineNodeShallow> aPeerHeadlineNodeShallowList,
-			String aParentNodeIdString,
-			String aNodeIdStringToDisplay ) {
+	public void startEditorActivityForFmmHeadlineNode(
+            ArrayList<FmmHeadlineNodeShallow> aPeerHeadlineNodeShallowList,
+            String aParentNodeIdString,
+            String aNodeIdStringToDisplay) {
 		FmsActivityHelper.startHeadlineNodeEditorActivity(
 				getGcgActivity(),
 				aPeerHeadlineNodeShallowList,

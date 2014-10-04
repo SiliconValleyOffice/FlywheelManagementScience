@@ -585,8 +585,17 @@ public abstract class FmmHeadlineNodeImpl extends FmmHistoryNodeImpl
 	@Override
 	public String getTargetDateString() { return ""; }
 
+    @Override
     public boolean hasSecondaryHeadline() { return false; }
 
+    @Override
     public String getSecondaryHeadline() { return ""; }
+
+    @Override
+    public ArrayList<FmmHeadlineNodeShallow> getPeerHeadlineNodeShallowList(FmmHeadlineNode aParentHeadlineNode) {
+        ArrayList<FmmHeadlineNodeShallow> theList = new ArrayList<FmmHeadlineNodeShallow>();
+        theList.add(this.getFmmHeadlineNodeShallow());
+        return theList;
+    }
 
 }

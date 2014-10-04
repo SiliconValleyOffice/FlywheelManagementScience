@@ -298,7 +298,7 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
     }
 
 	@Override
-	protected void launchDefaultNodeEditorActivity(GcgTreeNodeInfo aTreeNodeInfo) {
+	public void editTreeNode(GcgTreeNodeInfo aTreeNodeInfo) {
 		launchNodeEditorToStoryActivity(aTreeNodeInfo);
 	}
 	
@@ -650,12 +650,25 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
         return (FmsTreeViewAdapter) rebuildTreeView();
     }
 
-	public void editTreeNode(Object anObject) {
+    public void editTreeNodeObject(Object anObject) {
 		this.treeViewMediator = this.gcgTreeViewParent.getGcgTreeViewMediator();
 		GcgTreeNodeInfo theTreeNodeInfo = this.treeViewMediator.getTreeNodeInfoForObject(anObject);
 		if(theTreeNodeInfo != null) {
-			launchDefaultNodeEditorActivity(theTreeNodeInfo);
+			editTreeNode(theTreeNodeInfo);
 		}
 	}
+
+    public void editFmmHeadlineNode(FmmHeadlineNode aHeadlineNode, FmmHeadlineNode aParentHeadlineNode) {
+        this.treeViewMediator = this.gcgTreeViewParent.getGcgTreeViewMediator();
+        GcgTreeNodeInfo theTreeNodeInfo = this.treeViewMediator.getTreeNodeInfoForObject(aHeadlineNode);
+        if(theTreeNodeInfo != null) {
+            editTreeNode(theTreeNodeInfo);
+        } else {  // this is a "hidden" leaf node from a node summary
+            getFmsTreeViewParent().startEditorActivityForFmmHeadlineNode(
+                    aHeadlineNode.getPeerHeadlineNodeShallowList(aParentHeadlineNode),
+                    aParentHeadlineNode.getNodeIdString(),
+                    aHeadlineNode.getNodeIdString());
+        }
+    }
 
 }

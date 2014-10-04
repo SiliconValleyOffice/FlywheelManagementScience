@@ -171,7 +171,7 @@ public abstract class GcgTreeViewAdapter extends BaseAdapter {
 
     protected abstract boolean canOrphan(GcgTreeNodeInfo theLaunchNodeInfo, GcgTreeNodeInfo theTargetNodeInfo);
 
-    protected GcgTreeViewMediator getTreeStateMediator() {
+    public GcgTreeViewMediator getTreeViewMediator() {
         return this.treeViewMediator;
     }
 
@@ -326,7 +326,7 @@ public abstract class GcgTreeViewAdapter extends BaseAdapter {
 	}
 
 	protected String getDescription(final GcgTreeNodeInfo aTreeRowId) {
-        final Integer[] hierarchy = getTreeStateMediator().getNodeLocationInHierarchy(aTreeRowId);
+        final Integer[] hierarchy = getTreeViewMediator().getNodeLocationInHierarchy(aTreeRowId);
         return "Node " + aTreeRowId + Arrays.asList(hierarchy);
     }
 
@@ -481,7 +481,7 @@ public abstract class GcgTreeViewAdapter extends BaseAdapter {
 		GcgTreeViewAdapter theTreeViewAdapter = this.gcgTreeViewParent.rebuildTreeView();
 		this.gcgTreeViewParent.guiPreferencesApply();
 		this.gcgTreeViewParent.setSelection(theFirstPosition);
-		theTreeViewAdapter.getTreeStateMediator().restoreTreeNodeStates(this.savedTreeNodeInfoMap);
+		theTreeViewAdapter.getTreeViewMediator().restoreTreeNodeStates(this.savedTreeNodeInfoMap);
 		return theTreeViewAdapter;
 	}
 
@@ -498,7 +498,7 @@ public abstract class GcgTreeViewAdapter extends BaseAdapter {
 //	protected abstract void sequenceLast(GcgTreeNodeInfo aLaunchTreeNodeInfo);
 //
 
-	protected abstract void launchDefaultNodeEditorActivity(GcgTreeNodeInfo aTreeNodeInfo);
+	public abstract void editTreeNode(GcgTreeNodeInfo aTreeNodeInfo);
 
 	public boolean verifyNodeOrder(String aFirstOccurrenceTag, String aSecondOccurrenceTag) {
 		return this.treeViewMediator.verifyNodeOrder(aFirstOccurrenceTag, aSecondOccurrenceTag);

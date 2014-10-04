@@ -710,4 +710,11 @@ public class FmmHeadlineNodeShallow implements FmmHeadlineNode {
 		return null;
 	}
 
+    @Override
+    public ArrayList<FmmHeadlineNodeShallow> getPeerHeadlineNodeShallowList(FmmHeadlineNode aParentHeadlineNode) {
+        ArrayList<FmmHeadlineNodeShallow> theList = new ArrayList<FmmHeadlineNodeShallow>();
+        theList.add(this);
+        return theList;
+    }
+
 }

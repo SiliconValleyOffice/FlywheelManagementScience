@@ -67,9 +67,9 @@ public interface FmsTreeViewParent extends GcgTreeViewParent {
 
     void launchNodeDecKanGlNavigationDialog(GcgTreeNodeInfo aTreeNodeInfo);
 	
-	void startActivityForNode(
-			ArrayList<FmmHeadlineNodeShallow> aPeerHeadlineNodeShallowList,
-			String aParentNodeIdString,
-			String aNodeIdStringToDisplay );
+	void startEditorActivityForFmmHeadlineNode(
+            ArrayList<FmmHeadlineNodeShallow> aPeerHeadlineNodeShallowList,
+            String aParentNodeIdString,
+            String aNodeIdStringToDisplay);
 
 }

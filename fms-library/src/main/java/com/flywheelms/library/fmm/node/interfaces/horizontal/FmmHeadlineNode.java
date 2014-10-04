@@ -69,6 +69,7 @@ import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragTribKnQuality;
 import com.flywheelms.library.fse.model.FseDocument;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public interface FmmHeadlineNode extends FmmNode, FmmNodeAudit, FmmHistory {
@@ -151,4 +152,5 @@ public interface FmmHeadlineNode extends FmmNode, FmmNodeAudit, FmmHistory {
 	
 	String getTargetDateString();
 
+    ArrayList<FmmHeadlineNodeShallow> getPeerHeadlineNodeShallowList(FmmHeadlineNode aParentHeadlineNode);
 }

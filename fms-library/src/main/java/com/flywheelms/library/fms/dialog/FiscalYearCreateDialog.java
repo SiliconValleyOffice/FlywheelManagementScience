@@ -119,7 +119,7 @@ public class FiscalYearCreateDialog extends FmsCancelOkApplyDialog {
 			this.treeViewAdapter = this.treeViewAdapter.addNewHeadlineNode(theFiscalYear);
 			GcgHelper.makeToast(this.fmmNodeTypeWidget.getText() + " created: " + this.fiscalYearWidget.getData().getDataText());
 			if(this.editNewFiscalYear.isChecked()) {
-				this.treeViewAdapter.editTreeNode(theFiscalYear);
+				this.treeViewAdapter.editTreeNodeObject(theFiscalYear);
 			}
 		} else {
 			GcgHelper.makeToast("ERROR:  Unable to create " + this.fmmNodeTypeWidget.getText() + " " + this.fiscalYearWidget.getData().getDataText());
