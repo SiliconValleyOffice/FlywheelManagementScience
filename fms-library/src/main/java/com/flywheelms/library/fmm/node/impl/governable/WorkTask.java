@@ -53,6 +53,7 @@ import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.completable.FmmCompletableNodeImpl;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
+import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
 import com.flywheelms.library.util.JsonHelper;
 
@@ -155,5 +156,22 @@ public class WorkTask extends FmmCompletableNodeImpl {
 	public void setActualPersonHours(int actualPersonHours) {
 		this.actualPersonHours = actualPersonHours;
 	}
+
+    @Override
+    public ArrayList<? extends FmmHeadlineNode> getPeerHeadlineNodeShallowList(FmmHeadlineNode aParentHeadlineNode) {
+        ArrayList<WorkTask> theList;
+        switch(aParentHeadlineNode.getFmmNodeDefinition()) {
+            case WORK_PACKAGE:
+                theList = FmmDatabaseMediator.getActiveMediator().listWorkTasksForWorkPackage(aParentHeadlineNode.getNodeIdString());
+                break;
+            case WORK_PLAN:
+                theList = FmmDatabaseMediator.getActiveMediator().listWorkTasksForWorkPlan(aParentHeadlineNode.getNodeIdString());
+                break;
+            default:
+                theList = new ArrayList<WorkTask>();
+                theList.add(this);
+        }
+        return theList;
+    }
 
 }
