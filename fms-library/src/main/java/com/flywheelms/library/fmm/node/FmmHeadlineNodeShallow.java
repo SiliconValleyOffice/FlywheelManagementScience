@@ -312,10 +312,10 @@ public class FmmHeadlineNodeShallow implements FmmHeadlineNode {
 		return false;
 	}
 
-	public static ArrayList<String> getSerializationArrayList(ArrayList<FmmHeadlineNodeShallow> aHeadlineNodeShallowList) {
+	public static ArrayList<String> getSerializationArrayList(ArrayList<? extends FmmHeadlineNode> aHeadlineNodeShallowList) {
 		ArrayList<String> theStringList = new ArrayList<String>();
-		for(FmmHeadlineNodeShallow theHeadlineNodeShallow : aHeadlineNodeShallowList) {
-			theStringList.add(theHeadlineNodeShallow.getSerialized());
+		for(FmmHeadlineNode theHeadlineNodeShallow : aHeadlineNodeShallowList) {
+			theStringList.add(theHeadlineNodeShallow.getFmmHeadlineNodeShallow().getSerialized());
 		}
 		return theStringList;
 	}
@@ -711,8 +711,8 @@ public class FmmHeadlineNodeShallow implements FmmHeadlineNode {
 	}
 
     @Override
-    public ArrayList<FmmHeadlineNodeShallow> getPeerHeadlineNodeShallowList(FmmHeadlineNode aParentHeadlineNode) {
-        ArrayList<FmmHeadlineNodeShallow> theList = new ArrayList<FmmHeadlineNodeShallow>();
+    public ArrayList<FmmHeadlineNode> getPeerHeadlineNodeShallowList(FmmHeadlineNode aParentHeadlineNode) {
+        ArrayList<FmmHeadlineNode> theList = new ArrayList<FmmHeadlineNode>();
         theList.add(this);
         return theList;
     }

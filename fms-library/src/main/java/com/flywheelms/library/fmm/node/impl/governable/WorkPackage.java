@@ -55,6 +55,7 @@ import com.flywheelms.library.fmm.node.impl.commitment.FlywheelWorkPackageCommit
 import com.flywheelms.library.fmm.node.impl.completable.FmmCompletableNodeImpl;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
+import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.fmm.transaction.FmmNodeGlyphType;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
 import com.flywheelms.library.util.JsonHelper;
@@ -208,6 +209,23 @@ public class WorkPackage extends FmmCompletableNodeImpl implements Comparable<Wo
                 aNodeSummary.setShowNodeSummary(false);
             }
         }
+    }
+
+    @Override
+    public ArrayList<? extends FmmHeadlineNode> getPeerHeadlineNodeShallowList(FmmHeadlineNode aParentHeadlineNode) {
+        ArrayList<WorkPackage> theList;
+        switch(aParentHeadlineNode.getFmmNodeDefinition()) {
+            case PROJECT_ASSET:
+                theList = FmmDatabaseMediator.getActiveMediator().listWorkPackageForProjectAsset(aParentHeadlineNode.getNodeIdString());
+                break;
+            case FLYWHEEL_CADENCE:
+                theList = FmmDatabaseMediator.getActiveMediator().listWorkPackageForFlywheelCadence(aParentHeadlineNode.getNodeIdString());
+                break;
+            default:
+                theList = new ArrayList<WorkPackage>();
+                theList.add(this);
+        }
+        return theList;
     }
 
 }

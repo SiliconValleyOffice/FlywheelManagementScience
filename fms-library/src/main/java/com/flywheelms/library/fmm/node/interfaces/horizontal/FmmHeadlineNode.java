@@ -152,5 +152,5 @@ public interface FmmHeadlineNode extends FmmNode, FmmNodeAudit, FmmHistory {
 	
 	String getTargetDateString();
 
-    ArrayList<FmmHeadlineNodeShallow> getPeerHeadlineNodeShallowList(FmmHeadlineNode aParentHeadlineNode);
+    ArrayList<? extends FmmHeadlineNode> getPeerHeadlineNodeShallowList(FmmHeadlineNode aParentHeadlineNode);
 }

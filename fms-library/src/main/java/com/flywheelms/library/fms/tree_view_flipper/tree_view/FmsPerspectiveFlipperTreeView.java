@@ -1063,7 +1063,7 @@ public abstract class FmsPerspectiveFlipperTreeView extends GcgPerspectiveFlippe
 	
 	@Override
 	public void startEditorActivityForFmmHeadlineNode(
-            ArrayList<FmmHeadlineNodeShallow> aPeerHeadlineNodeShallowList,
+            ArrayList<? extends FmmHeadlineNode> aPeerHeadlineNodeShallowList,
             String aParentNodeIdString,
             String aNodeIdStringToDisplay) {
 		FmsActivityHelper.startHeadlineNodeEditorActivity(

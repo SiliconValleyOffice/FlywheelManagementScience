@@ -592,8 +592,8 @@ public abstract class FmmHeadlineNodeImpl extends FmmHistoryNodeImpl
     public String getSecondaryHeadline() { return ""; }
 
     @Override
-    public ArrayList<FmmHeadlineNodeShallow> getPeerHeadlineNodeShallowList(FmmHeadlineNode aParentHeadlineNode) {
-        ArrayList<FmmHeadlineNodeShallow> theList = new ArrayList<FmmHeadlineNodeShallow>();
+    public ArrayList<? extends FmmHeadlineNode> getPeerHeadlineNodeShallowList(FmmHeadlineNode aParentHeadlineNode) {
+        ArrayList<FmmHeadlineNode> theList = new ArrayList<FmmHeadlineNode>();
         theList.add(this.getFmmHeadlineNodeShallow());
         return theList;
     }

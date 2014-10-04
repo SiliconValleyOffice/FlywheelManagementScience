@@ -57,6 +57,7 @@ import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fmm.enumerator.FmmNodeTransactionType;
 import com.flywheelms.library.fmm.node.FmmHeadlineNodeShallow;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
+import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.fmm.repository.FmmAccessScope;
 import com.flywheelms.library.fms.activity.CreateAllFlywheelCadenceForYearWizard;
 import com.flywheelms.library.fms.activity.CreateFmmWizard;
@@ -114,7 +115,7 @@ public class FmsActivityHelper extends GcgActivityHelper {
 
 	public static void startHeadlineNodeEditorActivity(
 			GcgActivity aParentActivity,
-			ArrayList<FmmHeadlineNodeShallow> anFmmHeadlineNodeShallowList,
+			ArrayList<? extends FmmHeadlineNode> anFmmHeadlineNodeShallowList,
 			String aNodeListParentNodeIdString,
 			String anInitialNodeIdStringToDisplay ) {
 		startHeadlineNodeEditorActivity(
@@ -128,7 +129,7 @@ public class FmsActivityHelper extends GcgActivityHelper {
 
 	public static void startHeadlineNodeEditorActivity(
 			GcgActivity aParentActivity,
-			ArrayList<FmmHeadlineNodeShallow> anFmmHeadlineNodeShallowList,
+			ArrayList<? extends FmmHeadlineNode> anFmmHeadlineNodeShallowList,
 			String aNodeListParentNodeIdString,
 			String anInitialNodeIdStringToDisplay,
 			GcgFrame anInitialFrame,
@@ -151,7 +152,7 @@ public class FmsActivityHelper extends GcgActivityHelper {
 	public static void startHeadlineNodeEditorActivity(
 			GcgActivity aParentActivity,
 			String aNodeListParentNodeId,
-			ArrayList<FmmHeadlineNodeShallow> aPeerHeadlineNodeShallowList,
+			ArrayList<? extends FmmHeadlineNode> aPeerHeadlineNodeShallowList,
 			String anInitialNodeIdToDisplay,
 			FmmNodeDefinition anFmmNodeDefinition,
 			GcgFrame anInitialFrame,
