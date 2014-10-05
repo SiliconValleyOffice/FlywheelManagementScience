@@ -609,4 +609,13 @@ public abstract class FmmHeadlineNodeImpl extends FmmHistoryNodeImpl
         return theList;
     }
 
+    @Override
+    public ArrayList<FmmHeadlineNodeShallow> getChildListShallow(FmmNodeDefinition aChildNodeDefinition) {
+        ArrayList<FmmHeadlineNodeShallow> theList = new ArrayList<FmmHeadlineNodeShallow>();
+        for(FmmHeadlineNode theHeadlineNode : getChildList(aChildNodeDefinition)) {
+            theList.add(theHeadlineNode.getFmmHeadlineNodeShallow());
+        }
+        return theList;
+    }
+
 }

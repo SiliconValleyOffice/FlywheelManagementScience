@@ -726,4 +726,9 @@ public class FmmHeadlineNodeShallow implements FmmHeadlineNode {
         return getFmmHeadlineNode().getChildList(aChildNodeDefinition);
     }
 
+    @Override
+    public ArrayList<FmmHeadlineNodeShallow> getChildListShallow(FmmNodeDefinition aChildNodeDefinition) {
+        return getFmmHeadlineNode().getChildListShallow(aChildNodeDefinition);
+    }
+
 }

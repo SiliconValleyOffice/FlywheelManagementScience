@@ -61,6 +61,8 @@ public abstract class FmsActivity extends GcgActivity{
     protected ArrayList<FmmDataRefreshNotice> parentDataRefreshList;
     protected Hashtable<String, FmmNodeTransactionType> modifiedFmmNodeIdList = new Hashtable<String, FmmNodeTransactionType>();
     protected Hashtable<String, FmmNodeTransactionType> queuedChildModifiedFmmNodeIdTable;
+    protected boolean refreshAllData = false;
+    protected boolean parentRefreshAllData = false;
 
     public FmsActivity(String anInitialHelpContextUrlString) {
         super(anInitialHelpContextUrlString);
@@ -73,9 +75,10 @@ public abstract class FmsActivity extends GcgActivity{
     @Override
     public void onPostResume() {
         super.onPostResume();
-        if(this.dataRefreshList != null) {
+        if(this.dataRefreshList != null || this.refreshAllData) {
             refreshDataDisplay();
             this.dataRefreshList = null;
+            this.refreshAllData = false;
         }
     }
 
@@ -186,5 +189,21 @@ public abstract class FmsActivity extends GcgActivity{
     @Override
     protected String getBreadcrumbTargetNodeIdString() {
         return null;
+    }
+
+    public boolean isRefreshAllData() {
+        return this.refreshAllData;
+    }
+
+    public void setRefreshAllData(boolean refreshAllData) {
+        this.refreshAllData = refreshAllData;
+    }
+
+    public boolean isParentRefreshAllData() {
+        return this.parentRefreshAllData;
+    }
+
+    public void setParentRefreshAllData(boolean parentRefreshAllData) {
+        this.parentRefreshAllData = parentRefreshAllData;
     }
 }

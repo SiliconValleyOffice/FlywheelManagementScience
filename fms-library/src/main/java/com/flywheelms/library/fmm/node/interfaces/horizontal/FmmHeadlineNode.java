@@ -159,4 +159,6 @@ public interface FmmHeadlineNode extends FmmNode, FmmNodeAudit, FmmHistory {
     int getChildNodeCount(GcgPerspective aGcgPerspective);
 
     ArrayList<? extends FmmHeadlineNode> getChildList(FmmNodeDefinition aChildNodeDefinition);
+
+    ArrayList<FmmHeadlineNodeShallow> getChildListShallow(FmmNodeDefinition aChildNodeDefinition);
 }

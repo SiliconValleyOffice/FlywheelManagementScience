@@ -71,6 +71,7 @@ import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.completable.FmmCompletableNodeImpl;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
+import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
 import com.flywheelms.library.util.JsonHelper;
 
@@ -371,5 +372,16 @@ public class StrategicMilestone extends FmmCompletableNodeImpl implements Compar
 
     public int targetIsReversePlanningAsInt() {
         return this.targetIsReversePlanning ? 1 : 0;
+    }
+
+    @Override
+    public ArrayList<? extends FmmHeadlineNode> getChildList(FmmNodeDefinition aChildNodeDefinition) {
+        ArrayList<? extends FmmHeadlineNodeImpl> theList = null;
+        switch(aChildNodeDefinition) {
+            case PROJECT_ASSET:
+                theList = FmmDatabaseMediator.getActiveMediator().listProjectAsset(this);
+                break;
+        }
+        return theList;
     }
 }

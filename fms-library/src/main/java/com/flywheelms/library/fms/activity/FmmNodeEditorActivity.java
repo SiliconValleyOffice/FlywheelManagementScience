@@ -61,6 +61,7 @@ import com.flywheelms.gcongui.gcg.menu.GcgPerspectiveMenuButton;
 import com.flywheelms.gcongui.gcg.viewflipper.GcgPerspectiveFlipper;
 import com.flywheelms.gcongui.gcg.viewflipper.GcgViewFlipper;
 import com.flywheelms.library.R;
+import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.context.FmmFrame;
 import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fmm.enumerator.FmmNodeTransactionType;
@@ -70,8 +71,10 @@ import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmNode;
 import com.flywheelms.library.fmm.transaction.FmmDataRefreshNotice;
 import com.flywheelms.library.fmm.transaction.FmmDataRefreshType;
+import com.flywheelms.library.fms.dialog.HeadlineNodeCreateDialog;
 import com.flywheelms.library.fms.dialog.HeadlineNodeHeadlineEditDialog;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
+import com.flywheelms.library.fms.miscellaneous.FmsHeadlineNodeShallowArrayAdapter;
 import com.flywheelms.library.fms.perspective_flipper.ContextPerspectiveFlipper;
 import com.flywheelms.library.fms.perspective_flipper.TribKnPerspectiveFlipper;
 import com.flywheelms.library.fse.FseDocumentSectionType;
@@ -94,6 +97,7 @@ public abstract class FmmNodeEditorActivity extends FmsHorizontalNodeNavigatorAc
 	protected FseMultiShiftButton leftMultiShiftControl;
 	protected FmmFrame initialFrame;
 	protected FmmPerspective initialPerspective;
+    protected FmmHeadlineNode newHeadlineNodeToEdit = null;
 
 	public FmmNodeEditorActivity(FmmNodeDefinition anFmmNodeDefinition, String aHelpContextUrlString) {
 		super(aHelpContextUrlString);
@@ -473,6 +477,23 @@ public abstract class FmmNodeEditorActivity extends FmsHorizontalNodeNavigatorAc
 		startDialog(new HeadlineNodeHeadlineEditDialog(this, getDisplayedFmmHeadlineNode()));
 	}
 
+    protected boolean headlineNodeCreationEnabled() {
+        // TODO - need to add logic for locking
+        return this.fmmNodeDefinition != FmmNodeDefinition.FLYWHEEL_CADENCE &&
+                this.fmmNodeDefinition != FmmNodeDefinition.WORK_PLAN;
+    }
+
+    protected void createHeadlineNode() {
+        startDialog(new HeadlineNodeCreateDialog(
+                this,
+                null,
+                getFmmNodeDefinition(),
+                getDisplayedFmmHeadlineNode(),
+                this.navigationParentNodeIdString,
+                this.nodeNavigationSpinner.getSelectedItemPosition(),
+                this.nodeNavigationSpinner.getCount() ));
+    }
+
 	public void updateHeadlineNodeHeadline(FmmHeadlineNode aHeadlineNode) {
 		int theSpinnerPosition = this.nodeNavigationSpinner.getSelectedItemPosition();
 		this.fmmHeadlineNodeShallowList.get(theSpinnerPosition).setHeadline(aHeadlineNode.getHeadline());
@@ -491,4 +512,34 @@ public abstract class FmmNodeEditorActivity extends FmsHorizontalNodeNavigatorAc
 		
 	}
 
+    public void newHeadlineNodeWasCreated(FmmHeadlineNode aHeadlineNodeToEdit) {
+        setParentRefreshAllData(true);
+        setRefreshAllData(true);
+        this.newHeadlineNodeToEdit = aHeadlineNodeToEdit;
+        updateParentDataRefreshList(new FmmDataRefreshNotice(aHeadlineNodeToEdit, FmmDataRefreshType.HEADLINE));
+    }
+
+    public void returnFromHeadlineNodeCreation() {
+        if(isRefreshAllData()) {
+            refreshDataDisplay();
+            setNodeSelection(this.newHeadlineNodeToEdit.getNodeIdString());
+        }
+    }
+
+    @Override
+    public void refreshDataDisplay() {
+        this.fmmHeadlineNodeShallowList = getNavigationParentHeadlineNode().getChildListShallow(getFmmNodeDefinition());
+        this.nodeSpinnerAdapter = new FmsHeadlineNodeShallowArrayAdapter(this, this.fmmHeadlineNodeShallowList);
+        this.nodeNavigationSpinner.setAdapter(this.nodeSpinnerAdapter);
+        if(this.newHeadlineNodeToEdit != null) {
+            setNodeSelection(this.newHeadlineNodeToEdit.getNodeIdString());
+        } else {
+            this.nodeNavigationSpinner.setSelection(0);
+        }
+        this.setRefreshAllData(false);
+    }
+
+    public FmmHeadlineNode getNavigationParentHeadlineNode() {
+        return FmmDatabaseMediator.getActiveMediator().getHeadlineNode(this.navigationParentNodeIdString);
+    }
 }

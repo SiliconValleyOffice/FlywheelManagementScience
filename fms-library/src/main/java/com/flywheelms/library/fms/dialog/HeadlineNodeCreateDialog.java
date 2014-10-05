@@ -56,6 +56,7 @@ import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
+import com.flywheelms.library.fms.activity.FmmNodeEditorActivity;
 import com.flywheelms.library.fms.treeview.filter.FmsTreeViewAdapter;
 import com.flywheelms.library.fms.widget.edit_text.HeadlineWidgetEditText;
 import com.flywheelms.library.fms.widget.text_view.FmmNodeTypeWidgetTextView;
@@ -64,6 +65,7 @@ import com.flywheelms.library.fms.widget.text_view.HeadlineWidgetTextView;
 public class HeadlineNodeCreateDialog extends FmsCancelOkApplyFdkDialog {
 
 	FmsTreeViewAdapter treeViewAdapter;
+    FmmNodeEditorActivity parentNodeEditorActivity;
 	protected final FmmHeadlineNode launchHeadlineNode;
 	protected final FmmHeadlineNode logicalParentHeadlineNode;
 	protected final int launchNodeSequence;
@@ -77,6 +79,7 @@ public class HeadlineNodeCreateDialog extends FmsCancelOkApplyFdkDialog {
 	protected RadioButton lastRadioButton;
 	protected HeadlineWidgetTextView launchHeadlineWidget;
 	protected CheckBox editNewHeadlineNode;
+    protected boolean addingHorizontalNavigationNode = false;
 
 	public HeadlineNodeCreateDialog(
 			GcgActivity aLibraryActivity,
@@ -97,6 +100,28 @@ public class HeadlineNodeCreateDialog extends FmsCancelOkApplyFdkDialog {
 		initFdkHostSupport();
 		manageButtonState();
 	}
+
+    public HeadlineNodeCreateDialog(
+            GcgActivity aLibraryActivity,
+            FmsTreeViewAdapter aTreeViewAdapter,
+            FmmNodeDefinition anFmmNodeDefinition,
+            FmmHeadlineNode aLaunchHeadlineNode,
+            String aParentHeadlineNodeId,
+            int aLaunchNodeSequence,
+            int aLaunchNodeChildCount ) {
+        super(aLibraryActivity, anFmmNodeDefinition);
+        this.parentNodeEditorActivity = (FmmNodeEditorActivity) aLibraryActivity;
+        this.treeViewAdapter = aTreeViewAdapter;
+        this.launchHeadlineNode = aLaunchHeadlineNode;
+        this.fmsDialogExtension.parentHeadlineNode = FmmDatabaseMediator.getActiveMediator().getHeadlineNode(aParentHeadlineNodeId);
+        this.logicalParentHeadlineNode = getLogicalParentHeadlineNode();
+        this.launchNodeSequence = aLaunchNodeSequence;
+        this.launchNodeChildCount = aLaunchNodeChildCount;
+        this.addingHorizontalNavigationNode = true;
+        initializeDialogBodyLate();
+        initFdkHostSupport();
+        manageButtonState();
+    }
 
     @Override
     protected int getDialogTitleStringResourceId() {
@@ -150,7 +175,11 @@ public class HeadlineNodeCreateDialog extends FmsCancelOkApplyFdkDialog {
             }
         }
 		this.editNewHeadlineNode = (CheckBox) this.dialogBodyView.findViewById(R.id.edit_new_headline_node);
-        this.editNewHeadlineNode.setText("Edit new " + getFmmNodeDefinition().getLabelText());
+        if(this.addingHorizontalNavigationNode) {
+            this.editNewHeadlineNode.setVisibility(View.GONE);
+        } else {
+            this.editNewHeadlineNode.setText("Edit new " + getFmmNodeDefinition().getLabelText());
+        }
 	}
 	
 	@Override
@@ -204,10 +233,17 @@ public class HeadlineNodeCreateDialog extends FmsCancelOkApplyFdkDialog {
 			getPeerNode(),
 			this.lastRadioButton == null ? false : this.lastRadioButton.isChecked() );  // bSequenceBeforeFlag
 		if(theNewHeadlineNode != null) {
-			this.treeViewAdapter.addNewHeadlineNode(theNewHeadlineNode);
+            if(this.treeViewAdapter != null) {
+                this.treeViewAdapter.addNewHeadlineNode(theNewHeadlineNode);
+            }
+            if(this.parentNodeEditorActivity != null) {
+                this.parentNodeEditorActivity.newHeadlineNodeWasCreated(theNewHeadlineNode);
+            }
 			GcgHelper.makeToast(this.fmmNodeTypeWidget.getText() + " created.");
 			if(bOkButtonEvent && this.editNewHeadlineNode.isChecked()) {
-                this.treeViewAdapter.editFmmHeadlineNode(theNewHeadlineNode, this.launchHeadlineNode);
+                if(this.treeViewAdapter != null) {
+                    this.treeViewAdapter.editFmmHeadlineNode(theNewHeadlineNode, this.launchHeadlineNode);
+                }
 			}
 		} else {
 			GcgHelper.makeToast("ERROR:  Unable to create " + this.fmmNodeTypeWidget.getText() + " " + this.headlineWidget.getText().toString());
@@ -224,6 +260,9 @@ public class HeadlineNodeCreateDialog extends FmsCancelOkApplyFdkDialog {
 	@Override
 	protected void onClickButtonOk() {
 		createHeadlineNode(true);
+        if(this.parentNodeEditorActivity != null) {
+            this.parentNodeEditorActivity.returnFromHeadlineNodeCreation();
+        }
 		this.gcgActivity.stopDialog();
 	}
 
@@ -239,6 +278,14 @@ public class HeadlineNodeCreateDialog extends FmsCancelOkApplyFdkDialog {
 			this.lastRadioButton.setText("as last " + getFmmNodeDefinition().getLabelText());
 		}
 	}
+
+    @Override
+    protected void onClickButtonCancel() {
+        if(this.parentNodeEditorActivity != null) {
+            this.parentNodeEditorActivity.returnFromHeadlineNodeCreation();
+        }
+        super.onClickButtonCancel();
+    }
 
 	@Override
 	public void initFdkDictationResultsConsumerMap() {

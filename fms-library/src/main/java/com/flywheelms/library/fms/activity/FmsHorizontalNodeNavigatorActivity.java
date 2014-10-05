@@ -76,6 +76,7 @@ public abstract class FmsHorizontalNodeNavigatorActivity extends FmsActivity {
 	protected Button navigateLastButton;
 	protected Spinner nodeNavigationSpinner;
 	protected Button headlineEditButton;
+	protected Button headlineNodeCreationButton;
 	protected TextView navigationListPosition;
 
 	public FmsHorizontalNodeNavigatorActivity(String anInitialHelpContextUrlString) {
@@ -86,11 +87,15 @@ public abstract class FmsHorizontalNodeNavigatorActivity extends FmsActivity {
 	public void onCreate(Bundle aSavedInstanceState) {
 	    super.onCreate(aSavedInstanceState);
 	    if(aSavedInstanceState == null && this.initialNodeIdStringToDisplay != null && this.initialNodeIdStringToDisplay.length() > 0) {
-	    	this.nodeNavigationSpinner.setSelection(getIndexOfNodeIdString(this.initialNodeIdStringToDisplay));
+            setNodeSelection(this.initialNodeIdStringToDisplay);
 	    } else {
             this.nodeNavigationSpinner.setSelection(0);
         }
 	}
+
+    public void setNodeSelection(String aNodeIdString) {
+        this.nodeNavigationSpinner.setSelection(getIndexOfNodeIdString(aNodeIdString));
+    }
 
 	@Override
 	protected void processExtras() {
@@ -238,13 +243,32 @@ public abstract class FmsHorizontalNodeNavigatorActivity extends FmsActivity {
 		} else {
 			this.headlineEditButton.setVisibility(View.GONE);
 		}
+        this.headlineNodeCreationButton = (Button) findViewById(R.id.headline_node_create__button);
+        if(this.headlineNodeCreationEnabled()) {
+
+            this.headlineNodeCreationButton.setOnClickListener(new OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    FmsHorizontalNodeNavigatorActivity.this.createHeadlineNode();
+                }
+            });
+        } else {
+            this.headlineNodeCreationButton.setVisibility(View.GONE);
+        }
 	}
 	
 	protected boolean headlineEditingEnabled() {
 		return false;
 	}
-	
+
 	protected void editHeadline() {  return;  }
+
+    protected boolean headlineNodeCreationEnabled() {
+        return false;
+    }
+
+    protected void createHeadlineNode() {  return;  }
 
 	protected void updateNavigationControls() {
 		updateNavigationListPosition();
