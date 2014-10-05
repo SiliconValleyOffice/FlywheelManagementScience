@@ -43,6 +43,7 @@
 
 package com.flywheelms.library.fmm.node.impl.governable;
 
+import com.flywheelms.gcongui.gcg.interfaces.GcgPerspective;
 import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.context.FmmPerspective;
@@ -52,6 +53,8 @@ import com.flywheelms.library.fmm.meta_data.WorkPlanMetaData;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.completable.FmmCompletableNodeImpl;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
+import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
+import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.util.JsonHelper;
 
 import org.json.JSONArray;
@@ -273,5 +276,21 @@ public class WorkPlan extends FmmCompletableNodeImpl {
             }
         }
         return theGreenCount;
+    }
+
+    @Override
+    public int getChildNodeCount(GcgPerspective aGcgPerspective) {  // only implemented for TreeView leaf nodes
+        return getWorkTaskList() == null ? 0 : getWorkTaskList().size();
+    }
+
+    @Override
+    public ArrayList<? extends FmmHeadlineNode> getChildList(FmmNodeDefinition aChildNodeDefinition) {
+        ArrayList<? extends FmmHeadlineNodeImpl> theList = null;
+        switch(aChildNodeDefinition) {
+            case WORK_TASK:
+                theList = FmmDatabaseMediator.getActiveMediator().listWorkTasks(this);
+                break;
+        }
+        return theList;
     }
 }

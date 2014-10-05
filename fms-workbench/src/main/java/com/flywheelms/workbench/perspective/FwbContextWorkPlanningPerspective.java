@@ -129,8 +129,9 @@ public class FwbContextWorkPlanningPerspective extends FmsPerspectiveFlipperTree
                 GcgTreeNodeInfo theFlywheelCadenceTreeNodeInfo = theTreeBuilder.addChildNode(
                         theFlywheelCadence, theWorkPlanCollection.size()>0, theFiscalYearTreeNodeInfo, FmmPerspective.WORK_PLANNING);
                 for(WorkPlan theWorkPlan : theWorkPlanCollection) {
-                    theTreeBuilder.addLeafNode(
+                    GcgTreeNodeInfo theTreeNodeInfo = theTreeBuilder.addLeafNode(
                             theWorkPlan, theFlywheelCadenceTreeNodeInfo, FmmPerspective.WORK_PLANNING);
+                    theTreeNodeInfo.setLeafNode(true);
                 }
             }
         }

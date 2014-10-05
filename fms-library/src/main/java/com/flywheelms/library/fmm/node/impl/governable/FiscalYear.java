@@ -66,6 +66,7 @@ import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.completable.FmmCompletableNodeImpl;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
+import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
 import com.flywheelms.library.util.JsonHelper;
 
@@ -359,5 +360,19 @@ public class FiscalYear extends FmmCompletableNodeImpl implements Comparable<Fis
 
     public void setWorkPlanFirstDayOfWeek(String workPlanFirstDayOfWeek) {
         this.workPlanFirstDayOfWeek = workPlanFirstDayOfWeek;
+    }
+
+    @Override
+    public ArrayList<? extends FmmHeadlineNode> getChildList(FmmNodeDefinition aChildNodeDefinition) {
+        ArrayList<? extends FmmHeadlineNodeImpl> theList = null;
+        switch(aChildNodeDefinition) {
+            case STRATEGIC_MILESTONE:
+                theList = FmmDatabaseMediator.getActiveMediator().getStrategicMilestoneList(this);
+                break;
+            case FLYWHEEL_CADENCE:
+                theList = FmmDatabaseMediator.getActiveMediator().getFlywheelCadenceList(this);
+                break;
+        }
+        return theList;
     }
 }

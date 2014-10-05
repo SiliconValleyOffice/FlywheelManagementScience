@@ -276,4 +276,25 @@ public class FmsActivityHelper extends GcgActivityHelper {
         theIntent.putExtra(bundle_key__GCG__APPLICATION_CONTEXT, aParentActivity.getChildGcgApplicationContext().getSerialized());
         aParentActivity.startActivityForResult(theIntent, FmmNodeDefinition.FLYWHEEL_CADENCE.getNodeEditorActivityRequestCode());
     }
+
+    public static void startHeadlineNodeEditorActivityForChildren(GcgActivity aParentActivity, FmmHeadlineNode aHeadlineNode, FmmNodeDefinition aChildNodeDefinition) {
+        aParentActivity.startBlueActivityStatusAnimation();
+        String theActivityClassName = aChildNodeDefinition.getNodeClass().getSimpleName() + "EditorActivity";
+        Intent theIntent;
+        try {
+            theIntent = new Intent(aParentActivity, Class.forName(class_path_ACTIVITY_PACKAGE + theActivityClassName));
+        } catch (ClassNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+            return;
+        }
+        theIntent.putExtra(bundle_key__FMM_HEADLINE_NODE_SHALLOW_LIST,
+                FmmHeadlineNodeShallow.getSerializationArrayList(aHeadlineNode.getChildList(aChildNodeDefinition)));
+        theIntent.putExtra(bundle_key__INITIAL_NODE_TO_DISPLAY, "");
+        theIntent.putExtra(bundle_key__INITIAL_FRAME_TO_DISPLAY, FmmFrame.FSE.getName());
+        theIntent.putExtra(bundle_key__INITIAL_PERSPECTIVE_TO_DISPLAY, FmmPerspective.STORY.getName());
+        theIntent.putExtra(bundle_key__NAVIGATION_PARENT_NODE_ID, aHeadlineNode.getNodeIdString());
+        theIntent.putExtra(bundle_key__GCG__APPLICATION_CONTEXT, aParentActivity.getChildGcgApplicationContext().getSerialized());
+        aParentActivity.startActivityForResult(theIntent, aChildNodeDefinition.getNodeEditorActivityRequestCode());
+    }
 }

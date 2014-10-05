@@ -598,4 +598,15 @@ public abstract class FmmHeadlineNodeImpl extends FmmHistoryNodeImpl
         return theList;
     }
 
+    @Override
+    public int getChildNodeCount(GcgPerspective aGcgPerspective) {  // only implemented for TreeView leaf nodes
+        return 0;
+    }
+
+    @Override
+    public ArrayList<? extends FmmHeadlineNode> getChildList(FmmNodeDefinition aChildNodeDefinition) {
+        ArrayList<? extends FmmHeadlineNode> theList = new ArrayList<FmmHeadlineNodeImpl>();
+        return theList;
+    }
+
 }

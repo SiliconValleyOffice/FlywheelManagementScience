@@ -51,6 +51,7 @@ import com.flywheelms.gcongui.deckangl.enumerator.DecKanGlNounStateColor;
 import com.flywheelms.gcongui.deckangl.enumerator.DecKanGlNounStateDrawableSize;
 import com.flywheelms.gcongui.deckangl.glyph.DecKanGlGlyph;
 import com.flywheelms.gcongui.deckangl.interfaces.DecKanGlDecorator;
+import com.flywheelms.gcongui.gcg.interfaces.GcgPerspective;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorChildFractals;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorCompletion;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorFacilitationIssue;
@@ -66,6 +67,7 @@ import com.flywheelms.library.fmm.deckangl.FmsDecoratorWorkTeam;
 import com.flywheelms.library.fmm.interfaces.FmmHistory;
 import com.flywheelms.library.fmm.node.FmmHeadlineNodeShallow;
 import com.flywheelms.library.fmm.node.NodeId;
+import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragTribKnQuality;
 import com.flywheelms.library.fse.model.FseDocument;
 
@@ -153,4 +155,8 @@ public interface FmmHeadlineNode extends FmmNode, FmmNodeAudit, FmmHistory {
 	String getTargetDateString();
 
     ArrayList<? extends FmmHeadlineNode> getPeerHeadlineNodeShallowList(FmmHeadlineNode aParentHeadlineNode);
+
+    int getChildNodeCount(GcgPerspective aGcgPerspective);
+
+    ArrayList<? extends FmmHeadlineNode> getChildList(FmmNodeDefinition aChildNodeDefinition);
 }

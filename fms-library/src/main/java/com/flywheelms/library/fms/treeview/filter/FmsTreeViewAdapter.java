@@ -373,12 +373,18 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
 					aParentHeadlineNode,
 					aLaunchNodeSequence,
 					aLaunchNodeCount );
-        } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__CREATE_ALL_FLYWHEEL_CADENCES)) {
-            createAllFlywheelCadences(aLaunchHeadlineNode);
+        } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__EDIT_STRATEGIC_MILESTONES)) {
+            editFmmHeadlineNodeChildren(aLaunchHeadlineNode, FmmNodeDefinition.STRATEGIC_MILESTONE);
 		} else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__DELETE_STRATEGIC_MILESTONE)) {
-			deleteStrategicMilestone(aLaunchHeadlineNode);
+            deleteStrategicMilestone(aLaunchHeadlineNode);
         } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__EDIT_STRATEGIC_MILESTONE_TARGET_DATE)) {
             editStrategicMilestoneTargetDate(aLaunchHeadlineNode);
+        } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__CREATE_ALL_FLYWHEEL_CADENCES)) {
+            createAllFlywheelCadences(aLaunchHeadlineNode);
+        } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__EDIT_FLYWHEEL_CADENCES)) {
+            editFmmHeadlineNodeChildren(aLaunchHeadlineNode, FmmNodeDefinition.FLYWHEEL_CADENCE);
+        } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__EDIT_WORK_PLANS)) {
+            editFmmHeadlineNodeChildren(aLaunchHeadlineNode, FmmNodeDefinition.WORK_PLAN);
         } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__CREATE_PORTFOLIO)) {
             createPortfolio();
         } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__DELETE_PORTFOLIO)) {
@@ -392,6 +398,8 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
                     aParentHeadlineNode,
                     aLaunchNodeSequence,
                     aLaunchNodeCount);
+        } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__EDIT_PROJECTS)) {
+            editFmmHeadlineNodeChildren(aLaunchHeadlineNode, FmmNodeDefinition.PROJECT);
         } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__DELETE_PROJECT)) {
             deleteProject(aLaunchHeadlineNode);
         } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__ORPHAN_PROJECT)) {
@@ -405,6 +413,8 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
                     aParentHeadlineNode,
                     aLaunchNodeSequence,
                     aLaunchNodeCount);
+        } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__EDIT_PROJECT_ASSETS)) {
+            editFmmHeadlineNodeChildren(aLaunchHeadlineNode, FmmNodeDefinition.PROJECT_ASSET);
 		} else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__DELETE_PROJECT_ASSET)) {
 			deleteProjectAsset(aLaunchHeadlineNode);
 		} else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__ORPHAN_PROJECT_ASSET)) {
@@ -420,6 +430,8 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
                     aParentHeadlineNode,
                     aLaunchNodeSequence,
                     aLaunchNodeCount);
+        } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__EDIT_WORK_PACKAGES)) {
+            editFmmHeadlineNodeChildren(aLaunchHeadlineNode, FmmNodeDefinition.WORK_PACKAGE);
 		} else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__DELETE_WORK_PACKAGE)) {
 			deleteWorkPackage(aLaunchHeadlineNode);
         } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__ORPHAN_WORK_PACKAGE)) {
@@ -435,6 +447,8 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
                     aParentHeadlineNode,
                     aLaunchNodeSequence,
                     aLaunchNodeCount);
+        } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__EDIT_WORK_TASKS)) {
+            editFmmHeadlineNodeChildren(aLaunchHeadlineNode, FmmNodeDefinition.WORK_TASK);
         } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__DELETE_WORK_TASK)) {
             deleteWorkTask(aLaunchHeadlineNode);
         } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__ORPHAN_WORK_TASK)) {
@@ -669,6 +683,17 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
                     aParentHeadlineNode.getNodeIdString(),
                     aHeadlineNode.getNodeIdString());
         }
+    }
+
+    public void editFmmHeadlineNodeChildren(FmmHeadlineNode aHeadlineNode, FmmNodeDefinition aChildNodeDefinition) {
+        FmsActivityHelper.startHeadlineNodeEditorActivityForChildren(getGcgActivity(), aHeadlineNode, aChildNodeDefinition);
+    }
+
+    protected int getLaunchNodeChildCount(GcgTreeNodeInfo theLaunchNodeInfo) {
+        int theCount = getChildTreeNodeInfoList(theLaunchNodeInfo).size();
+        return theCount == 0 && theLaunchNodeInfo.isLeafNode() ?
+                ((FmmHeadlineNode) theLaunchNodeInfo.getTargetObject()).getChildNodeCount(theLaunchNodeInfo.getGcgPerspective()) :
+                theCount;
     }
 
 }

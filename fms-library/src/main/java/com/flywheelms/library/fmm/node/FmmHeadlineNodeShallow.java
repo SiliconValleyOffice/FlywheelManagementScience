@@ -52,6 +52,7 @@ import com.flywheelms.gcongui.deckangl.enumerator.DecKanGlNounStateColor;
 import com.flywheelms.gcongui.deckangl.enumerator.DecKanGlNounStateDrawableSize;
 import com.flywheelms.gcongui.deckangl.glyph.DecKanGlGlyph;
 import com.flywheelms.gcongui.deckangl.interfaces.DecKanGlDecorator;
+import com.flywheelms.gcongui.gcg.interfaces.GcgPerspective;
 import com.flywheelms.gcongui.gcg.treeview.node.GcgTreeNodeInfo;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
@@ -711,10 +712,18 @@ public class FmmHeadlineNodeShallow implements FmmHeadlineNode {
 	}
 
     @Override
-    public ArrayList<FmmHeadlineNode> getPeerHeadlineNodeShallowList(FmmHeadlineNode aParentHeadlineNode) {
-        ArrayList<FmmHeadlineNode> theList = new ArrayList<FmmHeadlineNode>();
-        theList.add(this);
-        return theList;
+    public ArrayList<? extends FmmHeadlineNode> getPeerHeadlineNodeShallowList(FmmHeadlineNode aParentHeadlineNode) {
+        return getFmmHeadlineNode().getPeerHeadlineNodeShallowList(aParentHeadlineNode);
+    }
+
+    @Override
+    public int getChildNodeCount(GcgPerspective aGcgPerspective) {
+        return getFmmHeadlineNode().getChildNodeCount(aGcgPerspective);
+    }
+
+    @Override
+    public ArrayList<? extends FmmHeadlineNode> getChildList(FmmNodeDefinition aChildNodeDefinition) {
+        return getFmmHeadlineNode().getChildList(aChildNodeDefinition);
     }
 
 }

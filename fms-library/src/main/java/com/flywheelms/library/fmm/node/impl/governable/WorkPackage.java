@@ -46,6 +46,7 @@ package com.flywheelms.library.fmm.node.impl.governable;
 import android.content.Intent;
 
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
+import com.flywheelms.gcongui.gcg.interfaces.GcgPerspective;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fmm.meta_data.WorkPackageMetaData;
@@ -224,6 +225,22 @@ public class WorkPackage extends FmmCompletableNodeImpl implements Comparable<Wo
             default:
                 theList = new ArrayList<WorkPackage>();
                 theList.add(this);
+        }
+        return theList;
+    }
+
+    @Override
+    public int getChildNodeCount(GcgPerspective aGcgPerspective) {  // only implemented for TreeView leaf nodes
+        return getWorkTaskList() == null ? 0 : getWorkTaskList().size();
+    }
+
+    @Override
+    public ArrayList<? extends FmmHeadlineNode> getChildList(FmmNodeDefinition aChildNodeDefinition) {
+        ArrayList<? extends FmmHeadlineNodeImpl> theList = null;
+        switch(aChildNodeDefinition) {
+            case WORK_TASK:
+                theList = FmmDatabaseMediator.getActiveMediator().listWorkTasks(this);
+                break;
         }
         return theList;
     }

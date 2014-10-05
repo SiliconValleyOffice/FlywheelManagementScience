@@ -62,6 +62,7 @@ public class GcgTreeNodeInfo implements Serializable {
     private boolean expanded;
     private DecKanGlDecoratedGlyphSize decKanGlGlyphSize;
     private GcgPerspective GcgPerspective;
+    private boolean leafNode = false; // will never show children - for child count logic
 
     public GcgTreeNodeInfo(
     		final GcgTreeNodeTargetObject aTreeNodeTargetObject,
@@ -203,4 +204,11 @@ public class GcgTreeNodeInfo implements Serializable {
         return this.targetObject.hasSecondaryHeadline();
     }
 
+    public boolean isLeafNode() {
+        return this.leafNode;
+    }
+
+    public void setLeafNode(boolean bLeafNode) {
+        this.leafNode = bLeafNode;
+    }
 }

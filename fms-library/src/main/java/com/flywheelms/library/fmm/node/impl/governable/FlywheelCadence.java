@@ -52,6 +52,8 @@ import com.flywheelms.library.fmm.meta_data.SequencedLinkNodeMetaData;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.completable.FmmCompletableNodeImpl;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
+import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
+import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.util.JsonHelper;
 
 import org.json.JSONArray;
@@ -304,5 +306,19 @@ public class FlywheelCadence extends FmmCompletableNodeImpl {
             }
         }
         return theGreenCount;
+    }
+
+    @Override
+    public ArrayList<? extends FmmHeadlineNode> getChildList(FmmNodeDefinition aChildNodeDefinition) {
+        ArrayList<? extends FmmHeadlineNodeImpl> theList = null;
+        switch(aChildNodeDefinition) {
+            case WORK_PLAN:
+                theList = FmmDatabaseMediator.getActiveMediator().getWorkPlanList(this);
+                break;
+            case WORK_PACKAGE:
+                theList = FmmDatabaseMediator.getActiveMediator().listWorkPackage(this);
+                break;
+        }
+        return theList;
     }
 }

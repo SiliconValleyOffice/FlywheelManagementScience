@@ -48,6 +48,7 @@ import android.content.Intent;
 import com.flywheelms.gcongui.deckangl.enumerator.DecKanGlDecoratorCanvasLocation;
 import com.flywheelms.gcongui.deckangl.interfaces.DecKanGlDecorator;
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
+import com.flywheelms.gcongui.gcg.interfaces.GcgPerspective;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorChildFractals;
@@ -72,6 +73,7 @@ import com.flywheelms.library.fmm.node.impl.completable.FmmCompletableNodeImpl;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
 import com.flywheelms.library.fmm.node.interfaces.FmmSequencedNode;
+import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
 import com.flywheelms.library.util.JsonHelper;
 
@@ -357,5 +359,21 @@ public class ProjectAsset extends FmmCompletableNodeImpl implements Comparable<P
     public int getPhantomWorkPackageCount() {
         int theCount = this.workPackageBudget - getWorkPackageList().size();
         return theCount < 0 ? 0 : theCount;
+    }
+
+    @Override
+    public int getChildNodeCount(GcgPerspective aGcgPerspective) {  // only implemented for TreeView leaf nodes
+        return getWorkPackageList() == null ? 0 : getWorkPackageList().size();
+    }
+
+    @Override
+    public ArrayList<? extends FmmHeadlineNode> getChildList(FmmNodeDefinition aChildNodeDefinition) {
+        ArrayList<? extends FmmHeadlineNodeImpl> theList = null;
+        switch(aChildNodeDefinition) {
+            case WORK_PACKAGE:
+                theList = FmmDatabaseMediator.getActiveMediator().listWorkPackage(this);
+                break;
+        }
+        return theList;
     }
 }

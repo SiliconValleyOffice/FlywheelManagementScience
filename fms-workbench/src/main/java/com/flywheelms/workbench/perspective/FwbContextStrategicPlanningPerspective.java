@@ -129,8 +129,9 @@ public class FwbContextStrategicPlanningPerspective extends FmsPerspectiveFlippe
 				GcgTreeNodeInfo theStrategicMilestoneTreeNodeInfo = theTreeBuilder.addChildNode(
 						theStrategicMilestone, theProjectAssetCollection.size()>0, theFiscalYearTreeNodeInfo, FmmPerspective.STRATEGIC_PLANNING);
 				for(ProjectAsset theProjectAsset : theProjectAssetCollection) {
-					theTreeBuilder.addLeafNode(
+                    GcgTreeNodeInfo theTreeNodeInfo = theTreeBuilder.addLeafNode(
 							theProjectAsset, theStrategicMilestoneTreeNodeInfo, FmmPerspective.STRATEGIC_PLANNING);
+                    theTreeNodeInfo.setLeafNode(true);
 				}
 			}
 		}

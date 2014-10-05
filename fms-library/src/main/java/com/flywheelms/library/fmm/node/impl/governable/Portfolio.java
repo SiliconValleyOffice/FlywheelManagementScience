@@ -66,6 +66,7 @@ import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.completable.FmmCompletableNodeImpl;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
+import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
 import com.flywheelms.library.util.JsonHelper;
 
@@ -263,6 +264,17 @@ public class Portfolio extends FmmCompletableNodeImpl {
 
     public static void startNodePickerActivity(GcgActivity anActivity, ArrayList<String> aNodeIdExclusionList, String aWhereClause, String aListActionLabel) {
         FmsActivityHelper.startHeadlineNodePickerActivity(anActivity, FmmNodeDefinition.PORTFOLIO, aNodeIdExclusionList, aWhereClause, aListActionLabel);
+    }
+
+    @Override
+    public ArrayList<? extends FmmHeadlineNode> getChildList(FmmNodeDefinition aChildNodeDefinition) {
+        ArrayList<? extends FmmHeadlineNodeImpl> theList = null;
+        switch(aChildNodeDefinition) {
+            case PROJECT:
+                theList = FmmDatabaseMediator.getActiveMediator().getProjectList(this);
+                break;
+        }
+        return theList;
     }
     
 }

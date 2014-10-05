@@ -85,9 +85,11 @@ public abstract class FmsHorizontalNodeNavigatorActivity extends FmsActivity {
 	@Override
 	public void onCreate(Bundle aSavedInstanceState) {
 	    super.onCreate(aSavedInstanceState);
-	    if(aSavedInstanceState == null) {
+	    if(aSavedInstanceState == null && this.initialNodeIdStringToDisplay != null && this.initialNodeIdStringToDisplay.length() > 0) {
 	    	this.nodeNavigationSpinner.setSelection(getIndexOfNodeIdString(this.initialNodeIdStringToDisplay));
-	    }
+	    } else {
+            this.nodeNavigationSpinner.setSelection(0);
+        }
 	}
 
 	@Override

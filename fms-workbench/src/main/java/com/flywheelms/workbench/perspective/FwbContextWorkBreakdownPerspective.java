@@ -135,8 +135,9 @@ public class FwbContextWorkBreakdownPerspective extends FmsPerspectiveFlipperTre
                     GcgTreeNodeInfo theProjectAssetTreeNodeInfo = theTreeBuilder.addChildNode(
                             theProjectAsset, theWorkPackageCollection.size()>0, theProjectTreeNodeInfo, FmmPerspective.WORK_BREAKDOWN);
                     for(WorkPackage theWorkPackage : theWorkPackageCollection) {
-                        theTreeBuilder.addLeafNode(
+                        GcgTreeNodeInfo theTreeNodeInfo = theTreeBuilder.addLeafNode(
                                 theWorkPackage, theProjectAssetTreeNodeInfo, FmmPerspective.WORK_BREAKDOWN);
+                        theTreeNodeInfo.setLeafNode(true);
                     }
                 }
             }

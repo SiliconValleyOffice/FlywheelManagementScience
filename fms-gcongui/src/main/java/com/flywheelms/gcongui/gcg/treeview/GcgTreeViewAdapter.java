@@ -99,7 +99,7 @@ public abstract class GcgTreeViewAdapter extends BaseAdapter {
 			final GcgTreeNodeInfo theLaunchNodeInfo = (GcgTreeNodeInfo) aView.getTag();
 			GcgTreeNodeInfo theParentNodeInfo = GcgTreeViewAdapter.this.treeViewMediator.getParent(theLaunchNodeInfo);
 			final ArrayList<GcgTreeNodeInfo> thePeerNodeList = GcgTreeViewAdapter.this.getPeerTreeNodeInfoList(theLaunchNodeInfo);
-			final int theLaunchNodeChildCount = GcgTreeViewAdapter.this.getChildTreeNodeInfoList(theLaunchNodeInfo).size();
+			final int theLaunchNodeChildCount = getLaunchNodeChildCount(theLaunchNodeInfo);
 			GcgTreeViewAdapter.this.createPopupMenu(
 					theLaunchNodeInfo,
 					theParentNodeInfo,
@@ -115,7 +115,12 @@ public abstract class GcgTreeViewAdapter extends BaseAdapter {
 		}
 	};
 
-	protected abstract PopupMenu createPopupMenu(
+    // override in sub-class if leaf nodes need a child count
+    protected int getLaunchNodeChildCount(GcgTreeNodeInfo theLaunchNodeInfo) {
+        return getChildTreeNodeInfoList(theLaunchNodeInfo).size();
+    }
+
+    protected abstract PopupMenu createPopupMenu(
 			GcgTreeNodeInfo aLaunchTreeNodeInfo,
 			GcgTreeNodeInfo aParentTreeNodeInfo,
 			View aView,

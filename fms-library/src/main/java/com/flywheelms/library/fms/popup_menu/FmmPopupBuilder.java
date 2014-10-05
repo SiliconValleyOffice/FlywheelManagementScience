@@ -63,12 +63,14 @@ public class FmmPopupBuilder {
 	public static final String menu_item__DELETE_BOOKSHELF = "Delete Bookshelf...";
 	public static final String menu_item__ADOPT_ORPHAN_DISCUSSION_TOPIC = "Adopt orphan Discussion Topic...";
 	public static final String menu_item__CREATE_DISCUSSION_TOPIC = "Create Discussion Topic...";
+	public static final String menu_item__EDIT_DISCUSSION_TOPICS = "Edit Discussion Topics...";
 	public static final String menu_item__DELETE_DISCUSSION_TOPIC = "Delete Discussion Topic...";
 	public static final String menu_item__MOVE_DISCUSSION_TOPIC = "Move Discussion Topic...";
 	public static final String menu_item__REMOVE_DISCUSSION_TOPIC = "Remove Discussion Topic...";
 	public static final String menu_item__CREATE_FISCAL_YEAR = "Create Fiscal Year...";
 	public static final String menu_item__DELETE_FISCAL_YEAR = "Delete Fiscal Year...";
 	public static final String menu_item__CREATE_ALL_FLYWHEEL_CADENCES = "Create all Flywheel Cadences...";
+	public static final String menu_item__EDIT_FLYWHEEL_CADENCES = "Edit Flywheel Cadences...";
 	public static final String menu_item__DELETE_FLYWHEEL_CADENCE = "Delete Flywheel Cadence...";
 	public static final String menu_item__MOVE_FLYWHEEL_CADENCE = "Move Flywheel Cadence...";
 	public static final String menu_item__ADOPT_ORPHAN_NOTEBOOK = "Adopt orphan Notebook...";
@@ -80,27 +82,32 @@ public class FmmPopupBuilder {
 	public static final String menu_item__DELETE_PORTFOLIO = "Delete Portfolio...";
 	public static final String menu_item__ADOPT_ORPHAN_PROJECT = "Adopt orphan Project...";
 	public static final String menu_item__CREATE_PROJECT = "Create Project...";
+	public static final String menu_item__EDIT_PROJECTS = "Edit Projects...";
 	public static final String menu_item__DELETE_PROJECT = "Delete Project...";
 	public static final String menu_item__MOVE_PROJECT = "Move Project...";
 	public static final String menu_item__ORPHAN_PROJECT = "Orphan Project...";
 	public static final String menu_item__ADOPT_ORPHAN_PROJECT_ASSET = "Adopt orphan Project Asset...";
 	public static final String menu_item__CREATE_PROJECT_ASSET = "Create Project Asset...";
+	public static final String menu_item__EDIT_PROJECT_ASSETS = "Edit Project Assets...";
 	public static final String menu_item__DELETE_PROJECT_ASSET = "Delete Project Asset...";
 	public static final String menu_item__MOVE_PROJECT_ASSET = "Move Project Asset...";
 	public static final String menu_item__ORPHAN_PROJECT_ASSET = "Orphan Project Asset...";
 	public static final String menu_item__CREATE_STRATEGIC_MILESTONE = "Create Strategic Milestone...";
+	public static final String menu_item__EDIT_STRATEGIC_MILESTONES = "Edit Strategic Milestones...";
 	public static final String menu_item__DELETE_STRATEGIC_MILESTONE = "Delete Strategic Milestone...";
 	public static final String menu_item__MOVE_STRATEGIC_MILESTONE = "Move Strategic Milestone...";
 	public static final String menu_item__ADOPT_ORPHAN_WORK_PACKAGE = "Adopt orphan Work Package...";
 	public static final String menu_item__CREATE_WORK_PACKAGE = "Create Work Package...";
+	public static final String menu_item__EDIT_WORK_PACKAGES = "Edit Work Packages...";
 	public static final String menu_item__DELETE_WORK_PACKAGE = "Delete Work Package...";
 	public static final String menu_item__MOVE_WORK_PACKAGE = "Move Work Package...";
 	public static final String menu_item__ORPHAN_WORK_PACKAGE = "Orphan Work Package...";
-	public static final String menu_item__CREATE_WORK_PLAN = "Create Work Plan...";
+	public static final String menu_item__EDIT_WORK_PLANS = "Edit Work Plans...";
 	public static final String menu_item__DELETE_WORK_PLAN = "Delete Work Plan...";
 	public static final String menu_item__MOVE_WORK_PLAN = "Move Work Plan...";
 	public static final String menu_item__ADOPT_ORPHAN_WORK_TASK= "Adopt orphan Work Task...";
 	public static final String menu_item__CREATE_WORK_TASK= "Create Work Task...";
+	public static final String menu_item__EDIT_WORK_TASKS= "Edit Work Tasks...";
 	public static final String menu_item__DELETE_WORK_TASK= "Delete Work Task...";
 	public static final String menu_item__MOVE_WORK_TASK = "Move Work Task...";
 	public static final String menu_item__ORPHAN_WORK_TASK = "Orphan Work Task...";
@@ -115,6 +122,7 @@ public class FmmPopupBuilder {
 	public static final String menu_item__EDIT_STRATEGIC_MILESTONE_TARGET_DATE = "Edit Target Date...";
 
 	public static final String menu_item__CREATE_FMM_CONFIGURATION = "Create FMM Configuration...";
+	public static final String menu_item__EDIT_FMM_CONFIGURATION = "Edit FMM Configuration...";
 
 	public static PopupMenu createPopupMenu(
             FmsTreeViewAdapter aNodePopupListener,
@@ -138,7 +146,7 @@ public class FmmPopupBuilder {
 		case STRATEGIC_MILESTONE:
 			return createStrategicMilestonePopupMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, bCanMove, bCanOrphan, bCanSequenceDown, bCanSequenceUp, aLaunchNodeSequence, aLaunchNodeChildCount);
         case FLYWHEEL_CADENCE:
-            return createNoOptionsMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, bCanMove, bCanOrphan, bCanSequenceDown, bCanSequenceUp, aLaunchNodeSequence, aLaunchNodeChildCount);
+            return createFlywheelCadencePopupMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, bCanMove, bCanOrphan, bCanSequenceDown, bCanSequenceUp, aLaunchNodeSequence, aLaunchNodeChildCount);
         case PORTFOLIO:
             return createPortfolioPopupMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, aLaunchNodeChildCount);
         case PROJECT:
@@ -170,8 +178,14 @@ public class FmmPopupBuilder {
         }
         if(aNodePopupListener.getFmsTreeViewParent().getGcgPerspective() == FmmPerspective.STRATEGIC_PLANNING) {
             thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_STRATEGIC_MILESTONE);
+            if(aLaunchNodeChildCount > 0) {
+                thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_STRATEGIC_MILESTONES);
+            }
         } else {
             thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_ALL_FLYWHEEL_CADENCES);
+            if(aLaunchNodeChildCount > 0) {
+                thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_FLYWHEEL_CADENCES);
+            }
         }
         return thePopupMenu;
 	}
@@ -209,6 +223,9 @@ public class FmmPopupBuilder {
 		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_HEADLINE);
 		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_STRATEGIC_MILESTONE_TARGET_DATE);
 		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_PROJECT_ASSET);
+        if(aLaunchNodeChildCount > 0) {
+            thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_PROJECT_ASSETS);
+        }
 		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__ADOPT_ORPHAN_PROJECT_ASSET);
 		return thePopupMenu;
 	}
@@ -229,6 +246,9 @@ public class FmmPopupBuilder {
         }
         thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_HEADLINE);
         thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_PROJECT);
+        if(aLaunchNodeChildCount > 0) {
+            thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_PROJECTS);
+        }
         thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__ADOPT_ORPHAN_PROJECT);
         return thePopupMenu;
     }
@@ -268,6 +288,9 @@ public class FmmPopupBuilder {
 		}
 		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_HEADLINE);
 		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_PROJECT_ASSET);
+        if(aLaunchNodeChildCount > 0) {
+            thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_PROJECT_ASSETS);
+        }
 		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__ADOPT_ORPHAN_PROJECT_ASSET);
 		return thePopupMenu;
 	}
@@ -307,6 +330,9 @@ public class FmmPopupBuilder {
 		}
 		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_HEADLINE);
 		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_WORK_PACKAGE);
+        if(aLaunchNodeChildCount > 0) {
+            thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_WORK_PACKAGES);
+        }
 		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__ADOPT_ORPHAN_WORK_PACKAGE);
 		return thePopupMenu;
 	}
@@ -330,6 +356,29 @@ public class FmmPopupBuilder {
         return thePopupMenu;
     }
 
+    private static PopupMenu createFlywheelCadencePopupMenu(
+            FmmHeadlineNodePopupListener aNodePopupListener,
+            GcgTreeNodeInfo aLaunchTreeNodeInfo,
+            FmmHeadlineNode aLaunchHeadlineNode,
+            FmmHeadlineNode aParentHeadlineNode,
+            View aView,
+            boolean bCanDelete,
+            boolean bCanMove,
+            boolean bCanOrphan,
+            boolean bCanSequenceUp,
+            boolean bCanSequenceDown,
+            int aLaunchNodeSequence,
+            int aLaunchNodeChildCount ) {
+        FmmHeadlineNodePopupMenu thePopupMenu = new FmmHeadlineNodePopupMenu(
+                aNodePopupListener, aView, aLaunchHeadlineNode, aParentHeadlineNode, aLaunchTreeNodeInfo, aLaunchNodeSequence, aLaunchNodeChildCount );
+        if(aLaunchNodeChildCount == 0) {
+            thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__NO_OPTIONS);
+        } else {
+            thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_WORK_PLANS);
+        }
+        return thePopupMenu;
+    }
+
     private static PopupMenu createWorkPlanMenu(
             FmmHeadlineNodePopupListener aNodePopupListener,
             GcgTreeNodeInfo aLaunchTreeNodeInfo,
@@ -346,6 +395,9 @@ public class FmmPopupBuilder {
         FmmHeadlineNodePopupMenu thePopupMenu = new FmmHeadlineNodePopupMenu(
                 aNodePopupListener, aView, aLaunchHeadlineNode, aParentHeadlineNode, aLaunchTreeNodeInfo, aLaunchNodeSequence, aLaunchNodeChildCount );
         thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_WORK_TASK);
+        if(aLaunchNodeChildCount > 0) {
+            thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_WORK_TASKS);
+        }
         return thePopupMenu;
     }
 
@@ -384,6 +436,9 @@ public class FmmPopupBuilder {
 		}
 		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_HEADLINE);
 		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_WORK_TASK);
+        if(aLaunchNodeChildCount > 0) {
+            thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_WORK_TASKS);
+        }
 		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__ADOPT_ORPHAN_WORK_TASK);
 		return thePopupMenu;
 	}
