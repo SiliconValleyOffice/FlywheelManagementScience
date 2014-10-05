@@ -48,6 +48,13 @@
         android:background="@drawable/gcg__button_state_list__action__edit" />
 
     <Button
+        android:id="@+id/headline_create__button"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/gcg__button_state_list__action__create" />
+
+    <Button
         android:id="@+id/navigate_right_button"
         android:layout_width="32dp"
         android:layout_height="32dp"
