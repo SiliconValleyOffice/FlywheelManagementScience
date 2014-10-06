@@ -167,7 +167,6 @@ public class FmmConfigurationHelper {
 			case PRIVATE:
 				theGuiableList = new ArrayList<GcgGuiable>(getPrivateConfigurationList());
 				break;
-			case SHARED:
 			case TEAM:
 			default:
 				theGuiableList = new ArrayList<GcgGuiable>();
@@ -181,9 +180,6 @@ public class FmmConfigurationHelper {
 		switch(anFmmConfiguration.getFmmAccessScope()) {
 			case PRIVATE:
 				theFileName = FmmAccessScope.PRIVATE.getConfigurationFileName();
-				break;
-			case SHARED:
-				theFileName = FmmAccessScope.SHARED.getConfigurationFileName();
 				break;
 			case TEAM:
 				//$FALL-THROUGH$
@@ -217,8 +213,6 @@ public class FmmConfigurationHelper {
 		switch(anFmmConfiguration.getFmmAccessScope()) {
 			case PRIVATE:
 				theConfigurationList = (ArrayList<T>) getPrivateConfigurationList();
-				break;
-			case SHARED:
 				break;
 			case TEAM:
 				//$FALL-THROUGH$
@@ -254,7 +248,6 @@ public class FmmConfigurationHelper {
 			case PRIVATE:
 				theFmmConfiguration = new ArrayList<FmmConfiguration>(getPrivateConfigurationList());
 				break;
-			case SHARED:
 			case TEAM:
 			default:
 				theFmmConfiguration = new ArrayList<FmmConfiguration>();

@@ -135,10 +135,6 @@ public abstract class FmmConfiguration extends FmmGovernableNodeImpl {
 		return this.accessScope == FmmAccessScope.PRIVATE;
 	}
 	
-	public boolean isFmmAccessScopeShared() {
-		return this.accessScope == FmmAccessScope.SHARED;
-	}
-	
 	public boolean isFmmAccessScopeTeam() {
 		return this.accessScope == FmmAccessScope.TEAM;
 	}

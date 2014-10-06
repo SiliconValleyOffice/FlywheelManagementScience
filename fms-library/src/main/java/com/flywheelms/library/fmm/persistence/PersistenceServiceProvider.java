@@ -101,9 +101,6 @@ public enum PersistenceServiceProvider implements GcgGuiable {
 			case PRIVATE:
 				theProviderList.add(ANDROID);
 				break;
-			case SHARED:
-				theProviderList.add(DROPBOX);
-				break;
 			case TEAM:
 				theProviderList.add(AMAZON);
 				theProviderList.add(FAT_COW);

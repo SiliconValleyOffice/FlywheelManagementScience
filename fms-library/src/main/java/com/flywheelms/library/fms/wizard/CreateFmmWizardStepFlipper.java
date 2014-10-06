@@ -57,7 +57,6 @@ import com.flywheelms.library.fmm.node.impl.governable.FmsOrganization;
 import com.flywheelms.library.fmm.repository.FmmAccessScope;
 import com.flywheelms.library.fmm.repository.FmmConfiguration;
 import com.flywheelms.library.fmm.repository.FmmConfigurationPrivate;
-import com.flywheelms.library.fmm.repository.FmmConfigurationShared;
 import com.flywheelms.library.fmm.repository.FmmConfigurationTeam;
 import com.flywheelms.library.fms.activity.CreateFmmWizard;
 import com.flywheelms.library.fms.helper.FmmConfigurationHelper;
@@ -107,9 +106,6 @@ public class CreateFmmWizardStepFlipper extends GcgWizardStepFlipper implements 
 			case PRIVATE:
 				createPrivateFmmDatabaseFromTemplate(theFmmConfiguration, theFmsOrganization);
 				break;
-			case SHARED:
-				createSharedFmmDatabaseFromTemplate(theFmmConfiguration, theFmsOrganization);
-				break;
 			case TEAM:
 				createTeamFmmDatabaseFromTemplate(theFmmConfiguration, theFmsOrganization);
 			//$FALL-THROUGH$
@@ -128,10 +124,6 @@ public class CreateFmmWizardStepFlipper extends GcgWizardStepFlipper implements 
 			case PRIVATE:
 				theFmmConfiguration = new FmmConfigurationPrivate(this.headlineWizardStepView.getHeadline(), this.fmmTemplateWizardStepView.getDbName());
 				theFmmConfiguration.setOrganizationNodeIdString(anFmsOrganization.getNodeIdString());
-				FmmConfigurationHelper.newFmmConfiguration(theFmmConfiguration);
-				break;
-			case SHARED:
-				theFmmConfiguration = new FmmConfigurationShared(this.headlineWizardStepView.getHeadline(), this.fmmTemplateWizardStepView.getDbFileName());
 				FmmConfigurationHelper.newFmmConfiguration(theFmmConfiguration);
 				break;
 			case TEAM:

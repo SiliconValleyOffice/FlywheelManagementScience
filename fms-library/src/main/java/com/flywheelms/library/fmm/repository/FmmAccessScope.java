@@ -56,7 +56,6 @@ import java.util.Arrays;
 public enum FmmAccessScope implements GcgGuiable {
 
 	PRIVATE ("Private", R.drawable.fmm_repository__scope__private, "privateFmmConfigurationList.json"),  // local SQLite
-	SHARED ("Shared", R.drawable.fmm_repository__scope__shared, "sharedFmmConfigurationList.json"),  // DropBox
 	TEAM ("Team", R.drawable.fmm_repository__scope__team, "teamFmmConfigurationList.json");  // MySQL
 	
 	private static final ArrayList<GcgGuiable> guiableList = new ArrayList<GcgGuiable>(Arrays.asList(values()));

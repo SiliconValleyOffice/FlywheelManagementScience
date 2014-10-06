@@ -65,7 +65,7 @@ public class FmmAccessScopeWidgetSpinner extends GcgWidgetSpinner {
 
 	@Override
 	protected String getLabelText() {
-		return this.labelTextString == null ? FmmAccessScope.SHARED.getLabelText() : this.labelTextString;
+		return this.labelTextString == null ? FmmAccessScope.PRIVATE.getLabelText() : this.labelTextString;
 	}
 	
 	public FmmAccessScope getFmmAccessScope() {

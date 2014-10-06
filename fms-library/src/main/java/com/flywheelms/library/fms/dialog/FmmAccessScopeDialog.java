@@ -81,8 +81,6 @@ public class FmmAccessScopeDialog extends FmsCancelOkDialog {
 		int theSelectionId = this.radioGroup.getCheckedRadioButtonId();
 		if(theSelectionId == R.id.repository_scope__private) {
 			theFmmAccessScope = FmmAccessScope.PRIVATE;
-		} else if(theSelectionId == R.id.repository_scope__shared) {
-			theFmmAccessScope = FmmAccessScope.SHARED;
 		} else {
 			theFmmAccessScope = FmmAccessScope.TEAM;
 		}

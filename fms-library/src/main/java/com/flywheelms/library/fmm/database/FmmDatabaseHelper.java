@@ -64,8 +64,6 @@ public class FmmDatabaseHelper {
 		case PRIVATE:
 			initializeNewPrivateFmm(anFmmConfiguration, anFmsOrganization);
 			break;
-		case SHARED:
-			break;
 		case TEAM:
 			default:
 				

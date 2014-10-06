@@ -53,7 +53,6 @@ import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.repository.FmmAccessScope;
 import com.flywheelms.library.fmm.repository.FmmConfiguration;
 import com.flywheelms.library.fmm.repository.FmmConfigurationPrivate;
-import com.flywheelms.library.fmm.repository.FmmConfigurationShared;
 import com.flywheelms.library.fmm.repository.FmmConfigurationTeam;
 
 import java.util.HashMap;
@@ -111,10 +110,6 @@ public class FmmConfigurationDaoSqLite extends HeadlineNodeDaoSqLite<FmmConfigur
 		switch(FmmAccessScope.getObjectForName(aCursor.getString(this.columnIndexMap.get(FmmConfigurationMetaData.column_ACCESS_SCOPE)))) {
 		case PRIVATE:
 			theFmmConfiguration = new FmmConfigurationPrivate(
-					aCursor.getString(this.columnIndexMap.get(IdNodeMetaData.column_ID)) );
-			break;
-		case SHARED:
-			theFmmConfiguration = new FmmConfigurationShared(
 					aCursor.getString(this.columnIndexMap.get(IdNodeMetaData.column_ID)) );
 			break;
 		case TEAM:
