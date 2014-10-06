@@ -57,6 +57,7 @@ import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.repository.FmmAccessScope;
 import com.flywheelms.library.fmm.repository.FmmConfiguration;
+import com.flywheelms.library.fms.dialog.ConfirmFmmDestruction;
 import com.flywheelms.library.fms.helper.FmmConfigurationHelper;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
 import com.flywheelms.library.fms.popup_menu.FmmPopupBuilder;
@@ -83,28 +84,30 @@ public class FmmConfigurationWidgetListView extends FmsWidgetListView <FmmConfig
 	protected ArrayAdapter<FmmConfiguration> instantiateArrayAdapter() {
 		return new ArrayAdapter<FmmConfiguration>(getContext(), android.R.layout.simple_list_item_1, this.objectList);
 	}
-	
-	@Override
-	protected int getPopupMenuResourceId() {
-		return R.menu.gcg__delete__menu;
-	}
+
+    public PopupMenu getPopupMenu(View aView) {
+        return FmmPopupBuilder.createFmmPopupMenu(aView);
+    }
 
 	@Override
 	protected void onPopupMenu(MenuItem aSelectedMenuItem) {
 		FmmConfiguration theFmmConfiguration = this.objectList.get(this.listItemPosition);
-		if(aSelectedMenuItem.getTitle().equals("Delete")) {
-			deleteFmmRepository(theFmmConfiguration);
-			this.arrayAdapter.remove(theFmmConfiguration);
-			this.arrayAdapter.notifyDataSetChanged();
-		}
+		if(aSelectedMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__DESTROY)) {
+            this.gcgActivity.startDialog(new ConfirmFmmDestruction(this.gcgActivity, this, theFmmConfiguration));
+		} else if(aSelectedMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__OPEN)) {
+            this.gcgActivity.stopAllDialogs();
+            this.gcgActivity.dataSourceSelected(theFmmConfiguration);
+        }
 		this.listItemView.setBackgroundColor(GcgApplication.getAppResources().getColor(R.color.pdf__transparent) );
 	}
 
-	private void deleteFmmRepository(FmmConfiguration anFmmConfiguration) {
+	public void destroyFmmRepository(FmmConfiguration anFmmConfiguration) {
 		if(anFmmConfiguration.isFmmAccessScopePrivate()) {
 			this.gcgActivity.deleteDatabase(anFmmConfiguration.getFileName());
 			FmmConfigurationHelper.deleteFmmConfiguration(anFmmConfiguration);
 		}
+        this.arrayAdapter.remove(anFmmConfiguration);
+        this.arrayAdapter.notifyDataSetChanged();
 	}
 
 	@Override

@@ -930,6 +930,14 @@ public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNo
 			refreshDialog();
 		}
 	}
+
+    public void stopAllDialogs() {
+        while(this.modalGcgDialogStack.size() > 0) {
+            this.modalGcgDialogStack.peek().dismiss();
+            this.modalGcgDialogStack.pop();
+        }
+        enableActivityCurtain(false);
+    }
 	
 	public void refreshDialog() {
 		this.modalGcgDialogStack.peek().refreshDialog();
@@ -1013,5 +1021,4 @@ public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNo
 	}
 	
 	public void onWidgetDataChangeListener(@SuppressWarnings("unused") int aResourceId) { return; }
-	
 }

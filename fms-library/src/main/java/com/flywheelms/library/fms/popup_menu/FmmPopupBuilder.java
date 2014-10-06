@@ -124,6 +124,9 @@ public class FmmPopupBuilder {
 	public static final String menu_item__CREATE_FMM_CONFIGURATION = "Create FMM Configuration...";
 	public static final String menu_item__EDIT_FMM_CONFIGURATION = "Edit FMM Configuration...";
 
+	public static final String menu_item__DESTROY = "Destroy";
+	public static final String menu_item__OPEN = "Open";
+
 	public static PopupMenu createPopupMenu(
             FmsTreeViewAdapter aNodePopupListener,
 			GcgTreeNodeInfo aLaunchTreeNodeInfo,
@@ -189,6 +192,13 @@ public class FmmPopupBuilder {
         }
         return thePopupMenu;
 	}
+
+    public static PopupMenu createFmmPopupMenu(View aView) {
+        PopupMenu thePopupMenu = new PopupMenu(aView.getContext(), aView);
+        thePopupMenu.getMenu().add(menu_item__OPEN);
+        thePopupMenu.getMenu().add(menu_item__DESTROY);
+        return thePopupMenu;
+    }
 
 	private static PopupMenu createStrategicMilestonePopupMenu(
 			FmmHeadlineNodePopupListener aNodePopupListener,

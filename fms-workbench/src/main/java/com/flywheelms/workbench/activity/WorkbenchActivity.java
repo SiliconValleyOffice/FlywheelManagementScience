@@ -131,7 +131,7 @@ public class WorkbenchActivity extends FmsActivity implements FmsDecKanGlNavigat
 	@Override
 	protected void initializeGcgApplicationContext() {
 		setGcgApplicationContext(new GcgApplicationContext(
-				R.drawable.fmm_repository__16, FmmDatabaseMediator.getActiveMediator().getFmmConfiguration().getHeadline() ));
+				R.drawable.fmm_noun__fmm_configuration, FmmDatabaseMediator.getActiveMediator().getFmmConfiguration().getHeadline() ));
 	}
 
 	@Override

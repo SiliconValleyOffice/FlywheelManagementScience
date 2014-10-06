@@ -94,8 +94,9 @@ public abstract class GcgWidgetListView <T> extends LinearLayout {
 	protected Button objectAddButton;
 	protected int requestCode = 0;
 	protected int requestCode2 = 0;
+    private PopupMenu popupMenu;
 
-	public GcgWidgetListView(Context aContext, AttributeSet anAttributeSet) {
+    public GcgWidgetListView(Context aContext, AttributeSet anAttributeSet) {
 		super(aContext, anAttributeSet);
 		processCustomAttributes(aContext, anAttributeSet);
 		setup();
@@ -205,8 +206,7 @@ public abstract class GcgWidgetListView <T> extends LinearLayout {
                         GcgWidgetListView.this.getResources().getColor(R.color.x11__LightSkyBlue));
                 GcgWidgetListView.this.listItemPosition = aListViewItemPosition;
                 aListViewItemView.setSelected(true);
-                PopupMenu thePopupMenu = new PopupMenu(getContext(), aListViewItemView);
-                thePopupMenu.getMenuInflater().inflate(getPopupMenuResourceId(), thePopupMenu.getMenu());
+                PopupMenu thePopupMenu = getPopupMenu(aListViewItemView);
                 thePopupMenu.setOnMenuItemClickListener(new OnMenuItemClickListener() {
 
                     @Override
@@ -369,4 +369,9 @@ public abstract class GcgWidgetListView <T> extends LinearLayout {
 		return this.requestCode2;
 	}
 
+    public PopupMenu getPopupMenu(View aView) {
+        PopupMenu thePopupMenu = new PopupMenu(getContext(), aView);
+        thePopupMenu.getMenuInflater().inflate(getPopupMenuResourceId(), thePopupMenu.getMenu());
+        return popupMenu;
+    }
 }

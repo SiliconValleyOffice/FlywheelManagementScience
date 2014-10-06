@@ -51,6 +51,7 @@ import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.gcongui.gcg.dialog.GcgCancelDialog;
 import com.flywheelms.gcongui.gcg.helper.GcgHelper;
 import com.flywheelms.library.R;
+import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.repository.FmmAccessScope;
 import com.flywheelms.library.fms.widget.list_view.FmmConfigurationWidgetListView;
 import com.flywheelms.library.fms.widget.spinner.FmmAccessScopeWidgetSpinner;
@@ -72,7 +73,7 @@ public class FmmManagementDialog extends GcgCancelDialog {
 
 	@Override
 	protected int getDialogTitleIconResourceId() {
-		return R.drawable.fmm_repository;
+		return FmmNodeDefinition.FMM_CONFIGURATION.getDialogDrawableResourceId();
 	}
 
     @Override

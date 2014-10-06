@@ -405,10 +405,10 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     		FmmConfiguration.class,
     		"FCF",
     		R.string.fmm_node_definition__fmm_configuration__label_text,
-    		R.drawable.fmm_repository__16,
+    		R.drawable.fmm_noun__fmm_configuration,
     		0,
     		R.drawable.gcg__unspecified_glyph,
-    		R.drawable.gcg__unspecified_glyph,
+    		R.drawable.fms_dialog__fmm_repository,
     		new HashMap<FmmNodeGlyphType, Integer>(),
     		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // tiny drawables
     		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // small drawables
@@ -1602,9 +1602,6 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 				FmmNodeGlyphType.RENAME, R.drawable.fmm_noun__flywheel_cadence__rename);
 		FmmNodeDefinition.FLYWHEEL_CADENCE.getNodeGlyphResourceIdMap().put(
 				FmmNodeGlyphType.YELLOW, R.drawable.fmm_noun__flywheel_cadence__yellow);
-		//  FMM_CONFIGURATION
-		FmmNodeDefinition.FMM_CONFIGURATION.getNodeGlyphResourceIdMap().put(
-				FmmNodeGlyphType.EDIT, R.drawable.fmm_repository__edit);
 		//  FSE_DOCUMENT
 		FmmNodeDefinition.FSE_DOCUMENT.getNodeGlyphResourceIdMap().put(
 				FmmNodeGlyphType.EDIT, R.drawable.fse_document__edit);

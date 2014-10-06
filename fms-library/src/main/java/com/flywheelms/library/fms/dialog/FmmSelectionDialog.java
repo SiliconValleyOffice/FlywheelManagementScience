@@ -52,6 +52,7 @@ import android.widget.CheckBox;
 
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.library.R;
+import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fms.widget.spinner.FmmAccessScopeWidgetSpinner;
 import com.flywheelms.library.fms.widget.spinner.FmmConfigurationWidgetSpinner;
 
@@ -74,7 +75,7 @@ public class FmmSelectionDialog extends FmsCancelOkDialog {
 
 	@Override
 	protected int getDialogTitleIconResourceId() {
-		return R.drawable.fmm_repository;
+		return FmmNodeDefinition.FMM_CONFIGURATION.getDialogDrawableResourceId();
 	}
 
     @Override
