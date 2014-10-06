@@ -62,6 +62,7 @@ import com.flywheelms.gcongui.R;
 import com.flywheelms.gcongui.deckangl.enumerator.DecKanGlDecoratedGlyphSize;
 import com.flywheelms.gcongui.gcg.GcgApplication;
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
+import com.flywheelms.gcongui.gcg.helper.GcgGuiHelper;
 import com.flywheelms.gcongui.gcg.helper.GcgHelper;
 import com.flywheelms.gcongui.gcg.treeview.interfaces.GcgTreeViewParent;
 import com.flywheelms.gcongui.gcg.treeview.node.GcgTreeNodeInfo;
@@ -84,11 +85,21 @@ public abstract class GcgTreeViewAdapter extends BaseAdapter {
     protected final GcgTreeViewParent gcgTreeViewParent;
     protected HashMap<String, GcgTreeNodeInfo> savedTreeNodeInfoMap;
     private final OnClickListener expandCollapseClickListener = new OnClickListener() {
-    	
+
         @Override
         public void onClick(final View aView) {
+            GcgGuiHelper.playSystemClick(aView);
             final GcgTreeNodeInfo theTreeNodeInfo = (GcgTreeNodeInfo) aView.getTag();
             expandCollapse(theTreeNodeInfo);
+        }
+    };
+    private final OnLongClickListener expandCollapseLongClickListener = new OnLongClickListener() {
+        @Override
+        public boolean onLongClick(View aView) {
+            GcgGuiHelper.playSystemClick(aView);
+            final GcgTreeNodeInfo theTreeNodeInfo = (GcgTreeNodeInfo) aView.getTag();
+            expandCollapseAllPeers(theTreeNodeInfo);
+            return true;
         }
     };
 	protected final OnLongClickListener launchPopupMenuListener = new OnLongClickListener() {
@@ -189,6 +200,33 @@ public abstract class GcgTreeViewAdapter extends BaseAdapter {
 			}
 		}
 	}
+
+    protected void collapseTreeNode(final GcgTreeNodeInfo aTreeNodeInfo) {
+        if (aTreeNodeInfo.hasChildren()) {
+            if (aTreeNodeInfo.isExpanded()) {
+                this.treeViewMediator.collapseChildren(aTreeNodeInfo);
+            }
+        }
+    }
+
+    protected void expandTreeNode(final GcgTreeNodeInfo aTreeNodeInfo) {
+        if (aTreeNodeInfo.hasChildren()) {
+            if (! aTreeNodeInfo.isExpanded()) {
+                this.treeViewMediator.expandDirectChildren(aTreeNodeInfo);
+            }
+        }
+    }
+
+    protected void expandCollapseAllPeers(final GcgTreeNodeInfo aTreeNodeInfo) {
+        boolean isCollapseOperation = aTreeNodeInfo.isExpanded();
+        for(GcgTreeNodeInfo theTreeNodeInfo : this.treeViewMediator.getSiblingList(aTreeNodeInfo)) {
+            if(isCollapseOperation) {
+                collapseTreeNode(theTreeNodeInfo);
+            } else {
+                expandTreeNode(theTreeNodeInfo);
+            }
+        }
+    }
 	
 	protected void saveTreeNodeStates() {
 		this.savedTreeNodeInfoMap = new HashMap<String, GcgTreeNodeInfo>();
@@ -364,6 +402,7 @@ public abstract class GcgTreeViewAdapter extends BaseAdapter {
         theNodeExpanderImageView.setTag(aTreeNodeInfo);
         if (aTreeNodeInfo.hasChildren() && this.collapsible) {
             theNodeExpanderImageView.setOnClickListener(this.expandCollapseClickListener);
+            theNodeExpanderImageView.setOnLongClickListener(this.expandCollapseLongClickListener);
         } else {
             theNodeExpanderImageView.setOnClickListener(null);
         }

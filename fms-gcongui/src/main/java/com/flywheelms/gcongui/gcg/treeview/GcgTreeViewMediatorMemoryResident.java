@@ -393,6 +393,13 @@ public abstract class GcgTreeViewMediatorMemoryResident implements GcgTreeViewMe
         return null;
     }
 
+    public ArrayList<GcgTreeNodeInfo> getSiblingList(GcgTreeNodeInfo aTreeNodeInfo) {
+        ArrayList<GcgTreeNodeInfo> theSiblingList = new ArrayList<GcgTreeNodeInfo>();
+        theSiblingList.addAll(getChildren(getParent(aTreeNodeInfo)));
+        theSiblingList.remove(aTreeNodeInfo);
+        return theSiblingList;
+    }
+
     @Override
     public synchronized boolean isInTree(final GcgTreeNodeInfo aTreeNodeInfo) {
         return this.treeNodeMap.containsKey(aTreeNodeInfo);

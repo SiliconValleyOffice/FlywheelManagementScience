@@ -50,6 +50,8 @@ import android.graphics.drawable.Drawable;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
 import android.util.TypedValue;
+import android.view.SoundEffectConstants;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -137,5 +139,9 @@ public class GcgGuiHelper {
 	    theSpannableString.setSpan(new ForegroundColorSpan(aColorConstant), 0, aString.length(), 0);
 	    return theSpannableString;
 	}
+
+    public static void playSystemClick(View aView) {
+        aView.playSoundEffect(SoundEffectConstants.CLICK);
+    }
 
 }
