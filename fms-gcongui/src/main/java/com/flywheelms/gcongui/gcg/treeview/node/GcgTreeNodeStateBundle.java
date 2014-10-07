@@ -95,7 +95,7 @@ public abstract class GcgTreeNodeStateBundle {
         editor.commit();
     }
 
-    private final String key;
+    protected final String key;
 
     public GcgTreeNodeStateBundle(String aKey) {
         this.key = aKey;
