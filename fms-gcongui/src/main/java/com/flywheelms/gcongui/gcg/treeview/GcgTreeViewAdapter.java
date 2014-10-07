@@ -105,23 +105,32 @@ public abstract class GcgTreeViewAdapter extends BaseAdapter {
 	protected final OnLongClickListener launchPopupMenuListener = new OnLongClickListener() {
 		
 		@Override
-		public boolean onLongClick(View aView) {
+		public boolean onLongClick(final View aView) {
+            GcgGuiHelper.playSystemClick(aView);
 			GcgTreeViewAdapter.this.setRowBackground(aView, R.color.w3c__silver);
 			final GcgTreeNodeInfo theLaunchNodeInfo = (GcgTreeNodeInfo) aView.getTag();
 			GcgTreeNodeInfo theParentNodeInfo = GcgTreeViewAdapter.this.treeViewMediator.getParent(theLaunchNodeInfo);
 			final ArrayList<GcgTreeNodeInfo> thePeerNodeList = GcgTreeViewAdapter.this.getPeerTreeNodeInfoList(theLaunchNodeInfo);
 			final int theLaunchNodeChildCount = getLaunchNodeChildCount(theLaunchNodeInfo);
+            PopupMenu thePopupMenu =
 			GcgTreeViewAdapter.this.createPopupMenu(
-					theLaunchNodeInfo,
-					theParentNodeInfo,
-					aView,
-					canDelete(theLaunchNodeInfo, theLaunchNodeInfo),
-					canMove(theLaunchNodeInfo, theParentNodeInfo),
-					canOrphan(theLaunchNodeInfo, theParentNodeInfo),
-					canSequenceDown(theLaunchNodeInfo),
-					canSequenceUp(theLaunchNodeInfo),
-					thePeerNodeList.indexOf(theLaunchNodeInfo),  // launch node sequence
-					theLaunchNodeChildCount ).show(); 
+                    theLaunchNodeInfo,
+                    theParentNodeInfo,
+                    aView,
+                    canDelete(theLaunchNodeInfo, theLaunchNodeInfo),
+                    canMove(theLaunchNodeInfo, theParentNodeInfo),
+                    canOrphan(theLaunchNodeInfo, theParentNodeInfo),
+                    canSequenceDown(theLaunchNodeInfo),
+                    canSequenceUp(theLaunchNodeInfo),
+                    thePeerNodeList.indexOf(theLaunchNodeInfo),  // launch node sequence
+                    theLaunchNodeChildCount);
+            thePopupMenu.setOnDismissListener(new PopupMenu.OnDismissListener() {
+                @Override
+                public void onDismiss(PopupMenu popupMenu) {
+                    GcgTreeViewAdapter.this.setRowBackground(aView, R.drawable.gcg__background_state_list__tree_row);
+                }
+            });
+            thePopupMenu.show();
 			return true;
 		}
 	};
@@ -158,18 +167,9 @@ public abstract class GcgTreeViewAdapter extends BaseAdapter {
 
     protected void setRowBackground(View aView, int aBackgroundResourceId) {
     	View theTargetView;
-//    	int id = aView.getId();
-//		if (id == R.id.tree_node__node_summary_launch_zone) {
-//			theTargetView = (View) aView.getParent().getParent();
-//		} else {
-			theTargetView = (View) aView.getParent();
-//		}
+        theTargetView = (View) aView.getParent();
     	theTargetView.setBackgroundResource(aBackgroundResourceId);
 	}
-    
-	public void resetRowBackground(View aView) {
-		setRowBackground(aView, R.drawable.gcg__background_state_list__tree_row);
-    }
 
 	protected boolean canSequenceDown(GcgTreeNodeInfo theTreeNodeInfo) {
     	ArrayList<GcgTreeNodeInfo> thePeerList = new ArrayList<GcgTreeNodeInfo>(this.treeViewMediator.getChildren(this.treeViewMediator.getParent(theTreeNodeInfo)));
@@ -446,10 +446,6 @@ public abstract class GcgTreeViewAdapter extends BaseAdapter {
         calculateNodeIndentWidth();
     }
 
-    public void setNodeRowBackgroundDrawable(@SuppressWarnings("unused") final Drawable aNodeRowBackgroundDrawable) {
-		// TODO
-    }
-
     public void setCollapsible(final boolean bCollapsible) {
         this.collapsible = bCollapsible;
     }
@@ -533,15 +529,6 @@ public abstract class GcgTreeViewAdapter extends BaseAdapter {
         return this.gcgTreeViewParent.getGcgActivity();
     }
 
-//	protected abstract void sequenceDown(GcgTreeNodeInfo aLaunchTreeNodeInfo);
-//
-//	protected abstract void sequenceUp(GcgTreeNodeInfo aLaunchTreeNodeInfo);
-//
-//	protected abstract void sequenceFirst(GcgTreeNodeInfo aLaunchTreeNodeInfo);
-//
-//	protected abstract void sequenceLast(GcgTreeNodeInfo aLaunchTreeNodeInfo);
-//
-
 	public abstract void editTreeNode(GcgTreeNodeInfo aTreeNodeInfo);
 
 	public boolean verifyNodeOrder(String aFirstOccurrenceTag, String aSecondOccurrenceTag) {
@@ -551,5 +538,7 @@ public abstract class GcgTreeViewAdapter extends BaseAdapter {
 	public int getPosition(GcgTreeNodeInfo aFirstVisibleTreeNodeInfo) {
 		return 0;
 	}
+
+    public void resetRowBackground(View aView) {  }
 
 }
