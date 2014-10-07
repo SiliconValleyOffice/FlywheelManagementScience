@@ -393,10 +393,12 @@ public abstract class GcgTreeViewMediatorMemoryResident implements GcgTreeViewMe
         return null;
     }
 
-    public ArrayList<GcgTreeNodeInfo> getSiblingList(GcgTreeNodeInfo aTreeNodeInfo) {
+    public ArrayList<GcgTreeNodeInfo> getSiblingList(GcgTreeNodeInfo aTreeNodeInfo, boolean bRemoveSelf) {
         ArrayList<GcgTreeNodeInfo> theSiblingList = new ArrayList<GcgTreeNodeInfo>();
         theSiblingList.addAll(getChildren(getParent(aTreeNodeInfo)));
-        theSiblingList.remove(aTreeNodeInfo);
+        if(bRemoveSelf) {
+            theSiblingList.remove(aTreeNodeInfo);
+        }
         return theSiblingList;
     }
 

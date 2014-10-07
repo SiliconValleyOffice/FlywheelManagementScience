@@ -84,7 +84,7 @@ public interface GcgTreeViewMediator extends Serializable {
 
     GcgTreeNodeInfo getPreviousSibling(GcgTreeNodeInfo aTreeNodeInfo);
 
-    ArrayList<GcgTreeNodeInfo> getSiblingList(GcgTreeNodeInfo aTreeNodeInfo);
+    ArrayList<GcgTreeNodeInfo> getSiblingList(GcgTreeNodeInfo aTreeNodeInfo, boolean bRemoveSelf);
 
     boolean isInTree(GcgTreeNodeInfo aTreeNodeInfo);
     

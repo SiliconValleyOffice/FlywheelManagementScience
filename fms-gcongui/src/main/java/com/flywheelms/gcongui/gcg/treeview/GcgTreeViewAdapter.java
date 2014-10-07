@@ -219,7 +219,7 @@ public abstract class GcgTreeViewAdapter extends BaseAdapter {
 
     protected void expandCollapseAllPeers(final GcgTreeNodeInfo aTreeNodeInfo) {
         boolean isCollapseOperation = aTreeNodeInfo.isExpanded();
-        for(GcgTreeNodeInfo theTreeNodeInfo : this.treeViewMediator.getSiblingList(aTreeNodeInfo)) {
+        for(GcgTreeNodeInfo theTreeNodeInfo : this.treeViewMediator.getSiblingList(aTreeNodeInfo, false)) {
             if(isCollapseOperation) {
                 collapseTreeNode(theTreeNodeInfo);
             } else {
