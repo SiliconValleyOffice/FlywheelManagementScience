@@ -213,6 +213,9 @@ public class WorkPlan extends FmmCompletableNodeImpl {
     }
 
     @Override
+    public boolean hasSecondaryHeadline() { return true; }
+
+    @Override
     public String getSecondaryHeadline() {
         return "ending " + GcgDateHelper.getGuiDateString5(getScheduledEndDate());
     }

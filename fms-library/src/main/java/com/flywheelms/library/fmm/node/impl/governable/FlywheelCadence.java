@@ -257,6 +257,9 @@ public class FlywheelCadence extends FmmCompletableNodeImpl {
         this.workPackageList = aWorkPackageList;
     }
 
+    @Override
+    public boolean hasSecondaryHeadline() { return true; }
+
     public String getSecondaryHeadline() {
         return "ending " + GcgDateHelper.getGuiDateString5(getScheduledEndDate());
     }

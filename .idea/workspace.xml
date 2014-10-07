@@ -41,8 +41,9 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="app: com.flywheelms.workbench" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c0b3b16b-24dc-4ad0-83f8-e1821de85d20" name="Default" comment="incremental - expand/collapse all from long press">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/treeview/GcgTreeViewAdapter.java" afterPath="$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/treeview/GcgTreeViewAdapter.java" />
+    <list default="true" id="c0b3b16b-24dc-4ad0-83f8-e1821de85d20" name="Default" comment="code tweaks">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/governable/FlywheelCadence.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/governable/FlywheelCadence.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/governable/WorkPlan.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/governable/WorkPlan.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -66,105 +67,7 @@
     <favorites_list name="flywheelms-hd" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="gcg__tree_view__expanded_node_button.png" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fms-gcongui/src/main/res/drawable-hdpi/gcg__tree_view__expanded_node_button.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="gcg__tree_view__expanded_node_button__touch.png" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fms-gcongui/src/main/res/drawable-hdpi/gcg__tree_view__expanded_node_button__touch.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="gcg__background_state_list__tree_view__expanded_node_button.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fms-library/build/intermediates/exploded-aar/flywheel-management-science/fms-gcongui/unspecified/res/drawable/gcg__background_state_list__tree_view__expanded_node_button.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.36" vertical-offset="0" max-vertical-offset="187">
-              <caret line="2" column="28" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="gcg__background_state_list__tree_view__expanded_node_button.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fms-gcongui/src/main/res/drawable/gcg__background_state_list__tree_view__expanded_node_button.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="187">
-              <caret line="2" column="28" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="gcg__tree_view__row_layout.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fms-gcongui/src/main/res/layout/gcg__tree_view__row_layout.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.115385" vertical-offset="0" max-vertical-offset="527">
-              <caret line="17" column="44" selection-start-line="17" selection-start-column="44" selection-end-line="17" selection-end-column="44" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GcgTreeViewAdapter.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/treeview/GcgTreeViewAdapter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.35789475" vertical-offset="4828" max-vertical-offset="7463">
-              <caret line="398" column="51" selection-start-line="398" selection-start-column="51" selection-end-line="398" selection-end-column="51" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="R.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fms-gcongui/build/generated/source/r/debug/com/flywheelms/gcongui/R.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.6" vertical-offset="25931" max-vertical-offset="45594">
-              <caret line="1543" column="26" selection-start-line="1543" selection-start-column="26" selection-end-line="1543" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="R.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fms-workbench/build/generated/source/r/debug/com/flywheelms/workbench/R.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.6" vertical-offset="34890" max-vertical-offset="84881">
-              <caret line="2070" column="32" selection-start-line="2070" selection-start-column="32" selection-end-line="2070" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="R.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fms-library/build/generated/source/r/debug/com/flywheelms/library/R.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.6" vertical-offset="35400" max-vertical-offset="85153">
-              <caret line="2100" column="26" selection-start-line="2100" selection-start-column="26" selection-end-line="2100" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="gcg__background_state_list__tree_view__expanded_node_button.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fms-workbench/build/intermediates/exploded-aar/flywheel-management-science/fms-gcongui/unspecified/res/drawable/gcg__background_state_list__tree_view__expanded_node_button.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.36" vertical-offset="0" max-vertical-offset="187">
-              <caret line="2" column="28" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -2832,8 +2735,6 @@
         <option value="$PROJECT_DIR$/fms-workbench/src/main/java/com/flywheelms/workbench/perspective/FwbContextWorkBreakdownPerspective.java" />
         <option value="$PROJECT_DIR$/fms-workbench/src/main/java/com/flywheelms/workbench/perspective/FwbContextWorkPlanningPerspective.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/helper/FmsActivityHelper.java" />
-        <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/governable/FlywheelCadence.java" />
-        <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/governable/WorkPlan.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/governable/Portfolio.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/governable/Project.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/governable/ProjectAsset.java" />
@@ -2880,6 +2781,8 @@
         <option value="$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/treeview/GcgTreeViewMediatorMemoryResident.java" />
         <option value="$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/treeview/GcgTreeViewMediator.java" />
         <option value="$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/treeview/GcgTreeViewAdapter.java" />
+        <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/governable/FlywheelCadence.java" />
+        <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/governable/WorkPlan.java" />
       </list>
     </option>
   </component>
@@ -3847,7 +3750,15 @@
       <created>1412652748663</created>
       <updated>1412652748664</updated>
     </task>
-    <option name="localTasksCounter" value="162" />
+    <task id="LOCAL-00162" summary="2nd iteration - expand/collapse all from long press">
+      <created>1412689422104</created>
+      <updated>1412689422104</updated>
+    </task>
+    <task id="LOCAL-00163" summary="code tweaks">
+      <created>1412689974272</created>
+      <updated>1412689974273</updated>
+    </task>
+    <option name="localTasksCounter" value="164" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -3868,7 +3779,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32893497" sideWeight="0.4989953" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32987747" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32987747" sideWeight="0.4989953" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33553252" sideWeight="0.4989953" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33553252" sideWeight="0.4989953" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33553252" sideWeight="0.5010047" order="13" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22103149" sideWeight="0.49078014" order="0" side_tool="false" content_ui="combo" />
@@ -3877,7 +3788,7 @@
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24983256" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39868048" sideWeight="0.4996651" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22103149" sideWeight="0.5078014" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22103149" sideWeight="0.5078014" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -3931,8 +3842,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="1st iteration - decouple gConGUI from FlywheelMS" />
-    <MESSAGE value="2nd iteration - decouple gConGUI from FlywheelMS" />
     <MESSAGE value="tweak - app name for workbench" />
     <MESSAGE value="incremental - initialize FwbContextWorkPlanningPerspective" />
     <MESSAGE value="rename FlywheelMilestone --&gt; FlywheelCadence" />
@@ -3956,7 +3865,9 @@
     <MESSAGE value="GUI tweaks - GcgTreeView collaboration" />
     <MESSAGE value="bug fix - minor TreeView background refresh issue after PopupMenu dismiss" />
     <MESSAGE value="incremental - expand/collapse all from long press" />
-    <option name="LAST_COMMIT_MESSAGE" value="incremental - expand/collapse all from long press" />
+    <MESSAGE value="2nd iteration - expand/collapse all from long press" />
+    <MESSAGE value="code tweaks" />
+    <option name="LAST_COMMIT_MESSAGE" value="code tweaks" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -3964,13 +3875,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/treeview/GcgTreeViewAdapter.java</url>
-          <line>358</line>
+          <line>362</line>
           <properties />
           <option name="timeStamp" value="173" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/treeview/GcgTreeViewAdapter.java</url>
-          <line>397</line>
+          <line>401</line>
           <properties />
           <option name="timeStamp" value="174" />
         </line-breakpoint>
@@ -3982,30 +3893,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/widget/GcgWidgetListView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="4139" max-vertical-offset="4811">
-          <caret line="375" column="5" selection-start-line="369" selection-start-column="5" selection-end-line="375" selection-end-column="5" />
-          <folding>
-            <element signature="e#11777#11778#0" expanded="true" />
-            <element signature="e#11820#11821#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable-ldpi/fmm_noun__fmm_configuration.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/values/fms__strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3519">
-          <caret line="28" column="41" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/dialog/GcgCancelOkDialog.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="782">
@@ -4333,7 +4220,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/fms-workbench/build/intermediates/exploded-aar/flywheel-management-science/fms-gcongui/unspecified/res/drawable/gcg__background_state_list__tree_view__expanded_node_button.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.36" vertical-offset="0" max-vertical-offset="187">
+        <state vertical-scroll-proportion="0.053125" vertical-offset="0" max-vertical-offset="640">
           <caret line="2" column="28" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
           <folding />
         </state>
@@ -4354,7 +4241,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/fms-library/build/generated/source/r/debug/com/flywheelms/library/R.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.6" vertical-offset="35400" max-vertical-offset="85153">
+        <state vertical-scroll-proportion="0.3359375" vertical-offset="35400" max-vertical-offset="85153">
           <caret line="2100" column="26" selection-start-line="2100" selection-start-column="26" selection-end-line="2100" selection-end-column="26" />
           <folding />
         </state>
@@ -4362,7 +4249,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/fms-workbench/build/generated/source/r/debug/com/flywheelms/workbench/R.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.6" vertical-offset="34890" max-vertical-offset="84881">
+        <state vertical-scroll-proportion="0.3359375" vertical-offset="34890" max-vertical-offset="84881">
           <caret line="2070" column="32" selection-start-line="2070" selection-start-column="32" selection-end-line="2070" selection-end-column="32" />
           <folding />
         </state>
@@ -4378,7 +4265,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/fms-gcongui/build/generated/source/r/debug/com/flywheelms/gcongui/R.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.6" vertical-offset="25931" max-vertical-offset="45594">
+        <state vertical-scroll-proportion="0.3359375" vertical-offset="25931" max-vertical-offset="45594">
           <caret line="1543" column="26" selection-start-line="1543" selection-start-column="26" selection-end-line="1543" selection-end-column="26" />
           <folding />
         </state>
@@ -4397,9 +4284,53 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/treeview/GcgTreeViewAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35789475" vertical-offset="4828" max-vertical-offset="7463">
-          <caret line="398" column="51" selection-start-line="398" selection-start-column="51" selection-end-line="398" selection-end-column="51" />
+        <state vertical-scroll-proportion="0.33333334" vertical-offset="4336" max-vertical-offset="7531">
+          <caret line="367" column="125" selection-start-line="367" selection-start-column="125" selection-end-line="367" selection-end-column="125" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/headline/FmmHeadlineNodeImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33233082" vertical-offset="7395" max-vertical-offset="8245">
+          <caret line="588" column="59" selection-start-line="585" selection-start-column="54" selection-end-line="588" selection-end-column="59" />
+          <folding>
+            <element signature="e#20410#20434#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/governable/FlywheelCadence.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2885" max-vertical-offset="4369">
+          <caret line="264" column="5" selection-start-line="257" selection-start-column="5" selection-end-line="264" selection-end-column="5" />
+          <folding>
+            <element signature="e#9368#9369#0" expanded="true" />
+            <element signature="e#9386#9387#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/governable/WorkPlan.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334" vertical-offset="2324" max-vertical-offset="4080">
+          <caret line="215" column="58" selection-start-line="215" selection-start-column="58" selection-end-line="215" selection-end-column="58" />
+          <folding>
+            <element signature="e#7630#7631#0" expanded="true" />
+            <element signature="e#7648#7649#0" expanded="true" />
+            <element signature="e#7691#7692#0" expanded="true" />
+            <element signature="e#7737#7738#0" expanded="true" />
+            <element signature="e#7935#7936#0" expanded="true" />
+            <element signature="e#7987#7988#0" expanded="true" />
+            <element signature="e#8179#8180#0" expanded="true" />
+            <element signature="e#8223#8224#0" expanded="true" />
+            <element signature="e#8414#8415#0" expanded="true" />
+            <element signature="e#8463#8464#0" expanded="true" />
+            <element signature="e#9081#9082#0" expanded="true" />
+            <element signature="e#9119#9120#0" expanded="true" />
+            <element signature="e#9175#9176#0" expanded="true" />
+            <element signature="e#9219#9220#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
