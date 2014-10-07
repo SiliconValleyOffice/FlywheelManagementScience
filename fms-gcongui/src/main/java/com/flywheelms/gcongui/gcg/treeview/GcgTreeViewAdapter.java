@@ -73,7 +73,11 @@ import java.util.HashMap;
 import java.util.List;
 
 public abstract class GcgTreeViewAdapter extends BaseAdapter {
-	
+
+    private static final int child_index__EXPANDER_IMAGE_VIEW = 1;
+    private static final int row_height__MEDIUM_DECKANGL = 60;
+    private static final int row_height__SMALL_DECKANGL = 45;
+    private static final int row_height__SECONDARY_HEADLINE = 55;
     protected GcgTreeViewMediator treeViewMediator;
     protected final int childNodeViewLayoutResourceId;
     private final int[] fontSizeArray;
@@ -356,12 +360,12 @@ public abstract class GcgTreeViewAdapter extends BaseAdapter {
     public abstract View updateNodeView(final LinearLayout aRowLayout, final GcgTreeNodeInfo aTreeNodeInfo );
 
     private static void setRowHeight(LinearLayout aTreeNodeRowLayout,GcgTreeNodeInfo aTreeNodeInfo) {
-		ImageView theImageView = (ImageView) aTreeNodeRowLayout.getChildAt(1);
+		ImageView theImageView = (ImageView) aTreeNodeRowLayout.getChildAt(child_index__EXPANDER_IMAGE_VIEW);
         int theRowHeight = 0;
         if(aTreeNodeInfo.getDecKanGlGlyphSize() == DecKanGlDecoratedGlyphSize.MEDIUM) {
-            theRowHeight = 60;
+            theRowHeight = row_height__MEDIUM_DECKANGL;
         } else {
-            theRowHeight = aTreeNodeInfo.hasSecondaryHeadline() ? 55 : 45;
+            theRowHeight = aTreeNodeInfo.hasSecondaryHeadline() ? row_height__SECONDARY_HEADLINE : row_height__SMALL_DECKANGL;
         }
 		android.view.ViewGroup.LayoutParams theLayoutParams = theImageView.getLayoutParams();
 		theLayoutParams.height = GcgHelper.getPixelsForDp(GcgApplication.getContext(), theRowHeight);
@@ -395,7 +399,7 @@ public abstract class GcgTreeViewAdapter extends BaseAdapter {
 	protected abstract void setupTreeNodeTargetObject(GcgTreeNodeInfo aTreeNodeInfo, LinearLayout aTreeNodeRowLayout, boolean bAddChildView, View aChildView);
 
 	private void setupTreeNodeExpander(GcgTreeNodeInfo aTreeNodeInfo, LinearLayout aTreeNodeRowLayout) {
-        final ImageView theNodeExpanderImageView = (ImageView) aTreeNodeRowLayout.getChildAt(1);
+        final ImageView theNodeExpanderImageView = (ImageView) aTreeNodeRowLayout.getChildAt(child_index__EXPANDER_IMAGE_VIEW);
         theNodeExpanderImageView.setImageDrawable(getExpandCollapseDrawable(aTreeNodeInfo));
         theNodeExpanderImageView.setScaleType(ScaleType.CENTER);
         theNodeExpanderImageView.setTag(aTreeNodeInfo);
