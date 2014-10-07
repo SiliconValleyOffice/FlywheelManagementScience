@@ -355,8 +355,8 @@ public abstract class GcgTreeViewAdapter extends BaseAdapter {
 
     public abstract View updateNodeView(final LinearLayout aRowLayout, final GcgTreeNodeInfo aTreeNodeInfo );
 
-    private static void setRowHeight(LinearLayout aRowLayout,GcgTreeNodeInfo aTreeNodeInfo) {
-		ImageView theImageView = (ImageView) aRowLayout.findViewById(R.id.tree_node__expander_image);
+    private static void setRowHeight(LinearLayout aTreeNodeRowLayout,GcgTreeNodeInfo aTreeNodeInfo) {
+		ImageView theImageView = (ImageView) aTreeNodeRowLayout.getChildAt(1);
         int theRowHeight = 0;
         if(aTreeNodeInfo.getDecKanGlGlyphSize() == DecKanGlDecoratedGlyphSize.MEDIUM) {
             theRowHeight = 60;
@@ -395,8 +395,7 @@ public abstract class GcgTreeViewAdapter extends BaseAdapter {
 	protected abstract void setupTreeNodeTargetObject(GcgTreeNodeInfo aTreeNodeInfo, LinearLayout aTreeNodeRowLayout, boolean bAddChildView, View aChildView);
 
 	private void setupTreeNodeExpander(GcgTreeNodeInfo aTreeNodeInfo, LinearLayout aTreeNodeRowLayout) {
-        final ImageView theNodeExpanderImageView =
-        		(ImageView) aTreeNodeRowLayout.findViewById(R.id.tree_node__expander_image);
+        final ImageView theNodeExpanderImageView = (ImageView) aTreeNodeRowLayout.getChildAt(1);
         theNodeExpanderImageView.setImageDrawable(getExpandCollapseDrawable(aTreeNodeInfo));
         theNodeExpanderImageView.setScaleType(ScaleType.CENTER);
         theNodeExpanderImageView.setTag(aTreeNodeInfo);
