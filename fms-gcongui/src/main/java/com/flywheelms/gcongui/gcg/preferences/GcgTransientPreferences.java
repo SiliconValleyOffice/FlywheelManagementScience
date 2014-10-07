@@ -122,12 +122,12 @@ public class GcgTransientPreferences implements SharedPreferences {
 		return this.bundle.containsKey(aKey);
 	}
 
-	@Override
-	public Editor edit() {
-		return null;
-	}
+    @Override
+    public Editor edit() {
+        return null;
+    }
 
-	@Override
+    @Override
 	public void registerOnSharedPreferenceChangeListener(OnSharedPreferenceChangeListener listener) {  return;  }
 
 	@Override

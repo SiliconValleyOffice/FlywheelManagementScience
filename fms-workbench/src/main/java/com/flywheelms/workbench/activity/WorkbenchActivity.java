@@ -48,6 +48,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.flywheelms.gcongui.gcg.context.GcgApplicationContext;
@@ -86,8 +87,8 @@ public class WorkbenchActivity extends FmsActivity implements FmsDecKanGlNavigat
 
 	private static final String HELP_CONTEXT_URL_STRING = "http://code.google.com/p/flywheelms-hd/wiki/UserDocWorkbench";
 	private static WorkbenchActivity instance;
-//	protected FmmSelectionDialog fmmSelectionDialog;
 	protected FmmManagementDialog fmmManagementDialog;
+    private FrameLayout perspectiveFlipperParentFrame;
 
 	public WorkbenchActivity() {
 		super(HELP_CONTEXT_URL_STRING);
@@ -199,6 +200,7 @@ public class WorkbenchActivity extends FmsActivity implements FmsDecKanGlNavigat
 	}
 
 	private void closeFmm() {
+        saveGuiState();
 		FmmDatabaseMediator.closeActiveFmm();
 		resetApplicationContext();
 		this.mustSelectDataSource = true;

@@ -80,6 +80,11 @@ public class FwbCommitmentsWithdrawnPerspective extends FmsPerspectiveFlipperTre
 		// TODO - get rid of this over ride when class is fully implemented - SDS
 	}
 
+    @Override
+    public void guiPreferencesSaveTransient() {
+        // TODO - get rid of this over ride when class is fully implemented - SDS
+    }
+
 	@Override
 	protected int getPageTitleResourceId() {
 		return R.string.commitments__confirmed_and_withdrawn;

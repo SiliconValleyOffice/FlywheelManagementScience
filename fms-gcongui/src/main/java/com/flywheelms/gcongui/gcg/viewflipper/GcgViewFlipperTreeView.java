@@ -59,12 +59,17 @@ import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewAdapter;
 import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewMediator;
 import com.flywheelms.gcongui.gcg.treeview.interfaces.GcgTreeViewParent;
 import com.flywheelms.gcongui.gcg.treeview.node.GcgTreeNodeInfo;
+import com.flywheelms.gcongui.gcg.treeview.node.GcgTreeNodePersistentState;
+import com.flywheelms.gcongui.gcg.treeview.node.GcgTreeNodeStateBundle;
+
+import java.util.HashMap;
 
 public abstract class GcgViewFlipperTreeView extends GcgViewFlipperChildView implements GcgTreeViewParent {
 
 	protected GcgTreeView treeView;
 	protected GcgTreeViewMediator treeViewMediator = null;
 	protected GcgTreeViewAdapter treeViewAdapter;
+    protected HashMap<String, GcgTreeNodePersistentState> treeNodePersistentStateMap;
     protected Button startButton;
 	protected boolean collapsibleTree;
     protected LinearLayout rightMenuContainer;
@@ -97,6 +102,29 @@ public abstract class GcgViewFlipperTreeView extends GcgViewFlipperChildView imp
 	public void guiPreferencesApply() { return; }
 
 	protected void guiPreferencesRestoreAll() { return; }
+
+    public void treeNodeStateRestore() {
+        if(getTreeNodePeristentStateBundleKey() == null) {
+            return;
+        }
+
+    }
+
+    public void saveGuiState() {
+        super.saveGuiState();
+        treeNodeStateSave();
+    }
+
+    public void treeNodeStateSave() {
+        if(this.treeViewMediator == null || getTreeNodePeristentStateBundleKey() == null) {
+            return;
+        }
+        this.treeNodePersistentStateMap = this.treeViewMediator.writeTreeNodePersistenceState(getGcgActivity(), getTreeNodePeristentStateBundleKey());
+    }
+
+    protected String getTreeNodePeristentStateBundleKey() {
+        return null;
+    }
 
 	protected void initGuiElements() { return; }
 
@@ -181,7 +209,10 @@ public abstract class GcgViewFlipperTreeView extends GcgViewFlipperChildView imp
 	@Override
 	public GcgTreeViewAdapter rebuildTreeView() {
         int currentPosition = this.treeView.getSelectedItemPosition() < 0 ? 0 : this.treeView.getSelectedItemPosition();
-		this.treeViewMediator = createGcgTreeViewMediator();
+        if(this.treeViewMediator != null) {
+            this.treeNodePersistentStateMap = this.treeViewMediator.getTreeNodePersistentStateMap();
+        }
+        this.treeViewMediator = createGcgTreeViewMediator();
 		this.treeViewAdapter = newTreeViewAdapter();
 		this.treeView.setAdapter(this.treeViewAdapter);
 		this.treeView.setSelection(currentPosition);
@@ -261,6 +292,7 @@ public abstract class GcgViewFlipperTreeView extends GcgViewFlipperChildView imp
     @Override
     protected void activateView() {
         rebuildTreeView();
+        this.treeViewMediator.applyTreeNodePersistentStateList(getTreeNodePersistentStateMap());
         super.activateView();
 //        this.treeView = (GcgTreeView) findViewById(R.id.gcg_tree_view);
 //        this.treeView.setAdapter(this.treeViewAdapter);
@@ -275,4 +307,33 @@ public abstract class GcgViewFlipperTreeView extends GcgViewFlipperChildView imp
         }
     }
 
+    protected void deactivateView() {
+        super.deactivateView();
+        treeNodeStateSave();
+    }
+
+    public HashMap<String, GcgTreeNodePersistentState> getTreeNodePersistentStateMap() {
+        if(this.treeNodePersistentStateMap == null) {
+            this.treeNodePersistentStateMap = GcgTreeNodeStateBundle.readGcgTreeNodeStatePreferences(getGcgActivity(), getTreeNodePeristentStateBundleKey());
+        }
+        return this.treeNodePersistentStateMap;
+    }
+
+    public void setTreeNodePersistentStateMap(HashMap<String, GcgTreeNodePersistentState> treeNodePersistentStateMap) {
+        this.treeNodePersistentStateMap = treeNodePersistentStateMap;
+    }
+
+    @Override
+    public void guiPreferencesSaveTransient() {
+        if(this.treeViewMediator != null && getTreeNodePeristentStateBundleKey() != null) {
+            this.treeViewMediator.writeTreeNodePersistenceState(getGcgActivity(), getTreeNodePeristentStateBundleKey());
+        }
+    }
+
+    @Override
+    public void guiPreferencesRestoreTransient() {
+        if(this.treeViewMediator != null && getTreeNodePeristentStateBundleKey() != null) {
+            this.treeViewMediator.applyTreeNodePersistentStateList(getTreeNodePersistentStateMap());
+        }
+    }
 }

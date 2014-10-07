@@ -45,10 +45,13 @@ package com.flywheelms.gcongui.gcg.treeview;
 
 import android.database.DataSetObserver;
 
+import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.gcongui.gcg.treeview.exception.NodeAlreadyInTreeException;
 import com.flywheelms.gcongui.gcg.treeview.exception.NodeNotInTreeException;
 import com.flywheelms.gcongui.gcg.treeview.node.GcgTreeNode;
 import com.flywheelms.gcongui.gcg.treeview.node.GcgTreeNodeInfo;
+import com.flywheelms.gcongui.gcg.treeview.node.GcgTreeNodePersistentState;
+import com.flywheelms.gcongui.gcg.treeview.node.GcgTreeNodeStateBundle;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -560,5 +563,45 @@ public abstract class GcgTreeViewMediatorMemoryResident implements GcgTreeViewMe
 		}
 		return thePosition == -1 ? 0 : thePosition;
 	}
+
+    @Override
+    public HashMap<String, GcgTreeNodePersistentState> getTreeNodePersistentStateMap() {
+        HashMap<String, GcgTreeNodePersistentState> thePersistentStateMap = new HashMap<String, GcgTreeNodePersistentState>();
+        for(GcgTreeNodeInfo theTreeNodeInfo : this.treeNodeMap.keySet()) {
+            GcgTreeNodePersistentState thePersistentState =new GcgTreeNodePersistentState(theTreeNodeInfo);
+            thePersistentStateMap.put(thePersistentState.getTreeNodeObjectId(), thePersistentState);
+        }
+        return thePersistentStateMap;
+    }
+
+    @Override
+    public void applyTreeNodePersistentStateList(HashMap<String, GcgTreeNodePersistentState> aPersistentStateMap) {
+        if(aPersistentStateMap == null) {
+            return;
+        }
+        for(GcgTreeNodeInfo theTreeNodeInfo : this.treeNodeMap.keySet()) {
+            GcgTreeNodePersistentState thePersistentState = aPersistentStateMap.get(theTreeNodeInfo.getObjectId());
+            if(thePersistentState != null) {
+                if(thePersistentState.isExpanded()) {
+                    expandDirectChildren(theTreeNodeInfo);
+                } else {
+                    collapseChildren(theTreeNodeInfo);
+                }
+            }
+        }
+        treeStateChanged();
+    }
+
+    @Override
+    public HashMap<String, GcgTreeNodePersistentState>  writeTreeNodePersistenceState(GcgActivity aGcgActivity, String aTreeNodePeristentStateBundleKey) {
+        HashMap<String, GcgTreeNodePersistentState> theStateMap = getTreeNodePersistentStateMap();
+        if(aTreeNodePeristentStateBundleKey != null) {
+            GcgTreeNodeStateBundle.writeGcgTreeNodeStatePreferences(
+                    aGcgActivity,
+                    aTreeNodePeristentStateBundleKey,
+                    theStateMap );
+        }
+        return theStateMap;
+    }
 
 }

@@ -674,22 +674,21 @@ public abstract class FmsPerspectiveFlipperTreeView extends GcgPerspectiveFlippe
 	
 	@Override
 	public void guiPreferencesSaveTransient() {
-		guiPreferencesSaveShowMenuTransient();
-//		getTreeViewAdapter().applyShowCollapseToTreeLevel(getShowCollapseToTreeLevel());
-		guiPreferencesSaveGovernanceMenuTransient();
-		guiPreferencesSaveWorkStatusMenuTransient();
-		guiPreferencesSaveTeamMenuTransient();
+        super.guiPreferencesSaveTransient();
+//		guiPreferencesSaveShowMenuTransient();
+//		guiPreferencesSaveGovernanceMenuTransient();
+//		guiPreferencesSaveWorkStatusMenuTransient();
+//		guiPreferencesSaveTeamMenuTransient();
 	}
 	
 	@Override
 	public void guiPreferencesRestoreTransient() {
 		guiPreferencesRestoreShowMenuTransient();
-//		getTreeViewAdapter().applyShowCollapseToTreeLevel(getShowCollapseToTreeLevel());
-		guiPreferencesRestoreGovernanceMenuTransient();
-		guiPreferencesRestoreWorkStatusMenuTransient();
-		guiPreferencesRestoreTeamMenuTransient();
-//		getTreeViewMediator().refreshViews();
-	}
+        guiPreferencesRestoreGovernanceMenuTransient();
+        guiPreferencesRestoreWorkStatusMenuTransient();
+        guiPreferencesRestoreTeamMenuTransient();
+        super.guiPreferencesRestoreTransient();
+    }
 
 	protected void guiPreferencesSaveShowMenu() {
 		guiPreferencesSaveShowMenu(GcgPreferencesHelper.getGuiPreferences(

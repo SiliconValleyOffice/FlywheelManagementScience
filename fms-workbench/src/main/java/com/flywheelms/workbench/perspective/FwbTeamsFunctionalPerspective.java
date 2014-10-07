@@ -80,6 +80,11 @@ public class FwbTeamsFunctionalPerspective extends FmsPerspectiveFlipperTreeView
 		// TODO - get rid of this over ride when class is fully implemented - SDS
 	}
 
+    @Override
+    public void guiPreferencesSaveTransient() {
+        // TODO - get rid of this over ride when class is fully implemented - SDS
+    }
+
 	@Override
 	protected int getPageTitleResourceId() {
 		return R.string.teams__functional;

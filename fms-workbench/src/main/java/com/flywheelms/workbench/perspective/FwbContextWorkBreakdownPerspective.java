@@ -65,6 +65,7 @@ import com.flywheelms.library.fms.helper.FmsHelpIndex;
 import com.flywheelms.library.fms.popup_menu.FmmPopupBuilder;
 import com.flywheelms.library.fms.preferences.GuiPreferencesBundle;
 import com.flywheelms.library.fms.tree_view_flipper.tree_view.FmsPerspectiveFlipperTreeView;
+import com.flywheelms.library.fms.treeview.FmsTreeNodeStateBundle;
 import com.flywheelms.library.fms.treeview.FmsTreeViewMediatorMemoryResident;
 import com.flywheelms.library.fms.treeview.filter.FmsTreeViewAdapter;
 import com.flywheelms.library.fms.treeview.filter.WorkBreakdownTreeFilter;
@@ -110,6 +111,10 @@ public class FwbContextWorkBreakdownPerspective extends FmsPerspectiveFlipperTre
                 R.id.governance__menu_body,
                 R.id.work_status__menu_body,
                 R.id.team__menu_body};
+    }
+
+    protected String getTreeNodePeristentStateBundleKey() {
+        return FmsTreeNodeStateBundle.FWB__CONTEXT__WORK_BREAKDOWN.getKey();
     }
 
 	@Override

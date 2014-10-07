@@ -211,4 +211,8 @@ public class GcgTreeNodeInfo implements Serializable {
     public void setLeafNode(boolean bLeafNode) {
         this.leafNode = bLeafNode;
     }
+
+    public String getObjectId() {
+        return this.targetObject.getIdString();
+    }
 }

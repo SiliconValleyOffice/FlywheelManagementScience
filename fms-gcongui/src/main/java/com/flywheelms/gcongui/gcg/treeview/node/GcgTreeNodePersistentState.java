@@ -1,5 +1,5 @@
-/* @(#)GcgTreeViewParent.java
-** 
+/* @(#)GcgTreeNodePersistentState.java
+**
 ** Copyright (C) 2012 by Steven D. Stamps
 **
 **             Trademarks & Copyrights
@@ -41,49 +41,65 @@
 ** <http://www.gnu.org/licenses/gpl-3.0.html>.
 */
 
-package com.flywheelms.gcongui.gcg.treeview.interfaces;
+package com.flywheelms.gcongui.gcg.treeview.node;
 
-import com.flywheelms.gcongui.gcg.activity.GcgActivity;
-import com.flywheelms.gcongui.gcg.context.GcgFrame;
-import com.flywheelms.gcongui.gcg.interfaces.GcgPerspective;
-import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewAdapter;
-import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewMediator;
-import com.flywheelms.gcongui.gcg.treeview.node.GcgTreeNodeInfo;
+import com.flywheelms.gcongui.gcg.interfaces.GcgSerialization;
 
-public interface GcgTreeViewParent {
+import org.json.JSONException;
+import org.json.JSONObject;
 
-	boolean isShowNodeChildSummary();
+public class GcgTreeNodePersistentState implements GcgSerialization {
 
-	int getShowNodeChildSummaryLevel();
-	
-	GcgActivity getGcgActivity();
+    private static final String key__TREE_NODE__OBJECT_ID = "gcg__tree_node__object_id";
+    private static final String key__TREE_NODE__EXPANDED = "gcg__tree_node__expanded";
+    private String treeNodeObjectId;
+    private boolean expanded;
 
-	GcgTreeViewAdapter rebuildTreeView();
+    public GcgTreeNodePersistentState(String aTreeNodeObjectId, boolean bExpanded) {
+        this.treeNodeObjectId = aTreeNodeObjectId;
+        this.expanded = bExpanded;
+    }
 
-	int getShowEmphasisLevel();
+    public GcgTreeNodePersistentState(GcgTreeNodeInfo aTreeNodeInfo) {
+        this.treeNodeObjectId = aTreeNodeInfo.getObjectId();
+        this.expanded = aTreeNodeInfo.isExpanded();
+    }
 
-	GcgTreeViewAdapter getGcgTreeViewAdapter();
+    public GcgTreeNodePersistentState(JSONObject aJsonObject) {
+        try {
+            this.treeNodeObjectId = aJsonObject.getString(key__TREE_NODE__OBJECT_ID);
+            this.expanded = aJsonObject.getBoolean(key__TREE_NODE__EXPANDED);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
 
-	GcgTreeViewMediator getGcgTreeViewMediator();
-	
-	void setSelection(int anAdapterPosition);
+    public String getTreeNodeObjectId() {
+        return this.treeNodeObjectId;
+    }
 
-	void setSelection(GcgTreeNodeInfo aFirstVisibleTreeNodeInfo);
+    public boolean isExpanded() {
+        return this.expanded;
+    }
 
-	void setSelection(GcgTreeNodeInfo aFirstVisibleTreeNodeInfo, GcgTreeNodeInfo aTreeNodeInfoThatMustBeVisible);
+    @Override
+    public String getSerialized() {
+        return getJsonObject().toString();
+    }
 
-	int getFirstPosition();
+    public JSONObject getJsonObject() {
+        JSONObject theJsonObject = new JSONObject();
+        try {
+            theJsonObject.put(key__TREE_NODE__OBJECT_ID, getTreeNodeObjectId());
+            theJsonObject.put(key__TREE_NODE__EXPANDED, isExpanded());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return theJsonObject;
+    }
 
-	GcgTreeNodeInfo getFirstVisibleTreeNodeInfo();
-
-    GcgFrame getGcgFrame();
-
-    GcgPerspective getGcgPerspective();
-
-    void guiPreferencesApply();
-
-    void treeNodeStateRestore();
-
-    void treeNodeStateSave();
-
+    @Override
+    public boolean validateSerializationFormatVersion(String aString) {
+        return true;
+    }
 }

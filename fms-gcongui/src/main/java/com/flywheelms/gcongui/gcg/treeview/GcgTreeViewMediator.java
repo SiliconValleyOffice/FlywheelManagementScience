@@ -45,7 +45,9 @@ package com.flywheelms.gcongui.gcg.treeview;
 
 import android.database.DataSetObserver;
 
+import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.gcongui.gcg.treeview.node.GcgTreeNodeInfo;
+import com.flywheelms.gcongui.gcg.treeview.node.GcgTreeNodePersistentState;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -122,4 +124,9 @@ public interface GcgTreeViewMediator extends Serializable {
 	
 	int getPosition(GcgTreeNodeInfo aTreeNodeInfo);
 
+    HashMap<String, GcgTreeNodePersistentState> getTreeNodePersistentStateMap();
+
+    void applyTreeNodePersistentStateList(HashMap<String, GcgTreeNodePersistentState> aPersistentStateMap);
+
+    HashMap<String, GcgTreeNodePersistentState>  writeTreeNodePersistenceState(GcgActivity aGcgActivity, String aTreeNodePeristentStateBundleKey);
 }

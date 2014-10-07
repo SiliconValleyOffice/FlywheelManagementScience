@@ -318,6 +318,7 @@ public class GcgViewFlipper extends ViewFlipper implements GcgFlingController {
 		}
 		for(int theIndex = 0 ; theIndex < theCount ; ++theIndex) {
 			((GcgViewFlipperChildView) getChildAt(theIndex)).guiPreferencesSaveTransient();
+            ((GcgViewFlipperChildView) getChildAt(theIndex)).saveGuiState();
 		}
 	}
 

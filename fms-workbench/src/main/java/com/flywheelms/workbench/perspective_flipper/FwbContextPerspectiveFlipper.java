@@ -122,16 +122,4 @@ public class FwbContextPerspectiveFlipper extends GcgPerspectiveFlipper {
 	@Override
 	public void viewData() { /*  TODO - use to refresh active perspective??? */ }
 
-	@Override
-	public void saveGuiState() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void restoreGuiState() {
-		// TODO Auto-generated method stub
-		
-	}
-
 }

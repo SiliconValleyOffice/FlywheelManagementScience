@@ -247,6 +247,7 @@ public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNo
 		if(getGcgApplicationContext() != null) {
 			theBundle.putString(GcgActivityHelper.bundle_key__GCG__APPLICATION_CONTEXT, getGcgApplicationContext().getSerialized());
 		}
+        saveGuiState();
 	}
 	
 	@Override

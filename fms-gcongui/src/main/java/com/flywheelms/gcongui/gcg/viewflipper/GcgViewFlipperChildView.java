@@ -281,6 +281,10 @@ public abstract class GcgViewFlipperChildView extends LinearLayout implements Gc
 		return;
 	}
 
+    public void saveGuiState() {
+        return;
+    }
+
 	public void activityNavigation(GcgFrame aFrame, GcgPerspective aPerspective) {
 		getGcgActivity().activityNavigation(aFrame, aPerspective);
 	}

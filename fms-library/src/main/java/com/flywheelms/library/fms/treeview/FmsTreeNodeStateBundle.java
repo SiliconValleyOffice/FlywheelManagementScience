@@ -1,5 +1,5 @@
-/* @(#)GcgTreeViewParent.java
-** 
+/* @(#)FmsTreeNodeStateBundle.java
+**
 ** Copyright (C) 2012 by Steven D. Stamps
 **
 **             Trademarks & Copyrights
@@ -41,49 +41,29 @@
 ** <http://www.gnu.org/licenses/gpl-3.0.html>.
 */
 
-package com.flywheelms.gcongui.gcg.treeview.interfaces;
+package com.flywheelms.library.fms.treeview;
 
-import com.flywheelms.gcongui.gcg.activity.GcgActivity;
-import com.flywheelms.gcongui.gcg.context.GcgFrame;
-import com.flywheelms.gcongui.gcg.interfaces.GcgPerspective;
-import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewAdapter;
-import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewMediator;
-import com.flywheelms.gcongui.gcg.treeview.node.GcgTreeNodeInfo;
+import com.flywheelms.gcongui.gcg.treeview.node.GcgTreeNodeStateBundle;
 
-public interface GcgTreeViewParent {
+public class FmsTreeNodeStateBundle extends GcgTreeNodeStateBundle {
 
-	boolean isShowNodeChildSummary();
+    public static final GcgTreeNodeStateBundle FWB__CONTEXT__ANALYSIS = new FmsTreeNodeStateBundle("com.flywheelms.workbench.context.analysis");
+    public static final GcgTreeNodeStateBundle FWB__CONTEXT__SERVICE_DELIVERY = new FmsTreeNodeStateBundle("com.flywheelms.workbench.context.service_delivery");
+    public static final GcgTreeNodeStateBundle FWB__CONTEXT__STRATEGIC_PLANNING = new FmsTreeNodeStateBundle("com.flywheelms.workbench.context.strategic_planning");
+    public static final GcgTreeNodeStateBundle FWB__CONTEXT__WORK_BREAKDOWN = new FmsTreeNodeStateBundle("com.flywheelms.workbench.context.work_breakdown");
+    public static final GcgTreeNodeStateBundle FWB__CONTEXT__WORK_PLANNING = new FmsTreeNodeStateBundle("com.flywheelms.workbench.context.work_planning");
 
-	int getShowNodeChildSummaryLevel();
-	
-	GcgActivity getGcgActivity();
+    static {
+        GcgTreeNodeStateBundle.VALUES.add(FWB__CONTEXT__ANALYSIS);
+        GcgTreeNodeStateBundle.VALUES.add(FWB__CONTEXT__SERVICE_DELIVERY);
+        GcgTreeNodeStateBundle.VALUES.add(FWB__CONTEXT__STRATEGIC_PLANNING);
+        GcgTreeNodeStateBundle.VALUES.add(FWB__CONTEXT__WORK_BREAKDOWN);
+        GcgTreeNodeStateBundle.VALUES.add(FWB__CONTEXT__WORK_PLANNING);
+    }
 
-	GcgTreeViewAdapter rebuildTreeView();
+    public static void init() { }
 
-	int getShowEmphasisLevel();
-
-	GcgTreeViewAdapter getGcgTreeViewAdapter();
-
-	GcgTreeViewMediator getGcgTreeViewMediator();
-	
-	void setSelection(int anAdapterPosition);
-
-	void setSelection(GcgTreeNodeInfo aFirstVisibleTreeNodeInfo);
-
-	void setSelection(GcgTreeNodeInfo aFirstVisibleTreeNodeInfo, GcgTreeNodeInfo aTreeNodeInfoThatMustBeVisible);
-
-	int getFirstPosition();
-
-	GcgTreeNodeInfo getFirstVisibleTreeNodeInfo();
-
-    GcgFrame getGcgFrame();
-
-    GcgPerspective getGcgPerspective();
-
-    void guiPreferencesApply();
-
-    void treeNodeStateRestore();
-
-    void treeNodeStateSave();
-
+    private FmsTreeNodeStateBundle(String aKey) {
+        super(aKey);
+    }
 }
