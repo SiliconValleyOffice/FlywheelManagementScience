@@ -186,6 +186,8 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	}
 
 	private SQLiteDatabase getSqLiteDatabase() {
+        // TODO - need to save config name onPause() and restore config name onResume()
+        // then use config name to initialize sqLiteDatabase
 		return this.sqLiteDatabase;
 	}
 
