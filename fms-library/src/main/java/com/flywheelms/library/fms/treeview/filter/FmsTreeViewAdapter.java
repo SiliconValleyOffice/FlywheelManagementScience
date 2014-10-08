@@ -678,6 +678,7 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
         if(theTreeNodeInfo != null) {
             editTreeNode(theTreeNodeInfo);
         } else {  // this is a "hidden" leaf node from a node summary
+            getFmsTreeViewParent().updatePerspectiveContext(this.treeViewMediator.getTreeNodeInfoForObjectId(aParentHeadlineNode.getNodeIdString()), false);
             getFmsTreeViewParent().startEditorActivityForFmmHeadlineNode(
                     aHeadlineNode.getPeerHeadlineNodeShallowList(aParentHeadlineNode),
                     aParentHeadlineNode.getNodeIdString(),

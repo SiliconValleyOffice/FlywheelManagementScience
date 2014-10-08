@@ -91,8 +91,8 @@ public interface GcgTreeViewMediator extends Serializable {
     boolean isInTree(GcgTreeNodeInfo aTreeNodeInfo);
     
     GcgTreeNodeInfo getTreeNodeInfoForObject(Object anObject);
-    
-    GcgTreeNodeInfo getTreeNodeInfoForString(String aNodeIdString);
+
+    GcgTreeNodeInfo getTreeNodeInfoForObjectId(String aNodeIdString);
     
     ArrayList<GcgTreeNodeInfo> getAllVisibleTreeNodeInfoList();
     
@@ -129,4 +129,5 @@ public interface GcgTreeViewMediator extends Serializable {
     void applyTreeNodePersistentStateList(HashMap<String, GcgTreeNodePersistentState> aPersistentStateMap);
 
     HashMap<String, GcgTreeNodePersistentState>  writeTreeNodePersistenceState(GcgActivity aGcgActivity, String aTreeNodePeristentStateBundleKey);
+
 }

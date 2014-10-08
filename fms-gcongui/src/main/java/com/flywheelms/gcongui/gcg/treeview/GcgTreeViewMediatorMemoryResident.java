@@ -530,7 +530,7 @@ public abstract class GcgTreeViewMediatorMemoryResident implements GcgTreeViewMe
 	}
 
 	@Override
-	public abstract GcgTreeNodeInfo getTreeNodeInfoForString(String aString);
+	public abstract GcgTreeNodeInfo getTreeNodeInfoForObjectId(String aString);
 
 	@Override
 	public boolean verifyNodeOrder(Integer[] aFirstNodeLocation, Integer[] aSecondNodeLocation) {
@@ -547,8 +547,8 @@ public abstract class GcgTreeViewMediatorMemoryResident implements GcgTreeViewMe
 
 	@Override
 	public boolean verifyNodeOrder(String aFirstOccurrenceTag, String aSecondOccurrenceTag) {
-		GcgTreeNodeInfo theFirstTreeNodeInfo = getTreeNodeInfoForString(aFirstOccurrenceTag);
-		GcgTreeNodeInfo theSecondTreeNodeInfo = getTreeNodeInfoForString(aSecondOccurrenceTag);
+		GcgTreeNodeInfo theFirstTreeNodeInfo = getTreeNodeInfoForObjectId(aFirstOccurrenceTag);
+		GcgTreeNodeInfo theSecondTreeNodeInfo = getTreeNodeInfoForObjectId(aSecondOccurrenceTag);
 		return verifyNodeOrder(getNodeLocationInHierarchy(theFirstTreeNodeInfo), getNodeLocationInHierarchy(theSecondTreeNodeInfo));
 	}
 	

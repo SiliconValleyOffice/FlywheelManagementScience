@@ -41,10 +41,12 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="app: com.flywheelms.workbench" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c0b3b16b-24dc-4ad0-83f8-e1821de85d20" name="Default" comment="feature improvement - better Perspective context when editing children of a TreeNode">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fms-gcongui/src/main/res/drawable-nodpi/gcg__application_context__perspective_context__separator.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-gcongui/src/main/res/layout/gcg__application_context__perspective_context__separator.xml" afterPath="$PROJECT_DIR$/fms-gcongui/src/main/res/layout/gcg__application_context__perspective_context__separator.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-gcongui/src/main/res/values/gcg__strings.xml" afterPath="$PROJECT_DIR$/fms-gcongui/src/main/res/values/gcg__strings.xml" />
+    <list default="true" id="c0b3b16b-24dc-4ad0-83f8-e1821de85d20" name="Default" comment="GUI tweaks - application breadcrumbs">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/treeview/filter/FmsTreeViewAdapter.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/treeview/filter/FmsTreeViewAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/treeview/FmsTreeViewMediatorMemoryResident.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/treeview/FmsTreeViewMediatorMemoryResident.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/treeview/GcgTreeViewMediator.java" afterPath="$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/treeview/GcgTreeViewMediator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/treeview/GcgTreeViewMediatorMemoryResident.java" afterPath="$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/treeview/GcgTreeViewMediatorMemoryResident.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="flywheelms-hd.iws" />
@@ -2744,7 +2746,6 @@
         <option value="$PROJECT_DIR$/fms-workbench/src/main/java/com/flywheelms/workbench/perspective/FwbContextStrategicPlanningPerspective.java" />
         <option value="$PROJECT_DIR$/fms-workbench/src/main/java/com/flywheelms/workbench/perspective/FwbContextWorkPlanningPerspective.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/treeview/FmsTreeViewMediatorMemoryResident.java" />
-        <option value="$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/treeview/GcgTreeViewMediator.java" />
         <option value="$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/treeview/GcgTreeViewMediatorMemoryResident.java" />
         <option value="$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/viewflipper/GcgViewFlipperChildView.java" />
         <option value="$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/activity/GcgActivity.java" />
@@ -2779,10 +2780,11 @@
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/persistence/PersistenceTechnologyDelegateSqLite.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/helper/FmsActivityHelper.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/treeview/filter/FmsTreeViewParent.java" />
-        <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/treeview/filter/FmsTreeViewAdapter.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/tree_view_flipper/tree_view/FmsPerspectiveFlipperTreeView.java" />
         <option value="$PROJECT_DIR$/fms-gcongui/src/main/res/values/gcg__strings.xml" />
         <option value="$PROJECT_DIR$/fms-gcongui/src/main/res/layout/gcg__application_context__perspective_context__separator.xml" />
+        <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/treeview/filter/FmsTreeViewAdapter.java" />
+        <option value="$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/treeview/GcgTreeViewMediator.java" />
       </list>
     </option>
   </component>
@@ -3778,7 +3780,11 @@
       <created>1412781220189</created>
       <updated>1412781220190</updated>
     </task>
-    <option name="localTasksCounter" value="169" />
+    <task id="LOCAL-00169" summary="GUI tweaks - application breadcrumbs">
+      <created>1412784092790</created>
+      <updated>1412784092790</updated>
+    </task>
+    <option name="localTasksCounter" value="170" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -3862,7 +3868,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="incremental - FlywheelCadenceCreateForYearDialog" />
     <MESSAGE value="incremental - FlywheelCadenceCreateForYearWizard" />
     <MESSAGE value="first iteration - FlywheelCadenceCreateForYearWizard" />
     <MESSAGE value="refactor - initializeNodeCompletionSummaryMap() collaboration" />
@@ -3887,7 +3892,8 @@
     <MESSAGE value="new feature - save/restore TreeNode state to maintain TreeView context between sessions/views" />
     <MESSAGE value="feature improvement - save/restore TreeNode state to maintain TreeView context between sessions/views for each FMM opened by the user" />
     <MESSAGE value="feature improvement - better Perspective context when editing children of a TreeNode" />
-    <option name="LAST_COMMIT_MESSAGE" value="feature improvement - better Perspective context when editing children of a TreeNode" />
+    <MESSAGE value="GUI tweaks - application breadcrumbs" />
+    <option name="LAST_COMMIT_MESSAGE" value="GUI tweaks - application breadcrumbs" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -3895,38 +3901,10 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="188" />
+      <option name="time" value="189" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/treeview/GcgTreeFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="374">
-          <caret line="60" column="28" selection-start-line="60" selection-start-column="28" selection-end-line="60" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-workbench/src/main/java/com/flywheelms/workbench/perspective/FwbContextStrategicPlanningPerspective.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="532" max-vertical-offset="2193">
-          <caret line="115" column="0" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/treeview/GcgTreeViewMediator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="831" max-vertical-offset="1496">
-          <caret line="130" column="49" selection-start-line="130" selection-start-column="49" selection-end-line="130" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/treeview/GcgTreeViewMediatorMemoryResident.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="8498" max-vertical-offset="9197">
-          <caret line="604" column="5" selection-start-line="604" selection-start-column="5" selection-end-line="604" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fms-workbench/src/main/res/layout-land/workbench__frame_spinner__layout.xml">
       <provider editor-type-id="android-designer">
         <state />
@@ -3978,6 +3956,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="651" max-vertical-offset="4165">
           <caret line="115" column="0" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -4200,58 +4179,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/treeview/filter/FmsTreeViewParent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612">
-          <caret line="63" column="4" selection-start-line="63" selection-start-column="4" selection-end-line="63" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/helper/FmsActivityHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33233082" vertical-offset="3332" max-vertical-offset="4012">
-          <caret line="279" column="23" selection-start-line="279" selection-start-column="23" selection-end-line="279" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/treeview/filter/FmsTreeViewAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.410714" vertical-offset="11393" max-vertical-offset="12019">
-          <caret line="688" column="84" selection-start-line="688" selection-start-column="84" selection-end-line="688" selection-end-column="84" />
-          <folding>
-            <element signature="e#0#36695#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-            <element signature="e#5554#5758#0" expanded="true" />
-            <element signature="e#5754#5755#0" expanded="true" />
-            <element signature="e#5836#6047#0" expanded="true" />
-            <element signature="e#6043#6044#0" expanded="true" />
-            <element signature="e#6128#6342#0" expanded="true" />
-            <element signature="e#6338#6339#0" expanded="true" />
-            <element signature="e#6412#6615#0" expanded="true" />
-            <element signature="e#6611#6612#0" expanded="true" />
-            <element signature="e#13803#13804#0" expanded="true" />
-            <element signature="e#13863#13864#0" expanded="true" />
-            <element signature="e#14191#14215#0" expanded="true" />
-            <element signature="e#31749#31776#1" expanded="true" />
-            <element signature="e#33525#33549#0" expanded="true" />
-            <element signature="e#33859#33886#1" expanded="true" />
-            <element signature="e#34357#34358#0" expanded="true" />
-            <element signature="e#34384#34385#0" expanded="true" />
-            <element signature="e#34422#34449#1" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/tree_view_flipper/tree_view/FmsPerspectiveFlipperTreeView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.562406" vertical-offset="12121" max-vertical-offset="14552">
-          <caret line="960" column="29" selection-start-line="960" selection-start-column="29" selection-end-line="960" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fms-gcongui/src/main/res/layout/gcg__application_context__navigation__breadcrumb.xml">
       <provider editor-type-id="android-designer">
         <state />
@@ -4294,6 +4221,75 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.18251534" vertical-offset="0" max-vertical-offset="652">
           <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/headset/BluetoothHeadsetHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9255474" vertical-offset="233" max-vertical-offset="2295">
+          <caret line="51" column="20" selection-start-line="51" selection-start-column="20" selection-end-line="51" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/activity/FmmNodeEditorActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33684212" vertical-offset="6865" max-vertical-offset="7599">
+          <caret line="521" column="16" selection-start-line="521" selection-start-column="16" selection-end-line="521" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/HeadlineNodeCreateDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.178571" vertical-offset="2668" max-vertical-offset="3961">
+          <caret line="244" column="51" selection-start-line="244" selection-start-column="51" selection-end-line="244" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/helper/FmsActivityHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33684212" vertical-offset="541" max-vertical-offset="4012">
+          <caret line="115" column="23" selection-start-line="115" selection-start-column="23" selection-end-line="115" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/tree_view_flipper/tree_view/FmsPerspectiveFlipperTreeView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4225564" vertical-offset="13778" max-vertical-offset="14552">
+          <caret line="1070" column="16" selection-start-line="1070" selection-start-column="16" selection-end-line="1070" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/treeview/filter/FmsTreeViewParent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6017699" vertical-offset="0" max-vertical-offset="678">
+          <caret line="71" column="9" selection-start-line="71" selection-start-column="9" selection-end-line="71" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/treeview/filter/FmsTreeViewAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="11021" max-vertical-offset="11696">
+          <caret line="680" column="92" selection-start-line="680" selection-start-column="92" selection-end-line="680" selection-end-column="92" />
+          <folding>
+            <element signature="e#0#36852#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#14191#14215#0" expanded="true" />
+            <element signature="e#33525#33549#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/treeview/GcgTreeViewMediator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5924812" vertical-offset="354" max-vertical-offset="1513">
+          <caret line="94" column="46" selection-start-line="94" selection-start-column="46" selection-end-line="94" selection-end-column="46" />
           <folding />
         </state>
       </provider>
