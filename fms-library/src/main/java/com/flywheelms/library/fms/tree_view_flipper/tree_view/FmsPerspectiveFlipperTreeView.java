@@ -949,9 +949,16 @@ public abstract class FmsPerspectiveFlipperTreeView extends GcgPerspectiveFlippe
 		FmsActivityHelper.startHeadlineNodeEditorActivity(getGcgActivity(), thePeerHeadlineNodeShallowList, theParentNodeId, theNodeIdToDisplay);
 	}
 
-	private void updatePerspectiveContext(GcgTreeNodeInfo aTreeNodeInfo) {
+    private void updatePerspectiveContext(GcgTreeNodeInfo aTreeNodeInfo) {
+        updatePerspectiveContext(aTreeNodeInfo, true);
+    }
+
+    @Override
+	public void updatePerspectiveContext(GcgTreeNodeInfo aTreeNodeInfo, boolean bPrunePerspectiveContext) {
 		ArrayList<GcgGuiable> theContextList = new ArrayList<GcgGuiable>();
-		GcgTreeNodeInfo theParentTreeNodeInfo = this.treeViewMediator.getParent(aTreeNodeInfo);
+		GcgTreeNodeInfo theParentTreeNodeInfo = bPrunePerspectiveContext ?
+                this.treeViewMediator.getParent(aTreeNodeInfo) :
+                aTreeNodeInfo;
 		GcgGuiable theParentObject;
 		while(theParentTreeNodeInfo != null) {
 			theParentObject = ((GcgGuiable) theParentTreeNodeInfo.getTargetObject());
@@ -959,8 +966,8 @@ public abstract class FmsPerspectiveFlipperTreeView extends GcgPerspectiveFlippe
 			theParentTreeNodeInfo = this.treeViewMediator.getParent(theParentTreeNodeInfo);
 		}
 		Collections.reverse(theContextList);
-		theContextList.remove(0);
-		getGcgActivity().updatePerspectiveContext(theContextList);
+        theContextList.remove(0);
+        getGcgActivity().updatePerspectiveContext(theContextList);
 	}
 
 	@Override

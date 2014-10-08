@@ -61,6 +61,8 @@ public interface FmsTreeViewParent extends GcgTreeViewParent {
 
     int getShowNodeQualityLevel();
 
+    void updatePerspectiveContext(GcgTreeNodeInfo aTreeNodeInfo, boolean bPrunePerspectiveContext);
+
     void launchNodeEditorActivity(GcgTreeNodeInfo aTreeNodeInfo, FmmFrame aFrame, FmmPerspective aPerspective);
 
     void launchNodeQualityDialog(GcgTreeNodeInfo aTreeNodeInfo);
