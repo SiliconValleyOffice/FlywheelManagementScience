@@ -43,16 +43,65 @@
 
 package com.flywheelms.library.fms.dialog;
 
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.LinearLayout;
+
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
+import com.flywheelms.gcongui.gcg.container.GcgContainerTabbedLayout;
+import com.flywheelms.gcongui.gcg.container.tabbed.GcgTabSpec;
 import com.flywheelms.gcongui.gcg.dialog.GcgCancelDialog;
+import com.flywheelms.gcongui.gcg.widget.GcgWidgetTextViewSummaryBox;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
+import com.flywheelms.library.fms.widget.spinner.FmmNounDefinitionWidgetSpinner;
 
 public class FmsDictionaryDialog extends GcgCancelDialog {
 
+    private FmmNodeDefinition fmmNodeDefinition;
+    private GcgWidgetTextViewSummaryBox nounDefinitionText;
+    private GcgContainerTabbedLayout tabbedLayout;
+    private FmmNounDefinitionWidgetSpinner nounDefinitionWidgetSpinner;
+
     public FmsDictionaryDialog(GcgActivity aGcgActivity, FmmNodeDefinition aNodeDefinition) {
         super(aGcgActivity);
+        this.fmmNodeDefinition = aNodeDefinition;
         initialSetup();
+        initializeNounTab();
+        initializePerspectiveTab();
+        initializeFrameTab();
+        this.tabbedLayout.setCurrentTab(0);
+    }
+
+    private void initializeNounTab() {
+        LinearLayout theLinearLayout = (LinearLayout) this.gcgActivity.getLayoutInflater().inflate(R.layout.flywheel_ms__noun_dictionary__tab, this.tabbedLayout, false);
+        this.nounDefinitionText = (GcgWidgetTextViewSummaryBox) theLinearLayout.findViewById(R.id.noun__definition);
+        this.nounDefinitionWidgetSpinner = (FmmNounDefinitionWidgetSpinner) theLinearLayout.findViewById(R.id.noun__spinner);
+        this.nounDefinitionWidgetSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                FmsDictionaryDialog.this.nounDefinitionText.setText(
+                        FmsDictionaryDialog.this.nounDefinitionWidgetSpinner.getSelectedFmmNodeDefinition().getDictionaryDefinitionText());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+        if(this.fmmNodeDefinition != null) {
+            this.nounDefinitionWidgetSpinner.setSelection(this.fmmNodeDefinition);
+        } else {
+            this.nounDefinitionWidgetSpinner.setSelection(0);
+        }
+        GcgTabSpec theGcgTabSpec = new GcgTabSpec(theLinearLayout, R.drawable.deckangl__noun, R.string.deckangl__noun, false);
+        this.tabbedLayout.addTab(theGcgTabSpec);
+    }
+
+    private void initializePerspectiveTab() {
+    }
+
+    private void initializeFrameTab() {
     }
 
     protected int getDialogTitleIconResourceId() {
@@ -66,25 +115,12 @@ public class FmsDictionaryDialog extends GcgCancelDialog {
 
     @Override
     protected int getDialogBodyLayoutResourceId() {
-        return R.layout.flywheel_ms__noun_dictionary__dialog;
+        return R.layout.flywheel_ms__dictionary__dialog;
     }
 
     protected  void initializeDialogBody() {
         super.initializeDialogBody();
-//        this.dispositionContainerLayout = new GcgContainerTabbedLayout(this.dialogBodyView.getContext());
-//        ((GcgContainerTabbedLayout) this.dispositionContainerLayout).setup();
-////		LinearLayout theTargetNodeLayout = (LinearLayout) this.dialogBodyView.findViewById(R.id.target_node);
-//        this.customContentsContainer.addView(this.dispositionContainerLayout);
-////		this.dialogBodyView.addView(this.dispositionContainerLayout, 1);
-//        if(this.primaryChildDeleteDisposition.getCount() > 0) {
-//            initializeDispositionOfPrimaryChildrenLayout();
-//        }
-//        if(this.secondaryChildDeleteDisposition.getCount() > 0) {
-//            initializeDispositionOfSecondaryChildrenLayout();
-//        }
-//        if(this.primaryLinkDeleteDisposition.getCount() > 0) {
-//            initializeDispositionOfPrimaryLinkNodesLayout();
-//        }
-//        ((GcgContainerTabbedLayout) this.dispositionContainerLayout).setCurrentTab(0);
+        this.tabbedLayout = (GcgContainerTabbedLayout) this.dialogBodyView.findViewById(R.id.tabbed_layout);
+        this.tabbedLayout.setup();
     }
 }

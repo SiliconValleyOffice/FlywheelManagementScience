@@ -89,6 +89,7 @@ public class WorkbenchActivity extends FmsActivity implements FmsDecKanGlNavigat
 	private static WorkbenchActivity instance;
 	protected FmmManagementDialog fmmManagementDialog;
     private FrameLayout perspectiveFlipperParentFrame;
+    private boolean closeFmm = false;
 
 	public WorkbenchActivity() {
 		super(HELP_CONTEXT_URL_STRING);
@@ -120,6 +121,9 @@ public class WorkbenchActivity extends FmsActivity implements FmsDecKanGlNavigat
 	public void onSaveInstanceState(Bundle theBundle) {
 		super.onSaveInstanceState(theBundle);
 		theBundle.putBoolean(FmsActivityHelper.bundle_key__MUST_SELECT_DATA_SOURCE, this.mustSelectDataSource);
+        if(this.closeFmm) {
+            closeFmm();
+        }
 	}
 	
 	@Override
@@ -182,11 +186,11 @@ public class WorkbenchActivity extends FmsActivity implements FmsDecKanGlNavigat
 			case R.id.action__publish_pdf:
 				break;
 			case com.flywheelms.workbench.R.id.action__switch_fmm_repository:
-				closeFmm();
 				this.mustSelectDataSource = true;
-				setGcgApplicationContext(null);
-				startDialog(new FmmSelectionDialog(this), true);
-				break;
+                setGcgApplicationContext(null);
+                startDialog(new FmmSelectionDialog(this), true);
+                this.closeFmm = true;  // so the activity can state first
+                break;
 			case com.flywheelms.workbench.R.id.action__deckangl__glyph_dictionary:
 				FmsActivityHelper.startDecKanGlGlyphDictionaryActivity(this);
 				break;
@@ -207,6 +211,7 @@ public class WorkbenchActivity extends FmsActivity implements FmsDecKanGlNavigat
 		FmmDatabaseMediator.closeActiveFmm();
 		resetApplicationContext();
 		this.mustSelectDataSource = true;
+        this.closeFmm = false;
 	}
 
 	@Override

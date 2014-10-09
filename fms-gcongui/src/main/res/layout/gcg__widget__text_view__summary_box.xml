@@ -34,7 +34,9 @@
             android:lines="18"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:singleLine="false" />
+            android:singleLine="false"
+            android:textSize="16sp"
+            android:focusableInTouchMode="true" />
     </com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear>
 
 </LinearLayout>

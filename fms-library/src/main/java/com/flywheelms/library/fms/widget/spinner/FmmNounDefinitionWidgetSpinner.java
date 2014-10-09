@@ -71,4 +71,8 @@ public class FmmNounDefinitionWidgetSpinner  extends GcgWidgetSpinner {
         return GcgApplication.getAppResources().getString(R.string.deckangl__noun);
     }
 
+    public FmmNodeDefinition getSelectedFmmNodeDefinition() {
+        return (FmmNodeDefinition) getSelectedItem();
+    }
+
 }

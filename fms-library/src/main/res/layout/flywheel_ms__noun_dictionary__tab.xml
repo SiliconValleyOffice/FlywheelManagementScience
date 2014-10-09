@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:gcg="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/gcg__tab_view_border__black"
+    android:orientation="vertical">
+
+    <com.flywheelms.library.fms.widget.spinner.FmmNounDefinitionWidgetSpinner
+        android:id="@+id/noun__spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        gcg:labelWidth="90" />
+
+    <com.flywheelms.gcongui.gcg.widget.GcgWidgetTextViewSummaryBox
+        android:id="@+id/noun__definition"
+        android:layout_width="match_parent"
+        android:layout_height="185dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="15dp"
+        gcg:labelText="@string/deckangl__definition" />
+
+</LinearLayout>
