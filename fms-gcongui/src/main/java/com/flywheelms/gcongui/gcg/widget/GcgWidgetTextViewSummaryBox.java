@@ -86,7 +86,7 @@ public class GcgWidgetTextViewSummaryBox extends GcgWidget {
 
     protected void manageBackgroundState() {
         this.editText.setBackgroundResource(isMinimumInput() ?
-                this.isTransparentBackground ? R.color.gcg__transparent : R.drawable.gcg__text_view :
+                this.isTransparentBackground ? R.color.gcg__transparent : R.drawable.gcg__edit_text :
                 R.drawable.gcg__edit_text__invalid);
     }
 
