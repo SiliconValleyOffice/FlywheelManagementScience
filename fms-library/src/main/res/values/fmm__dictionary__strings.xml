@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="fmm_node_definition__none">No definition available.</string>
+    <string name="fmm_node_definition__imprecise_language">Imprecise language leads to imprecise thought.</string>
+
+    <string name="fmm_node_definition__administrator">Administrator</string>
+    <string name="fmm_node_definition__assignment_commitment_type__term">Assignment Commitment Type</string>
+    <string name="fmm_node_definition__bookshelf__term">Bookshelf</string>
+    <string name="fmm_node_definition__bookshelf__definition">
+        Bookshelf is the root node of the Analysis Perspective.  It provides a place to store Notebooks.\n
+Bookshelves are automatically sequenced in an alpha sort of the bookshelf headline.\n
+Notebooks on a bookshelf are automatically sequenced in an alpha sort of the notebook headline.\n
+Notebooks on a bookshelf may also appear on other bookshelves.\n
+When a bookshelf is deleted, the notebooks which do not appear on any other bookshelf may be moved, orphaned, or deleted.\n
+Orphaned notebooks appear on a special "Orphans" bookshelf.</string>
+    <string name="fmm_node_definition__bookshelf_link_to_notebook__term">Bookshelf Link To Notebook</string>
+    <string name="fmm_node_definition__customer">Customer</string>
+    <string name="fmm_node_definition__community_member__term">Community Member</string>
+    <string name="fmm_node_definition__community_member__definition">Community Member</string>
+    <string name="fmm_node_definition__community_member_flywheel_team_governance_authority__term">Community Member Flywheel Team Governance Authority</string>
+    <string name="fmm_node_definition__community_member_organization_governance_authority__term">Community Member Organization Governance Authority</string>
+    <string name="fmm_node_definition__community_member_status__term">Community Member Status</string>
+    <string name="fmm_node_definition__completable_work_status__term">Work Status</string>
+    <string name="fmm_node_definition__completion_commitment_type__term">Completion Commitment Type</string>
+    <string name="fmm_node_definition__discussion_topic__term">Discussion Topic</string>
+    <string name="fmm_node_definition__discussion_topic__definition">Discussion Topic</string>
+    <string name="fmm_node_definition__discussion_topic_link_to_node_frag_audit_block__term">Discussion Topic Link To Item</string>
+    <string name="fmm_node_definition__facilitator">Facilitator</string>
+    <string name="fmm_node_definition__facilitation_issue__term">Facilitation Issue</string>
+    <string name="fmm_node_definition__facilitation_issue__definition">Facilitation Issue</string>
+    <string name="fmm_node_definition__facilitation_issue_link_to_work_task__term">Facilitation Issue Link To Work Task</string>
+    <string name="fmm_node_definition__fiscal_year__term">Fiscal Year</string>
+    <string name="fmm_node_definition__fiscal_year__definition">Fiscal Year</string>
+    <string name="fmm_node_definition__fiscal_year_holiday_break__term">Fiscal Year Holiday Break</string>
+    <string name="fmm_node_definition__flywheel_commitment__term">Flywheel Commitment</string>
+    <string name="fmm_node_definition__flywheel_cadence__term">Flywheel Cadence</string>
+    <string name="fmm_node_definition__flywheel_cadence__definition">Flywheel Cadence</string>
+    <string name="fmm_node_definition__flywheel_team__term">Flywheel Team</string>
+    <string name="fmm_node_definition__flywheel_team__definition">Flywheel Team</string>
+    <string name="fmm_node_definition__flywheel_team_community_member__term">Flywheel Team Community Member</string>
+    <string name="fmm_node_definition__flywheel_team_work_task_budget__term">Flywheel Team Work Task Budget</string>
+    <string name="fmm_node_definition__frag_lock__term">Frag Lock</string>
+    <string name="fmm_node_definition__fse_document__term">Flywheel Story Document</string>
+    <string name="fmm_node_definition__fse_paragraph__term">Flywheel Story Paragraph</string>
+    <string name="fmm_node_definition__functional_team__term">Functional Team</string>
+    <string name="fmm_node_definition__functional_team__definition">Functional Team</string>
+    <string name="fmm_node_definition__functional_team_community_member__term">Functional Team Community Member</string>
+    <string name="fmm_node_definition__governance_participation_type__term">Governance Participation Type</string>
+    <string name="fmm_node_definition__governance_role__term">Governance Role</string>
+    <string name="fmm_node_definition__governance_satisfaction__term">Governance Satisfaction</string>
+    <string name="fmm_node_definition__governance_target__term">Governance Target</string>
+    <string name="fmm_node_definition__completion_node_trash__term">Completion Node Trash</string>
+    <string name="fmm_node_definition__issue_status__term">Issue Status</string>
+    <string name="fmm_node_definition__lock_config__term">Lock Config</string>
+    <string name="fmm_node_definition__lock_type__term">Lock Type</string>
+    <string name="fmm_node_definition__node_frag__audit_block__term">Audit Block</string>
+    <string name="fmm_node_definition__node_frag__completion__term">Completion</string>
+    <string name="fmm_node_definition__node_frag__fse_document__term">FSE Document</string>
+    <string name="fmm_node_definition__node_frag__governance__term">Governance</string>
+    <string name="fmm_node_definition__node_frag__history__term">History</string>
+    <string name="fmm_node_definition__node_frag__tribkn_quality__term">TribKn Quality</string>
+    <string name="fmm_node_definition__node_frag__work_task_budget__term">Work Task Budget</string>
+    <string name="fmm_node_definition__notebook__term">Notebook</string>
+    <string name="fmm_node_definition__notebook__definition">Notebook</string>
+    <string name="fmm_node_definition__notebook_link_to_discussion_topic__term">Notebook Link To Discussion Topic</string>
+    <string name="fmm_node_definition__organization__term">Organization</string>
+    <string name="fmm_node_definition__organization__definition">Organization</string>
+    <string name="fmm_node_definition__organization_community_member__term">Organization Community Member</string>
+    <string name="fmm_node_definition__organization_governance_target__term">Organization Governance Target</string>
+    <string name="fmm_node_definition__organization_lock_config__term">Organization Lock Config</string>
+    <string name="fmm_node_definition__organization_participation__term">Organization Participation</string>
+    <string name="fmm_node_definition__portfolio__term">Portfolio</string>
+    <string name="fmm_node_definition__portfolio__definition">Portfolio</string>
+    <string name="fmm_node_definition__portfolio_linkto_project__term">Portfolio Link To Project</string>
+    <string name="fmm_node_definition__project__term">Project</string>
+    <string name="fmm_node_definition__project__definition">Project</string>
+    <string name="fmm_node_definition__project_asset__term">Project Asset</string>
+    <string name="fmm_node_definition__project_asset__definition">Project Asset</string>
+    <string name="fmm_node_definition__project_asset_link_to_work_package__term">Project Asset Link To Work Package</string>
+    <string name="fmm_node_definition__project_link_to_project_asset__term">Project Link To Project Asset</string>
+    <string name="fmm_node_definition__fmm_configuration__term">FMM Configuration</string>
+    <string name="fmm_node_definition__service_delivery_commitment__term">Service Delivery Commitment</string>
+    <string name="fmm_node_definition__service_offering__term">Service Offering</string>
+    <string name="fmm_node_definition__service_offering__definition">Service Offering</string>
+    <string name="fmm_node_definition__service_offering_sla__term">Service Offering SLA</string>
+    <string name="fmm_node_definition__service_offering_sla__definition">Service Offering SLA</string>
+    <string name="fmm_node_definition__service_request__term">Service Request</string>
+    <string name="fmm_node_definition__service_request__definition">Service Request</string>
+    <string name="fmm_node_definition__service_request_link_to_work_task__term">Service Request Link To Work Task</string>
+    <string name="fmm_node_definition__service_request_triage_log__term">Service Request Triage Log</string>
+    <string name="fmm_node_definition__sponsor">Sponsor</string>
+    <string name="fmm_node_definition__strategic_commitment__term">Strategic Commitment</string>
+    <string name="fmm_node_definition__strategic_milestone__term">Strategic Milestone</string>
+    <string name="fmm_node_definition__strategic_milestone__definition">Strategic Milestone</string>
+    <string name="fmm_node_definition__strategy_team__term">Strategy Team</string>
+    <string name="fmm_node_definition__strategy_team__definition">Strategy Team</string>
+    <string name="fmm_node_definition__strategy_team_community_member__term">Strategy Team Community Member</string>
+    <string name="fmm_node_definition__team_member_status__term">Team Member Status</string>
+    <string name="fmm_node_definition__tribkn_element__term">TribKn&#8482; Element</string>
+    <string name="fmm_node_definition__tribkn_quality_enumeration__term">TribKn&#8482; Quality Enumeration</string>
+    <string name="fmm_node_definition__tribkn_quality_normalized_description__term">TribKn&#8482; Quality Normalized Description</string>
+    <string name="fmm_node_definition__work_package__term">Work Package</string>
+    <string name="fmm_node_definition__work_package__definition">Work Package</string>
+    <string name="fmm_node_definition__work_package_link_to_work_task__term">Work Package Link To Work Task</string>
+    <string name="fmm_node_definition__work_plan__term">Work Plan</string>
+    <string name="fmm_node_definition__work_plan__definition">Work Plan</string>
+    <string name="fmm_node_definition__work_task__term">Work Task</string>
+    <string name="fmm_node_definition__work_task__definition">Work Task</string>
+    <string name="fmm_node_definition__work_task_assignment__term">Work Task Assignment</string>
+</resources>

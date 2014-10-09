@@ -103,7 +103,7 @@ public class PdfSectionCollaborators extends HeadlineNodePublicationSection {
 
 	@SuppressWarnings("static-method")
 	private PdfPCell buildAuditBlockTitleCell() {
-		PdfPCell titleCell = PdfUtil.newCellStringResource(R.string.fmm_node_definition__node_frag__audit_block__label_text, PdfFonts.PLAIN_10_WHITE);
+		PdfPCell titleCell = PdfUtil.newCellStringResource(R.string.fmm_node_definition__node_frag__audit_block__term, PdfFonts.PLAIN_10_WHITE);
 		titleCell.setColspan(2);
 		titleCell.setBackgroundColor(BaseColor.DARK_GRAY);
 		titleCell.setBorderWidth(1f);

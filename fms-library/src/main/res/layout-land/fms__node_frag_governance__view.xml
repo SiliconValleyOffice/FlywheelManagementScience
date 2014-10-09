@@ -7,7 +7,7 @@
     <TextView
         android:id="@+id/governance__heading"
         style="@style/GcgGroupBoxLabel"
-        android:text="@string/fmm_node_definition__node_frag__governance__label_text" />
+        android:text="@string/fmm_node_definition__node_frag__governance__term" />
 
     <TableLayout
         android:id="@+id/governance_table"

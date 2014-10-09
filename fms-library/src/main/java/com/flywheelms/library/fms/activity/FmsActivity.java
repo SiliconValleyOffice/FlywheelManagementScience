@@ -44,12 +44,15 @@
 package com.flywheelms.library.fms.activity;
 
 import android.content.Intent;
+import android.view.MenuItem;
 
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.gcongui.gcg.context.GcgNavigationTarget;
+import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.enumerator.FmmNodeTransactionType;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.transaction.FmmDataRefreshNotice;
+import com.flywheelms.library.fms.dialog.FmsDictionaryDialog;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
 
 import java.util.ArrayList;
@@ -205,5 +208,26 @@ public abstract class FmsActivity extends GcgActivity{
 
     public void setParentRefreshAllData(boolean parentRefreshAllData) {
         this.parentRefreshAllData = parentRefreshAllData;
+    }
+
+    protected int getActivityOptionsMenuResourceId() {
+        return R.menu.fms__headline_node__editor__menu;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem aMenuItem) {
+        int i = aMenuItem.getItemId();
+        if (i == android.R.id.home) {
+            finish();
+            return true;
+        } else if (i == R.id.action__dictionary) {
+            launchDictionary();
+            return true;
+        }
+        return super.onOptionsItemSelected(aMenuItem);
+    }
+
+    public void launchDictionary() {
+        this.startDialog(new FmsDictionaryDialog(this, getDisplayedFmmNodeDefinition()));
     }
 }

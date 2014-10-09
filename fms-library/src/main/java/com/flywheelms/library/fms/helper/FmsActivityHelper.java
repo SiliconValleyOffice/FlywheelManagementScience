@@ -107,7 +107,7 @@ public class FmsActivityHelper extends GcgActivityHelper {
 	////  request codes for FMM nodes are defined in the FmmNodeDictionary entry for the node  ////
 	private static final String class_path_ACTIVITY_PACKAGE = FiscalYearEditorActivity.class.getName().substring(0, 1 + FiscalYearEditorActivity.class.getName().lastIndexOf("."));
 
-    public static void startDecKanGlDictionaryActivity(GcgActivity aParentActivity) {
+    public static void startDecKanGlGlyphDictionaryActivity(GcgActivity aParentActivity) {
         aParentActivity.startBlueActivityStatusAnimation();
         Intent theIntent = new Intent(aParentActivity, DecKanGlGlyphDictionaryActivity.class);
         aParentActivity.startActivity(theIntent);

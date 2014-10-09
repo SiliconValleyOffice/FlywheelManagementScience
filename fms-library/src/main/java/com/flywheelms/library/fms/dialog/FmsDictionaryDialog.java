@@ -1,4 +1,4 @@
-/* @(#)FmmNounDictionaryDialog.java
+/* @(#)FmsDictionaryDialog.java
 **
 ** Copyright (C) 2012 by Steven D. Stamps
 **
@@ -48,24 +48,43 @@ import com.flywheelms.gcongui.gcg.dialog.GcgCancelDialog;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 
-public class FmmNounDictionaryDialog extends GcgCancelDialog {
+public class FmsDictionaryDialog extends GcgCancelDialog {
 
-    public FmmNounDictionaryDialog(GcgActivity aGcgActivity, FmmNodeDefinition aNodeDefinition) {
+    public FmsDictionaryDialog(GcgActivity aGcgActivity, FmmNodeDefinition aNodeDefinition) {
         super(aGcgActivity);
         initialSetup();
     }
 
     protected int getDialogTitleIconResourceId() {
-        return R.drawable.deckangl_dialog__noun_dictionary;
+        return R.drawable.fms__dictionary;
     }
 
     @Override
     protected int getDialogTitleStringResourceId() {
-        return R.string.flywheel_ms__noun_dictionary;
+        return R.string.flywheel_ms__dictionary;
     }
 
     @Override
     protected int getDialogBodyLayoutResourceId() {
         return R.layout.flywheel_ms__noun_dictionary__dialog;
+    }
+
+    protected  void initializeDialogBody() {
+        super.initializeDialogBody();
+//        this.dispositionContainerLayout = new GcgContainerTabbedLayout(this.dialogBodyView.getContext());
+//        ((GcgContainerTabbedLayout) this.dispositionContainerLayout).setup();
+////		LinearLayout theTargetNodeLayout = (LinearLayout) this.dialogBodyView.findViewById(R.id.target_node);
+//        this.customContentsContainer.addView(this.dispositionContainerLayout);
+////		this.dialogBodyView.addView(this.dispositionContainerLayout, 1);
+//        if(this.primaryChildDeleteDisposition.getCount() > 0) {
+//            initializeDispositionOfPrimaryChildrenLayout();
+//        }
+//        if(this.secondaryChildDeleteDisposition.getCount() > 0) {
+//            initializeDispositionOfSecondaryChildrenLayout();
+//        }
+//        if(this.primaryLinkDeleteDisposition.getCount() > 0) {
+//            initializeDispositionOfPrimaryLinkNodesLayout();
+//        }
+//        ((GcgContainerTabbedLayout) this.dispositionContainerLayout).setCurrentTab(0);
     }
 }

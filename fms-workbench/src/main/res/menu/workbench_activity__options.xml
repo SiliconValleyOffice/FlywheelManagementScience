@@ -14,9 +14,13 @@
         android:orderInCategory="200"
         android:title="@string/recalc_fmm" />
     
-    <item android:id="@+id/action__deckangl__dictionary"
+    <item android:id="@+id/action__deckangl__glyph_dictionary"
         android:orderInCategory="300"
         android:title="@string/deckangl_tm__glyph_dictionary" />
+
+    <item android:id="@+id/action__dictionary"
+        android:orderInCategory="400"
+        android:title="@string/flywheel_ms__dictionary" />
     
     <item
         android:id="@+id/action__help"

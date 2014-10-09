@@ -114,7 +114,7 @@ public class DecKanGlNavigationDialog extends FmsCancelDialog implements DecKanG
 	}
 
     public void launchNounDefinitionDialog() {
-        this.gcgActivity.startDialog(new FmmNounDictionaryDialog(this.gcgActivity, getFmmNodeDefinition()));
+        this.gcgActivity.startDialog(new FmsDictionaryDialog(this.gcgActivity, getFmmNodeDefinition()));
     }
 
 }

@@ -89,7 +89,7 @@ public class GovernanceTeamMemberWidgetSpinner extends GcgWidgetSpinner {
 
 	@Override
 	protected String getLabelText() {
-		return GcgApplication.getAppResources().getString(R.string.fmm_node_definition__community_member__label_text);
+		return GcgApplication.getAppResources().getString(R.string.fmm_node_definition__community_member__term);
 	}
 
 	@Override

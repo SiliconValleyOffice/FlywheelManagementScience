@@ -63,7 +63,7 @@ public class FmmNounDefinitionWidgetSpinner  extends GcgWidgetSpinner {
 
     @Override
     protected ArrayList<GcgGuiable> updateGuiableList() {
-        return FmmNodeDefinition.getGuiableList();
+        return FmmNodeDefinition.getGuiableDecKanGlNodeList();
     }
 
     @Override

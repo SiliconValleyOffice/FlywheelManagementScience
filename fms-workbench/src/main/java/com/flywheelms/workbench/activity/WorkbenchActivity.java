@@ -187,9 +187,12 @@ public class WorkbenchActivity extends FmsActivity implements FmsDecKanGlNavigat
 				setGcgApplicationContext(null);
 				startDialog(new FmmSelectionDialog(this), true);
 				break;
-			case com.flywheelms.workbench.R.id.action__deckangl__dictionary:
-				FmsActivityHelper.startDecKanGlDictionaryActivity(this);
+			case com.flywheelms.workbench.R.id.action__deckangl__glyph_dictionary:
+				FmsActivityHelper.startDecKanGlGlyphDictionaryActivity(this);
 				break;
+            case R.id.action__dictionary:
+                launchDictionary();
+                return true;
 			case com.flywheelms.workbench.R.id.action__about_flywheelms:
 				startDialog(new FlywheelMsAboutDialog(this));
 				break;

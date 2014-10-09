@@ -187,15 +187,20 @@ public abstract class FmmNodeEditorActivity extends FmsHorizontalNodeNavigatorAc
 		return getDisplayedFmmHeadlineNode().getSerialized();
 	}
 
+    protected int getActivityOptionsMenuResourceId() {
+        return R.menu.fms__headline_node__editor__menu;
+    }
+
 	@Override
 	public boolean onOptionsItemSelected(MenuItem aMenuItem) {
-		switch (aMenuItem.getItemId()) {
-		case android.R.id.home:
-			finish();
-			return true;
-		default:
-			break;
-		}
+        int i = aMenuItem.getItemId();
+        if (i == android.R.id.home) {
+            finish();
+            return true;
+        } else if (i == R.id.action__dictionary) {
+            launchDictionary();
+            return true;
+        }
 		return super.onOptionsItemSelected(aMenuItem);
 	}
 	

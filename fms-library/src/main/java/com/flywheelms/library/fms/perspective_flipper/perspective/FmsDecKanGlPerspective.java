@@ -52,7 +52,7 @@ import com.flywheelms.gcongui.gcg.interfaces.GcgPerspective;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fms.component.FmsDecKanGlNavigationComponent;
-import com.flywheelms.library.fms.dialog.FmmNounDictionaryDialog;
+import com.flywheelms.library.fms.dialog.FmsDictionaryDialog;
 import com.flywheelms.library.fms.helper.FmsHelpIndex;
 
 public class FmsDecKanGlPerspective extends FmsPerspectiveFlipperView implements DecKanGlNavigationComponentParent {
@@ -67,7 +67,7 @@ public class FmsDecKanGlPerspective extends FmsPerspectiveFlipperView implements
 	}
 
     public void launchNounDefinitionDialog() {
-        this.gcgActivity.startDialog(new FmmNounDictionaryDialog(this.gcgActivity, getFmmHeadlineNodeDefinition()));
+        this.gcgActivity.startDialog(new FmsDictionaryDialog(this.gcgActivity, getFmmHeadlineNodeDefinition()));
     }
 	
 	@Override

@@ -125,7 +125,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     ASSIGNMENT_COMMITMENT_TYPE (
     		AssignmentCommitmentType.class,
     		"ACT",
-    		R.string.fmm_node_definition__assignment_commitment_type__label_text,
+    		R.string.fmm_node_definition__assignment_commitment_type__term,
+    		R.string.fmm_node_definition__assignment_commitment_type__term,
     		R.drawable.commitment__none,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -139,7 +140,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     BOOKSHELF (
     		Bookshelf.class,
     		"BKS",
-    		R.string.fmm_node_definition__bookshelf__label_text,
+    		R.string.fmm_node_definition__bookshelf__term,
+    		R.string.fmm_node_definition__bookshelf__definition,
     		R.drawable.fmm_noun__bookshelf__gray,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -153,7 +155,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     BOOKSHELF_LINK_TO_NOTEBOOK (
     		BookshelfLinkToNotebook.class,
     		"BLN",
-    		R.string.fmm_node_definition__bookshelf_link_to_notebook__label_text,
+    		R.string.fmm_node_definition__bookshelf_link_to_notebook__term,
+    		R.string.fmm_node_definition__bookshelf_link_to_notebook__term,
     		R.drawable.gcg__null_drawable,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -167,7 +170,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     COMMUNITY_MEMBER (
     		CommunityMember.class,
     		"CMR",
-    		R.string.fmm_node_definition__community_member__label_text,
+    		R.string.fmm_node_definition__community_member__term,
+    		R.string.fmm_node_definition__community_member__definition,
     		R.drawable.fmm_noun__community_member__active,
     		R.drawable.fmm_noun__community_member__unknown,
     		R.drawable.gcg__unspecified_glyph,
@@ -181,7 +185,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     COMMUNITY_MEMBER_FLYWHEEL_TEAM_GOVERNANCE_AUTHORITY (
     		CommunityMemberFlywheelTeamGovernanceAuthority.class,
     		"CFG",
-    		R.string.fmm_node_definition__community_member_flywheel_team_governance_authority__label_text,
+    		R.string.fmm_node_definition__community_member_flywheel_team_governance_authority__term,
+    		R.string.fmm_node_definition__community_member_flywheel_team_governance_authority__term,
     		R.drawable.gcg__null_drawable,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -195,7 +200,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     COMMUNITY_MEMBER_ORGANIZATION_GOVERNANCE_AUTHORITY (
     		CommunityMemberOrganizationGovernanceAuthority.class,
     		"COG",
-    		R.string.fmm_node_definition__community_member_organization_governance_authority__label_text,
+    		R.string.fmm_node_definition__community_member_organization_governance_authority__term,
+    		R.string.fmm_node_definition__community_member_organization_governance_authority__term,
     		R.drawable.gcg__null_drawable,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -209,7 +215,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     COMMUNITY_MEMBER_STATUS (
     		CommunityMemberStatus.class,
     		"CMS",
-    		R.string.fmm_node_definition__community_member_status__label_text,
+    		R.string.fmm_node_definition__community_member_status__term,
+    		R.string.fmm_node_definition__community_member_status__term,
     		R.drawable.gcg__null_drawable,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -223,7 +230,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     COMPLETABLE_WORK_STATUS (
     		CompletableWorkStatus.class,
     		"CWS",
-    		R.string.fmm_node_definition__completable_work_status__label_text,
+    		R.string.fmm_node_definition__completable_work_status__term,
+    		R.string.fmm_node_definition__completable_work_status__term,
     		R.drawable.deckangl__noun_status,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -237,7 +245,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     COMPLETION_COMMITMENT_TYPE (
     		CompletionCommitmentType.class,
     		"CCT",
-    		R.string.fmm_node_definition__completion_commitment_type__label_text,
+    		R.string.fmm_node_definition__completion_commitment_type__term,
+    		R.string.fmm_node_definition__completion_commitment_type__term,
     		R.drawable.commitment__none,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -251,7 +260,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     COMPLETION_NODE_TRASH (
     		CompletionNodeTrash.class,
     		"CNT",
-    		R.string.fmm_node_definition__completion_node_trash__label_text,
+    		R.string.fmm_node_definition__completion_node_trash__term,
+    		R.string.fmm_node_definition__completion_node_trash__term,
     		R.drawable.gcg__trash,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -265,7 +275,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     DISCUSSION_TOPIC (
     		DiscussionTopic.class,
     		"DTC",
-    		R.string.fmm_node_definition__discussion_topic__label_text,
+    		R.string.fmm_node_definition__discussion_topic__term,
+    		R.string.fmm_node_definition__discussion_topic__definition,
     		R.drawable.fmm_noun__discussion_topic__gray,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -279,7 +290,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     DISCUSSION_TOPIC_LINK_TO_NODE_FRAG_AUDIT_BLOCK	(
     		DiscussionTopicLinkToNodeFragAuditBlock.class,
     		"DTL",
-    		R.string.fmm_node_definition__discussion_topic_link_to_node_frag_audit_block__label_text,
+    		R.string.fmm_node_definition__discussion_topic_link_to_node_frag_audit_block__term,
+    		R.string.fmm_node_definition__discussion_topic_link_to_node_frag_audit_block__term,
     		R.drawable.gcg__null_drawable,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -293,7 +305,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     FACILITATION_ISSUE (
     		FacilitationIssue.class,
     		"FIU",
-    		R.string.fmm_node_definition__facilitation_issue__label_text,
+    		R.string.fmm_node_definition__facilitation_issue__term,
+    		R.string.fmm_node_definition__facilitation_issue__definition,
     		R.drawable.fmm_noun__facilitation_issue__gray,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -307,7 +320,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     FACILITATION_ISSUE_LINK_TO_WORK_TASK (
     		FacilitationIssueNodeTarget.class,
     		"FLW",
-    		R.string.fmm_node_definition__facilitation_issue_link_to_work_task__label_text,
+    		R.string.fmm_node_definition__facilitation_issue_link_to_work_task__term,
+    		R.string.fmm_node_definition__facilitation_issue_link_to_work_task__term,
     		R.drawable.gcg__null_drawable,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -321,7 +335,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     FISCAL_YEAR (
     		FiscalYear.class,
     		"FYR",
-    		R.string.fmm_node_definition__fiscal_year__label_text,
+    		R.string.fmm_node_definition__fiscal_year__term,
+    		R.string.fmm_node_definition__fiscal_year__definition,
     		R.drawable.fmm_noun__fiscal_year__gray,
     		0,
     		R.drawable.fms_activity__fiscal_year,
@@ -335,7 +350,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     FISCAL_YEAR_HOLIDAY_BREAK (
             FiscalYearHolidayBreak.class,
             "FHB",
-            R.string.fmm_node_definition__fiscal_year_holiday_break__label_text,
+            R.string.fmm_node_definition__fiscal_year_holiday_break__term,
+            R.string.fmm_node_definition__fiscal_year_holiday_break__term,
             R.drawable.fmm_noun__fiscal_year_holiday_break,
             0,
             R.drawable.fms_activity__fiscal_year_holiday_break,
@@ -349,7 +365,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 	FLYWHEEL_CADENCE (
 			FlywheelCadence.class,
 			"FCA",
-			R.string.fmm_node_definition__flywheel_cadence__label_text,
+			R.string.fmm_node_definition__flywheel_cadence__term,
+			R.string.fmm_node_definition__flywheel_cadence__definition,
 			R.drawable.fmm_noun__flywheel_cadence__gray,
 			0,
     		R.drawable.fms_activity__flywheel_cadence,
@@ -363,7 +380,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     FLYWHEEL_TEAM (
     		FlywheelTeam.class,
     		"FTE",
-    		R.string.fmm_node_definition__flywheel_team__label_text,
+    		R.string.fmm_node_definition__flywheel_team__term,
+    		R.string.fmm_node_definition__flywheel_team__definition,
     		R.drawable.fmm_noun__flywheel_team,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -377,7 +395,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     FLYWHEEL_TEAM_COMMUNITY_MEMBER (
     		FlywheelTeamCommunityMember.class,
     		"FTM",
-    		R.string.fmm_node_definition__flywheel_team_community_member__label_text,
+    		R.string.fmm_node_definition__flywheel_team_community_member__term,
+    		R.string.fmm_node_definition__flywheel_team_community_member__term,
     		R.drawable.fmm_noun__community_member__on_leave,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -391,7 +410,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     FLYWHEEL_WORK_PACKAGE_COMMITMENT (
     		FlywheelWorkPackageCommitment.class,
     		"FPC",
-    		R.string.fmm_node_definition__flywheel_commitment__label_text,
+    		R.string.fmm_node_definition__flywheel_commitment__term,
+    		R.string.fmm_node_definition__flywheel_commitment__term,
     		R.drawable.commitment__none,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -405,7 +425,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     FMM_CONFIGURATION (
     		FmmConfiguration.class,
     		"FCF",
-    		R.string.fmm_node_definition__fmm_configuration__label_text,
+    		R.string.fmm_node_definition__fmm_configuration__term,
+    		R.string.fmm_node_definition__fmm_configuration__term,
     		R.drawable.fmm_noun__fmm_configuration,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -419,7 +440,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     FRAG_LOCK (
     		FragLock.class,
     		"FRL",
-    		R.string.fmm_node_definition__frag_lock__label_text,
+    		R.string.fmm_node_definition__frag_lock__term,
+    		R.string.fmm_node_definition__frag_lock__term,
     		R.drawable.fmm_noun__lock_type,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -433,7 +455,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     FSE_DOCUMENT (
     		FseDocument.class,
     		"FSD",
-    		R.string.fmm_node_definition__fse_document__label_text,
+    		R.string.fmm_node_definition__fse_document__term,
+    		R.string.fmm_node_definition__fse_document__term,
     		R.drawable.fse_document,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -447,7 +470,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     FSE_PARAGRAPH (
     		FseParagraph.class,
     		"FSP",
-    		R.string.fmm_node_definition__fse_paragraph__label_text,
+    		R.string.fmm_node_definition__fse_paragraph__term,
+    		R.string.fmm_node_definition__fse_paragraph__term,
     		R.drawable.fse_paragraph,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -461,6 +485,7 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     FSE_DOCUMENT_TRANSACTION (
     		FseDocumentTransaction.class,
     		"FST",
+    		R.string.fse__document_transaction,
     		R.string.fse__document_transaction,
     		R.drawable.fse__document_history,
     		0,
@@ -476,6 +501,7 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     		FseDocumentTransactionType.class,
     		"FSY",
     		R.string.fse__document_transaction_type,
+    		R.string.fse__document_transaction_type,
     		R.drawable.gcg__null_drawable,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -489,7 +515,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     FUNCTIONAL_TEAM (
     		FunctionalTeam.class,
     		"UTE",
-    		R.string.fmm_node_definition__functional_team__label_text,
+    		R.string.fmm_node_definition__functional_team__term,
+    		R.string.fmm_node_definition__functional_team__definition,
     		R.drawable.fmm_noun__functional_team,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -503,7 +530,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     FUNCTIONAL_TEAM_COMMUNITY_MEMBER (
     		FunctionalTeamCommunityMember.class,
     		"UTM",
-    		R.string.fmm_node_definition__functional_team_community_member__label_text,
+    		R.string.fmm_node_definition__functional_team_community_member__term,
+    		R.string.fmm_node_definition__functional_team_community_member__term,
     		R.drawable.gcg__null_drawable,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -517,7 +545,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     GOVERNANCE_PARTICIPATION_TYPE (
     		GovernanceParticipationType.class,
     		"GPT",
-    		R.string.fmm_node_definition__governance_participation_type__label_text,
+    		R.string.fmm_node_definition__governance_participation_type__term,
+    		R.string.fmm_node_definition__governance_participation_type__term,
     		R.drawable.gcg__null_drawable,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -531,7 +560,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     GOVERNANCE_ROLE (
     		GovernanceRole.class,
     		"GOR",
-    		R.string.fmm_node_definition__governance_role__label_text,
+    		R.string.fmm_node_definition__governance_role__term,
+    		R.string.fmm_node_definition__governance_role__term,
     		R.drawable.fmm_noun__team_role,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -545,7 +575,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     GOVERNANCE_SATISFACTION (
     		GovernanceSatisfaction.class,
     		"GOS",
-    		R.string.fmm_node_definition__governance_satisfaction__label_text,
+    		R.string.fmm_node_definition__governance_satisfaction__term,
+    		R.string.fmm_node_definition__governance_satisfaction__term,
     		R.drawable.fmm_noun__governance_satisfaction,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -559,7 +590,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     GOVERNANCE_TARGET (
     		GovernanceTarget.class,
     		"GOT",
-    		R.string.fmm_node_definition__governance_target__label_text,
+    		R.string.fmm_node_definition__governance_target__term,
+    		R.string.fmm_node_definition__governance_target__term,
     		R.drawable.gcg__null_drawable,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -573,7 +605,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     ISSUE_STATUS (
     		FacilitationIssueStatus.class,
     		"IST",
-    		R.string.fmm_node_definition__issue_status__label_text,
+    		R.string.fmm_node_definition__issue_status__term,
+    		R.string.fmm_node_definition__issue_status__term,
     		R.drawable.gcg__null_drawable,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -587,7 +620,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     LOCK_CONFIG (
     		LockConfig.class,
     		"LOC",
-    		R.string.fmm_node_definition__lock_config__label_text,
+    		R.string.fmm_node_definition__lock_config__term,
+    		R.string.fmm_node_definition__lock_config__term,
     		R.drawable.gcg__null_drawable,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -601,7 +635,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     LOCK_TYPE (
     		LockType.class,
     		"LKT",
-    		R.string.fmm_node_definition__lock_type__label_text,
+    		R.string.fmm_node_definition__lock_type__term,
+    		R.string.fmm_node_definition__lock_type__term,
     		R.drawable.gcg__null_drawable,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -615,7 +650,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     NODE_FRAG__AUDIT_BLOCK (
     		NodeFragAuditBlock.class,
     		"NFA",
-    		R.string.fmm_node_definition__node_frag__audit_block__label_text,
+    		R.string.fmm_node_definition__node_frag__audit_block__term,
+    		R.string.fmm_node_definition__node_frag__audit_block__term,
     		R.drawable.audit_block,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -629,7 +665,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     NODE_FRAG__COMPLETION (
     		NodeFragCompletion.class,
     		"NFC",
-    		R.string.fmm_node_definition__node_frag__completion__label_text,
+    		R.string.fmm_node_definition__node_frag__completion__term,
+    		R.string.fmm_node_definition__node_frag__completion__term,
     		R.drawable.completion,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -643,7 +680,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     NODE_FRAG__FSE_DOCUMENT (
     		NodeFragFseDocument.class,
     		"NFD",
-    		R.string.fmm_node_definition__fse_document__label_text,
+    		R.string.fmm_node_definition__fse_document__term,
+    		R.string.fmm_node_definition__fse_document__term,
     		R.drawable.fse_document,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -657,7 +695,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     NODE_FRAG__GOVERNANCE (
     		NodeFragGovernance.class,
     		"NFG",
-    		R.string.fmm_node_definition__node_frag__governance__label_text,
+    		R.string.fmm_node_definition__node_frag__governance__term,
+    		R.string.fmm_node_definition__node_frag__governance__term,
     		R.drawable.governance,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -671,7 +710,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     NODE_FRAG__TRIBKN_QUALITY (
     		NodeFragTribKnQuality.class,
     		"NFT",
-    		R.string.fmm_node_definition__frag_lock__label_text,
+    		R.string.fmm_node_definition__frag_lock__term,
+    		R.string.fmm_node_definition__frag_lock__term,
     		R.drawable.deckangl__noun_quality__good,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -685,7 +725,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     NODE_FRAG__WORK_TASK_BUDGET (
     		NodeFragWorkTaskBudget.class,
     		"NFB",
-    		R.string.fmm_node_definition__node_frag__work_task_budget__label_text,
+    		R.string.fmm_node_definition__node_frag__work_task_budget__term,
+    		R.string.fmm_node_definition__node_frag__work_task_budget__term,
     		R.drawable.work_task_budget__gray,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -699,7 +740,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     NOTEBOOK (
     		Notebook.class,
     		"NBK",
-    		R.string.fmm_node_definition__notebook__label_text,
+    		R.string.fmm_node_definition__notebook__term,
+    		R.string.fmm_node_definition__notebook__definition,
     		R.drawable.fmm_noun__notebook__gray,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -713,7 +755,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     NOTEBOOK_LINK_TO_FACILITATION_ISSUE (
     		NotebookLinkToDiscussionTopic.class,
     		"NLD",
-    		R.string.fmm_node_definition__notebook_link_to_discussion_topic__label_text,
+    		R.string.fmm_node_definition__notebook_link_to_discussion_topic__term,
+    		R.string.fmm_node_definition__notebook_link_to_discussion_topic__term,
     		R.drawable.gcg__null_drawable,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -727,7 +770,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     FMS_ORGANIZATION (
     		FmsOrganization.class,
     		"ORG",
-    		R.string.fmm_node_definition__organization__label_text,
+    		R.string.fmm_node_definition__organization__term,
+    		R.string.fmm_node_definition__organization__definition,
     		R.drawable.fms__organization,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -741,7 +785,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     ORGANIZATION_COMMUNITY_MEMBER (
     		OrganizationCommunityMember.class,
     		"OCM",
-    		R.string.fmm_node_definition__organization_community_member__label_text,
+    		R.string.fmm_node_definition__organization_community_member__term,
+    		R.string.fmm_node_definition__organization_community_member__term,
     		R.drawable.gcg__null_drawable,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -755,7 +800,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     ORGANIZATION_GOVERNANCE_TARGET (
     		OrganizationGovernanceTarget.class,
     		"OGT",
-    		R.string.fmm_node_definition__organization_governance_target__label_text,
+    		R.string.fmm_node_definition__organization_governance_target__term,
+    		R.string.fmm_node_definition__organization_governance_target__term,
     		R.drawable.gcg__null_drawable,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -769,7 +815,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     ORGANIZATION_LOCK_CONFIG (
     		OrganizationLockConfig.class,
     		"OLC",
-    		R.string.fmm_node_definition__organization_lock_config__label_text,
+    		R.string.fmm_node_definition__organization_lock_config__term,
+    		R.string.fmm_node_definition__organization_lock_config__term,
     		R.drawable.gcg__null_drawable,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -783,7 +830,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     ORGANIZATION_PARTICIPATION (
     		OrganizationParticipation.class,
     		"OPN",
-    		R.string.fmm_node_definition__organization_participation__label_text,
+    		R.string.fmm_node_definition__organization_participation__term,
+    		R.string.fmm_node_definition__organization_participation__term,
     		R.drawable.gcg__null_drawable,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -798,6 +846,7 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     		PdfPublication.class,
     		"PDF",
     		R.string.fmm_event__publish_pdf__label_text,
+    		R.string.fmm_event__publish_pdf__label_text,
     		R.drawable.fmm_event__publish_pdf,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -811,7 +860,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     PORTFOLIO (
     		Portfolio.class,
     		"PFO",
-    		R.string.fmm_node_definition__portfolio__label_text,
+    		R.string.fmm_node_definition__portfolio__term,
+    		R.string.fmm_node_definition__portfolio__definition,
     		R.drawable.fmm_noun__portfolio__gray,
     		0,
             R.drawable.fms_activity__portfolio,
@@ -822,24 +872,11 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // medium drawables
     		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // large drawables
     		10049 ),
-//    PORTFOLIO_LINK_TO_PROJECT (
-//    		PortfolioLinkToProject.class,
-//    		"PLP",
-//    		R.string.fmm_node_definition__portfolio_linkto_project__label_text,
-//    		R.drawable.gcg__null_drawable,
-//    		0,
-//    		R.drawable.gcg__unspecified_glyph,
-//    		R.drawable.gcg__unspecified_glyph,
-//    		new HashMap<FmmNodeGlyphType, Integer>(),
-//    		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // tiny drawables
-//    		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // small drawables
-//    		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // medium drawables
-//    		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // large drawables
-//    		10050 ),
     PROJECT (
     		Project.class,
     		"PRJ",
-    		R.string.fmm_node_definition__project__label_text,
+    		R.string.fmm_node_definition__project__term,
+    		R.string.fmm_node_definition__project__definition,
     		R.drawable.fmm_noun__project__gray,
     		0,
     		R.drawable.fms_activity__project,
@@ -853,7 +890,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     PROJECT_ASSET (
     		ProjectAsset.class,
     		"PAT",
-    		R.string.fmm_node_definition__project_asset__label_text,
+    		R.string.fmm_node_definition__project_asset__term,
+    		R.string.fmm_node_definition__project_asset__definition,
     		R.drawable.fmm_noun__project_asset__gray,
     		0,
     		R.drawable.fms_activity__project_asset,
@@ -868,7 +906,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     SERVICE_DELIVERY_COMMITMENT (
     		FlywheelServiceDeliveryCommitment.class,
     		"SDC",
-    		R.string.fmm_node_definition__service_delivery_commitment__label_text,
+    		R.string.fmm_node_definition__service_delivery_commitment__term,
+    		R.string.fmm_node_definition__service_delivery_commitment__term,
     		R.drawable.commitment__none,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -882,7 +921,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     SERVICE_OFFERING (
     		ServiceOffering.class,
     		"SOF",
-    		R.string.fmm_node_definition__service_offering__label_text,
+    		R.string.fmm_node_definition__service_offering__term,
+    		R.string.fmm_node_definition__service_offering__definition,
     		R.drawable.fmm_noun__service_offering__gray,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -896,7 +936,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     SERVICE_OFFERING_SLA (
     		ServiceOfferingSla.class,
     		"SOS",
-    		R.string.fmm_node_definition__service_offering_sla__label_text,
+    		R.string.fmm_node_definition__service_offering_sla__term,
+    		R.string.fmm_node_definition__service_offering_sla__definition,
     		R.drawable.fmm_noun__service_level_agreement__gray,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -910,7 +951,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     SERVICE_REQUEST (
     		ServiceRequest.class,
     		"SRT",
-    		R.string.fmm_node_definition__service_request__label_text,
+    		R.string.fmm_node_definition__service_request__term,
+    		R.string.fmm_node_definition__service_request__definition,
     		R.drawable.fmm_noun__service_request__gray,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -924,7 +966,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     SERVICE_REQUEST_LINK_TO_WORK_TASK (
     		ServiceRequestLinkToWorkTask.class,
     		"RLT",
-    		R.string.fmm_node_definition__service_request_link_to_work_task__label_text,
+    		R.string.fmm_node_definition__service_request_link_to_work_task__term,
+    		R.string.fmm_node_definition__service_request_link_to_work_task__term,
     		R.drawable.gcg__null_drawable,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -938,7 +981,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     SERVICE_REQUEST_TRIAGE_LOG (
     		ServiceRequestTriageLog.class,
     		"RTL",
-    		R.string.fmm_node_definition__service_request_triage_log__label_text,
+    		R.string.fmm_node_definition__service_request_triage_log__term,
+    		R.string.fmm_node_definition__service_request_triage_log__term,
     		R.drawable.fmm_noun__service_request_triage_log__gray,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -952,7 +996,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     STRATEGIC_COMMITMENT (
     		StrategicCommitment.class,
     		"SCT",
-    		R.string.fmm_node_definition__strategic_commitment__label_text,
+    		R.string.fmm_node_definition__strategic_commitment__term,
+    		R.string.fmm_node_definition__strategic_commitment__term,
     		R.drawable.commitment__none,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -966,7 +1011,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     STRATEGIC_MILESTONE (
     		StrategicMilestone.class,
     		"SMS",
-    		R.string.fmm_node_definition__strategic_milestone__label_text,
+    		R.string.fmm_node_definition__strategic_milestone__term,
+    		R.string.fmm_node_definition__strategic_milestone__definition,
     		R.drawable.fmm_noun__strategic_milestone__gray,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -980,7 +1026,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     STRATEGY_TEAM (
     		StrategyTeam.class,
     		"STT",
-    		R.string.fmm_node_definition__strategy_team__label_text,
+    		R.string.fmm_node_definition__strategy_team__term,
+    		R.string.fmm_node_definition__strategy_team__definition,
     		R.drawable.fmm_noun__strategy_team,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -994,7 +1041,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     STRATEGIC_TEAM_COMMUNITY_MEMBER (
     		StrategicTeamCommunityMember.class,
     		"STM",
-    		R.string.fmm_node_definition__strategy_team_community_member__label_text,
+    		R.string.fmm_node_definition__strategy_team_community_member__term,
+    		R.string.fmm_node_definition__strategy_team_community_member__term,
     		R.drawable.fmm_noun__strategy_team,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -1008,7 +1056,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     TEAM_MEMBER_STATUS (
     		TeamMemberStatus.class,
     		"TMS",
-    		R.string.fmm_node_definition__team_member_status__label_text,
+    		R.string.fmm_node_definition__team_member_status__term,
+    		R.string.fmm_node_definition__team_member_status__term,
     		R.drawable.gcg__null_drawable,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -1022,7 +1071,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 	TRIBKN_ELEMENT (
 			FmmTribKnElement.class,
 			"TRE",
-			R.string.fmm_node_definition__tribkn_element__label_text,
+			R.string.fmm_node_definition__tribkn_element__term,
+			R.string.fmm_node_definition__tribkn_element__term,
 			R.drawable.gcg__null_drawable,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -1036,7 +1086,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 	TRIBKN_QUALITY_ENUMERATION (
 			TribKnQualityEnumeration.class,
 			"TRN",
-			R.string.fmm_node_definition__tribkn_quality_enumeration__label_text,
+			R.string.fmm_node_definition__tribkn_quality_enumeration__term,
+			R.string.fmm_node_definition__tribkn_quality_enumeration__term,
 			R.drawable.gcg__null_drawable,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -1050,7 +1101,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 	TRIBKN_QUALITY_NORMALIZED__DESCRIPTION (
 			FmmTribKnQualityNormalizedDescription.class,
 			"TRD",
-			R.string.fmm_node_definition__tribkn_quality_normalized_description__label_text,
+			R.string.fmm_node_definition__tribkn_quality_normalized_description__term,
+			R.string.fmm_node_definition__tribkn_quality_normalized_description__term,
 			R.drawable.gcg__null_drawable,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -1064,7 +1116,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     WORK_PACKAGE (
     		WorkPackage.class,
     		"WPG",
-    		R.string.fmm_node_definition__work_package__label_text,
+    		R.string.fmm_node_definition__work_package__term,
+    		R.string.fmm_node_definition__work_package__definition,
     		R.drawable.fmm_noun__work_package__gray,
     		0,
     		R.drawable.fms_activity__work_package,
@@ -1079,7 +1132,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     WORK_PLAN (
     		WorkPlan.class,
     		"WPN",
-    		R.string.fmm_node_definition__work_plan__label_text,
+    		R.string.fmm_node_definition__work_plan__term,
+    		R.string.fmm_node_definition__work_plan__definition,
     		R.drawable.fmm_noun__work_plan__gray,
     		0,
     		R.drawable.fms_activity__work_plan,
@@ -1093,7 +1147,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     WORK_TASK (
     		WorkTask.class,
     		"WTK",
-    		R.string.fmm_node_definition__work_task__label_text,
+    		R.string.fmm_node_definition__work_task__term,
+    		R.string.fmm_node_definition__work_task__definition,
     		R.drawable.fmm_noun__work_task__gray,
     		0,
     		R.drawable.fms_activity__work_task,
@@ -1107,7 +1162,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     WORK_TASK_ASSIGNMENT (
     		WorkTaskAssignment.class,
     		"WTA",
-    		R.string.fmm_node_definition__work_task_assignment__label_text,
+    		R.string.fmm_node_definition__work_task_assignment__term,
+    		R.string.fmm_node_definition__work_task_assignment__term,
     		R.drawable.gcg__null_drawable,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -1146,8 +1202,6 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 			putNodeTypeCodeMapEntry(theFmmNodeDefinition);
 		}
 	}
-
-    private static ArrayList<GcgGuiable> guiableList;
 
     private static void putNodeTypeCodeMapEntry(FmmNodeDefinition anFmmNodeDefinition) {
 		FmmNodeDefinition.NODE_TYPE_CODE_MAP.put(anFmmNodeDefinition.getNodeTypeCode(), anFmmNodeDefinition);
@@ -1513,6 +1567,12 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 				FmmNodeGlyphType.RENAME, R.drawable.fmm_noun__bookshelf__rename);
 		FmmNodeDefinition.BOOKSHELF.getNodeGlyphResourceIdMap().put(
 				FmmNodeGlyphType.YELLOW, R.drawable.fmm_noun__bookshelf__yellow);
+        // COMMUNITY MEMBER
+        FmmNodeDefinition.COMMUNITY_MEMBER.getNodeGlyphResourceIdMap().put(
+                FmmNodeGlyphType.GRAY, R.drawable.fmm_noun__community_member__active);
+        // DISCUSSION TOPIC
+        FmmNodeDefinition.DISCUSSION_TOPIC.getNodeGlyphResourceIdMap().put(
+                FmmNodeGlyphType.GRAY, R.drawable.fmm_noun__discussion_topic__gray);
 		//  DISCUSSION TOPIC
 		FmmNodeDefinition.FACILITATION_ISSUE.getNodeGlyphResourceIdMap().put(
 				FmmNodeGlyphType.ADD_TO, R.drawable.fmm_noun__discussion_topic__add_item);
@@ -1582,7 +1642,7 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 				FmmNodeGlyphType.RENAME, R.drawable.fmm_noun__fiscal_year__rename);
 		FmmNodeDefinition.FISCAL_YEAR.getNodeGlyphResourceIdMap().put(
 				FmmNodeGlyphType.YELLOW, R.drawable.fmm_noun__fiscal_year__yellow);
-		//  FLYWHEEL MILESTONE
+		//  FLYWHEEL CADENCE
 		FmmNodeDefinition.FLYWHEEL_CADENCE.getNodeGlyphResourceIdMap().put(
 				FmmNodeGlyphType.DESTROY, R.drawable.fmm_noun__flywheel_cadence__delete);
 		FmmNodeDefinition.FLYWHEEL_CADENCE.getNodeGlyphResourceIdMap().put(
@@ -1605,6 +1665,12 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 				FmmNodeGlyphType.RENAME, R.drawable.fmm_noun__flywheel_cadence__rename);
 		FmmNodeDefinition.FLYWHEEL_CADENCE.getNodeGlyphResourceIdMap().put(
 				FmmNodeGlyphType.YELLOW, R.drawable.fmm_noun__flywheel_cadence__yellow);
+        // FLYWHEEL TEAM
+        FmmNodeDefinition.FLYWHEEL_TEAM.getNodeGlyphResourceIdMap().put(
+                FmmNodeGlyphType.GRAY, R.drawable.fmm_noun__flywheel_team);
+        // FUNCTIONAL TEAM
+        FmmNodeDefinition.FUNCTIONAL_TEAM.getNodeGlyphResourceIdMap().put(
+                FmmNodeGlyphType.GRAY, R.drawable.fmm_noun__functional_team);
 		//  FSE_DOCUMENT
 		FmmNodeDefinition.FSE_DOCUMENT.getNodeGlyphResourceIdMap().put(
 				FmmNodeGlyphType.EDIT, R.drawable.fse_document__edit);
@@ -1652,6 +1718,9 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 				FmmNodeGlyphType.RENAME, R.drawable.fmm_noun__notebook__rename);
 		FmmNodeDefinition.NOTEBOOK.getNodeGlyphResourceIdMap().put(
 				FmmNodeGlyphType.YELLOW, R.drawable.fmm_noun__notebook__yellow);
+        // ORGANIZATION
+        FmmNodeDefinition.FMS_ORGANIZATION.getNodeGlyphResourceIdMap().put(
+                FmmNodeGlyphType.GRAY, R.drawable.fmm_noun__organization);
 		// FMM_EVENT
 		// no 'events' on FmmEvent
 		//  PORTFOLIO
@@ -1739,6 +1808,12 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 				FmmNodeGlyphType.YELLOW, R.drawable.fmm_noun__project_asset__yellow);
 		FmmNodeDefinition.PROJECT_ASSET.getNodeGlyphResourceIdMap().put(
 				FmmNodeGlyphType.COUNT_GREEN, R.drawable.fmm_noun__project_asset_count__green);
+        // SERVICE OFFERING
+        FmmNodeDefinition.SERVICE_OFFERING.getNodeGlyphResourceIdMap().put(
+                FmmNodeGlyphType.GRAY, R.drawable.fmm_noun__service_offering__gray);
+        // SERVICE OFFERING SLA
+        FmmNodeDefinition.SERVICE_OFFERING_SLA.getNodeGlyphResourceIdMap().put(
+                FmmNodeGlyphType.GRAY, R.drawable.fmm_noun__service_level_agreement__gray);
 		//  SERVICE REQUEST
 		FmmNodeDefinition.SERVICE_REQUEST.getNodeGlyphResourceIdMap().put(
 				FmmNodeGlyphType.ADD, R.drawable.fmm_noun__service_request__add);
@@ -1775,7 +1850,7 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 				FmmNodeGlyphType.PINK, R.drawable.fmm_noun__service_request_triage_log__pink);
 		FmmNodeDefinition.SERVICE_REQUEST_TRIAGE_LOG.getNodeGlyphResourceIdMap().put(
 				FmmNodeGlyphType.YELLOW, R.drawable.fmm_noun__service_request_triage_log__yellow);
-		//  FLYWHEEL MILESTONE	
+		//  STRATEGIC MILESTONE
 		FmmNodeDefinition.STRATEGIC_MILESTONE.getNodeGlyphResourceIdMap().put(
 				FmmNodeGlyphType.ADD_ITEM, R.drawable.fmm_noun__strategic_milestone__add_item);
 		FmmNodeDefinition.STRATEGIC_MILESTONE.getNodeGlyphResourceIdMap().put(
@@ -1802,6 +1877,9 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 				FmmNodeGlyphType.RENAME, R.drawable.fmm_noun__strategic_milestone__rename);
 		FmmNodeDefinition.STRATEGIC_MILESTONE.getNodeGlyphResourceIdMap().put(
 				FmmNodeGlyphType.YELLOW, R.drawable.fmm_noun__strategic_milestone__yellow);
+        // STRATEGY TEAM
+        FmmNodeDefinition.STRATEGY_TEAM.getNodeGlyphResourceIdMap().put(
+                FmmNodeGlyphType.GRAY, R.drawable.fmm_noun__strategy_team);
 		//  WORK PACKAGE	
 		FmmNodeDefinition.WORK_PACKAGE.getNodeGlyphResourceIdMap().put(
 				FmmNodeGlyphType.ADD_ITEM, R.drawable.fmm_noun__work_package__add_item);
@@ -1968,6 +2046,30 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 		WORK_TASK.setPrimaryParentNodeDefinition(FmmNodeDefinition.WORK_PACKAGE);
 		WORK_TASK.setSecondaryParentNodeDefinition(FmmNodeDefinition.WORK_PLAN);
 	}
+
+    private static ArrayList<GcgGuiable> guiableList;
+
+    public static ArrayList<GcgGuiable> getGuiableList() {
+        if(FmmNodeDefinition.guiableList == null) {
+            FmmNodeDefinition.guiableList = new ArrayList<GcgGuiable>();
+            for(FmmNodeDefinition theDefinition : values()) {
+                FmmNodeDefinition.guiableList.add(theDefinition);
+            }
+        }
+        return guiableList;
+    }
+
+    private static ArrayList<GcgGuiable> guiableDecKanGlNodeList;
+
+    public static ArrayList<GcgGuiable> getGuiableDecKanGlNodeList() {
+        if(FmmNodeDefinition.guiableDecKanGlNodeList == null) {
+            FmmNodeDefinition.guiableDecKanGlNodeList = new ArrayList<GcgGuiable>();
+            for(FmmNodeDefinition theDefinition : getDecKanGlNodeList()) {
+                FmmNodeDefinition.guiableDecKanGlNodeList.add(theDefinition);
+            }
+        }
+        return guiableDecKanGlNodeList;
+    }
 		
 	
 	//////////////////////////////////////////////////////////////////////////////
@@ -1976,8 +2078,10 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 	private final Class<? extends FmmNode> nodeClass;
 	private final String nodeTypeCode;
 	private final String className;
-	private final int labelTextResourceId;
-	private final String labelText;
+	private final int dictionaryTermResourceId;
+	private final String dictionaryTermText;
+    private final int dictionaryDefinitionResourceId;
+    private final String dictionaryDefinitionText;
 	private final int labelDrawableResourceId;
 	private final Drawable labelDrawable;
 	private final int pickerDrawableResourceId;
@@ -1999,7 +2103,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 	FmmNodeDefinition(
 			Class<? extends FmmNode> aNodeClass,
 			String aNodeTypeCode,
-			int aLabelTextResourceId,
+			int aDictionaryTermResourceId,
+			int aDictionaryDefinitionResourceId,
 			int aLabelDrawableResourceId,
 			int aPickerDrawableResourceId,
 			int anActivityDrawableResourceId,
@@ -2013,8 +2118,10 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 		this.nodeClass = aNodeClass;
 		this.nodeTypeCode = aNodeTypeCode;
 		this.className = aNodeClass.getSimpleName();
-		this.labelTextResourceId = aLabelTextResourceId;
-		this.labelText = FmmHelper.getContext().getResources().getString(this.labelTextResourceId);
+		this.dictionaryTermResourceId = aDictionaryTermResourceId;
+		this.dictionaryTermText = FmmHelper.getContext().getResources().getString(this.dictionaryTermResourceId);
+        this.dictionaryDefinitionResourceId = aDictionaryDefinitionResourceId;
+        this.dictionaryDefinitionText = FmmHelper.getContext().getResources().getString(this.dictionaryDefinitionResourceId);
 		this.labelDrawableResourceId = aLabelDrawableResourceId;
 		this.labelDrawable = FmmHelper.getContext().getResources().getDrawable(this.labelDrawableResourceId);
 		this.pickerDrawableResourceId = aPickerDrawableResourceId;
@@ -2027,16 +2134,6 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     	this.nounStateBitmapTableLarge = aNounStateBitmapTableLarge;
 		this.editorActivityRequestCode = anActivityRequestCode;
 	}
-
-    public static ArrayList<GcgGuiable> getGuiableList() {
-        if(FmmNodeDefinition.guiableList == null) {
-            FmmNodeDefinition.guiableList = new ArrayList<GcgGuiable>();
-            for(FmmNodeDefinition theDefinition : values()) {
-                FmmNodeDefinition.guiableList.add(theDefinition);
-            }
-        }
-        return guiableList;
-    }
 
     public String getName() {
 		return getClassName();
@@ -2087,12 +2184,28 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 	
 	@Override
 	public String getLabelText() {
-		return this.labelText;
+		return this.dictionaryTermText;
 	}
 	
 	public int getLabelTextResourceId() {
-		return this.labelTextResourceId;
+		return this.dictionaryTermResourceId;
 	}
+
+    public int getDictionaryTermResourceId() {
+        return this.dictionaryTermResourceId;
+    }
+
+    public String getDictionaryTermText() {
+        return this.dictionaryTermText;
+    }
+
+    public int getDictionaryDefinitionResourceId() {
+        return this.dictionaryDefinitionResourceId;
+    }
+
+    public String getDictionaryDefinitionText() {
+        return this.dictionaryDefinitionText;
+    }
 
 	@Override
 	public Drawable getLabelDrawable() {
@@ -2154,7 +2267,7 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 	
 	@Override
 	public String getDataText() {
-		return "";
+		return this.dictionaryTermText;
 	}
 	
 	@Override
