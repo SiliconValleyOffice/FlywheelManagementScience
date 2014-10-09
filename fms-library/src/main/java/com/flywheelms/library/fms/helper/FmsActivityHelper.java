@@ -61,7 +61,7 @@ import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.fmm.repository.FmmAccessScope;
 import com.flywheelms.library.fms.activity.CreateAllFlywheelCadenceForYearWizard;
 import com.flywheelms.library.fms.activity.CreateFmmWizard;
-import com.flywheelms.library.fms.activity.DecKanGlDictionaryActivity;
+import com.flywheelms.library.fms.activity.DecKanGlGlyphDictionaryActivity;
 import com.flywheelms.library.fms.activity.FiscalYearEditorActivity;
 import com.flywheelms.library.fms.activity.PdfPublicationWizard;
 import com.flywheelms.library.fse.activity.FseDocumentHistoryBrowserActivity;
@@ -109,7 +109,7 @@ public class FmsActivityHelper extends GcgActivityHelper {
 
     public static void startDecKanGlDictionaryActivity(GcgActivity aParentActivity) {
         aParentActivity.startBlueActivityStatusAnimation();
-        Intent theIntent = new Intent(aParentActivity, DecKanGlDictionaryActivity.class);
+        Intent theIntent = new Intent(aParentActivity, DecKanGlGlyphDictionaryActivity.class);
         aParentActivity.startActivity(theIntent);
     }
 

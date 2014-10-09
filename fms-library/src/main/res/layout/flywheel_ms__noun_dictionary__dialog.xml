@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:gcg="http://schemas.android.com/apk/res-auto"
+    android:layout_width="640dp"
+    android:layout_height="wrap_content"
+    android:background="@color/gcg__dialog__background"
+    android:orientation="vertical">
+
+    <com.flywheelms.library.fms.widget.spinner.FmmNounDefinitionWidgetSpinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        gcg:labelWidth="130" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="18dp"
+        android:layout_marginBottom="15dp"
+        android:text="@string/deckangl__short_description"
+        android:textColor="@color/gcg__widget_label__text_color"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="72dp"
+        android:text="@string/deckangl__definition"
+        android:textColor="@color/gcg__widget_label__text_color"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginLeft="90dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="30dp"
+        android:padding="10dp"
+        android:background="@color/gcg__tree_view__background"
+        android:text="This is text." />
+
+    <include layout="@layout/gcg__button_panel__cancel" />
+
+</LinearLayout>

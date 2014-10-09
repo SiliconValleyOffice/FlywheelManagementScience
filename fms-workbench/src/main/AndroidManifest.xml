@@ -37,8 +37,8 @@
         </activity>
         
         <activity
-            android:name="com.flywheelms.library.fms.activity.DecKanGlDictionaryActivity"
-            android:label="@string/deckangl_tm__dictionary"
+            android:name="com.flywheelms.library.fms.activity.DecKanGlGlyphDictionaryActivity"
+            android:label="@string/deckangl_tm__glyph_dictionary"
             android:icon="@drawable/fms_activity__deckangl_dictionary"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
        		android:configChanges="keyboardHidden|keyboard"

@@ -76,6 +76,10 @@ public abstract class DecKanGlNavigationComponent extends LinearLayout {
 		inflate(context, R.layout.deckangl__navigation__component, this);
 		initializeViewBody();
 	}
+
+    protected ImageView getDecKanGlGlyphView() {
+        return this.annotatedDecKanGlGlyphView;
+    }
 	
 	public void setParent(DecKanGlNavigationComponentParent aNodeNavigationParent) {
 		this.decKanGlNavigationParent = aNodeNavigationParent;

@@ -48,6 +48,7 @@ import android.graphics.drawable.Drawable;
 
 import com.flywheelms.gcongui.deckangl.enumerator.DecKanGlNounStateColor;
 import com.flywheelms.gcongui.gcg.GcgApplication;
+import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.helper.FmmHelper;
 import com.flywheelms.library.fmm.node.NodeId;
@@ -1145,8 +1146,10 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 			putNodeTypeCodeMapEntry(theFmmNodeDefinition);
 		}
 	}
-	
-	private static void putNodeTypeCodeMapEntry(FmmNodeDefinition anFmmNodeDefinition) {
+
+    private static ArrayList<GcgGuiable> guiableList;
+
+    private static void putNodeTypeCodeMapEntry(FmmNodeDefinition anFmmNodeDefinition) {
 		FmmNodeDefinition.NODE_TYPE_CODE_MAP.put(anFmmNodeDefinition.getNodeTypeCode(), anFmmNodeDefinition);
 	}
 	
@@ -2025,7 +2028,17 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 		this.editorActivityRequestCode = anActivityRequestCode;
 	}
 
-	public String getName() {
+    public static ArrayList<GcgGuiable> getGuiableList() {
+        if(FmmNodeDefinition.guiableList == null) {
+            FmmNodeDefinition.guiableList = new ArrayList<GcgGuiable>();
+            for(FmmNodeDefinition theDefinition : values()) {
+                FmmNodeDefinition.guiableList.add(theDefinition);
+            }
+        }
+        return guiableList;
+    }
+
+    public String getName() {
 		return getClassName();
 	}
 

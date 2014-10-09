@@ -50,7 +50,8 @@ import com.flywheelms.gcongui.gcg.interfaces.GcgPerspective;
 public interface DecKanGlNavigationComponentParent {
 
 	void activityNavigation(GcgFrame aFrame, GcgPerspective aPerspective);
-	
+
 	DecKanGlGlyph getDecKanGlGlyph();
 
+    void launchNounDefinitionDialog();
 }

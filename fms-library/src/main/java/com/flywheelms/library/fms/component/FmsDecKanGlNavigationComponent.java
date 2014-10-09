@@ -45,6 +45,7 @@ package com.flywheelms.library.fms.component;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.View;
 
 import com.flywheelms.gcongui.deckangl.component.DecKanGlNavigationComponent;
 import com.flywheelms.gcongui.deckangl.enumerator.DecKanGlDecoratorCanvasLocation;
@@ -56,6 +57,16 @@ public class FmsDecKanGlNavigationComponent extends DecKanGlNavigationComponent 
 	public FmsDecKanGlNavigationComponent(Context context, AttributeSet attrs) {
 		super(context, attrs);
 	}
+
+    protected void initializeViewBody() {
+        super.initializeViewBody();
+        getDecKanGlGlyphView().setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FmsDecKanGlNavigationComponent.this.decKanGlNavigationParent.launchNounDefinitionDialog();
+            }
+        });
+    }
 
 	@Override
 	protected void navigateToDecoratorDetails(DecKanGlDecoratorCanvasLocation aCanvasLocation) {

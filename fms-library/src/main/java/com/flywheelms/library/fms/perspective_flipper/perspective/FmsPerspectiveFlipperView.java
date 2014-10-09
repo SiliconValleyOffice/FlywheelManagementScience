@@ -48,6 +48,7 @@ import android.util.AttributeSet;
 
 import com.flywheelms.gcongui.deckangl.glyph.DecKanGlGlyph;
 import com.flywheelms.gcongui.gcg.viewflipper.GcgPerspectiveFlipperChildView;
+import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 
 public abstract class FmsPerspectiveFlipperView extends GcgPerspectiveFlipperChildView {
@@ -59,6 +60,10 @@ public abstract class FmsPerspectiveFlipperView extends GcgPerspectiveFlipperChi
 	public FmmHeadlineNode getFmmHeadlineNode() {
 		return getFmsPerspectiveFlipper().getFmmHeadelineNode();
 	}
+
+    public FmmNodeDefinition getFmmHeadlineNodeDefinition() {
+        return getFmsPerspectiveFlipper().getFmmHeadelineNode().getFmmNodeDefinition();
+    }
 	
 	public DecKanGlGlyph getDecKanGlGlyph() {
 		return getFmmHeadlineNode() == null ? null : getFmmHeadlineNode().getDecKanGlGlyph();

@@ -62,7 +62,7 @@ public class FiscalYearWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 	// primary parent is FmsOrganization, obtained using FmmDatabaseMediator.getActiveMediator().getFmmOwner()
 	private StrategicMilestone strategicMilestoneException;  // primary child
 	private ProjectAsset projectAssetException; // primary child, primary grandchild
-	private FlywheelCadence FlywheelCadencexception;  // secondary child
+	private FlywheelCadence FlywheelCadenceException;  // secondary child
 	private FiscalYear fiscalYearException;
 	
 	public FiscalYearWidgetSpinner(Context aContext, AttributeSet anAttributeSet) {
@@ -132,7 +132,7 @@ public class FiscalYearWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 	// filter_id__SECONDARY_PARENT__PRIMARY_CHILD__MOVE_TARGET
 	// filter_id__PRIMARY_PARENT__SECONDARY_CHILD__SECONDARY_CHILD__MOVE_TARGET
 	public void updateSpinnerData(FlywheelCadence aFlywheelCadencexception) { // WorkPackage or WorkPlan move target
-		this.FlywheelCadencexception = aFlywheelCadencexception;
+		this.FlywheelCadenceException = aFlywheelCadencexception;
 		super.updateSpinnerData();
 	}
 

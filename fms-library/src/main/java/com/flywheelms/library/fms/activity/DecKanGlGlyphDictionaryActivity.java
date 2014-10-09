@@ -1,4 +1,4 @@
-/* @(#)DecKanGlDictionaryActivity.java
+/* @(#)DecKanGlGlyphDictionaryActivity.java
 ** 
 ** Copyright (C) 2012 by Steven D. Stamps
 **
@@ -95,7 +95,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 
-public class DecKanGlDictionaryActivity extends Activity implements DecKanGlApplicationNoun {
+public class DecKanGlGlyphDictionaryActivity extends Activity implements DecKanGlApplicationNoun {
 	
 	private DecKanGlGlyph decKanGlGlyph;
 	private OnItemSelectedListener sharedSpinnerListener = new SharedSpinnerListener();
@@ -104,7 +104,7 @@ public class DecKanGlDictionaryActivity extends Activity implements DecKanGlAppl
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.deckangl_dictionary_activity);
+		setContentView(R.layout.deckangl_glyph_dictionary__activity);
 		initializeSpinners();
 		initializeDecKanGlImageView();
 		getActionBar().setDisplayHomeAsUpEnabled(true);  // Show the Up button in the action bar.
@@ -389,7 +389,7 @@ public class DecKanGlDictionaryActivity extends Activity implements DecKanGlAppl
 	    @Override
 	    public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
 	    	++this.onItemSelectedEventCounter;
-	    	if(this.onItemSelectedEventCounter > DecKanGlDictionaryActivity.this.NUMBER_OF_INITIALIZED_SPINNERS) {
+	    	if(this.onItemSelectedEventCounter > DecKanGlGlyphDictionaryActivity.this.NUMBER_OF_INITIALIZED_SPINNERS) {
 	    		updateDecKanGlImageView(getUpdatedDecKanGlGlyph());
 //		    	toast = Toast.makeText(DecKanGlDictionaryActivity.this,
 //		     			"Item selected at position: " + position, Toast.LENGTH_LONG);
@@ -399,7 +399,7 @@ public class DecKanGlDictionaryActivity extends Activity implements DecKanGlAppl
 
 	    @Override
 	    public void onNothingSelected(AdapterView<?> parentView) {
-		    	this.toast = Toast.makeText(DecKanGlDictionaryActivity.this,
+		    	this.toast = Toast.makeText(DecKanGlGlyphDictionaryActivity.this,
 			     			"Nothing selected", Toast.LENGTH_LONG);
 		     	this.toast.show();
 	    }

@@ -113,4 +113,8 @@ public class DecKanGlNavigationDialog extends FmsCancelDialog implements DecKanG
 		return getFmmHeadlineNode().getDecKanGlGlyph();
 	}
 
+    public void launchNounDefinitionDialog() {
+        this.gcgActivity.startDialog(new FmmNounDictionaryDialog(this.gcgActivity, getFmmNodeDefinition()));
+    }
+
 }
