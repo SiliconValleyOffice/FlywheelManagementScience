@@ -211,7 +211,7 @@ public abstract class FmsActivity extends GcgActivity{
     }
 
     protected int getActivityOptionsMenuResourceId() {
-        return R.menu.fms__headline_node__editor__menu;
+        return R.menu.fms__activity_menu__default;
     }
 
     @Override

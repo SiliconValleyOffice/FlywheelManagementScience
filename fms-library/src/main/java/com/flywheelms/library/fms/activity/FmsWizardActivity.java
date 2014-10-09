@@ -187,7 +187,7 @@ public abstract class FmsWizardActivity extends GcgWizardActivity {
     }
 
     protected int getActivityOptionsMenuResourceId() {
-        return R.menu.default__wizard__menu;
+        return R.menu.fms__wizard_menu__default;
     }
 
     @Override

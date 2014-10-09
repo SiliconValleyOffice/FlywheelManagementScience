@@ -44,7 +44,6 @@
 package com.flywheelms.library.fms.activity;
 
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -185,23 +184,6 @@ public abstract class FmmNodeEditorActivity extends FmsHorizontalNodeNavigatorAc
 	@Override
 	protected String getSerializedFmmHeadlineNodeFromView() {
 		return getDisplayedFmmHeadlineNode().getSerialized();
-	}
-
-    protected int getActivityOptionsMenuResourceId() {
-        return R.menu.fms__headline_node__editor__menu;
-    }
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem aMenuItem) {
-        int i = aMenuItem.getItemId();
-        if (i == android.R.id.home) {
-            finish();
-            return true;
-        } else if (i == R.id.action__dictionary) {
-            launchDictionary();
-            return true;
-        }
-		return super.onOptionsItemSelected(aMenuItem);
 	}
 	
 	@Override

@@ -8,13 +8,6 @@
 		tools:ignore="HardcodedText"/>
 
     <item
-        android:id="@+id/action__dictionary"
-        android:orderInCategory="600"
-        android:icon="@drawable/gcg__dictionary"
-        android:title="Dictionary"
-        tools:ignore="HardcodedText"/>
-
-    <item
         android:id="@+id/action__publish_pdf"
         android:orderInCategory="500"
         android:icon="@drawable/pdf"

@@ -451,16 +451,11 @@ public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNo
 			}
 		} else if (itemId == R.id.action__do_it_now) {
 			clickDoItNowMenuItem();
-        } else if (itemId == R.id.action__dictionary) {
-            launchDictionary();
 		} else if (itemId == R.id.action__publish_pdf) {
 			launchPdfPublishingWizard();
 		}
 		return true;
 	}
-
-    private void launchDictionary() {
-    }
 
     @Override
 	public void clickDoItNowMenuItem() {
