@@ -45,11 +45,18 @@ package com.flywheelms.gcongui.gcg.widget;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.View;
+import android.widget.EditText;
 
 import com.flywheelms.gcongui.R;
+import com.flywheelms.gcongui.fdk.enumerator.FdkKeyboardStyle;
+
+import java.util.ArrayList;
 
 // com.flywheelms.gcongui.gcg.widget.GcgWidgetTextViewSummaryBox
-public class GcgWidgetTextViewSummaryBox extends GcgWidgetTextView {
+public class GcgWidgetTextViewSummaryBox extends GcgWidget {
+    
+    private EditText editText;
 
 	public GcgWidgetTextViewSummaryBox(Context aContext, AttributeSet anAttributeSet) {
 		super(aContext, anAttributeSet);
@@ -66,4 +73,109 @@ public class GcgWidgetTextViewSummaryBox extends GcgWidgetTextView {
 		return theResourceId;
 	}
 
+    @Override
+    protected void setup() {
+        super.setup();
+        this.editText = (EditText) this.widgetContainer.findViewById(R.id.widget_data);
+        if(this.isTransparentBackground) {
+            setTransparentBackground();
+        }
+        setInitialValue();
+        manageBackgroundState();
+    }
+
+    protected void manageBackgroundState() {
+        this.editText.setBackgroundResource(isMinimumInput() ?
+                this.isTransparentBackground ? R.color.gcg__transparent : R.drawable.gcg__text_view :
+                R.drawable.gcg__edit_text__invalid);
+    }
+
+    protected boolean isMinimumInput() {
+        return isMinimumLength();
+    }
+
+    protected boolean isMinimumLength() {
+        return true;
+    }
+
+    @Override
+    protected void setTransparentBackground() {
+        this.editText.setBackgroundResource(R.color.gcg__transparent);
+    }
+
+    @Override
+    public void setHint(int aResourceId) {
+
+    }
+
+    @Override
+    public void setHint(String aString) {
+
+    }
+
+    @Override
+    public Object getData() {
+        return null;
+    }
+
+    @Override
+    public void setData(Object anObject) {
+
+    }
+
+    public CharSequence getText() {
+        return this.editText.getText();
+    }
+
+    public void setText(CharSequence aCharSequence) {
+        this.editText.setText(aCharSequence);
+    }
+
+    public void setText(String aString) {
+        this.editText.setText(aString);
+    }
+
+    public void setText(int aStringResourceId) {
+        this.editText.setText(aStringResourceId);
+    }
+
+    @Override
+    public void setOnClickListener(OnClickListener anOnClickListener) {
+        WrappedOnClickListener theWrappedOnClickListener = new WrappedOnClickListener(this, anOnClickListener);
+        super.setOnClickListener(theWrappedOnClickListener);
+        if (!this.editText.isClickable()) {
+            this.editText.setClickable(true);
+        }
+        this.editText.setOnClickListener(theWrappedOnClickListener);
+        if (this.labelTextView != null) {
+            if (!this.labelTextView.isClickable()) {
+                this.labelTextView.setClickable(true);
+            }
+            this.labelTextView.setOnClickListener(theWrappedOnClickListener);
+        }
+        if(this.copyButton != null) {
+            this.copyButton.setOnClickListener(theWrappedOnClickListener);
+        } else {
+            setBackgroundResource(R.drawable.gcg__background_state_list__text_view);
+            this.editText.setBackgroundResource(R.drawable.gcg__background_state_list__text_view);
+            if (this.labelTextView != null) {
+                this.labelTextView.setBackgroundResource(R.drawable.gcg__background_state_list__text_view);
+            }
+        }
+    }
+
+    @Override
+    public View getViewToFocus() {
+        return null;
+    }
+
+    @Override
+    public FdkKeyboardStyle getKeyboardStyle() {
+        return null;
+    }
+
+    @Override
+    public void onDictationResults(ArrayList<String> aDictationResultsList) {
+
+    }
 }

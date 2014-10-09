@@ -42,18 +42,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c0b3b16b-24dc-4ad0-83f8-e1821de85d20" name="Default" comment="incremental = FlywheelMS Dictionary dialog">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/design/gui/Image Library/FmsDictionary.xcf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fms-gcongui/src/main/res/drawable-mdpi/deckangl__noun.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/design/gui/Image Library/service_level_agreement.xcf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout/flywheel_ms__dictionary__dialog.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout/flywheel_ms__noun_dictionary__tab.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout/flywheel_ms__noun_dictionary__dialog.xml" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-gcongui/src/main/res/drawable-mdpi/deckangl__32.png" afterPath="$PROJECT_DIR$/fms-gcongui/src/main/res/drawable-mdpi/deckangl_dialog__noun_dictionary.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-gcongui/src/main/res/drawable-mdpi/deckangl__32.png" afterPath="$PROJECT_DIR$/fms-gcongui/src/main/res/drawable-mdpi/deckangl__32.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/widget/list_view/FmmConfigurationWidgetListView.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/widget/list_view/FmmConfigurationWidgetListView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/widget/spinner/FmmNounDefinitionWidgetSpinner.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/widget/spinner/FmmNounDefinitionWidgetSpinner.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/FmsDictionaryDialog.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/FmsDictionaryDialog.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-workbench/src/main/java/com/flywheelms/workbench/activity/WorkbenchActivity.java" afterPath="$PROJECT_DIR$/fms-workbench/src/main/java/com/flywheelms/workbench/activity/WorkbenchActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/widget/GcgWidgetTextViewSummaryBox.java" afterPath="$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/widget/GcgWidgetTextViewSummaryBox.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/values/fmm__dictionary__strings.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/values/fmm__dictionary__strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-gcongui/src/main/res/layout/gcg__widget__text_view__summary_box.xml" afterPath="$PROJECT_DIR$/fms-gcongui/src/main/res/layout/gcg__widget__text_view__summary_box.xml" />
@@ -80,35 +69,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="FmsDictionaryDialog.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/FmsDictionaryDialog.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="1496">
-              <caret line="85" column="20" selection-start-line="85" selection-start-column="20" selection-end-line="85" selection-end-column="20" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#4889#4912#0" expanded="true" />
-                <element signature="e#5261#5293#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="flywheel_ms__dictionary__dialog.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/layout/flywheel_ms__dictionary__dialog.xml">
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.8461537" vertical-offset="0" max-vertical-offset="561">
-              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-              <folding>
-                <element signature="e#808#857#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="flywheel_ms__noun_dictionary__tab.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/layout/flywheel_ms__noun_dictionary__tab.xml">
           <provider editor-type-id="android-designer">
@@ -127,9 +87,30 @@
       <file leaf-file-name="GcgWidgetTextViewSummaryBox.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/widget/GcgWidgetTextViewSummaryBox.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="527">
-              <caret line="64" column="54" selection-start-line="64" selection-start-column="54" selection-end-line="64" selection-end-column="54" />
-              <folding />
+            <state vertical-scroll-proportion="-20.107143" vertical-offset="710" max-vertical-offset="3196">
+              <caret line="108" column="0" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#6037#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#3685#3686#0" expanded="true" />
+                <element signature="e#3725#3726#0" expanded="true" />
+                <element signature="e#3768#3769#0" expanded="true" />
+                <element signature="e#3795#3796#0" expanded="true" />
+                <element signature="e#4109#4110#0" expanded="true" />
+                <element signature="e#4136#4137#0" expanded="true" />
+                <element signature="e#4238#4239#0" expanded="true" />
+                <element signature="e#4284#4285#0" expanded="true" />
+                <element signature="e#4339#4340#0" expanded="true" />
+                <element signature="e#4391#4392#0" expanded="true" />
+                <element signature="e#4434#4435#0" expanded="true" />
+                <element signature="e#4480#4481#0" expanded="true" />
+                <element signature="e#4530#4531#0" expanded="true" />
+                <element signature="e#4586#4587#0" expanded="true" />
+                <element signature="e#5815#5816#0" expanded="true" />
+                <element signature="e#5842#5843#0" expanded="true" />
+                <element signature="e#5906#5907#0" expanded="true" />
+                <element signature="e#5933#5934#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -140,8 +121,8 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-20.5" vertical-offset="113" max-vertical-offset="799">
-              <caret line="38" column="48" selection-start-line="38" selection-start-column="48" selection-end-line="38" selection-end-column="48" />
+            <state vertical-scroll-proportion="-12.653846" vertical-offset="164" max-vertical-offset="816">
+              <caret line="29" column="32" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -157,10 +138,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FmmConfigurationWidgetListView.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="FmmConfigurationWidgetListView.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/widget/list_view/FmmConfigurationWidgetListView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8775811" vertical-offset="357" max-vertical-offset="2091">
+            <state vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="2091">
               <caret line="119" column="5" selection-start-line="119" selection-start-column="5" selection-end-line="119" selection-end-column="5" />
               <folding />
             </state>
@@ -177,11 +158,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fmm__dictionary__strings.xml" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="fmm__dictionary__strings.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/values/fmm__dictionary__strings.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="1989">
-              <caret line="14" column="125" selection-start-line="14" selection-start-column="125" selection-end-line="14" selection-end-column="125" />
+            <state vertical-scroll-proportion="0.17894737" vertical-offset="51" max-vertical-offset="1904">
+              <caret line="10" column="195" selection-start-line="10" selection-start-column="195" selection-end-line="10" selection-end-column="195" />
               <folding />
             </state>
           </provider>
@@ -2862,7 +2843,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/tree_view_flipper/tree_view/FmsPerspectiveFlipperTreeView.java" />
         <option value="$PROJECT_DIR$/fms-gcongui/src/main/res/values/gcg__strings.xml" />
         <option value="$PROJECT_DIR$/fms-gcongui/src/main/res/layout/gcg__application_context__perspective_context__separator.xml" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/treeview/filter/FmsTreeViewAdapter.java" />
@@ -2909,10 +2889,11 @@
         <option value="$PROJECT_DIR$/fms-library/src/main/res/layout/flywheel_ms__dictionary__dialog.xml" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/widget/spinner/FmmNounDefinitionWidgetSpinner.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/FmsDictionaryDialog.java" />
-        <option value="$PROJECT_DIR$/fms-library/src/main/res/values/fmm__dictionary__strings.xml" />
         <option value="$PROJECT_DIR$/fms-workbench/src/main/java/com/flywheelms/workbench/activity/WorkbenchActivity.java" />
-        <option value="$PROJECT_DIR$/fms-gcongui/src/main/res/layout/gcg__widget__text_view__summary_box.xml" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/widget/list_view/FmmConfigurationWidgetListView.java" />
+        <option value="$PROJECT_DIR$/fms-gcongui/src/main/res/layout/gcg__widget__text_view__summary_box.xml" />
+        <option value="$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/widget/GcgWidgetTextViewSummaryBox.java" />
+        <option value="$PROJECT_DIR$/fms-library/src/main/res/values/fmm__dictionary__strings.xml" />
       </list>
     </option>
   </component>
@@ -3928,7 +3909,11 @@
       <created>1412877630418</created>
       <updated>1412877630419</updated>
     </task>
-    <option name="localTasksCounter" value="174" />
+    <task id="LOCAL-00174" summary="incremental = FlywheelMS Dictionary dialog">
+      <created>1412886443682</created>
+      <updated>1412886443683</updated>
+    </task>
+    <option name="localTasksCounter" value="175" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -4049,25 +4034,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/fms-gcongui/src/main/res/layout/gcg__dialog_body__cancel.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20637329" vertical-offset="0" max-vertical-offset="659">
-          <caret line="8" column="63" selection-start-line="8" selection-start-column="63" selection-end-line="8" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-gcongui/src/main/res/values/deckangl__strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45132744" vertical-offset="357" max-vertical-offset="1292">
-          <caret line="39" column="34" selection-start-line="39" selection-start-column="34" selection-end-line="39" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/layout/fmm__headline_node__adopt_orphan__dialog.xml">
       <provider editor-type-id="android-designer">
         <state />
@@ -4451,12 +4417,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/FmsDictionaryDialog.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="1496">
-          <caret line="85" column="20" selection-start-line="85" selection-start-column="20" selection-end-line="85" selection-end-column="20" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="1462">
+          <caret line="83" column="24" selection-start-line="83" selection-start-column="24" selection-end-line="83" selection-end-column="24" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4889#4912#0" expanded="true" />
-            <element signature="e#5261#5293#0" expanded="true" />
+            <element signature="e#4782#4805#0" expanded="true" />
+            <element signature="e#5154#5186#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -4466,18 +4431,26 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.8461537" vertical-offset="0" max-vertical-offset="561">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        <state vertical-scroll-proportion="-7.1923075" vertical-offset="0" max-vertical-offset="544">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding>
-            <element signature="e#808#857#0" expanded="true" />
+            <element signature="e#752#801#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/values/fmm__dictionary__strings.xml">
+    <entry file="file://$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/widget/GcgWidgetEditText.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="1989">
-          <caret line="14" column="125" selection-start-line="14" selection-start-column="125" selection-end-line="14" selection-end-column="125" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="612" max-vertical-offset="3604">
+          <caret line="61" column="22" selection-start-line="61" selection-start-column="22" selection-end-line="61" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/widget/GcgWidgetTextView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.38557994" vertical-offset="1611" max-vertical-offset="2635">
+          <caret line="169" column="5" selection-start-line="164" selection-start-column="5" selection-end-line="169" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -4497,8 +4470,45 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/widget/GcgWidgetTextViewSummaryBox.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="527">
-          <caret line="64" column="54" selection-start-line="64" selection-start-column="54" selection-end-line="64" selection-end-column="54" />
+        <state vertical-scroll-proportion="-20.107143" vertical-offset="710" max-vertical-offset="3196">
+          <caret line="108" column="0" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#6037#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#3685#3686#0" expanded="true" />
+            <element signature="e#3725#3726#0" expanded="true" />
+            <element signature="e#3768#3769#0" expanded="true" />
+            <element signature="e#3795#3796#0" expanded="true" />
+            <element signature="e#4109#4110#0" expanded="true" />
+            <element signature="e#4136#4137#0" expanded="true" />
+            <element signature="e#4238#4239#0" expanded="true" />
+            <element signature="e#4284#4285#0" expanded="true" />
+            <element signature="e#4339#4340#0" expanded="true" />
+            <element signature="e#4391#4392#0" expanded="true" />
+            <element signature="e#4434#4435#0" expanded="true" />
+            <element signature="e#4480#4481#0" expanded="true" />
+            <element signature="e#4530#4531#0" expanded="true" />
+            <element signature="e#4586#4587#0" expanded="true" />
+            <element signature="e#5815#5816#0" expanded="true" />
+            <element signature="e#5842#5843#0" expanded="true" />
+            <element signature="e#5906#5907#0" expanded="true" />
+            <element signature="e#5933#5934#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/FmmManagementDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="1275">
+          <caret line="99" column="44" selection-start-line="99" selection-start-column="44" selection-end-line="99" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/widget/list_view/FmmConfigurationWidgetListView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="2091">
+          <caret line="119" column="5" selection-start-line="119" selection-start-column="5" selection-end-line="119" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -4524,24 +4534,16 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.5" vertical-offset="113" max-vertical-offset="799">
-          <caret line="38" column="48" selection-start-line="38" selection-start-column="48" selection-end-line="38" selection-end-column="48" />
+        <state vertical-scroll-proportion="-12.653846" vertical-offset="164" max-vertical-offset="816">
+          <caret line="29" column="32" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="56" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/FmmManagementDialog.java">
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/values/fmm__dictionary__strings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="1275">
-          <caret line="99" column="44" selection-start-line="99" selection-start-column="44" selection-end-line="99" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/widget/list_view/FmmConfigurationWidgetListView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8775811" vertical-offset="357" max-vertical-offset="2091">
-          <caret line="119" column="5" selection-start-line="119" selection-start-column="5" selection-end-line="119" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.17894737" vertical-offset="51" max-vertical-offset="1904">
+          <caret line="10" column="195" selection-start-line="10" selection-start-column="195" selection-end-line="10" selection-end-column="195" />
           <folding />
         </state>
       </provider>
