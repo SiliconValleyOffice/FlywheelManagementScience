@@ -107,7 +107,7 @@ public class FmsDictionaryDialog extends GcgCancelDialog {
             }
         });
         if(this.initialFmmNodeDefinition != null) {
-            this.nounDefinitionWidgetSpinner.setSelection(this.initialFmmNodeDefinition);
+            this.nounDefinitionWidgetSpinner.setSelectedFmmNodeDefinition(this.initialFmmNodeDefinition);
         } else {
             this.nounDefinitionWidgetSpinner.setSelection(0);
         }
@@ -132,7 +132,7 @@ public class FmsDictionaryDialog extends GcgCancelDialog {
             }
         });
         if(this.initialFmmNodeDefinition != null) {
-            this.perspectiveDefinitionWidgetSpinner.setSelection(this.initialFmmNodeDefinition);
+            this.perspectiveDefinitionWidgetSpinner.setSelectedGcgPerspective(this.initialFmmPerspective);
         } else {
             this.perspectiveDefinitionWidgetSpinner.setSelection(0);
         }
@@ -157,7 +157,7 @@ public class FmsDictionaryDialog extends GcgCancelDialog {
             }
         });
         if(this.initialFmmNodeDefinition != null) {
-            this.frameDefinitionWidgetSpinner.setSelection(this.initialFmmNodeDefinition);
+            this.frameDefinitionWidgetSpinner.setSelectedGcgFrame(this.initialFmmFrame);
         } else {
             this.frameDefinitionWidgetSpinner.setSelection(0);
         }

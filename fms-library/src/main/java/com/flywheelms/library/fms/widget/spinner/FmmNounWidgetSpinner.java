@@ -57,12 +57,15 @@ import java.util.ArrayList;
 // com.flywheelms.library.fms.widget.spinner.FmmNounDefinitionWidgetSpinner
 public class FmmNounWidgetSpinner extends GcgWidgetSpinner {
 
+    private ArrayList<FmmNodeDefinition> fmmNodeDefinitionList;
+
     public FmmNounWidgetSpinner(Context aContext, AttributeSet anAttributeSet) {
         super(aContext, anAttributeSet);
     }
 
     @Override
     protected ArrayList<GcgGuiable> updateGuiableList() {
+        this.fmmNodeDefinitionList = FmmNodeDefinition.getDecKanGlNodeList();
         return FmmNodeDefinition.getGuiableDecKanGlNodeList();
     }
 
@@ -73,6 +76,10 @@ public class FmmNounWidgetSpinner extends GcgWidgetSpinner {
 
     public FmmNodeDefinition getSelectedFmmNodeDefinition() {
         return (FmmNodeDefinition) getSelectedItem();
+    }
+
+    public void setSelectedFmmNodeDefinition(FmmNodeDefinition anFmmNodeDefinition) {
+        this.spinner.setSelection(this.fmmNodeDefinitionList.indexOf(anFmmNodeDefinition));
     }
 
 }

@@ -47,6 +47,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 
 import com.flywheelms.gcongui.gcg.GcgApplication;
+import com.flywheelms.gcongui.gcg.context.GcgFrame;
 import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
 import com.flywheelms.gcongui.gcg.widget.GcgWidgetSpinner;
 import com.flywheelms.library.R;
@@ -57,12 +58,15 @@ import java.util.ArrayList;
 // com.flywheelms.library.fms.widget.spinner.FmmFrameWidgetSpinner
 public class FmmFrameWidgetSpinner extends GcgWidgetSpinner {
 
+    private ArrayList<? extends GcgFrame> gcgFrameList;
+
     public FmmFrameWidgetSpinner(Context aContext, AttributeSet anAttributeSet) {
         super(aContext, anAttributeSet);
     }
 
     @Override
     protected ArrayList<GcgGuiable> updateGuiableList() {
+        this.gcgFrameList = FmmFrame.values();
         return FmmFrame.getGcgGuiableList();
     }
 
@@ -73,6 +77,10 @@ public class FmmFrameWidgetSpinner extends GcgWidgetSpinner {
 
     public FmmFrame getSelectedFmmFrame() {
         return (FmmFrame) getSelectedItem();
+    }
+
+    public void setSelectedGcgFrame(GcgFrame aGcgFrame) {
+        this.spinner.setSelection(this.gcgFrameList.indexOf(aGcgFrame));
     }
 
 }

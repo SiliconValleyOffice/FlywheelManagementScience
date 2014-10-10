@@ -48,6 +48,7 @@ import android.util.AttributeSet;
 
 import com.flywheelms.gcongui.gcg.GcgApplication;
 import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
+import com.flywheelms.gcongui.gcg.interfaces.GcgPerspective;
 import com.flywheelms.gcongui.gcg.widget.GcgWidgetSpinner;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.context.FmmPerspective;
@@ -57,12 +58,15 @@ import java.util.ArrayList;
 // com.flywheelms.library.fms.widget.spinner.FmmPerspectiveWidgetSpinner
 public class FmmPerspectiveWidgetSpinner extends GcgWidgetSpinner {
 
+    private ArrayList<? extends GcgPerspective> gcgPerspectiveList;
+
     public FmmPerspectiveWidgetSpinner(Context aContext, AttributeSet anAttributeSet) {
         super(aContext, anAttributeSet);
     }
 
     @Override
     protected ArrayList<GcgGuiable> updateGuiableList() {
+        this.gcgPerspectiveList = FmmPerspective.values();
         return FmmPerspective.getGcgGuiableList();
     }
 
@@ -73,6 +77,10 @@ public class FmmPerspectiveWidgetSpinner extends GcgWidgetSpinner {
 
     public FmmPerspective getSelectedFmmPerspective() {
         return (FmmPerspective) getSelectedItem();
+    }
+
+    public void setSelectedGcgPerspective(GcgPerspective aGcgPerspective) {
+        this.spinner.setSelection(this.gcgPerspectiveList.indexOf(aGcgPerspective));
     }
 
 }
