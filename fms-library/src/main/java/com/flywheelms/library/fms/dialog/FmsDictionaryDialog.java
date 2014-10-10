@@ -85,6 +85,11 @@ public class FmsDictionaryDialog extends GcgCancelDialog {
         this.tabbedLayout.setCurrentTab(0);
     }
 
+    @Override
+    protected int getDialogWidth() {
+        return 950;
+    }
+
     private void initializeNounTab() {
         LinearLayout theLinearLayout = (LinearLayout) this.gcgActivity.getLayoutInflater().inflate(R.layout.flywheel_ms__noun_dictionary__tab, this.tabbedLayout, false);
         this.nounDefinitionText = (GcgWidgetTextViewSummaryBox) theLinearLayout.findViewById(R.id.noun__definition);

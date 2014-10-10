@@ -135,6 +135,15 @@ public abstract class GcgDialog {
         }
         refreshDialog();
         this.alertDialog.show();
+        if(getDialogWidth() > 0) {
+            WindowManager.LayoutParams theLayoutParams = this.alertDialog.getWindow().getAttributes();
+            theLayoutParams.width = getDialogWidth();
+            this.alertDialog.getWindow().setAttributes(theLayoutParams);
+        }
+    }
+
+    protected int getDialogWidth() {
+        return 0;
     }
 
     private void createAlertDialog() {
