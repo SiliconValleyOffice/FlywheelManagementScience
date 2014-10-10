@@ -111,6 +111,28 @@ public class FmsDictionaryDialog extends GcgCancelDialog {
     }
 
     private void initializePerspectiveTab() {
+        LinearLayout theLinearLayout = (LinearLayout) this.gcgActivity.getLayoutInflater().inflate(R.layout.flywheel_ms__perspective_dictionary__tab, this.tabbedLayout, false);
+        this.perspectiveDefinitionText = (GcgWidgetTextViewSummaryBox) theLinearLayout.findViewById(R.id.perspective__definition);
+        this.perspectiveDefinitionWidgetSpinner = (FmmPerspectiveWidgetSpinner) theLinearLayout.findViewById(R.id.perspective__spinner);
+        this.perspectiveDefinitionWidgetSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                FmsDictionaryDialog.this.perspectiveDefinitionText.setText(
+                        FmsDictionaryDialog.this.perspectiveDefinitionWidgetSpinner.getSelectedFmmPerspective().getDictionaryDefinitionString());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+        if(this.initialFmmNodeDefinition != null) {
+            this.perspectiveDefinitionWidgetSpinner.setSelection(this.initialFmmNodeDefinition);
+        } else {
+            this.perspectiveDefinitionWidgetSpinner.setSelection(0);
+        }
+        GcgTabSpec theGcgTabSpec = new GcgTabSpec(theLinearLayout, R.drawable.gcg__perspective, R.string.gcg__perspective, false);
+        this.tabbedLayout.addTab(theGcgTabSpec);
     }
 
     private void initializeFrameTab() {
@@ -134,7 +156,7 @@ public class FmsDictionaryDialog extends GcgCancelDialog {
         } else {
             this.frameDefinitionWidgetSpinner.setSelection(0);
         }
-        GcgTabSpec theGcgTabSpec = new GcgTabSpec(theLinearLayout, R.drawable.gcg__frame, R.string.gcg__frame, false);
+        GcgTabSpec theGcgTabSpec = new GcgTabSpec(theLinearLayout, R.drawable.gcg__frame__32, R.string.gcg__frame, false);
         this.tabbedLayout.addTab(theGcgTabSpec);
     }
 

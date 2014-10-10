@@ -71,7 +71,7 @@ public class FmmPerspectiveWidgetSpinner extends GcgWidgetSpinner {
         return GcgApplication.getAppResources().getString(R.string.gcg__perspective);
     }
 
-    public FmmPerspective getSelectedFmmFrame() {
+    public FmmPerspective getSelectedFmmPerspective() {
         return (FmmPerspective) getSelectedItem();
     }
 
