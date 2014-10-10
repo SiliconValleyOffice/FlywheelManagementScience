@@ -75,7 +75,7 @@ public class FmmPerspective extends GcgPerspective {
     public static FmmPerspective BUDGETING = new FmmPerspective(
             R.string.fmm_perspective__budgeting,
             R.string.fmm_perspective_definition__budgeting,
-            R.drawable.perspective__analysis,
+            R.drawable.perspective__budgeting,
 //			R.id.perspective_button__analysis,
             0,
                     3,
@@ -134,7 +134,7 @@ public class FmmPerspective extends GcgPerspective {
     public static FmmPerspective COMPLETION = new FmmPerspective(
             R.string.fmm_perspective__completion,
             R.string.fmm_perspective_definition__completion,
-            R.drawable.perspective__community,
+            R.drawable.perspective__completion,
 //			R.id.perspective_button__community,
             0,
                     6,
@@ -153,7 +153,7 @@ public class FmmPerspective extends GcgPerspective {
     public static FmmPerspective CONFIRMED_COMMITMENTS = new FmmPerspective(
             R.string.fmm_perspective__confirmed_commitments,
             R.string.fmm_perspective_definition__confirmed_commitments,
-            R.drawable.perspective__community,
+            R.drawable.perspective__confirmed_commitments,
 //			R.id.perspective_button__community,
             0,
                     6,
@@ -172,7 +172,7 @@ public class FmmPerspective extends GcgPerspective {
     public static FmmPerspective DECLINED_COMMITMENTS = new FmmPerspective(
             R.string.fmm_perspective__declined_commitments,
             R.string.fmm_perspective_definition__declined_commitments,
-            R.drawable.perspective__community,
+            R.drawable.perspective__declined_commitment,
 //			R.id.perspective_button__community,
             0,
                     6,
@@ -191,7 +191,7 @@ public class FmmPerspective extends GcgPerspective {
     public static FmmPerspective DECKANGL = new FmmPerspective(
             R.string.fmm_perspective__deckangl,
             R.string.fmm_perspective_definition__deckangl,
-            R.drawable.perspective__community,
+            R.drawable.perspective__deckangl,
 //			R.id.perspective_button__community,
             0,
                     6,
@@ -226,7 +226,7 @@ public class FmmPerspective extends GcgPerspective {
     public static FmmPerspective FLYWHEEL_TEAMS = new FmmPerspective(
             R.string.fmm_perspective__flywheel_team,
             R.string.fmm_perspective_definition__flywheel_teams,
-            R.drawable.perspective__facilitation_issues,
+            R.drawable.community_button__flywheel_teams,
 //			R.id.perspective_button__facilitation_issues,
             0,
                     7,
@@ -242,7 +242,7 @@ public class FmmPerspective extends GcgPerspective {
     public static FmmPerspective FUNCTIONAL_TEAMS = new FmmPerspective(
             R.string.fmm_perspective__functional_team,
             R.string.fmm_perspective_definition__functional_teams,
-            R.drawable.perspective__facilitation_issues,
+            R.drawable.community_button__functional_teams,
 //			R.id.perspective_button__facilitation_issues,
             0,
                     7,
@@ -275,7 +275,7 @@ public class FmmPerspective extends GcgPerspective {
     public static FmmPerspective GOVERNANCE_TEAMS = new FmmPerspective(
             R.string.fmm_perspective__governance_team,
             R.string.fmm_perspective_definition__governance_teams,
-            R.drawable.perspective__governance,
+            R.drawable.community_button__governance_teams,
 //			R.id.perspective_button__governance,
             0,
                     5,
@@ -292,7 +292,7 @@ public class FmmPerspective extends GcgPerspective {
     public static FmmPerspective HISTORY = new FmmPerspective(
             R.string.fmm_perspective__history,
             R.string.fmm_perspective_definition__history,
-            R.drawable.perspective__facilitation_issues,
+            R.drawable.gcg__history,
 //			R.id.perspective_button__facilitation_issues,
             0,
                     7,
@@ -308,7 +308,7 @@ public class FmmPerspective extends GcgPerspective {
     public static FmmPerspective NOTES = new FmmPerspective(
             R.string.fmm_perspective__notes,
             R.string.fmm_perspective_definition__notes,
-            R.drawable.perspective__facilitation_issues,
+            R.drawable.fse__button__notes,
 //			R.id.perspective_button__facilitation_issues,
             0,
                     7,
@@ -324,7 +324,7 @@ public class FmmPerspective extends GcgPerspective {
     public static FmmPerspective PROPOSED_COMMITMENTS = new FmmPerspective(
             R.string.fmm_perspective__proposed_commitments,
             R.string.fmm_perspective_definition__proposed_commitments,
-            R.drawable.perspective__facilitation_issues,
+            R.drawable.commitment_button__proposed,
 //			R.id.perspective_button__facilitation_issues,
             0,
                     7,
@@ -340,7 +340,7 @@ public class FmmPerspective extends GcgPerspective {
     public static FmmPerspective SERVICE_DELIVERY = new FmmPerspective(
             R.string.fmm_perspective__service_delivery,
             R.string.fmm_perspective_definition__service_delivery,
-            R.drawable.perspective__service_delivery,
+            R.drawable.context_button__service_delivery,
 //			R.id.perspective_button__service_delivery,
             0,
                     5,
@@ -375,7 +375,7 @@ public class FmmPerspective extends GcgPerspective {
     public static FmmPerspective STRATEGY_TEAMS = new FmmPerspective(
             R.string.fmm_perspective__strategy_team,
             R.string.fmm_perspective_definition__strategy_teams,
-            R.drawable.perspective__strategic_planning,
+            R.drawable.community_button__strategy_teams,
             R.id.context_button__strategic_planning,
             0,
                     true,
@@ -391,7 +391,7 @@ public class FmmPerspective extends GcgPerspective {
     public static FmmPerspective STORY = new FmmPerspective(
             R.string.fmm_perspective__story,
             R.string.fmm_perspective_definition__story,
-            R.drawable.perspective__strategic_planning,
+            R.drawable.fse__button__story,
             R.id.context_button__strategic_planning,
             0,
                     true,
@@ -407,7 +407,7 @@ public class FmmPerspective extends GcgPerspective {
     public static FmmPerspective SUGGESTED_COMMITMENTS = new FmmPerspective(
             R.string.fmm_perspective__suggested_commitments,
             R.string.fmm_perspective_definition__suggested_commitments,
-            R.drawable.perspective__facilitation_issues,
+            R.drawable.commitment__suggested,
 //			R.id.perspective_button__facilitation_issues,
             0,
                     7,
@@ -438,7 +438,7 @@ public class FmmPerspective extends GcgPerspective {
     public static FmmPerspective WITHDRAWN_COMMITMENTS = new FmmPerspective(
             R.string.fmm_perspective__withdrawn_commitments,
             R.string.fmm_perspective_definition__withdrawn_commitments,
-            R.drawable.perspective__strategic_planning,
+            R.drawable.commitment__withdrawn,
             R.id.context_button__strategic_planning,
             0,
                     true,
