@@ -51,51 +51,51 @@ import java.util.ArrayList;
 
 public class FmmFrame extends GcgFrame {
 
-	public static FmmFrame COMMITMENT = new FmmFrame(R.string.fmm_frame__commitment, R.string.fmm_frame__commitment__abreviated, new FmmPerspective[] {
+	public static FmmFrame COMMITMENT = new FmmFrame(R.string.fmm_frame__commitment, R.string.fmm_frame_definition__commitment, R.string.fmm_frame__commitment__abreviated, new FmmPerspective[] {
 			FmmPerspective.CONFIRMED_COMMITMENTS,   // 1
             FmmPerspective.PROPOSED_COMMITMENTS,    // 2
             FmmPerspective.SUGGESTED_COMMITMENTS,   // 3
             FmmPerspective.DECLINED_COMMITMENTS,    // 4
             FmmPerspective.WITHDRAWN_COMMITMENTS });//5
 
-    public static FmmFrame CONTEXT_FOR_WORKBENCH = new FmmFrame(R.string.fmm_frame__context, new FmmPerspective[] {
+    public static FmmFrame CONTEXT_FOR_WORKBENCH = new FmmFrame(R.string.fmm_frame__context, R.string.fmm_frame_definition__context, new FmmPerspective[] {
 			FmmPerspective.STRATEGIC_PLANNING,  // 1
             FmmPerspective.WORK_BREAKDOWN,      // 2
             FmmPerspective.WORK_PLANNING,       // 3
             FmmPerspective.SERVICE_DELIVERY,    // 4
             FmmPerspective.ANALYSIS });         // 5
     
-    public static FmmFrame CONTEXT_FOR_NODE = new FmmFrame(R.string.fmm_frame__context, new FmmPerspective[] {
+    public static FmmFrame CONTEXT_FOR_NODE = new FmmFrame(R.string.fmm_frame__context, R.string.fmm_frame_definition__context, new FmmPerspective[] {
 			FmmPerspective.STRATEGIC_PLANNING,  // 1
             FmmPerspective.WORK_BREAKDOWN,      // 2
             FmmPerspective.WORK_PLANNING,       // 3
             FmmPerspective.ANALYSIS });         // 4
     
-    public static FmmFrame FSE = new FmmFrame(R.string.fmm_frame__fse, new FmmPerspective[] {
+    public static FmmFrame FSE = new FmmFrame(R.string.fmm_frame__fse, R.string.fmm_frame_definition__fse, new FmmPerspective[] {
 			FmmPerspective.STORY,        // 1
             FmmPerspective.NOTES,        // 2
             FmmPerspective.HISTORY,      // 3
             FmmPerspective.COMMUNITY }); // 4
     
-    public static FmmFrame QUALITY = new FmmFrame(R.string.fmm_frame__quality, new FmmPerspective[] {
+    public static FmmFrame QUALITY = new FmmFrame(R.string.fmm_frame__quality, R.string.fmm_frame_definition__quality, new FmmPerspective[] {
 			FmmPerspective.STRATEGIC_PLANNING,  // 1
             FmmPerspective.WORK_BREAKDOWN,      // 2
             FmmPerspective.WORK_PLANNING,       // 3
             FmmPerspective.SERVICE_DELIVERY }); // 4
     
-    public static FmmFrame TEAM = new FmmFrame(R.string.fmm_frame__teams, new FmmPerspective[] {
+    public static FmmFrame TEAM = new FmmFrame(R.string.fmm_frame__teams, R.string.fmm_frame_definition__team, new FmmPerspective[] {
 			FmmPerspective.STRATEGY_TEAMS,      // 1
             FmmPerspective.FLYWHEEL_TEAMS,      // 2
             FmmPerspective.FUNCTIONAL_TEAMS,    // 3
             FmmPerspective.GOVERNANCE_TEAMS }); // 4
     
-    public static FmmFrame TRIBKN = new FmmFrame(R.string.fmm_frame__tribkn, new FmmPerspective[] {  // SWAG
+    public static FmmFrame TRIBKN = new FmmFrame(R.string.fmm_frame__tribkn, R.string.fmm_frame_definition__tribkn, new FmmPerspective[] {  // SWAG
 			FmmPerspective.DECKANGL,      // 1
             FmmPerspective.GOVERNANCE,    // 2
             FmmPerspective.COMMITMENTS,   // 3
             FmmPerspective.COMMUNITY });  // 4
     
-    public static FmmFrame VELOCITY = new FmmFrame(R.string.fmm_frame__velocity, new FmmPerspective[] {
+    public static FmmFrame VELOCITY = new FmmFrame(R.string.fmm_frame__velocity, R.string.fmm_frame_definition__velocity, new FmmPerspective[] {
 			FmmPerspective.DECKANGL,    // 1
             FmmPerspective.STORY,       // 2
             FmmPerspective.GOVERNANCE,  // 3
@@ -128,13 +128,12 @@ public class FmmFrame extends GcgFrame {
         return (FmmFrame) getObjectForName(aName);
     }
 
-    private FmmFrame(int aNameResourceId, GcgPerspective[] aGcgPerspectiveArray) {
-       super(aNameResourceId, aGcgPerspectiveArray);
+    private FmmFrame(int aNameResourceId, int aDictionaryDefinitionResourceId, GcgPerspective[] aGcgPerspectiveArray) {
+       super(aNameResourceId, aDictionaryDefinitionResourceId, aGcgPerspectiveArray);
     }
 
-    private FmmFrame(int aNameResourceId, int aHeadingResourceId, GcgPerspective[] aGcgPerspectiveArray) {
-        super(aNameResourceId, aHeadingResourceId, aGcgPerspectiveArray);
+    private FmmFrame(int aNameResourceId, int aDictionaryDefinitionResourceId, int aHeadingResourceId, GcgPerspective[] aGcgPerspectiveArray) {
+        super(aNameResourceId, aDictionaryDefinitionResourceId, aHeadingResourceId, aGcgPerspectiveArray);
         
     }
-
 }

@@ -1,5 +1,5 @@
-/* @(#)FmsDecKanGlPerspective.java
-** 
+/* @(#)FmmNounWidgetSpinner.java
+**
 ** Copyright (C) 2012 by Steven D. Stamps
 **
 **             Trademarks & Copyrights
@@ -41,68 +41,38 @@
 ** <http://www.gnu.org/licenses/gpl-3.0.html>.
 */
 
-package com.flywheelms.library.fms.perspective_flipper.perspective;
+package com.flywheelms.library.fms.widget.spinner;
 
 import android.content.Context;
 import android.util.AttributeSet;
 
-import com.flywheelms.gcongui.deckangl.component.DecKanGlNavigationComponentParent;
-import com.flywheelms.gcongui.gcg.context.GcgFrame;
-import com.flywheelms.gcongui.gcg.interfaces.GcgPerspective;
+import com.flywheelms.gcongui.gcg.GcgApplication;
+import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
+import com.flywheelms.gcongui.gcg.widget.GcgWidgetSpinner;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.context.FmmFrame;
-import com.flywheelms.library.fmm.context.FmmPerspective;
-import com.flywheelms.library.fms.component.FmsDecKanGlNavigationComponent;
-import com.flywheelms.library.fms.dialog.FmsDictionaryDialog;
-import com.flywheelms.library.fms.helper.FmsHelpIndex;
+import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 
-public class FmsDecKanGlPerspective extends FmsPerspectiveFlipperView implements DecKanGlNavigationComponentParent {
-	
-	private GcgPerspective gcgPerspective = FmmPerspective.DECKANGL;
-	private FmsDecKanGlNavigationComponent decKanGlGlyphNavigationWidget;
+import java.util.ArrayList;
 
-	public FmsDecKanGlPerspective(Context context, AttributeSet attrs) {
-		super(context, attrs);
-		this.decKanGlGlyphNavigationWidget = (FmsDecKanGlNavigationComponent) findViewById(R.id.deckangl__navigation_widget);
-		this.decKanGlGlyphNavigationWidget.setParent(this);
-	}
+// com.flywheelms.library.fms.widget.spinner.FmmNounDefinitionWidgetSpinner
+public class FmmNounWidgetSpinner extends GcgWidgetSpinner {
 
-    public void launchNounDefinitionDialog() {
-        this.gcgActivity.startDialog(new FmsDictionaryDialog(this.gcgActivity, getFmmHeadlineNodeDefinition(), FmmFrame.TRIBKN, getGcgPerspective()));
+    public FmmNounWidgetSpinner(Context aContext, AttributeSet anAttributeSet) {
+        super(aContext, anAttributeSet);
     }
-	
-	@Override
-	public GcgPerspective getGcgPerspective() {
-		return this.gcgPerspective;
-	}
-
-	@Override
-	protected int getPageTitleResourceId() {
-		return R.string.deckangl_tm;
-	}
-
-	@Override
-	public int getFrameMenuSpacerBackgroundResourceId() {
-		return R.color.gcg__dialog__background;
-	}
-
-	@Override
-	protected int getViewLayoutResourceId() {
-		return R.layout.fms_view__deckangl;
-	}
-
-	@Override
-	protected String getHelpContextUrlString() {
-		return FmsHelpIndex.PERSPECTIVE__DECKANGL;
-	}
-	
-	@Override
-	public void viewData() {
-		this.decKanGlGlyphNavigationWidget.viewData();
-	}
 
     @Override
-    public void activityNavigation(GcgFrame aFrame, GcgPerspective aPerspective) {
-
+    protected ArrayList<GcgGuiable> updateGuiableList() {
+        return FmmNodeDefinition.getGuiableDecKanGlNodeList();
     }
+
+    @Override
+    protected String getLabelText() {
+        return GcgApplication.getAppResources().getString(R.string.deckangl__noun);
+    }
+
+    public FmmNodeDefinition getSelectedFmmNodeDefinition() {
+        return (FmmNodeDefinition) getSelectedItem();
+    }
+
 }

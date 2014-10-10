@@ -228,6 +228,6 @@ public abstract class FmsActivity extends GcgActivity{
     }
 
     public void launchDictionary() {
-        this.startDialog(new FmsDictionaryDialog(this, getDisplayedFmmNodeDefinition()));
+        this.startDialog(new FmsDictionaryDialog(this, getDisplayedFmmNodeDefinition(), getGcgFrame(), getGcgPerspective()));
     }
 }

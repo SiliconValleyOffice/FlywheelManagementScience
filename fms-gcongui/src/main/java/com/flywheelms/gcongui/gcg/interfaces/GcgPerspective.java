@@ -47,13 +47,15 @@ import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.Button;
 
+import com.flywheelms.gcongui.R;
 import com.flywheelms.gcongui.gcg.GcgApplication;
 
 import java.util.ArrayList;
 
-public class GcgPerspective {
+public class GcgPerspective implements GcgGuiable {
 
     protected static final ArrayList<GcgPerspective> VALUES = new ArrayList<GcgPerspective>();
+    private static ArrayList<GcgGuiable> gcgGuiableList;
 
     public static ArrayList<GcgPerspective> values() {
         return GcgPerspective.VALUES;
@@ -72,6 +74,8 @@ public class GcgPerspective {
 
     private int nameStringResourceId;
     private String name;
+    private int dictionaryDefinitionResourceId;
+    private String dictionaryDefinitionString;
     private int iconDrawableResourceId;
     private Drawable iconDrawable;
     private int buttonResourceId;
@@ -84,6 +88,7 @@ public class GcgPerspective {
 
     protected GcgPerspective(
             int aNameStringResourceId,
+            int aDictionaryDefinitionResourceId,
             int anIconDrawableResourceId,
             int aButtonResourceId,
             int aMenuSequence,
@@ -92,6 +97,7 @@ public class GcgPerspective {
             boolean bShowNoOpPrototype ) {
         this.nameStringResourceId = aNameStringResourceId;
         this.name = GcgApplication.getAppResources().getString(this.nameStringResourceId);
+        this.dictionaryDefinitionResourceId = aDictionaryDefinitionResourceId;
         this.iconDrawableResourceId = anIconDrawableResourceId;
         this.iconDrawable = GcgApplication.getAppResources().getDrawable(this.iconDrawableResourceId);
         this.buttonResourceId = aButtonResourceId;
@@ -165,4 +171,52 @@ public class GcgPerspective {
         return null;
     }
 
+    public static ArrayList<GcgGuiable> getGcgGuiableList() {
+        if(GcgPerspective.gcgGuiableList == null) {
+            GcgPerspective.gcgGuiableList = new ArrayList<GcgGuiable>();
+            GcgPerspective.gcgGuiableList.addAll(values());
+        }
+        return gcgGuiableList;
+    }
+
+    @Override
+    public String getLabelText() {
+        return GcgApplication.getAppResources().getString(R.string.gcg__perspective);
+    }
+
+    @Override
+    public Drawable getLabelDrawable() {
+        return null;
+    }
+
+    @Override
+    public int getLabelDrawableResourceId() {
+        return R.drawable.gcg__perspective;
+    }
+
+    @Override
+    public String getDataText() {
+        return getName();
+    }
+
+    @Override
+    public Drawable getDataDrawable() {
+        return GcgApplication.getAppResources().getDrawable(getDataDrawableResourceId());
+    }
+
+    @Override
+    public int getDataDrawableResourceId() {
+        return getIconDrawableResourceId();
+    }
+
+    public String getDictionaryDefinitionString() {
+        if(this.dictionaryDefinitionString == null) {
+            this.dictionaryDefinitionString = GcgApplication.getAppResources().getString(getDictionaryDefinitionResourceId());
+        }
+        return this.dictionaryDefinitionString;
+    }
+
+    public int getDictionaryDefinitionResourceId() {
+        return this.dictionaryDefinitionResourceId;
+    }
 }

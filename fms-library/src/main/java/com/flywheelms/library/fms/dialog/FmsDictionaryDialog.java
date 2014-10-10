@@ -50,22 +50,34 @@ import android.widget.LinearLayout;
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.gcongui.gcg.container.GcgContainerTabbedLayout;
 import com.flywheelms.gcongui.gcg.container.tabbed.GcgTabSpec;
+import com.flywheelms.gcongui.gcg.context.GcgFrame;
 import com.flywheelms.gcongui.gcg.dialog.GcgCancelDialog;
+import com.flywheelms.gcongui.gcg.interfaces.GcgPerspective;
 import com.flywheelms.gcongui.gcg.widget.GcgWidgetTextViewSummaryBox;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
-import com.flywheelms.library.fms.widget.spinner.FmmNounDefinitionWidgetSpinner;
+import com.flywheelms.library.fms.widget.spinner.FmmFrameWidgetSpinner;
+import com.flywheelms.library.fms.widget.spinner.FmmNounWidgetSpinner;
+import com.flywheelms.library.fms.widget.spinner.FmmPerspectiveWidgetSpinner;
 
 public class FmsDictionaryDialog extends GcgCancelDialog {
 
-    private FmmNodeDefinition fmmNodeDefinition;
+    private FmmNodeDefinition initialFmmNodeDefinition;
+    private FmmNounWidgetSpinner nounDefinitionWidgetSpinner;
     private GcgWidgetTextViewSummaryBox nounDefinitionText;
+    private GcgFrame initialFmmFrame;
+    private FmmFrameWidgetSpinner frameDefinitionWidgetSpinner;
+    private GcgWidgetTextViewSummaryBox frameDefinitionText;
+    private GcgPerspective initialFmmPerspective;
+    private FmmPerspectiveWidgetSpinner perspectiveDefinitionWidgetSpinner;
+    private GcgWidgetTextViewSummaryBox perspectiveDefinitionText;
     private GcgContainerTabbedLayout tabbedLayout;
-    private FmmNounDefinitionWidgetSpinner nounDefinitionWidgetSpinner;
 
-    public FmsDictionaryDialog(GcgActivity aGcgActivity, FmmNodeDefinition aNodeDefinition) {
+    public FmsDictionaryDialog(GcgActivity aGcgActivity, FmmNodeDefinition aNodeDefinition, GcgFrame aFrame, GcgPerspective aPerspective) {
         super(aGcgActivity);
-        this.fmmNodeDefinition = aNodeDefinition;
+        this.initialFmmNodeDefinition = aNodeDefinition;
+        this.initialFmmFrame = aFrame;
+        this.initialFmmPerspective = aPerspective;
         initialSetup();
         initializeNounTab();
         initializePerspectiveTab();
@@ -76,7 +88,7 @@ public class FmsDictionaryDialog extends GcgCancelDialog {
     private void initializeNounTab() {
         LinearLayout theLinearLayout = (LinearLayout) this.gcgActivity.getLayoutInflater().inflate(R.layout.flywheel_ms__noun_dictionary__tab, this.tabbedLayout, false);
         this.nounDefinitionText = (GcgWidgetTextViewSummaryBox) theLinearLayout.findViewById(R.id.noun__definition);
-        this.nounDefinitionWidgetSpinner = (FmmNounDefinitionWidgetSpinner) theLinearLayout.findViewById(R.id.noun__spinner);
+        this.nounDefinitionWidgetSpinner = (FmmNounWidgetSpinner) theLinearLayout.findViewById(R.id.noun__spinner);
         this.nounDefinitionWidgetSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -89,8 +101,8 @@ public class FmsDictionaryDialog extends GcgCancelDialog {
 
             }
         });
-        if(this.fmmNodeDefinition != null) {
-            this.nounDefinitionWidgetSpinner.setSelection(this.fmmNodeDefinition);
+        if(this.initialFmmNodeDefinition != null) {
+            this.nounDefinitionWidgetSpinner.setSelection(this.initialFmmNodeDefinition);
         } else {
             this.nounDefinitionWidgetSpinner.setSelection(0);
         }
@@ -102,6 +114,28 @@ public class FmsDictionaryDialog extends GcgCancelDialog {
     }
 
     private void initializeFrameTab() {
+        LinearLayout theLinearLayout = (LinearLayout) this.gcgActivity.getLayoutInflater().inflate(R.layout.flywheel_ms__frame_dictionary__tab, this.tabbedLayout, false);
+        this.frameDefinitionText = (GcgWidgetTextViewSummaryBox) theLinearLayout.findViewById(R.id.frame__definition);
+        this.frameDefinitionWidgetSpinner = (FmmFrameWidgetSpinner) theLinearLayout.findViewById(R.id.frame__spinner);
+        this.frameDefinitionWidgetSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                FmsDictionaryDialog.this.frameDefinitionText.setText(
+                        FmsDictionaryDialog.this.frameDefinitionWidgetSpinner.getSelectedFmmFrame().getDictionaryDefinitionString());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+        if(this.initialFmmNodeDefinition != null) {
+            this.frameDefinitionWidgetSpinner.setSelection(this.initialFmmNodeDefinition);
+        } else {
+            this.frameDefinitionWidgetSpinner.setSelection(0);
+        }
+        GcgTabSpec theGcgTabSpec = new GcgTabSpec(theLinearLayout, R.drawable.gcg__frame, R.string.gcg__frame, false);
+        this.tabbedLayout.addTab(theGcgTabSpec);
     }
 
     protected int getDialogTitleIconResourceId() {

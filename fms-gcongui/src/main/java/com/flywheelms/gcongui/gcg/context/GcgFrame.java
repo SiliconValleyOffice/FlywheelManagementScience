@@ -43,15 +43,20 @@
 
 package com.flywheelms.gcongui.gcg.context;
 
+import android.graphics.drawable.Drawable;
+
+import com.flywheelms.gcongui.R;
 import com.flywheelms.gcongui.gcg.GcgApplication;
+import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
 import com.flywheelms.gcongui.gcg.interfaces.GcgPerspective;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class GcgFrame {
+public class GcgFrame implements GcgGuiable {
 
     protected static final ArrayList<GcgFrame> VALUES = new ArrayList<GcgFrame>();
+    private static ArrayList<GcgGuiable> fmmGuiableList;
 
     public static ArrayList<GcgFrame> values() {
         return GcgFrame.VALUES;
@@ -70,20 +75,32 @@ public class GcgFrame {
 
     private final int nameResourceId;
     private String name;
+    private int dictionaryDefinitionResourceId;
+    private String dictionaryDefinitionString;
     private final int headingResourceId;
     private CharSequence heading;
     private ArrayList<GcgPerspective> gcgPerspectiveList;
 
-    protected GcgFrame(int aNameResourceId, GcgPerspective[] anGcgPerspectiveArray) {
+    protected GcgFrame(int aNameResourceId, int aDictionaryDefinitionResourceId, GcgPerspective[] anGcgPerspectiveArray) {
         this.nameResourceId = aNameResourceId;
+        this.dictionaryDefinitionResourceId = aDictionaryDefinitionResourceId;
         this.headingResourceId = aNameResourceId;
         this.gcgPerspectiveList = new ArrayList<GcgPerspective>(Arrays.asList(anGcgPerspectiveArray));
     }
 
-    protected GcgFrame(int aNameResourceId, int aHeadingResourceId, GcgPerspective[] anGcgPerspectiveArray) {
+    protected GcgFrame(int aNameResourceId, int aDictionaryDefinitionResourceId, int aHeadingResourceId, GcgPerspective[] anGcgPerspectiveArray) {
         this.nameResourceId = aNameResourceId;
+        this.dictionaryDefinitionResourceId = aDictionaryDefinitionResourceId;
         this.headingResourceId = aHeadingResourceId;
         this.gcgPerspectiveList = new ArrayList<GcgPerspective>(Arrays.asList(anGcgPerspectiveArray));
+    }
+
+    public static ArrayList<GcgGuiable> getGcgGuiableList() {
+        if(GcgFrame.fmmGuiableList == null) {
+            GcgFrame.fmmGuiableList = new ArrayList<GcgGuiable>();
+            GcgFrame.fmmGuiableList.addAll(values());
+        }
+        return fmmGuiableList;
     }
 
     public int getNameResourceId() {
@@ -126,5 +143,46 @@ public class GcgFrame {
             theAdjustedIndex = aPerspectiveCount - aFrameViewIndex;
         }
         return theAdjustedIndex;
+    }
+
+    @Override
+    public String getLabelText() {
+        return GcgApplication.getAppResources().getString(R.string.gcg__frame);
+    }
+
+    @Override
+    public Drawable getLabelDrawable() {
+        return GcgApplication.getAppResources().getDrawable(getLabelDrawableResourceId());
+    }
+
+    @Override
+    public int getLabelDrawableResourceId() {
+        return R.drawable.gcg__frame;
+    }
+
+    @Override
+    public String getDataText() {
+        return getName();
+    }
+
+    @Override
+    public Drawable getDataDrawable() {
+        return GcgApplication.getAppResources().getDrawable(getDataDrawableResourceId());
+    }
+
+    @Override
+    public int getDataDrawableResourceId() {
+        return R.drawable.gcg__null_drawable;
+    }
+
+    public String getDictionaryDefinitionString() {
+        if(this.dictionaryDefinitionString == null) {
+            this.dictionaryDefinitionString = GcgApplication.getAppResources().getString(getDictionaryDefinitionResourceId());
+        }
+        return this.dictionaryDefinitionString;
+    }
+
+    public int getDictionaryDefinitionResourceId() {
+        return this.dictionaryDefinitionResourceId;
     }
 }

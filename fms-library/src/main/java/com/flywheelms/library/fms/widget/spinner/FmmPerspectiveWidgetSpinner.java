@@ -1,4 +1,4 @@
-/* @(#)FmmNounDefinitionWidgetSpinner.java
+/* @(#)FmmPerspectiveWidgetSpinner.java
 **
 ** Copyright (C) 2012 by Steven D. Stamps
 **
@@ -50,29 +50,29 @@ import com.flywheelms.gcongui.gcg.GcgApplication;
 import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
 import com.flywheelms.gcongui.gcg.widget.GcgWidgetSpinner;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
+import com.flywheelms.library.fmm.context.FmmPerspective;
 
 import java.util.ArrayList;
 
-// com.flywheelms.library.fms.widget.spinner.FmmNounDefinitionWidgetSpinner
-public class FmmNounDefinitionWidgetSpinner  extends GcgWidgetSpinner {
+// com.flywheelms.library.fms.widget.spinner.FmmPerspectiveWidgetSpinner
+public class FmmPerspectiveWidgetSpinner extends GcgWidgetSpinner {
 
-    public FmmNounDefinitionWidgetSpinner(Context aContext, AttributeSet anAttributeSet) {
+    public FmmPerspectiveWidgetSpinner(Context aContext, AttributeSet anAttributeSet) {
         super(aContext, anAttributeSet);
     }
 
     @Override
     protected ArrayList<GcgGuiable> updateGuiableList() {
-        return FmmNodeDefinition.getGuiableDecKanGlNodeList();
+        return FmmPerspective.getGcgGuiableList();
     }
 
     @Override
     protected String getLabelText() {
-        return GcgApplication.getAppResources().getString(R.string.deckangl__noun);
+        return GcgApplication.getAppResources().getString(R.string.gcg__perspective);
     }
 
-    public FmmNodeDefinition getSelectedFmmNodeDefinition() {
-        return (FmmNodeDefinition) getSelectedItem();
+    public FmmPerspective getSelectedFmmFrame() {
+        return (FmmPerspective) getSelectedItem();
     }
 
 }

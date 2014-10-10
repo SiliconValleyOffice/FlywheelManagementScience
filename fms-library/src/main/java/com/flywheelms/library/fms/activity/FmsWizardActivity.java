@@ -204,6 +204,6 @@ public abstract class FmsWizardActivity extends GcgWizardActivity {
     }
 
     public void launchDictionary() {
-        this.startDialog(new FmsDictionaryDialog(this, getDisplayedFmmNodeDefinition()));
+        this.startDialog(new FmsDictionaryDialog(this, getDisplayedFmmNodeDefinition(), null, null));
     }
 }
