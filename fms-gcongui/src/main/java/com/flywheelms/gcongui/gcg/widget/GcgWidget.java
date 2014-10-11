@@ -81,7 +81,7 @@ public abstract class GcgWidget extends RelativeLayout implements FdkDictationRe
 	public static final String on_click__DEFAULT = "default";
 	public static final String on_click__CUSTOM = "custom";
 	public static final String on_click__NONE = "disables";
-	private static final int resource_id__WIDGET_LABEL = R.id.widget_label;
+	private static final int resource_id__WIDGET_LABEL = R.id.widget__label;
 	protected String containerLayout = container_layout__HORIZONTAL;
 	protected boolean scrollableContent = false;
 	protected int labelWidth;

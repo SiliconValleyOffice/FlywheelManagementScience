@@ -44,13 +44,15 @@
 package com.flywheelms.workbench.dialog;
 
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
-import com.flywheelms.library.fms.dialog.FmsDialog;
+import com.flywheelms.gcongui.gcg.dialog.GcgCancelDialog;
+import com.flywheelms.gcongui.gcg.widget.GcgWidgetWebLink;
 import com.flywheelms.workbench.R;
 
-public class FlywheelMsAboutDialog extends FmsDialog {
+public class FlywheelMsAboutDialog extends GcgCancelDialog {
 
 	public FlywheelMsAboutDialog(GcgActivity aLibraryActivity) {
 		super(aLibraryActivity);
+        initialSetup();
 	}
 
 	@Override
@@ -63,9 +65,14 @@ public class FlywheelMsAboutDialog extends FmsDialog {
 		return R.drawable.flywheel_ms;
 	}
 
-	@Override
-	protected void initializeDialogBody() {
-		inflateDialogBody(R.layout.about_flywheel_ms);
-	}
+    protected int getDialogBodyLayoutResourceId() {
+        return R.layout.about__flywheel_ms;
+    }
+
+    @Override
+    protected void initializeDialogBody() {
+        super.initializeDialogBody();
+        ((GcgWidgetWebLink) this.dialogBodyView.findViewById(R.id.recommended_tablet)).setGcgActivity(this.gcgActivity);
+    }
 
 }

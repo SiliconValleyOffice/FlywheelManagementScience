@@ -10,7 +10,7 @@
         style="@style/GcgFlipPageTitleDim"
         android:layout_gravity="left"
         android:paddingLeft="12dp"
-        android:background="@drawable/gcg__background_state_list__null_21"
+        android:background="@drawable/gcg__background_state_list__null_touch__21"
         android:text="Previous" />
 
     <TextView
@@ -25,7 +25,7 @@
         style="@style/GcgFlipPageTitleDim"
         android:layout_gravity="right"
         android:paddingRight="12dp"
-        android:background="@drawable/gcg__background_state_list__null_21"
+        android:background="@drawable/gcg__background_state_list__null_touch__21"
         android:text="Next" />
 
 </LinearLayout>

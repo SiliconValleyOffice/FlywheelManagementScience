@@ -6,7 +6,7 @@
     android:layout_gravity="center_vertical" >
     
     <TextView
-        android:id="@+id/widget_label"
+        android:id="@+id/widget__label"
         style="@style/GcgWidgetLabelHorizontalContainer"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -27,7 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="35dp"
         android:layout_marginRight="0dp"
-        android:layout_toRightOf="@id/widget_label"
+        android:layout_toRightOf="@id/widget__label"
         android:layout_toLeftOf="@id/widget_fdk_cursor"
         android:layout_centerVertical="true" />
 

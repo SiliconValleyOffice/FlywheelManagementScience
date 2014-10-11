@@ -3,7 +3,7 @@
     style="@style/GcgWidgetRowVertical" >
     
     <TextView
-        android:id="@+id/widget_label"
+        android:id="@+id/widget__label"
         style="@style/GcgWidgetLabelHorizontalContainer"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true" />
@@ -14,7 +14,7 @@
         android:layout_height="match_parent"
         android:layout_marginLeft="0dp"
         android:layout_alignParentLeft="true"
-        android:layout_below="@id/widget_label"
+        android:layout_below="@id/widget__label"
         android:background="@drawable/gcg__background_state_list__text_view" />
 
 </RelativeLayout>

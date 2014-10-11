@@ -22,7 +22,7 @@
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/widget_label"
+            android:id="@+id/widget__label"
             style="@style/GcgWidgetLabelHorizontalContainer"
             android:layout_centerVertical="true"
             android:layout_toRightOf="@id/copy_button" />

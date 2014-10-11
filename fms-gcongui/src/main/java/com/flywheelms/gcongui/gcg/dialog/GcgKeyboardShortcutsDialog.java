@@ -5,6 +5,7 @@ import com.flywheelms.gcongui.gcg.GcgApplication;
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.gcongui.gcg.enumerator.GcgPhysicalKeyboardShortcutProfile;
 import com.flywheelms.gcongui.gcg.widget.GcgWidgetTextViewSummaryBox;
+import com.flywheelms.gcongui.gcg.widget.GcgWidgetWebLink;
 
 public class GcgKeyboardShortcutsDialog extends GcgCancelDialog {
 
@@ -43,6 +44,7 @@ public class GcgKeyboardShortcutsDialog extends GcgCancelDialog {
                 this.gcgPhysicalKeyboardShortcutProfile.getHeadingText());
         ((GcgWidgetTextViewSummaryBox) this.dialogBodyView.findViewById(R.id.keyboard_shortcuts)).setText(
                 GcgApplication.getAppResources().getString(this.gcgPhysicalKeyboardShortcutProfile.getDefinitionResourceId()));
+        ((GcgWidgetWebLink) this.dialogBodyView.findViewById(R.id.keyboard_recommendation)).setGcgActivity(this.gcgActivity);
     }
 
 }

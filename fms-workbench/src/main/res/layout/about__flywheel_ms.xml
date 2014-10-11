@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:gcg="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -13,8 +14,7 @@
         android:textColor="@color/w3c__black"
         android:textSize="28sp"
         android:text="@string/community_edition" />
-    
-    
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -24,16 +24,26 @@
         android:textStyle="bold"
         android:textSize="38sp"
         android:text="@string/danger" />
-    
-    
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="25dp"
+        android:layout_marginBottom="50dp"
         android:textColor="@color/x11__Blue"
         android:textStyle="bold"
         android:textSize="20sp"
         android:text="@string/science_project" />
+
+    <com.flywheelms.gcongui.gcg.widget.GcgWidgetWebLink
+        android:id="@+id/recommended_tablet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:gravity="center_horizontal"
+        gcg:labelText="@string/gcg__recommended_tablet"
+        gcg:uri="@string/gcg__recommended_tablet__uri"/>
+
+    <include layout="@layout/gcg__button_panel__cancel" />
 
 </LinearLayout>

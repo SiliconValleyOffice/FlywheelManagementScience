@@ -60,7 +60,7 @@ import com.flywheelms.gcongui.R;
  */
 public class GcgIncrementalButton extends LinearLayout {
 
-	private static final int resource_id__WIDGET_LABEL = R.id.widget_label;
+	private static final int resource_id__WIDGET_LABEL = R.id.widget__label;
 	private static final int resource_id__WIDGET_BUTTON = R.id.widget_button;
 	private String labelString;
 	private int numberOfStates = 99;

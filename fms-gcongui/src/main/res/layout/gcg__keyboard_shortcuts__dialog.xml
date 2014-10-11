@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:gcg="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="@color/gcg__dialog__background"
     android:orientation="vertical">
 
@@ -16,14 +16,13 @@
         android:layout_marginBottom="15dp"
         gcg:labelText="@string/gcg__quick_summary" />
 
-    <TextView
+    <com.flywheelms.gcongui.gcg.widget.GcgWidgetWebLink
+        android:id="@+id/keyboard_recommendation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:gravity="center_horizontal"
-        android:text="@string/gcg__keyboard__recommendation"
-        android:textColor="@color/x11__Gray"
-        android:textStyle="bold|italic"
-        android:textSize="16sp"/>
+        gcg:labelText="@string/gcg__recommendation_keyboard"
+        gcg:uri="@string/gcg__recommendation_keyboard__uri"/>
 
 </LinearLayout>
