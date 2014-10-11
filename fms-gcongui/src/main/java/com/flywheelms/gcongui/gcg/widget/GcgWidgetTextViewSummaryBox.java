@@ -178,4 +178,8 @@ public class GcgWidgetTextViewSummaryBox extends GcgWidget {
     public void onDictationResults(ArrayList<String> aDictationResultsList) {
 
     }
+
+    public void setHeadingText(String aHeadingText) {
+        setLabelText(aHeadingText);
+    }
 }

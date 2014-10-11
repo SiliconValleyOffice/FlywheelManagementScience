@@ -39,6 +39,8 @@ public class GcgKeyboardShortcutsDialog extends GcgCancelDialog {
     @Override
     protected void initializeDialogBody() {
         super.initializeDialogBody();
+        ((GcgWidgetTextViewSummaryBox) this.dialogBodyView.findViewById(R.id.keyboard_shortcuts)).setHeadingText(
+                this.gcgPhysicalKeyboardShortcutProfile.getHeadingText());
         ((GcgWidgetTextViewSummaryBox) this.dialogBodyView.findViewById(R.id.keyboard_shortcuts)).setText(
                 GcgApplication.getAppResources().getString(this.gcgPhysicalKeyboardShortcutProfile.getDefinitionResourceId()));
     }

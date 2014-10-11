@@ -47,19 +47,29 @@ import com.flywheelms.gcongui.R;
 
 public enum GcgPhysicalKeyboardShortcutProfile {
 
-    ALL (R.string.gcg__keyboard_shortcuts__definition__all),
-    EDITOR (R.string.gcg__keyboard_shortcuts__definition__editor),
-    NAVIGATION_ONLY (R.string.gcg__keyboard_shortcuts__definition__navigation_only),
-    TREE_VIEW (R.string.gcg__keyboard_shortcuts__definition__tree_view),
-    WIZARD (R.string.gcg__keyboard_shortcuts__definition__wizard);
+    EDITOR ("Editor", R.string.gcg__keyboard_shortcuts__definition__editor),
+    NAVIGATION_ONLY ("Navigation", R.string.gcg__keyboard_shortcuts__definition__navigation_only),
+    TREE_VIEW ("Tree View", R.string.gcg__keyboard_shortcuts__definition__tree_view),
+    WIZARD ("Wizard", R.string.gcg__keyboard_shortcuts__definition__wizard);
 
+    private String name;
     private final int definitionResourceId;
 
-    private GcgPhysicalKeyboardShortcutProfile(int aDefinitionResourceId) {
+    private GcgPhysicalKeyboardShortcutProfile(String aName, int aDefinitionResourceId) {
+        this.name = aName;
         this.definitionResourceId = aDefinitionResourceId;
     }
 
     public int getDefinitionResourceId() {
         return this.definitionResourceId;
     }
+
+    public String getHeadingText() {
+        return "for " + name + " Activities";
+    }
+
+    public String getName() {
+        return name;
+    }
+
 }
