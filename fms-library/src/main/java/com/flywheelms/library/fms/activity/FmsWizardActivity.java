@@ -47,6 +47,8 @@ import android.content.Intent;
 import android.view.MenuItem;
 
 import com.flywheelms.gcongui.gcg.context.GcgNavigationTarget;
+import com.flywheelms.gcongui.gcg.enumerator.GcgPhysicalKeyboardShortcutProfile;
+import com.flywheelms.gcongui.gcg.helper.GcgActivityHelper;
 import com.flywheelms.gcongui.gcg.wizard.GcgWizardActivity;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.enumerator.FmmNodeTransactionType;
@@ -198,6 +200,9 @@ public abstract class FmsWizardActivity extends GcgWizardActivity {
             return true;
         } else if (i == R.id.action__dictionary) {
             launchDictionary();
+            return true;
+        } else if (i == R.id.action__keyboard_shortcuts__wizard) {
+            GcgActivityHelper.startGcgKeyboardShortcutsActivity(this, GcgPhysicalKeyboardShortcutProfile.WIZARD);
             return true;
         }
         return super.onOptionsItemSelected(aMenuItem);

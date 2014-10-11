@@ -49,6 +49,8 @@ import android.net.Uri;
 import android.provider.ContactsContract;
 
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
+import com.flywheelms.gcongui.gcg.dialog.GcgKeyboardShortcutsDialog;
+import com.flywheelms.gcongui.gcg.enumerator.GcgPhysicalKeyboardShortcutProfile;
 
 import java.io.File;
 
@@ -122,4 +124,7 @@ public class GcgActivityHelper {
         aParentActivity.startActivityForResult(theIntent, request_code__PRINTER_INSTALLATION);
     }
 
+    public static void startGcgKeyboardShortcutsActivity(GcgActivity aGcgActivity, GcgPhysicalKeyboardShortcutProfile aKeyboardShortcutProfile) {
+        aGcgActivity.startDialog(new GcgKeyboardShortcutsDialog(aGcgActivity, aKeyboardShortcutProfile));
+    }
 }

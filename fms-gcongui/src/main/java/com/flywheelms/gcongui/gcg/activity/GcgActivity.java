@@ -79,6 +79,7 @@ import com.flywheelms.gcongui.gcg.dialog.GcgDialog;
 import com.flywheelms.gcongui.gcg.dialog.GcgRevertDataOkCancelDialog;
 import com.flywheelms.gcongui.gcg.dialog.GcgSaveChangesDialog;
 import com.flywheelms.gcongui.gcg.enumerator.GcgDoItNowMenuItemState;
+import com.flywheelms.gcongui.gcg.enumerator.GcgPhysicalKeyboardShortcutProfile;
 import com.flywheelms.gcongui.gcg.helper.GcgActivityHelper;
 import com.flywheelms.gcongui.gcg.interfaces.GcgDoItNowClient;
 import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
@@ -453,7 +454,9 @@ public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNo
 			clickDoItNowMenuItem();
 		} else if (itemId == R.id.action__publish_pdf) {
 			launchPdfPublishingWizard();
-		}
+		} else if (itemId == R.id.action__keyboard_shortcuts) {
+            GcgActivityHelper.startGcgKeyboardShortcutsActivity(this, GcgPhysicalKeyboardShortcutProfile.NAVIGATION_ONLY);
+        }
 		return true;
 	}
 

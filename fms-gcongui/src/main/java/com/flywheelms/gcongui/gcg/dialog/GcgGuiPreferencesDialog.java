@@ -71,7 +71,7 @@ public class GcgGuiPreferencesDialog extends GcgCancelDialog {
 
 	@Override
 	protected int getDialogTitleIconResourceId() {
-		return R.drawable.gcg__gui_preferences__32;
+		return R.drawable.gcg_dialog__gui_preferences;
 	}
 
 	@Override

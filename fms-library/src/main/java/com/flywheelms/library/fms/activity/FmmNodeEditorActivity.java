@@ -44,6 +44,7 @@
 package com.flywheelms.library.fms.activity;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -53,6 +54,7 @@ import com.flywheelms.gcongui.gcg.context.GcgApplicationContext;
 import com.flywheelms.gcongui.gcg.context.GcgFrame;
 import com.flywheelms.gcongui.gcg.context.GcgFrameBreadcrumb;
 import com.flywheelms.gcongui.gcg.dialog.GcgSaveChangesDialog;
+import com.flywheelms.gcongui.gcg.enumerator.GcgPhysicalKeyboardShortcutProfile;
 import com.flywheelms.gcongui.gcg.helper.GcgActivityHelper;
 import com.flywheelms.gcongui.gcg.helper.GcgPerspectiveMenu;
 import com.flywheelms.gcongui.gcg.menu.GcgFrameSpinner;
@@ -107,6 +109,20 @@ public abstract class FmmNodeEditorActivity extends FmsHorizontalNodeNavigatorAc
 	public void onCreate(Bundle aSavedInstanceState) {
 	    super.onCreate(aSavedInstanceState);
 	}
+
+    protected int getActivityOptionsMenuResourceId() {
+        return R.menu.fse__activity_menu__default;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem aMenuItem) {
+        int itemId = aMenuItem.getItemId();
+        if (itemId == R.id.action__keyboard_shortcuts__fse) {
+            GcgActivityHelper.startGcgKeyboardShortcutsActivity(this, GcgPhysicalKeyboardShortcutProfile.EDITOR);
+            return true;
+        }
+        return super.onOptionsItemSelected(aMenuItem);
+    }
 
 	@Override
 	protected void processExtras() {
@@ -323,7 +339,9 @@ public abstract class FmmNodeEditorActivity extends FmsHorizontalNodeNavigatorAc
 	
 	@Override
 	public void setStaleData(boolean aBoolean) {
-		getFsePerspectiveFlipper().setStaleData(aBoolean);
+        if(getFsePerspectiveFlipper() != null) {
+            getFsePerspectiveFlipper().setStaleData(aBoolean);
+        }
 	}
 
 	@Override

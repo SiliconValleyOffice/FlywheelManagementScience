@@ -8,6 +8,12 @@
 		tools:ignore="HardcodedText"/>
 
     <item
+        android:id="@+id/action__keyboard_shortcuts"
+        android:orderInCategory="600"
+        android:icon="@drawable/gcg__keyboard"
+        android:title="@string/gcg__keyboard_shortcuts"/>
+
+    <item
         android:id="@+id/action__publish_pdf"
         android:orderInCategory="500"
         android:icon="@drawable/pdf"

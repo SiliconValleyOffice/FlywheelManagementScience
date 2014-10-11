@@ -1,0 +1,92 @@
+<resources>
+    <string name="gcongui__app_name">gConGUI&#8482;</string>
+    <string name="gcg__keyboard__recommendation">Recommended Keyboard is a\nLogitech 920-003390 Tablet Keyboard for Android 3.0 Plus</string>
+    <string name="gcg__keyboard_shortcuts">Keyboard Shortcuts</string>
+    <string name="gcg__keyboard_shortcuts__definition__all"></string>
+    <string name="gcg__keyboard_shortcuts__definition__editor">
+
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;  APPLICATION NAVIGATION\n
+CTRL + SHIFT + comma\n
+        &#160; &#160; &#160; &#160;Open Frame Spinner (left menu)\n
+CTRL + ALT + comma\n
+        &#160; &#160; &#160; &#160;Open Right Menu Spinner\n
+CTRL + [\n
+        &#160; &#160; &#160; &#160;Select previous Left Menu option\n
+CTRL + ]\n
+        &#160; &#160; &#160; &#160;Select next Left Menu option\n
+CTRL + SHIFT + 1-9\n
+        &#160; &#160; &#160; &#160;Click on item N (1-9) in the Left Menu\n
+CTRL + ALT + 1-9\n
+        &#160; &#160; &#160; &#160;Click on item N (1-9) in the Right Menu\n\n
+
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;  HORIZONTAL NAVIGATION\n
+CTRL + SHIFT + ]\n
+        &#160; &#160; &#160; &#160;Navigate to next FMM peer fractal\n
+CTRL + SHIFT + [\n
+        &#160; &#160; &#160; &#160;Navigate to previous FMM peer fractal\n
+ALT + SHIFT + ]\n
+        &#160; &#160; &#160; &#160;Navigate to last FMM peer fractal\n
+ALT + SHIFT + [\n
+        &#160; &#160; &#160; &#160;Navigate to first FMM peer fractal\n
+CTRL + SHIFT + | (pipe)\n
+        &#160; &#160; &#160; &#160;Open navigation spinner\n\n
+
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;  MOVE THE CURSOR\n
+<b>ALT + Left Arrow</b>\n
+        &#160; &#160; &#160; &#160;Move to the beginning of the current line. Note: that this is not the beginning\n
+        &#160; &#160; &#160; &#160;of the paragraph on a multi-line (wrapped content) paragraph\n
+ALT + Right Arrow\n
+        &#160; &#160; &#160; &#160;Move to the end of the current line. Note: that this is not the end of\n
+        &#160; &#160; &#160; &#160;the paragraph on a multi-line (wrapped content) paragraph\n
+CTRL + Left Arrow\n
+        &#160; &#160; &#160; &#160;Move to the previous word\n
+CTRL + Right Arrow\n
+        &#160; &#160; &#160; &#160;Move to the next word\n
+CTRL + ALT + Left Arrow\n
+        &#160; &#160; &#160; &#160;Move to end of first paragraph\n
+CTRL + ALT + Right Arrow\n
+        &#160; &#160; &#160; &#160;Move to end of last paragraph (end of document)\n
+TAB\n
+        &#160; &#160; &#160; &#160;Move to end of next paragraph\n
+TAB + SHIFT\n
+        &#160; &#160; &#160; &#160;Move to end of previous paragraph\n\n
+
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;  SELECT TEXT\n
+ALT + SHIFT + Left Arrow\n
+        &#160; &#160; &#160; &#160;Select all text from cursor position to beginning of line. Note: This is not the\n
+        &#160; &#160; &#160; &#160;beginning of the paragraph on a multi-line paragraph\n
+ALT + SHIFT + Right Arrow\n
+        &#160; &#160; &#160; &#160;Select all text from cursor position to end of line. Note: This is not the end of\n
+        &#160; &#160; &#160; &#160;the paragraph on a multi-line paragraph\n
+>>> CTRL + SHIFT + Left Arrow\n
+        &#160; &#160; &#160; &#160;Select the previous word\n
+>>> CTRL + SHIFT + Right Arrow\n
+        &#160; &#160; &#160; &#160;Select the next word\n\n
+
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;  PARAGRAPH SELECTION\n
+>>> CTRL + SHIFT + Up Arrow\n
+        &#160; &#160; &#160; &#160;Add previous paragraph to paragraph selection list\n
+>>> CTRL + SHIFT + Down Arrow\n
+        &#160; &#160; &#160; &#160;Add next paragraph to paragraph selection list\n\n
+
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;  SEQUENCING\n
+>>> ALT + Up Arrow\n
+        &#160; &#160; &#160; &#160;Sequence selected paragraph(s) up\n
+>>> ALT + Down Arrow\n
+        &#160; &#160; &#160; &#160;Sequence selected paragraph(s) down\n\n
+
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;  SEARCH\n
+>>> CTL + f\n
+        &#160; &#160; &#160; &#160;Prompt for a string, and find next occurrence (with wrapping)\n
+>>> CTL + n\n
+        &#160; &#160; &#160; &#160;Find next occurrence (with wrapping) of last search\n\n
+
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;  SAVING DATA\n
+CTL + s\n
+        &#160; &#160; &#160; &#160;Save all modified data\n
+CTL + r\n
+        &#160; &#160; &#160; &#160;Revert all modified data to last version saved\n</string>
+    <string name="gcg__keyboard_shortcuts__definition__navigation_only"></string>
+    <string name="gcg__keyboard_shortcuts__definition__tree_view"></string>
+    <string name="gcg__keyboard_shortcuts__definition__wizard"></string>
+</resources>
