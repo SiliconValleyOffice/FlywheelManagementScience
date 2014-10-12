@@ -41,28 +41,28 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="app: com.flywheelms.workbench" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c0b3b16b-24dc-4ad0-83f8-e1821de85d20" name="Default" comment="new custom GcgWidget - GcgWidgetWebLink">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/design/gui/Image Library/GcgKeyboard.xcf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/design/gui/Image Library/GcgWebLink.xcf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/design/gui/Image Library/StrategicAsset.xcf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/design/gui/Image Library/StrategicAsset__16.xcf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/design/gui/Image Library/StrategicAsset__32.xcf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/design/gui/Image Library/StrategicAsset__37.xcf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-ldpi/fmm_noun__strategic_asset__gray.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-nodpi/fmm_noun__strategic_asset__gray.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-ldpi/fmm_noun__strategic_asset__green.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-nodpi/fmm_noun__strategic_asset__green.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-ldpi/fmm_noun__strategic_asset__orange.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-nodpi/fmm_noun__strategic_asset__orange.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-ldpi/fmm_noun__strategic_asset__pink.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-nodpi/fmm_noun__strategic_asset__pink.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-ldpi/fmm_noun__strategic_asset__yellow.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-nodpi/fmm_noun__strategic_asset__yellow.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/strategic_asset__gray__32.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/strategic_asset__green__32.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/strategic_asset__orange__32.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/strategic_asset__pink__32.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/strategic_asset__yellow__32.png" />
+    <list default="true" id="c0b3b16b-24dc-4ad0-83f8-e1821de85d20" name="Default" comment="new metaphor - Strategic Asset">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/fms_activity__strategic_asset.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/fms_dialog__strategic_asset.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/governable/StrategicAsset.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/database/sqlite/dao/StrategicAssetDaoSqLite.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/meta_data/StrategicAssetMetaData.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-nodpi/fmm_noun__strategic_asset__gray.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-nodpi/fmm_noun__strategic_asset__gray__tiny.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-nodpi/fmm_noun__strategic_asset__green.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-nodpi/fmm_noun__strategic_asset__green__tiny.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-nodpi/fmm_noun__strategic_asset__orange.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-nodpi/fmm_noun__strategic_asset__orange__tiny.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-nodpi/fmm_noun__strategic_asset__pink.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-nodpi/fmm_noun__strategic_asset__pink__tiny.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-nodpi/fmm_noun__strategic_asset__yellow.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-nodpi/fmm_noun__strategic_asset__yellow__tiny.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-workbench/src/main/assets/database/template/EmptyFmm.db" afterPath="$PROJECT_DIR$/fms-workbench/src/main/assets/database/template/EmptyFmm.db" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/design/gui/Image Library/FmsActivityDrawable.xcf" afterPath="$PROJECT_DIR$/design/gui/Image Library/FmsActivityDrawable.xcf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/design/database/fmm.mwb.bak" afterPath="$PROJECT_DIR$/design/database/fmm.mwb.bak" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/design/database/fmm.mwb" afterPath="$PROJECT_DIR$/design/database/fmm.mwb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/enumerator/FmmNodeDefinition.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/enumerator/FmmNodeDefinition.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-workbench/src/main/assets/database/ddl/sqlite/ProjectAsset.ddl" afterPath="$PROJECT_DIR$/fms-workbench/src/main/assets/database/ddl/sqlite/ProjectAsset.ddl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/governable/ProjectAsset.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/governable/ProjectAsset.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/database/sqlite/dao/ProjectAssetDaoSqLite.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/database/sqlite/dao/ProjectAssetDaoSqLite.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/meta_data/ProjectAssetMetaData.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/meta_data/ProjectAssetMetaData.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/values/fmm__dictionary__strings.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/values/fmm__dictionary__strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="flywheelms-hd.iws" />
@@ -86,53 +86,34 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="fmm__dictionary__strings.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/values/fmm__dictionary__strings.xml">
+      <file leaf-file-name="StrategicAsset.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/governable/StrategicAsset.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.535714" vertical-offset="1718" max-vertical-offset="2805">
-              <caret line="116" column="36" selection-start-line="116" selection-start-column="36" selection-end-line="116" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.325" vertical-offset="0" max-vertical-offset="680">
+              <caret line="15" column="27" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gcongui__strings.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fms-gcongui/src/main/res/values/gcongui__strings.xml">
+      <file leaf-file-name="ProjectAsset.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/governable/ProjectAsset.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="1751">
-              <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="fms__strings.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/values/fms__strings.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3536">
-              <caret line="8" column="53" selection-start-line="8" selection-start-column="53" selection-end-line="8" selection-end-column="60" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FmmNodeDefinition.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/enumerator/FmmNodeDefinition.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.625" vertical-offset="15029" max-vertical-offset="37893">
-              <caret line="1010" column="21" selection-start-line="1010" selection-start-column="18" selection-end-line="1010" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="305" max-vertical-offset="5134">
+              <caret line="115" column="10" selection-start-line="115" selection-start-column="10" selection-end-line="115" selection-end-column="10" />
               <folding>
-                <element signature="e#8105#8156#0" expanded="true" />
+                <element signature="e#5527#5528#0" expanded="true" />
+                <element signature="e#5548#5549#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FmmPerspective.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/context/FmmPerspective.java">
+      <file leaf-file-name="FmmCompletableNodeImpl.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/completable/FmmCompletableNodeImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.41571194" vertical-offset="5645" max-vertical-offset="8653">
-              <caret line="393" column="41" selection-start-line="393" selection-start-column="41" selection-end-line="393" selection-end-column="41" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="16" max-vertical-offset="5117">
+              <caret line="74" column="11" selection-start-line="74" selection-start-column="11" selection-end-line="74" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -2803,14 +2784,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/context/FmmFrame.java" />
-        <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/perspective_flipper/perspective/FmsDecKanGlPerspective.java" />
-        <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/DecKanGlNavigationDialog.java" />
-        <option value="$PROJECT_DIR$/fms-gcongui/src/main/res/drawable/gcg__tab_view_border__black.xml" />
-        <option value="$PROJECT_DIR$/fms-gcongui/src/main/res/layout/gcg__container__tab__left.xml" />
-        <option value="$PROJECT_DIR$/fms-gcongui/src/main/res/layout/gcg__widget__text_view__summary_box.xml" />
-        <option value="$PROJECT_DIR$/fms-library/src/main/res/layout/flywheel_ms__perspective_dictionary__tab.xml" />
-        <option value="$PROJECT_DIR$/fms-library/src/main/res/layout/flywheel_ms__noun_dictionary__tab.xml" />
         <option value="$PROJECT_DIR$/fms-library/src/main/res/layout/flywheel_ms__dictionary__dialog.xml" />
         <option value="$PROJECT_DIR$/fms-library/src/main/res/layout/flywheel_ms__frame_dictionary__tab.xml" />
         <option value="$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/dialog/GcgDialog.java" />
@@ -2852,8 +2825,16 @@
         <option value="$PROJECT_DIR$/fms-workbench/src/main/res/layout/about__flywheel_ms.xml" />
         <option value="$PROJECT_DIR$/fms-gcongui/src/main/res/layout/gcg__widget__web_link__horizontal.xml" />
         <option value="$PROJECT_DIR$/fms-gcongui/src/main/res/values/gcongui__strings.xml" />
-        <option value="$PROJECT_DIR$/fms-library/src/main/res/values/fmm__dictionary__strings.xml" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/context/FmmPerspective.java" />
+        <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/enumerator/FmmNodeDefinition.java" />
+        <option value="$PROJECT_DIR$/fms-workbench/src/main/assets/database/ddl/sqlite/ProjectAsset.ddl" />
+        <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/meta_data/ProjectAssetMetaData.java" />
+        <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/governable/ProjectAsset.java" />
+        <option value="$PROJECT_DIR$/fms-library/src/main/res/values/fmm__dictionary__strings.xml" />
+        <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/meta_data/StrategicAssetMetaData.java" />
+        <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/database/sqlite/dao/StrategicAssetDaoSqLite.java" />
+        <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/database/sqlite/dao/ProjectAssetDaoSqLite.java" />
+        <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/governable/StrategicAsset.java" />
       </list>
     </option>
   </component>
@@ -2897,44 +2878,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="flywheelms-hd" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="flywheelms-hd" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="flywheel-management-science" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="flywheelms-hd" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="flywheel-management-science" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fms-library" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="flywheelms-hd" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="flywheel-management-science" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fms-gcongui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -3983,7 +3926,11 @@
       <created>1413074838235</created>
       <updated>1413074838235</updated>
     </task>
-    <option name="localTasksCounter" value="193" />
+    <task id="LOCAL-00193" summary="new metaphor - Strategic Asset">
+      <created>1413122826222</created>
+      <updated>1413122826223</updated>
+    </task>
+    <option name="localTasksCounter" value="194" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -4007,7 +3954,7 @@
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3336475" sideWeight="0.4989953" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33553252" sideWeight="0.5010047" order="13" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26791695" sideWeight="0.48902822" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26791695" sideWeight="0.48902822" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24916276" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32893497" sideWeight="0.4989953" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -4067,7 +4014,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="1st iteration - create headline node from within node editor" />
     <MESSAGE value="refactor - get rid of SHARED Access Scope for FMMs" />
     <MESSAGE value="new feature - long press expand/collapse control in TreeView will expand/collapse that node and all of its peers" />
     <MESSAGE value="new feature - can open an FMM from the FMM Management dialog without going back to the FMM Selection dialog" />
@@ -4092,7 +4038,8 @@
     <MESSAGE value="new feature - Keyboard Shortcuts Dialog available from menu, context sensitive" />
     <MESSAGE value="functional tweak - GcgKeyboardShortcutsDialog - label includes name of Keyboard Shortcuts Profile" />
     <MESSAGE value="new custom GcgWidget - GcgWidgetWebLink" />
-    <option name="LAST_COMMIT_MESSAGE" value="new custom GcgWidget - GcgWidgetWebLink" />
+    <MESSAGE value="new metaphor - Strategic Asset" />
+    <option name="LAST_COMMIT_MESSAGE" value="new metaphor - Strategic Asset" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -4112,113 +4059,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/helper/GcgActivityHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.88605696" vertical-offset="701" max-vertical-offset="1445">
-          <caret line="127" column="51" selection-start-line="127" selection-start-column="51" selection-end-line="127" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/activity/GcgActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="5435" max-vertical-offset="14263">
-          <caret line="457" column="120" selection-start-line="457" selection-start-column="120" selection-end-line="457" selection-end-column="120" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/menu/fse__activity_menu__default.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1122">
-          <caret line="7" column="38" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/activity/FmmNodeEditorActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.53523237" vertical-offset="306" max-vertical-offset="7769">
-          <caret line="124" column="5" selection-start-line="124" selection-start-column="5" selection-end-line="124" selection-end-column="5" />
-          <folding>
-            <element signature="e#5365#5366#0" expanded="true" />
-            <element signature="e#5410#5411#0" expanded="true" />
-            <element signature="e#5466#5467#0" expanded="true" />
-            <element signature="e#5523#5524#0" expanded="true" />
-            <element signature="e#17906#17907#0" expanded="true" />
-            <element signature="e#17924#17925#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/activity/FmsWizardActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1844" max-vertical-offset="2584">
-          <caret line="191" column="36" selection-start-line="191" selection-start-column="36" selection-end-line="191" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/menu/fms__wizard_menu__default.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.025" vertical-offset="153" max-vertical-offset="1122">
-          <caret line="10" column="59" selection-start-line="10" selection-start-column="59" selection-end-line="10" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/widget/GcgWidgetTextViewSummaryBox.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8" vertical-offset="1394" max-vertical-offset="2074">
-          <caret line="181" column="4" selection-start-line="181" selection-start-column="4" selection-end-line="181" selection-end-column="4" />
-          <folding>
-            <element signature="e#6056#6057#0" expanded="true" />
-            <element signature="e#6098#6099#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-gcongui/src/main/res/layout/gcg__widget__text_view__summary_box.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="833">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/widget/GcgWidgetTextViewSummaryBox.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1428" max-vertical-offset="2108">
-          <caret line="181" column="40" selection-start-line="181" selection-start-column="40" selection-end-line="181" selection-end-column="40" />
-          <folding>
-            <element signature="e#6056#6057#0" expanded="true" />
-            <element signature="e#6098#6099#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/enumerator/GcgPhysicalKeyboardShortcutProfile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.65" vertical-offset="0" max-vertical-offset="680">
-          <caret line="67" column="16" selection-start-line="67" selection-start-column="16" selection-end-line="67" selection-end-column="16" />
-          <folding>
-            <element signature="e#2332#2384#0" expanded="false" />
-            <element signature="e#2422#2483#0" expanded="false" />
-            <element signature="e#2422#2483#0" expanded="false" />
-            <element signature="e#2594#2646#0" expanded="false" />
-            <element signature="e#2944#2945#0" expanded="false" />
-            <element signature="e#2992#2993#0" expanded="false" />
-            <element signature="e#2944#2945#0" expanded="false" />
-            <element signature="e#2992#2993#0" expanded="false" />
-            <element signature="e#3030#3031#0" expanded="false" />
-            <element signature="e#3082#3083#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fms-workbench/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="4.1" vertical-offset="0" max-vertical-offset="2975">
@@ -4571,14 +4411,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/values/fms__strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3536">
-          <caret line="8" column="53" selection-start-line="8" selection-start-column="53" selection-end-line="8" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fms-gcongui/src/main/res/values/gcongui__strings.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="1751">
@@ -4587,28 +4419,333 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/values/fmm__dictionary__strings.xml">
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/context/FmmPerspective.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.535714" vertical-offset="1718" max-vertical-offset="2805">
-          <caret line="116" column="36" selection-start-line="116" selection-start-column="36" selection-end-line="116" selection-end-column="36" />
+        <state vertical-scroll-proportion="-0.25204584" vertical-offset="6053" max-vertical-offset="8653">
+          <caret line="393" column="41" selection-start-line="393" selection-start-column="41" selection-end-line="393" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/commitment/StrategicCommitment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1496">
+          <caret line="52" column="13" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/values/fms__strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3536">
+          <caret line="8" column="53" selection-start-line="8" selection-start-column="53" selection-end-line="8" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/database/sqlite/dao/StrategicAssetDaoSqLite.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.05" vertical-offset="0" max-vertical-offset="680">
+          <caret line="2" column="66" selection-start-line="2" selection-start-column="66" selection-end-line="2" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/persistence/PersistenceTechnologyDelegateSqLite.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.21939275" vertical-offset="28302" max-vertical-offset="52343">
+          <caret line="1814" column="45" selection-start-line="1814" selection-start-column="45" selection-end-line="1814" selection-end-column="45" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/enumerator/FmmNodeDefinition.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.625" vertical-offset="15029" max-vertical-offset="37893">
-          <caret line="1010" column="21" selection-start-line="1010" selection-start-column="18" selection-end-line="1010" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.47979274" vertical-offset="14922" max-vertical-offset="41565">
+          <caret line="905" column="58" selection-start-line="905" selection-start-column="58" selection-end-line="905" selection-end-column="58" />
           <folding>
-            <element signature="e#8105#8156#0" expanded="true" />
+            <element signature="e#0#133966#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#7410#7472#0" expanded="true" />
+            <element signature="e#7480#7542#0" expanded="true" />
+            <element signature="e#8123#8168#0" expanded="true" />
+            <element signature="e#8176#8227#0" expanded="true" />
+            <element signature="e#8848#8910#0" expanded="true" />
+            <element signature="e#8918#8980#0" expanded="true" />
+            <element signature="e#9576#9628#0" expanded="true" />
+            <element signature="e#9636#9694#0" expanded="true" />
+            <element signature="e#10417#10504#0" expanded="true" />
+            <element signature="e#10512#10599#0" expanded="true" />
+            <element signature="e#11260#11346#0" expanded="true" />
+            <element signature="e#11354#11440#0" expanded="true" />
+            <element signature="e#12049#12108#0" expanded="true" />
+            <element signature="e#12116#12175#0" expanded="true" />
+            <element signature="e#12784#12843#0" expanded="true" />
+            <element signature="e#12851#12910#0" expanded="true" />
+            <element signature="e#13528#13590#0" expanded="true" />
+            <element signature="e#13598#13660#0" expanded="true" />
+            <element signature="e#14263#14320#0" expanded="true" />
+            <element signature="e#14328#14385#0" expanded="true" />
+            <element signature="e#14973#15025#0" expanded="true" />
+            <element signature="e#15033#15091#0" expanded="true" />
+            <element signature="e#15755#15837#0" expanded="true" />
+            <element signature="e#15845#15927#0" expanded="true" />
+            <element signature="e#16527#16581#0" expanded="true" />
+            <element signature="e#16589#16649#0" expanded="true" />
+            <element signature="e#17293#17365#0" expanded="true" />
+            <element signature="e#17373#17445#0" expanded="true" />
+            <element signature="e#18031#18078#0" expanded="true" />
+            <element signature="e#18086#18139#0" expanded="true" />
+            <element signature="e#18782#18843#0" expanded="true" />
+            <element signature="e#18857#18918#0" expanded="true" />
+            <element signature="e#19611#19663#0" expanded="true" />
+            <element signature="e#19668#19726#0" expanded="true" />
+            <element signature="e#20320#20369#0" expanded="true" />
+            <element signature="e#20377#20432#0" expanded="true" />
+            <element signature="e#21059#21125#0" expanded="true" />
+            <element signature="e#21133#21199#0" expanded="true" />
+            <element signature="e#21843#21898#0" expanded="true" />
+            <element signature="e#21906#21961#0" expanded="true" />
+            <element signature="e#22557#22610#0" expanded="true" />
+            <element signature="e#22618#22671#0" expanded="true" />
+            <element signature="e#23266#23311#0" expanded="true" />
+            <element signature="e#23319#23364#0" expanded="true" />
+            <element signature="e#23953#24001#0" expanded="true" />
+            <element signature="e#24009#24057#0" expanded="true" />
+            <element signature="e#24641#24690#0" expanded="true" />
+            <element signature="e#24698#24747#0" expanded="true" />
+            <element signature="e#25353#25387#0" expanded="true" />
+            <element signature="e#25395#25429#0" expanded="true" />
+            <element signature="e#26053#26092#0" expanded="true" />
+            <element signature="e#26100#26139#0" expanded="true" />
+            <element signature="e#26733#26784#0" expanded="true" />
+            <element signature="e#26792#26849#0" expanded="true" />
+            <element signature="e#27482#27550#0" expanded="true" />
+            <element signature="e#27558#27626#0" expanded="true" />
+            <element signature="e#28247#28312#0" expanded="true" />
+            <element signature="e#28320#28385#0" expanded="true" />
+            <element signature="e#28979#29030#0" expanded="true" />
+            <element signature="e#29038#29089#0" expanded="true" />
+            <element signature="e#29700#29759#0" expanded="true" />
+            <element signature="e#29767#29826#0" expanded="true" />
+            <element signature="e#30439#30492#0" expanded="true" />
+            <element signature="e#30500#30553#0" expanded="true" />
+            <element signature="e#31153#31201#0" expanded="true" />
+            <element signature="e#31209#31257#0" expanded="true" />
+            <element signature="e#31843#31890#0" expanded="true" />
+            <element signature="e#31898#31945#0" expanded="true" />
+            <element signature="e#32527#32572#0" expanded="true" />
+            <element signature="e#32580#32625#0" expanded="true" />
+            <element signature="e#33230#33288#0" expanded="true" />
+            <element signature="e#33296#33354#0" expanded="true" />
+            <element signature="e#33951#34008#0" expanded="true" />
+            <element signature="e#34016#34073#0" expanded="true" />
+            <element signature="e#34672#34720#0" expanded="true" />
+            <element signature="e#34728#34776#0" expanded="true" />
+            <element signature="e#35374#35431#0" expanded="true" />
+            <element signature="e#35439#35496#0" expanded="true" />
+            <element signature="e#36099#36144#0" expanded="true" />
+            <element signature="e#36152#36197#0" expanded="true" />
+            <element signature="e#36821#36884#0" expanded="true" />
+            <element signature="e#36892#36955#0" expanded="true" />
+            <element signature="e#37540#37584#0" expanded="true" />
+            <element signature="e#37592#37642#0" expanded="true" />
+            <element signature="e#38277#38346#0" expanded="true" />
+            <element signature="e#38354#38423#0" expanded="true" />
+            <element signature="e#39019#39067#0" expanded="true" />
+            <element signature="e#39075#39129#0" expanded="true" />
+            <element signature="e#39749#39814#0" expanded="true" />
+            <element signature="e#39822#39887#0" expanded="true" />
+            <element signature="e#40510#40576#0" expanded="true" />
+            <element signature="e#40584#40650#0" expanded="true" />
+            <element signature="e#41261#41321#0" expanded="true" />
+            <element signature="e#41329#41389#0" expanded="true" />
+            <element signature="e#42005#42067#0" expanded="true" />
+            <element signature="e#42075#42137#0" expanded="true" />
+            <element signature="e#42731#42774#0" expanded="true" />
+            <element signature="e#42782#42825#0" expanded="true" />
+            <element signature="e#43412#43457#0" expanded="true" />
+            <element signature="e#43465#43516#0" expanded="true" />
+            <element signature="e#44114#44157#0" expanded="true" />
+            <element signature="e#44165#44214#0" expanded="true" />
+            <element signature="e#44805#44854#0" expanded="true" />
+            <element signature="e#44862#44917#0" expanded="true" />
+            <element signature="e#45620#45683#0" expanded="true" />
+            <element signature="e#45691#45754#0" expanded="true" />
+            <element signature="e#46348#46400#0" expanded="true" />
+            <element signature="e#46408#46466#0" expanded="true" />
+            <element signature="e#47083#47139#0" expanded="true" />
+            <element signature="e#47147#47209#0" expanded="true" />
+            <element signature="e#47824#47875#0" expanded="true" />
+            <element signature="e#47883#47940#0" expanded="true" />
+            <element signature="e#48579#48648#0" expanded="true" />
+            <element signature="e#48656#48725#0" expanded="true" />
+            <element signature="e#49339#49401#0" expanded="true" />
+            <element signature="e#49409#49471#0" expanded="true" />
+            <element signature="e#50107#50158#0" expanded="true" />
+            <element signature="e#50172#50229#0" expanded="true" />
+            <element signature="e#50914#50970#0" expanded="true" />
+            <element signature="e#50978#51034#0" expanded="true" />
+            <element signature="e#51634#51689#0" expanded="true" />
+            <element signature="e#51697#51758#0" expanded="true" />
+            <element signature="e#52371#52420#0" expanded="true" />
+            <element signature="e#52428#52483#0" expanded="true" />
+            <element signature="e#53112#53178#0" expanded="true" />
+            <element signature="e#53186#53252#0" expanded="true" />
+            <element signature="e#53856#53910#0" expanded="true" />
+            <element signature="e#53918#53972#0" expanded="true" />
+            <element signature="e#54555#54605#0" expanded="true" />
+            <element signature="e#54610#54660#0" expanded="true" />
+            <element signature="e#55257#55319#0" expanded="true" />
+            <element signature="e#55324#55386#0" expanded="true" />
+            <element signature="e#56008#56081#0" expanded="true" />
+            <element signature="e#56086#56159#0" expanded="true" />
+            <element signature="e#56741#56789#0" expanded="true" />
+            <element signature="e#56797#56851#0" expanded="true" />
+            <element signature="e#57512#57557#0" expanded="true" />
+            <element signature="e#57565#57616#0" expanded="true" />
+            <element signature="e#58205#58250#0" expanded="true" />
+            <element signature="e#58258#58309#0" expanded="true" />
+            <element signature="e#58919#58975#0" expanded="true" />
+            <element signature="e#58983#59039#0" expanded="true" />
+            <element signature="e#59834#59853#0" expanded="true" />
+            <element signature="e#60573#60600#0" expanded="true" />
+            <element signature="e#61457#61484#0" expanded="true" />
+            <element signature="e#62063#62108#0" expanded="true" />
+            <element signature="e#62649#62657#0" expanded="true" />
+            <element signature="e#64814#64833#0" expanded="true" />
+            <element signature="e#65250#65269#0" expanded="true" />
+            <element signature="e#66826#66827#0" expanded="true" />
+            <element signature="e#66859#66860#0" expanded="true" />
+            <element signature="e#66940#66948#0" expanded="true" />
+            <element signature="e#67497#67516#0" expanded="true" />
+            <element signature="e#127226#127227#0" expanded="true" />
+            <element signature="e#127254#127255#0" expanded="true" />
+            <element signature="e#127287#127288#0" expanded="true" />
+            <element signature="e#127315#127316#0" expanded="true" />
+            <element signature="e#127357#127358#0" expanded="true" />
+            <element signature="e#127375#127376#0" expanded="true" />
+            <element signature="e#127420#127421#0" expanded="true" />
+            <element signature="e#127448#127449#0" expanded="true" />
+            <element signature="e#127508#127509#0" expanded="true" />
+            <element signature="e#127542#127543#0" expanded="true" />
+            <element signature="e#127590#127591#0" expanded="true" />
+            <element signature="e#127613#127614#0" expanded="true" />
+            <element signature="e#127672#127673#0" expanded="true" />
+            <element signature="e#127703#127704#0" expanded="true" />
+            <element signature="e#127751#127752#0" expanded="true" />
+            <element signature="e#127774#127775#0" expanded="true" />
+            <element signature="e#127815#127816#0" expanded="true" />
+            <element signature="e#127838#127839#0" expanded="true" />
+            <element signature="e#127890#127891#0" expanded="true" />
+            <element signature="e#127918#127919#0" expanded="true" />
+            <element signature="e#127963#127964#0" expanded="true" />
+            <element signature="e#128000#128001#0" expanded="true" />
+            <element signature="e#128041#128042#0" expanded="true" />
+            <element signature="e#128084#128085#0" expanded="true" />
+            <element signature="e#128132#128133#0" expanded="true" />
+            <element signature="e#128184#128185#0" expanded="true" />
+            <element signature="e#128229#128230#0" expanded="true" />
+            <element signature="e#128275#128276#0" expanded="true" />
+            <element signature="e#128329#128330#0" expanded="true" />
+            <element signature="e#128387#128388#0" expanded="true" />
+            <element signature="e#128438#128439#0" expanded="true" />
+            <element signature="e#128490#128491#0" expanded="true" />
+            <element signature="e#128540#128541#0" expanded="true" />
+            <element signature="e#128572#128573#0" expanded="true" />
+            <element signature="e#128628#128629#0" expanded="true" />
+            <element signature="e#128670#128671#0" expanded="true" />
+            <element signature="e#128718#128719#0" expanded="true" />
+            <element signature="e#128749#128750#0" expanded="true" />
+            <element signature="e#128811#128812#0" expanded="true" />
+            <element signature="e#128855#128856#0" expanded="true" />
+            <element signature="e#128917#128918#0" expanded="true" />
+            <element signature="e#128966#128967#0" expanded="true" />
+            <element signature="e#129028#129029#0" expanded="true" />
+            <element signature="e#129078#129079#0" expanded="true" />
+            <element signature="e#129114#129115#0" expanded="true" />
+            <element signature="e#129184#129185#0" expanded="true" />
+            <element signature="e#129217#129218#0" expanded="true" />
+            <element signature="e#129245#129246#0" expanded="true" />
+            <element signature="e#130004#130005#0" expanded="true" />
+            <element signature="e#130041#130042#0" expanded="true" />
+            <element signature="e#130719#130720#0" expanded="true" />
+            <element signature="e#130762#130763#0" expanded="true" />
+            <element signature="e#132300#132301#0" expanded="true" />
+            <element signature="e#132344#132345#0" expanded="true" />
+            <element signature="e#133716#133717#0" expanded="true" />
+            <element signature="e#133761#133762#0" expanded="true" />
+            <element signature="e#133806#133807#0" expanded="true" />
+            <element signature="e#133849#133850#0" expanded="true" />
+            <element signature="e#133885#133886#0" expanded="true" />
+            <element signature="e#133962#133963#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/context/FmmPerspective.java">
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/values/fmm__dictionary__strings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41571194" vertical-offset="5645" max-vertical-offset="8653">
-          <caret line="393" column="41" selection-start-line="393" selection-start-column="41" selection-end-line="393" selection-end-column="41" />
+        <state vertical-scroll-proportion="0.24663213" vertical-offset="1275" max-vertical-offset="2839">
+          <caret line="89" column="637" selection-start-line="89" selection-start-column="637" selection-end-line="89" selection-end-column="637" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/meta_data/ProjectAssetMetaData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.09864604" vertical-offset="0" max-vertical-offset="1034">
+          <caret line="47" column="31" selection-start-line="47" selection-start-column="31" selection-end-line="47" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/meta_data/StrategicAssetMetaData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.065764025" vertical-offset="0" max-vertical-offset="1034">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/database/sqlite/dao/ProjectAssetDaoSqLite.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4410058" vertical-offset="71" max-vertical-offset="1105">
+          <caret line="83" column="97" selection-start-line="83" selection-start-column="97" selection-end-line="83" selection-end-column="97" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-workbench/src/main/assets/database/ddl/sqlite/ProjectAsset.ddl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.18085106" vertical-offset="0" max-vertical-offset="1034">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/completable/FmmCompletableNodeImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="16" max-vertical-offset="5117">
+          <caret line="74" column="11" selection-start-line="74" selection-start-column="11" selection-end-line="74" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/governable/ProjectAsset.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="305" max-vertical-offset="5134">
+          <caret line="115" column="10" selection-start-line="115" selection-start-column="10" selection-end-line="115" selection-end-column="10" />
+          <folding>
+            <element signature="e#5527#5528#0" expanded="true" />
+            <element signature="e#5548#5549#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/governable/StrategicAsset.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.325" vertical-offset="0" max-vertical-offset="680">
+          <caret line="15" column="27" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
           <folding />
         </state>
       </provider>

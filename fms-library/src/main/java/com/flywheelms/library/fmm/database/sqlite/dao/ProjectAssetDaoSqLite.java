@@ -74,6 +74,7 @@ public class ProjectAssetDaoSqLite extends CompletableNodeDaoSqLite<ProjectAsset
 	protected void buildColumnIndexMap(Cursor aCursor) {
 		super.buildColumnIndexMap(aCursor);
 		putColumnIndexMapEntry(this.columnIndexMap, aCursor, ProjectAssetMetaData.column_PROJECT_ID);
+		putColumnIndexMapEntry(this.columnIndexMap, aCursor, ProjectAssetMetaData.column_IS_STRATEGIC);
 		putColumnIndexMapEntry(this.columnIndexMap, aCursor, CompletableNodeMetaData.column_SEQUENCE);
 	}
 
@@ -81,6 +82,7 @@ public class ProjectAssetDaoSqLite extends CompletableNodeDaoSqLite<ProjectAsset
 	protected void getColumnValues(HashMap<String, Integer> aHashMap, Cursor aCursor, ProjectAsset aProjectAsset) {
 		super.getColumnValues(aHashMap, aCursor, aProjectAsset);
 		aProjectAsset.setProjectNodeIdString(aCursor.getString(aHashMap.get(ProjectAssetMetaData.column_PROJECT_ID)));
+		aProjectAsset.setStrategic(aCursor.getInt(aHashMap.get(ProjectAssetMetaData.column_IS_STRATEGIC)));
 		aProjectAsset.setSequence(aCursor.getInt(aHashMap.get(CompletableNodeMetaData.column_SEQUENCE)));
 	}
 
@@ -88,6 +90,7 @@ public class ProjectAssetDaoSqLite extends CompletableNodeDaoSqLite<ProjectAsset
 	public ContentValues buildContentValues(ProjectAsset aProjectAsset) {
 		ContentValues theContentValues = super.buildContentValues(aProjectAsset);
 		theContentValues.put(ProjectAssetMetaData.column_PROJECT_ID, aProjectAsset.getProjectNodeIdString());
+		theContentValues.put(ProjectAssetMetaData.column_IS_STRATEGIC, aProjectAsset.getStrategicAsInt());
 		theContentValues.put(CompletableNodeMetaData.column_SEQUENCE, aProjectAsset.getSequence());
 		return theContentValues;
 	}

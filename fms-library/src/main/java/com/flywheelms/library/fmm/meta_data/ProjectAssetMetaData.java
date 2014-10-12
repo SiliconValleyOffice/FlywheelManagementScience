@@ -46,6 +46,7 @@ package com.flywheelms.library.fmm.meta_data;
 public class ProjectAssetMetaData extends CompletableNodeMetaData {
 
 	public static final String column_PROJECT_ID = "Project__id";
+	public static final String column_IS_STRATEGIC = "is_strategic";
 	public static final String child_fractals_WORK_PACKAGE_LIST = "WorkPackageList";
 	
 	public static void init() { return; }

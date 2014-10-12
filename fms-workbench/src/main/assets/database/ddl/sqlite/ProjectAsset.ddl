@@ -4,7 +4,8 @@ CREATE TABLE `ProjectAsset` (
   `headline` VARCHAR(256) NOT NULL ,
   `Project__id` CHAR(40) NULL ,
   `sequence` INT(11) NULL ,
+  `is_strategic` TINYINT NULL DEFAULT 0 ,
   PRIMARY KEY (`_id`) ,
   CONSTRAINT `fk_ProjectAsset_Project1`
     FOREIGN KEY (`Project__id` )
-    REFERENCES `Project` (`_id` ) )
+    REFERENCES `Project` (`_id` ) );

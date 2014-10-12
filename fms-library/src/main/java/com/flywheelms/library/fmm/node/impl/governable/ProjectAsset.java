@@ -90,6 +90,7 @@ public class ProjectAsset extends FmmCompletableNodeImpl implements Comparable<P
 	private static final long serialVersionUID = -3645381005646011918L;
 	private String projectNodeIdString;
 	private Project project;
+    private boolean strategic = false;
 	private String flywheelTeamNodeIdString;
 	private FlywheelTeam flywheelTeam;
 	private ArrayList<WorkPackage> workPackageList;
@@ -103,6 +104,7 @@ public class ProjectAsset extends FmmCompletableNodeImpl implements Comparable<P
 		super(ProjectAsset.class, aJsonObject);
 		try {
 			setProjectNodeIdString(aJsonObject.getString(ProjectAssetMetaData.column_PROJECT_ID));
+			setStrategic(aJsonObject.getBoolean(ProjectAssetMetaData.column_IS_STRATEGIC));
 			setSequence(aJsonObject.getInt(CompletableNodeMetaData.column_SEQUENCE));
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
@@ -114,11 +116,10 @@ public class ProjectAsset extends FmmCompletableNodeImpl implements Comparable<P
 		super(aNodeId);
 	}
 	
-	public ProjectAsset(String aExistingNodeIdString) {
+	public ProjectAsset(String anExistingNodeIdString) {
 		super(NodeId.hydrate(
 				ProjectAsset.class,
-				aExistingNodeIdString ));
-		// TODO Auto-generated constructor stub
+				anExistingNodeIdString ));
 	}
 
 	public String getFlywheelTeamNodeIdString() {
@@ -219,6 +220,7 @@ public class ProjectAsset extends FmmCompletableNodeImpl implements Comparable<P
 		try {
 			theJsonObject.put(JsonHelper.key__SERIALIZATION_FORMAT_VERSION, SERIALIZATION_FORMAT_VERSION);
 			theJsonObject.put(ProjectAssetMetaData.column_PROJECT_ID, getProjectNodeIdString());
+			theJsonObject.put(ProjectAssetMetaData.column_IS_STRATEGIC, isStrategic());
 			theJsonObject.put(SequencedLinkNodeMetaData.column_SEQUENCE, getSequence());
 		} catch (JSONException e) {
 			e.printStackTrace();
@@ -375,5 +377,21 @@ public class ProjectAsset extends FmmCompletableNodeImpl implements Comparable<P
                 break;
         }
         return theList;
+    }
+
+    public boolean isStrategic() {
+        return this.strategic;
+    }
+
+    public int getStrategicAsInt() {
+        return this.strategic ? 1 : 0;
+    }
+
+    public void setStrategic(boolean bStrategic) {
+        this.strategic = bStrategic;
+    }
+
+    public void setStrategic(int intStrategic) {
+        this.strategic = intStrategic > 0;
     }
 }

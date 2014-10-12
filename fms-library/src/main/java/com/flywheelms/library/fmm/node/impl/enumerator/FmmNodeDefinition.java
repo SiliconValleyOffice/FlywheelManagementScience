@@ -74,6 +74,7 @@ import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
 import com.flywheelms.library.fmm.node.impl.governable.ServiceOffering;
 import com.flywheelms.library.fmm.node.impl.governable.ServiceOfferingSla;
 import com.flywheelms.library.fmm.node.impl.governable.ServiceRequest;
+import com.flywheelms.library.fmm.node.impl.governable.StrategicAsset;
 import com.flywheelms.library.fmm.node.impl.governable.StrategicMilestone;
 import com.flywheelms.library.fmm.node.impl.governable.StrategyTeam;
 import com.flywheelms.library.fmm.node.impl.governable.WorkPackage;
@@ -993,6 +994,21 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // medium drawables
     		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // large drawables
     		10059 ),
+    STRATEGIC_ASSET (
+            StrategicAsset.class,
+            "SAT",
+            R.string.fmm_node_definition__strategic_asset__term,
+            R.string.fmm_node_definition__strategic_asset__definition,
+            R.drawable.fmm_noun__strategic_asset__gray,
+            0,
+            R.drawable.fms_activity__project_asset,
+            R.drawable.fms_dialog__project_asset,
+            new HashMap<FmmNodeGlyphType, Integer>(),
+            new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // tiny drawables
+            new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // small drawables
+            new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // medium drawables
+            new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // large drawables
+            10074 ),
     STRATEGIC_COMMITMENT (
     		StrategicCommitment.class,
     		"SCT",
@@ -1267,6 +1283,7 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.SERVICE_OFFERING.getNodeTypeCode());
 		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.SERVICE_OFFERING_SLA.getNodeTypeCode());
 		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.SERVICE_REQUEST.getNodeTypeCode());
+		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.STRATEGIC_ASSET.getNodeTypeCode());
 		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.STRATEGIC_MILESTONE.getNodeTypeCode());
 		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.STRATEGY_TEAM.getNodeTypeCode());
 		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.WORK_PACKAGE.getNodeTypeCode());
@@ -1307,6 +1324,7 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 		DECKANGL__NODE_LIST.add(FmmNodeDefinition.SERVICE_OFFERING);
 		DECKANGL__NODE_LIST.add(FmmNodeDefinition.SERVICE_OFFERING_SLA);
 		DECKANGL__NODE_LIST.add(FmmNodeDefinition.SERVICE_REQUEST);
+		DECKANGL__NODE_LIST.add(FmmNodeDefinition.STRATEGIC_ASSET);
 		DECKANGL__NODE_LIST.add(FmmNodeDefinition.STRATEGIC_MILESTONE);
 		DECKANGL__NODE_LIST.add(FmmNodeDefinition.STRATEGY_TEAM);
 		DECKANGL__NODE_LIST.add(FmmNodeDefinition.WORK_PACKAGE);
@@ -1489,6 +1507,17 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 				DecKanGlNounStateColor.PINK, (BitmapDrawable) GcgApplication.getAppResources().getDrawable(R.drawable.fmm_noun__service_request__pink__tiny) );
 		FmmNodeDefinition.SERVICE_REQUEST.getNounStateBitmapTableTiny().put(
 				DecKanGlNounStateColor.GREEN, (BitmapDrawable) GcgApplication.getAppResources().getDrawable(R.drawable.fmm_noun__service_request__green__tiny) );
+
+        FmmNodeDefinition.STRATEGIC_ASSET.getNounStateBitmapTableTiny().put(
+                DecKanGlNounStateColor.GRAY, (BitmapDrawable) GcgApplication.getAppResources().getDrawable(R.drawable.fmm_noun__strategic_asset__gray__tiny) );
+        FmmNodeDefinition.STRATEGIC_ASSET.getNounStateBitmapTableTiny().put(
+                DecKanGlNounStateColor.YELLOW, (BitmapDrawable) GcgApplication.getAppResources().getDrawable(R.drawable.fmm_noun__strategic_asset__yellow__tiny) );
+        FmmNodeDefinition.STRATEGIC_ASSET.getNounStateBitmapTableTiny().put(
+                DecKanGlNounStateColor.ORANGE, (BitmapDrawable) GcgApplication.getAppResources().getDrawable(R.drawable.fmm_noun__strategic_asset__orange__tiny) );
+        FmmNodeDefinition.STRATEGIC_ASSET.getNounStateBitmapTableTiny().put(
+                DecKanGlNounStateColor.PINK, (BitmapDrawable) GcgApplication.getAppResources().getDrawable(R.drawable.fmm_noun__strategic_asset__pink__tiny) );
+        FmmNodeDefinition.STRATEGIC_ASSET.getNounStateBitmapTableTiny().put(
+                DecKanGlNounStateColor.GREEN, (BitmapDrawable) GcgApplication.getAppResources().getDrawable(R.drawable.fmm_noun__strategic_asset__green__tiny) );
 
 		FmmNodeDefinition.STRATEGIC_MILESTONE.getNounStateBitmapTableTiny().put(
 				DecKanGlNounStateColor.GRAY, (BitmapDrawable) GcgApplication.getAppResources().getDrawable(R.drawable.fmm_noun__strategic_milestone__gray__tiny) );
@@ -1850,6 +1879,17 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 				FmmNodeGlyphType.PINK, R.drawable.fmm_noun__service_request_triage_log__pink);
 		FmmNodeDefinition.SERVICE_REQUEST_TRIAGE_LOG.getNodeGlyphResourceIdMap().put(
 				FmmNodeGlyphType.YELLOW, R.drawable.fmm_noun__service_request_triage_log__yellow);
+        //  STRATEGIC ASSET
+        FmmNodeDefinition.STRATEGIC_ASSET.getNodeGlyphResourceIdMap().put(
+                FmmNodeGlyphType.GRAY, R.drawable.fmm_noun__strategic_asset__gray);
+        FmmNodeDefinition.STRATEGIC_ASSET.getNodeGlyphResourceIdMap().put(
+                FmmNodeGlyphType.GREEN, R.drawable.fmm_noun__strategic_asset__green);
+        FmmNodeDefinition.STRATEGIC_ASSET.getNodeGlyphResourceIdMap().put(
+                FmmNodeGlyphType.ORANGE, R.drawable.fmm_noun__strategic_asset__orange);
+        FmmNodeDefinition.STRATEGIC_ASSET.getNodeGlyphResourceIdMap().put(
+                FmmNodeGlyphType.PINK, R.drawable.fmm_noun__strategic_asset__pink);
+        FmmNodeDefinition.STRATEGIC_ASSET.getNodeGlyphResourceIdMap().put(
+                FmmNodeGlyphType.YELLOW, R.drawable.fmm_noun__strategic_asset__yellow);
 		//  STRATEGIC MILESTONE
 		FmmNodeDefinition.STRATEGIC_MILESTONE.getNodeGlyphResourceIdMap().put(
 				FmmNodeGlyphType.ADD_ITEM, R.drawable.fmm_noun__strategic_milestone__add_item);
