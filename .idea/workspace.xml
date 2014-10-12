@@ -42,10 +42,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c0b3b16b-24dc-4ad0-83f8-e1821de85d20" name="Default" comment="new custom GcgWidget - GcgWidgetWebLink">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/perspective__story.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/context/FmmPerspective.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/context/FmmPerspective.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/values/fmm__dictionary__strings.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/values/fmm__dictionary__strings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/design/gui/Image Library/GcgKeyboard.xcf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/design/gui/Image Library/GcgWebLink.xcf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/design/gui/Image Library/StrategicAsset.xcf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/design/gui/Image Library/StrategicAsset__16.xcf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/design/gui/Image Library/StrategicAsset__32.xcf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/design/gui/Image Library/StrategicAsset__37.xcf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-ldpi/fmm_noun__strategic_asset__gray.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-nodpi/fmm_noun__strategic_asset__gray.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-ldpi/fmm_noun__strategic_asset__green.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-nodpi/fmm_noun__strategic_asset__green.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-ldpi/fmm_noun__strategic_asset__orange.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-nodpi/fmm_noun__strategic_asset__orange.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-ldpi/fmm_noun__strategic_asset__pink.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-nodpi/fmm_noun__strategic_asset__pink.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-ldpi/fmm_noun__strategic_asset__yellow.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-nodpi/fmm_noun__strategic_asset__yellow.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/strategic_asset__gray__32.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/strategic_asset__green__32.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/strategic_asset__orange__32.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/strategic_asset__pink__32.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/strategic_asset__yellow__32.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="flywheelms-hd.iws" />
@@ -2902,6 +2919,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="fms-library" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flywheelms-hd" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flywheel-management-science" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="fms-gcongui" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -3948,7 +3979,11 @@
       <created>1413050006477</created>
       <updated>1413050006478</updated>
     </task>
-    <option name="localTasksCounter" value="192" />
+    <task id="LOCAL-00192" summary="new custom GcgWidget - GcgWidgetWebLink">
+      <created>1413074838235</created>
+      <updated>1413074838235</updated>
+    </task>
+    <option name="localTasksCounter" value="193" />
     <servers />
   </component>
   <component name="ToolWindowManager">
