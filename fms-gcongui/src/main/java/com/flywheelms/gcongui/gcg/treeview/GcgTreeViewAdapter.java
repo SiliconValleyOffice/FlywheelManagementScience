@@ -64,6 +64,7 @@ import com.flywheelms.gcongui.gcg.GcgApplication;
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.gcongui.gcg.helper.GcgGuiHelper;
 import com.flywheelms.gcongui.gcg.helper.GcgHelper;
+import com.flywheelms.gcongui.gcg.interfaces.GcgPerspective;
 import com.flywheelms.gcongui.gcg.treeview.interfaces.GcgTreeViewParent;
 import com.flywheelms.gcongui.gcg.treeview.node.GcgTreeNodeInfo;
 
@@ -543,5 +544,9 @@ public abstract class GcgTreeViewAdapter extends BaseAdapter {
 	}
 
     public void resetRowBackground(View aView) {  }
+
+    public GcgPerspective getGcgPerspective() {
+        return gcgTreeViewParent.getGcgPerspective();
+    }
 
 }

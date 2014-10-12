@@ -46,6 +46,7 @@ package com.flywheelms.library.fms.popup_menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.flywheelms.gcongui.gcg.interfaces.GcgPerspective;
 import com.flywheelms.gcongui.gcg.treeview.node.GcgTreeNodeInfo;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 
@@ -61,5 +62,7 @@ public interface FmmHeadlineNodePopupListener {
 			int aLaunchNodeChildNodeCount );
 
 	 public void resetRowBackground(View aView);
+
+    public GcgPerspective getGcgPerspective();
 
 }

@@ -474,6 +474,10 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
 		}
 	}
 
+    public FmmPerspective getFmsPerspective() {
+        return (FmmPerspective) getGcgPerspective();
+    }
+
     protected void sequenceDown(GcgTreeNodeInfo aLaunchTreeNodeInfo, FmmHeadlineNode aHeadlineNode, FmmHeadlineNode aParentHeadlineNode) {
 		getGcgActivity().startGreenActivityStatusAnimation();
 		FmmDatabaseMediator.getActiveMediator().swapSequence(aHeadlineNode, (FmmHeadlineNode) getNextPeerObject(aLaunchTreeNodeInfo), aParentHeadlineNode);

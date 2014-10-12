@@ -43,6 +43,7 @@
 
 package com.flywheelms.library.fms.treeview.filter;
 
+import com.flywheelms.gcongui.gcg.interfaces.GcgPerspective;
 import com.flywheelms.gcongui.gcg.treeview.interfaces.GcgTreeViewParent;
 import com.flywheelms.gcongui.gcg.treeview.node.GcgTreeNodeInfo;
 import com.flywheelms.library.fmm.context.FmmFrame;
@@ -73,5 +74,7 @@ public interface FmsTreeViewParent extends GcgTreeViewParent {
             ArrayList<? extends FmmHeadlineNode> aPeerHeadlineNodeShallowList,
             String aParentNodeIdString,
             String aNodeIdStringToDisplay);
+
+    GcgPerspective getGcgPerspective();
 
 }

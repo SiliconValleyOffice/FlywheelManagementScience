@@ -96,6 +96,14 @@ public class FmmPopupBuilder {
 	public static final String menu_item__EDIT_STRATEGIC_MILESTONES = "Edit Strategic Milestones...";
 	public static final String menu_item__DELETE_STRATEGIC_MILESTONE = "Delete Strategic Milestone...";
 	public static final String menu_item__MOVE_STRATEGIC_MILESTONE = "Move Strategic Milestone...";
+
+    public static final String menu_item__CREATE_STRATEGIC_ASSET = "Create Strategic Asset...";
+    public static final String menu_item__EDIT_STRATEGIC_ASSETS = "Edit Strategic Assets...";
+    public static final String menu_item__DELETE_STRATEGIC_ASSET = "Delete Strategic Asset...";
+    public static final String menu_item__DEMOTE_STRATEGIC_ASSET = "Demote Strategic Asset...";
+    public static final String menu_item__MOVE_STRATEGIC_ASSET = "Move Strategic Asset...";
+    public static final String menu_item__PROMOTE_PROJECT_ASSET_TO_STRATEGIC = "Select Project Asset as strategic...";
+
 	public static final String menu_item__ADOPT_ORPHAN_WORK_PACKAGE = "Adopt orphan Work Package...";
 	public static final String menu_item__CREATE_WORK_PACKAGE = "Create Work Package...";
 	public static final String menu_item__EDIT_WORK_PACKAGES = "Edit Work Packages...";
@@ -144,16 +152,18 @@ public class FmmPopupBuilder {
 		switch (theLaunchHeadlineNode.getFmmNodeDefinition()) {
 		case FISCAL_YEAR:
 			return createFiscalYearPopupMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, aLaunchNodeChildCount);
-		case PROJECT_ASSET:
-			return createProjectAssetPopupMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, bCanMove, bCanOrphan, bCanSequenceDown, bCanSequenceUp, aLaunchNodeSequence, aLaunchNodeChildCount);
-		case STRATEGIC_MILESTONE:
-			return createStrategicMilestonePopupMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, bCanMove, bCanOrphan, bCanSequenceDown, bCanSequenceUp, aLaunchNodeSequence, aLaunchNodeChildCount);
         case FLYWHEEL_CADENCE:
             return createFlywheelCadencePopupMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, bCanMove, bCanOrphan, bCanSequenceDown, bCanSequenceUp, aLaunchNodeSequence, aLaunchNodeChildCount);
         case PORTFOLIO:
             return createPortfolioPopupMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, aLaunchNodeChildCount);
         case PROJECT:
             return createProjectPopupMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, bCanMove, bCanOrphan, bCanSequenceDown, bCanSequenceUp, aLaunchNodeSequence, aLaunchNodeChildCount);
+        case PROJECT_ASSET:
+            return createProjectAssetPopupMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, bCanMove, bCanOrphan, bCanSequenceDown, bCanSequenceUp, aLaunchNodeSequence, aLaunchNodeChildCount);
+        case STRATEGIC_ASSET:
+            return createStrategicAssetPopupMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, bCanMove, bCanOrphan, bCanSequenceDown, bCanSequenceUp, aLaunchNodeSequence, aLaunchNodeChildCount);
+        case STRATEGIC_MILESTONE:
+            return createStrategicMilestonePopupMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, bCanMove, bCanOrphan, bCanSequenceDown, bCanSequenceUp, aLaunchNodeSequence, aLaunchNodeChildCount);
         case WORK_PACKAGE:
             return createWorkPackagePopupMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, bCanMove, bCanOrphan, bCanSequenceDown, bCanSequenceUp, aLaunchNodeSequence, aLaunchNodeChildCount);
         case WORK_PLAN:
@@ -232,11 +242,11 @@ public class FmmPopupBuilder {
 		}
 		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_HEADLINE);
 		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_STRATEGIC_MILESTONE_TARGET_DATE);
-		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_PROJECT_ASSET);
+		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_STRATEGIC_ASSET);
         if(aLaunchNodeChildCount > 0) {
-            thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_PROJECT_ASSETS);
+            thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_STRATEGIC_ASSETS);
         }
-		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__ADOPT_ORPHAN_PROJECT_ASSET);
+		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__PROMOTE_PROJECT_ASSET_TO_STRATEGIC);
 		return thePopupMenu;
 	}
 
@@ -329,6 +339,47 @@ public class FmmPopupBuilder {
 		}
 		if(bCanOrphan) {
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__ORPHAN_PROJECT_ASSET);
+		}
+		if(bCanSequenceUp) {
+			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__SEQUENCE_FIRST);
+			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__SEQUENCE_UP);
+		}
+		if(bCanSequenceDown) {
+			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__SEQUENCE_DOWN);
+			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__SEQUENCE_LAST);
+		}
+		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_HEADLINE);
+		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_WORK_PACKAGE);
+        if(aLaunchNodeChildCount > 0) {
+            thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_WORK_PACKAGES);
+        }
+		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__ADOPT_ORPHAN_WORK_PACKAGE);
+		return thePopupMenu;
+	}
+
+	private static PopupMenu createStrategicAssetPopupMenu(
+			FmmHeadlineNodePopupListener aNodePopupListener,
+			GcgTreeNodeInfo aLaunchTreeNodeInfo,
+			FmmHeadlineNode aLaunchHeadlineNode,
+			FmmHeadlineNode aParentHeadlineNode,
+			View aView,
+			boolean bCanDelete,
+			boolean bCanMove,
+			boolean bCanOrphan,
+			boolean bCanSequenceUp,
+			boolean bCanSequenceDown,
+			int aLaunchNodeSequence,
+			int aLaunchNodeChildCount ) {
+        FmmHeadlineNodePopupMenu thePopupMenu = new FmmHeadlineNodePopupMenu(
+				aNodePopupListener, aView, aLaunchHeadlineNode, aParentHeadlineNode, aLaunchTreeNodeInfo, aLaunchNodeSequence, aLaunchNodeChildCount );
+		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_STRATEGIC_ASSET);
+		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__PROMOTE_PROJECT_ASSET_TO_STRATEGIC);
+		if(bCanDelete) {
+			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__DELETE_STRATEGIC_ASSET);
+			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__DEMOTE_STRATEGIC_ASSET);
+		}
+		if(bCanMove) {
+			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__MOVE_STRATEGIC_ASSET);
 		}
 		if(bCanSequenceUp) {
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__SEQUENCE_FIRST);
