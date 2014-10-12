@@ -114,8 +114,7 @@
 &#8226; facilitate a collaboration session\n
 &#8226; organizally capture document consensus (paragraph locking)\n
 &#8226; create a historical document\n
-&#8226; captures lessons learned\n\n
-FSE documents can be shared using the "Publish PDF" menu option.  The publishing wizard provides options on which document sections should be published, and the publishing destination.  Destinations for the PDF file include any combination of a Dropbox folder, HpEprint printer, and email recipients.  An additional note may be included with the emailed PDF.</string>
+&#8226; captures lessons learned\n\nFSE documents can be shared using the "Publish PDF" menu option.  The publishing wizard provides options on which document sections should be published, and the publishing destination.  Destinations for the PDF file include any combination of a Dropbox folder, HpEprint printer, and email recipients.  An additional note may be included with the emailed PDF.</string>
     <string name="fmm_frame_definition__quality">Quality</string>
     <string name="fmm_frame_definition__team">Team</string>
     <string name="fmm_frame_definition__tribkn">TribKn&#8482; - Tribal Knowledge</string>
@@ -140,7 +139,17 @@ FSE documents can be shared using the "Publish PDF" menu option.  The publishing
     <string name="fmm_perspective_definition__service_delivery">Service Delivery</string>
     <string name="fmm_perspective_definition__strategic_planning">Strategic Planning</string>
     <string name="fmm_perspective_definition__strategy_teams">Strategy Teams</string>
-    <string name="fmm_perspective_definition__story">Story</string>
+    <string name="fmm_perspective_definition__story">Story is the 1st of 4 sections of a Flywheel Story Editor&#8482; (FSE) document.  Each FMM (Flywheel Management Model) node can have a Story, and most should.\n\nA Story captures the \'who\', \'what\' and \'why\' of an FMM node.  At a minimum, it should include what you (and the rest of the room) were thinking at the time you created the FMM node, supplementing the Headline of the node.\n\nThe story should always be of sufficient quality and completeness to share with the Sponsor or Customer in an ad-hoc meeting or during a chance hallway conversation.  It should always be the basis for answering questions from sponsors, customers or other stakeholders such as:\n
+&#8226; What is this FMM node?\n
+&#8226; Why should we care?\n
+&#8226; What other people/stakeholders should care?\n
+&#8226; Who can help us make this complete?\n
+&#8226; What are the special challenges?\n
+&#8226; What are the special opportunities?\n\nThe story should continually evolve as new information is discovered and shared.  Whenever a conversation or line of questioning turns to a specific FMM node, whether in a meeting or a hallway conversation, you should immediately open that story on your tablet and be ready to capture all new information and/or questions.  The Flywheel Dictation Keyboard&#8482; makes it very easy to focus on the conversation at hand, while capturing well structured text for high-fidelity editing at a later time.\n\nThe story should be long enough to cover the subject, but short enough to hold the attention of the reader.  It should only contain information that is appropriate to share with stakeholders outside the team (but still inside the organization or trusted partners).  Information that is more informal, speculative, unconfirmed, or not for general consumption, should instead be added to the Notes section of the FSE document.\n\nThere are 2 common mistakes when authoring a story:\n
+&#8226; Including details in the story which should more appropriately, and\n
+                  &#160; usefully, appear in the stories for child nodes of this Fmm node\n
+&#8226; Including content that should more appripriately be included in Notes,\n
+                  &#160; at least until such time as the information can be confirmed\n\nStories should be well organized, well structured, and properly sequenced; taking full advantage of the highly efficient paragraph styling and sequencing features of FSE.  Remember, the story is the public face of the FMM node and should be easily digestable and understood by a wide audience of stakeholders (as well as those who must do the actual work).\n\nStories should be of sufficient quality to look good when included in a formal presentation, project document, or as an attachment to an RFP or other contractual document.  Maintaining good stories will keep you from wasting any time repackaging this information for these other purposes, and enable you to be instantly responsive to such requests.\n\nFSE\'s paragraph locking feature should be used to manage and document the evolving consensus around a Story (and optionally Notes).  This is a great way to incrementally "lock down" a document for sign-off as it matures.\n\nAs with Notes, FSE maintains a complete history of who has edited the Story, when, and what they specifically changed (or deleted).  All prior versions of the Story can be viewed and recovered.</string>
     <string name="fmm_perspective_definition__suggested_commitments">Suggested Commitments</string>
     <string name="fmm_perspective_definition__tribkn">TribKn&#8482; - Tribal Knowledge</string>
     <string name="fmm_perspective_definition__withdrawn_commitments">Withdrawn Commitments</string>

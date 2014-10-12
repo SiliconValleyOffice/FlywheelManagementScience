@@ -391,7 +391,7 @@ public class FmmPerspective extends GcgPerspective {
     public static FmmPerspective STORY = new FmmPerspective(
             R.string.fmm_perspective__story,
             R.string.fmm_perspective_definition__story,
-            R.drawable.fse__button__story,
+            R.drawable.perspective__story,
             R.id.context_button__strategic_planning,
             0,
                     true,
