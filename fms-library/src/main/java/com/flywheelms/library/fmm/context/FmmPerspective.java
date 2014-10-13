@@ -44,7 +44,6 @@ package com.flywheelms.library.fmm.context;
 import com.flywheelms.gcongui.gcg.interfaces.GcgPerspective;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
-import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmNode;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -61,7 +60,7 @@ public class FmmPerspective extends GcgPerspective {
                     true,
                     true,
                     false,
-                    new ArrayList<FmmNode>(Arrays.asList(
+                    new ArrayList<FmmNodeDefinition>(Arrays.asList(
                         FmmNodeDefinition.BOOKSHELF,
                         FmmNodeDefinition.NOTEBOOK,
                         FmmNodeDefinition.DISCUSSION_TOPIC,
@@ -82,7 +81,7 @@ public class FmmPerspective extends GcgPerspective {
                     true,
                     true,
                     false,
-                    new ArrayList<FmmNode>(Arrays.asList(
+                    new ArrayList<FmmNodeDefinition>(Arrays.asList(
                         FmmNodeDefinition.BOOKSHELF,
                         FmmNodeDefinition.NOTEBOOK,
                         FmmNodeDefinition.DISCUSSION_TOPIC,
@@ -103,7 +102,7 @@ public class FmmPerspective extends GcgPerspective {
                     true,
                     true,
                     false,
-                    new ArrayList<FmmNode>(Arrays.asList(
+                    new ArrayList<FmmNodeDefinition>(Arrays.asList(
                         FmmNodeDefinition.FMS_ORGANIZATION,
                         FmmNodeDefinition.STRATEGY_TEAM,
                         FmmNodeDefinition.FLYWHEEL_TEAM,
@@ -122,7 +121,7 @@ public class FmmPerspective extends GcgPerspective {
                     true,
                     true,
                     false,
-                    new ArrayList<FmmNode>(Arrays.asList(
+                    new ArrayList<FmmNodeDefinition>(Arrays.asList(
                         FmmNodeDefinition.FMS_ORGANIZATION,
                         FmmNodeDefinition.STRATEGY_TEAM,
                         FmmNodeDefinition.FLYWHEEL_TEAM,
@@ -141,7 +140,7 @@ public class FmmPerspective extends GcgPerspective {
                     true,
                     true,
                     false,
-                    new ArrayList<FmmNode>(Arrays.asList(
+                    new ArrayList<FmmNodeDefinition>(Arrays.asList(
                         FmmNodeDefinition.FMS_ORGANIZATION,
                         FmmNodeDefinition.STRATEGY_TEAM,
                         FmmNodeDefinition.FLYWHEEL_TEAM,
@@ -160,7 +159,7 @@ public class FmmPerspective extends GcgPerspective {
                     true,
                     true,
                     false,
-                    new ArrayList<FmmNode>(Arrays.asList(
+                    new ArrayList<FmmNodeDefinition>(Arrays.asList(
                         FmmNodeDefinition.FMS_ORGANIZATION,
                         FmmNodeDefinition.STRATEGY_TEAM,
                         FmmNodeDefinition.FLYWHEEL_TEAM,
@@ -179,7 +178,7 @@ public class FmmPerspective extends GcgPerspective {
                     true,
                     true,
                     false,
-                    new ArrayList<FmmNode>(Arrays.asList(
+                    new ArrayList<FmmNodeDefinition>(Arrays.asList(
                         FmmNodeDefinition.FMS_ORGANIZATION,
                         FmmNodeDefinition.STRATEGY_TEAM,
                         FmmNodeDefinition.FLYWHEEL_TEAM,
@@ -198,7 +197,7 @@ public class FmmPerspective extends GcgPerspective {
                     true,
                     true,
                     false,
-                    new ArrayList<FmmNode>(Arrays.asList(
+                    new ArrayList<FmmNodeDefinition>(Arrays.asList(
                         FmmNodeDefinition.FMS_ORGANIZATION,
                         FmmNodeDefinition.STRATEGY_TEAM,
                         FmmNodeDefinition.FLYWHEEL_TEAM,
@@ -217,7 +216,7 @@ public class FmmPerspective extends GcgPerspective {
                     true,
                     true,
                     false,
-                    new ArrayList<FmmNode>(Arrays.asList(
+                    new ArrayList<FmmNodeDefinition>(Arrays.asList(
                         FmmNodeDefinition.GOVERNANCE_TARGET,
                         FmmNodeDefinition.FACILITATION_ISSUE)
 
@@ -233,7 +232,7 @@ public class FmmPerspective extends GcgPerspective {
                     true,
                     true,
                     false,
-                    new ArrayList<FmmNode>(Arrays.asList(
+                    new ArrayList<FmmNodeDefinition>(Arrays.asList(
                         FmmNodeDefinition.GOVERNANCE_TARGET,
                         FmmNodeDefinition.FACILITATION_ISSUE)
 
@@ -249,7 +248,7 @@ public class FmmPerspective extends GcgPerspective {
                     true,
                     true,
                     false,
-                    new ArrayList<FmmNode>(Arrays.asList(
+                    new ArrayList<FmmNodeDefinition>(Arrays.asList(
                         FmmNodeDefinition.GOVERNANCE_TARGET,
                         FmmNodeDefinition.FACILITATION_ISSUE)
 
@@ -265,7 +264,7 @@ public class FmmPerspective extends GcgPerspective {
                     true,
                     true,
                     false,
-                    new ArrayList<FmmNode>(Arrays.asList(
+                    new ArrayList<FmmNodeDefinition>(Arrays.asList(
                         FmmNodeDefinition.GOVERNANCE_ROLE,
                         FmmNodeDefinition.COMMUNITY_MEMBER,
                         FmmNodeDefinition.GOVERNANCE_TARGET)
@@ -282,7 +281,7 @@ public class FmmPerspective extends GcgPerspective {
                     true,
                     true,
                     false,
-                    new ArrayList<FmmNode>(Arrays.asList(
+                    new ArrayList<FmmNodeDefinition>(Arrays.asList(
                         FmmNodeDefinition.GOVERNANCE_ROLE,
                         FmmNodeDefinition.COMMUNITY_MEMBER,
                         FmmNodeDefinition.GOVERNANCE_TARGET)
@@ -299,7 +298,7 @@ public class FmmPerspective extends GcgPerspective {
                     true,
                     true,
                     false,
-                    new ArrayList<FmmNode>(Arrays.asList(
+                    new ArrayList<FmmNodeDefinition>(Arrays.asList(
                         FmmNodeDefinition.GOVERNANCE_TARGET,
                         FmmNodeDefinition.FACILITATION_ISSUE)
 
@@ -315,7 +314,7 @@ public class FmmPerspective extends GcgPerspective {
                     true,
                     true,
                     false,
-                    new ArrayList<FmmNode>(Arrays.asList(
+                    new ArrayList<FmmNodeDefinition>(Arrays.asList(
                         FmmNodeDefinition.GOVERNANCE_TARGET,
                         FmmNodeDefinition.FACILITATION_ISSUE)
 
@@ -331,7 +330,7 @@ public class FmmPerspective extends GcgPerspective {
                     true,
                     true,
                     false,
-                    new ArrayList<FmmNode>(Arrays.asList(
+                    new ArrayList<FmmNodeDefinition>(Arrays.asList(
                         FmmNodeDefinition.GOVERNANCE_TARGET,
                         FmmNodeDefinition.FACILITATION_ISSUE)
 
@@ -347,7 +346,7 @@ public class FmmPerspective extends GcgPerspective {
                     true,
                     true,
                     false,
-                    new ArrayList<FmmNode>(Arrays.asList(
+                    new ArrayList<FmmNodeDefinition>(Arrays.asList(
                         FmmNodeDefinition.FISCAL_YEAR,
                         FmmNodeDefinition.FLYWHEEL_CADENCE,
                         FmmNodeDefinition.SERVICE_REQUEST_TRIAGE_LOG,
@@ -365,7 +364,7 @@ public class FmmPerspective extends GcgPerspective {
                     true,
                     true,
                     false,
-                    new ArrayList<FmmNode>(Arrays.asList(
+                    new ArrayList<FmmNodeDefinition>(Arrays.asList(
                         FmmNodeDefinition.FISCAL_YEAR,
                         FmmNodeDefinition.STRATEGIC_MILESTONE,
                         FmmNodeDefinition.PROJECT_ASSET)
@@ -381,10 +380,10 @@ public class FmmPerspective extends GcgPerspective {
                     true,
                     true,
                     false,
-                    new ArrayList<FmmNode>(Arrays.asList(
+                    new ArrayList<FmmNodeDefinition>(Arrays.asList(
                         FmmNodeDefinition.FISCAL_YEAR,
                         FmmNodeDefinition.STRATEGIC_MILESTONE,
-                        FmmNodeDefinition.PROJECT_ASSET)
+                        FmmNodeDefinition.STRATEGIC_ASSET)
 
     ));
 
@@ -397,7 +396,7 @@ public class FmmPerspective extends GcgPerspective {
                     true,
                     true,
                     false,
-                    new ArrayList<FmmNode>(Arrays.asList(
+                    new ArrayList<FmmNodeDefinition>(Arrays.asList(
                         FmmNodeDefinition.FISCAL_YEAR,
                         FmmNodeDefinition.STRATEGIC_MILESTONE,
                         FmmNodeDefinition.PROJECT_ASSET)
@@ -414,7 +413,7 @@ public class FmmPerspective extends GcgPerspective {
                     true,
                     true,
                     false,
-                    new ArrayList<FmmNode>(Arrays.asList(
+                    new ArrayList<FmmNodeDefinition>(Arrays.asList(
                         FmmNodeDefinition.GOVERNANCE_TARGET,
                         FmmNodeDefinition.FACILITATION_ISSUE)
 
@@ -429,7 +428,7 @@ public class FmmPerspective extends GcgPerspective {
                     false,
                     false,
                     false,
-                    new ArrayList<FmmNode>(Arrays.asList(
+                    new ArrayList<FmmNodeDefinition>(Arrays.asList(
                         FmmNodeDefinition.GOVERNANCE_TARGET,
                         FmmNodeDefinition.FACILITATION_ISSUE)
 
@@ -444,7 +443,7 @@ public class FmmPerspective extends GcgPerspective {
                     true,
                     true,
                     false,
-                    new ArrayList<FmmNode>(Arrays.asList(
+                    new ArrayList<FmmNodeDefinition>(Arrays.asList(
                         FmmNodeDefinition.FISCAL_YEAR,
                         FmmNodeDefinition.STRATEGIC_MILESTONE,
                         FmmNodeDefinition.PROJECT_ASSET)
@@ -461,7 +460,7 @@ public class FmmPerspective extends GcgPerspective {
                     true,
                     true,
                     false,
-                    new ArrayList<FmmNode>(Arrays.asList(
+                    new ArrayList<FmmNodeDefinition>(Arrays.asList(
                         FmmNodeDefinition.PORTFOLIO,
                         FmmNodeDefinition.PROJECT,
                         FmmNodeDefinition.PROJECT_ASSET,
@@ -479,7 +478,7 @@ public class FmmPerspective extends GcgPerspective {
                     true,
                     true,
                     false,
-                    new ArrayList<FmmNode>(Arrays.asList(
+                    new ArrayList<FmmNodeDefinition>(Arrays.asList(
                         FmmNodeDefinition.FISCAL_YEAR,
                         FmmNodeDefinition.FLYWHEEL_CADENCE,
                         FmmNodeDefinition.WORK_PLAN,
@@ -530,7 +529,7 @@ public class FmmPerspective extends GcgPerspective {
         return (FmmPerspective) getObjectForName(aName);
     }
 
-    private ArrayList<FmmNode> treeNodeTypeList = new ArrayList<FmmNode>();
+    private ArrayList<FmmNodeDefinition> treeNodeTypeList = new ArrayList<FmmNodeDefinition>();
 
     private FmmPerspective(
             int aNameStringResourceId,
@@ -541,12 +540,16 @@ public class FmmPerspective extends GcgPerspective {
             boolean bEnabled,
             boolean bShowPerspective,
             boolean bShowNoOpPrototype,
-            ArrayList<FmmNode> aTreeNodeTypeList) {
+            ArrayList<FmmNodeDefinition> aTreeNodeTypeList) {
         super(aNameStringResourceId, aDictionaryDefinitionResourceId, anIconDrawableResourceId, aButtonResourceId, aMenuSequence, bEnabled, bShowPerspective, bShowNoOpPrototype);
         this.treeNodeTypeList = aTreeNodeTypeList;
     }
 
-    public ArrayList<FmmNode> getTreeNodeTypeList() {
+    public ArrayList<FmmNodeDefinition> getTreeNodeTypeList() {
         return this.treeNodeTypeList;
+    }
+
+    public FmmNodeDefinition getRootNodeDefinition() {
+        return this.treeNodeTypeList.get(0);
     }
 }

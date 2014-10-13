@@ -55,6 +55,7 @@ import com.flywheelms.gcongui.gcg.dialog.GcgCancelDialog;
 import com.flywheelms.gcongui.gcg.interfaces.GcgPerspective;
 import com.flywheelms.gcongui.gcg.widget.GcgWidgetTextViewSummaryBox;
 import com.flywheelms.library.R;
+import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fms.widget.spinner.FmmFrameWidgetSpinner;
 import com.flywheelms.library.fms.widget.spinner.FmmNounWidgetSpinner;
@@ -78,11 +79,20 @@ public class FmsDictionaryDialog extends GcgCancelDialog {
         this.initialFmmNodeDefinition = aNodeDefinition;
         this.initialFmmFrame = aFrame;
         this.initialFmmPerspective = aPerspective;
+        adjustInitialValues();
         initialSetup();
         initializeNounTab();
         initializePerspectiveTab();
         initializeFrameTab();
         this.tabbedLayout.setCurrentTab(0);
+    }
+
+    private void adjustInitialValues() {
+        if(this.initialFmmNodeDefinition == null || this.initialFmmNodeDefinition == FmmNodeDefinition.FMM_CONFIGURATION) {
+            if(this.initialFmmPerspective != null) {
+                this.initialFmmNodeDefinition = ((FmmPerspective) this.initialFmmPerspective).getRootNodeDefinition();
+            }
+        }
     }
 
     @Override
