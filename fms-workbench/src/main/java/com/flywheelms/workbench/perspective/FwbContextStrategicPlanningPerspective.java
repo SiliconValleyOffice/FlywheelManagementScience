@@ -58,7 +58,7 @@ import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
-import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
+import com.flywheelms.library.fmm.node.impl.governable.StrategicAsset;
 import com.flywheelms.library.fmm.node.impl.governable.StrategicMilestone;
 import com.flywheelms.library.fms.helper.FmsHelpIndex;
 import com.flywheelms.library.fms.popup_menu.FmmPopupBuilder;
@@ -129,13 +129,13 @@ public class FwbContextStrategicPlanningPerspective extends FmsPerspectiveFlippe
 			GcgTreeNodeInfo theFiscalYearTreeNodeInfo = theTreeBuilder.addTopNode(
 					theFiscalYear, theStrategicMilestoneCollection.size()>0, FmmPerspective.STRATEGIC_PLANNING );
 			for(StrategicMilestone theStrategicMilestone : theStrategicMilestoneCollection) {
-				Collection<ProjectAsset> theProjectAssetCollection =
-						FmmDatabaseMediator.getActiveMediator().listProjectAsset(theStrategicMilestone);
+				Collection<StrategicAsset> theStrategicAssetCollection =
+						FmmDatabaseMediator.getActiveMediator().listStrategicAsset(theStrategicMilestone);
 				GcgTreeNodeInfo theStrategicMilestoneTreeNodeInfo = theTreeBuilder.addChildNode(
-						theStrategicMilestone, theProjectAssetCollection.size()>0, theFiscalYearTreeNodeInfo, FmmPerspective.STRATEGIC_PLANNING);
-				for(ProjectAsset theProjectAsset : theProjectAssetCollection) {
+						theStrategicMilestone, theStrategicAssetCollection.size()>0, theFiscalYearTreeNodeInfo, FmmPerspective.STRATEGIC_PLANNING);
+				for(StrategicAsset theStrategicAsset : theStrategicAssetCollection) {
                     GcgTreeNodeInfo theTreeNodeInfo = theTreeBuilder.addLeafNode(
-							theProjectAsset, theStrategicMilestoneTreeNodeInfo, FmmPerspective.STRATEGIC_PLANNING);
+							theStrategicAsset, theStrategicMilestoneTreeNodeInfo, FmmPerspective.STRATEGIC_PLANNING);
                     theTreeNodeInfo.setLeafNode(true);
 				}
 			}

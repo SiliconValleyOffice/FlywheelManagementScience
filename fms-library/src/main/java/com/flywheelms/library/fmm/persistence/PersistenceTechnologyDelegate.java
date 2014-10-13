@@ -57,6 +57,7 @@ import com.flywheelms.library.fmm.node.impl.governable.FmsOrganization;
 import com.flywheelms.library.fmm.node.impl.governable.Portfolio;
 import com.flywheelms.library.fmm.node.impl.governable.Project;
 import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
+import com.flywheelms.library.fmm.node.impl.governable.StrategicAsset;
 import com.flywheelms.library.fmm.node.impl.governable.StrategicMilestone;
 import com.flywheelms.library.fmm.node.impl.governable.WorkPackage;
 import com.flywheelms.library.fmm.node.impl.governable.WorkPlan;
@@ -594,7 +595,7 @@ public abstract class PersistenceTechnologyDelegate {
 		
 		public abstract ArrayList<ProjectAsset> dbListProjectAssets(Project aProject, ProjectAsset aProjectAssetException);
 		
-		public abstract ArrayList<ProjectAsset> dbListProjectsAssetForProject(String aProjectId, String aProjectAssetExceptionId);
+		public abstract ArrayList<ProjectAsset> dbListProjectAssetsForProject(String aProjectId, String aProjectAssetExceptionId);
 		
 		public abstract ArrayList<ProjectAsset> dbListProjectAsset(StrategicMilestone aStrategicMilestone);
 		
@@ -608,7 +609,7 @@ public abstract class PersistenceTechnologyDelegate {
 
 		public abstract ArrayList<ProjectAsset> dbListProjectAssetOrphansFromProject();
 
-		public abstract ArrayList<ProjectAsset> dbListProjectAssetOrphansFromStrategicMilestone();
+		public abstract ArrayList<ProjectAsset> dbListProjectAssetWhichAreNotStrategic();
 		
 		public abstract ProjectAsset dbRetrieveProjectAsset(String aNodeIdString);
 
@@ -683,6 +684,8 @@ public abstract class PersistenceTechnologyDelegate {
 		public abstract boolean dbUpdateStrategicCommitment(StrategicCommitment aStrategicCommitment, boolean bAtomicTransaction);
 
 		public abstract boolean dbDeleteStrategicCommitment(StrategicCommitment aStrategicCommitment, boolean bAtomicTransaction);
+
+        public abstract boolean dbDeleteStrategicCommitment(String aStrategicCommitmentId, String aProjectAssetId, boolean bAtomicTransaction);
 
 
 		/////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -810,7 +813,7 @@ public abstract class PersistenceTechnologyDelegate {
 
     
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //////  Node - FLYWHEEL MILESTONE  ///////////////////////////////////////////////////////////////////////////////////
+    //////  Node - FLYWHEEL CADENCE  ///////////////////////////////////////////////////////////////////////////////////
 
     public abstract ArrayList<FlywheelCadence> dbListFlywheelCadence(String aFiscalYearId);
 
@@ -819,4 +822,30 @@ public abstract class PersistenceTechnologyDelegate {
     public abstract ArrayList<FlywheelCadence> dbListFlywheelCadence(FiscalYear aFiscalYear, FlywheelCadence aFlywheelCadenceException);
 
     public abstract ArrayList<FlywheelCadence> dbListFlywheelCadenceForFiscalYear(String aFiscalYearId, String aFlywheelCadenceExceptiionId);
+
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////  Node - STRATEGIC ASSET  ///////////////////////////////////////////////////////////////////////////////////
+
+    public abstract boolean dbUpdateStrategicAsset(StrategicAsset aStrategicAsset, boolean bAtomicTransaction);
+
+    public abstract boolean dbMoveAllStrategicAssetsIntoStrategicMilestone(String aSourceStrateticMilestoneId, String aDestinationStrategicMilestoneId, boolean bSequenceAtEnd, boolean bAtomicTransaction);
+
+    public abstract boolean dbInsertStrategicAsset(StrategicAsset aStrategicAsset, boolean bAtomicTransaction);
+
+    public abstract StrategicAsset dbRetrieveStrategicAsset(String aNodeIdString);
+
+    public abstract ArrayList<StrategicAsset> dbListStrategicAssetsForStrategicMilestone(String aStrategicMilestoneId, String aStrategicAssetExceptionId);
+
+    public abstract ArrayList<StrategicAsset> dbListStrategicAssets(StrategicMilestone aStrategicMilestone, StrategicAsset aStrategicAssetException);
+
+    public abstract ArrayList<StrategicAsset> dbListStrategicAssets(StrategicMilestone aStrategicMilestone);
+
+    public abstract boolean dbMoveSingleStrategicAssetIntoStrategicMilestone(String aStrategicAssetId, String anOriginalStrategicMilestonetId, String aDestinationStrategicMilestoneId, boolean bSequenceAtEnd, boolean bAtomicTransaction);
+
+    public abstract ArrayList<StrategicAsset> dbListStrategicAssetsWithNoProject();
+
+    public abstract boolean dbUpdateProjectAssetIsStrategic(String aProjectAssetId, boolean bStrategic);
+
+    public abstract boolean dbDeleteStrategicAsset(StrategicAsset aStrategicAsset, boolean bAtomicTransaction);
 }

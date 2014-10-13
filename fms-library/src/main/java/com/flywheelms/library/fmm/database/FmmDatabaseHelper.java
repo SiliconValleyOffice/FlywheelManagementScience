@@ -84,14 +84,14 @@ public class FmmDatabaseHelper {
 
 	private static void deleteOldFmmConfiguration(FmmConfiguration anFmmConfigurationToRetain, SQLiteDatabase aDatabase) {
 		aDatabase.beginTransaction();
-    	aDatabase.delete(FmmNodeDefinition.FMM_CONFIGURATION.getName(), IdNodeMetaData.column_ID + "!=?", new String[] {anFmmConfigurationToRetain.getNodeIdString()});
+    	aDatabase.delete(FmmNodeDefinition.FMM_CONFIGURATION.getTableName(), IdNodeMetaData.column_ID + "!=?", new String[] {anFmmConfigurationToRetain.getNodeIdString()});
 		aDatabase.setTransactionSuccessful();
 		aDatabase.endTransaction();
 	}
 
 	private static void deleteOldFmsOrganization(FmsOrganization anFmsOrganizationToRetain, SQLiteDatabase aDatabase) {
 		aDatabase.beginTransaction();
-		aDatabase.delete(FmmNodeDefinition.FMS_ORGANIZATION.getName(), IdNodeMetaData.column_ID + "!=?", new String[] {anFmsOrganizationToRetain.getNodeIdString()});
+		aDatabase.delete(FmmNodeDefinition.FMS_ORGANIZATION.getTableName(), IdNodeMetaData.column_ID + "!=?", new String[] {anFmsOrganizationToRetain.getNodeIdString()});
 		aDatabase.setTransactionSuccessful();
 		aDatabase.endTransaction();
 	}
@@ -99,7 +99,7 @@ public class FmmDatabaseHelper {
 	private static void insertNewFmsOrganization(FmsOrganization anFmsOrganization, SQLiteDatabase aDatabase) {
 		aDatabase.beginTransaction();
 		ContentValues theContentValues = FmsOrganizationDaoSqLite.getInstance().buildContentValues(anFmsOrganization);
-    	aDatabase.insert(FmmNodeDefinition.FMS_ORGANIZATION.getName(), null, theContentValues);
+    	aDatabase.insert(FmmNodeDefinition.FMS_ORGANIZATION.getTableName(), null, theContentValues);
 		aDatabase.setTransactionSuccessful();
 		aDatabase.endTransaction();
 	}
@@ -107,7 +107,7 @@ public class FmmDatabaseHelper {
 	private static void insertNewFmmConfiguration(FmmConfiguration anFmmConfiguration, SQLiteDatabase aDatabase) {
 		aDatabase.beginTransaction();
 		ContentValues theContentValues = FmmConfigurationDaoSqLite.getInstance().buildContentValues(anFmmConfiguration);
-    	aDatabase.insert(FmmNodeDefinition.FMM_CONFIGURATION.getName(), null, theContentValues);
+    	aDatabase.insert(FmmNodeDefinition.FMM_CONFIGURATION.getTableName(), null, theContentValues);
 		aDatabase.setTransactionSuccessful();
 		aDatabase.endTransaction();
 	}
@@ -127,7 +127,7 @@ public class FmmDatabaseHelper {
 	}
 
 	private static void moveRowsToOrganization(SQLiteDatabase aDatabase, FmmNodeDefinition anFmmNodeDefinition, FmsOrganization anOrganization) {
-		aDatabase.execSQL("UPDATE " + anFmmNodeDefinition.getName() +
+		aDatabase.execSQL("UPDATE " + anFmmNodeDefinition.getTableName() +
 				" SET " + FiscalYearMetaData.column_ORGANIZATION_ID + " = '" + anOrganization.getNodeIdString() + "'");
 	}
 

@@ -996,13 +996,14 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     		10059 ),
     STRATEGIC_ASSET (
             StrategicAsset.class,
+            ProjectAsset.class.getSimpleName(),
             "SAT",
             R.string.fmm_node_definition__strategic_asset__term,
             R.string.fmm_node_definition__strategic_asset__definition,
             R.drawable.fmm_noun__strategic_asset__gray,
             0,
-            R.drawable.fms_activity__project_asset,
-            R.drawable.fms_dialog__project_asset,
+            R.drawable.fms_activity__strategic_asset,
+            R.drawable.fms_dialog__strategic_asset,
             new HashMap<FmmNodeGlyphType, Integer>(),
             new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // tiny drawables
             new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // small drawables
@@ -2118,6 +2119,7 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 	private final Class<? extends FmmNode> nodeClass;
 	private final String nodeTypeCode;
 	private final String className;
+	private final String tableName;
 	private final int dictionaryTermResourceId;
 	private final String dictionaryTermText;
     private final int dictionaryDefinitionResourceId;
@@ -2140,8 +2142,42 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 	private FmmNodeDefinition primaryChildNodeDefinition;
 	private FmmNodeDefinition secondaryChildNodeDefinition;
 
+    FmmNodeDefinition(
+            Class<? extends FmmNode> aNodeClass,
+            String aNodeTypeCode,
+            int aDictionaryTermResourceId,
+            int aDictionaryDefinitionResourceId,
+            int aLabelDrawableResourceId,
+            int aPickerDrawableResourceId,
+            int anActivityDrawableResourceId,
+            int aDialogDrawableResourceId,
+            HashMap<FmmNodeGlyphType, Integer> aNodeGlyphResourceIdMap,
+            Hashtable<DecKanGlNounStateColor, BitmapDrawable> aNounStateBitmapTableTiny,
+            Hashtable<DecKanGlNounStateColor, BitmapDrawable> aNounStateBitmapTableSmall,
+            Hashtable<DecKanGlNounStateColor, BitmapDrawable> aNounStateBitmapTableMedium,
+            Hashtable<DecKanGlNounStateColor, BitmapDrawable> aNounStateBitmapTableLarge,
+            int anActivityRequestCode ) {
+        this(
+                aNodeClass,
+                aNodeClass.getSimpleName(),
+                aNodeTypeCode,
+                aDictionaryTermResourceId,
+                aDictionaryDefinitionResourceId,
+                aLabelDrawableResourceId,
+                aPickerDrawableResourceId,
+                anActivityDrawableResourceId,
+                aDialogDrawableResourceId,
+                aNodeGlyphResourceIdMap,
+                aNounStateBitmapTableTiny,
+                aNounStateBitmapTableSmall,
+                aNounStateBitmapTableMedium,
+                aNounStateBitmapTableLarge,
+                anActivityRequestCode );
+    }
+
 	FmmNodeDefinition(
 			Class<? extends FmmNode> aNodeClass,
+            String aTableName,
 			String aNodeTypeCode,
 			int aDictionaryTermResourceId,
 			int aDictionaryDefinitionResourceId,
@@ -2158,6 +2194,7 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 		this.nodeClass = aNodeClass;
 		this.nodeTypeCode = aNodeTypeCode;
 		this.className = aNodeClass.getSimpleName();
+        this.tableName = aTableName;
 		this.dictionaryTermResourceId = aDictionaryTermResourceId;
 		this.dictionaryTermText = FmmHelper.getContext().getResources().getString(this.dictionaryTermResourceId);
         this.dictionaryDefinitionResourceId = aDictionaryDefinitionResourceId;
@@ -2176,12 +2213,16 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 	}
 
     public String getName() {
-		return getClassName();
+		return getLabelText();
 	}
 
-	public String getClassName() {
-		return this.className;
+	public String getTableName() {
+		return this.tableName;
 	}
+
+    public String getClassName() {
+        return this.className;
+    }
 	
 	@Override
 	public NodeId getNodeId() {

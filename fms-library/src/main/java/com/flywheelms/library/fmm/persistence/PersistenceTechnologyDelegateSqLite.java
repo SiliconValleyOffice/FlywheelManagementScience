@@ -70,6 +70,7 @@ import com.flywheelms.library.fmm.database.sqlite.dao.PdfPublicationDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.PortfolioDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.ProjectAssetDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.ProjectDaoSqLite;
+import com.flywheelms.library.fmm.database.sqlite.dao.StrategicAssetDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.StrategicCommitmentDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.StrategicMilestoneDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.WorkPackageDaoSqLite;
@@ -112,6 +113,7 @@ import com.flywheelms.library.fmm.node.impl.governable.FmsOrganization;
 import com.flywheelms.library.fmm.node.impl.governable.Portfolio;
 import com.flywheelms.library.fmm.node.impl.governable.Project;
 import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
+import com.flywheelms.library.fmm.node.impl.governable.StrategicAsset;
 import com.flywheelms.library.fmm.node.impl.governable.StrategicMilestone;
 import com.flywheelms.library.fmm.node.impl.governable.WorkPackage;
 import com.flywheelms.library.fmm.node.impl.governable.WorkPlan;
@@ -143,7 +145,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 //		@SuppressWarnings({ "rawtypes" })
 //		Class<? extends FmmNodeDaoSqLite> theDaoClass = (Class<? extends FmmNodeDaoSqLite>) Class.forName(
 //				dao__PACKAGE_NAME +
-//				aHeadlineNode.getFmmNodeDefinition().getClassName() +
+//				aHeadlineNode.getFmmNodeDefinition().getTableName() +
 //				dao__CLASS_NAME_SUFFIX );
 //		Method theStaticMethod = theDaoClass.getMethod("getInstance", (Class<?>[]) null);
 //		theDao = (FmmNodeDaoSqLite<? extends FmmNode>) theStaticMethod.invoke(null, (Object[]) null);
@@ -234,7 +236,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	public ArrayList<String> dbGetRowIdList(FmmNodeDefinition anFmmNodeDefinition, String aColumnName, String aColumnValue) {
 		ArrayList<String> theRowIdList = new ArrayList<String>();
 		Cursor theCursor = getSqLiteDatabase().rawQuery(
-				"SELECT " + IdNodeMetaData.column_ID + " FROM " + anFmmNodeDefinition.getClassName() +
+				"SELECT " + IdNodeMetaData.column_ID + " FROM " + anFmmNodeDefinition.getTableName() +
 				" WHERE " + aColumnName + " = '" + aColumnValue + "'", null );
 		if(theCursor.getCount() == 0) {
 			theCursor.close();
@@ -251,7 +253,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	public ArrayList<String> dbGetRowIdList(FmmNodeDefinition anFmmNodeDefinition, String aWhereClause) {
 		ArrayList<String> theRowIdList = new ArrayList<String>();
 		Cursor theCursor = getSqLiteDatabase().rawQuery(
-				"SELECT " + IdNodeMetaData.column_ID + " FROM " + anFmmNodeDefinition.getClassName() +
+				"SELECT " + IdNodeMetaData.column_ID + " FROM " + anFmmNodeDefinition.getTableName() +
 				" WHERE " + aWhereClause, null );
 		if(theCursor.getCount() == 0) {
 			theCursor.close();
@@ -269,7 +271,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 		ArrayList<String> theRowIdList = new ArrayList<String>();
 		String theAscendingClause = bAscending ? " ASC " : " DESC ";
 		Cursor theCursor = getSqLiteDatabase().rawQuery(
-				"SELECT " + IdNodeMetaData.column_ID + " FROM " + anFmmNodeDefinition.getClassName() +
+				"SELECT " + IdNodeMetaData.column_ID + " FROM " + anFmmNodeDefinition.getTableName() +
 				" WHERE " + aColumnName + " = '" + aColumnValue + "'" +
 				" ORDER BY " + aSortColumnName + theAscendingClause, null );
 		if(theCursor.getCount() == 0) {
@@ -288,7 +290,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 		ArrayList<String> theRowIdList = new ArrayList<String>();
 		String theAscendingClause = bAscending ? " ASC " : " DESC ";
 		Cursor theCursor = getSqLiteDatabase().rawQuery(
-				"SELECT " + IdNodeMetaData.column_ID + " FROM " + anFmmNodeDefinition.getClassName() +
+				"SELECT " + IdNodeMetaData.column_ID + " FROM " + anFmmNodeDefinition.getTableName() +
 				" WHERE " + aWhereClause +
 				" ORDER BY " + aSortColumnName + theAscendingClause, null );
 		if(theCursor.getCount() == 0) {
@@ -322,31 +324,31 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
 	@SuppressWarnings({"resource",  "rawtypes", "unchecked" })
 	private <T extends FmmNodeDaoSqLite, V extends FmmNode> ArrayList<V> retrieveAllFmmNodesFromTable(T aDaoInstance) {
-		Cursor theCursor = getSqLiteDatabase().rawQuery("SELECT * FROM " + aDaoInstance.getFmmNodeDefinition().getClassName(), null);
+		Cursor theCursor = getSqLiteDatabase().rawQuery("SELECT * FROM " + aDaoInstance.getFmmNodeDefinition().getTableName(), null);
 		return aDaoInstance.getObjectListFromCursor(theCursor);
 	}
 	
 	@SuppressWarnings({"resource",  "rawtypes" })
 	private <T extends FmmNodeDaoSqLite> FmmNode retrieveFmmNodeFromSimpleIdTable(String atId, T aDaoInstance) {
-		Cursor theCursor = getSqLiteDatabase().rawQuery("SELECT * FROM " + aDaoInstance.getFmmNodeDefinition().getClassName() +
+		Cursor theCursor = getSqLiteDatabase().rawQuery("SELECT * FROM " + aDaoInstance.getFmmNodeDefinition().getTableName() +
 				" WHERE " + IdNodeMetaData.column_ID + " = '" + atId + "'", null);
 		return aDaoInstance.getSingleObjectFromCursor(theCursor);
 	}
 	
 	@SuppressWarnings({"resource",  "rawtypes" })
 	private <T extends FmmNodeDaoSqLite> FmmNode retrieveFmmmNodeFromTableForParent(String aParentId, T aDaoInstance) {
-		Cursor theCursor = getSqLiteDatabase().rawQuery("SELECT * FROM " + aDaoInstance.getFmmNodeDefinition().getClassName() +
+		Cursor theCursor = getSqLiteDatabase().rawQuery("SELECT * FROM " + aDaoInstance.getFmmNodeDefinition().getTableName() +
 				" WHERE " + NodeFragMetaData.column_PARENT_ID + " = '" + aParentId + "'", null);
 		return aDaoInstance.getSingleObjectFromCursor(theCursor);
 	}
 	
 	private Cursor retrieveAllRowsFromTableForColumnValue(FmmNodeDefinition anFmmNodeDefinition, String aColumnName, String aColumnValue ) {
-		return getSqLiteDatabase().rawQuery("SELECT * FROM " + anFmmNodeDefinition.getClassName() +
+		return getSqLiteDatabase().rawQuery("SELECT * FROM " + anFmmNodeDefinition.getTableName() +
 				" WHERE " + aColumnName + " = '" + aColumnValue + "'", null);
 	}
 	
 	private Cursor retrieveAllRowsFromTableForColumnValueSorted(FmmNodeDefinition anFmmNodeDefinition, String aColumnName, String aColumnValue, String aSortColumnName ) {
-		return getSqLiteDatabase().rawQuery("SELECT * FROM " + anFmmNodeDefinition.getClassName() +
+		return getSqLiteDatabase().rawQuery("SELECT * FROM " + anFmmNodeDefinition.getTableName() +
 				" WHERE " + aColumnName + " = '" + aColumnValue + "'" +
 				" ORDER BY " + aSortColumnName + " ASC ", null);
 	}
@@ -357,7 +359,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 			startTransaction();
 		}
 		this.contentValues = aDaoInstance.buildContentValues(anFmmNode);
-		boolean theBoolean = getSqLiteDatabase().insert(aDaoInstance.getFmmNodeDefinition().getClassName(), null, this.contentValues) > 0;
+		boolean theBoolean = getSqLiteDatabase().insert(aDaoInstance.getFmmNodeDefinition().getTableName(), null, this.contentValues) > 0;
     	if(bAtomicTransaction) {
     		endTransaction(theBoolean);
     	}
@@ -371,11 +373,11 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 			startTransaction();
 		}
 		getSqLiteDatabase().execSQL(
-				"UPDATE " + aHeadlineNode.getFmmNodeDefinition().getClassName() +
+				"UPDATE " + aHeadlineNode.getFmmNodeDefinition().getTableName() +
 				" SET " + HeadlineNodeMetaData.column_HEADLINE + " = '" + aHeadlineNode.getHeadline() + "' " +
 				" WHERE " + IdNodeMetaData.column_ID + " = '" + aHeadlineNode.getNodeIdString() + "'");
 		getSqLiteDatabase().execSQL(
-				"UPDATE " + FmmNodeDefinition.NODE_FRAG__AUDIT_BLOCK.getClassName() +
+				"UPDATE " + FmmNodeDefinition.NODE_FRAG__AUDIT_BLOCK.getTableName() +
 				" SET " + HeadlineNodeMetaData.column_HEADLINE + " = '" + aHeadlineNode.getHeadline() + "' " +
 				" WHERE " + NodeFragMetaData.column_PARENT_ID + " = '" + aHeadlineNode.getNodeIdString() + "'");
     	if(bAtomicTransaction) {
@@ -392,7 +394,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 //		}
 //		anFmmNode.setRowTimestamp(FmmDateHelper.getCurrentDateTime());
 //		this.contentValues = aDaoInstance.buildUpdateContentValues(anFmmNode);
-//		boolean theBoolean = getSqLiteDatabase().update(aDaoInstance.getFmmNodeDefinition().getClassName(), this.contentValues,
+//		boolean theBoolean = getSqLiteDatabase().update(aDaoInstance.getFmmNodeDefinition().getTableName(), this.contentValues,
 //    			IdNodeMetaData.column_ID + " = '" + anFmmNode.getNodeIdString() + "'", null) > 0;
 //    	if(bAtomicTransaction) {
 //    		endTransaction(theBoolean);
@@ -408,7 +410,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 		}
 		anFmmNode.setRowTimestamp(GcgDateHelper.getCurrentDateTime());
 		this.contentValues = aDaoInstance.buildUpdateContentValues(anFmmNode);
-		boolean theBoolean = getSqLiteDatabase().update(aDaoInstance.getFmmNodeDefinition().getClassName(), this.contentValues,
+		boolean theBoolean = getSqLiteDatabase().update(aDaoInstance.getFmmNodeDefinition().getTableName(), this.contentValues,
     			IdNodeMetaData.column_ID + " = '" + anFmmNode.getNodeIdString() + "'", null) > 0;
     	if(bAtomicTransaction) {
     		endTransaction(theBoolean);
@@ -419,7 +421,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	private String getStringValue(FmmNodeDefinition anFmmNodeDefinition, String aSourceColumnName, String aWhereSpec) {
 		String theString = null;
 		Cursor theCursor = getSqLiteDatabase().rawQuery(
-				"SELECT " + aSourceColumnName + " FROM " + anFmmNodeDefinition.getClassName() +
+				"SELECT " + aSourceColumnName + " FROM " + anFmmNodeDefinition.getTableName() +
 				" WHERE " + aWhereSpec, null );
 		if(theCursor.moveToFirst()) {
 			theString = theCursor.getString(0);
@@ -432,7 +434,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 		if(bAtomicTransaction) {
 			startTransaction();
 		}
-    	boolean theBoolean = getSqLiteDatabase().delete(anFmmNodeDefinition.getClassName(), IdNodeMetaData.column_ID + " = '" + aNodeIdString  + "'", null) > 0;
+    	boolean theBoolean = getSqLiteDatabase().delete(anFmmNodeDefinition.getTableName(), IdNodeMetaData.column_ID + " = '" + aNodeIdString  + "'", null) > 0;
     	if(bAtomicTransaction) {
     		endTransaction(theBoolean);
     	}
@@ -443,7 +445,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 		if(bAtomicTransaction) {
 			startTransaction();
 		}
-    	boolean theBoolean = getSqLiteDatabase().delete(anFmmNodeDefinition.getClassName(), aWhereClause, null) > 0;
+    	boolean theBoolean = getSqLiteDatabase().delete(anFmmNodeDefinition.getTableName(), aWhereClause, null) > 0;
     	if(bAtomicTransaction) {
     		endTransaction(theBoolean);
     	}
@@ -454,7 +456,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 		if(bAtomicTransaction) {
 			startTransaction();
 		}
-    	boolean theBoolean = getSqLiteDatabase().delete(anFmmNodeDefinition.getClassName(), aColumnName + " = '" + aColumnValue  + "'", null) > 0;
+    	boolean theBoolean = getSqLiteDatabase().delete(anFmmNodeDefinition.getTableName(), aColumnName + " = '" + aColumnValue  + "'", null) > 0;
     	if(bAtomicTransaction) {
     		endTransaction(theBoolean);
     	}
@@ -516,7 +518,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 			startTransaction();
 		}
     	boolean theBoolean = getSqLiteDatabase().delete(
-    			anFmmNodeDefinition.getClassName(),
+    			anFmmNodeDefinition.getTableName(),
     			aParentColumnName + " = '" + aParentId  + "'", null) > 0;
     	if(bAtomicTransaction) {
     		endTransaction(theBoolean);
@@ -534,7 +536,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 			startTransaction();
 		}
 		Cursor theCursor = getSqLiteDatabase().rawQuery(
-				"SELECT " + aParentColumnName + " FROM " + anFmmNodeDefinition.getClassName() +
+				"SELECT " + aParentColumnName + " FROM " + anFmmNodeDefinition.getTableName() +
 				" WHERE " + aChildColumnName + " = '" + aChildId + "'", null );
 		if(theCursor.getCount() == 0) {
 			theCursor.close();
@@ -569,11 +571,11 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 			startTransaction();
 		}
     	boolean theBoolean = getSqLiteDatabase().delete(
-    			anFmmNodeDefinition.getClassName(),
+    			anFmmNodeDefinition.getTableName(),
     			aParentColumnName + " = '" + aParentId  + "' AND " + aChildColumnName + " = '" + aChildId + "'", null) > 0;
     	if(theBoolean) {
     		reSequenceRows(
-    				anFmmNodeDefinition.getClassName(),
+    				anFmmNodeDefinition.getTableName(),
     				aParentColumnName,
     				aParentId );
     	}
@@ -587,7 +589,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 		if(bAtomicTransaction) {
 			startTransaction();
 		}
-		boolean theBoolean = getSqLiteDatabase().delete(anFmmNodeDefinition.getClassName(), NodeFragMetaData.column_PARENT_ID + " = '" + aParentId  + "'", null) > 0;
+		boolean theBoolean = getSqLiteDatabase().delete(anFmmNodeDefinition.getTableName(), NodeFragMetaData.column_PARENT_ID + " = '" + aParentId  + "'", null) > 0;
     	if(bAtomicTransaction) {
     		endTransaction(theBoolean);
     	}
@@ -599,7 +601,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 		if(bAtomicTransaction) {
 			startTransaction();
 		}
-		boolean theBoolean = getSqLiteDatabase().delete(anFmmNodeDefinition.getClassName(), aColumnName + " = '" + aValue  + "'", null) > 0;
+		boolean theBoolean = getSqLiteDatabase().delete(anFmmNodeDefinition.getTableName(), aColumnName + " = '" + aValue  + "'", null) > 0;
     	if(bAtomicTransaction) {
     		endTransaction(theBoolean);
     	}
@@ -614,14 +616,14 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 		boolean isTransactionSuccess = true;
 		if(theMovingLinkNodeIdList.size() > 0){
 			if(bSequenceAtEnd) {
-				int theMaxSequence = dbGetLastSequence(anFmmNodeDefinition.getClassName(), aParentIdColumnName, anNewParentID);
+				int theMaxSequence = dbGetLastSequence(anFmmNodeDefinition.getTableName(), aParentIdColumnName, anNewParentID);
 				int theRowCount = 0;
 				for(String theLinkNodeId : theMovingLinkNodeIdList) {
 					++theMaxSequence;
 					this.contentValues.clear();
 					this.contentValues.put(aParentIdColumnName, anNewParentID);
 					this.contentValues.put(SequencedLinkNodeMetaData.column_SEQUENCE, theMaxSequence);
-					theRowCount += getSqLiteDatabase().update(anFmmNodeDefinition.getClassName(), this.contentValues,
+					theRowCount += getSqLiteDatabase().update(anFmmNodeDefinition.getTableName(), this.contentValues,
 							IdNodeMetaData.column_ID + " = '" + theLinkNodeId + "'", null);
 				}
 				isTransactionSuccess &= theRowCount == theMovingLinkNodeIdList.size();
@@ -632,7 +634,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 				int theRowCount = 0;
 				for(String theLinkNodeId : theExistingLinkNodeIdList) {
 					getSqLiteDatabase().execSQL(
-							"UPDATE " + anFmmNodeDefinition.getClassName() +
+							"UPDATE " + anFmmNodeDefinition.getTableName() +
 							" SET "+ SequencedLinkNodeMetaData.column_SEQUENCE + " = " + SequencedLinkNodeMetaData.column_SEQUENCE + " + " + theOffset +
 							" WHERE " + IdNodeMetaData.column_ID + " = '" + theLinkNodeId + "'" );
 				}
@@ -643,7 +645,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 					this.contentValues.clear();
 					this.contentValues.put(aParentIdColumnName, anNewParentID);
 					this.contentValues.put(SequencedLinkNodeMetaData.column_SEQUENCE, theNewSequence);
-					theRowCount += getSqLiteDatabase().update(anFmmNodeDefinition.getClassName(), this.contentValues,
+					theRowCount += getSqLiteDatabase().update(anFmmNodeDefinition.getTableName(), this.contentValues,
 							IdNodeMetaData.column_ID + " = '" + theLinkNodeId + "'", null);
 				}
 				isTransactionSuccess &= theRowCount == theMovingLinkNodeIdList.size();
@@ -661,7 +663,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 			String aNewParentID,
 			boolean bSequenceAtEnd ) {
 		if(bSequenceAtEnd) {
-			int theNewSequence = dbGetLastSequence(anFmmNodeDefinition.getClassName(), aParentIdColumnName, aNewParentID);
+			int theNewSequence = dbGetLastSequence(anFmmNodeDefinition.getTableName(), aParentIdColumnName, aNewParentID);
 			++theNewSequence;
 			this.contentValues.clear();
 			this.contentValues.put(aParentIdColumnName, aNewParentID);
@@ -672,7 +674,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 			int theOffset = 1;
 			for(String theLinkNodeId : theExistingLinkNodeIdList) {
 				getSqLiteDatabase().execSQL(
-						"UPDATE " + anFmmNodeDefinition.getClassName() +
+						"UPDATE " + anFmmNodeDefinition.getTableName() +
 						" SET "+ SequencedLinkNodeMetaData.column_SEQUENCE + " = " + SequencedLinkNodeMetaData.column_SEQUENCE + " + " + theOffset +
 						" WHERE " + IdNodeMetaData.column_ID + " = '" + theLinkNodeId + "'" );
 			}
@@ -680,9 +682,9 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 			this.contentValues.put(aParentIdColumnName, aNewParentID);
 			this.contentValues.put(SequencedLinkNodeMetaData.column_SEQUENCE, 1);
 		}
-		int theRowCount = getSqLiteDatabase().update(anFmmNodeDefinition.getClassName(), this.contentValues,
+		int theRowCount = getSqLiteDatabase().update(anFmmNodeDefinition.getTableName(), this.contentValues,
 				aMoveNodeColumnName + " = '" + aMoveNodeId + "'", null);
-		reSequenceRows(anFmmNodeDefinition.getClassName(), aParentIdColumnName, anOriginalParentId);
+		reSequenceRows(anFmmNodeDefinition.getTableName(), aParentIdColumnName, anOriginalParentId);
 		return theRowCount == 1;
 	}
 
@@ -694,7 +696,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 			String aNewParentID,
 			boolean bSequenceAtEnd ) {
 		if(bSequenceAtEnd) {
-			int theNewSequence = dbGetLastSequence(anFmmNodeDefinition.getClassName(), aParentIdColumnName, aNewParentID);
+			int theNewSequence = dbGetLastSequence(anFmmNodeDefinition.getTableName(), aParentIdColumnName, aNewParentID);
 			++theNewSequence;
 			this.contentValues.clear();
 			this.contentValues.put(aParentIdColumnName, aNewParentID);
@@ -705,7 +707,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 			int theOffset = 1;
 			for(String theLinkNodeId : theExistingLinkNodeIdList) {
 				getSqLiteDatabase().execSQL(
-						"UPDATE " + anFmmNodeDefinition.getClassName() +
+						"UPDATE " + anFmmNodeDefinition.getTableName() +
 						" SET "+ SequencedLinkNodeMetaData.column_SEQUENCE + " = " + SequencedLinkNodeMetaData.column_SEQUENCE + " + " + theOffset +
 						" WHERE " + IdNodeMetaData.column_ID + " = '" + theLinkNodeId + "'" );
 			}
@@ -713,7 +715,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 			this.contentValues.put(aParentIdColumnName, aNewParentID);
 			this.contentValues.put(SequencedLinkNodeMetaData.column_SEQUENCE, 1);
 		}
-		int theRowCount = getSqLiteDatabase().update(anFmmNodeDefinition.getClassName(), this.contentValues,
+		int theRowCount = getSqLiteDatabase().update(anFmmNodeDefinition.getTableName(), this.contentValues,
 				aMoveNodeColumnName + " = '" + aMoveNodeId + "'", null);
 		return theRowCount == 1;
 	}
@@ -745,7 +747,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	public int dbGetPrimarySequence(FmmHeadlineNode aTargetNode) {
 		Cursor theCursor = getSqLiteDatabase().rawQuery(
 				"SELECT " + SequencedLinkNodeMetaData.column_SEQUENCE +
-				" FROM " + aTargetNode.getFmmNodeDefinition().getClassName() +
+				" FROM " + aTargetNode.getFmmNodeDefinition().getTableName() +
 				" WHERE " + IdNodeMetaData.column_ID + " = '" + aTargetNode.getNodeIdString() + "'" , null);
 		theCursor.moveToFirst();
 		int theSequence = theCursor.getInt(theCursor.getColumnIndex(SequencedLinkNodeMetaData.column_SEQUENCE));
@@ -756,7 +758,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	@Override
 	public void dbSetPrimarySequence(FmmHeadlineNode aHeadlineNode, int aNewSequence) {
 		getSqLiteDatabase().execSQL(
-				"UPDATE " + aHeadlineNode.getFmmNodeDefinition().getClassName() +
+				"UPDATE " + aHeadlineNode.getFmmNodeDefinition().getTableName() +
 				" SET "+ SequencedLinkNodeMetaData.column_SEQUENCE + " = " + aNewSequence +
 				" WHERE " + IdNodeMetaData.column_ID + " = '" + aHeadlineNode.getNodeIdString() + "'" );
 	}
@@ -774,8 +776,8 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	public int dbGetSecondarySequence(FmmHeadlineNode aTargetNode) {
 		Cursor theCursor = getSqLiteDatabase().rawQuery(
 				"SELECT " + SequencedLinkNodeMetaData.column_SEQUENCE +
-				" FROM " + aTargetNode.getFmmNodeDefinition().getSecondaryParentNodeDefinition().getClassName() +
-				" WHERE " + aTargetNode.getFmmNodeDefinition().getClassName() + "__id = '" + aTargetNode.getNodeIdString() + "'" , null);
+				" FROM " + aTargetNode.getFmmNodeDefinition().getSecondaryParentNodeDefinition().getTableName() +
+				" WHERE " + aTargetNode.getFmmNodeDefinition().getTableName() + "__id = '" + aTargetNode.getNodeIdString() + "'" , null);
 		theCursor.moveToFirst();
 		int theSequence = theCursor.getInt(theCursor.getColumnIndex(SequencedLinkNodeMetaData.column_SEQUENCE));
 		theCursor.close();
@@ -785,9 +787,9 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	@Override
 	public void dbSetSecondarySequence(FmmHeadlineNode aTargetNode, int aNewSequence) {
 		getSqLiteDatabase().execSQL(
-				"UPDATE " + aTargetNode.getFmmNodeDefinition().getSecondaryParentNodeDefinition().getClassName() +
+				"UPDATE " + aTargetNode.getFmmNodeDefinition().getSecondaryParentNodeDefinition().getTableName() +
 				" SET "+ SequencedLinkNodeMetaData.column_SEQUENCE + " = " + aNewSequence +
-				" WHERE " + aTargetNode.getFmmNodeDefinition().getClassName() + "__id = '" + aTargetNode.getNodeIdString() + "'" );
+				" WHERE " + aTargetNode.getFmmNodeDefinition().getTableName() + "__id = '" + aTargetNode.getNodeIdString() + "'" );
 	}
 	
 	//-->>  Link Node
@@ -803,8 +805,8 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	public int dbGetLinkNodeSequence(FmmHeadlineNode aTargetNode) {
 		Cursor theCursor = getSqLiteDatabase().rawQuery(
 				"SELECT " + SequencedLinkNodeMetaData.column_SEQUENCE +
-				" FROM " + aTargetNode.getFmmNodeDefinition().getSecondaryLinkNodeDefinition().getClassName() +
-				" WHERE " + aTargetNode.getFmmNodeDefinition().getClassName() + "__id = '" + aTargetNode.getNodeIdString() + "'" , null);
+				" FROM " + aTargetNode.getFmmNodeDefinition().getSecondaryLinkNodeDefinition().getTableName() +
+				" WHERE " + aTargetNode.getFmmNodeDefinition().getTableName() + "__id = '" + aTargetNode.getNodeIdString() + "'" , null);
 		theCursor.moveToFirst();
 		int theSequence = theCursor.getInt(theCursor.getColumnIndex(SequencedLinkNodeMetaData.column_SEQUENCE));
 		theCursor.close();
@@ -814,9 +816,9 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	@Override
 	public void dbSetLinkNodeSequence(FmmHeadlineNode aTargetNode, int aNewSequence) {
 		getSqLiteDatabase().execSQL(
-				"UPDATE " + aTargetNode.getFmmNodeDefinition().getSecondaryLinkNodeDefinition().getClassName() +
+				"UPDATE " + aTargetNode.getFmmNodeDefinition().getSecondaryLinkNodeDefinition().getTableName() +
 				" SET "+ SequencedLinkNodeMetaData.column_SEQUENCE + " = " + aNewSequence +
-				" WHERE " + aTargetNode.getFmmNodeDefinition().getClassName() + "__id = '" + aTargetNode.getNodeIdString() + "'" );
+				" WHERE " + aTargetNode.getFmmNodeDefinition().getTableName() + "__id = '" + aTargetNode.getNodeIdString() + "'" );
 	}
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -827,7 +829,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	@SuppressWarnings("resource")
 	@Override
 	public ArrayList<CommunityMember> dbRetrieveCommunityMemberList() {
-		Cursor theCursor = getSqLiteDatabase().rawQuery("SELECT * FROM " + FmmNodeDefinition.COMMUNITY_MEMBER.getName(), null);
+		Cursor theCursor = getSqLiteDatabase().rawQuery("SELECT * FROM " + FmmNodeDefinition.COMMUNITY_MEMBER.getTableName(), null);
 		return CommunityMemberDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
 	}
 
@@ -835,12 +837,12 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	@Override
 	public ArrayList<CommunityMember> dbRetrieveCommunityMemberListForOrganization(String anOrganizationId) {
 		Cursor theCursor = getSqLiteDatabase().rawQuery(getInnerJoinQueryWithAndSpecSorted(
-				FmmNodeDefinition.COMMUNITY_MEMBER.getName(),
+				FmmNodeDefinition.COMMUNITY_MEMBER.getTableName(),
 				IdNodeMetaData.column_ID,
-				FmmNodeDefinition.ORGANIZATION_COMMUNITY_MEMBER.getName(),
+				FmmNodeDefinition.ORGANIZATION_COMMUNITY_MEMBER.getTableName(),
 				OrganizationCommunityMemberMetaData.column_COMMUNITY_MEMBER_ID,
-				FmmNodeDefinition.ORGANIZATION_COMMUNITY_MEMBER.getName() + "." + OrganizationCommunityMemberMetaData.column_ORGANIZATION_ID + " = '" + anOrganizationId + "'",
-				FmmNodeDefinition.COMMUNITY_MEMBER.getName() + "." + CommunityMemberMetaData.column_FAMILY_NAME + ", " + CommunityMemberMetaData.column_GIVEN_NAME), null);
+				FmmNodeDefinition.ORGANIZATION_COMMUNITY_MEMBER.getTableName() + "." + OrganizationCommunityMemberMetaData.column_ORGANIZATION_ID + " = '" + anOrganizationId + "'",
+				FmmNodeDefinition.COMMUNITY_MEMBER.getTableName() + "." + CommunityMemberMetaData.column_FAMILY_NAME + ", " + CommunityMemberMetaData.column_GIVEN_NAME), null);
 		return CommunityMemberDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
 	}
 
@@ -895,12 +897,12 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 			default:
 				theRoleColumnName = "ERROR";
 		}
-		String theQuery = "SELECT " + FmmNodeDefinition.COMMUNITY_MEMBER.getName() + ".* FROM " + FmmNodeDefinition.COMMUNITY_MEMBER.getName() +
-				" INNER JOIN " + FmmNodeDefinition.COMMUNITY_MEMBER_ORGANIZATION_GOVERNANCE_AUTHORITY.getName() +
-				" ON " + FmmNodeDefinition.COMMUNITY_MEMBER.getName() + "." + IdNodeMetaData.column_ID + " = " + FmmNodeDefinition.COMMUNITY_MEMBER_ORGANIZATION_GOVERNANCE_AUTHORITY.getName() + "." + CommunityMemberOrganizationGovernanceAuthorityMetaData.column_COMMUNITY_MEMBER + " AND " +
-				FmmNodeDefinition.COMMUNITY_MEMBER_ORGANIZATION_GOVERNANCE_AUTHORITY.getName() + "." + CommunityMemberOrganizationGovernanceAuthorityMetaData.column_ORGANIZATION + " = '" + anFmsOrganization.getNodeIdString() + "' AND " +
-				FmmNodeDefinition.COMMUNITY_MEMBER_ORGANIZATION_GOVERNANCE_AUTHORITY.getName() + "." + CommunityMemberOrganizationGovernanceAuthorityMetaData.column_GOVERNANCE_TARGET + " = '" + aGovernanceTarget.getName() + "' AND " +
-				FmmNodeDefinition.COMMUNITY_MEMBER_ORGANIZATION_GOVERNANCE_AUTHORITY.getName() + "." + theRoleColumnName + " = 1";
+		String theQuery = "SELECT " + FmmNodeDefinition.COMMUNITY_MEMBER.getTableName() + ".* FROM " + FmmNodeDefinition.COMMUNITY_MEMBER.getTableName() +
+				" INNER JOIN " + FmmNodeDefinition.COMMUNITY_MEMBER_ORGANIZATION_GOVERNANCE_AUTHORITY.getTableName() +
+				" ON " + FmmNodeDefinition.COMMUNITY_MEMBER.getTableName() + "." + IdNodeMetaData.column_ID + " = " + FmmNodeDefinition.COMMUNITY_MEMBER_ORGANIZATION_GOVERNANCE_AUTHORITY.getTableName() + "." + CommunityMemberOrganizationGovernanceAuthorityMetaData.column_COMMUNITY_MEMBER + " AND " +
+				FmmNodeDefinition.COMMUNITY_MEMBER_ORGANIZATION_GOVERNANCE_AUTHORITY.getTableName() + "." + CommunityMemberOrganizationGovernanceAuthorityMetaData.column_ORGANIZATION + " = '" + anFmsOrganization.getNodeIdString() + "' AND " +
+				FmmNodeDefinition.COMMUNITY_MEMBER_ORGANIZATION_GOVERNANCE_AUTHORITY.getTableName() + "." + CommunityMemberOrganizationGovernanceAuthorityMetaData.column_GOVERNANCE_TARGET + " = '" + aGovernanceTarget.getName() + "' AND " +
+				FmmNodeDefinition.COMMUNITY_MEMBER_ORGANIZATION_GOVERNANCE_AUTHORITY.getTableName() + "." + theRoleColumnName + " = 1";
 		Cursor theCursor = getSqLiteDatabase().rawQuery(theQuery, null);
 		return CommunityMemberDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
 	}
@@ -943,7 +945,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
     @SuppressWarnings("resource")
     @Override
     public ArrayList<Portfolio> dbListPortfolio(FmsOrganization anOrganization, Portfolio aPortfolioException) {
-        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.PORTFOLIO.getName() +
+        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.PORTFOLIO.getTableName() +
                 " WHERE " + PortfolioMetaData.column_ORGANIZATION_ID + " = '" + anOrganization.getNodeIdString() + "'";
         if(aPortfolioException != null) {
             theRawQuery += " AND " + IdNodeMetaData.column_ID + " != '" + aPortfolioException.getNodeIdString() + "'";
@@ -973,10 +975,10 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
     @SuppressWarnings("resource")
     @Override
     public ArrayList<Portfolio> dbListPortfolioForProjectAssetMoveTarget(FmsOrganization anFmsOrganization, Project aProjectException) {
-        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.PORTFOLIO.getName() +
+        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.PORTFOLIO.getTableName() +
                 " WHERE " + IdNodeMetaData.column_ID +
                 " IN (" +
-                " SELECT " + ProjectMetaData.column_PORTFOLIO_ID + " FROM " + FmmNodeDefinition.PROJECT.getClassName();
+                " SELECT " + ProjectMetaData.column_PORTFOLIO_ID + " FROM " + FmmNodeDefinition.PROJECT.getTableName();
         if(aProjectException != null) {
             theRawQuery += " WHERE " + IdNodeMetaData.column_ID + " != '" + aProjectException.getNodeIdString() + "'";
         }
@@ -988,15 +990,15 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
     @Override
     public ArrayList<Portfolio> dbListPortfolioForWorkPackageMoveTarget(FmsOrganization anFmsOrganization, ProjectAsset aProjectAssetException) {
-        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.PORTFOLIO.getName() +
+        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.PORTFOLIO.getTableName() +
             " WHERE " + IdNodeMetaData.column_ID +
             " IN (" +
 
-            " SELECT " + ProjectMetaData.column_PORTFOLIO_ID + " FROM " + FmmNodeDefinition.PROJECT.getClassName() +
+            " SELECT " + ProjectMetaData.column_PORTFOLIO_ID + " FROM " + FmmNodeDefinition.PROJECT.getTableName() +
             " WHERE " + IdNodeMetaData.column_ID +
             " IN (" +
 
-            " SELECT " + ProjectAssetMetaData.column_PROJECT_ID + " FROM " + FmmNodeDefinition.PROJECT_ASSET.getClassName();
+            " SELECT " + ProjectAssetMetaData.column_PROJECT_ID + " FROM " + FmmNodeDefinition.PROJECT_ASSET.getTableName();
         if(aProjectAssetException != null) {
             theRawQuery += " WHERE " + IdNodeMetaData.column_ID + " != '" + aProjectAssetException.getNodeIdString() + "' ";
         }
@@ -1007,19 +1009,19 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
     @Override
     public ArrayList<? extends GcgGuiable> dbListPortfolioForWorkTaskMoveTarget(FmsOrganization anFmsOrganization, WorkPackage aWorkPackageException) {
-        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.PORTFOLIO.getName() +
+        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.PORTFOLIO.getTableName() +
                 " WHERE " + IdNodeMetaData.column_ID +
                 " IN (" +
 
-                " SELECT " + ProjectMetaData.column_PORTFOLIO_ID + " FROM " + FmmNodeDefinition.PROJECT.getClassName() +
+                " SELECT " + ProjectMetaData.column_PORTFOLIO_ID + " FROM " + FmmNodeDefinition.PROJECT.getTableName() +
                 " WHERE " + IdNodeMetaData.column_ID +
                 " IN (" +
 
-                " SELECT " + ProjectAssetMetaData.column_PROJECT_ID + " FROM " + FmmNodeDefinition.PROJECT_ASSET.getClassName() +
+                " SELECT " + ProjectAssetMetaData.column_PROJECT_ID + " FROM " + FmmNodeDefinition.PROJECT_ASSET.getTableName() +
                 " WHERE " + IdNodeMetaData.column_ID +
                 " IN (" +
 
-                " SELECT " + WorkPackageMetaData.column_PROJECT_ASSET_ID + " FROM " + FmmNodeDefinition.WORK_PACKAGE.getClassName();
+                " SELECT " + WorkPackageMetaData.column_PROJECT_ASSET_ID + " FROM " + FmmNodeDefinition.WORK_PACKAGE.getTableName();
         if(aWorkPackageException != null) {
             theRawQuery += " WHERE " + IdNodeMetaData.column_ID + " != '" + aWorkPackageException.getNodeIdString() + "' ";
         }
@@ -1044,7 +1046,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
         }
         this.contentValues.clear();
         this.contentValues.put(ProjectMetaData.column_PORTFOLIO_ID, aPortfolioId);
-        int theRowCount = getSqLiteDatabase().update(FmmNodeDefinition.PROJECT.getClassName(), this.contentValues,
+        int theRowCount = getSqLiteDatabase().update(FmmNodeDefinition.PROJECT.getTableName(), this.contentValues,
                 IdNodeMetaData.column_ID + " = '" + aProjectId + "'", null);
         if(bAtomicTransaction) {
             endTransaction(theRowCount > 0);
@@ -1083,7 +1085,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
     @SuppressWarnings("resource")
     @Override
     public ArrayList<Project> dbListProject(String aPortfolioId, String aProjectExceptionId) {
-        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.PROJECT.getName() +
+        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.PROJECT.getTableName() +
                 " WHERE " + ProjectMetaData.column_PORTFOLIO_ID + " = '" + aPortfolioId + "'";
         if(aProjectExceptionId != null) {
             theRawQuery += " AND " + IdNodeMetaData.column_ID + " != '" + aProjectExceptionId + "'";
@@ -1096,7 +1098,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
     @Override
     public ArrayList<Project> dbListProjectOrphansFromPortfolio() {
         String theRawQuery =
-                "SELECT * FROM " + FmmNodeDefinition.PROJECT.getName() +
+                "SELECT * FROM " + FmmNodeDefinition.PROJECT.getTableName() +
                         " WHERE " + ProjectMetaData.column_PORTFOLIO_ID + " IS NULL" +
                         " ORDER BY " + HeadlineNodeMetaData.column_HEADLINE + " ASC";
         Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
@@ -1110,7 +1112,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
     @Override
     public ArrayList<Project> dbListProjectsForProjectAssetMoveTarget(Portfolio aPortfolio, Project aProjectException) {
-        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.PROJECT.getName() +
+        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.PROJECT.getTableName() +
                 " WHERE " + ProjectMetaData.column_PORTFOLIO_ID + " = '" + aPortfolio.getNodeIdString() + "'";
         if(aProjectException != null) {
             theRawQuery += " AND " + IdNodeMetaData.column_ID + " != '" + aProjectException.getNodeIdString() + "'";
@@ -1122,10 +1124,10 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
     @Override
     public ArrayList<Project> dbListProjectsForWorkPackageMoveTarget(Portfolio aPortfolio, ProjectAsset aProjectAssetException) {
-        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.PROJECT.getName() +
+        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.PROJECT.getTableName() +
                 " WHERE " + ProjectMetaData.column_PORTFOLIO_ID + " = '" + aPortfolio.getNodeIdString() + "' AND " + IdNodeMetaData.column_ID +
                 " IN (" +
-                " SELECT " + ProjectAssetMetaData.column_PROJECT_ID + " FROM " + FmmNodeDefinition.PROJECT_ASSET.getClassName();
+                " SELECT " + ProjectAssetMetaData.column_PROJECT_ID + " FROM " + FmmNodeDefinition.PROJECT_ASSET.getTableName();
         if(aProjectAssetException != null) {
             theRawQuery += " WHERE " + IdNodeMetaData.column_ID + " != '" + aProjectAssetException.getNodeIdString() + "'";
         }
@@ -1137,12 +1139,12 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
     @Override
     public ArrayList<Project> dbListProjectsForWorkTaskMoveTarget(Portfolio aPortfolio, WorkPackage aWorkPackageException) {
-        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.PROJECT.getName() +
+        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.PROJECT.getTableName() +
                 " WHERE " + ProjectMetaData.column_PORTFOLIO_ID + " = '" + aPortfolio.getNodeIdString() + "' AND " + IdNodeMetaData.column_ID +
                 " IN (" +
-                    " SELECT " + ProjectAssetMetaData.column_PROJECT_ID + " FROM " + FmmNodeDefinition.PROJECT_ASSET.getClassName() +
+                    " SELECT " + ProjectAssetMetaData.column_PROJECT_ID + " FROM " + FmmNodeDefinition.PROJECT_ASSET.getTableName() +
                     " WHERE " + IdNodeMetaData.column_ID + " IN (" +
-                        " SELECT " + WorkPackageMetaData.column_PROJECT_ASSET_ID + " FROM " + FmmNodeDefinition.WORK_PACKAGE.getClassName();
+                        " SELECT " + WorkPackageMetaData.column_PROJECT_ASSET_ID + " FROM " + FmmNodeDefinition.WORK_PACKAGE.getTableName();
         if(aWorkPackageException != null) {
             theRawQuery += " WHERE " + IdNodeMetaData.column_ID + " != '" + aWorkPackageException.getNodeIdString() + "'";
         }
@@ -1155,7 +1157,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
     @Override
     public boolean dbOrphanAllProjectsFromPortfolio(String aPortfolioId, boolean bAtomicTransaction) {
         return updateRowsWithNull(
-                FmmNodeDefinition.PROJECT.getClassName(),
+                FmmNodeDefinition.PROJECT.getTableName(),
                 ProjectMetaData.column_PORTFOLIO_ID,
                 ProjectMetaData.column_PORTFOLIO_ID+ " = '" + aPortfolioId + "'",
                 bAtomicTransaction );
@@ -1163,7 +1165,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
     @Override
     public boolean dbMoveSingleProjectIntoPortfolio(String aProjectId, String aPortfolioId, boolean bAtomicTransaction) {
-        return updateRows(FmmNodeDefinition.PROJECT.getClassName(),
+        return updateRows(FmmNodeDefinition.PROJECT.getTableName(),
                 ProjectMetaData.column_PORTFOLIO_ID,
                 aPortfolioId,
                 IdNodeMetaData.column_ID + " = '" + aProjectId + "'",
@@ -1171,7 +1173,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
     }
 
     public boolean dbMoveAllProjectsIntoPortfolio(String aCurrentPortfolioId, String aTargetPortfolioId, boolean bAtomicTransaction) {
-        return updateRows(FmmNodeDefinition.PROJECT.getClassName(),
+        return updateRows(FmmNodeDefinition.PROJECT.getTableName(),
                 ProjectMetaData.column_PORTFOLIO_ID,
                 aTargetPortfolioId,
                 ProjectMetaData.column_PORTFOLIO_ID + " = '" + aCurrentPortfolioId + "'",
@@ -1186,7 +1188,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	@SuppressWarnings("resource")
 	@Override
 	public ArrayList<FiscalYear> dbListFiscalYear(FmsOrganization anOrganization, FiscalYear aFiscalYearException) {
-		String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.FISCAL_YEAR.getName() +
+		String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.FISCAL_YEAR.getTableName() +
 				" WHERE " + FiscalYearMetaData.column_ORGANIZATION_ID + " = '" + anOrganization.getNodeIdString() + "'";
 		if(aFiscalYearException != null) {
 			theRawQuery += " AND " + IdNodeMetaData.column_ID + " != '" + aFiscalYearException.getNodeIdString() + "'";
@@ -1199,7 +1201,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	// TODO - should use MOVE_TARGET view and not include confirmed or proposed completions
 	@Override
 	public int dbCountFiscalYearForStrategicMilestoneMoveTarget(FmsOrganization anOrganization, FiscalYear aFiscalYearException) {
-		String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.FISCAL_YEAR.getName() +
+		String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.FISCAL_YEAR.getTableName() +
 				" WHERE " + FiscalYearMetaData.column_ORGANIZATION_ID + " = '" + anOrganization.getNodeIdString() + "'";
 		if(aFiscalYearException != null) {
 			theRawQuery += " AND " + IdNodeMetaData.column_ID + " != '" + aFiscalYearException.getNodeIdString() + "'";
@@ -1212,7 +1214,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	@SuppressWarnings("resource")
 	@Override
 	public ArrayList<FiscalYear> dbListFiscalYearForStrategicMilestoneMoveTarget(FmsOrganization anOrganization, FiscalYear aFiscalYearException) {
-		String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.FISCAL_YEAR.getName() +
+		String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.FISCAL_YEAR.getTableName() +
 				" WHERE " + FiscalYearMetaData.column_ORGANIZATION_ID + " = '" + anOrganization.getNodeIdString() + "'";
 		if(aFiscalYearException != null) {
 			theRawQuery += " AND " + IdNodeMetaData.column_ID + " != '" + aFiscalYearException.getNodeIdString() + "'";
@@ -1224,10 +1226,10 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
 	@Override
 	public int dbCountFiscalYearForProjectAssetMoveTarget(FmsOrganization anOrganization, StrategicMilestone aStrategicMilestonException) {
-		String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.FISCAL_YEAR.getName() +
+		String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.FISCAL_YEAR.getTableName() +
 			" WHERE " + IdNodeMetaData.column_ID +
 			" IN (" +
-				" SELECT " + StrategicMilestoneMetaData.column_FISCAL_YEAR_ID + " FROM " + FmmNodeDefinition.STRATEGIC_MILESTONE.getClassName() +
+				" SELECT " + StrategicMilestoneMetaData.column_FISCAL_YEAR_ID + " FROM " + FmmNodeDefinition.STRATEGIC_MILESTONE.getTableName() +
 			") ";
 		if(aStrategicMilestonException != null) {
 			theRawQuery += " AND " + IdNodeMetaData.column_ID + " != '" + aStrategicMilestonException.getNodeIdString() + "'";
@@ -1239,10 +1241,10 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	@SuppressWarnings("resource")
 	@Override
 	public ArrayList<FiscalYear> dbListFiscalYearForProjectAssetMoveTarget(FmsOrganization anOrganization, StrategicMilestone aStrategicMilestonException) {
-		String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.FISCAL_YEAR.getName() +
+		String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.FISCAL_YEAR.getTableName() +
 			" WHERE " + IdNodeMetaData.column_ID +
 			" IN (" +
-				" SELECT " + StrategicMilestoneMetaData.column_FISCAL_YEAR_ID + " FROM " + FmmNodeDefinition.STRATEGIC_MILESTONE.getClassName();
+				" SELECT " + StrategicMilestoneMetaData.column_FISCAL_YEAR_ID + " FROM " + FmmNodeDefinition.STRATEGIC_MILESTONE.getTableName();
 				if(aStrategicMilestonException != null) {
 					theRawQuery += " WHERE " + IdNodeMetaData.column_ID + " != '" + aStrategicMilestonException.getNodeIdString() + "'";
 				}
@@ -1254,13 +1256,13 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	
 	@Override
 	public int dbCountFiscalYearForWorkPackageMoveTarget(FmsOrganization anOrganization, ProjectAsset aProjectAssetException) {
-		String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.FISCAL_YEAR.getName() +
+		String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.FISCAL_YEAR.getTableName() +
 				" WHERE " + IdNodeMetaData.column_ID +
 				" IN (" +
-					" SELECT " + StrategicMilestoneMetaData.column_FISCAL_YEAR_ID + " FROM " + FmmNodeDefinition.STRATEGIC_MILESTONE.getClassName() +
+					" SELECT " + StrategicMilestoneMetaData.column_FISCAL_YEAR_ID + " FROM " + FmmNodeDefinition.STRATEGIC_MILESTONE.getTableName() +
 					" WHERE " + IdNodeMetaData.column_ID + 
 					" IN (" +
-						" SELECT " + StrategicCommitmentMetaData.column_STRATEGIC_MILESTONE_ID + " FROM " + FmmNodeDefinition.STRATEGIC_COMMITMENT.getClassName();
+						" SELECT " + StrategicCommitmentMetaData.column_STRATEGIC_MILESTONE_ID + " FROM " + FmmNodeDefinition.STRATEGIC_COMMITMENT.getTableName();
 						if(aProjectAssetException != null) {
 							theRawQuery += " WHERE " + StrategicCommitmentMetaData.column_PROJECT_ASSET_ID + " != '" + aProjectAssetException.getNodeIdString() + "'";
 						}
@@ -1273,13 +1275,13 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	@SuppressWarnings("resource")
 	@Override
 	public ArrayList<FiscalYear> dbListFiscalYearForWorkPackageMoveTarget(FmsOrganization anOrganization, ProjectAsset aProjectAssetException) {
-		String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.FISCAL_YEAR.getName() +
+		String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.FISCAL_YEAR.getTableName() +
 				" WHERE " + IdNodeMetaData.column_ID +
 				" IN (" +
-					" SELECT " + StrategicMilestoneMetaData.column_FISCAL_YEAR_ID + " FROM " + FmmNodeDefinition.STRATEGIC_MILESTONE.getClassName() +
+					" SELECT " + StrategicMilestoneMetaData.column_FISCAL_YEAR_ID + " FROM " + FmmNodeDefinition.STRATEGIC_MILESTONE.getTableName() +
 					" WHERE " + IdNodeMetaData.column_ID + 
 					" IN (" +
-						" SELECT " + StrategicCommitmentMetaData.column_STRATEGIC_MILESTONE_ID + " FROM " + FmmNodeDefinition.STRATEGIC_COMMITMENT.getClassName();
+						" SELECT " + StrategicCommitmentMetaData.column_STRATEGIC_MILESTONE_ID + " FROM " + FmmNodeDefinition.STRATEGIC_COMMITMENT.getTableName();
 						if(aProjectAssetException != null) {
 							theRawQuery += " WHERE " + StrategicCommitmentMetaData.column_PROJECT_ASSET_ID + " != '" + aProjectAssetException.getNodeIdString() + "'";
 						}
@@ -1293,7 +1295,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	// TODO - should use MOVE_TARGET view and not include confirmed or proposed completions
 	@Override
 	public int dbCountFiscalYearForFlywheelCadenceMoveTarget(FmsOrganization anOrganization, FiscalYear aFiscalYearException) {
-		String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.FISCAL_YEAR.getName() +
+		String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.FISCAL_YEAR.getTableName() +
 				" WHERE " + FiscalYearMetaData.column_ORGANIZATION_ID + " = '" + anOrganization.getNodeIdString() + "'";
 		if(aFiscalYearException != null) {
 			theRawQuery += " AND " + IdNodeMetaData.column_ID + " != '" + aFiscalYearException.getNodeIdString() + "'";
@@ -1306,7 +1308,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	@SuppressWarnings("resource")
 	@Override
 	public ArrayList<FiscalYear> dbListFiscalYearForFlywheelCadenceMoveTarget(FmsOrganization anOrganization, FiscalYear aFiscalYearException) {
-		String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.FISCAL_YEAR.getName() +
+		String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.FISCAL_YEAR.getTableName() +
 				" WHERE " + FiscalYearMetaData.column_ORGANIZATION_ID + " = '" + anOrganization.getNodeIdString() + "'";
 		if(aFiscalYearException != null) {
 			theRawQuery += " AND " + IdNodeMetaData.column_ID + " != '" + aFiscalYearException.getNodeIdString() + "'";
@@ -1350,7 +1352,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
     @Override
     public ArrayList<FiscalYearHolidayBreak> dbGetFiscalYearHolidayBreakList(FiscalYear aFiscalYear) {
-        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.FISCAL_YEAR_HOLIDAY_BREAK.getName() +
+        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.FISCAL_YEAR_HOLIDAY_BREAK.getTableName() +
                 " WHERE " + FiscalYearHolidayBreakMetaData.column_FISCAL_YEAR_ID + " = '" + aFiscalYear.getNodeIdString() + "'";
         theRawQuery += " ORDER BY " + FiscalYearHolidayBreakMetaData.column_HOLIDAY_DATE + " ASC";
         Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
@@ -1397,7 +1399,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
     @Override
     public ArrayList<FlywheelCadence> dbGetFlywheelCadenceListForFiscalYear(String aFiscalYearId) {
-        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.FLYWHEEL_CADENCE.getName() +
+        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.FLYWHEEL_CADENCE.getTableName() +
                 " WHERE " + FlywheelCadenceMetaData.column_FISCAL_YEAR_ID + " = '" + aFiscalYearId + "'";
         theRawQuery += " ORDER BY " + FlywheelCadenceMetaData.column_SCHEDULED_END_DATE + " ASC";
         Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
@@ -1449,7 +1451,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
     @Override
     public ArrayList<WorkPlan> dbGetWorkPlanListForFlywheelCadence(String aFlywheelCadenceId) {
-        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.WORK_PLAN.getName() +
+        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.WORK_PLAN.getTableName() +
                 " WHERE " + WorkPlanMetaData.column_FLYWHEEL_CADENCE_ID + " = '" + aFlywheelCadenceId + "'";
         theRawQuery += " ORDER BY " + WorkPlanMetaData.column_SCHEDULED_END_DATE + " ASC";
         Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
@@ -1494,7 +1496,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
     public boolean dbDeleteAllWorkPlansForFiscalYear(String aFiscalYearId, boolean bAtomicTransaction) {
         return deleteAllRowFromSimpleIdTable(
                 WorkPlanMetaData.column_FLYWHEEL_CADENCE_ID + " IN (" +
-                    " SELECT " + IdNodeMetaData.column_ID + " FROM " + FmmNodeDefinition.FLYWHEEL_CADENCE.getClassName() +
+                    " SELECT " + IdNodeMetaData.column_ID + " FROM " + FmmNodeDefinition.FLYWHEEL_CADENCE.getTableName() +
                     " WHERE " + FlywheelCadenceMetaData.column_FISCAL_YEAR_ID + " = '" + aFiscalYearId + "'" +
                 ")",
                 FmmNodeDefinition.WORK_PLAN, bAtomicTransaction);
@@ -1650,11 +1652,11 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
 	@Override
 	public FmsOrganization dbGetFmmOwner() {
-		String theQueryString = "SELECT " + FmmNodeDefinition.FMS_ORGANIZATION.getName() + ".* FROM " + FmmNodeDefinition.FMS_ORGANIZATION.getName() +
-				" JOIN " + FmmNodeDefinition.FMM_CONFIGURATION + 
-				" ON " + FmmNodeDefinition.FMS_ORGANIZATION.getName() + "." + IdNodeMetaData.column_ID +
-				" = " + FmmNodeDefinition.FMM_CONFIGURATION + "." + FmmConfigurationMetaData.column_ORGANIZATION_ID +
-			    " AND " + FmmNodeDefinition.FMM_CONFIGURATION + "." + FmmConfigurationMetaData.column_FOR_THIS_FMM + " = 1";
+		String theQueryString = "SELECT " + FmmNodeDefinition.FMS_ORGANIZATION.getTableName() + ".* FROM " + FmmNodeDefinition.FMS_ORGANIZATION.getTableName() +
+				" JOIN " + FmmNodeDefinition.FMM_CONFIGURATION.getTableName() +
+				" ON " + FmmNodeDefinition.FMS_ORGANIZATION.getTableName() + "." + IdNodeMetaData.column_ID +
+				" = " + FmmNodeDefinition.FMM_CONFIGURATION.getTableName() + "." + FmmConfigurationMetaData.column_ORGANIZATION_ID +
+			    " AND " + FmmNodeDefinition.FMM_CONFIGURATION.getTableName() + "." + FmmConfigurationMetaData.column_FOR_THIS_FMM + " = 1";
 		Cursor theCursor = getSqLiteDatabase().rawQuery(theQueryString, null);
 		FmsOrganization theFmsOrganization = FmsOrganizationDaoSqLite.getInstance().getSingleObjectFromCursor(theCursor);
 		theCursor.close();
@@ -1667,7 +1669,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 		if(anOrganization.getNodeIdString().equals(theCurrentFmmOwner.getNodeIdString())) {
 			return;
 		}
-		getSqLiteDatabase().execSQL("UPDATE " + FmmNodeDefinition.FMM_CONFIGURATION.getName() +
+		getSqLiteDatabase().execSQL("UPDATE " + FmmNodeDefinition.FMM_CONFIGURATION.getTableName() +
 				" SET " + FmmConfigurationMetaData.column_ORGANIZATION_ID + " = '" + anOrganization.getNodeIdString() + "'" +
 				" WHERE " + FmmConfigurationMetaData.column_FOR_THIS_FMM + " = 1;");
 	}
@@ -1710,7 +1712,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	}
 
 	private void moveRowsToOrganization(FmmNodeDefinition anFmmNodeDefinition, FmsOrganization anOrganization) {
-		getSqLiteDatabase().execSQL("UPDATE " + anFmmNodeDefinition.getClassName() +
+		getSqLiteDatabase().execSQL("UPDATE " + anFmmNodeDefinition.getTableName() +
 				" SET " + FiscalYearMetaData.column_ORGANIZATION_ID + " = '" + anOrganization.getNodeIdString() + "';");
 	}
 
@@ -1718,7 +1720,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 			FmmNodeDefinition anFmmNodeDefinition,
 			String anExistingFmsOrganizationId,
 			FmsOrganization anOrganization) {
-		getSqLiteDatabase().execSQL("UPDATE " + anFmmNodeDefinition.getClassName() +
+		getSqLiteDatabase().execSQL("UPDATE " + anFmmNodeDefinition.getTableName() +
 				" SET " + FiscalYearMetaData.column_ORGANIZATION_ID + " = '" + anOrganization.getNodeIdString() + "'" +
 				" WHERE " + FiscalYearMetaData.column_ORGANIZATION_ID + " = '" + anExistingFmsOrganizationId + "';");
 	}
@@ -1757,7 +1759,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
         }
         this.contentValues.clear();
         this.contentValues.putNull(ProjectMetaData.column_PORTFOLIO_ID);
-        int theRowCount = getSqLiteDatabase().update(FmmNodeDefinition.PROJECT.getClassName(), this.contentValues,
+        int theRowCount = getSqLiteDatabase().update(FmmNodeDefinition.PROJECT.getTableName(), this.contentValues,
                 ProjectMetaData.column_ID + " = '" + aProjectNodeIdString + "'", null);
         if(bAtomicTransaction) {
             endTransaction(theRowCount > 0);
@@ -1771,7 +1773,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
         }
         this.contentValues.clear();
         this.contentValues.putNull(ProjectMetaData.column_PORTFOLIO_ID);
-        int theRowCount = getSqLiteDatabase().update(FmmNodeDefinition.PROJECT.getClassName(), this.contentValues,
+        int theRowCount = getSqLiteDatabase().update(FmmNodeDefinition.PROJECT.getTableName(), this.contentValues,
                 ProjectMetaData.column_PORTFOLIO_ID + " = '" + aPortfolioNodeIdString + "'", null);
         if(bAtomicTransaction) {
             endTransaction(theRowCount > 0);
@@ -1788,7 +1790,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
         if(bAtomicTransaction) {
             startTransaction();
         }
-        int theRowCount = getSqLiteDatabase().delete(FmmNodeDefinition.PROJECT.getClassName(),
+        int theRowCount = getSqLiteDatabase().delete(FmmNodeDefinition.PROJECT.getTableName(),
                 ProjectMetaData.column_PORTFOLIO_ID + " = '" + aPortfolioId + "'", null);
         if(bAtomicTransaction) {
             endTransaction(theRowCount > 0);
@@ -1805,13 +1807,13 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
 	@Override
 	public ArrayList<ProjectAsset> dbListProjectAssets(Project aProject, ProjectAsset aProjectAssetException) {
-		return dbListProjectsAssetForProject(aProject.getNodeIdString(), aProjectAssetException == null ? null : aProjectAssetException.getNodeIdString());
+		return dbListProjectAssetsForProject(aProject.getNodeIdString(), aProjectAssetException == null ? null : aProjectAssetException.getNodeIdString());
 	}
 
 	@SuppressWarnings("resource")
 	@Override
-	public ArrayList<ProjectAsset> dbListProjectsAssetForProject(String aProjectId, String aProjectAssetExceptionId) {
-		String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.PROJECT_ASSET.getName() +
+	public ArrayList<ProjectAsset> dbListProjectAssetsForProject(String aProjectId, String aProjectAssetExceptionId) {
+		String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.PROJECT_ASSET.getTableName() +
 			" WHERE " + ProjectAssetMetaData.column_PROJECT_ID + " = '" + aProjectId + "'";
 			if(aProjectAssetExceptionId != null) {
 				theRawQuery += " AND " + IdNodeMetaData.column_ID + " != '" + aProjectAssetExceptionId + "'";
@@ -1835,37 +1837,37 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	@Override
 	public ArrayList<ProjectAsset> dbListProjectAssetsForStrategicMilestone(String aStrategicMilestoneId, String aProjectAssetExceptionId) {
 		Cursor theCursor = getSqLiteDatabase().rawQuery(getInnerJoinQueryWithAndSpecSorted(
-				FmmNodeDefinition.PROJECT_ASSET.getName(),
+				FmmNodeDefinition.PROJECT_ASSET.getTableName(),
 				IdNodeMetaData.column_ID,
-				FmmNodeDefinition.STRATEGIC_COMMITMENT.getName(),
+				FmmNodeDefinition.STRATEGIC_COMMITMENT.getTableName(),
 				StrategicCommitmentMetaData.column_PROJECT_ASSET_ID,
-				FmmNodeDefinition.STRATEGIC_COMMITMENT.getName() + "." + StrategicCommitmentMetaData.column_STRATEGIC_MILESTONE_ID + " = '" + aStrategicMilestoneId + "'",
-				FmmNodeDefinition.STRATEGIC_COMMITMENT.getName() + "." + SequencedLinkNodeMetaData.column_SEQUENCE), null);
+				FmmNodeDefinition.STRATEGIC_COMMITMENT.getTableName() + "." + StrategicCommitmentMetaData.column_STRATEGIC_MILESTONE_ID + " = '" + aStrategicMilestoneId + "'",
+				FmmNodeDefinition.STRATEGIC_COMMITMENT.getTableName() + "." + SequencedLinkNodeMetaData.column_SEQUENCE), null);
 		return ProjectAssetDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
 	}
 
 	@SuppressWarnings("resource")
 	@Override
 	public ArrayList<ProjectAsset> dbListProjectAssetInStrategicPlanningForWorkPackageMoveTarget(String aParentId, String aProjectAssetExceptionId) {
-        String theAndClause = FmmNodeDefinition.STRATEGIC_COMMITMENT.getName() + "." + StrategicCommitmentMetaData.column_STRATEGIC_MILESTONE_ID + " = '" + aParentId + "'";
+        String theAndClause = FmmNodeDefinition.STRATEGIC_COMMITMENT.getTableName() + "." + StrategicCommitmentMetaData.column_STRATEGIC_MILESTONE_ID + " = '" + aParentId + "'";
         if(aProjectAssetExceptionId != null) {
-            theAndClause += " AND " + FmmNodeDefinition.STRATEGIC_COMMITMENT.getName() + "." + StrategicCommitmentMetaData.column_PROJECT_ASSET_ID + " != '" + aProjectAssetExceptionId + "'";
+            theAndClause += " AND " + FmmNodeDefinition.STRATEGIC_COMMITMENT.getTableName() + "." + StrategicCommitmentMetaData.column_PROJECT_ASSET_ID + " != '" + aProjectAssetExceptionId + "'";
         }
         Cursor theCursor = getSqLiteDatabase().rawQuery(getInnerJoinQueryWithAndSpecSorted(
-                FmmNodeDefinition.PROJECT_ASSET.getName(),
+                FmmNodeDefinition.PROJECT_ASSET.getTableName(),
                 IdNodeMetaData.column_ID,
-                FmmNodeDefinition.STRATEGIC_COMMITMENT.getName(),
+                FmmNodeDefinition.STRATEGIC_COMMITMENT.getTableName(),
                 StrategicCommitmentMetaData.column_PROJECT_ASSET_ID,
                 theAndClause,
-                FmmNodeDefinition.STRATEGIC_COMMITMENT.getName() + "." + SequencedLinkNodeMetaData.column_SEQUENCE), null);
+                FmmNodeDefinition.STRATEGIC_COMMITMENT.getTableName() + "." + SequencedLinkNodeMetaData.column_SEQUENCE), null);
 		return ProjectAssetDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
 	}
 
     public ArrayList<ProjectAsset> dbListProjectAssetInWorkBreakdownForWorkTaskMoveTarget(String aProjectId, String aWorkPackageException) {
-        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.PROJECT_ASSET.getName() +
+        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.PROJECT_ASSET.getTableName() +
                 " WHERE " + ProjectAssetMetaData.column_PROJECT_ID + " = '" + aProjectId + "' AND " + IdNodeMetaData.column_ID +
                 " IN (" +
-                " SELECT " + WorkPackageMetaData.column_PROJECT_ASSET_ID + " FROM " + FmmNodeDefinition.WORK_PACKAGE.getClassName();
+                " SELECT " + WorkPackageMetaData.column_PROJECT_ASSET_ID + " FROM " + FmmNodeDefinition.WORK_PACKAGE.getTableName();
         if(aWorkPackageException != null) {
             theRawQuery += " WHERE " + IdNodeMetaData.column_ID + " != '" + aWorkPackageException + "'";
         }
@@ -1878,7 +1880,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	@SuppressWarnings("resource")
 	@Override
 	public ArrayList<ProjectAsset> dbListProjectAssetOrphansFromProject() {
-		String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.PROJECT_ASSET.getName() +
+		String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.PROJECT_ASSET.getTableName() +
 				" WHERE " + ProjectAssetMetaData.column_PROJECT_ID + " IS NULL";
 			theRawQuery += " ORDER BY " + HeadlineNodeMetaData.column_HEADLINE + " ASC";
 			Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
@@ -1887,9 +1889,9 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
 	@SuppressWarnings("resource")
 	@Override
-	public ArrayList<ProjectAsset> dbListProjectAssetOrphansFromStrategicMilestone() {
+	public ArrayList<ProjectAsset> dbListProjectAssetWhichAreNotStrategic() {
 		String theRawQuery =
-			"SELECT * FROM " + FmmNodeDefinition.PROJECT_ASSET.getName() +
+			"SELECT * FROM " + FmmNodeDefinition.PROJECT_ASSET.getTableName() +
 			" WHERE " + IdNodeMetaData.column_ID + " NOT IN (" +
 					" SELECT " + StrategicCommitmentMetaData.column_PROJECT_ASSET_ID + " FROM " + FmmNodeDefinition.STRATEGIC_COMMITMENT +
 			" )" +
@@ -1930,7 +1932,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
                 ProjectAssetMetaData.column_PROJECT_ID,
                 aDestinationProjectId,
                 bSequenceAtEnd ));
-        int theRowCount = getSqLiteDatabase().update(FmmNodeDefinition.PROJECT_ASSET.getClassName(), this.contentValues,
+        int theRowCount = getSqLiteDatabase().update(FmmNodeDefinition.PROJECT_ASSET.getTableName(), this.contentValues,
                 IdNodeMetaData.column_ID + " = '" + aProjectAssetId + "'", null);
         if(bAtomicTransaction) {
             endTransaction(theRowCount > 0);
@@ -1954,7 +1956,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 				ProjectAssetMetaData.column_PROJECT_ID,
 				aDestinationProjectId,
 				bSequenceAtEnd ));
-		int theRowCount = getSqLiteDatabase().update(FmmNodeDefinition.PROJECT_ASSET.getClassName(), this.contentValues,
+		int theRowCount = getSqLiteDatabase().update(FmmNodeDefinition.PROJECT_ASSET.getTableName(), this.contentValues,
 				ProjectAssetMetaData.column_PROJECT_ID + " = '" + aSourceProjectId + "'", null);
 		if(bAtomicTransaction) {
 			endTransaction(theRowCount > 0);
@@ -1991,7 +1993,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	@Override
 	public boolean dbOrphanSingleProjectAssetFromStrategicMilestone(String aProjectAssetId, String aStrategicMilestoneId, boolean bAtomicTransaction) {
 		boolean theResult = deleteRows(aProjectAssetId, StrategicCommitmentMetaData.column_PROJECT_ASSET_ID, FmmNodeDefinition.STRATEGIC_COMMITMENT, bAtomicTransaction);
-		reSequenceRows(FmmNodeDefinition.STRATEGIC_COMMITMENT.getClassName(), StrategicCommitmentMetaData.column_STRATEGIC_MILESTONE_ID, aStrategicMilestoneId);
+		reSequenceRows(FmmNodeDefinition.STRATEGIC_COMMITMENT.getTableName(), StrategicCommitmentMetaData.column_STRATEGIC_MILESTONE_ID, aStrategicMilestoneId);
 		return theResult;
 	}
 
@@ -2003,12 +2005,12 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	@Override
 	public boolean dbOrphanSingleProjectAssetFromProject(String aProjectAssetId, String aProjectId, boolean bAtomicTransaction) {
         boolean bSuccess = orphanSequenceRows(
-                FmmNodeDefinition.PROJECT_ASSET.getClassName(),
+                FmmNodeDefinition.PROJECT_ASSET.getTableName(),
                 ProjectAssetMetaData.column_PROJECT_ID,
                 IdNodeMetaData.column_ID + " = '" + aProjectAssetId + "'",
                 bAtomicTransaction);
         reSequenceRows(
-                FmmNodeDefinition.PROJECT_ASSET.getClassName(),
+                FmmNodeDefinition.PROJECT_ASSET.getTableName(),
                 ProjectAssetMetaData.column_PROJECT_ID,
                 aProjectId );
         return bSuccess;
@@ -2017,7 +2019,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	@Override
 	public boolean dbOrphanAllProjectAssetsFromProject(String aProjectId, boolean bAtomicTransaction) {
 		return orphanSequenceRows(
-                FmmNodeDefinition.PROJECT_ASSET.getClassName(),
+                FmmNodeDefinition.PROJECT_ASSET.getTableName(),
                 ProjectAssetMetaData.column_PROJECT_ID,
                 ProjectAssetMetaData.column_PROJECT_ID + " = '" + aProjectId + "'",
                 bAtomicTransaction);
@@ -2039,7 +2041,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
                 ProjectAssetMetaData.column_PROJECT_ID,
                 aProjectId,
                 bSequenceAtEnd ));
-        int theRowCount = getSqLiteDatabase().update(FmmNodeDefinition.PROJECT_ASSET.getClassName(), this.contentValues,
+        int theRowCount = getSqLiteDatabase().update(FmmNodeDefinition.PROJECT_ASSET.getTableName(), this.contentValues,
                 IdNodeMetaData.column_ID + " = '" + aProjectAssetId + "'", null);
         if(bAtomicTransaction) {
             endTransaction(theRowCount > 0);
@@ -2062,6 +2064,59 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+
+
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////  Node - STRATEGIC ASSET  ///////////////////////////////////////////////////////////////////////////////////
+
+    @Override
+    public ArrayList<StrategicAsset> dbListStrategicAssets(StrategicMilestone aStrategicMilestone) {
+        return dbListStrategicAssets(aStrategicMilestone, null);
+    }
+
+    @Override
+    public ArrayList<StrategicAsset> dbListStrategicAssets(StrategicMilestone aStrategicMilestone, StrategicAsset aStrategicAssetException) {
+        return dbListStrategicAssetsForStrategicMilestone(aStrategicMilestone.getNodeIdString(), aStrategicAssetException == null ? null : aStrategicAssetException.getNodeIdString());
+    }
+
+    @SuppressWarnings("resource")
+    @Override
+    public ArrayList<StrategicAsset> dbListStrategicAssetsForStrategicMilestone(String aStrategicMilestoneId, String aStrategicAssetExceptionId) {
+        Cursor theCursor = getSqLiteDatabase().rawQuery(getInnerJoinQueryWithAndSpecSorted(
+                FmmNodeDefinition.STRATEGIC_ASSET.getTableName(),
+                IdNodeMetaData.column_ID,
+                FmmNodeDefinition.STRATEGIC_COMMITMENT.getTableName(),
+                StrategicCommitmentMetaData.column_PROJECT_ASSET_ID,
+                FmmNodeDefinition.STRATEGIC_COMMITMENT.getTableName() + "." + StrategicCommitmentMetaData.column_STRATEGIC_MILESTONE_ID + " = '" + aStrategicMilestoneId + "'",
+                FmmNodeDefinition.STRATEGIC_COMMITMENT.getTableName() + "." + SequencedLinkNodeMetaData.column_SEQUENCE), null);
+        return StrategicAssetDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
+    }
+
+
+
+
+
+
+
+    public boolean dbUpdateStrategicAsset(StrategicAsset aStrategicAsset, boolean bAtomicTransaction) {
+        return false;
+    }
+
+    public boolean dbMoveAllStrategicAssetsIntoStrategicMilestone(String aSourceStrateticMilestoneId, String aDestinationStrategicMilestoneId, boolean bSequenceAtEnd, boolean bAtomicTransaction) {         return false;     }
+
+    public boolean dbInsertStrategicAsset(StrategicAsset aStrategicAsset, boolean bAtomicTransaction) {         return false;     }
+
+    public StrategicAsset dbRetrieveStrategicAsset(String aNodeIdString) {         return null;     }
+
+    public boolean dbMoveSingleStrategicAssetIntoStrategicMilestone(String aStrategicAssetId, String anOriginalStrategicMilestonetId, String aDestinationStrategicMilestoneId, boolean bSequenceAtEnd, boolean bAtomicTransaction) {         return false;     }
+
+    public ArrayList<StrategicAsset> dbListStrategicAssetsWithNoProject() {         return null;     }
+
+    public boolean dbUpdateProjectAssetIsStrategic(String aProjectAssetId, boolean bStrategic) {         return false;     }
+
+    public boolean dbDeleteStrategicAsset(StrategicAsset aStrategicAsset, boolean bAtomicTransaction) {         return false;     }
 	
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -2081,7 +2136,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	@SuppressWarnings("resource")
 	@Override
 	public ArrayList<StrategicCommitment> dbRetrieveStrategicCommitmentListForStrategicMilestone(String aStrategicMilestoneNodeId) {
-		Cursor theCursor = getSqLiteDatabase().rawQuery("SELECT * FROM " + FmmNodeDefinition.STRATEGIC_COMMITMENT.getName() +
+		Cursor theCursor = getSqLiteDatabase().rawQuery("SELECT * FROM " + FmmNodeDefinition.STRATEGIC_COMMITMENT.getTableName() +
 				" WHERE " + StrategicCommitmentMetaData.column_STRATEGIC_MILESTONE_ID + " = '" + aStrategicMilestoneNodeId + "';", null);
 		return StrategicCommitmentDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
 	}
@@ -2094,7 +2149,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	@SuppressWarnings("resource")
 	@Override
 	public StrategicCommitment dbRetrieveStrategicCommitment(String aStrategicMilestoneId, String aProjectAssetId) {
-		Cursor theCursor = getSqLiteDatabase().rawQuery("SELECT * FROM " + FmmNodeDefinition.STRATEGIC_COMMITMENT.getName() +
+		Cursor theCursor = getSqLiteDatabase().rawQuery("SELECT * FROM " + FmmNodeDefinition.STRATEGIC_COMMITMENT.getTableName() +
 				" WHERE " + StrategicCommitmentMetaData.column_STRATEGIC_MILESTONE_ID + " = '" + aStrategicMilestoneId + "'" +
 				" AND " + StrategicCommitmentMetaData.column_PROJECT_ASSET_ID + " = '" + aProjectAssetId + "'", null);
 		return StrategicCommitmentDaoSqLite.getInstance().getSingleObjectFromCursor(theCursor);
@@ -2103,7 +2158,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	@SuppressWarnings("resource")
 	@Override
 	public StrategicCommitment dbRetrieveStrategicCommitmentForProjectAsset(String aProjectAssetId) {
-		Cursor theCursor = getSqLiteDatabase().rawQuery("SELECT * FROM " + FmmNodeDefinition.STRATEGIC_COMMITMENT.getName() +
+		Cursor theCursor = getSqLiteDatabase().rawQuery("SELECT * FROM " + FmmNodeDefinition.STRATEGIC_COMMITMENT.getTableName() +
 				" WHERE " + StrategicCommitmentMetaData.column_PROJECT_ASSET_ID + " = '" + aProjectAssetId + "'", null);
 		return StrategicCommitmentDaoSqLite.getInstance().getSingleObjectFromCursor(theCursor);
 	}
@@ -2125,7 +2180,12 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
     	return deleteRowFromSimpleIdTable(aStrategicCommitment.getNodeIdString(), FmmNodeDefinition.STRATEGIC_COMMITMENT, bAtomicTransaction);
 	}
 
-	////  Node - STRATEGIC MILESTONE  ////////////////////////////////////////////////////////////////////////////////
+    @Override
+    public boolean dbDeleteStrategicCommitment(String aStrategicCommitmentId, String aProjectAssetId, boolean bAtomicTransaction) {
+        return false;
+    }
+
+    ////  Node - STRATEGIC MILESTONE  ////////////////////////////////////////////////////////////////////////////////
 
 	@Override
 	public ArrayList<StrategicMilestone> dbListStrategicMilestone(FiscalYear aFiscalYear) {
@@ -2145,7 +2205,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	@SuppressWarnings("resource")
 	@Override
 	public ArrayList<StrategicMilestone> dbListStrategicMilestone(String aFiscalYearId, String aStrategicMilestoneExceptionId) {
-		String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.STRATEGIC_MILESTONE.getName() +
+		String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.STRATEGIC_MILESTONE.getTableName() +
 			" WHERE " + StrategicMilestoneMetaData.column_FISCAL_YEAR_ID + " = '" + aFiscalYearId + "'";
 			if(aStrategicMilestoneExceptionId != null) {
 				theRawQuery += " AND " + IdNodeMetaData.column_ID + " != '" + aStrategicMilestoneExceptionId + "'";
@@ -2157,7 +2217,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
 	@Override
 	public int dbCountStrategicMilestoneForProjectAssetMoveTarget(FiscalYear aFiscalYear, StrategicMilestone aStrategicMilestoneException) {
-		String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.STRATEGIC_MILESTONE.getName() +
+		String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.STRATEGIC_MILESTONE.getTableName() +
 			" WHERE " + StrategicMilestoneMetaData.column_FISCAL_YEAR_ID + " = '" + aFiscalYear.getNodeIdString() + "'";
 			if(aStrategicMilestoneException != null) {
 				theRawQuery += " AND " + IdNodeMetaData.column_ID + " != '" + aStrategicMilestoneException.getNodeIdString() + "'";
@@ -2169,7 +2229,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	@SuppressWarnings("resource")
 	@Override
 	public ArrayList<StrategicMilestone> dbListStrategicMilestoneForProjectAssetMoveTarget(FiscalYear aFiscalYear, StrategicMilestone aStrategicMilestoneException) {
-		String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.STRATEGIC_MILESTONE.getName() +
+		String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.STRATEGIC_MILESTONE.getTableName() +
 			" WHERE " + StrategicMilestoneMetaData.column_FISCAL_YEAR_ID + " = '" + aFiscalYear.getNodeIdString() + "'";
 			if(aStrategicMilestoneException != null) {
 				theRawQuery += " AND " + IdNodeMetaData.column_ID + " != '" + aStrategicMilestoneException.getNodeIdString() + "'";
@@ -2181,11 +2241,11 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
 	@Override
 	public int dbCountStrategicMilestoneForWorkPackageMoveTarget(FiscalYear aFiscalYear, ProjectAsset aProjectAssetException) {
-		String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.STRATEGIC_MILESTONE.getName() +
+		String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.STRATEGIC_MILESTONE.getTableName() +
 			" WHERE " + StrategicMilestoneMetaData.column_FISCAL_YEAR_ID + " = '" + aFiscalYear.getNodeIdString() + "'" +
 			" AND " + IdNodeMetaData.column_ID + 
 			" IN (" +
-				" SELECT " + StrategicCommitmentMetaData.column_STRATEGIC_MILESTONE_ID + " FROM " + FmmNodeDefinition.STRATEGIC_COMMITMENT.getClassName();
+				" SELECT " + StrategicCommitmentMetaData.column_STRATEGIC_MILESTONE_ID + " FROM " + FmmNodeDefinition.STRATEGIC_COMMITMENT.getTableName();
 				if(aProjectAssetException != null) {
 					theRawQuery += " WHERE " + StrategicCommitmentMetaData.column_PROJECT_ASSET_ID + " != '" + aProjectAssetException.getNodeIdString() + "'";
 				}
@@ -2197,11 +2257,11 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	@SuppressWarnings("resource")
 	@Override
 	public ArrayList<StrategicMilestone> dbListStrategicMilestoneForWorkPackageMoveTarget(FiscalYear aFiscalYear, ProjectAsset aProjectAssetException) {
-		String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.STRATEGIC_MILESTONE.getName() +
+		String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.STRATEGIC_MILESTONE.getTableName() +
 				" WHERE " + StrategicMilestoneMetaData.column_FISCAL_YEAR_ID + " = '" + aFiscalYear.getNodeIdString() + "'" +
 				" AND " + IdNodeMetaData.column_ID + 
 				" IN (" +
-					" SELECT " + StrategicCommitmentMetaData.column_STRATEGIC_MILESTONE_ID + " FROM " + FmmNodeDefinition.STRATEGIC_COMMITMENT.getClassName();
+					" SELECT " + StrategicCommitmentMetaData.column_STRATEGIC_MILESTONE_ID + " FROM " + FmmNodeDefinition.STRATEGIC_COMMITMENT.getTableName();
 					if(aProjectAssetException != null) {
 						theRawQuery += " WHERE " + StrategicCommitmentMetaData.column_PROJECT_ASSET_ID + " != '" + aProjectAssetException.getNodeIdString() + "'";
 					}
@@ -2233,7 +2293,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 		theContentValues.put(StrategicMilestoneMetaData.column_TARGET_DATE, aStrategicMilestone.getTargetDateFormattedUtcLong());
 		theContentValues.put(StrategicMilestoneMetaData.column_TARGET_IS_REVERSE_PLANNING, aStrategicMilestone.targetIsReversePlanningAsInt());
 		boolean theBoolean = getSqLiteDatabase().update(
-				FmmNodeDefinition.STRATEGIC_MILESTONE.getClassName(),
+				FmmNodeDefinition.STRATEGIC_MILESTONE.getTableName(),
 				theContentValues,
     			IdNodeMetaData.column_ID + " = '" + aStrategicMilestone.getNodeIdString() + "'",
     			null ) > 0;
@@ -2266,7 +2326,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 				StrategicMilestoneMetaData.column_FISCAL_YEAR_ID,
 				aDestinationFiscalYearId,
 				bSequenceAtEnd ));
-		int theRowCount = getSqLiteDatabase().update(FmmNodeDefinition.STRATEGIC_MILESTONE.getClassName(), this.contentValues,
+		int theRowCount = getSqLiteDatabase().update(FmmNodeDefinition.STRATEGIC_MILESTONE.getTableName(), this.contentValues,
 				StrategicMilestoneMetaData.column_FISCAL_YEAR_ID + " = '" + aCurrentFiscalYearId + "'", null);
 		if(bAtomicTransaction) {
 			endTransaction(theRowCount > 0);
@@ -2291,9 +2351,9 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 				StrategicMilestoneMetaData.column_FISCAL_YEAR_ID,
 				aDestinationFiscalYearId,
 				bSequenceAtEnd ));
-		int theRowCount = getSqLiteDatabase().update(FmmNodeDefinition.STRATEGIC_MILESTONE.getClassName(), this.contentValues,
+		int theRowCount = getSqLiteDatabase().update(FmmNodeDefinition.STRATEGIC_MILESTONE.getTableName(), this.contentValues,
 				IdNodeMetaData.column_ID + " = '" + aStrategicMilestoneId + "'", null);
-		reSequenceRows(FmmNodeDefinition.STRATEGIC_MILESTONE.getClassName(), StrategicMilestoneMetaData.column_FISCAL_YEAR_ID, anOriginalFiscalYearId);
+		reSequenceRows(FmmNodeDefinition.STRATEGIC_MILESTONE.getTableName(), StrategicMilestoneMetaData.column_FISCAL_YEAR_ID, anOriginalFiscalYearId);
 		if(bAtomicTransaction) {
 			endTransaction(theRowCount > 0);
 		}
@@ -2324,9 +2384,9 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 			boolean bSequenceAtEnd) {
 		int theSequence = 1;
 		if(bSequenceAtEnd) {
-			theSequence = countRows(anFmmNodeDefinition.getClassName(), aParentIdColumnName, aParentId) + 1;
+			theSequence = countRows(anFmmNodeDefinition.getTableName(), aParentIdColumnName, aParentId) + 1;
 		} else {
-			dbIncrementSequence(anFmmNodeDefinition.getClassName(), aParentIdColumnName, aParentId);
+			dbIncrementSequence(anFmmNodeDefinition.getTableName(), aParentIdColumnName, aParentId);
 		}
 		return theSequence;
 	}
@@ -2491,7 +2551,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	public ArrayList<WorkPackage> dbListWorkPackagesForWorkTaskMoveTarget(String aParentNodeId, String aWorkPackageExceptionId, boolean bPrimaryParent) {
 		Cursor theCursor;
 		if(bPrimaryParent) {
-			String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.WORK_PACKAGE.getName() +
+			String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.WORK_PACKAGE.getTableName() +
 					" WHERE " + WorkPackageMetaData.column_PROJECT_ASSET_ID + " = '" + aParentNodeId + "'";
 					if(aWorkPackageExceptionId != null) {
 						theRawQuery += " AND " + IdNodeMetaData.column_ID + " != '" + aWorkPackageExceptionId + "'";
@@ -2499,17 +2559,17 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 				theRawQuery += " ORDER BY " + CompletableNodeMetaData.column_SEQUENCE + " ASC";
 				theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
 		} else {
-			String theAndClause = FmmNodeDefinition.FLYWHEEL_WORK_PACKAGE_COMMITMENT.getName() + "." + FlywheelWorkPackageCommitmentMetaData.column_FLYWHEEL_CADENCE_ID + " = '" + aParentNodeId + "'";
+			String theAndClause = FmmNodeDefinition.FLYWHEEL_WORK_PACKAGE_COMMITMENT.getTableName() + "." + FlywheelWorkPackageCommitmentMetaData.column_FLYWHEEL_CADENCE_ID + " = '" + aParentNodeId + "'";
 			if(aWorkPackageExceptionId != null) {
-				theAndClause += " AND " + FmmNodeDefinition.FLYWHEEL_WORK_PACKAGE_COMMITMENT.getName() + "." + FlywheelWorkPackageCommitmentMetaData.column_WORK_PACKAGE_ID + " != '" + aWorkPackageExceptionId + "'";
+				theAndClause += " AND " + FmmNodeDefinition.FLYWHEEL_WORK_PACKAGE_COMMITMENT.getTableName() + "." + FlywheelWorkPackageCommitmentMetaData.column_WORK_PACKAGE_ID + " != '" + aWorkPackageExceptionId + "'";
 			}
 			theCursor = getSqLiteDatabase().rawQuery(getInnerJoinQueryWithAndSpecSorted(
-					FmmNodeDefinition.WORK_PACKAGE.getName(),
+					FmmNodeDefinition.WORK_PACKAGE.getTableName(),
 					IdNodeMetaData.column_ID,
-					FmmNodeDefinition.FLYWHEEL_WORK_PACKAGE_COMMITMENT.getName(),
+					FmmNodeDefinition.FLYWHEEL_WORK_PACKAGE_COMMITMENT.getTableName(),
 					FlywheelWorkPackageCommitmentMetaData.column_WORK_PACKAGE_ID,
 					theAndClause,
-					FmmNodeDefinition.FLYWHEEL_WORK_PACKAGE_COMMITMENT.getName() + "." + SequencedLinkNodeMetaData.column_SEQUENCE), null);
+					FmmNodeDefinition.FLYWHEEL_WORK_PACKAGE_COMMITMENT.getTableName() + "." + SequencedLinkNodeMetaData.column_SEQUENCE), null);
 		}
 		return WorkPackageDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
 	}
@@ -2532,7 +2592,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	@Override
 	public boolean dbOrphanAllWorkPackagesFromProjectAsset(String aProjectAssetNodeId, boolean bAtomicTransaction) {
         return orphanSequenceRows(
-                FmmNodeDefinition.WORK_PACKAGE.getClassName(),
+                FmmNodeDefinition.WORK_PACKAGE.getTableName(),
                 WorkPackageMetaData.column_PROJECT_ASSET_ID,
                 WorkPackageMetaData.column_PROJECT_ASSET_ID + " = '" + aProjectAssetNodeId + "'",
                 bAtomicTransaction);
@@ -2545,12 +2605,12 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
     public boolean dbOrphanSingleWorkPackageFromProjectAsset(String aWorkPackageId, String aProjectAssetId, boolean bAtomicTransaction) {
         boolean bSuccess = orphanSequenceRows(
-                FmmNodeDefinition.WORK_PACKAGE.getClassName(),
+                FmmNodeDefinition.WORK_PACKAGE.getTableName(),
                 WorkPackageMetaData.column_PROJECT_ASSET_ID,
                 IdNodeMetaData.column_ID + " = '" + aWorkPackageId + "'",
                 bAtomicTransaction);
         reSequenceRows(
-                FmmNodeDefinition.WORK_PACKAGE.getClassName(),
+                FmmNodeDefinition.WORK_PACKAGE.getTableName(),
                 WorkPackageMetaData.column_PROJECT_ASSET_ID,
                 aProjectAssetId );
         return bSuccess;
@@ -2563,7 +2623,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	@SuppressWarnings("resource")
 	@Override
 	public ArrayList<WorkPackage> dbListWorkPackageOrphansFromProjectAsset() {
-		String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.WORK_PACKAGE.getName() +
+		String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.WORK_PACKAGE.getTableName() +
 				" WHERE " + WorkPackageMetaData.column_PROJECT_ASSET_ID + " IS NULL";
 			theRawQuery += " ORDER BY " + HeadlineNodeMetaData.column_HEADLINE + " ASC";
 			Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
@@ -2592,7 +2652,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 				WorkPackageMetaData.column_PROJECT_ASSET_ID,
 				aProjectAssetId,
 				bSequenceAtEnd ));
-		int theRowCount = getSqLiteDatabase().update(FmmNodeDefinition.WORK_PACKAGE.getClassName(), this.contentValues,
+		int theRowCount = getSqLiteDatabase().update(FmmNodeDefinition.WORK_PACKAGE.getTableName(), this.contentValues,
 				IdNodeMetaData.column_ID + " = '" + aWorkPackageId + "'", null);
 		if(bAtomicTransaction) {
 			endTransaction(theRowCount > 0);
@@ -2616,7 +2676,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 				WorkPackageMetaData.column_PROJECT_ASSET_ID,
 				aDestinationProjectAssetId,
 				bSequenceAtEnd ));
-		int theRowCount = getSqLiteDatabase().update(FmmNodeDefinition.WORK_PACKAGE.getClassName(), this.contentValues,
+		int theRowCount = getSqLiteDatabase().update(FmmNodeDefinition.WORK_PACKAGE.getTableName(), this.contentValues,
 				WorkPackageMetaData.column_PROJECT_ASSET_ID + " = '" + aSourceProjectAssetId + "'", null);
 		if(bAtomicTransaction) {
 			endTransaction(theRowCount > 0);
@@ -2640,7 +2700,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
                 WorkPackageMetaData.column_PROJECT_ASSET_ID,
                 aDestinationProjectAssetId,
                 bSequenceAtEnd ));
-        int theRowCount = getSqLiteDatabase().update(FmmNodeDefinition.WORK_PACKAGE.getClassName(), this.contentValues,
+        int theRowCount = getSqLiteDatabase().update(FmmNodeDefinition.WORK_PACKAGE.getTableName(), this.contentValues,
                 IdNodeMetaData.column_ID + " = '" + aWorkPackageId + "'", null);
         if(bAtomicTransaction) {
             endTransaction(theRowCount > 0);
@@ -2651,7 +2711,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
 	@Override
 	public boolean dbDeleteWorkPackage(WorkPackage aWorkPackage, boolean bAtomicTransaction) {
-    	boolean theBoolean = getSqLiteDatabase().delete(FmmNodeDefinition.WORK_PACKAGE.getClassName(), IdNodeMetaData.column_ID + " = '" + aWorkPackage.getNodeIdString()  + "'", null) > 0;
+    	boolean theBoolean = getSqLiteDatabase().delete(FmmNodeDefinition.WORK_PACKAGE.getTableName(), IdNodeMetaData.column_ID + " = '" + aWorkPackage.getNodeIdString()  + "'", null) > 0;
     	return theBoolean;
 	}
 
@@ -2671,7 +2731,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	@SuppressWarnings("resource")
 	@Override
 	public NodeFragFseDocument dbRetrieveNodeFragFseDocumentForDocumentId(String aDocumentId) {
-		Cursor theCursor = getSqLiteDatabase().rawQuery("SELECT * FROM " + FmmNodeDefinition.NODE_FRAG__FSE_DOCUMENT.getName() +
+		Cursor theCursor = getSqLiteDatabase().rawQuery("SELECT * FROM " + FmmNodeDefinition.NODE_FRAG__FSE_DOCUMENT.getTableName() +
 			" WHERE " + NodeFragFseDocumentMetaData.column_DOCUMENT_ID + " = '" + aDocumentId + "'", null);
 		return NodeFragFseDocumentDaoSqLite.getInstance().getSingleObjectFromCursor(theCursor);
 	}
@@ -2722,7 +2782,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	@SuppressWarnings("resource")
 	@Override
 	public ArrayList<PdfPublication> dbRetrievePdfPublicationLisForTargetNode(String aTargetId) {
-		Cursor theCursor = getSqLiteDatabase().rawQuery("SELECT * FROM " + FmmNodeDefinition.PDF_PUBLICATION.getName() +
+		Cursor theCursor = getSqLiteDatabase().rawQuery("SELECT * FROM " + FmmNodeDefinition.PDF_PUBLICATION.getTableName() +
 				"WHERE " + PdfPublicationMetaData.column_TARGET_NODE_ID + " = '" + aTargetId + "';", null);
 		return PdfPublicationDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
 	}
@@ -2730,7 +2790,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	@SuppressWarnings("resource")
 	@Override
 	public ArrayList<PdfPublication> dbRetrievePdfPublicationLisForTargetNodeAndCommunityMember(String aTargetId, String aCommunityMemberId) {
-		Cursor theCursor = getSqLiteDatabase().rawQuery("SELECT * FROM " + FmmNodeDefinition.PDF_PUBLICATION.getName() +
+		Cursor theCursor = getSqLiteDatabase().rawQuery("SELECT * FROM " + FmmNodeDefinition.PDF_PUBLICATION.getTableName() +
 				"WHERE " + PdfPublicationMetaData.column_TARGET_NODE_ID + " = '" + aTargetId +
 				"' AND " + PdfPublicationMetaData.column_COMMUNITY_MEMBER_ID + " = '" + aCommunityMemberId + "';", null);
 		return PdfPublicationDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
@@ -2772,7 +2832,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	@Override
 	public boolean dbInsertOrganizationCommunityMember(OrganizationCommunityMember anOrganizationCommunityMember, boolean bAtomicTransaction) {
 		this.contentValues = OrganizationCommunityMemberDaoSqLite.getInstance().buildContentValues(anOrganizationCommunityMember);
-    	boolean theBoolean = getSqLiteDatabase().insert(FmmNodeDefinition.ORGANIZATION_COMMUNITY_MEMBER.getClassName(), null, this.contentValues) > 0;
+    	boolean theBoolean = getSqLiteDatabase().insert(FmmNodeDefinition.ORGANIZATION_COMMUNITY_MEMBER.getTableName(), null, this.contentValues) > 0;
     	return theBoolean;
 	}
 
@@ -2784,7 +2844,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
 	@Override
 	public boolean dbDeleteOrganizationCommunityMember(OrganizationCommunityMember anOrganizationCommunityMember, boolean bAtomicTransaction) {
-    	boolean theBoolean = getSqLiteDatabase().delete(FmmNodeDefinition.ORGANIZATION_COMMUNITY_MEMBER.getClassName(),
+    	boolean theBoolean = getSqLiteDatabase().delete(FmmNodeDefinition.ORGANIZATION_COMMUNITY_MEMBER.getTableName(),
     			OrganizationCommunityMemberMetaData.column_ORGANIZATION_ID + " = '" + anOrganizationCommunityMember.getOrganizationNodeIdString()  + "'" +
     					OrganizationCommunityMemberMetaData.column_COMMUNITY_MEMBER_ID + " = '" + anOrganizationCommunityMember.getCommunityMemberNodeIdString()  + "';",
     					null ) > 0;
@@ -2976,7 +3036,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
 	@Override
 	public FmmConfiguration dbGetConfigurationForFmm() {
-		Cursor theCursor = getSqLiteDatabase().rawQuery("SELECT * FROM " + FmmNodeDefinition.FMM_CONFIGURATION.getName() +
+		Cursor theCursor = getSqLiteDatabase().rawQuery("SELECT * FROM " + FmmNodeDefinition.FMM_CONFIGURATION.getTableName() +
 				" WHERE " + FmmConfigurationMetaData.column_FOR_THIS_FMM + " = 1;", null);
 		FmmConfiguration theFmmConfiguration = FmmConfigurationDaoSqLite.getInstance().getNextObjectFromCursor(theCursor);
 		theCursor.close();
@@ -2992,11 +3052,11 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 		}
 		startTransaction();
 		// reset data
-		getSqLiteDatabase().execSQL("UPDATE " + FmmNodeDefinition.FMM_CONFIGURATION.getName() +
+		getSqLiteDatabase().execSQL("UPDATE " + FmmNodeDefinition.FMM_CONFIGURATION.getTableName() +
 			" SET " + FmmConfigurationMetaData.column_FOR_THIS_FMM + " = 0" +
 			" WHERE " + FmmConfigurationMetaData.column_FOR_THIS_FMM + " = 1;");
 		// set new configuration
-		getSqLiteDatabase().execSQL("UPDATE " + FmmNodeDefinition.FMS_ORGANIZATION.getName() +
+		getSqLiteDatabase().execSQL("UPDATE " + FmmNodeDefinition.FMS_ORGANIZATION.getTableName() +
 				" SET " + FmmConfigurationMetaData.column_FOR_THIS_FMM + " = 1" +
 				" WHERE " + IdNodeMetaData.column_ID + " = " + anFmmConfiguration.getNodeIdString() + ";");
 		endTransaction(true);
@@ -3004,7 +3064,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
 	@SuppressWarnings("resource")
 	public static FmsOrganization getFirstOrganizationRow(SQLiteDatabase aDatabase) {
-		Cursor theCursor = aDatabase.rawQuery("SELECT * FROM " + FmmNodeDefinition.FMS_ORGANIZATION.getName(), null);
+		Cursor theCursor = aDatabase.rawQuery("SELECT * FROM " + FmmNodeDefinition.FMS_ORGANIZATION.getTableName(), null);
 		return FmsOrganizationDaoSqLite.getInstance().getSingleObjectFromCursor(theCursor);
 	}
 
@@ -3018,7 +3078,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	//////  Node - WORK TASK  ///////////////////////////////////////////////////////////////////////////////////
 
     public ArrayList<WorkTask> dbListWorkTasksForWorkPackage(String aWorkPackageId, String aWorkTaskExceptionId) {
-        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.WORK_TASK.getName() +
+        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.WORK_TASK.getTableName() +
                 " WHERE " + WorkTaskMetaData.column_WORK_PACKAGE__ID + " = '" + aWorkPackageId + "'";
         if(aWorkTaskExceptionId != null) {
             theRawQuery += " AND " + IdNodeMetaData.column_ID + " != '" + aWorkTaskExceptionId + "'";
@@ -3029,7 +3089,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
     }
 
     public ArrayList<WorkTask> dbListWorkTasksForWorkPlan(String aWorkPlanId, String aWorkTaskExceptionId) {
-        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.WORK_TASK.getName() +
+        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.WORK_TASK.getTableName() +
                 " WHERE " + WorkTaskMetaData.column_WORK_PLAN__ID + " = '" + aWorkPlanId + "'";
         if(aWorkTaskExceptionId != null) {
             theRawQuery += " AND " + IdNodeMetaData.column_ID + " != '" + aWorkTaskExceptionId + "'";
@@ -3071,7 +3131,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 //                WorkTaskMetaData.column_WORK_PACKAGE__ID,
 //                aDestinationWorkPackageId,
 //                bSequenceAtEnd ));
-//        int theRowCount = getSqLiteDatabase().update(FmmNodeDefinition.WORK_TASK.getClassName(), this.contentValues,
+//        int theRowCount = getSqLiteDatabase().update(FmmNodeDefinition.WORK_TASK.getTableName(), this.contentValues,
 //                IdNodeMetaData.column_ID + " = '" + aWorkTaskId + "'", null);
 //        if(bAtomicTransaction) {
 //            endTransaction(theRowCount > 0);
@@ -3091,7 +3151,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
                 WorkTaskMetaData.column_WORK_PACKAGE__ID,
                 aDestinationWorkPackageId,
                 bSequenceAtEnd ));
-        int theRowCount = getSqLiteDatabase().update(FmmNodeDefinition.WORK_TASK.getClassName(), this.contentValues,
+        int theRowCount = getSqLiteDatabase().update(FmmNodeDefinition.WORK_TASK.getTableName(), this.contentValues,
                 WorkTaskMetaData.column_WORK_PACKAGE__ID + " = '" + aSourceWorkPackageId+ "'", null);
         if(bAtomicTransaction) {
             endTransaction(theRowCount > 0);
@@ -3101,7 +3161,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
     public boolean dbOrphanAllWorkTasksFromWorkPackage(String aWorkPackageId, boolean bAtomicTransaction) {
         return orphanSequenceRows(
-                FmmNodeDefinition.WORK_TASK.getClassName(),
+                FmmNodeDefinition.WORK_TASK.getTableName(),
                 WorkTaskMetaData.column_WORK_PACKAGE__ID,
                 WorkTaskMetaData.column_WORK_PACKAGE__ID + " = '" + aWorkPackageId + "'",
                 bAtomicTransaction);
@@ -3109,12 +3169,12 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
     public boolean dbOrphanSingleWorkTaskFromWorkPackage(String aWorkTaskId, String aWorkPackageId, boolean bAtomicTransaction) {
         boolean bSuccess = orphanSequenceRows(
-                FmmNodeDefinition.WORK_TASK.getClassName(),
+                FmmNodeDefinition.WORK_TASK.getTableName(),
                 WorkTaskMetaData.column_WORK_PACKAGE__ID,
                 IdNodeMetaData.column_ID + " = '" + aWorkTaskId + "'",
                 bAtomicTransaction);
         reSequenceRows(
-                FmmNodeDefinition.WORK_TASK.getClassName(),
+                FmmNodeDefinition.WORK_TASK.getTableName(),
                 WorkTaskMetaData.column_WORK_PACKAGE__ID,
                 aWorkPackageId );
         return bSuccess;
@@ -3122,7 +3182,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
     public ArrayList<WorkTask> dbListWorkTaskOrphansFromWorkPackage() {
         String theRawQuery =
-                "SELECT * FROM " + FmmNodeDefinition.WORK_TASK.getName() +
+                "SELECT * FROM " + FmmNodeDefinition.WORK_TASK.getTableName() +
                         " WHERE " + WorkTaskMetaData.column_WORK_PACKAGE__ID + " IS NULL" +
                         " ORDER BY " + HeadlineNodeMetaData.column_HEADLINE + " ASC";
         Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
@@ -3131,7 +3191,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
     public ArrayList<WorkTask> dbListWorkTaskOrphansFromWorkPlan() {
         String theRawQuery =
-                "SELECT * FROM " + FmmNodeDefinition.WORK_TASK.getName() +
+                "SELECT * FROM " + FmmNodeDefinition.WORK_TASK.getTableName() +
                         " WHERE " + WorkTaskMetaData.column_WORK_PLAN__ID + " IS NULL" +
                         " ORDER BY " + HeadlineNodeMetaData.column_HEADLINE + " ASC";
         Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
@@ -3149,7 +3209,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
                 WorkTaskMetaData.column_WORK_PACKAGE__ID,
                 aWorkPackageId,
                 bSequenceAtEnd ));
-        int theRowCount = getSqLiteDatabase().update(FmmNodeDefinition.WORK_TASK.getClassName(), this.contentValues,
+        int theRowCount = getSqLiteDatabase().update(FmmNodeDefinition.WORK_TASK.getTableName(), this.contentValues,
                 IdNodeMetaData.column_ID + " = '" + aWorkTaskId + "'", null);
         if(bAtomicTransaction) {
             endTransaction(theRowCount > 0);
@@ -3170,7 +3230,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 //    @SuppressWarnings("resource")
 //    @Override
 //    public ArrayList<StrategicMilestone> dbListStrategicMilestone(String aFiscalYearId, String aStrategicMilestoneExceptionId) {
-//        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.STRATEGIC_MILESTONE.getName() +
+//        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.STRATEGIC_MILESTONE.getTableName() +
 //                " WHERE " + StrategicMilestoneMetaData.column_FISCAL_YEAR_ID + " = '" + aFiscalYearId + "'";
 //        if(aStrategicMilestoneExceptionId != null) {
 //            theRawQuery += " AND " + IdNodeMetaData.column_ID + " != '" + aStrategicMilestoneExceptionId + "'";
@@ -3195,7 +3255,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
     }
 
     public ArrayList<FlywheelCadence> dbListFlywheelCadenceForFiscalYear(String aFiscalYearId, String aFlywheelCadenceExceptiionId) {
-//        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.FLYWHEEL_CADENCE.getClassName() +
+//        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.FLYWHEEL_CADENCE.getTableName() +
 //                " WHERE " + FlywheelCadenceMetaData.column_FISCAL_YEAR_ID + " = '" + aFiscalYearId + "'";
 //        if(aFlywheelCadenceExceptionId != null) {
 //            theRawQuery += " AND " + IdNodeMetaData.column_ID + " != '" + aFlywheelCadenceExceptionId + "'";

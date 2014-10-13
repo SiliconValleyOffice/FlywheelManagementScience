@@ -89,6 +89,7 @@ import com.flywheelms.library.fmm.node.impl.governable.FmsOrganization;
 import com.flywheelms.library.fmm.node.impl.governable.Portfolio;
 import com.flywheelms.library.fmm.node.impl.governable.Project;
 import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
+import com.flywheelms.library.fmm.node.impl.governable.StrategicAsset;
 import com.flywheelms.library.fmm.node.impl.governable.StrategicMilestone;
 import com.flywheelms.library.fmm.node.impl.governable.WorkPackage;
 import com.flywheelms.library.fmm.node.impl.governable.WorkPlan;
@@ -200,17 +201,17 @@ public class FmmDatabaseMediator {
 	public void sequenceFirst(FmmHeadlineNode aTargetNode, FmmHeadlineNode aParentNode) {
 		if(aTargetNode.getFmmNodeDefinition().isPrimarySequenceNode(aParentNode.getFmmNodeDefinition())) {
 			this.persistenceTechnologyDelegate.dbIncrementSequence(
-					aTargetNode.getFmmNodeDefinition().getClassName(),
-					aParentNode.getFmmNodeDefinition().getClassName() + "__id", aParentNode.getNodeIdString() );
+					aTargetNode.getFmmNodeDefinition().getTableName(),
+					aParentNode.getFmmNodeDefinition().getTableName() + "__id", aParentNode.getNodeIdString() );
 			this.persistenceTechnologyDelegate.dbSetPrimarySequence(aTargetNode, 1);
 		} else if(aTargetNode.getFmmNodeDefinition().getSecondaryLinkNodeDefinition() != null) {
 			this.persistenceTechnologyDelegate.dbIncrementSequence(
-					aTargetNode.getFmmNodeDefinition().getSecondaryLinkNodeDefinition().getClassName(),
-					aParentNode.getFmmNodeDefinition().getClassName() + "__id", aParentNode.getNodeIdString() );
+					aTargetNode.getFmmNodeDefinition().getSecondaryLinkNodeDefinition().getTableName(),
+					aParentNode.getFmmNodeDefinition().getTableName() + "__id", aParentNode.getNodeIdString() );
 			this.persistenceTechnologyDelegate.dbSetLinkNodeSequence(aTargetNode, 1);
 		} else {
 			this.persistenceTechnologyDelegate.dbIncrementSequence(
-					aTargetNode.getFmmNodeDefinition().getClassName(),
+					aTargetNode.getFmmNodeDefinition().getTableName(),
 					aParentNode.getFmmNodeDefinition().getSecondaryParentNodeDefinition() + "__id", aParentNode.getNodeIdString() );
 			this.persistenceTechnologyDelegate.dbSetSecondarySequence(aTargetNode, 1);
 		}
@@ -219,38 +220,38 @@ public class FmmDatabaseMediator {
 	public void sequenceLast(FmmHeadlineNode aTargetNode, FmmHeadlineNode aParentNode) {
 		if(aTargetNode.getFmmNodeDefinition().isPrimarySequenceNode(aParentNode.getFmmNodeDefinition())) {
 			this.persistenceTechnologyDelegate.dbResequenceOnRemove(
-					aTargetNode.getFmmNodeDefinition().getClassName(),
-					aParentNode.getFmmNodeDefinition().getClassName() + "__id",
+					aTargetNode.getFmmNodeDefinition().getTableName(),
+					aParentNode.getFmmNodeDefinition().getTableName() + "__id",
 					aParentNode.getNodeIdString(),
 					((FmmCompletionNode)  aTargetNode).getSequence());
 			this.persistenceTechnologyDelegate.dbSetPrimarySequence(
 					aTargetNode,
 					this.persistenceTechnologyDelegate.dbGetLastSequence(
-							aTargetNode.getFmmNodeDefinition().getClassName(),
-							aParentNode.getFmmNodeDefinition().getClassName() + "__id",
+							aTargetNode.getFmmNodeDefinition().getTableName(),
+							aParentNode.getFmmNodeDefinition().getTableName() + "__id",
 							aParentNode.getNodeIdString() ) + 1 );
 		} else if(aTargetNode.getFmmNodeDefinition().getSecondaryLinkNodeDefinition() != null) {
 			this.persistenceTechnologyDelegate.dbResequenceOnRemove(
-					aTargetNode.getFmmNodeDefinition().getSecondaryLinkNodeDefinition().getClassName(),
-					aParentNode.getFmmNodeDefinition().getClassName() + "__id",
+					aTargetNode.getFmmNodeDefinition().getSecondaryLinkNodeDefinition().getTableName(),
+					aParentNode.getFmmNodeDefinition().getTableName() + "__id",
 					aParentNode.getNodeIdString(),
 					this.persistenceTechnologyDelegate.dbGetLinkNodeSequence(aTargetNode) );
 			this.persistenceTechnologyDelegate.dbSetLinkNodeSequence(
 					aTargetNode,
 					this.persistenceTechnologyDelegate.dbGetLastSequence(
-							aTargetNode.getFmmNodeDefinition().getSecondaryLinkNodeDefinition().getClassName(),
-							aParentNode.getFmmNodeDefinition().getClassName() + "__id",
+							aTargetNode.getFmmNodeDefinition().getSecondaryLinkNodeDefinition().getTableName(),
+							aParentNode.getFmmNodeDefinition().getTableName() + "__id",
 							aParentNode.getNodeIdString() ) + 1 );
 		} else {
 			this.persistenceTechnologyDelegate.dbResequenceOnRemove(
-					aTargetNode.getFmmNodeDefinition().getClassName(),
-					aParentNode.getFmmNodeDefinition().getSecondaryParentNodeDefinition().getClassName() + "__id",
+					aTargetNode.getFmmNodeDefinition().getTableName(),
+					aParentNode.getFmmNodeDefinition().getSecondaryParentNodeDefinition().getTableName() + "__id",
 					aParentNode.getNodeIdString(),
 					this.persistenceTechnologyDelegate.dbGetSecondarySequence(aTargetNode));
 			this.persistenceTechnologyDelegate.dbSetSecondarySequence(aTargetNode,
 					this.persistenceTechnologyDelegate.dbGetLastSequence(
-							aTargetNode.getFmmNodeDefinition().getClassName(),
-							aParentNode.getFmmNodeDefinition().getSecondaryParentNodeDefinition().getClassName() + "__id",
+							aTargetNode.getFmmNodeDefinition().getTableName(),
+							aParentNode.getFmmNodeDefinition().getSecondaryParentNodeDefinition().getTableName() + "__id",
 							aParentNode.getNodeIdString() ) + 1 );
 		}
 	}
@@ -325,7 +326,7 @@ public class FmmDatabaseMediator {
         if(aPeerNodeSequence < 0) {  // sequence as the first/last child node of parent node
             if(bSequenceAtEnd) {  // last child node of parent
                 theNewSequenceNumber = this.persistenceTechnologyDelegate.dbGetLastSequence(
-                        anFmmNodeDefinition.getClassName(),
+                        anFmmNodeDefinition.getTableName(),
                         aParentIdColumnName,
                         aParentNodeId,
                         aSequenceColumnName );
@@ -333,7 +334,7 @@ public class FmmDatabaseMediator {
             } else {  // first child node of parent
                 theNewSequenceNumber = 1;
                 this.persistenceTechnologyDelegate.dbIncrementSequence(
-                        anFmmNodeDefinition.getClassName(),
+                        anFmmNodeDefinition.getTableName(),
                         aParentIdColumnName,
                         aParentNodeId,
                         aSequenceColumnName );
@@ -345,7 +346,7 @@ public class FmmDatabaseMediator {
                 theNewSequenceNumber = aPeerNodeSequence;
             }
             this.persistenceTechnologyDelegate.dbIncrementSequence(
-                    anFmmNodeDefinition.getClassName(),
+                    anFmmNodeDefinition.getTableName(),
                     aParentIdColumnName,
                     aParentNodeId,
                     theNewSequenceNumber,
@@ -400,7 +401,7 @@ public class FmmDatabaseMediator {
             theHeadlineNode = newProjectForParent(aHeadline, aParentNode, aPeerNode, bSequenceAtEnd);
 			break;
 		case PROJECT_ASSET:
-			theHeadlineNode = newProjectAssetForParent(aHeadline, aParentNode, aPeerNode, bSequenceAtEnd);
+			theHeadlineNode = newProjectAssetForProject(aHeadline, aParentNode, aPeerNode, bSequenceAtEnd);
 			break;
 		case SERVICE_OFFERING:
 			break;
@@ -413,6 +414,9 @@ public class FmmDatabaseMediator {
 		case STRATEGIC_MILESTONE:
 			theHeadlineNode =  newStrategicMilestoneForParent(aHeadline, aParentNode, aPeerNode, bSequenceAtEnd );
 			break;
+        case STRATEGIC_ASSET:
+            theHeadlineNode = newStrategicAssetForStrategicMilestone(aHeadline, aParentNode, aPeerNode, bSequenceAtEnd);
+            break;
 		case WORK_PACKAGE:
 			theHeadlineNode =  newWorkPackageForParent(aHeadline, aParentNode, aPeerNode, bSequenceAtEnd );
 			break;
@@ -909,7 +913,7 @@ public class FmmDatabaseMediator {
     }
 
     public ArrayList<ProjectAsset> listProjectAssetsForProject(String aProjectId, String aProjectAssetExceptionId) {
-        return this.persistenceTechnologyDelegate.dbListProjectsAssetForProject(aProjectId, aProjectAssetExceptionId);
+        return this.persistenceTechnologyDelegate.dbListProjectAssetsForProject(aProjectId, aProjectAssetExceptionId);
     }
 
     public ArrayList<ProjectAsset> listProjectAsset(StrategicMilestone aStrategicMilestone) {
@@ -948,41 +952,6 @@ public class FmmDatabaseMediator {
             endTransaction(isSuccess);
         }
         return isSuccess;
-    }
-
-    private ProjectAsset newProjectAssetForParent(
-            String aHeadline,
-            FmmHeadlineNode aParentNode,
-            FmmHeadlineNode aPeerNode,
-            boolean bSequenceAtEnd) {
-        return aParentNode.getFmmNodeDefinition() == FmmNodeDefinition.STRATEGIC_MILESTONE ?
-                newProjectAssetForStrategicMilestone(aHeadline, aParentNode, aPeerNode, bSequenceAtEnd) :
-                newProjectAssetForProject(aHeadline, aParentNode, aPeerNode, bSequenceAtEnd);
-    }
-
-    private ProjectAsset newProjectAssetForStrategicMilestone(
-            String aHeadline,
-            FmmHeadlineNode aParentNode,
-            FmmHeadlineNode aPeerNode,
-            boolean bSequenceAtEnd) {
-        startTransaction();
-        ProjectAsset theNewProjectAsset = new ProjectAsset();
-        theNewProjectAsset.setHeadline(aHeadline);
-        boolean isSuccess = newProjectAsset(theNewProjectAsset, true);
-        StrategicCommitment theNewStrategicCommitment = new StrategicCommitment(
-                aParentNode.getNodeIdString(), theNewProjectAsset.getNodeIdString() );
-        int theNewSequenceNumber = initializeNewSequenceNumberForTable(
-                FmmNodeDefinition.STRATEGIC_COMMITMENT,
-                StrategicCommitmentMetaData.column_STRATEGIC_MILESTONE_ID,
-                aParentNode,
-                aPeerNode,
-                bSequenceAtEnd );
-        theNewStrategicCommitment.setSequence(theNewSequenceNumber);
-        theNewStrategicCommitment.setCompletionCommitmentType(CompletionCommitmentType.NONE);
-        isSuccess = isSuccess && newStrategicCommitment(theNewStrategicCommitment, false);
-        isSuccess = isSuccess && newNodeFragTribKnQuality(theNewProjectAsset) != null;
-        endTransaction(isSuccess);
-        return theNewProjectAsset;
     }
 
     private ProjectAsset newProjectAssetForProject(
@@ -1125,7 +1094,7 @@ public class FmmDatabaseMediator {
     }
 
     public ArrayList<ProjectAsset> listProjectAssetOrphansFromStrategicMilestone() {
-        return this.persistenceTechnologyDelegate.dbListProjectAssetOrphansFromStrategicMilestone();
+        return this.persistenceTechnologyDelegate.dbListProjectAssetWhichAreNotStrategic();
     }
 
     public boolean adoptOrphanProjectAssetIntoStrategicMilestone(
@@ -1180,6 +1149,179 @@ public class FmmDatabaseMediator {
     public int getMoveTargetWorkPackageCount(ProjectAsset aProjectAsset, WorkPackage aWorkPackageException) {
         return this.persistenceTechnologyDelegate.dbGetMoveTargetWorkPackageCount(aProjectAsset, aWorkPackageException);
     }
+
+
+
+
+
+
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////  Node - STRATEGIC ASSET  ///////////////////////////////////////////////////////////////////////////////
+
+    public ArrayList<StrategicAsset> listStrategicAsset(StrategicMilestone aStrategicMilestone) {
+        return this.persistenceTechnologyDelegate.dbListStrategicAssets(aStrategicMilestone);
+    }
+
+    public ArrayList<StrategicAsset> listStrategicAsset(StrategicMilestone aStrategicMilestone, StrategicAsset aStrategicAssetException) {
+        return this.persistenceTechnologyDelegate.dbListStrategicAssets(aStrategicMilestone, aStrategicAssetException);
+    }
+
+    public ArrayList<StrategicAsset> listStrategicAssetsForStrategicMilestone(String aStrategicMilestoneId) {
+        return listStrategicAssetsForStrategicMilestone(aStrategicMilestoneId, null);
+    }
+
+    public ArrayList<StrategicAsset> listStrategicAssetsForStrategicMilestone(String aStrategicMilestoneId, String aStrategicAssetExceptionId) {
+        return this.persistenceTechnologyDelegate.dbListStrategicAssetsForStrategicMilestone(aStrategicMilestoneId, aStrategicAssetExceptionId);
+    }
+
+    public StrategicAsset getStrategicAsset(String aNodeIdString) {
+        return this.persistenceTechnologyDelegate.dbRetrieveStrategicAsset(aNodeIdString);
+    }
+
+    private boolean newStrategicAsset(StrategicAsset aStrategicAsset, boolean bAtomicTransaction) {
+        if(bAtomicTransaction) {
+            startTransaction();
+        }
+        boolean isSuccess = this.persistenceTechnologyDelegate.dbInsertStrategicAsset(aStrategicAsset, bAtomicTransaction) &&
+                newCompletionNode(aStrategicAsset);
+        if(bAtomicTransaction) {
+            endTransaction(isSuccess);
+        }
+        return isSuccess;
+    }
+
+    private StrategicAsset newStrategicAssetForStrategicMilestone(
+            String aHeadline,
+            FmmHeadlineNode aParentNode,
+            FmmHeadlineNode aPeerNode,
+            boolean bSequenceAtEnd) {
+        startTransaction();
+        StrategicAsset theNewStrategicAsset = new StrategicAsset();
+        theNewStrategicAsset.setHeadline(aHeadline);
+        boolean isSuccess = newStrategicAsset(theNewStrategicAsset, true);
+        StrategicCommitment theNewStrategicCommitment = new StrategicCommitment(
+                aParentNode.getNodeIdString(), theNewStrategicAsset.getNodeIdString() );
+        int theNewSequenceNumber = initializeNewSequenceNumberForTable(
+                FmmNodeDefinition.STRATEGIC_COMMITMENT,
+                StrategicCommitmentMetaData.column_STRATEGIC_MILESTONE_ID,
+                aParentNode,
+                aPeerNode,
+                bSequenceAtEnd );
+        theNewStrategicCommitment.setSequence(theNewSequenceNumber);
+        theNewStrategicCommitment.setCompletionCommitmentType(CompletionCommitmentType.NONE);
+        isSuccess = isSuccess && newStrategicCommitment(theNewStrategicCommitment, false);
+        isSuccess = isSuccess && newNodeFragTribKnQuality(theNewStrategicAsset) != null;
+        endTransaction(isSuccess);
+        return theNewStrategicAsset;
+    }
+
+    public boolean updateStrategicAsset(StrategicAsset aStrategicAsset, boolean bAtomicTransaction) {
+        updateHeadlineNode(aStrategicAsset);
+        return this.persistenceTechnologyDelegate.dbUpdateStrategicAsset(aStrategicAsset, bAtomicTransaction);
+    }
+
+    public boolean moveAllStrategicAssetsIntoStrategicMilestone(
+            String aSourceStrateticMilestoneId,
+            String aDestinationStrategicMilestoneId,
+            boolean bSequenceAtEnd,
+            boolean bAtomicTransaction) {
+        return this.persistenceTechnologyDelegate.dbMoveAllStrategicAssetsIntoStrategicMilestone(
+                aSourceStrateticMilestoneId,
+                aDestinationStrategicMilestoneId,
+                bSequenceAtEnd,
+                bAtomicTransaction);
+    }
+
+    public boolean moveSingleStrategicAssetIntoStrategicMilestone(
+            String aStrategicAssetId,
+            String anOriginalStrategicMilestonetId,
+            String aDestinationStrategicMilestoneId,
+            boolean bSequenceAtEnd,
+            boolean bAtomicTransaction) {
+        return this.persistenceTechnologyDelegate.dbMoveSingleStrategicAssetIntoStrategicMilestone(
+                aStrategicAssetId,
+                anOriginalStrategicMilestonetId,
+                aDestinationStrategicMilestoneId,
+                bSequenceAtEnd,
+                bAtomicTransaction);
+    }
+
+    public ArrayList<StrategicAsset> listStrategicAssetsWithNoProject() {
+        return this.persistenceTechnologyDelegate.dbListStrategicAssetsWithNoProject();
+    }
+
+    public boolean promoteProjectAssetToStrategicAsset(
+            String aProjectAssetId,
+            String aStrategicMilestoneId,
+            boolean bSequenceAtEnd,
+            boolean bAtomicTransaction ) {
+        if(bAtomicTransaction) {
+            startTransaction();
+        }
+        int theNewSequenceNumber = initializeNewSequenceNumberForTable(
+                FmmNodeDefinition.STRATEGIC_COMMITMENT,
+                StrategicCommitmentMetaData.column_STRATEGIC_MILESTONE_ID,
+                aStrategicMilestoneId,
+                bSequenceAtEnd );
+        this.persistenceTechnologyDelegate.dbUpdateProjectAssetIsStrategic(aProjectAssetId, true);
+        StrategicCommitment theNewStrategicCommitment = new StrategicCommitment(
+                aStrategicMilestoneId, aProjectAssetId );
+        theNewStrategicCommitment.setSequence(theNewSequenceNumber);
+        theNewStrategicCommitment.setCompletionCommitmentType(CompletionCommitmentType.NONE);
+        boolean isSuccess = newStrategicCommitment(theNewStrategicCommitment, false);
+        // isSuccess += UPDATE TribKn
+        if(bAtomicTransaction) {
+            endTransaction(isSuccess);
+        }
+        return isSuccess;
+    }
+
+    // TODO  !!!
+    public boolean demoteProjectAssetToStrategicAsset(
+            String aProjectAssetId,
+            String aStrategicMilestoneId,
+            boolean bSequenceAtEnd,
+            boolean bAtomicTransaction ) {
+        if(bAtomicTransaction) {
+            startTransaction();
+        }
+        boolean isSuccess = this.persistenceTechnologyDelegate.dbDeleteStrategicCommitment(aStrategicMilestoneId, aProjectAssetId, bAtomicTransaction);
+        isSuccess &= this.persistenceTechnologyDelegate.dbUpdateProjectAssetIsStrategic(aProjectAssetId, false);
+        if(bAtomicTransaction) {
+            endTransaction(isSuccess);
+        }
+        return isSuccess;
+    }
+
+    public boolean deleteStrategicAsset(StrategicAsset aStrategicAsset, boolean bAtomicTransaction) {
+        if(bAtomicTransaction) {
+            startTransaction();
+        }
+        boolean isSuccess = this.persistenceTechnologyDelegate.dbDeleteStrategicAsset(aStrategicAsset, bAtomicTransaction) &&
+                deleteCompletableNode(aStrategicAsset);
+        if(bAtomicTransaction) {
+            endTransaction(isSuccess);
+        }
+        return isSuccess;
+    }
+
+    public void saveStrategicAsset(StrategicAsset aStrategicAsset, boolean bAtomicTransaction) {
+        if(existsStrategicAsset(aStrategicAsset.getNodeIdString())) {
+            updateStrategicAsset(aStrategicAsset, bAtomicTransaction);
+        } else {
+            newStrategicAsset(aStrategicAsset, bAtomicTransaction);
+        }
+    }
+
+    public boolean existsStrategicAsset(String aNodeIdString) {
+        return getStrategicAsset(aNodeIdString) != null;
+    }
+
+
+
+
+
 
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////

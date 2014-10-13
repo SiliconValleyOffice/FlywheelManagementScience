@@ -92,8 +92,8 @@ public class FmmOpenHelper extends SQLiteOpenHelper {
 //			theFmmConfiguration.setOrganizationNodeIdString(theFmsOrganization.getNodeIdString());
 //		}
 //		ContentValues theContentValues = FmmConfigurationDaoSqLite.getInstance().buildContentValues(theFmmConfiguration);
-//    	aDatabase.insert(FmmNodeDefinition.FMM_CONFIGURATION.getClassName(), null, theContentValues);
-////    	long theRowNumber = aDatabase.insert(FmmNodeDefinition.FMM_CONFIGURATION.getClassName(), null, theContentValues);
+//    	aDatabase.insert(FmmNodeDefinition.FMM_CONFIGURATION.getTableName(), null, theContentValues);
+////    	long theRowNumber = aDatabase.insert(FmmNodeDefinition.FMM_CONFIGURATION.getTableName(), null, theContentValues);
 //    	FmmDatabaseHelper.setOwnerForNewFmmSqLite(aDatabase, theFmsOrganization);
 //	}
 
