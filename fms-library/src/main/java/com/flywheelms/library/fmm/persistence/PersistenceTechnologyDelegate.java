@@ -44,6 +44,7 @@
 package com.flywheelms.library.fmm.persistence;
 
 import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
+import com.flywheelms.library.fmm.database.sqlite.dao.FmmNodeDaoSqLite;
 import com.flywheelms.library.fmm.node.impl.commitment.StrategicCommitment;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.enumerator.GovernanceRole;
@@ -73,6 +74,7 @@ import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragGovernance;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragTribKnQuality;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragWorkTaskBudget;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
+import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmNode;
 import com.flywheelms.library.fmm.repository.FmmConfiguration;
 
 import java.util.ArrayList;
@@ -831,8 +833,6 @@ public abstract class PersistenceTechnologyDelegate {
 
     public abstract boolean dbMoveAllStrategicAssetsIntoStrategicMilestone(String aSourceStrateticMilestoneId, String aDestinationStrategicMilestoneId, boolean bSequenceAtEnd, boolean bAtomicTransaction);
 
-    public abstract boolean dbInsertStrategicAsset(StrategicAsset aStrategicAsset, boolean bAtomicTransaction);
-
     public abstract StrategicAsset dbRetrieveStrategicAsset(String aNodeIdString);
 
     public abstract ArrayList<StrategicAsset> dbListStrategicAssetsForStrategicMilestone(String aStrategicMilestoneId, String aStrategicAssetExceptionId);
@@ -848,4 +848,14 @@ public abstract class PersistenceTechnologyDelegate {
     public abstract boolean dbUpdateProjectAssetIsStrategic(String aProjectAssetId, boolean bStrategic);
 
     public abstract boolean dbDeleteStrategicAsset(StrategicAsset aStrategicAsset, boolean bAtomicTransaction);
+
+
+
+    /////////////////////////////////////////
+    //////////  GENERIC METHODS  ////////////
+    /////////////////////////////////////////
+
+
+    public abstract <T extends FmmNodeDaoSqLite, V extends FmmNode> boolean insertSimpleIdTable(V anFmmNode, T aDaoInstance, boolean bAtomicTransaction);
+
 }

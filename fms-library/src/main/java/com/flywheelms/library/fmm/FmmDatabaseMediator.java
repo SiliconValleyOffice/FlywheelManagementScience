@@ -45,6 +45,7 @@ package com.flywheelms.library.fmm;
 import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
 import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
 import com.flywheelms.library.fca.FlywheelCommunityAuthentication;
+import com.flywheelms.library.fmm.database.sqlite.dao.ProjectAssetDaoSqLite;
 import com.flywheelms.library.fmm.helper.FmmHelper;
 import com.flywheelms.library.fmm.meta_data.CommunityMemberMetaData;
 import com.flywheelms.library.fmm.meta_data.CompletableNodeMetaData;
@@ -1159,7 +1160,7 @@ public class FmmDatabaseMediator {
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////  Node - STRATEGIC ASSET  ///////////////////////////////////////////////////////////////////////////////
 
-    public ArrayList<StrategicAsset> listStrategicAsset(StrategicMilestone aStrategicMilestone) {
+    public ArrayList<StrategicAsset> listStrategicAssets(StrategicMilestone aStrategicMilestone) {
         return this.persistenceTechnologyDelegate.dbListStrategicAssets(aStrategicMilestone);
     }
 
@@ -1183,7 +1184,7 @@ public class FmmDatabaseMediator {
         if(bAtomicTransaction) {
             startTransaction();
         }
-        boolean isSuccess = this.persistenceTechnologyDelegate.dbInsertStrategicAsset(aStrategicAsset, bAtomicTransaction) &&
+        boolean isSuccess = this.persistenceTechnologyDelegate.insertSimpleIdTable(aStrategicAsset, ProjectAssetDaoSqLite.getInstance(), bAtomicTransaction) &&
                 newCompletionNode(aStrategicAsset);
         if(bAtomicTransaction) {
             endTransaction(isSuccess);

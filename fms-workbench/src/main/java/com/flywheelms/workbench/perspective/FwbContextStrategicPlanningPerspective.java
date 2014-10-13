@@ -130,7 +130,7 @@ public class FwbContextStrategicPlanningPerspective extends FmsPerspectiveFlippe
 					theFiscalYear, theStrategicMilestoneCollection.size()>0, FmmPerspective.STRATEGIC_PLANNING );
 			for(StrategicMilestone theStrategicMilestone : theStrategicMilestoneCollection) {
 				Collection<StrategicAsset> theStrategicAssetCollection =
-						FmmDatabaseMediator.getActiveMediator().listStrategicAsset(theStrategicMilestone);
+						FmmDatabaseMediator.getActiveMediator().listStrategicAssets(theStrategicMilestone);
 				GcgTreeNodeInfo theStrategicMilestoneTreeNodeInfo = theTreeBuilder.addChildNode(
 						theStrategicMilestone, theStrategicAssetCollection.size()>0, theFiscalYearTreeNodeInfo, FmmPerspective.STRATEGIC_PLANNING);
 				for(StrategicAsset theStrategicAsset : theStrategicAssetCollection) {

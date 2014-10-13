@@ -354,7 +354,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	private <T extends FmmNodeDaoSqLite, V extends FmmNode> boolean insertSimpleIdTable(V anFmmNode, T aDaoInstance, boolean bAtomicTransaction) {
+	public <T extends FmmNodeDaoSqLite, V extends FmmNode> boolean insertSimpleIdTable(V anFmmNode, T aDaoInstance, boolean bAtomicTransaction) {
 		if(bAtomicTransaction) {
 			startTransaction();
 		}
@@ -2105,8 +2105,6 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
     }
 
     public boolean dbMoveAllStrategicAssetsIntoStrategicMilestone(String aSourceStrateticMilestoneId, String aDestinationStrategicMilestoneId, boolean bSequenceAtEnd, boolean bAtomicTransaction) {         return false;     }
-
-    public boolean dbInsertStrategicAsset(StrategicAsset aStrategicAsset, boolean bAtomicTransaction) {         return false;     }
 
     public StrategicAsset dbRetrieveStrategicAsset(String aNodeIdString) {         return null;     }
 
