@@ -403,6 +403,7 @@ public class WorkbenchActivity extends FmsActivity implements FmsDecKanGlNavigat
 
 	@Override
 	public void decKanGlNavigation(
+            FmmNodeDefinition anFmmNodeDefinition,
 			GcgFrame aFrame,
 			GcgPerspective aPerspective,
 			String aParentNodeIdString,
@@ -410,6 +411,7 @@ public class WorkbenchActivity extends FmsActivity implements FmsDecKanGlNavigat
 			String aTargetNodeIdString ) {
 		FmsActivityHelper.startHeadlineNodeEditorActivity(
 				this,
+                anFmmNodeDefinition,
 				aPeerHeadlineNodeShallowList,
 				aParentNodeIdString,
 				aTargetNodeIdString,

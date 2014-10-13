@@ -63,8 +63,10 @@ public interface FmmNode extends GcgGuiable{
 	
 	FmmNodeDefinition getFmmNodeDefinition();
 	
+	String getTypeCodeForNodeId();
+
 	String getNodeTypeCode();
-	
+
 	String getNodeTypeName();
 	
 	// STATIC  void startNodeEditorActivity(GcgActivity anActivity, ArrayList<FmmHeadlineNodeShallow> aHeadlineNodeShallowList, String aNodeListParentNodeId, String anInitialNodeIdToDisplay);

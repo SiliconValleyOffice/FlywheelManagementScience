@@ -74,7 +74,7 @@ public class WorkTask extends FmmCompletableNodeImpl {
 	private int actualPersonHours;
 
     public WorkTask() {
-        super(new NodeId(FmmNodeDefinition.WORK_TASK.getNodeTypeCode()));
+        super(new NodeId(FmmNodeDefinition.WORK_TASK.getTypeCodeForNodeId()));
     }
 
 	public WorkTask(NodeId aNodeId) {

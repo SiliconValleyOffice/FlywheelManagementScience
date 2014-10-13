@@ -49,7 +49,6 @@ import com.flywheelms.gcongui.gcg.GcgApplication;
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.gcongui.gcg.context.GcgFrame;
 import com.flywheelms.gcongui.gcg.helper.GcgActivityHelper;
-import com.flywheelms.gcongui.gcg.helper.GcgHelper;
 import com.flywheelms.gcongui.gcg.interfaces.GcgPerspective;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.context.FmmFrame;
@@ -115,11 +114,13 @@ public class FmsActivityHelper extends GcgActivityHelper {
 
 	public static void startHeadlineNodeEditorActivity(
 			GcgActivity aParentActivity,
+            FmmNodeDefinition anFmmNodeDefinition,
 			ArrayList<? extends FmmHeadlineNode> anFmmHeadlineNodeShallowList,
 			String aNodeListParentNodeIdString,
 			String anInitialNodeIdStringToDisplay ) {
 		startHeadlineNodeEditorActivity(
 				aParentActivity,
+                anFmmNodeDefinition,
 				anFmmHeadlineNodeShallowList,
 				aNodeListParentNodeIdString,
 				anInitialNodeIdStringToDisplay,
@@ -129,22 +130,18 @@ public class FmsActivityHelper extends GcgActivityHelper {
 
 	public static void startHeadlineNodeEditorActivity(
 			GcgActivity aParentActivity,
+            FmmNodeDefinition anFmmNodeDefinition,
 			ArrayList<? extends FmmHeadlineNode> anFmmHeadlineNodeShallowList,
 			String aNodeListParentNodeIdString,
 			String anInitialNodeIdStringToDisplay,
 			GcgFrame anInitialFrame,
 			GcgPerspective anInitialPerspective) {
-		FmmNodeDefinition theDictionaryEntry = FmmNodeDefinition.getEntryForNodeIdString(anInitialNodeIdStringToDisplay);
-		if(theDictionaryEntry == null) {
-			GcgHelper.makeToast("ERROR - Unknown FMM Node = " + anInitialNodeIdStringToDisplay);
-			return;
-		}
 		startHeadlineNodeEditorActivity(
 				aParentActivity,
 				aNodeListParentNodeIdString,
 				anFmmHeadlineNodeShallowList,
 				anInitialNodeIdStringToDisplay,
-				theDictionaryEntry,
+				anFmmNodeDefinition,
 				anInitialFrame,
 				anInitialPerspective );
 	}

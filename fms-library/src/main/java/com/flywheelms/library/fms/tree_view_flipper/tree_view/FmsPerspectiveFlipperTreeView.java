@@ -69,6 +69,7 @@ import com.flywheelms.library.fmm.context.FmmFrame;
 import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fmm.node.FmmHeadlineNodeShallow;
 import com.flywheelms.library.fmm.node.impl.enumerator.CompletableWorkStatus;
+import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.governable.CommunityMember;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmNode;
@@ -942,11 +943,12 @@ public abstract class FmsPerspectiveFlipperTreeView extends GcgPerspectiveFlippe
 
 	@Override
 	public void launchNodeEditorActivity(GcgTreeNodeInfo aTreeNodeInfo, FmmFrame aFrame, FmmPerspective aPerspective) {
+		FmmNodeDefinition theFmmNodeDefinition = ((FmmNode) aTreeNodeInfo.getTargetObject()).getFmmNodeDefinition();
 		String theNodeIdToDisplay = ((FmmNode) aTreeNodeInfo.getTargetObject()).getNodeIdString();
 		String theParentNodeId = ((FmmNode) this.treeViewMediator.getParent(aTreeNodeInfo).getTargetObject()).getNodeIdString();
 		ArrayList<FmmHeadlineNodeShallow> thePeerHeadlineNodeShallowList = getPeerHeadlineNodeShallowList(aTreeNodeInfo);
 		updatePerspectiveContext(aTreeNodeInfo);
-		FmsActivityHelper.startHeadlineNodeEditorActivity(getGcgActivity(), thePeerHeadlineNodeShallowList, theParentNodeId, theNodeIdToDisplay);
+		FmsActivityHelper.startHeadlineNodeEditorActivity(getGcgActivity(), theFmmNodeDefinition, thePeerHeadlineNodeShallowList, theParentNodeId, theNodeIdToDisplay);
 	}
 
     private void updatePerspectiveContext(GcgTreeNodeInfo aTreeNodeInfo) {
@@ -1069,12 +1071,14 @@ public abstract class FmsPerspectiveFlipperTreeView extends GcgPerspectiveFlippe
 	
 	@Override
 	public void startEditorActivityForFmmHeadlineNode(
+            FmmNodeDefinition anFmmNodeDefinition,
             ArrayList<? extends FmmHeadlineNode> aPeerHeadlineNodeShallowList,
             String aParentNodeIdString,
             String aNodeIdStringToDisplay) {
 		FmsActivityHelper.startHeadlineNodeEditorActivity(
 				getGcgActivity(),
-				aPeerHeadlineNodeShallowList,
+                anFmmNodeDefinition,
+                aPeerHeadlineNodeShallowList,
 				aParentNodeIdString,
 				aNodeIdStringToDisplay );
 	}

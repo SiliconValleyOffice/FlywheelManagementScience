@@ -198,14 +198,19 @@ public enum LockType implements FmmEnumNode {
 	}
 
 	@Override
-	public String getNodeTypeCode() {
-		return getFmmNodeDefinition().getNodeTypeCode();
+	public String getTypeCodeForNodeId() {
+		return getFmmNodeDefinition().getTypeCodeForNodeId();
 	}
 
 	@Override
 	public String getNodeTypeName() {
 		return getFmmNodeDefinition().getNodeTypeName();
 	}
+
+    @Override
+    public String getNodeTypeCode() {
+        return getFmmNodeDefinition().getNodeTypeCode();
+    }
 	
 	@Override
 	public int getNodeEditorActivityRequestCode() {

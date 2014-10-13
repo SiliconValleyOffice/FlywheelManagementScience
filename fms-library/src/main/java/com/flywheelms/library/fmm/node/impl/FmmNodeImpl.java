@@ -63,7 +63,7 @@ public abstract class FmmNodeImpl implements FmmNode, GcgSerialization {
 
 	private NodeId nodeId;
 	private Date rowTimestamp = new Date(0);
-	private FmmNodeDefinition fmmNodeDictionaryEntry;
+	private FmmNodeDefinition fmmNodeDefinition;
 	
 	public FmmNodeImpl(NodeId aNodeId) {
 		this.nodeId = aNodeId;
@@ -111,9 +111,14 @@ public abstract class FmmNodeImpl implements FmmNode, GcgSerialization {
 
 	@Override
 	public String getNodeTypeCode() {
-		return this.nodeId.getNodeTypeCode();
+		return this.fmmNodeDefinition.getNodeTypeCode();
 	}
-	
+
+	@Override
+	public String getTypeCodeForNodeId() {
+		return this.fmmNodeDefinition.getNodeTypeCode();
+	}
+
 	@Override
 	public String getLabelText() {
 		return getFmmNodeDefinition().getLabelText();
@@ -150,10 +155,10 @@ public abstract class FmmNodeImpl implements FmmNode, GcgSerialization {
 	
 	@Override
 	public FmmNodeDefinition getFmmNodeDefinition() {
-		if(this.fmmNodeDictionaryEntry == null) {
-			this.fmmNodeDictionaryEntry = FmmNodeDefinition.getEntryForClass(this.getClass());
+		if(this.fmmNodeDefinition == null) {
+			this.fmmNodeDefinition = FmmNodeDefinition.getEntryForClass(this.getClass());
 		}
-		return this.fmmNodeDictionaryEntry;
+		return this.fmmNodeDefinition;
 	}
 	
 	@Override

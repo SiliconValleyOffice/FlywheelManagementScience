@@ -170,7 +170,12 @@ public class FmmHeadlineNodeShallow implements FmmHeadlineNode {
 	public String getNodeTypeName() {
 		return getFmmNodeDefinition().getNodeTypeName();
 	}
-	
+
+	@Override
+	public String getNodeTypeCode() {
+		return getFmmNodeDefinition().getNodeTypeCode();
+	}
+
 	@Override
 	public String getHeadline() {
 		if(this.headline == null) {
@@ -226,8 +231,8 @@ public class FmmHeadlineNodeShallow implements FmmHeadlineNode {
 	}
 
 	@Override
-	public String getNodeTypeCode() {
-		return getFmmHeadlineNode().getNodeTypeCode();
+	public String getTypeCodeForNodeId() {
+		return getFmmHeadlineNode().getTypeCodeForNodeId();
 	}
 
 	@Override

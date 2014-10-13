@@ -48,6 +48,7 @@ import com.flywheelms.gcongui.gcg.treeview.interfaces.GcgTreeViewParent;
 import com.flywheelms.gcongui.gcg.treeview.node.GcgTreeNodeInfo;
 import com.flywheelms.library.fmm.context.FmmFrame;
 import com.flywheelms.library.fmm.context.FmmPerspective;
+import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 
 import java.util.ArrayList;
@@ -71,6 +72,7 @@ public interface FmsTreeViewParent extends GcgTreeViewParent {
     void launchNodeDecKanGlNavigationDialog(GcgTreeNodeInfo aTreeNodeInfo);
 	
 	void startEditorActivityForFmmHeadlineNode(
+            FmmNodeDefinition anFmmNodeDefinition,
             ArrayList<? extends FmmHeadlineNode> aPeerHeadlineNodeShallowList,
             String aParentNodeIdString,
             String aNodeIdStringToDisplay);

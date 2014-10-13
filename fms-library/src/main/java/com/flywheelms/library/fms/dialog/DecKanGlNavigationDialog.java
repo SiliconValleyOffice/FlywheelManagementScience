@@ -100,6 +100,7 @@ public class DecKanGlNavigationDialog extends FmsCancelDialog implements DecKanG
 	@Override
 	public void activityNavigation(GcgFrame aFrame, GcgPerspective aPerspective) {
 		((FmsDecKanGlNavigationDialogParent) this.gcgActivity).decKanGlNavigation(
+            getFmmNodeDefinition(),
 			aFrame,
 			aPerspective,
 			this.parentNodeIdString,

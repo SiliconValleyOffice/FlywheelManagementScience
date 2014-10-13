@@ -45,7 +45,7 @@ package com.flywheelms.library.fmm;
 import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
 import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
 import com.flywheelms.library.fca.FlywheelCommunityAuthentication;
-import com.flywheelms.library.fmm.database.sqlite.dao.ProjectAssetDaoSqLite;
+import com.flywheelms.library.fmm.database.sqlite.dao.StrategicAssetDaoSqLite;
 import com.flywheelms.library.fmm.helper.FmmHelper;
 import com.flywheelms.library.fmm.meta_data.CommunityMemberMetaData;
 import com.flywheelms.library.fmm.meta_data.CompletableNodeMetaData;
@@ -795,7 +795,7 @@ public class FmmDatabaseMediator {
 
     public Portfolio createPortfolio(String aHeadline) {
         Portfolio thePortfoliPortfolio = new Portfolio(
-                new NodeId(FmmNodeDefinition.PORTFOLIO.getNodeTypeCode()),
+                new NodeId(FmmNodeDefinition.PORTFOLIO.getTypeCodeForNodeId()),
                 aHeadline,
                 FmmDatabaseMediator.getActiveMediator().getFmmOwner() );
         return FmmDatabaseMediator.getActiveMediator().newPortfolio(thePortfoliPortfolio, true) ?
@@ -1184,7 +1184,7 @@ public class FmmDatabaseMediator {
         if(bAtomicTransaction) {
             startTransaction();
         }
-        boolean isSuccess = this.persistenceTechnologyDelegate.insertSimpleIdTable(aStrategicAsset, ProjectAssetDaoSqLite.getInstance(), bAtomicTransaction) &&
+        boolean isSuccess = this.persistenceTechnologyDelegate.insertSimpleIdTable(aStrategicAsset, StrategicAssetDaoSqLite.getInstance(), bAtomicTransaction) &&
                 newCompletionNode(aStrategicAsset);
         if(bAtomicTransaction) {
             endTransaction(isSuccess);
@@ -1374,7 +1374,7 @@ public class FmmDatabaseMediator {
 	
 	public FiscalYear createFiscalYear(String aYearString) {
 		FiscalYear theFiscalYear = new FiscalYear(
-				new NodeId(FmmNodeDefinition.FISCAL_YEAR.getNodeTypeCode()),
+				new NodeId(FmmNodeDefinition.FISCAL_YEAR.getTypeCodeForNodeId()),
 				FmmDatabaseMediator.getActiveMediator().getFmmOwner(),
 				aYearString);
 		return FmmDatabaseMediator.getActiveMediator().newFiscalYear(theFiscalYear, true) ?
@@ -2466,7 +2466,7 @@ public class FmmDatabaseMediator {
             boolean bSequenceAtEnd) {
         startTransaction();
         Project theNewProject = new Project(
-                new NodeId(FmmNodeDefinition.PROJECT.getNodeTypeCode()), aHeadline, aParentNode.getNodeIdString() );
+                new NodeId(FmmNodeDefinition.PROJECT.getTypeCodeForNodeId()), aHeadline, aParentNode.getNodeIdString() );
         boolean isSuccess = newProject(theNewProject, false) &&
                 newNodeFragTribKnQuality(theNewProject) != null;
         endTransaction(isSuccess);
@@ -2630,7 +2630,7 @@ public class FmmDatabaseMediator {
 			boolean bSequenceAtEnd) {
 		startTransaction();
 		StrategicMilestone theNewStrategicMilestone = new StrategicMilestone(
-				new NodeId(FmmNodeDefinition.STRATEGIC_MILESTONE.getNodeTypeCode()), aHeadline, aParentNode.getNodeIdString() );
+				new NodeId(FmmNodeDefinition.STRATEGIC_MILESTONE.getTypeCodeForNodeId()), aHeadline, aParentNode.getNodeIdString() );
         int theNewSequenceNumber = initializeNewSequenceNumberForTable(
                 FmmNodeDefinition.STRATEGIC_MILESTONE,
                 StrategicMilestoneMetaData.column_FISCAL_YEAR_ID,

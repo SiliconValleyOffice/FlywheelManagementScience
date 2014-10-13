@@ -202,7 +202,7 @@ public class FmmDatabaseInitializerSqLite extends FmmDatabaseInitializer {
 		String theTableName = FmmNodeDefinition.class.getSimpleName();
 		ContentValues theContentValues = new ContentValues();
 		for(FmmNodeDefinition theFmmNodeDefinition : FmmNodeDefinition.values()) {
-			theContentValues.put(FmmNodeDefinition.name_COLUMN_1, theFmmNodeDefinition.getNodeTypeCode());
+			theContentValues.put(FmmNodeDefinition.name_COLUMN_1, theFmmNodeDefinition.getTypeCodeForNodeId());
 			theContentValues.put(FmmNodeDefinition.name_COLUMN_2, theFmmNodeDefinition.getNodeTypeName());
 			theContentValues.put(FmmNodeDefinition.name_COLUMN_3, theFmmNodeDefinition.getLabelText());
 			aSQLiteDatabase.insertOrThrow(theTableName, null, theContentValues);

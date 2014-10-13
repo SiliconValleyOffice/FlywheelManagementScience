@@ -73,7 +73,7 @@ public class CommunityMemberOrganizationGovernanceAuthority extends FmmNodeImpl 
 
 	public CommunityMemberOrganizationGovernanceAuthority(
 			String aCommunityMemberNodeIdString, String anOrganizationNodeIdString, String aGovernanceTargetName ) {
-		super(new NodeId(FmmNodeDefinition.COMMUNITY_MEMBER_ORGANIZATION_GOVERNANCE_AUTHORITY.getNodeTypeCode()));
+		super(new NodeId(FmmNodeDefinition.COMMUNITY_MEMBER_ORGANIZATION_GOVERNANCE_AUTHORITY.getTypeCodeForNodeId()));
 		this.communityMemberNodeIdString = aCommunityMemberNodeIdString;
 		this.organizationNodeIdString = anOrganizationNodeIdString;
 		this.governanceTargetName = aGovernanceTargetName;

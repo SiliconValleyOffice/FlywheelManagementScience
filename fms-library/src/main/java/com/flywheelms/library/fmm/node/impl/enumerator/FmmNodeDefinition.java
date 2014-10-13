@@ -996,7 +996,6 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     		10059 ),
     STRATEGIC_ASSET (
             StrategicAsset.class,
-            ProjectAsset.class.getSimpleName(),
             "SAT",
             R.string.fmm_node_definition__strategic_asset__term,
             R.string.fmm_node_definition__strategic_asset__definition,
@@ -1195,6 +1194,10 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     public static final String name_COLUMN_1 = "node_type_code";
 	public static final String name_COLUMN_2 = "node_name";
 	public static final String name_COLUMN_3 = "description";
+
+    static {
+        FmmNodeDefinition.STRATEGIC_ASSET.setFmmNodeDefinitionOverride(FmmNodeDefinition.PROJECT_ASSET);
+    }
 	
 	public static final ArrayList<FmmNodeDefinition> DATABASE_LOAD_ORDER = new ArrayList<FmmNodeDefinition>(
 			Arrays.asList(
@@ -1221,7 +1224,7 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 	}
 
     private static void putNodeTypeCodeMapEntry(FmmNodeDefinition anFmmNodeDefinition) {
-		FmmNodeDefinition.NODE_TYPE_CODE_MAP.put(anFmmNodeDefinition.getNodeTypeCode(), anFmmNodeDefinition);
+		FmmNodeDefinition.NODE_TYPE_CODE_MAP.put(anFmmNodeDefinition.getTypeCodeForNodeId(), anFmmNodeDefinition);
 	}
 	
 	public static FmmNodeDefinition getEntryForNodeTypeCode(String aNodeTypeCode) {
@@ -1268,28 +1271,28 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 	
 	private static final ArrayList<String> HEADLINE_SEARCH__NODE_LIST = new ArrayList<String>();
 	static {
-		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.BOOKSHELF.getNodeTypeCode());
-		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.COMMUNITY_MEMBER.getNodeTypeCode());
-		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.DISCUSSION_TOPIC.getNodeTypeCode());
-		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.FACILITATION_ISSUE.getNodeTypeCode());
-		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.FISCAL_YEAR.getNodeTypeCode());
-		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.FLYWHEEL_CADENCE.getNodeTypeCode());
-		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.FLYWHEEL_TEAM.getNodeTypeCode());
-		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.FUNCTIONAL_TEAM.getNodeTypeCode());
-		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.NOTEBOOK.getNodeTypeCode());
-		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.FMS_ORGANIZATION.getNodeTypeCode());
-		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.PORTFOLIO.getNodeTypeCode());
-		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.PROJECT.getNodeTypeCode());
-		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.PROJECT_ASSET.getNodeTypeCode());
-		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.SERVICE_OFFERING.getNodeTypeCode());
-		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.SERVICE_OFFERING_SLA.getNodeTypeCode());
-		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.SERVICE_REQUEST.getNodeTypeCode());
-		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.STRATEGIC_ASSET.getNodeTypeCode());
-		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.STRATEGIC_MILESTONE.getNodeTypeCode());
-		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.STRATEGY_TEAM.getNodeTypeCode());
-		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.WORK_PACKAGE.getNodeTypeCode());
-		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.WORK_PLAN.getNodeTypeCode());
-		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.WORK_TASK.getNodeTypeCode());
+		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.BOOKSHELF.getTypeCodeForNodeId());
+		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.COMMUNITY_MEMBER.getTypeCodeForNodeId());
+		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.DISCUSSION_TOPIC.getTypeCodeForNodeId());
+		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.FACILITATION_ISSUE.getTypeCodeForNodeId());
+		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.FISCAL_YEAR.getTypeCodeForNodeId());
+		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.FLYWHEEL_CADENCE.getTypeCodeForNodeId());
+		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.FLYWHEEL_TEAM.getTypeCodeForNodeId());
+		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.FUNCTIONAL_TEAM.getTypeCodeForNodeId());
+		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.NOTEBOOK.getTypeCodeForNodeId());
+		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.FMS_ORGANIZATION.getTypeCodeForNodeId());
+		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.PORTFOLIO.getTypeCodeForNodeId());
+		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.PROJECT.getTypeCodeForNodeId());
+		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.PROJECT_ASSET.getTypeCodeForNodeId());
+		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.SERVICE_OFFERING.getTypeCodeForNodeId());
+		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.SERVICE_OFFERING_SLA.getTypeCodeForNodeId());
+		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.SERVICE_REQUEST.getTypeCodeForNodeId());
+		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.STRATEGIC_ASSET.getTypeCodeForNodeId());
+		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.STRATEGIC_MILESTONE.getTypeCodeForNodeId());
+		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.STRATEGY_TEAM.getTypeCodeForNodeId());
+		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.WORK_PACKAGE.getTypeCodeForNodeId());
+		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.WORK_PLAN.getTypeCodeForNodeId());
+		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.WORK_TASK.getTypeCodeForNodeId());
 	}
 
 	public static boolean isHeadlineSearchNode(String aNodeIdString) {
@@ -1343,9 +1346,9 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 	
 	private static final ArrayList<String> COMMITMENT__NODE_LIST = new ArrayList<String>();
 	static {
-		COMMITMENT__NODE_LIST.add(FmmNodeDefinition.FLYWHEEL_WORK_PACKAGE_COMMITMENT.getNodeTypeCode());
-		COMMITMENT__NODE_LIST.add(FmmNodeDefinition.STRATEGIC_COMMITMENT.getNodeTypeCode());
-		COMMITMENT__NODE_LIST.add(FmmNodeDefinition.WORK_TASK_ASSIGNMENT.getNodeTypeCode());
+		COMMITMENT__NODE_LIST.add(FmmNodeDefinition.FLYWHEEL_WORK_PACKAGE_COMMITMENT.getTypeCodeForNodeId());
+		COMMITMENT__NODE_LIST.add(FmmNodeDefinition.STRATEGIC_COMMITMENT.getTypeCodeForNodeId());
+		COMMITMENT__NODE_LIST.add(FmmNodeDefinition.WORK_TASK_ASSIGNMENT.getTypeCodeForNodeId());
 	}
 
 	public static boolean isCommitmentNode(String aNodeIdString) {
@@ -2118,8 +2121,9 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 	private Date timestamp = new Date(0);
 	private final Class<? extends FmmNode> nodeClass;
 	private final String nodeTypeCode;
+	private  String typeCodeForNodeId;
 	private final String className;
-	private final String tableName;
+	private String tableName;
 	private final int dictionaryTermResourceId;
 	private final String dictionaryTermText;
     private final int dictionaryDefinitionResourceId;
@@ -2141,43 +2145,11 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 	private FmmNodeDefinition secondaryLinkNodeDefinition;  // a LOGICAL node, not the actual node
 	private FmmNodeDefinition primaryChildNodeDefinition;
 	private FmmNodeDefinition secondaryChildNodeDefinition;
+    private FmmNodeDefinition fmmNodeDefinitionOverride;
 
-    FmmNodeDefinition(
-            Class<? extends FmmNode> aNodeClass,
-            String aNodeTypeCode,
-            int aDictionaryTermResourceId,
-            int aDictionaryDefinitionResourceId,
-            int aLabelDrawableResourceId,
-            int aPickerDrawableResourceId,
-            int anActivityDrawableResourceId,
-            int aDialogDrawableResourceId,
-            HashMap<FmmNodeGlyphType, Integer> aNodeGlyphResourceIdMap,
-            Hashtable<DecKanGlNounStateColor, BitmapDrawable> aNounStateBitmapTableTiny,
-            Hashtable<DecKanGlNounStateColor, BitmapDrawable> aNounStateBitmapTableSmall,
-            Hashtable<DecKanGlNounStateColor, BitmapDrawable> aNounStateBitmapTableMedium,
-            Hashtable<DecKanGlNounStateColor, BitmapDrawable> aNounStateBitmapTableLarge,
-            int anActivityRequestCode ) {
-        this(
-                aNodeClass,
-                aNodeClass.getSimpleName(),
-                aNodeTypeCode,
-                aDictionaryTermResourceId,
-                aDictionaryDefinitionResourceId,
-                aLabelDrawableResourceId,
-                aPickerDrawableResourceId,
-                anActivityDrawableResourceId,
-                aDialogDrawableResourceId,
-                aNodeGlyphResourceIdMap,
-                aNounStateBitmapTableTiny,
-                aNounStateBitmapTableSmall,
-                aNounStateBitmapTableMedium,
-                aNounStateBitmapTableLarge,
-                anActivityRequestCode );
-    }
 
 	FmmNodeDefinition(
 			Class<? extends FmmNode> aNodeClass,
-            String aTableName,
 			String aNodeTypeCode,
 			int aDictionaryTermResourceId,
 			int aDictionaryDefinitionResourceId,
@@ -2193,8 +2165,9 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 			int anActivityRequestCode ) {
 		this.nodeClass = aNodeClass;
 		this.nodeTypeCode = aNodeTypeCode;
+		this.typeCodeForNodeId = aNodeTypeCode;
 		this.className = aNodeClass.getSimpleName();
-        this.tableName = aTableName;
+        this.tableName = aNodeClass.getSimpleName();
 		this.dictionaryTermResourceId = aDictionaryTermResourceId;
 		this.dictionaryTermText = FmmHelper.getContext().getResources().getString(this.dictionaryTermResourceId);
         this.dictionaryDefinitionResourceId = aDictionaryDefinitionResourceId;
@@ -2476,5 +2449,19 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 
     public boolean isAlphaSort() {
         return FmmNodeDefinition.ALPHA_SORT__NODE_LIST.contains(this);
+    }
+
+    public FmmNodeDefinition getFmmNodeDefinitionOverride() {
+        return fmmNodeDefinitionOverride;
+    }
+
+    public void setFmmNodeDefinitionOverride(FmmNodeDefinition anFmmNodeDefinition) {
+        this.fmmNodeDefinitionOverride = anFmmNodeDefinition;
+        this.tableName = anFmmNodeDefinition.getTableName();
+        this.typeCodeForNodeId = anFmmNodeDefinition.getTypeCodeForNodeId();
+    }
+
+    public String getTypeCodeForNodeId() {
+        return this.typeCodeForNodeId;
     }
 }
