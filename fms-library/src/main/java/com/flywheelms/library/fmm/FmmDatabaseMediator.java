@@ -1301,7 +1301,7 @@ public class FmmDatabaseMediator {
         if(bAtomicTransaction) {
             startTransaction();
         }
-        boolean isSuccess = this.persistenceTechnologyDelegate.dbDeleteStrategicAsset(aStrategicAsset, bAtomicTransaction) &&
+        boolean isSuccess = this.persistenceTechnologyDelegate.deleteRowFromSimpleIdTable(aStrategicAsset.getNodeIdString(), FmmNodeDefinition.PROJECT_ASSET, bAtomicTransaction) &&
                 deleteCompletableNode(aStrategicAsset);
         if(bAtomicTransaction) {
             endTransaction(isSuccess);

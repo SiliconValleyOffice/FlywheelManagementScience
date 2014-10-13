@@ -84,6 +84,7 @@ import com.flywheelms.library.fms.dialog.ProjectAssetOrphanDialog;
 import com.flywheelms.library.fms.dialog.ProjectDeleteDialog;
 import com.flywheelms.library.fms.dialog.ProjectMoveDialog;
 import com.flywheelms.library.fms.dialog.ProjectOrphanDialog;
+import com.flywheelms.library.fms.dialog.StrategicAssetDeleteDialog;
 import com.flywheelms.library.fms.dialog.StrategicMilestoneAdoptOrphanProjectAssetDialog;
 import com.flywheelms.library.fms.dialog.StrategicMilestoneDeleteDialog;
 import com.flywheelms.library.fms.dialog.StrategicMilestoneMoveDialog;
@@ -415,6 +416,8 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
                     aParentHeadlineNode,
                     aLaunchNodeSequence,
                     aLaunchNodeCount);
+        } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__DELETE_STRATEGIC_ASSET)) {
+            deleteStrategicAsset(aLaunchHeadlineNode);
 
 
 
@@ -714,6 +717,12 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
         return theCount == 0 && theLaunchNodeInfo.isLeafNode() ?
                 ((FmmHeadlineNode) theLaunchNodeInfo.getTargetObject()).getChildNodeCount(theLaunchNodeInfo.getGcgPerspective()) :
                 theCount;
+    }
+
+
+
+    private void deleteStrategicAsset(FmmHeadlineNode aStrategicAssetHeadlineNode) {
+        getGcgActivity().startDialog(new StrategicAssetDeleteDialog(getGcgActivity(), this, aStrategicAssetHeadlineNode));
     }
 
 }

@@ -843,8 +843,6 @@ public abstract class PersistenceTechnologyDelegate {
 
     public abstract boolean dbUpdateProjectAssetIsStrategic(String aProjectAssetId, boolean bStrategic);
 
-    public abstract boolean dbDeleteStrategicAsset(StrategicAsset aStrategicAsset, boolean bAtomicTransaction);
-
 
 
     /////////////////////////////////////////
@@ -856,5 +854,7 @@ public abstract class PersistenceTechnologyDelegate {
     public abstract <T extends FmmNodeDaoSqLite, V extends FmmNode> boolean updateSimpleIdTable(V anFmmNode, T aDaoInstance, boolean bAtomicTransaction);
 
     public abstract  <T extends FmmNodeDaoSqLite> FmmNode retrieveFmmNodeFromSimpleIdTable(String atId, T aDaoInstance);
+
+    public abstract boolean deleteRowFromSimpleIdTable(String aNodeIdString, FmmNodeDefinition anFmmNodeDefinition, boolean bAtomicTransaction);
 
 }

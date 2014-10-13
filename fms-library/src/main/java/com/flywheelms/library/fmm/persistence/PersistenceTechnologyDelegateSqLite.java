@@ -431,8 +431,9 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 		theCursor.close();
 		return theString;
 	}
-	
-	private boolean deleteRowFromSimpleIdTable(String aNodeIdString, FmmNodeDefinition anFmmNodeDefinition, boolean bAtomicTransaction) {
+
+    @Override
+	public boolean deleteRowFromSimpleIdTable(String aNodeIdString, FmmNodeDefinition anFmmNodeDefinition, boolean bAtomicTransaction) {
 		if(bAtomicTransaction) {
 			startTransaction();
 		}
@@ -2109,8 +2110,6 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
     public boolean dbUpdateProjectAssetIsStrategic(String aProjectAssetId, boolean bStrategic) {         return false;     }
 
-    public boolean dbDeleteStrategicAsset(StrategicAsset aStrategicAsset, boolean bAtomicTransaction) {         return false;     }
-	
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//////Node - STRATEGIC COMMITMENT  //////////////////////////////////////////////////////////////////////////////
