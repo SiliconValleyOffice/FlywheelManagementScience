@@ -376,7 +376,6 @@ public class FmmPopupBuilder {
         FmmHeadlineNodePopupMenu thePopupMenu = new FmmHeadlineNodePopupMenu(
 				aNodePopupListener, aView, aLaunchHeadlineNode, aParentHeadlineNode, aLaunchTreeNodeInfo, aLaunchNodeSequence, aLaunchNodeChildCount );
 		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_STRATEGIC_ASSET);
-		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__PROMOTE_PROJECT_ASSET_TO_STRATEGIC);
 		if(bCanDelete) {
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__DELETE_STRATEGIC_ASSET);
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__DEMOTE_STRATEGIC_ASSET);
@@ -393,6 +392,7 @@ public class FmmPopupBuilder {
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__SEQUENCE_LAST);
 		}
 		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_HEADLINE);
+        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__PROMOTE_PROJECT_ASSET_TO_STRATEGIC);
 		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_WORK_PACKAGE);
         if(aLaunchNodeChildCount > 0) {
             thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_WORK_PACKAGES);
