@@ -83,7 +83,7 @@ public class NodeId {
 	}
 
     public NodeId(FmmNodeDefinition anFmmNodeDefinition) {
-        this.nodeTypeCode = anFmmNodeDefinition.getTypeCodeForNodeId();
+        this.nodeTypeCode = anFmmNodeDefinition.getNodeTypeCode();
         this.nodeTypeName = anFmmNodeDefinition.getNodeTypeName();
         this.nodeIdString = NodeId.generateNodeId(this.nodeTypeCode);
     }
@@ -100,14 +100,14 @@ public class NodeId {
 	
 	// only for enums
 	public NodeId(FmmNodeDefinition anFmmNodeDefinition, String anEnumValue) {
-		this.nodeTypeCode = anFmmNodeDefinition.getTypeCodeForNodeId();
+		this.nodeTypeCode = anFmmNodeDefinition.getNodeTypeCode();
 		this.nodeTypeName = anFmmNodeDefinition.getNodeTypeName();
 		this.nodeIdString  = generateEnumNodeId(this.nodeTypeCode, anEnumValue);
 	}
 
     // only for enums
     public NodeId(FmmNodeDefinition anFmmNodeDefinition, String aNodeId, boolean aMarkerArgument) {
-        this.nodeTypeCode = anFmmNodeDefinition.getTypeCodeForNodeId();
+        this.nodeTypeCode = anFmmNodeDefinition.getNodeTypeCode();
         this.nodeTypeName = anFmmNodeDefinition.getNodeTypeName();
         this.nodeIdString  = aNodeId;
     }
@@ -173,7 +173,7 @@ public class NodeId {
 	}
 	
 	public static String generateNodeIdFromParent(Class<? extends FmmNode> aNodeClass, String aParentNodeIdString) {
-		return generateNodeIdFromParent(FmmNodeDefinition.getEntryForClass(aNodeClass).getTypeCodeForNodeId(), aParentNodeIdString);
+		return generateNodeIdFromParent(FmmNodeDefinition.getEntryForClass(aNodeClass).getNodeTypeCode(), aParentNodeIdString);
 	}
 	
 	public static String generateNodeIdFromParent(String aNodeTypeCode, String aParentNodeIdString) {
@@ -220,7 +220,7 @@ public class NodeId {
 	}
 	
 	public static String getNodeTypeCodeForClass(Class<? extends FmmNode> aNodeClass) {
-		return FmmNodeDefinition.getEntryForClass(aNodeClass).getTypeCodeForNodeId();
+		return FmmNodeDefinition.getEntryForClass(aNodeClass).getNodeTypeCode();
 	}
 	
 	public static String getNodeTypeNameForClass(Class<? extends FmmNode> aNodeClass) {
@@ -228,7 +228,7 @@ public class NodeId {
 	}
 	
 	public static String getNodeTypeCodeForName(String aNodeName) {
-		return FmmNodeDefinition.getEntryForNodeClassName(aNodeName).getTypeCodeForNodeId();
+		return FmmNodeDefinition.getEntryForNodeClassName(aNodeName).getNodeTypeCode();
 	}
 
 	public static String buildLinkNodeIdString(

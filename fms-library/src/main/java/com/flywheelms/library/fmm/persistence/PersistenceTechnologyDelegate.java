@@ -829,11 +829,7 @@ public abstract class PersistenceTechnologyDelegate {
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////  Node - STRATEGIC ASSET  ///////////////////////////////////////////////////////////////////////////////////
 
-    public abstract boolean dbUpdateStrategicAsset(StrategicAsset aStrategicAsset, boolean bAtomicTransaction);
-
     public abstract boolean dbMoveAllStrategicAssetsIntoStrategicMilestone(String aSourceStrateticMilestoneId, String aDestinationStrategicMilestoneId, boolean bSequenceAtEnd, boolean bAtomicTransaction);
-
-    public abstract StrategicAsset dbRetrieveStrategicAsset(String aNodeIdString);
 
     public abstract ArrayList<StrategicAsset> dbListStrategicAssetsForStrategicMilestone(String aStrategicMilestoneId, String aStrategicAssetExceptionId);
 
@@ -855,7 +851,10 @@ public abstract class PersistenceTechnologyDelegate {
     //////////  GENERIC METHODS  ////////////
     /////////////////////////////////////////
 
-
     public abstract <T extends FmmNodeDaoSqLite, V extends FmmNode> boolean insertSimpleIdTable(V anFmmNode, T aDaoInstance, boolean bAtomicTransaction);
+
+    public abstract <T extends FmmNodeDaoSqLite, V extends FmmNode> boolean updateSimpleIdTable(V anFmmNode, T aDaoInstance, boolean bAtomicTransaction);
+
+    public abstract  <T extends FmmNodeDaoSqLite> FmmNode retrieveFmmNodeFromSimpleIdTable(String atId, T aDaoInstance);
 
 }

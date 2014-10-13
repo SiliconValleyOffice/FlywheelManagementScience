@@ -115,11 +115,6 @@ public abstract class FmmNodeImpl implements FmmNode, GcgSerialization {
 	}
 
 	@Override
-	public String getTypeCodeForNodeId() {
-		return this.fmmNodeDefinition.getNodeTypeCode();
-	}
-
-	@Override
 	public String getLabelText() {
 		return getFmmNodeDefinition().getLabelText();
 	}

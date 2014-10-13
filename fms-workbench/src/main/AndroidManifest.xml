@@ -94,6 +94,14 @@
             android:screenOrientation="sensorLandscape" />
 
         <activity
+            android:name="com.flywheelms.library.fms.activity.StrategicAssetEditorActivity"
+            android:label="@string/editor_activity__strategic_asset"
+            android:icon="@drawable/fms_activity__strategic_asset"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
+            android:configChanges="keyboardHidden|keyboard"
+            android:screenOrientation="sensorLandscape" />
+
+        <activity
             android:name="com.flywheelms.library.fms.activity.WorkPackageEditorActivity"
             android:label="@string/editor_activity__work_package"
             android:icon="@drawable/fms_activity__work_package"

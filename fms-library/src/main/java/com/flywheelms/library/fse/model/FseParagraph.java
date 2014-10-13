@@ -226,7 +226,7 @@ public class FseParagraph extends FmmAuditNodeImpl {
 	}
 	
 	public static String generateParagraphId() {
-		StringBuilder theStringBuilder = new StringBuilder(FmmNodeDefinition.getEntryForClass(FseParagraph.class).getTypeCodeForNodeId() + "-");
+		StringBuilder theStringBuilder = new StringBuilder(FmmNodeDefinition.getEntryForClass(FseParagraph.class).getNodeTypeCode() + "-");
 		theStringBuilder.append(UUID.randomUUID());
 		return theStringBuilder.toString();
 	}

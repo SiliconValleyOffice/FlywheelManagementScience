@@ -168,8 +168,8 @@ public class FmmTribKnQualityNormalizedDescription extends DecKanGlTribKnQuality
 	}
 
 	@Override
-	public String getTypeCodeForNodeId() {
-		return getFmmNodeDefinition().getTypeCodeForNodeId();
+	public String getNodeTypeCode() {
+		return getFmmNodeDefinition().getNodeTypeCode();
 	}
 
 	@Override
@@ -177,11 +177,6 @@ public class FmmTribKnQualityNormalizedDescription extends DecKanGlTribKnQuality
 		return getFmmNodeDefinition().getNodeTypeName();
 	}
 
-    @Override
-    public String getNodeTypeCode() {
-        return getFmmNodeDefinition().getNodeTypeCode();
-    }
-	
 	@Override
 	public int getNodeEditorActivityRequestCode() {
 		return getFmmNodeDefinition().getNodeEditorActivityRequestCode();

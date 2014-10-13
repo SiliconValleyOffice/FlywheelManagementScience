@@ -601,29 +601,29 @@ public class FmmDatabaseMediator {
 		return null;
 	}
 
-	public FmmHeadlineNodeImpl getHeadlineNode(String anFmmId) {
-		FmmNodeDefinition theFmmNodeDefinition = FmmNodeDefinition.getEntryForNodeIdString(anFmmId);
+	public FmmHeadlineNodeImpl getHeadlineNode(String aNodeIdString) {
+		FmmNodeDefinition theFmmNodeDefinition = FmmNodeDefinition.getEntryForNodeIdString(aNodeIdString);
 		switch(theFmmNodeDefinition) {
 		case BOOKSHELF:
 			//				return getBookshelf(anFmmId);
 		case COMMUNITY_MEMBER:
-			return getCommunityMember(anFmmId);
+			return getCommunityMember(aNodeIdString);
 		case DISCUSSION_TOPIC:
 			//				return getDiscussionTopic(anFmmId);
 		case FACILITATION_ISSUE:
 			//				return getFacilitationIssue(anFmmId);
 		case FISCAL_YEAR:
-			return getFiscalYear(anFmmId);
+			return getFiscalYear(aNodeIdString);
 		case FLYWHEEL_CADENCE:
-            return retrieveFlywheelCadence(anFmmId);
+            return retrieveFlywheelCadence(aNodeIdString);
 		case NOTEBOOK:
 			//				return getNotebook(anFmmId);
 		case PORTFOLIO:
-            return getPortfolio(anFmmId);
+            return getPortfolio(aNodeIdString);
 		case PROJECT:
-            return getProject(anFmmId);
+            return getProject(aNodeIdString);
 		case PROJECT_ASSET:
-			return getProjectAsset(anFmmId);
+			return getProjectAsset(aNodeIdString);
 		case SERVICE_OFFERING:
 			//				return getServiceOffering(anFmmId);
 		case SERVICE_OFFERING_SLA:
@@ -632,14 +632,16 @@ public class FmmDatabaseMediator {
 			//				return getServiceRequest(anFmmId);
 		case SERVICE_REQUEST_TRIAGE_LOG:
 			//				return getServiceRequestTriageLog(anFmmId);
+		case STRATEGIC_ASSET:
+			return retrieveStrategicAsset(aNodeIdString);
 		case STRATEGIC_MILESTONE:
-			return retrieveStrategicMilestone(anFmmId);
+			return retrieveStrategicMilestone(aNodeIdString);
 		case WORK_PACKAGE:
-			return retrieveWorkPackage(anFmmId);
+			return retrieveWorkPackage(aNodeIdString);
 		case WORK_PLAN:
-            return retrieveWorkPlan(anFmmId);
+            return retrieveWorkPlan(aNodeIdString);
 		case WORK_TASK:
-            return retrieveWorkTask(anFmmId);
+            return retrieveWorkTask(aNodeIdString);
 		default:
 			return null;
 		}
@@ -795,7 +797,7 @@ public class FmmDatabaseMediator {
 
     public Portfolio createPortfolio(String aHeadline) {
         Portfolio thePortfoliPortfolio = new Portfolio(
-                new NodeId(FmmNodeDefinition.PORTFOLIO.getTypeCodeForNodeId()),
+                new NodeId(FmmNodeDefinition.PORTFOLIO),
                 aHeadline,
                 FmmDatabaseMediator.getActiveMediator().getFmmOwner() );
         return FmmDatabaseMediator.getActiveMediator().newPortfolio(thePortfoliPortfolio, true) ?
@@ -1176,10 +1178,6 @@ public class FmmDatabaseMediator {
         return this.persistenceTechnologyDelegate.dbListStrategicAssetsForStrategicMilestone(aStrategicMilestoneId, aStrategicAssetExceptionId);
     }
 
-    public StrategicAsset getStrategicAsset(String aNodeIdString) {
-        return this.persistenceTechnologyDelegate.dbRetrieveStrategicAsset(aNodeIdString);
-    }
-
     private boolean newStrategicAsset(StrategicAsset aStrategicAsset, boolean bAtomicTransaction) {
         if(bAtomicTransaction) {
             startTransaction();
@@ -1219,7 +1217,7 @@ public class FmmDatabaseMediator {
 
     public boolean updateStrategicAsset(StrategicAsset aStrategicAsset, boolean bAtomicTransaction) {
         updateHeadlineNode(aStrategicAsset);
-        return this.persistenceTechnologyDelegate.dbUpdateStrategicAsset(aStrategicAsset, bAtomicTransaction);
+        return this.persistenceTechnologyDelegate.updateSimpleIdTable(aStrategicAsset, StrategicAssetDaoSqLite.getInstance(), bAtomicTransaction);
     }
 
     public boolean moveAllStrategicAssetsIntoStrategicMilestone(
@@ -1278,6 +1276,10 @@ public class FmmDatabaseMediator {
         return isSuccess;
     }
 
+    public StrategicAsset retrieveStrategicAsset(String aNodeIdString) {
+        return (StrategicAsset) this.persistenceTechnologyDelegate.retrieveFmmNodeFromSimpleIdTable(aNodeIdString, StrategicAssetDaoSqLite.getInstance());
+    }
+
     // TODO  !!!
     public boolean demoteProjectAssetToStrategicAsset(
             String aProjectAssetId,
@@ -1316,7 +1318,7 @@ public class FmmDatabaseMediator {
     }
 
     public boolean existsStrategicAsset(String aNodeIdString) {
-        return getStrategicAsset(aNodeIdString) != null;
+        return retrieveStrategicAsset(aNodeIdString) != null;
     }
 
 
@@ -1374,7 +1376,7 @@ public class FmmDatabaseMediator {
 	
 	public FiscalYear createFiscalYear(String aYearString) {
 		FiscalYear theFiscalYear = new FiscalYear(
-				new NodeId(FmmNodeDefinition.FISCAL_YEAR.getTypeCodeForNodeId()),
+				new NodeId(FmmNodeDefinition.FISCAL_YEAR),
 				FmmDatabaseMediator.getActiveMediator().getFmmOwner(),
 				aYearString);
 		return FmmDatabaseMediator.getActiveMediator().newFiscalYear(theFiscalYear, true) ?
@@ -2466,7 +2468,7 @@ public class FmmDatabaseMediator {
             boolean bSequenceAtEnd) {
         startTransaction();
         Project theNewProject = new Project(
-                new NodeId(FmmNodeDefinition.PROJECT.getTypeCodeForNodeId()), aHeadline, aParentNode.getNodeIdString() );
+                new NodeId(FmmNodeDefinition.PROJECT), aHeadline, aParentNode.getNodeIdString() );
         boolean isSuccess = newProject(theNewProject, false) &&
                 newNodeFragTribKnQuality(theNewProject) != null;
         endTransaction(isSuccess);
@@ -2630,7 +2632,7 @@ public class FmmDatabaseMediator {
 			boolean bSequenceAtEnd) {
 		startTransaction();
 		StrategicMilestone theNewStrategicMilestone = new StrategicMilestone(
-				new NodeId(FmmNodeDefinition.STRATEGIC_MILESTONE.getTypeCodeForNodeId()), aHeadline, aParentNode.getNodeIdString() );
+				new NodeId(FmmNodeDefinition.STRATEGIC_MILESTONE), aHeadline, aParentNode.getNodeIdString() );
         int theNewSequenceNumber = initializeNewSequenceNumberForTable(
                 FmmNodeDefinition.STRATEGIC_MILESTONE,
                 StrategicMilestoneMetaData.column_FISCAL_YEAR_ID,
@@ -2732,6 +2734,10 @@ public class FmmDatabaseMediator {
 	public ArrayList<WorkPackage> listWorkPackage(ProjectAsset aProjectAsset) {
 		return listWorkPackageForProjectAsset(aProjectAsset.getNodeIdString());
 	}
+
+    public ArrayList<WorkPackage> listWorkPackage(StrategicAsset aStrategicAsset) {
+        return listWorkPackageForProjectAsset(aStrategicAsset.getNodeIdString());
+    }
 
 	public ArrayList<WorkPackage> listWorkPackageForFlywheelCadence(String aFlywheelCadenceId) {
 		return this.persistenceTechnologyDelegate.dbListWorkPackageForFlywheelCadence(aFlywheelCadenceId);

@@ -1224,7 +1224,7 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 	}
 
     private static void putNodeTypeCodeMapEntry(FmmNodeDefinition anFmmNodeDefinition) {
-		FmmNodeDefinition.NODE_TYPE_CODE_MAP.put(anFmmNodeDefinition.getTypeCodeForNodeId(), anFmmNodeDefinition);
+		FmmNodeDefinition.NODE_TYPE_CODE_MAP.put(anFmmNodeDefinition.getNodeTypeCode(), anFmmNodeDefinition);
 	}
 	
 	public static FmmNodeDefinition getEntryForNodeTypeCode(String aNodeTypeCode) {
@@ -1271,28 +1271,28 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 	
 	private static final ArrayList<String> HEADLINE_SEARCH__NODE_LIST = new ArrayList<String>();
 	static {
-		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.BOOKSHELF.getTypeCodeForNodeId());
-		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.COMMUNITY_MEMBER.getTypeCodeForNodeId());
-		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.DISCUSSION_TOPIC.getTypeCodeForNodeId());
-		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.FACILITATION_ISSUE.getTypeCodeForNodeId());
-		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.FISCAL_YEAR.getTypeCodeForNodeId());
-		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.FLYWHEEL_CADENCE.getTypeCodeForNodeId());
-		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.FLYWHEEL_TEAM.getTypeCodeForNodeId());
-		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.FUNCTIONAL_TEAM.getTypeCodeForNodeId());
-		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.NOTEBOOK.getTypeCodeForNodeId());
-		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.FMS_ORGANIZATION.getTypeCodeForNodeId());
-		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.PORTFOLIO.getTypeCodeForNodeId());
-		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.PROJECT.getTypeCodeForNodeId());
-		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.PROJECT_ASSET.getTypeCodeForNodeId());
-		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.SERVICE_OFFERING.getTypeCodeForNodeId());
-		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.SERVICE_OFFERING_SLA.getTypeCodeForNodeId());
-		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.SERVICE_REQUEST.getTypeCodeForNodeId());
-		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.STRATEGIC_ASSET.getTypeCodeForNodeId());
-		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.STRATEGIC_MILESTONE.getTypeCodeForNodeId());
-		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.STRATEGY_TEAM.getTypeCodeForNodeId());
-		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.WORK_PACKAGE.getTypeCodeForNodeId());
-		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.WORK_PLAN.getTypeCodeForNodeId());
-		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.WORK_TASK.getTypeCodeForNodeId());
+		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.BOOKSHELF.getNodeTypeCode());
+		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.COMMUNITY_MEMBER.getNodeTypeCode());
+		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.DISCUSSION_TOPIC.getNodeTypeCode());
+		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.FACILITATION_ISSUE.getNodeTypeCode());
+		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.FISCAL_YEAR.getNodeTypeCode());
+		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.FLYWHEEL_CADENCE.getNodeTypeCode());
+		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.FLYWHEEL_TEAM.getNodeTypeCode());
+		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.FUNCTIONAL_TEAM.getNodeTypeCode());
+		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.NOTEBOOK.getNodeTypeCode());
+		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.FMS_ORGANIZATION.getNodeTypeCode());
+		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.PORTFOLIO.getNodeTypeCode());
+		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.PROJECT.getNodeTypeCode());
+		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.PROJECT_ASSET.getNodeTypeCode());
+		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.SERVICE_OFFERING.getNodeTypeCode());
+		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.SERVICE_OFFERING_SLA.getNodeTypeCode());
+		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.SERVICE_REQUEST.getNodeTypeCode());
+		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.STRATEGIC_ASSET.getNodeTypeCode());
+		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.STRATEGIC_MILESTONE.getNodeTypeCode());
+		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.STRATEGY_TEAM.getNodeTypeCode());
+		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.WORK_PACKAGE.getNodeTypeCode());
+		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.WORK_PLAN.getNodeTypeCode());
+		HEADLINE_SEARCH__NODE_LIST.add(FmmNodeDefinition.WORK_TASK.getNodeTypeCode());
 	}
 
 	public static boolean isHeadlineSearchNode(String aNodeIdString) {
@@ -1346,9 +1346,9 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 	
 	private static final ArrayList<String> COMMITMENT__NODE_LIST = new ArrayList<String>();
 	static {
-		COMMITMENT__NODE_LIST.add(FmmNodeDefinition.FLYWHEEL_WORK_PACKAGE_COMMITMENT.getTypeCodeForNodeId());
-		COMMITMENT__NODE_LIST.add(FmmNodeDefinition.STRATEGIC_COMMITMENT.getTypeCodeForNodeId());
-		COMMITMENT__NODE_LIST.add(FmmNodeDefinition.WORK_TASK_ASSIGNMENT.getTypeCodeForNodeId());
+		COMMITMENT__NODE_LIST.add(FmmNodeDefinition.FLYWHEEL_WORK_PACKAGE_COMMITMENT.getNodeTypeCode());
+		COMMITMENT__NODE_LIST.add(FmmNodeDefinition.STRATEGIC_COMMITMENT.getNodeTypeCode());
+		COMMITMENT__NODE_LIST.add(FmmNodeDefinition.WORK_TASK_ASSIGNMENT.getNodeTypeCode());
 	}
 
 	public static boolean isCommitmentNode(String aNodeIdString) {
@@ -2121,7 +2121,6 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 	private Date timestamp = new Date(0);
 	private final Class<? extends FmmNode> nodeClass;
 	private final String nodeTypeCode;
-	private  String typeCodeForNodeId;
 	private final String className;
 	private String tableName;
 	private final int dictionaryTermResourceId;
@@ -2165,7 +2164,6 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 			int anActivityRequestCode ) {
 		this.nodeClass = aNodeClass;
 		this.nodeTypeCode = aNodeTypeCode;
-		this.typeCodeForNodeId = aNodeTypeCode;
 		this.className = aNodeClass.getSimpleName();
         this.tableName = aNodeClass.getSimpleName();
 		this.dictionaryTermResourceId = aDictionaryTermResourceId;
@@ -2275,7 +2273,7 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 	public String getNodeTypeCode() {
 		return this.nodeTypeCode;
 	}
-	
+
 	@Override
 	public int getNodeEditorActivityRequestCode() {
 		return this.editorActivityRequestCode;
@@ -2458,10 +2456,5 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     public void setFmmNodeDefinitionOverride(FmmNodeDefinition anFmmNodeDefinition) {
         this.fmmNodeDefinitionOverride = anFmmNodeDefinition;
         this.tableName = anFmmNodeDefinition.getTableName();
-        this.typeCodeForNodeId = anFmmNodeDefinition.getTypeCodeForNodeId();
-    }
-
-    public String getTypeCodeForNodeId() {
-        return this.typeCodeForNodeId;
     }
 }

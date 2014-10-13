@@ -327,9 +327,10 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 		Cursor theCursor = getSqLiteDatabase().rawQuery("SELECT * FROM " + aDaoInstance.getFmmNodeDefinition().getTableName(), null);
 		return aDaoInstance.getObjectListFromCursor(theCursor);
 	}
-	
+
+    @Override
 	@SuppressWarnings({"resource",  "rawtypes" })
-	private <T extends FmmNodeDaoSqLite> FmmNode retrieveFmmNodeFromSimpleIdTable(String atId, T aDaoInstance) {
+	public <T extends FmmNodeDaoSqLite> FmmNode retrieveFmmNodeFromSimpleIdTable(String atId, T aDaoInstance) {
 		Cursor theCursor = getSqLiteDatabase().rawQuery("SELECT * FROM " + aDaoInstance.getFmmNodeDefinition().getTableName() +
 				" WHERE " + IdNodeMetaData.column_ID + " = '" + atId + "'", null);
 		return aDaoInstance.getSingleObjectFromCursor(theCursor);
@@ -402,8 +403,9 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 //		return theBoolean;
 //	}
 
+    @Override
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	private <T extends FmmNodeDaoSqLite, V extends FmmNode> boolean updateSimpleIdTable(
+	public <T extends FmmNodeDaoSqLite, V extends FmmNode> boolean updateSimpleIdTable(
 			V anFmmNode, T aDaoInstance, boolean bAtomicTransaction) {
 		if(bAtomicTransaction) {
 			startTransaction();
@@ -2099,14 +2101,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
 
 
-
-    public boolean dbUpdateStrategicAsset(StrategicAsset aStrategicAsset, boolean bAtomicTransaction) {
-        return false;
-    }
-
     public boolean dbMoveAllStrategicAssetsIntoStrategicMilestone(String aSourceStrateticMilestoneId, String aDestinationStrategicMilestoneId, boolean bSequenceAtEnd, boolean bAtomicTransaction) {         return false;     }
-
-    public StrategicAsset dbRetrieveStrategicAsset(String aNodeIdString) {         return null;     }
 
     public boolean dbMoveSingleStrategicAssetIntoStrategicMilestone(String aStrategicAssetId, String anOriginalStrategicMilestonetId, String aDestinationStrategicMilestoneId, boolean bSequenceAtEnd, boolean bAtomicTransaction) {         return false;     }
 

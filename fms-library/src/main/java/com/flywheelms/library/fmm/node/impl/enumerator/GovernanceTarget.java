@@ -426,19 +426,14 @@ public enum GovernanceTarget implements FmmEnumNode {
 	}
 
 	@Override
-	public String getTypeCodeForNodeId() {
-		return getFmmNodeDefinition().getTypeCodeForNodeId();
+	public String getNodeTypeCode() {
+		return getFmmNodeDefinition().getNodeTypeCode();
 	}
 
 	@Override
 	public String getNodeTypeName() {
 		return getFmmNodeDefinition().getNodeTypeName();
 	}
-
-    @Override
-    public String getNodeTypeCode() {
-        return getFmmNodeDefinition().getNodeTypeCode();
-    }
 	
 	@Override
 	public int getNodeEditorActivityRequestCode() {

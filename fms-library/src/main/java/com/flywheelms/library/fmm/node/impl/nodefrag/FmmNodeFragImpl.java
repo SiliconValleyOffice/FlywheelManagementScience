@@ -108,7 +108,7 @@ public abstract class FmmNodeFragImpl extends FmmNodeImpl implements FmmNodeFrag
 	}
 	
 	protected static String getNodeFragTypeCode(Class<? extends FmmNodeFragImpl> aNodeFragClass) {
-		return FmmNodeDefinition.getEntryForClass(aNodeFragClass).getTypeCodeForNodeId();
+		return FmmNodeDefinition.getEntryForClass(aNodeFragClass).getNodeTypeCode();
 	}
 	
 	@Override

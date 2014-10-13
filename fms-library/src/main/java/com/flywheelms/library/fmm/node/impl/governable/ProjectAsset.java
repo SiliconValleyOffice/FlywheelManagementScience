@@ -97,7 +97,7 @@ public class ProjectAsset extends FmmCompletableNodeImpl implements Comparable<P
     private int workPackageBudget = 0;
 	
 	public ProjectAsset() {
-		super(new NodeId(FmmNodeDefinition.PROJECT_ASSET.getTypeCodeForNodeId()));
+		super(new NodeId(FmmNodeDefinition.PROJECT_ASSET.getNodeTypeCode()));
 	}
 	
 	public ProjectAsset(JSONObject aJsonObject) {

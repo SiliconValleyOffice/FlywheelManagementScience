@@ -68,7 +68,7 @@ public class PdfPublicationWizard extends FmsNodeWizardActivity {
 	public void onCreate(Bundle aSavedInstanceState) {
 	    super.onCreate(aSavedInstanceState);
 	    this.wizardStepFlipper = (FmsNodePublishingWizardStepFlipper) findViewById(R.id.gcg__wizard__step_flipper);
-	    this.pdfPublicationNodeId = new NodeId(getDisplayedFmmNodeDefinition().getTypeCodeForNodeId());
+	    this.pdfPublicationNodeId = new NodeId(getDisplayedFmmNodeDefinition().getNodeTypeCode());
 	}
 
 	@Override

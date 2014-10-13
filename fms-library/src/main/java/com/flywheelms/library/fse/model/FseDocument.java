@@ -212,7 +212,7 @@ public class FseDocument extends FmmNodeFragImpl implements FmmNodeAudit, Clonea
     }
 	
 	public static String generatePublicationDocumentId() {
-		StringBuilder theStringBuilder = new StringBuilder(FmmNodeDefinition.getEntryForClass(FseDocument.class).getTypeCodeForNodeId() + "-");
+		StringBuilder theStringBuilder = new StringBuilder(FmmNodeDefinition.getEntryForClass(FseDocument.class).getNodeTypeCode() + "-");
 		theStringBuilder.append(UUID.randomUUID());
 		return theStringBuilder.toString();
 	}

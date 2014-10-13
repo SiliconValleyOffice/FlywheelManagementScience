@@ -139,13 +139,9 @@ public enum FseDocumentTransactionType implements FmmEnumNode {
 	}
 
 	@Override
-	public String getTypeCodeForNodeId() {
-		return getFmmNodeDefinition().getTypeCodeForNodeId();
+	public String getNodeTypeCode() {
+		return getFmmNodeDefinition().getNodeTypeCode();
 	}
-    @Override
-    public String getNodeTypeCode() {
-        return null;
-    }
 
 	@Override
 	public String getNodeTypeName() {

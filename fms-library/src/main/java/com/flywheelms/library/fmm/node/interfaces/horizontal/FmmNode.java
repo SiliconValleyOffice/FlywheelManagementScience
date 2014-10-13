@@ -63,8 +63,6 @@ public interface FmmNode extends GcgGuiable{
 	
 	FmmNodeDefinition getFmmNodeDefinition();
 	
-	String getTypeCodeForNodeId();
-
 	String getNodeTypeCode();
 
 	String getNodeTypeName();

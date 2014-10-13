@@ -231,11 +231,6 @@ public class FmmHeadlineNodeShallow implements FmmHeadlineNode {
 	}
 
 	@Override
-	public String getTypeCodeForNodeId() {
-		return getFmmHeadlineNode().getTypeCodeForNodeId();
-	}
-
-	@Override
 	public int getNodeEditorActivityRequestCode() {
 		return getFmmHeadlineNode().getNodeEditorActivityRequestCode();
 	}

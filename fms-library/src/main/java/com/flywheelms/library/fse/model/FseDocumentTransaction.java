@@ -364,7 +364,7 @@ public class FseDocumentTransaction implements FmmNode, GcgSerialization {
 	}
 
 	@Override
-	public String getTypeCodeForNodeId() {
+	public String getNodeTypeCode() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -374,11 +374,6 @@ public class FseDocumentTransaction implements FmmNode, GcgSerialization {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-    @Override
-    public String getNodeTypeCode() {
-        return null;
-    }
 
 	@Override
 	public int getNodeEditorActivityRequestCode() {

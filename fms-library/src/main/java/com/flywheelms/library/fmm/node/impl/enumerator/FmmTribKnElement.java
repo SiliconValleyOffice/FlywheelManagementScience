@@ -177,8 +177,8 @@ public enum FmmTribKnElement implements FmmEnumNode {
 	}
 
 	@Override
-	public String getTypeCodeForNodeId() {
-		return getFmmNodeDefinition().getTypeCodeForNodeId();
+	public String getNodeTypeCode() {
+		return getFmmNodeDefinition().getNodeTypeCode();
 	}
 
 	@Override
@@ -186,11 +186,6 @@ public enum FmmTribKnElement implements FmmEnumNode {
 		return getFmmNodeDefinition().getNodeTypeName();
 	}
 
-    @Override
-    public String getNodeTypeCode() {
-        return getFmmNodeDefinition().getNodeTypeCode();
-    }
-	
 	@Override
 	public int getNodeEditorActivityRequestCode() {
 		return getFmmNodeDefinition().getNodeEditorActivityRequestCode();
