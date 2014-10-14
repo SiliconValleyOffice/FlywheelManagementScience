@@ -857,4 +857,5 @@ public abstract class PersistenceTechnologyDelegate {
 
     public abstract boolean deleteRowFromSimpleIdTable(String aNodeIdString, FmmNodeDefinition anFmmNodeDefinition, boolean bAtomicTransaction);
 
+    public abstract int getLinkTableNodeSequence(FmmNodeDefinition aLinkTableFmmNodeDefinition, String aParentIdColumnName, String aParentNodeId, String aChildIdColumnName, String aPeerNodeId);
 }

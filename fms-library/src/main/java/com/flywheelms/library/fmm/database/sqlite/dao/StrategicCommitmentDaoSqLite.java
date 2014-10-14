@@ -74,7 +74,7 @@ public class StrategicCommitmentDaoSqLite extends CommitmentNodeDaoSqLite<Strate
 
 	@Override
 	protected String getChildIdColumnName() {
-		return StrategicCommitmentMetaData.column_PROJECT_ASSET_ID;
+		return StrategicCommitmentMetaData.column_STRATEGIC_ASSET_ID;
 	}
 
 	@Override
@@ -82,7 +82,7 @@ public class StrategicCommitmentDaoSqLite extends CommitmentNodeDaoSqLite<Strate
 			Cursor aCursor, StrategicCommitment aCommitmentNode) {
 		super.getColumnValues(aHashMap, aCursor, aCommitmentNode);
 		aCommitmentNode.setStrategicMilestoneNodeId(aCursor.getString(aHashMap.get(StrategicCommitmentMetaData.column_STRATEGIC_MILESTONE_ID)));
-		aCommitmentNode.setProjectAssetNodeId(aCursor.getString(aHashMap.get(StrategicCommitmentMetaData.column_PROJECT_ASSET_ID)));
+		aCommitmentNode.setProjectAssetNodeId(aCursor.getString(aHashMap.get(StrategicCommitmentMetaData.column_STRATEGIC_ASSET_ID)));
 	}
 
 	@Override
@@ -90,7 +90,7 @@ public class StrategicCommitmentDaoSqLite extends CommitmentNodeDaoSqLite<Strate
 		StrategicCommitment theStrategicCommitment = null;
 		theStrategicCommitment = new StrategicCommitment(
 				aCursor.getString(this.columnIndexMap.get(StrategicCommitmentMetaData.column_STRATEGIC_MILESTONE_ID)),
-				aCursor.getString(this.columnIndexMap.get(StrategicCommitmentMetaData.column_PROJECT_ASSET_ID)) );
+				aCursor.getString(this.columnIndexMap.get(StrategicCommitmentMetaData.column_STRATEGIC_ASSET_ID)) );
 		getColumnValues(this.columnIndexMap, aCursor, theStrategicCommitment);
 		return theStrategicCommitment;
 	}

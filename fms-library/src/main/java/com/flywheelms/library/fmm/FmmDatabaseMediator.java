@@ -69,6 +69,7 @@ import com.flywheelms.library.fmm.meta_data.NodeFragWorkTaskBudgetMetaData;
 import com.flywheelms.library.fmm.meta_data.PdfPublicationMetaData;
 import com.flywheelms.library.fmm.meta_data.ProjectAssetMetaData;
 import com.flywheelms.library.fmm.meta_data.ProjectMetaData;
+import com.flywheelms.library.fmm.meta_data.SequencedLinkNodeMetaData;
 import com.flywheelms.library.fmm.meta_data.StrategicCommitmentMetaData;
 import com.flywheelms.library.fmm.meta_data.StrategicMilestoneMetaData;
 import com.flywheelms.library.fmm.meta_data.WorkPackageMetaData;
@@ -352,6 +353,52 @@ public class FmmDatabaseMediator {
                     aParentNodeId,
                     theNewSequenceNumber,
                     aSequenceColumnName );
+        }
+        return theNewSequenceNumber;
+    }
+
+    private int initializeNewSequenceNumberForLinkTable(
+            FmmNodeDefinition aLinkTableFmmNodeDefinition,
+            String aParentIdColumnName,
+            String aParentNodeId,
+            String aChildIdColumnName,
+            String aPeerNodeId,
+            boolean bSequenceAtEnd ) {
+        int theNewSequenceNumber;
+        if(aPeerNodeId == null) {  // sequence as the first/last child node of parent node
+            if(bSequenceAtEnd) {  // last child node of parent
+                theNewSequenceNumber = this.persistenceTechnologyDelegate.dbGetLastSequence(
+                        aLinkTableFmmNodeDefinition.getTableName(),
+                        aParentIdColumnName,
+                        aParentNodeId,
+                        SequencedLinkNodeMetaData.column_SEQUENCE );
+                theNewSequenceNumber += theNewSequenceNumber;
+            } else {  // first child node of parent
+                theNewSequenceNumber = 1;
+                this.persistenceTechnologyDelegate.dbIncrementSequence(
+                        aLinkTableFmmNodeDefinition.getTableName(),
+                        aParentIdColumnName,
+                        aParentNodeId,
+                        SequencedLinkNodeMetaData.column_SEQUENCE );
+            }
+        } else { // sequence before/after peer node
+            int thePeerNodeSequence = this.persistenceTechnologyDelegate.getLinkTableNodeSequence(
+                    aLinkTableFmmNodeDefinition,
+                    aParentIdColumnName,
+                    aParentNodeId,
+                    aChildIdColumnName,
+                    aPeerNodeId);
+            if(bSequenceAtEnd) {  // sequence after peer
+                theNewSequenceNumber = thePeerNodeSequence + 1;
+            } else { // sequence before peer
+                theNewSequenceNumber = thePeerNodeSequence;
+            }
+            this.persistenceTechnologyDelegate.dbIncrementSequence(
+                    aLinkTableFmmNodeDefinition.getTableName(),
+                    aParentIdColumnName,
+                    aParentNodeId,
+                    theNewSequenceNumber,
+                    SequencedLinkNodeMetaData.column_SEQUENCE );
         }
         return theNewSequenceNumber;
     }
@@ -1199,14 +1246,17 @@ public class FmmDatabaseMediator {
         StrategicAsset theNewStrategicAsset = new StrategicAsset();
         theNewStrategicAsset.setHeadline(aHeadline);
         boolean isSuccess = newStrategicAsset(theNewStrategicAsset, true);
+
         StrategicCommitment theNewStrategicCommitment = new StrategicCommitment(
                 aParentNode.getNodeIdString(), theNewStrategicAsset.getNodeIdString() );
-        int theNewSequenceNumber = initializeNewSequenceNumberForTable(
+
+        int theNewSequenceNumber = initializeNewSequenceNumberForLinkTable(
                 FmmNodeDefinition.STRATEGIC_COMMITMENT,
                 StrategicCommitmentMetaData.column_STRATEGIC_MILESTONE_ID,
-                aParentNode,
-                aPeerNode,
-                bSequenceAtEnd );
+                aParentNode.getNodeIdString(),
+                StrategicCommitmentMetaData.column_STRATEGIC_ASSET_ID,
+                aPeerNode == null ? null : aPeerNode.getNodeIdString(),
+                bSequenceAtEnd);
         theNewStrategicCommitment.setSequence(theNewSequenceNumber);
         theNewStrategicCommitment.setCompletionCommitmentType(CompletionCommitmentType.NONE);
         isSuccess = isSuccess && newStrategicCommitment(theNewStrategicCommitment, false);
