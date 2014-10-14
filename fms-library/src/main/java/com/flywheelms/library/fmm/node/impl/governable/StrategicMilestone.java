@@ -378,8 +378,8 @@ public class StrategicMilestone extends FmmCompletableNodeImpl implements Compar
     public ArrayList<? extends FmmHeadlineNode> getChildList(FmmNodeDefinition aChildNodeDefinition) {
         ArrayList<? extends FmmHeadlineNodeImpl> theList = null;
         switch(aChildNodeDefinition) {
-            case PROJECT_ASSET:
-                theList = FmmDatabaseMediator.getActiveMediator().listProjectAsset(this);
+            case STRATEGIC_ASSET:
+                theList = FmmDatabaseMediator.getActiveMediator().listStrategicAssets(this);
                 break;
         }
         return theList;

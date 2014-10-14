@@ -1213,7 +1213,7 @@ public class FmmDatabaseMediator {
         return this.persistenceTechnologyDelegate.dbListStrategicAssets(aStrategicMilestone);
     }
 
-    public ArrayList<StrategicAsset> listStrategicAsset(StrategicMilestone aStrategicMilestone, StrategicAsset aStrategicAssetException) {
+    public ArrayList<StrategicAsset> listStrategicAssets(StrategicMilestone aStrategicMilestone, StrategicAsset aStrategicAssetException) {
         return this.persistenceTechnologyDelegate.dbListStrategicAssets(aStrategicMilestone, aStrategicAssetException);
     }
 
