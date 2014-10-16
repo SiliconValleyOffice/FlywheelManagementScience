@@ -53,7 +53,7 @@ import com.flywheelms.library.fmm.enumerator.ChildNodeType;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmCompletionNode;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
-import com.flywheelms.library.fms.widget.spinner.ProjectAssetWidgetSpinner;
+import com.flywheelms.library.fms.widget.spinner.StrategicAssetWidgetSpinner;
 
 public class ProjectAdoptOrphanStrategicAssetDialog extends HeadlineNodeAdoptOrphanDialog {
 
@@ -61,7 +61,7 @@ public class ProjectAdoptOrphanStrategicAssetDialog extends HeadlineNodeAdoptOrp
             GcgActivity aLibraryActivity,
             GcgTreeViewAdapter aTreeViewAdapter,
             FmmHeadlineNode aParentHeadlineNode ) {
-        super(aLibraryActivity, aTreeViewAdapter, FmmNodeDefinition.PROJECT, aParentHeadlineNode);
+        super(aLibraryActivity, aTreeViewAdapter, FmmNodeDefinition.STRATEGIC_ASSET, aParentHeadlineNode);
     }
 
     public ProjectAdoptOrphanStrategicAssetDialog(
@@ -77,14 +77,13 @@ public class ProjectAdoptOrphanStrategicAssetDialog extends HeadlineNodeAdoptOrp
 
     @Override
     protected int getDialogTitleStringResourceId() {
-        return R.string.fms__adopt_orphan__project_asset;
+        return R.string.fms__adopt_orphan__strategic_asset;
     }
 
     protected void initializeOrphanSpinner(LinearLayout anAdoptionCandidateLayout) {
-        LayoutInflater.from(getContext()).inflate(R.layout.adopt_orphan__project_asset__into__project, anAdoptionCandidateLayout, true);
-        this.adoptionCandidateWidgetSpinner = (ProjectAssetWidgetSpinner) this.dialogBodyView.findViewById(R.id.adoption_candidate__spinner);
+        LayoutInflater.from(getContext()).inflate(R.layout.adopt_orphan__strategic_asset__into__project, anAdoptionCandidateLayout, true);
+        this.adoptionCandidateWidgetSpinner = (StrategicAssetWidgetSpinner) this.dialogBodyView.findViewById(R.id.adoption_candidate__spinner);
     }
-
     @Override
     protected ChildNodeType getOrphanType() {
         return ChildNodeType.PRIMARY;

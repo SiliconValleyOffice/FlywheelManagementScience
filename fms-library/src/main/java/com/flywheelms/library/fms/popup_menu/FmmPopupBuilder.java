@@ -356,7 +356,6 @@ public class FmmPopupBuilder {
             thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_WORK_PACKAGES);
         }
 		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__ADOPT_ORPHAN_WORK_PACKAGE);
-        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__ADOPT_ORPHAN_STRATEGIC_ASSET);
 		return thePopupMenu;
 	}
 
