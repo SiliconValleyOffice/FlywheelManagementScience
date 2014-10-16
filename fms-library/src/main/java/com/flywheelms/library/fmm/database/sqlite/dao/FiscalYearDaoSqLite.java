@@ -81,7 +81,7 @@ public class FiscalYearDaoSqLite extends CompletableNodeDaoSqLite<FiscalYear> {
 	@Override
 	protected void getColumnValues(HashMap<String, Integer> aHashMap, Cursor aCursor, FiscalYear aFiscalYear) {
 		super.getColumnValues(aHashMap, aCursor, aFiscalYear);
-		aFiscalYear.setOrganizationNodeIdString(aCursor.getString(aHashMap.get(FiscalYearMetaData.column_ORGANIZATION_ID)));
+		aFiscalYear.setOrganizationId(aCursor.getString(aHashMap.get(FiscalYearMetaData.column_ORGANIZATION_ID)));
 		aFiscalYear.setYear(aCursor.getString(aHashMap.get(FiscalYearMetaData.column_YEAR_NUMBER)));
 		aFiscalYear.setCadenceDuration(aCursor.getInt(aHashMap.get(FiscalYearMetaData.column_CADENCE_DURATION)));
 		aFiscalYear.setWorkPlanFirstDayOfWeek(aCursor.getString(aHashMap.get(FiscalYearMetaData.column_WORK_PLAN_FIRST_DAY_OF_WEEK)));

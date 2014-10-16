@@ -43,35 +43,42 @@
 
 package com.flywheelms.library.fms.dialog;
 
+import android.view.LayoutInflater;
+import android.widget.LinearLayout;
+
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewAdapter;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.FmmDatabaseMediator;
-import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
+import com.flywheelms.library.fmm.enumerator.ChildNodeType;
+import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
+import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmCompletionNode;
+import com.flywheelms.library.fms.widget.spinner.ProjectAssetWidgetSpinner;
 
-public class StrategicMilestoneAdoptOrphanProjectAssetDialog extends HeadlineNodeAdoptOrphanDialog {
+public class StrategicMilestoneAdoptOrphanStrategicAssetDialog extends HeadlineNodeAdoptOrphanDialog {
 
-	public StrategicMilestoneAdoptOrphanProjectAssetDialog(
-			GcgActivity aLibraryActivity,
-			GcgTreeViewAdapter aTreeViewAdapter,
-			FmmHeadlineNode aHeadlineNode ) {
-		super(aLibraryActivity, aTreeViewAdapter, aHeadlineNode);
-	}
+    public StrategicMilestoneAdoptOrphanStrategicAssetDialog(
+            GcgActivity aLibraryActivity,
+            GcgTreeViewAdapter aTreeViewAdapter,
+            FmmNodeDefinition anOrphanFmmNodeDefinition,
+            FmmCompletionNode aParentHeadlineNode,
+            int aParentNodeChildCount,
+            FmmCompletionNode aLaunchHeadlineNode,
+            int aLaunchNodeSequence) {
+        super(aLibraryActivity, aTreeViewAdapter, anOrphanFmmNodeDefinition, aParentHeadlineNode, aParentNodeChildCount, aLaunchHeadlineNode, aLaunchNodeSequence);
+    }
 
-	@Override
-	protected int getAdoptionCandidateLayoutResourceId() {
-		return R.layout.project_asset__adoption_into__strategic_milestone;
-	}
+    @Override
+    protected int getDialogTitleStringResourceId() {
+        return R.string.fms__adopt_orphan__project_asset;
+    }
 
-	@Override
-	protected boolean adoptOrphanHeadlineNode() {
-		boolean theAdoptionStatus = FmmDatabaseMediator.getActiveMediator().adoptOrphanProjectAssetIntoStrategicMilestone(
-				this.adoptionCandidateWidgetSpinner.getFmmNode().getNodeIdString(),
-                getFmmHeadlineNode().getNodeIdString(),
-				this.sequencePositionSpinner.sequenceAtEnd(),
-				true );
-		toastAdoptionResult(theAdoptionStatus);
-		return theAdoptionStatus;
-	}
+    protected void initializeOrphanSpinner(LinearLayout anAdoptionCandidateLayout) {
+        LayoutInflater.from(getContext()).inflate(R.layout.adopt_orphan__project_asset__into__project, anAdoptionCandidateLayout, true);
+        this.adoptionCandidateWidgetSpinner = (ProjectAssetWidgetSpinner) this.dialogBodyView.findViewById(R.id.adoption_candidate__spinner);
+    }
 
+    @Override
+    protected ChildNodeType getOrphanType() {
+        return ChildNodeType.PRIMARY;
+    }
 }

@@ -21,6 +21,11 @@
     <string name="fms__move">Move</string>
     <string name="fms__orphan">Orphan</string>
     <string name="fms__adopt_orphan">Adopt Orphan</string>
+    <string name="fms__adopt_orphan__project">Adopt Orphan Project</string>
+    <string name="fms__adopt_orphan__project_asset">Adopt Orphan Project Asset</string>
+    <string name="fms__adopt_orphan__strategic_asset">Adopt Orphan Strategic Asset</string>
+    <string name="fms__adopt_orphan__work_package">Adopt Orphan Work Package</string>
+    <string name="fms__adopt_orphan__work_task">Adopt Orphan Work Task</string>
     <string name="fms__ok">OK</string>
     
     <string name="repository_configuration">FMM Configuration</string>
@@ -201,5 +206,8 @@
     <string name="filter_id__orphan_nodes__secondary_parent">orphan_nodes__secondary_parent</string>
 
     <string name="fms__no_move_target">( No move target available )</string>
+    <string name="fms__alpha_sort">Alpha sort</string>
+    <string name="fms__radio_before">Before</string>
+    <string name="fms__radio_after">After</string>
 
 </resources>

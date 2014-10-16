@@ -55,4 +55,7 @@ public class ServiceRequest extends FmmCompletableNodeImpl {
 		// TODO Auto-generated constructor stub
 	}
 
+    public void setPrimaryParentId(String aNodeIdString) {
+    }
+
 }

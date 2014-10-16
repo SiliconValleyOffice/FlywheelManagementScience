@@ -1,5 +1,5 @@
-/* @(#)PortfolioDaoSqLite.java
- ** 
+/* @(#)ChildNodeType.java
+ **
  ** Copyright (C) 2012 by Steven D. Stamps
  **
  **             Trademarks & Copyrights
@@ -41,65 +41,14 @@
  ** <http://www.gnu.org/licenses/gpl-3.0.html>.
  */
 
-package com.flywheelms.library.fmm.database.sqlite.dao;
+package com.flywheelms.library.fmm.enumerator;
 
-import android.content.ContentValues;
-import android.database.Cursor;
+public enum ChildNodeType {
 
-import com.flywheelms.library.fmm.meta_data.IdNodeMetaData;
-import com.flywheelms.library.fmm.meta_data.PortfolioMetaData;
-import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
-import com.flywheelms.library.fmm.node.impl.governable.Portfolio;
-
-import java.util.HashMap;
-
-public class PortfolioDaoSqLite extends HeadlineNodeDaoSqLite<Portfolio> {
-
-	private static PortfolioDaoSqLite singleton;
-
-	public static PortfolioDaoSqLite getInstance() {
-		if(PortfolioDaoSqLite.singleton == null) {
-			PortfolioDaoSqLite.singleton = new PortfolioDaoSqLite();
-		}
-		return PortfolioDaoSqLite.singleton;
-	}
-	
-	@Override
-	public FmmNodeDefinition getFmmNodeDefinition() {
-		return FmmNodeDefinition.PORTFOLIO;
-	}
-
-	@Override
-	protected void buildColumnIndexMap(Cursor aCursor) {
-		super.buildColumnIndexMap(aCursor);
-		putColumnIndexMapEntry(this.columnIndexMap, aCursor, PortfolioMetaData.column_ORGANIZATION_ID);
-	}
-
-	@Override
-	protected void getColumnValues(HashMap<String, Integer> aHashMap, Cursor aCursor, Portfolio aPortfolio) {
-		super.getColumnValues(aHashMap, aCursor, aPortfolio);
-		aPortfolio.setOrganizationId(aCursor.getString(aHashMap.get(PortfolioMetaData.column_ORGANIZATION_ID)));
-	}
-
-	@Override
-	public ContentValues buildContentValues(Portfolio aPortfolio) {
-		ContentValues theContentValues = super.buildContentValues(aPortfolio);
-		theContentValues.put(PortfolioMetaData.column_ORGANIZATION_ID, aPortfolio.getOrganizationNodeIdString());
-		return theContentValues;
-	}
-
-	@Override
-	public ContentValues buildUpdateContentValues(Portfolio aPortfolio) {
-		return buildContentValues(aPortfolio);
-	}
-
-	@Override
-	protected Portfolio getNextObjectFromCursor(Cursor aCursor) {
-		Portfolio thePortfolio = null;
-		thePortfolio = new Portfolio(
-				aCursor.getString(this.columnIndexMap.get(IdNodeMetaData.column_ID)) );
-		getColumnValues(this.columnIndexMap, aCursor, thePortfolio);
-		return thePortfolio;
-	}
+    PRIMARY,
+    PRIMARY__ALPHA_SORT,
+    SECONDARY,
+    PRIMARY_LINK,
+    SECONDARY_LINK;
 
 }

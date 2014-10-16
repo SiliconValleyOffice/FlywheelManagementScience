@@ -1,31 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:gcg="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center_horizontal"
-    android:orientation="vertical">
+    android:layout_height="wrap_content"
+    android:background="@color/gcg__dialog__background"
+    android:orientation="vertical" >
 
-    <LinearLayout
+    <com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:gcg="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/group_box__adoption_candidate"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/gcg__panel__sand_dollar__border__portobello"
+        android:gravity="left|top"
+        android:orientation="vertical"
+        android:paddingBottom="10dp"
+        gcg:borderStyle="3"
+        gcg:headingText="Adoption Candidate" >
+
+        <include layout="@layout/gcg__filter_panel" />
+
+        <!-- add adoption candidate spinner at run time -->
+
+    </com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:gcg="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
         android:background="@color/gcg__dialog__background"
-        android:gravity="left"
-        android:orientation="vertical"
-        android:paddingLeft="25dp"
-        android:paddingRight="15dp" >
+        android:orientation="horizontal" >
 
-        <com.flywheelms.library.fms.widget.text_view.FmmNodeTypeWidgetTextView
-            android:id="@+id/fmm_node__type"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp" />
+        <com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear
+            android:id="@+id/group_box__parent_node"
+            android:layout_width="345dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="left"
+            android:gravity="left|top"
+            android:orientation="vertical"
+            gcg:borderStyle="3"
+            gcg:headingText="For Parent"
+            gcg:headingGravity="left" >
 
-        <com.flywheelms.library.fms.widget.text_view.HeadlineWidgetTextView
-            android:id="@+id/headline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="54dp"
-            android:layout_marginBottom="10dp" />
+            <com.flywheelms.library.fms.widget.text_view.FmmNodeTypeWidgetTextView
+                android:id="@+id/fmm_node__type__parent_node"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp" />
+
+            <com.flywheelms.library.fms.widget.text_view.HeadlineWidgetTextView
+                android:id="@+id/headline__parent_node"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="69dp"
+                gcg:headingText="For Parent" />
+        </com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear>
+
+        <com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear
+            android:id="@+id/group_box__sequence"
+            android:layout_width="345dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:gravity="left|top"
+            android:orientation="vertical"
+            gcg:borderStyle="3"
+            gcg:headingText="Sequence"
+            gcg:headingGravity="left" >
+
+            <RadioGroup
+                android:id="@+id/first_last__radio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp" >
+
+                <RadioButton
+                    android:id="@+id/first__radio_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp" />
+
+                <RadioButton
+                    android:id="@+id/last__radio_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true" />
+            </RadioGroup>
+
+            <com.flywheelms.library.fms.widget.text_view.HeadlineWidgetTextView
+                android:id="@+id/headline__launch_node"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="35dp"
+                gcg:headingText="For Launch Node" />
+
+            <TextView
+                android:id="@+id/alert__alpha_sort"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/gcg__portobello"
+                android:textStyle="bold|italic"
+                android:textSize="18sp"
+                android:text="@string/fms__alpha_sort"/>
+        </com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear>
+
     </LinearLayout>
 
 </LinearLayout>

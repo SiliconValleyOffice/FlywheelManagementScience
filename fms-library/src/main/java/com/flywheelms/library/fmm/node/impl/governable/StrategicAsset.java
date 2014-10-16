@@ -63,6 +63,7 @@ import com.flywheelms.library.fmm.deckangl.FmsDecoratorStory;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorStrategicCommitment;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorWorkTaskBudget;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorWorkTeam;
+import com.flywheelms.library.fmm.interfaces.WorkAsset;
 import com.flywheelms.library.fmm.meta_data.CompletableNodeMetaData;
 import com.flywheelms.library.fmm.meta_data.SequencedLinkNodeMetaData;
 import com.flywheelms.library.fmm.meta_data.StrategicAssetMetaData;
@@ -85,12 +86,12 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 
-public class StrategicAsset extends FmmCompletableNodeImpl implements Comparable<StrategicAsset> {
+public class StrategicAsset extends FmmCompletableNodeImpl implements Comparable<StrategicAsset>, WorkAsset {
 
 	private static final long serialVersionUID = -3645381005646011918L;
 	private String projectNodeIdString;
 	private Project project;
-    private boolean strategic = false;
+    private boolean strategic = true;
 	private String flywheelTeamNodeIdString;
 	private FlywheelTeam flywheelTeam;
 	private ArrayList<WorkPackage> workPackageList;
@@ -103,7 +104,7 @@ public class StrategicAsset extends FmmCompletableNodeImpl implements Comparable
 	public StrategicAsset(JSONObject aJsonObject) {
 		super(StrategicAsset.class, aJsonObject);
 		try {
-			setProjectNodeIdString(aJsonObject.getString(StrategicAssetMetaData.column_PROJECT_ID));
+			setProjectId(aJsonObject.getString(StrategicAssetMetaData.column_PROJECT_ID));
 			setStrategic(aJsonObject.getBoolean(StrategicAssetMetaData.column_IS_STRATEGIC));
 			setSequence(aJsonObject.getInt(CompletableNodeMetaData.column_SEQUENCE));
 		} catch (JSONException e) {
@@ -177,7 +178,7 @@ public class StrategicAsset extends FmmCompletableNodeImpl implements Comparable
 		return this.projectNodeIdString;
 	}
 	
-	public void setProjectNodeIdString(String aNodeIdString) {
+	public void setProjectId(String aNodeIdString) {
 		this.projectNodeIdString = aNodeIdString;
 		if(this.project == null || this.projectNodeIdString == null || this.projectNodeIdString.equals("") || this.project.getNodeIdString().equals(this.projectNodeIdString)) {
 			return;
@@ -389,5 +390,9 @@ public class StrategicAsset extends FmmCompletableNodeImpl implements Comparable
 
     public void setStrategic(int intStrategic) {
         this.strategic = intStrategic > 0;
+    }
+
+    public void setPrimaryParentId(String aNodeIdString) {
+        setProjectId(aNodeIdString);
     }
 }

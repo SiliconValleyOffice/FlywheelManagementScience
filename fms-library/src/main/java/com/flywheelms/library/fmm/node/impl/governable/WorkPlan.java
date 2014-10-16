@@ -296,4 +296,8 @@ public class WorkPlan extends FmmCompletableNodeImpl {
         }
         return theList;
     }
+
+    public void setPrimaryParentId(String aNodeIdString) {
+        setFlywheelCadenceId(aNodeIdString);
+    }
 }

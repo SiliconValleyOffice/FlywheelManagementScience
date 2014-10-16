@@ -81,7 +81,7 @@ public class ProjectAssetDaoSqLite extends CompletableNodeDaoSqLite<ProjectAsset
 	@Override
 	protected void getColumnValues(HashMap<String, Integer> aHashMap, Cursor aCursor, ProjectAsset aProjectAsset) {
 		super.getColumnValues(aHashMap, aCursor, aProjectAsset);
-		aProjectAsset.setProjectNodeIdString(aCursor.getString(aHashMap.get(ProjectAssetMetaData.column_PROJECT_ID)));
+		aProjectAsset.setProjectId(aCursor.getString(aHashMap.get(ProjectAssetMetaData.column_PROJECT_ID)));
 		aProjectAsset.setStrategic(aCursor.getInt(aHashMap.get(ProjectAssetMetaData.column_IS_STRATEGIC)));
 		aProjectAsset.setSequence(aCursor.getInt(aHashMap.get(CompletableNodeMetaData.column_SEQUENCE)));
 	}
@@ -107,5 +107,4 @@ public class ProjectAssetDaoSqLite extends CompletableNodeDaoSqLite<ProjectAsset
 		getColumnValues(this.columnIndexMap, aCursor, theProjectAsset);
 		return theProjectAsset;
 	}
-
 }

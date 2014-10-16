@@ -47,6 +47,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 
 import com.flywheelms.gcongui.gcg.widget.GcgWidgetTextView;
+import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 
 public class HeadlineWidgetTextView extends GcgWidgetTextView {
 	
@@ -67,4 +68,9 @@ public class HeadlineWidgetTextView extends GcgWidgetTextView {
 		super.setup();
 		setHint(getLabelText());
 	}
+
+    public void setFmmHeadlineNode(FmmHeadlineNode aHeadlineNode) {
+        setLabelText(aHeadlineNode.getFmmNodeDefinition().getName());
+        setText(aHeadlineNode.getHeadline());
+    }
 }

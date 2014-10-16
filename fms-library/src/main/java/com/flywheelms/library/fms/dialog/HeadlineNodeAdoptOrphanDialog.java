@@ -47,24 +47,28 @@ import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnKeyListener;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
+import com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear;
 import com.flywheelms.gcongui.gcg.helper.GcgHelper;
 import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
 import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewAdapter;
 import com.flywheelms.gcongui.gcg.widget.edit_text.GcgWidgetGenericEditText;
 import com.flywheelms.library.R;
+import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.enumerator.ChildNodeType;
+import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
+import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmCompletionNode;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.fms.helper.FmsSearchHelper;
 import com.flywheelms.library.fms.widget.FmmHeadlineNodeWidgetSpinner;
-import com.flywheelms.library.fms.widget.spinner.SequencePositionWidgetSpinner;
 import com.flywheelms.library.fms.widget.text_view.FmmNodeTypeWidgetTextView;
 import com.flywheelms.library.fms.widget.text_view.HeadlineWidgetTextView;
 
@@ -72,32 +76,57 @@ import java.util.ArrayList;
 
 public abstract class HeadlineNodeAdoptOrphanDialog extends FmsCancelOkApplyFdkDialog {
 
-	GcgTreeViewAdapter treeViewAdapter;
-	protected FmmNodeTypeWidgetTextView fmmNodeTypeWidget;
+	protected GcgTreeViewAdapter treeViewAdapter;
+    protected FmmNodeDefinition orphanFmmNodeDefinition;
+    protected FmmCompletionNode parentNode;
+    protected int parentNodeChildCount;
+    protected FmmCompletionNode launchNode;
+    protected int launchNodeSequence;
+    protected FmmNodeTypeWidgetTextView fmmNodeTypeWidget;
 	protected HeadlineWidgetTextView headlineWidgetTextView;
-	protected LinearLayout adoptionCandidateLayout;
+	protected GcgContainerGroupBoxLinear orphanSpinnerParentViewGroup;
 	protected FmmHeadlineNodeWidgetSpinner adoptionCandidateWidgetSpinner;
-	protected SequencePositionWidgetSpinner sequencePositionSpinner;
 	protected CheckBox filterHeadlinesCheckbox;
 	protected GcgWidgetGenericEditText filterHeadlineCriteria;
+    protected RadioButton firstRadioButton;
+    protected RadioButton lastRadioButton;
 	protected ArrayList<GcgGuiable> unfilteredGcgGuiableList;
 	protected ArrayList<GcgGuiable> filterResultsNodeList = new ArrayList<GcgGuiable>();
+    protected boolean isParentNodeLaunch;
 
-	public HeadlineNodeAdoptOrphanDialog(GcgActivity aLibraryActivity, GcgTreeViewAdapter aTreeViewAdapter, FmmHeadlineNode aHeadlineNode) {
-		super(aLibraryActivity, aHeadlineNode);
+    public HeadlineNodeAdoptOrphanDialog(
+            GcgActivity aLibraryActivity,
+            GcgTreeViewAdapter aTreeViewAdapter,
+            FmmNodeDefinition anOrphanFmmNodeDefinition,
+            FmmHeadlineNode aParentNode ) {
+        this(
+                aLibraryActivity,
+                aTreeViewAdapter,
+                anOrphanFmmNodeDefinition,
+                aParentNode,
+                0,
+                aParentNode,
+                0 );
+    }
+
+	public HeadlineNodeAdoptOrphanDialog(
+            GcgActivity aLibraryActivity,
+            GcgTreeViewAdapter aTreeViewAdapter,
+            FmmNodeDefinition anOrphanFmmNodeDefinition,
+            FmmHeadlineNode aParentNode,
+            int aParentNodeChildCount,
+            FmmHeadlineNode aLaunchNode,
+            int aLaunchNodeSequence ) {
+		super(aLibraryActivity, aParentNode);
 		this.treeViewAdapter = aTreeViewAdapter;
+        this.orphanFmmNodeDefinition = anOrphanFmmNodeDefinition;
+        this.launchNode = (FmmCompletionNode) aLaunchNode;
+        this.launchNodeSequence = aLaunchNodeSequence;
+        this.parentNode = (FmmCompletionNode) aParentNode;
+        this.parentNodeChildCount = aParentNodeChildCount;
+        this.isParentNodeLaunch = this.parentNode == this.launchNode;
 		initializeDialogBodyLate();
 		initFdkHostSupport();
-	}
-
-	@Override
-	protected int getDialogTitleIconResourceId() {
-		return getFmmHeadlineNode().getFmmNodeDefinition().getDialogDrawableResourceId();
-	}
-
-	@Override
-	protected int getDialogTitleStringResourceId() {
-		return R.string.fms__adopt_orphan;
 	}
 
 	@Override
@@ -105,7 +134,9 @@ public abstract class HeadlineNodeAdoptOrphanDialog extends FmsCancelOkApplyFdkD
 		return R.layout.fmm__headline_node__adopt_orphan__dialog;
 	}
 
-	protected abstract int getAdoptionCandidateLayoutResourceId();
+    protected abstract ChildNodeType getOrphanType();
+
+    protected abstract void initializeOrphanSpinner(LinearLayout aFilterPanelLayout);
 
 	@Override
 	protected void initializeDialogBody() {
@@ -114,40 +145,71 @@ public abstract class HeadlineNodeAdoptOrphanDialog extends FmsCancelOkApplyFdkD
 
 	protected void initializeDialogBodyLate() {
 		super.initializeDialogBody();
-		this.fmmNodeTypeWidget = (FmmNodeTypeWidgetTextView) this.dialogBodyView.findViewById(R.id.fmm_node__type);
-		this.fmmNodeTypeWidget.setText(getFmmNodeDefinition().getLabelTextResourceId());
-		this.headlineWidgetTextView = (HeadlineWidgetTextView) this.dialogBodyView.findViewById(R.id.headline);
-		this.headlineWidgetTextView.setText(getFmmHeadlineNode().getDataText());
-		initializeAdoptionCandidateLayout();
+        initializeParentGroupBox();
+        initializeSequenceGroupBox();
+		initializeAdoptionCandidateGroupBox();
 		manageButtonState();
 	}
 
-	private void initializeAdoptionCandidateLayout() {
-		LinearLayout theDispositionLayout = (LinearLayout) LayoutInflater.from(this.gcgActivity).inflate(getAdoptionCandidateLayoutResourceId(), this.customContentsContainer, false);
-		this.customContentsContainer.addView(theDispositionLayout);
+    private void initializeSequenceGroupBox() {
+        this.firstRadioButton = (RadioButton) this.dialogBodyView.findViewById(R.id.first__radio_button);
+        this.lastRadioButton = (RadioButton) this.dialogBodyView.findViewById(R.id.last__radio_button);
+        this.headlineWidgetTextView = (HeadlineWidgetTextView) this.dialogBodyView.findViewById(R.id.headline__launch_node);
+        if(getOrphanType() == ChildNodeType.PRIMARY__ALPHA_SORT) {
+            this.firstRadioButton.setVisibility(View.GONE);
+            this.lastRadioButton.setVisibility(View.GONE);
+            this.headlineWidgetTextView.setVisibility(View.GONE);
+        } else {
+            this.dialogBodyView.findViewById(R.id.alert__alpha_sort).setVisibility(View.GONE);
+            if(this.isParentNodeLaunch) {
+                this.firstRadioButton.setText("as first " + this.orphanFmmNodeDefinition.getName());
+                if(this.parentNodeChildCount > 0) {
+                    this.lastRadioButton.setVisibility(View.GONE);
+                } else {
+                    this.lastRadioButton.setText("as last " + this.orphanFmmNodeDefinition.getName());
+                }
+                this.headlineWidgetTextView.setVisibility(View.GONE);
+            } else {
+                this.firstRadioButton.setText(R.string.fms__radio_before);
+                this.lastRadioButton.setText(R.string.fms__radio_after);
+                this.headlineWidgetTextView.setFmmHeadlineNode(this.launchNode);
+            }
+        }
+    }
+
+    private void initializeParentGroupBox() {
+        this.fmmNodeTypeWidget = (FmmNodeTypeWidgetTextView) this.dialogBodyView.findViewById(R.id.fmm_node__type__parent_node);
+        this.fmmNodeTypeWidget.setText(getFmmHeadlineNode().getFmmNodeDefinition().getLabelTextResourceId());
+        this.headlineWidgetTextView = (HeadlineWidgetTextView) this.dialogBodyView.findViewById(R.id.headline__parent_node);
+        this.headlineWidgetTextView.setText(getFmmHeadlineNode().getDataText());
+    }
+
+    private void initializeAdoptionCandidateGroupBox() {
+//		LinearLayout theDispositionLayout = (LinearLayout) LayoutInflater.from(this.gcgActivity).inflate(getAdoptionCandidateLayoutResourceId(), this.customContentsContainer, false);
+//		this.customContentsContainer.addView(theDispositionLayout, 0);
 		this.filterHeadlinesCheckbox = (CheckBox) this.dialogBodyView.findViewById(R.id.filter_headlines__checkbox);
 		this.filterHeadlinesCheckbox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-			
-			@Override
-			public void onCheckedChanged(CompoundButton aButtonView, boolean bChecked) {
-				HeadlineNodeAdoptOrphanDialog.this.toggleHeadlineSearch(bChecked);
-			}
-		});
+
+            @Override
+            public void onCheckedChanged(CompoundButton aButtonView, boolean bChecked) {
+                HeadlineNodeAdoptOrphanDialog.this.toggleHeadlineSearch(bChecked);
+            }
+        });
 		this.filterHeadlineCriteria = (GcgWidgetGenericEditText) this.dialogBodyView.findViewById(R.id.filter_criteria);
 		this.filterHeadlineCriteria.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_WORDS);
 		this.filterHeadlineCriteria.addTextChangedListener(new TextWatcher() {
-			
-			@Override
-			public void onTextChanged(CharSequence s, int start, int before, int count) {  /*  N/A */  }
-			
-			@Override
-			public void beforeTextChanged(CharSequence s, int start, int count, int after) {  /*  N/A  */}
-			
-			@Override
-			public void afterTextChanged(Editable s) {
-				HeadlineNodeAdoptOrphanDialog.this.updateFilterResults();
-			}
-		});
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {  /*  N/A */ }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {  /*  N/A  */}
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                HeadlineNodeAdoptOrphanDialog.this.updateFilterResults();
+            }
+        });
 		this.filterHeadlineCriteria.setOnKeyListener(new OnKeyListener() {
 			
 			@Override
@@ -160,15 +222,12 @@ public abstract class HeadlineNodeAdoptOrphanDialog extends FmsCancelOkApplyFdkD
 			}
 		});
 		this.filterHeadlineCriteria.setEnabled(false);
-		this.adoptionCandidateWidgetSpinner = (FmmHeadlineNodeWidgetSpinner) this.dialogBodyView.findViewById(R.id.adoption_candidate__spinner);
-		this.adoptionCandidateWidgetSpinner.setGcgActivity(this.gcgActivity);
-		this.sequencePositionSpinner = (SequencePositionWidgetSpinner) this.dialogBodyView.findViewById(R.id.list_position__spinner);
-        if(this.sequencePositionSpinner != null) {
-            this.sequencePositionSpinner.setSelection(1);
-        }
+        LinearLayout theAdoptionCandidateGroupBox = (LinearLayout) this.dialogBodyView.findViewById(R.id.group_box__adoption_candidate);
+        initializeOrphanSpinner(theAdoptionCandidateGroupBox);
+        this.adoptionCandidateWidgetSpinner.setGcgActivity(this.gcgActivity);
 	}
 
-	protected void updateFilterResults() {
+    protected void updateFilterResults() {
 		if(this.unfilteredGcgGuiableList.size() == 0) {
 			return;
 		}
@@ -240,8 +299,6 @@ public abstract class HeadlineNodeAdoptOrphanDialog extends FmsCancelOkApplyFdkD
 		manageButtonState();
 	}
 
-	protected abstract boolean adoptOrphanHeadlineNode();
-
 	@Override
 	protected void manageButtonState() {
 		if(this.buttonApply == null || this.buttonOk == null) {
@@ -259,11 +316,40 @@ public abstract class HeadlineNodeAdoptOrphanDialog extends FmsCancelOkApplyFdkD
 	@Override
 	public void initFdkDictationResultsConsumerMap() {
 		addFdkDictationResultsConsumer(this.adoptionCandidateWidgetSpinner);
-        if(this.sequencePositionSpinner != null) {
-            addFdkDictationResultsConsumer(this.sequencePositionSpinner);
-        }
 		this.currentFdkDictationResultsConsumer = this.adoptionCandidateWidgetSpinner;
 		fdkFocusConsumer(this.currentFdkDictationResultsConsumer);
 	}
+
+    protected boolean adoptOrphanHeadlineNode() {
+        boolean theAdoptionStatus;
+        switch(getOrphanType()) {
+            case PRIMARY:
+                theAdoptionStatus = adoptPrimaryOrphanIntoParent();
+                break;
+            case PRIMARY__ALPHA_SORT:
+                theAdoptionStatus = adoptPrimaryOrphanIntoParentAlphaSort();
+                break;
+            default:
+                theAdoptionStatus = false;
+        }
+        toastAdoptionResult(theAdoptionStatus);
+        return theAdoptionStatus;
+    }
+
+    public boolean adoptPrimaryOrphanIntoParent () {
+        return FmmDatabaseMediator.getActiveMediator().adoptPrimaryOrphanIntoParent(
+                (FmmCompletionNode) this.adoptionCandidateWidgetSpinner.getFmmNode(),
+                this.parentNode,
+                this.parentNode == this.launchNode ? null : this.launchNode,
+                this.lastRadioButton == null ? false : this.lastRadioButton.isChecked(),
+                true);  // atomic transaction
+    }
+
+    public boolean adoptPrimaryOrphanIntoParentAlphaSort () {
+        return FmmDatabaseMediator.getActiveMediator().adoptPrimaryOrphanIntoParentAlphaSort(
+                (FmmCompletionNode) this.adoptionCandidateWidgetSpinner.getFmmNode(),
+                this.parentNode,
+                true);  // atomic transaction
+    }
 
 }

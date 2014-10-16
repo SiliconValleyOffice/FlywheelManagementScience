@@ -95,7 +95,7 @@ public class Portfolio extends FmmCompletableNodeImpl {
     public Portfolio(NodeId aNodeId, String aHeadline, String anOrganizationNodeIdString) {
         super(aNodeId);
         setHeadline(aHeadline);
-        setOrganizationNodeIdString(anOrganizationNodeIdString);
+        setOrganizationId(anOrganizationNodeIdString);
     }
 
     public Portfolio(NodeId aNodeId, String aHeadline, FmsOrganization anOrganization) {
@@ -108,7 +108,7 @@ public class Portfolio extends FmmCompletableNodeImpl {
         super(Portfolio.class, aJsonObject);
         try {
             validateSerializationFormatVersion(aJsonObject.getString(JsonHelper.key__SERIALIZATION_FORMAT_VERSION));
-            setOrganizationNodeIdString(aJsonObject.getString(PortfolioMetaData.column_ORGANIZATION_ID));
+            setOrganizationId(aJsonObject.getString(PortfolioMetaData.column_ORGANIZATION_ID));
         } catch (JSONException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -144,7 +144,7 @@ public class Portfolio extends FmmCompletableNodeImpl {
         return this.organizationNodeIdString;
     }
 
-    public void setOrganizationNodeIdString(String anOrganizationNodeId) {
+    public void setOrganizationId(String anOrganizationNodeId) {
         this.organizationNodeIdString = anOrganizationNodeId;
     }
 
@@ -276,5 +276,9 @@ public class Portfolio extends FmmCompletableNodeImpl {
         }
         return theList;
     }
-    
+
+    public void setPrimaryParentId(String aNodeIdString) {
+        setOrganizationId(aNodeIdString);
+    }
+
 }

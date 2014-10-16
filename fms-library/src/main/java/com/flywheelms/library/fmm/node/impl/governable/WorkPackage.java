@@ -83,7 +83,7 @@ public class WorkPackage extends FmmCompletableNodeImpl implements Comparable<Wo
 	public WorkPackage(String aHeadline, String aProjectAssetNodeIdString) {
 		super(new NodeId(WorkPackage.class));
 		setHeadline(aHeadline);
-		setProjectAssetNodeIdString(aProjectAssetNodeIdString);
+		setProjectAssetId(aProjectAssetNodeIdString);
 	}
 
 	public WorkPackage(String anExistingNodeIdString) {
@@ -95,7 +95,7 @@ public class WorkPackage extends FmmCompletableNodeImpl implements Comparable<Wo
         super(WorkPackage.class, aJsonObject);
         try {
             validateSerializationFormatVersion(aJsonObject.getString(JsonHelper.key__SERIALIZATION_FORMAT_VERSION));
-            setProjectAssetNodeIdString(aJsonObject.getString(WorkPackageMetaData.column_PROJECT_ASSET_ID));
+            setProjectAssetId(aJsonObject.getString(WorkPackageMetaData.column_WORK_ASSET_ID));
             setFlywheelCommitmentNodeIdString(aJsonObject.getString(WorkPackageMetaData.column_FLYWHEEL_COMMITMENT_ID));
         } catch (JSONException e) {
             // TODO Auto-generated catch block
@@ -155,7 +155,7 @@ public class WorkPackage extends FmmCompletableNodeImpl implements Comparable<Wo
 		return this.projectAssetNodeIdString;
 	}
 
-	public void setProjectAssetNodeIdString(String aProjectAssetNodeIdString) {
+	public void setProjectAssetId(String aProjectAssetNodeIdString) {
 		this.projectAssetNodeIdString = aProjectAssetNodeIdString;
 	}
 	
@@ -243,6 +243,10 @@ public class WorkPackage extends FmmCompletableNodeImpl implements Comparable<Wo
                 break;
         }
         return theList;
+    }
+
+    public void setPrimaryParentId(String aNodeIdString) {
+        setProjectAssetId(aNodeIdString);
     }
 
 }

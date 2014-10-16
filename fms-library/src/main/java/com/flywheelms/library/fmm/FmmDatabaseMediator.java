@@ -45,8 +45,10 @@ package com.flywheelms.library.fmm;
 import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
 import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
 import com.flywheelms.library.fca.FlywheelCommunityAuthentication;
+import com.flywheelms.library.fmm.database.sqlite.dao.ProjectAssetDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.StrategicAssetDaoSqLite;
 import com.flywheelms.library.fmm.helper.FmmHelper;
+import com.flywheelms.library.fmm.interfaces.WorkAsset;
 import com.flywheelms.library.fmm.meta_data.CommunityMemberMetaData;
 import com.flywheelms.library.fmm.meta_data.CompletableNodeMetaData;
 import com.flywheelms.library.fmm.meta_data.FiscalYearHolidayBreakMetaData;
@@ -305,13 +307,13 @@ public class FmmDatabaseMediator {
     private int initializeNewSequenceNumberForTable(
             FmmNodeDefinition anFmmNodeDefinition,
             String aParentIdColumnName,
-            String aParentNodeId,
+            String aParentId,
             int aPeerNodeSequence,
             boolean bSequenceAtEnd ) {
         return initializeNewSequenceNumberForTable(
                 anFmmNodeDefinition,
                 aParentIdColumnName,
-                aParentNodeId,
+                aParentId,
                 aPeerNodeSequence,
                 bSequenceAtEnd,
                 CompletableNodeMetaData.column_SEQUENCE );
@@ -320,7 +322,7 @@ public class FmmDatabaseMediator {
     private int initializeNewSequenceNumberForTable(
             FmmNodeDefinition anFmmNodeDefinition,
             String aParentIdColumnName,
-            String aParentNodeId,
+            String aParentId,
             int aPeerNodeSequence,
             boolean bSequenceAtEnd,
             String aSequenceColumnName ) {
@@ -330,7 +332,7 @@ public class FmmDatabaseMediator {
                 theNewSequenceNumber = this.persistenceTechnologyDelegate.dbGetLastSequence(
                         anFmmNodeDefinition.getTableName(),
                         aParentIdColumnName,
-                        aParentNodeId,
+                        aParentId,
                         aSequenceColumnName );
                 theNewSequenceNumber = theNewSequenceNumber + 1;
             } else {  // first child node of parent
@@ -338,7 +340,7 @@ public class FmmDatabaseMediator {
                 this.persistenceTechnologyDelegate.dbIncrementSequence(
                         anFmmNodeDefinition.getTableName(),
                         aParentIdColumnName,
-                        aParentNodeId,
+                        aParentId,
                         aSequenceColumnName );
             }
         } else { // sequence before/after peer node
@@ -350,11 +352,19 @@ public class FmmDatabaseMediator {
             this.persistenceTechnologyDelegate.dbIncrementSequence(
                     anFmmNodeDefinition.getTableName(),
                     aParentIdColumnName,
-                    aParentNodeId,
+                    aParentId,
                     theNewSequenceNumber,
                     aSequenceColumnName );
         }
         return theNewSequenceNumber;
+    }
+
+    private int resequenceChildTableForAlphaSort(
+            FmmNodeDefinition anFmmNodeDefinition,
+            String aParentIdColumnName,
+            String aParentId,
+            String aSequenceColumnName) {
+        return 0;  // TODO
     }
 
     private int initializeNewSequenceNumberForLinkTable(
@@ -948,13 +958,37 @@ public class FmmDatabaseMediator {
 
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //////  Node - PROJECT ASSET  ///////////////////////////////////////////////////////////////////////////////
+    //////  Node - WORK ASSET  ///////////////////////////////////////////////////////////////////////////////
 
-    public ArrayList<ProjectAsset> listProjectAsset(Project aProject) {
-        return this.persistenceTechnologyDelegate.dbListProjectAssets(aProject);
+    public ArrayList<WorkAsset> listWorkAssets(Project aProject) {
+        return listWorkAssets(aProject, null);
     }
 
-    public ArrayList<ProjectAsset> listProjectAsset(Project aProject, ProjectAsset aProjectAssetException) {
+    public ArrayList<WorkAsset> listWorkAssets(Project aProject, WorkAsset aWorkAssetException) {
+        return this.persistenceTechnologyDelegate.dbListWorkAssets(aProject, aWorkAssetException);
+    }
+
+    public ArrayList<WorkAsset> listWorkAssetsForProject(String aProjectId) {
+        return listWorkAssetsForProject(aProjectId, null);
+    }
+
+    public ArrayList<WorkAsset> listWorkAssetsForProject(String aProjectId, String aWorkAssetExceptionId) {
+        return this.persistenceTechnologyDelegate.dbListWorkAssetsForProject(aProjectId, aWorkAssetExceptionId);
+    }
+
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////  Node - PROJECT ASSET  ///////////////////////////////////////////////////////////////////////////////
+
+    public ArrayList<ProjectAsset> listProjectAssets() {
+        return this.persistenceTechnologyDelegate.dbListProjectAssets();
+    }
+
+    public ArrayList<ProjectAsset> listProjectAssets(Project aProject) {
+        return listProjectAssets(aProject, null);
+    }
+
+    public ArrayList<ProjectAsset> listProjectAssets(Project aProject, ProjectAsset aProjectAssetException) {
         return this.persistenceTechnologyDelegate.dbListProjectAssets(aProject, aProjectAssetException);
     }
 
@@ -1012,7 +1046,7 @@ public class FmmDatabaseMediator {
         startTransaction();
         ProjectAsset theNewProjectAsset = new ProjectAsset();
         theNewProjectAsset.setHeadline(aHeadline);
-        theNewProjectAsset.setProjectNodeIdString(aParentNode.getNodeIdString());
+        theNewProjectAsset.setProjectId(aParentNode.getNodeIdString());
         int theNewSequenceNumber = initializeNewSequenceNumberForTable(
                 FmmNodeDefinition.PROJECT_ASSET,
                 ProjectAssetMetaData.column_PROJECT_ID,
@@ -1131,20 +1165,44 @@ public class FmmDatabaseMediator {
         return this.persistenceTechnologyDelegate.dbListProjectAssetOrphansFromProject();
     }
 
-    public boolean adoptOrphanProjectAssetIntoProject(
-            String aProjectAssetId,
-            String aProjectId,
-            boolean bSequenceAtEnd,
-            boolean bAtomicTransaction ) {
-        return this.persistenceTechnologyDelegate.dbAdoptOrphanProjectAssetIntoProject(
-                aProjectAssetId,
-                aProjectId,
-                bSequenceAtEnd,
-                bAtomicTransaction );
+    public ArrayList<StrategicAsset> listStrategicAssetOrphansFromProject() {
+        return this.persistenceTechnologyDelegate.dbListStrategicAssetOrphansFromProject();
     }
 
-    public ArrayList<ProjectAsset> listProjectAssetOrphansFromStrategicMilestone() {
-        return this.persistenceTechnologyDelegate.dbListProjectAssetWhichAreNotStrategic();
+//    public boolean adoptOrphanProjectAssetIntoProject(ProjectAsset aProjectAsset, Project aProject, WorkAsset aPeerNode, boolean bSequenceAtEnd, boolean bAtomicTransaction) {
+//
+//        int theNewSequenceNumber = initializeNewSequenceNumberForTable(
+//                FmmNodeDefinition.PROJECT_ASSET,
+//                ProjectAssetMetaData.column_PROJECT_ID,
+//                aProject,
+//                aPeerNode,  /// could be ProjectAsset or StrategicAsset
+//                bSequenceAtEnd );
+//        aProjectAsset.setSequence(theNewSequenceNumber);
+//
+//        return this.persistenceTechnologyDelegate.updateSimpleIdTable(aProjectAsset, ProjectAssetDaoSqLite.getInstance(), bAtomicTransaction);
+//    }
+
+    public boolean adoptPrimaryOrphanIntoParent(FmmCompletionNode anOrphanNode, FmmCompletionNode aParentNode, FmmCompletionNode aPeerNode, boolean bSequenceAtEnd, boolean bAtomicTransaction) {
+        int theNewSequenceNumber = initializeNewSequenceNumberForTable(
+                anOrphanNode.getFmmNodeDefinition(),
+                anOrphanNode.getFmmNodeDefinition().getPrimaryParentIdColumnName(),
+                aParentNode,
+                aPeerNode,
+                bSequenceAtEnd);
+        anOrphanNode.setPrimaryParentId(aParentNode.getNodeIdString());
+        anOrphanNode.setSequence(theNewSequenceNumber);
+        return this.persistenceTechnologyDelegate.updateSimpleIdTable(anOrphanNode, bAtomicTransaction);
+    }
+
+    public boolean adoptPrimaryOrphanIntoParentAlphaSort(FmmCompletionNode anOrphanNode, FmmCompletionNode aParentNode, boolean bAtomicTransaction) {
+        int theNewSequenceNumber = resequenceChildTableForAlphaSort(
+                anOrphanNode.getFmmNodeDefinition(),
+                anOrphanNode.getFmmNodeDefinition().getPrimaryParentIdColumnName(),
+                aParentNode.getNodeIdString(),
+                anOrphanNode.getFmmNodeDefinition().getPrimaryParentIdColumnName());
+
+        anOrphanNode.setSequence(theNewSequenceNumber);
+        return this.persistenceTechnologyDelegate.updateSimpleIdTable(anOrphanNode, ProjectAssetDaoSqLite.getInstance(), bAtomicTransaction);
     }
 
     public boolean adoptOrphanProjectAssetIntoStrategicMilestone(
@@ -2781,6 +2839,10 @@ public class FmmDatabaseMediator {
 		return this.persistenceTechnologyDelegate.dbListWorkPackagesForProjectAsset(aProjectAssetId);
 	}
 
+    public ArrayList<WorkPackage> listWorkPackage(WorkAsset aWorkAsset) {
+        return listWorkPackageForProjectAsset(aWorkAsset.getNodeIdString());
+    }
+
 	public ArrayList<WorkPackage> listWorkPackage(ProjectAsset aProjectAsset) {
 		return listWorkPackageForProjectAsset(aProjectAsset.getNodeIdString());
 	}
@@ -2862,7 +2924,7 @@ public class FmmDatabaseMediator {
 		WorkPackage theNewWorkPackage = new WorkPackage(aHeadline, aParentNode.getNodeIdString());
         int theNewSequenceNumber = initializeNewSequenceNumberForTable(
                 FmmNodeDefinition.WORK_PACKAGE,
-                WorkPackageMetaData.column_PROJECT_ASSET_ID,
+                WorkPackageMetaData.column_WORK_ASSET_ID,
                 aParentNode,
                 aPeerNode,
                 bSequenceAtEnd );

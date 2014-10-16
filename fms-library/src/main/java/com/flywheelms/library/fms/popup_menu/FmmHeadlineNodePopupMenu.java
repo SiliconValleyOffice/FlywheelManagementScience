@@ -91,9 +91,9 @@ public class FmmHeadlineNodePopupMenu extends PopupMenu {
 				FmmHeadlineNodePopupMenu.this.fmmNodePopupListener.onPopupMenuItemClick(
 						aView,
 						aMenuItem,
-						FmmHeadlineNodePopupMenu.this.launchHeadlineNode,
-						FmmHeadlineNodePopupMenu.this.parentHeadlineNode,
-						FmmHeadlineNodePopupMenu.this.launchTreeNodeInfo,
+                        FmmHeadlineNodePopupMenu.this.parentHeadlineNode,
+                        FmmHeadlineNodePopupMenu.this.launchTreeNodeInfo,
+                        FmmHeadlineNodePopupMenu.this.launchHeadlineNode,
 						FmmHeadlineNodePopupMenu.this.launchNodeSequence,
 						FmmHeadlineNodePopupMenu.this.launchNodeChildCount );
 				return true;
@@ -129,9 +129,9 @@ public class FmmHeadlineNodePopupMenu extends PopupMenu {
                 FmmHeadlineNodePopupMenu.this.fmmNodePopupListener.onPopupMenuItemClick(
                         aView,
                         aMenuItem,
-                        FmmHeadlineNodePopupMenu.this.launchHeadlineNode,
                         FmmHeadlineNodePopupMenu.this.parentHeadlineNode,
                         FmmHeadlineNodePopupMenu.this.launchTreeNodeInfo,
+                        FmmHeadlineNodePopupMenu.this.launchHeadlineNode,
                         FmmHeadlineNodePopupMenu.this.launchNodeSequence,
                         FmmHeadlineNodePopupMenu.this.launchNodeChildCount );
                 return true;

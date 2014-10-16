@@ -54,12 +54,13 @@ import com.flywheelms.gcongui.gcg.interfaces.GcgPerspective;
 import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewAdapter;
 import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewMediator;
 import com.flywheelms.gcongui.gcg.treeview.node.GcgTreeNodeInfo;
+import com.flywheelms.gcongui.gcg.treeview.node.GcgTreeNodeTargetObject;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.context.FmmPerspective;
+import com.flywheelms.library.fmm.interfaces.WorkAsset;
 import com.flywheelms.library.fmm.node.impl.governable.Portfolio;
 import com.flywheelms.library.fmm.node.impl.governable.Project;
-import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
 import com.flywheelms.library.fmm.node.impl.governable.WorkPackage;
 import com.flywheelms.library.fms.helper.FmsHelpIndex;
 import com.flywheelms.library.fms.popup_menu.FmmPopupBuilder;
@@ -130,15 +131,15 @@ public class FwbContextWorkBreakdownPerspective extends FmsPerspectiveFlipperTre
             GcgTreeNodeInfo thePortfolioTreeNodeInfo = theTreeBuilder.addTopNode(
                     thePortfolio, theProjectCollection.size()>0, FmmPerspective.WORK_BREAKDOWN );
             for(Project theProject : theProjectCollection) {
-                Collection<ProjectAsset> theProjectAssetCollection =
-                        FmmDatabaseMediator.getActiveMediator().listProjectAsset(theProject);
+                Collection<WorkAsset> theWorkAssetCollection =
+                        FmmDatabaseMediator.getActiveMediator().listWorkAssets(theProject);
                 GcgTreeNodeInfo theProjectTreeNodeInfo = theTreeBuilder.addChildNode(
-                        theProject, theProjectAssetCollection.size()>0, thePortfolioTreeNodeInfo, FmmPerspective.WORK_BREAKDOWN);
-                for(ProjectAsset theProjectAsset : theProjectAssetCollection) {
+                        theProject, theWorkAssetCollection.size()>0, thePortfolioTreeNodeInfo, FmmPerspective.WORK_BREAKDOWN);
+                for(WorkAsset theWorkAsset : theWorkAssetCollection) {
                     Collection<WorkPackage> theWorkPackageCollection =
-                            FmmDatabaseMediator.getActiveMediator().listWorkPackage(theProjectAsset);
+                            FmmDatabaseMediator.getActiveMediator().listWorkPackage(theWorkAsset);
                     GcgTreeNodeInfo theProjectAssetTreeNodeInfo = theTreeBuilder.addChildNode(
-                            theProjectAsset, theWorkPackageCollection.size()>0, theProjectTreeNodeInfo, FmmPerspective.WORK_BREAKDOWN);
+                            (GcgTreeNodeTargetObject) theWorkAsset, theWorkPackageCollection.size()>0, theProjectTreeNodeInfo, FmmPerspective.WORK_BREAKDOWN);
                     for(WorkPackage theWorkPackage : theWorkPackageCollection) {
                         GcgTreeNodeInfo theTreeNodeInfo = theTreeBuilder.addLeafNode(
                                 theWorkPackage, theProjectAssetTreeNodeInfo, FmmPerspective.WORK_BREAKDOWN);
@@ -146,6 +147,24 @@ public class FwbContextWorkBreakdownPerspective extends FmsPerspectiveFlipperTre
                     }
                 }
             }
+            
+//            for(Project theProject : theProjectCollection) {
+//                Collection<ProjectAsset> theProjectAssetCollection =
+//                        FmmDatabaseMediator.getActiveMediator().listProjectAssets(theProject);
+//                GcgTreeNodeInfo theProjectTreeNodeInfo = theTreeBuilder.addChildNode(
+//                        theProject, theProjectAssetCollection.size()>0, thePortfolioTreeNodeInfo, FmmPerspective.WORK_BREAKDOWN);
+//                for(ProjectAsset theProjectAsset : theProjectAssetCollection) {
+//                    Collection<WorkPackage> theWorkPackageCollection =
+//                            FmmDatabaseMediator.getActiveMediator().listWorkPackage(theProjectAsset);
+//                    GcgTreeNodeInfo theProjectAssetTreeNodeInfo = theTreeBuilder.addChildNode(
+//                            theProjectAsset, theWorkPackageCollection.size()>0, theProjectTreeNodeInfo, FmmPerspective.WORK_BREAKDOWN);
+//                    for(WorkPackage theWorkPackage : theWorkPackageCollection) {
+//                        GcgTreeNodeInfo theTreeNodeInfo = theTreeBuilder.addLeafNode(
+//                                theWorkPackage, theProjectAssetTreeNodeInfo, FmmPerspective.WORK_BREAKDOWN);
+//                        theTreeNodeInfo.setLeafNode(true);
+//                    }
+//                }
+//            }
         }
         return theTreeContentMediator;
 	}

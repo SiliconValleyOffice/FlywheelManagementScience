@@ -51,6 +51,14 @@ import com.flywheelms.gcongui.gcg.GcgApplication;
 import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.helper.FmmHelper;
+import com.flywheelms.library.fmm.interfaces.WorkAsset;
+import com.flywheelms.library.fmm.meta_data.FiscalYearMetaData;
+import com.flywheelms.library.fmm.meta_data.FlywheelCadenceMetaData;
+import com.flywheelms.library.fmm.meta_data.ProjectAssetMetaData;
+import com.flywheelms.library.fmm.meta_data.ProjectMetaData;
+import com.flywheelms.library.fmm.meta_data.StrategicMilestoneMetaData;
+import com.flywheelms.library.fmm.meta_data.WorkPackageMetaData;
+import com.flywheelms.library.fmm.meta_data.WorkPlanMetaData;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.FmmNodeImpl;
 import com.flywheelms.library.fmm.node.impl.commitment.FlywheelServiceDeliveryCommitment;
@@ -1129,6 +1137,21 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // medium drawables
     		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // large drawables
     		10067 ),
+    WORK_ASSET (
+            WorkAsset.class,
+            "PAT",
+            R.string.fmm_node_definition__work_asset__term,
+            R.string.fmm_node_definition__work_asset__definition,
+            R.drawable.fmm_noun__project_asset__gray,
+            0,
+            R.drawable.fms_activity__work_asset,
+            R.drawable.fms_dialog__work_asset,
+            new HashMap<FmmNodeGlyphType, Integer>(),
+            new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // tiny drawables
+            new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // small drawables
+            new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // medium drawables
+            new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // large drawables
+            10075 ),
     WORK_PACKAGE (
     		WorkPackage.class,
     		"WPG",
@@ -2048,45 +2071,59 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 	}
 	static {  // initialize node relationships
 		BOOKSHELF.setPrimaryParentNodeDefinition(FmmNodeDefinition.FMS_ORGANIZATION);
+//        BOOKSHELF.setPrimaryParentIdColumnName(BookshelfMetaData.column_ORGANIZATION_ID);
 		BOOKSHELF.setPrimaryChildNodeDefinition(FmmNodeDefinition.NOTEBOOK);
 		COMMUNITY_MEMBER.setPrimaryParentNodeDefinition(FmmNodeDefinition.FMS_ORGANIZATION);
 		COMMUNITY_MEMBER.setSecondaryParentNodeDefinition(FmmNodeDefinition.FLYWHEEL_TEAM);
 		DISCUSSION_TOPIC.setPrimaryParentNodeDefinition(FmmNodeDefinition.NOTEBOOK);
+//        DISCUSSION_TOPIC.setPrimaryParentIdColumnName(DiscussionTopicMetaData.column_NOTEBOOK_ID);
 		DISCUSSION_TOPIC.setSecondaryParentNodeDefinition(FmmNodeDefinition.DISCUSSION_TOPIC);
 		FACILITATION_ISSUE.setPrimaryParentNodeDefinition(FmmNodeDefinition.FLYWHEEL_CADENCE);
+//        FACILITATION_ISSUE.setPrimaryParentIdColumnName(FacilitationIssueMetaData.column_FLYWHEEL_CADENCE_ID);
 		FACILITATION_ISSUE.setSecondaryParentNodeDefinition(FmmNodeDefinition.COMMUNITY_MEMBER);
 		FISCAL_YEAR.setPrimaryParentNodeDefinition(FmmNodeDefinition.FMS_ORGANIZATION);
+        FISCAL_YEAR.setPrimaryParentIdColumnName(FiscalYearMetaData.column_ORGANIZATION_ID);
 		FISCAL_YEAR.setPrimaryChildNodeDefinition(FmmNodeDefinition.STRATEGIC_MILESTONE);
 		FISCAL_YEAR.setSecondaryChildNodeDefinition(FmmNodeDefinition.FLYWHEEL_CADENCE);
 		FLYWHEEL_CADENCE.setPrimaryParentNodeDefinition(FmmNodeDefinition.FISCAL_YEAR);
+        FLYWHEEL_CADENCE.setPrimaryParentIdColumnName(FlywheelCadenceMetaData.column_FISCAL_YEAR_ID);
 		FLYWHEEL_CADENCE.setPrimaryChildNodeDefinition(FmmNodeDefinition.WORK_PLAN);
 		FLYWHEEL_TEAM.setPrimaryParentNodeDefinition(FmmNodeDefinition.FMS_ORGANIZATION);
 		FUNCTIONAL_TEAM.setPrimaryParentNodeDefinition(FmmNodeDefinition.FMS_ORGANIZATION);
 		NOTEBOOK.setPrimaryParentNodeDefinition(FmmNodeDefinition.BOOKSHELF);
-		FMS_ORGANIZATION.setPrimaryParentNodeDefinition(FmmNodeDefinition.FMM_CONFIGURATION);
+//        NOTEBOOK.setPrimaryParentIdColumnName(NotebookMetaData.column_BOOKSHELF_ID);
+		FMS_ORGANIZATION.setPrimaryParentNodeDefinition(FmmNodeDefinition.FMM_CONFIGURATION);  // Really ??
 		PORTFOLIO.setPrimaryParentNodeDefinition(FmmNodeDefinition.FMS_ORGANIZATION);
+//        PORTFOLIO.setPrimaryParentIdColumnName(PortfolioMetaData.column_ORGANIZATION_ID);
 		PORTFOLIO.setPrimaryChildNodeDefinition(FmmNodeDefinition.PROJECT);
 		PROJECT.setPrimaryParentNodeDefinition(FmmNodeDefinition.PORTFOLIO);
+        PROJECT.setPrimaryParentIdColumnName(ProjectMetaData.column_PORTFOLIO_ID);
 		PROJECT.setPrimaryChildNodeDefinition(FmmNodeDefinition.PROJECT_ASSET);
 		PROJECT_ASSET.setPrimaryParentNodeDefinition(FmmNodeDefinition.PROJECT);
+        PROJECT_ASSET.setPrimaryParentIdColumnName(ProjectAssetMetaData.column_PROJECT_ID);
 		PROJECT_ASSET.setSecondaryParentNodeDefinition(FmmNodeDefinition.STRATEGIC_MILESTONE);
 		PROJECT_ASSET.setSecondaryLinkNodeDefinition(FmmNodeDefinition.STRATEGIC_COMMITMENT);
 		PROJECT_ASSET.setPrimaryChildNodeDefinition(FmmNodeDefinition.WORK_PACKAGE);
 		SERVICE_OFFERING.setPrimaryParentNodeDefinition(FmmNodeDefinition.SERVICE_OFFERING_SLA);
+//        SERVICE_OFFERING.setPrimaryParentIdColumnName(ServiceOfferingMetaData.column_SERVICE_OFFERING_SLA_ID);
 		SERVICE_OFFERING.setPrimaryParentNodeDefinition(FmmNodeDefinition.FLYWHEEL_CADENCE);
 		SERVICE_OFFERING.setPrimaryChildNodeDefinition(FmmNodeDefinition.SERVICE_REQUEST);
 		SERVICE_OFFERING_SLA.setPrimaryParentNodeDefinition(FmmNodeDefinition.FISCAL_YEAR);
 		SERVICE_OFFERING_SLA.setPrimaryChildNodeDefinition(FmmNodeDefinition.SERVICE_OFFERING);
 		SERVICE_REQUEST.setPrimaryParentNodeDefinition(FmmNodeDefinition.SERVICE_OFFERING);
+//        SERVICE_REQUEST.setPrimaryParentIdColumnName(ServiceRequestMetaData.column_SERVICE_OFFERING_ID);
 		SERVICE_REQUEST.setPrimaryChildNodeDefinition(FmmNodeDefinition.WORK_TASK);
 		STRATEGIC_MILESTONE.setPrimaryParentNodeDefinition(FmmNodeDefinition.FISCAL_YEAR);
-		STRATEGIC_MILESTONE.setPrimaryLinkNodeDefinition(FmmNodeDefinition.PROJECT_ASSET);
+        STRATEGIC_MILESTONE.setPrimaryParentIdColumnName(StrategicMilestoneMetaData.column_FISCAL_YEAR_ID);
+		STRATEGIC_MILESTONE.setPrimaryLinkNodeDefinition(FmmNodeDefinition.STRATEGIC_ASSET);
 		STRATEGY_TEAM.setPrimaryParentNodeDefinition(FmmNodeDefinition.FMS_ORGANIZATION);
 		WORK_PACKAGE.setPrimaryParentNodeDefinition(FmmNodeDefinition.PROJECT_ASSET);
+        WORK_PACKAGE.setPrimaryParentIdColumnName(WorkPackageMetaData.column_WORK_ASSET_ID);
 		WORK_PACKAGE.setSecondaryParentNodeDefinition(FmmNodeDefinition.FLYWHEEL_CADENCE);
 		WORK_PACKAGE.setSecondaryLinkNodeDefinition(FmmNodeDefinition.FLYWHEEL_WORK_PACKAGE_COMMITMENT);
 		WORK_PACKAGE.setPrimaryChildNodeDefinition(FmmNodeDefinition.WORK_TASK);
 		WORK_PLAN.setPrimaryParentNodeDefinition(FmmNodeDefinition.FLYWHEEL_CADENCE);
+        WORK_PLAN.setPrimaryParentIdColumnName(WorkPlanMetaData.column_FLYWHEEL_CADENCE_ID);
 		WORK_TASK.setPrimaryParentNodeDefinition(FmmNodeDefinition.WORK_PACKAGE);
 		WORK_TASK.setSecondaryParentNodeDefinition(FmmNodeDefinition.WORK_PLAN);
 	}
@@ -2139,8 +2176,10 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 	private final Hashtable<DecKanGlNounStateColor, BitmapDrawable> nounStateBitmapTableLarge;
 	private final int editorActivityRequestCode;
 	private FmmNodeDefinition primaryParentNodeDefinition;
+    private String primaryParentIdColumnName;
 	private FmmNodeDefinition secondaryParentNodeDefinition;
-	private FmmNodeDefinition primaryLinkNodeDefinition;  // a LOGICAL node, not the actual node
+    private String secondaryParentIdColumnName;
+    private FmmNodeDefinition primaryLinkNodeDefinition;  // a LOGICAL node, not the actual node
 	private FmmNodeDefinition secondaryLinkNodeDefinition;  // a LOGICAL node, not the actual node
 	private FmmNodeDefinition primaryChildNodeDefinition;
 	private FmmNodeDefinition secondaryChildNodeDefinition;
@@ -2457,4 +2496,21 @@ public enum FmmNodeDefinition implements FmmEnumNode {
         this.fmmNodeDefinitionOverride = anFmmNodeDefinition;
         this.tableName = anFmmNodeDefinition.getTableName();
     }
+
+    public String getPrimaryParentIdColumnName() {
+        return this.primaryParentIdColumnName;
+    }
+
+    public void setPrimaryParentIdColumnName(String primaryParentIdColumnName) {
+        this.primaryParentIdColumnName = primaryParentIdColumnName;
+    }
+
+    public String getSecondaryParentIdColumnName() {
+        return secondaryParentIdColumnName;
+    }
+
+    public void setSecondaryParentIdColumnName(String secondaryParentIdColumnName) {
+        this.secondaryParentIdColumnName = secondaryParentIdColumnName;
+    }
+
 }

@@ -149,6 +149,8 @@ public interface FmmCompletionNode extends FmmGovernableNode, FmmSequencedNode {
 	
 	void setCompletionConfirmedTimestamp(Date aTimestamp);
 
+    void setPrimaryParentId(String aNodeIdString);
+
 //	int getSecondarySequence();
 	
 }

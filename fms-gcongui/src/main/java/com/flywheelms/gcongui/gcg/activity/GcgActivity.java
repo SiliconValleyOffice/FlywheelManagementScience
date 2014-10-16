@@ -171,7 +171,7 @@ public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNo
 		resetSoftKeyboard();
 	}
 
-	private void resetSoftKeyboard() {
+    private void resetSoftKeyboard() {
 		if(this.fdkHostSupport != null) {
 			this.fdkHostSupport.resetSoftKeyboard(getWindowToken());
 		}

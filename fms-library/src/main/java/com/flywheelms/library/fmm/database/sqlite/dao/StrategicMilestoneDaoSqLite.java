@@ -83,7 +83,7 @@ public class StrategicMilestoneDaoSqLite extends CompletableNodeDaoSqLite<Strate
 	@Override
 	protected void getColumnValues(HashMap<String, Integer> aHashMap, Cursor aCursor, StrategicMilestone aStrategicMilestone) {
 		super.getColumnValues(aHashMap, aCursor, aStrategicMilestone);
-		aStrategicMilestone.setFiscalYearNodeIdString(aCursor.getString(aHashMap.get(StrategicMilestoneMetaData.column_FISCAL_YEAR_ID)));
+		aStrategicMilestone.setFiscalYearId(aCursor.getString(aHashMap.get(StrategicMilestoneMetaData.column_FISCAL_YEAR_ID)));
 		aStrategicMilestone.setSequence(aCursor.getInt(aHashMap.get(CompletableNodeMetaData.column_SEQUENCE)));
 		aStrategicMilestone.setTargetMonthEnd(aCursor.getInt(aHashMap.get(StrategicMilestoneMetaData.column_TARGET_MONTH_END)));
 		aStrategicMilestone.setTargetDate(aCursor.getLong(aHashMap.get(StrategicMilestoneMetaData.column_TARGET_DATE)));

@@ -44,6 +44,7 @@
 package com.flywheelms.gcongui.gcg.widget;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
@@ -70,6 +71,7 @@ public abstract class GcgWidgetTextView extends GcgWidget {
 	protected void setup() {
 		super.setup();
 		this.textView = (TextView) this.widgetContainer.findViewById(resource_id__WIDGET_DATA);
+        this.textView.setEllipsize(TextUtils.TruncateAt.valueOf("END"));
 		if(this.isTransparentBackground) {
 			setTransparentBackground();
 		}

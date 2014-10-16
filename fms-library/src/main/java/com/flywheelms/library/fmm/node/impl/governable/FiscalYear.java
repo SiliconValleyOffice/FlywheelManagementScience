@@ -94,7 +94,7 @@ public class FiscalYear extends FmmCompletableNodeImpl implements Comparable<Fis
 	public FiscalYear(NodeId aNodeId, String anOrganizationNodeIdString, String aYear) {
 		super(aNodeId);
 		setYear(aYear);
-		setOrganizationNodeIdString(anOrganizationNodeIdString);
+		setOrganizationId(anOrganizationNodeIdString);
 	}
 	
 	// create a new Fiscal Year
@@ -125,7 +125,7 @@ public class FiscalYear extends FmmCompletableNodeImpl implements Comparable<Fis
 		super(FiscalYear.class, aJsonObject);
 		try {
 			validateSerializationFormatVersion(aJsonObject.getString(JsonHelper.key__SERIALIZATION_FORMAT_VERSION));
-			setOrganizationNodeIdString(aJsonObject.getString(FiscalYearMetaData.column_ORGANIZATION_ID));
+			setOrganizationId(aJsonObject.getString(FiscalYearMetaData.column_ORGANIZATION_ID));
 			setYear(aJsonObject.getString(FiscalYearMetaData.column_YEAR_NUMBER));
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
@@ -176,7 +176,7 @@ public class FiscalYear extends FmmCompletableNodeImpl implements Comparable<Fis
 		return this.organizationNodeIdString;
 	}
 
-	public void setOrganizationNodeIdString(String anOrganizationNodeId) {
+	public void setOrganizationId(String anOrganizationNodeId) {
 		this.organizationNodeIdString = anOrganizationNodeId;
 	}
 	
@@ -375,4 +375,9 @@ public class FiscalYear extends FmmCompletableNodeImpl implements Comparable<Fis
         }
         return theList;
     }
+
+    public void setPrimaryParentId(String aNodeIdString) {
+        setOrganizationId(aNodeIdString);
+    }
+
 }

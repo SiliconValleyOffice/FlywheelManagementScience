@@ -98,7 +98,7 @@ public class StrategicMilestone extends FmmCompletableNodeImpl implements Compar
 	public StrategicMilestone(NodeId aNodeId, String aHeadline, String aFiscalYearNodeIdString) {
 		super(aNodeId);
 		setHeadline(aHeadline);
-		setFiscalYearNodeIdString(aFiscalYearNodeIdString);
+		setFiscalYearId(aFiscalYearNodeIdString);
 	}
 
 	public StrategicMilestone(String aNodeIdString, String aFiscalYearNodeId) {
@@ -111,7 +111,7 @@ public class StrategicMilestone extends FmmCompletableNodeImpl implements Compar
 		try {
 			validateSerializationFormatVersion(aJsonObject.getString(JsonHelper.key__SERIALIZATION_FORMAT_VERSION));
 			setSequence(aJsonObject.getInt(SequencedLinkNodeMetaData.column_SEQUENCE));
-			setFiscalYearNodeIdString(aJsonObject.getString(StrategicMilestoneMetaData.column_FISCAL_YEAR_ID));
+			setFiscalYearId(aJsonObject.getString(StrategicMilestoneMetaData.column_FISCAL_YEAR_ID));
 			setTargetMonthEnd(aJsonObject.getInt(StrategicMilestoneMetaData.column_TARGET_MONTH_END));
 			setTargetDate(aJsonObject.getLong(StrategicMilestoneMetaData.column_TARGET_DATE));
             setTargetIsReversePlanning(aJsonObject.getInt(StrategicMilestoneMetaData.column_TARGET_IS_REVERSE_PLANNING));
@@ -179,7 +179,7 @@ public class StrategicMilestone extends FmmCompletableNodeImpl implements Compar
 			return this.fiscalYear;
 		}
 
-	public void setFiscalYearNodeIdString(String aNodeIdString) {
+	public void setFiscalYearId(String aNodeIdString) {
 		this.fiscalYearNodeIdString = aNodeIdString;
         if(this.fiscalYear != null && !this.fiscalYear.getNodeIdString().equals(aNodeIdString)) {
             this.fiscalYear = null;
@@ -384,4 +384,9 @@ public class StrategicMilestone extends FmmCompletableNodeImpl implements Compar
         }
         return theList;
     }
+
+    public void setPrimaryParentId(String aNodeIdString) {
+        setFiscalYearId(aNodeIdString);
+    }
+
 }

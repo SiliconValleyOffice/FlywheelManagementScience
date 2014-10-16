@@ -55,10 +55,10 @@ public interface FmmHeadlineNodePopupListener {
 	public void onPopupMenuItemClick(
 			View aView,
 			MenuItem aMenuItem,
-			FmmHeadlineNode aLaunchHeadlineNode,
 			FmmHeadlineNode aParentHeadlineNode,
-			GcgTreeNodeInfo aLaunchTreeNodeInfo,
-			int aLaunchNodeSequence,
+            GcgTreeNodeInfo aLaunchTreeNodeInfo,
+            FmmHeadlineNode aLaunchHeadlineNode,
+            int aLaunchNodeSequence,
 			int aLaunchNodeChildNodeCount );
 
 	 public void resetRowBackground(View aView);

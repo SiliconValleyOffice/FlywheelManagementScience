@@ -89,7 +89,7 @@ public class FmmOpenHelper extends SQLiteOpenHelper {
 //		FmmConfiguration theFmmConfiguration = FmmDatabaseMediator.getRequestedFmmConfiguration();
 //		theFmmConfiguration.setForThisFmm(true);
 //		if(theFmmConfiguration.getOrganizationNodeIdString() == null || theFmmConfiguration.getOrganizationNodeIdString().equals("")) {
-//			theFmmConfiguration.setOrganizationNodeIdString(theFmsOrganization.getNodeIdString());
+//			theFmmConfiguration.setOrganizationId(theFmsOrganization.getNodeIdString());
 //		}
 //		ContentValues theContentValues = FmmConfigurationDaoSqLite.getInstance().buildContentValues(theFmmConfiguration);
 //    	aDatabase.insert(FmmNodeDefinition.FMM_CONFIGURATION.getTableName(), null, theContentValues);

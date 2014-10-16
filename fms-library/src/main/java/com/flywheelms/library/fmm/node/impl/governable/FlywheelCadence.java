@@ -324,4 +324,15 @@ public class FlywheelCadence extends FmmCompletableNodeImpl {
         }
         return theList;
     }
+
+    public void setPrimaryParentId(String aNodeIdString) {
+        setFiscalYearNodeId(aNodeIdString);
+    }
+
+    public void setFiscalYearNodeId(String aNodeIdString) {
+        this.fiscalYearId = aNodeIdString;
+        if(this.fiscalYear != null && !this.fiscalYear.getNodeIdString().equals(aNodeIdString)) {
+            this.fiscalYear = null;
+        }
+    }
 }

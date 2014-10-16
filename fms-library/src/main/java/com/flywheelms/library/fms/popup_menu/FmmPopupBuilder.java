@@ -89,7 +89,7 @@ public class FmmPopupBuilder {
 	public static final String menu_item__ADOPT_ORPHAN_PROJECT_ASSET = "Adopt orphan Project Asset...";
 	public static final String menu_item__ADOPT_ORPHAN_STRATEGIC_ASSET = "Adopt orphan Strategic Asset...";
 	public static final String menu_item__CREATE_PROJECT_ASSET = "Create Project Asset...";
-	public static final String menu_item__EDIT_PROJECT_ASSETS = "Edit Project Assets...";
+	public static final String menu_item__EDIT_ALL_ASSETS = "Edit All Assets...";
 	public static final String menu_item__DELETE_PROJECT_ASSET = "Delete Project Asset...";
 	public static final String menu_item__MOVE_PROJECT_ASSET = "Move Project Asset...";
 	public static final String menu_item__ORPHAN_PROJECT_ASSET = "Orphan Project Asset...";
@@ -310,7 +310,7 @@ public class FmmPopupBuilder {
 		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_HEADLINE);
 		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_PROJECT_ASSET);
         if(aLaunchNodeChildCount > 0) {
-            thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_PROJECT_ASSETS);
+            thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_ALL_ASSETS);
         }
 		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__ADOPT_ORPHAN_STRATEGIC_ASSET);
 		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__ADOPT_ORPHAN_PROJECT_ASSET);

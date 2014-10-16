@@ -45,6 +45,7 @@ package com.flywheelms.library.fmm.persistence;
 
 import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
 import com.flywheelms.library.fmm.database.sqlite.dao.FmmNodeDaoSqLite;
+import com.flywheelms.library.fmm.interfaces.WorkAsset;
 import com.flywheelms.library.fmm.node.impl.commitment.StrategicCommitment;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.enumerator.GovernanceRole;
@@ -588,13 +589,21 @@ public abstract class PersistenceTechnologyDelegate {
         public abstract boolean dbMoveSingleProjectIntoPortfolio(String aProjectId, String aPortfolioId, boolean bAtomicTransaction);
 
         public abstract boolean dbMoveAllProjectsIntoPortfolio(String aCurrentPortfolioId, String aTargetPortfolioId, boolean bAtomicTransaction);
+
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        //////  Node - WORK ASSET  ///////////////////////////////////////////////////////////////////////////////
+
+        public abstract ArrayList<WorkAsset> dbListWorkAssets(Project aProject, WorkAsset aWorkAssetException);
+
+        public abstract ArrayList<WorkAsset> dbListWorkAssetsForProject(String aProjectId, String aWorkAssetExceptionId);
 		
 
 		/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		//////  Node - PROJECT ASSET  ///////////////////////////////////////////////////////////////////////////////
 
-		public abstract ArrayList<ProjectAsset> dbListProjectAssets(Project aProject);
-		
+        public abstract ArrayList<ProjectAsset> dbListProjectAssets();
+
 		public abstract ArrayList<ProjectAsset> dbListProjectAssets(Project aProject, ProjectAsset aProjectAssetException);
 		
 		public abstract ArrayList<ProjectAsset> dbListProjectAssetsForProject(String aProjectId, String aProjectAssetExceptionId);
@@ -611,8 +620,8 @@ public abstract class PersistenceTechnologyDelegate {
 
 		public abstract ArrayList<ProjectAsset> dbListProjectAssetOrphansFromProject();
 
-		public abstract ArrayList<ProjectAsset> dbListProjectAssetWhichAreNotStrategic();
-		
+		public abstract ArrayList<StrategicAsset> dbListStrategicAssetOrphansFromProject();
+
 		public abstract ProjectAsset dbRetrieveProjectAsset(String aNodeIdString);
 
 		public abstract boolean dbExistsProjectAsset(String aNodeIdString);
@@ -655,11 +664,11 @@ public abstract class PersistenceTechnologyDelegate {
 		
 		public abstract boolean dbOrphanSingleProjectAssetFromStrategicMilestone(String aProjectAssetId, String aStrategicMilestoneId, boolean bAtomicTransaction);
 
-		public abstract boolean dbAdoptOrphanProjectAssetIntoProject(
-				String aProjectAssetId,
-				String aProjectId,
-				boolean bSequenceAtEnd,
-				boolean bAtomicTransaction );
+//		public abstract boolean dbAdoptOrphanProjectAssetIntoProject(
+//				String aProjectAssetId,
+//				String aProjectId,
+//				boolean bSequenceAtEnd,
+//				boolean bAtomicTransaction );
 
 		public abstract boolean dbDeleteProjectAsset(ProjectAsset aProjectAsset, boolean bAtomicTransaction);
 
@@ -850,6 +859,8 @@ public abstract class PersistenceTechnologyDelegate {
     /////////////////////////////////////////
 
     public abstract <T extends FmmNodeDaoSqLite, V extends FmmNode> boolean insertSimpleIdTable(V anFmmNode, T aDaoInstance, boolean bAtomicTransaction);
+
+    public abstract <T extends FmmNodeDaoSqLite, V extends FmmNode> boolean updateSimpleIdTable(V anFmmNode, boolean bAtomicTransaction);
 
     public abstract <T extends FmmNodeDaoSqLite, V extends FmmNode> boolean updateSimpleIdTable(V anFmmNode, T aDaoInstance, boolean bAtomicTransaction);
 

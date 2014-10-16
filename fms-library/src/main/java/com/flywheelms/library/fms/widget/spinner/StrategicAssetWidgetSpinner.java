@@ -57,21 +57,16 @@ import com.flywheelms.library.fms.widget.FmmHeadlineNodeWidgetSpinner;
 
 import java.util.ArrayList;
 
-// TODO - Need a WorkAssetWidgetSpinner, which includes StrategicAssets and ProjectAssets
-public class ProjectAssetWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
-	
+public class StrategicAssetWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
+
 	private Project project; // primary parent
 	private StrategicMilestone strategicMilestone; // secondary parent
 	private WorkPackage workPackageException;  // TODO - primary child that should be ignored
 	private ProjectAsset projectAssetException;  // a peer that should be ignored
-	
-	public ProjectAssetWidgetSpinner(Context aContext) {
-		super(aContext);
-	}
 
-    public ProjectAssetWidgetSpinner(Context aContext, AttributeSet anAttributeSet) {
-        super(aContext, anAttributeSet);
-    }
+	public StrategicAssetWidgetSpinner(Context aContext, AttributeSet anAttributeSet) {
+		super(aContext, anAttributeSet);
+	}
 
 	@Override
 	protected String getLabelText() {

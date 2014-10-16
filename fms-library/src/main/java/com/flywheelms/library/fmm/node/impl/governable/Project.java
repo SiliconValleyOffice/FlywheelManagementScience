@@ -202,10 +202,14 @@ public class Project extends FmmCompletableNodeImpl {
         ArrayList<? extends FmmHeadlineNodeImpl> theList = null;
         switch(aChildNodeDefinition) {
             case PROJECT_ASSET:
-                theList = FmmDatabaseMediator.getActiveMediator().listProjectAsset(this);
+                theList = FmmDatabaseMediator.getActiveMediator().listProjectAssets(this);
                 break;
         }
         return theList;
+    }
+
+    public void setPrimaryParentId(String aNodeIdString) {
+        setPortfolioNodeIdString(aNodeIdString);
     }
 
 }

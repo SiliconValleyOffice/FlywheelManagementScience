@@ -174,4 +174,8 @@ public class WorkTask extends FmmCompletableNodeImpl {
         return theList;
     }
 
+    public void setPrimaryParentId(String aNodeIdString) {
+        setWorkPackageNodeIdString(aNodeIdString);
+    }
+
 }

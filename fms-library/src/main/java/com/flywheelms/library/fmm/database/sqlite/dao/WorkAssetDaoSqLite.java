@@ -1,4 +1,4 @@
-/* @(#)WorkPackageDaoSqLite.java
+/* @(#)ProjectAssetDaoSqLite.java
  ** 
  ** Copyright (C) 2012 by Steven D. Stamps
  **
@@ -46,67 +46,75 @@ package com.flywheelms.library.fmm.database.sqlite.dao;
 import android.content.ContentValues;
 import android.database.Cursor;
 
+import com.flywheelms.library.fmm.interfaces.WorkAsset;
 import com.flywheelms.library.fmm.meta_data.CompletableNodeMetaData;
 import com.flywheelms.library.fmm.meta_data.IdNodeMetaData;
-import com.flywheelms.library.fmm.meta_data.WorkPackageMetaData;
+import com.flywheelms.library.fmm.meta_data.ProjectAssetMetaData;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
-import com.flywheelms.library.fmm.node.impl.governable.WorkPackage;
+import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
+import com.flywheelms.library.fmm.node.impl.governable.StrategicAsset;
 
 import java.util.HashMap;
 
-public class WorkPackageDaoSqLite extends CompletableNodeDaoSqLite<WorkPackage> {
+public class WorkAssetDaoSqLite extends CompletableNodeDaoSqLite<WorkAsset> {
 
-	private static WorkPackageDaoSqLite singleton;
+	private static WorkAssetDaoSqLite singleton;
 
-	public static WorkPackageDaoSqLite getInstance() {
-		if(WorkPackageDaoSqLite.singleton == null) {
-			WorkPackageDaoSqLite.singleton = new WorkPackageDaoSqLite();
+	public static WorkAssetDaoSqLite getInstance() {
+		if(WorkAssetDaoSqLite.singleton == null) {
+			WorkAssetDaoSqLite.singleton = new WorkAssetDaoSqLite();
 		}
-		return WorkPackageDaoSqLite.singleton;
+		return WorkAssetDaoSqLite.singleton;
 	}
 	
 	@Override
 	public FmmNodeDefinition getFmmNodeDefinition() {
-		return FmmNodeDefinition.WORK_PACKAGE;
+		return FmmNodeDefinition.WORK_ASSET;
 	}
-
+	
 	@Override
 	protected void buildColumnIndexMap(Cursor aCursor) {
 		super.buildColumnIndexMap(aCursor);
-		putColumnIndexMapEntry(this.columnIndexMap, aCursor, WorkPackageMetaData.column_WORK_ASSET_ID);
+		putColumnIndexMapEntry(this.columnIndexMap, aCursor, ProjectAssetMetaData.column_PROJECT_ID);
+		putColumnIndexMapEntry(this.columnIndexMap, aCursor, ProjectAssetMetaData.column_IS_STRATEGIC);
 		putColumnIndexMapEntry(this.columnIndexMap, aCursor, CompletableNodeMetaData.column_SEQUENCE);
-		putColumnIndexMapEntry(this.columnIndexMap, aCursor, WorkPackageMetaData.column_FLYWHEEL_COMMITMENT_ID);
 	}
 
 	@Override
-	protected void getColumnValues(HashMap<String, Integer> aHashMap, Cursor aCursor, WorkPackage aWorkPackage) {
-		super.getColumnValues(aHashMap, aCursor, aWorkPackage);
-		aWorkPackage.setProjectAssetId(aCursor.getString(aHashMap.get(WorkPackageMetaData.column_WORK_ASSET_ID)));
-		aWorkPackage.setSequence(aCursor.getInt(aHashMap.get(CompletableNodeMetaData.column_SEQUENCE)));
-		aWorkPackage.setFlywheelCommitmentNodeIdString(aCursor.getString(aHashMap.get(WorkPackageMetaData.column_FLYWHEEL_COMMITMENT_ID)));
+	protected void getColumnValues(HashMap<String, Integer> aHashMap, Cursor aCursor, WorkAsset aProjectAsset) {
+		super.getColumnValues(aHashMap, aCursor, aProjectAsset);
+		aProjectAsset.setProjectId(aCursor.getString(aHashMap.get(ProjectAssetMetaData.column_PROJECT_ID)));
+		aProjectAsset.setStrategic(aCursor.getInt(aHashMap.get(ProjectAssetMetaData.column_IS_STRATEGIC)));
+		aProjectAsset.setSequence(aCursor.getInt(aHashMap.get(CompletableNodeMetaData.column_SEQUENCE)));
 	}
 
 	@Override
-	public ContentValues buildContentValues(WorkPackage aWorkPackage) {
-		ContentValues theContentValues = super.buildContentValues(aWorkPackage);
-		theContentValues.put(WorkPackageMetaData.column_WORK_ASSET_ID, aWorkPackage.getProjectAssetNodeIdString());
-		theContentValues.put(CompletableNodeMetaData.column_SEQUENCE, aWorkPackage.getSequence());
-		theContentValues.put(WorkPackageMetaData.column_FLYWHEEL_COMMITMENT_ID, aWorkPackage.getFlywheelCommitmentNodeIdString());
+	public ContentValues buildContentValues(WorkAsset aWorkAsset) {
+		ContentValues theContentValues = super.buildContentValues(aWorkAsset);
+		theContentValues.put(ProjectAssetMetaData.column_PROJECT_ID, aWorkAsset.getProjectNodeIdString());
+		theContentValues.put(ProjectAssetMetaData.column_IS_STRATEGIC, aWorkAsset.getStrategicAsInt());
+		theContentValues.put(CompletableNodeMetaData.column_SEQUENCE, aWorkAsset.getSequence());
 		return theContentValues;
 	}
-
+	
 	@Override
-	public ContentValues buildUpdateContentValues(WorkPackage aWorkPackage) {
-		return buildContentValues(aWorkPackage);
+	public ContentValues buildUpdateContentValues(WorkAsset aProjectAsset) {
+		return buildContentValues(aProjectAsset);
 	}
 
 	@Override
-	protected WorkPackage getNextObjectFromCursor(Cursor aCursor) {
-		WorkPackage theWorkPackage = null;
-		theWorkPackage = new WorkPackage(
-				aCursor.getString(this.columnIndexMap.get(IdNodeMetaData.column_ID)) );
-		getColumnValues(this.columnIndexMap, aCursor, theWorkPackage);
-		return theWorkPackage;
-	}
+	protected WorkAsset getNextObjectFromCursor(Cursor aCursor) {
+        WorkAsset theWorkAsset;
+        if(aCursor.getInt(this.columnIndexMap.get(ProjectAssetMetaData.column_IS_STRATEGIC)) > 0) {
+            StrategicAsset theStrategicAsset = new StrategicAsset(aCursor.getString(this.columnIndexMap.get(IdNodeMetaData.column_ID)) );
+            getColumnValues(this.columnIndexMap, aCursor, theStrategicAsset);
+            theWorkAsset = theStrategicAsset;
 
+        } else {
+            ProjectAsset theProjectAsset = new ProjectAsset(aCursor.getString(this.columnIndexMap.get(IdNodeMetaData.column_ID)) );
+            getColumnValues(this.columnIndexMap, aCursor, theProjectAsset);
+            theWorkAsset = theProjectAsset;
+        }
+		return theWorkAsset;
+	}
 }

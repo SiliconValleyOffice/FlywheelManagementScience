@@ -78,9 +78,13 @@ public abstract class FmmHeadlineNodeWidgetSpinner extends GcgWidgetSpinner {
 	public static final String filter_id__ORPHAN_NODES__PRIMARY_PARENT = GcgApplication.getStringResource(R.string.filter_id__orphan_nodes__primary_parent);
 	public static final String filter_id__ORPHAN_NODES__SECONDARY_PARENT = GcgApplication.getStringResource(R.string.filter_id__orphan_nodes__secondary_parent);
 
-	public FmmHeadlineNodeWidgetSpinner(Context aContext, AttributeSet anAttributeSet) {
-		super(aContext, anAttributeSet);
+	public FmmHeadlineNodeWidgetSpinner(Context aContext) {
+		super(aContext);
 	}
+
+    public FmmHeadlineNodeWidgetSpinner(Context aContext, AttributeSet anAttributeSet) {
+        super(aContext, anAttributeSet);
+    }
 
 	@Override
 	protected ArrayList<? extends GcgGuiable> updateGuiableList() {

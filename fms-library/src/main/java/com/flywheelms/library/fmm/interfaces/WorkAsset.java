@@ -1,5 +1,5 @@
-/* @(#)ProjectAssetAdoptOrphanWorkPackageDialog.java
-** 
+/* @(#)WorkAsset.java
+**
 ** Copyright (C) 2012 by Steven D. Stamps
 **
 **             Trademarks & Copyrights
@@ -41,52 +41,19 @@
 ** <http://www.gnu.org/licenses/gpl-3.0.html>.
 */
 
-package com.flywheelms.library.fms.dialog;
+package com.flywheelms.library.fmm.interfaces;
 
-import android.view.LayoutInflater;
-import android.widget.LinearLayout;
-
-import com.flywheelms.gcongui.gcg.activity.GcgActivity;
-import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewAdapter;
-import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.enumerator.ChildNodeType;
-import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmCompletionNode;
-import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
-import com.flywheelms.library.fms.widget.spinner.ProjectAssetWidgetSpinner;
 
-public class WorkPackageAdoptOrphanWorkTaskDialog extends HeadlineNodeAdoptOrphanDialog {
+public interface WorkAsset extends FmmCompletionNode {
 
-    public WorkPackageAdoptOrphanWorkTaskDialog(
-            GcgActivity aLibraryActivity,
-            GcgTreeViewAdapter aTreeViewAdapter,
-            FmmHeadlineNode aParentHeadlineNode ) {
-        super(aLibraryActivity, aTreeViewAdapter, FmmNodeDefinition.PROJECT, aParentHeadlineNode);
-    }
+    String getProjectNodeIdString();
 
-    public WorkPackageAdoptOrphanWorkTaskDialog(
-            GcgActivity aLibraryActivity,
-            GcgTreeViewAdapter aTreeViewAdapter,
-            FmmNodeDefinition anOrphanFmmNodeDefinition,
-            FmmCompletionNode aParentHeadlineNode,
-            int aParentNodeChildCount,
-            FmmCompletionNode aLaunchHeadlineNode,
-            int aLaunchNodeSequence) {
-        super(aLibraryActivity, aTreeViewAdapter, anOrphanFmmNodeDefinition, aParentHeadlineNode, aParentNodeChildCount, aLaunchHeadlineNode, aLaunchNodeSequence);
-    }
+    int getStrategicAsInt();
 
-    @Override
-    protected int getDialogTitleStringResourceId() {
-        return R.string.fms__adopt_orphan__project_asset;
-    }
+    void setProjectId(String aNodeIdString);
 
-    protected void initializeOrphanSpinner(LinearLayout anAdoptionCandidateLayout) {
-        LayoutInflater.from(getContext()).inflate(R.layout.adopt_orphan__project_asset__into__project, anAdoptionCandidateLayout, true);
-        this.adoptionCandidateWidgetSpinner = (ProjectAssetWidgetSpinner) this.dialogBodyView.findViewById(R.id.adoption_candidate__spinner);
-    }
+    void setStrategic(int bStrategic);
 
-    @Override
-    protected ChildNodeType getOrphanType() {
-        return ChildNodeType.PRIMARY;
-    }
+    void setPrimaryParentId(String aNodeIdString);
 }

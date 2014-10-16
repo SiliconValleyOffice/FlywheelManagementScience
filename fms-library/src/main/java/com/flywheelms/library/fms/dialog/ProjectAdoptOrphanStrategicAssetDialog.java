@@ -1,4 +1,4 @@
-/* @(#)ProjectAssetAdoptOrphanWorkPackageDialog.java
+/* @(#)StrategicMilestoneAdoptOrphanProjectAssetDialog.java
 ** 
 ** Copyright (C) 2012 by Steven D. Stamps
 **
@@ -55,16 +55,16 @@ import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmCompletionNode;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.fms.widget.spinner.ProjectAssetWidgetSpinner;
 
-public class WorkPackageAdoptOrphanWorkTaskDialog extends HeadlineNodeAdoptOrphanDialog {
+public class ProjectAdoptOrphanStrategicAssetDialog extends HeadlineNodeAdoptOrphanDialog {
 
-    public WorkPackageAdoptOrphanWorkTaskDialog(
+    public ProjectAdoptOrphanStrategicAssetDialog(
             GcgActivity aLibraryActivity,
             GcgTreeViewAdapter aTreeViewAdapter,
             FmmHeadlineNode aParentHeadlineNode ) {
         super(aLibraryActivity, aTreeViewAdapter, FmmNodeDefinition.PROJECT, aParentHeadlineNode);
     }
 
-    public WorkPackageAdoptOrphanWorkTaskDialog(
+    public ProjectAdoptOrphanStrategicAssetDialog(
             GcgActivity aLibraryActivity,
             GcgTreeViewAdapter aTreeViewAdapter,
             FmmNodeDefinition anOrphanFmmNodeDefinition,
