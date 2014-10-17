@@ -88,4 +88,6 @@ public class ProjectAdoptOrphanProjectAssetDialog extends HeadlineNodeAdoptOrpha
         LayoutInflater.from(getContext()).inflate(R.layout.adopt_orphan__project_asset__into__project, anAdoptionCandidateLayout, true);
         this.adoptionCandidateWidgetSpinner = (ProjectAssetWidgetSpinner) this.dialogBodyView.findViewById(R.id.adoption_candidate__spinner);
     }
+
+    // adoptProjectAssetIntoStrategicMilestone
 }

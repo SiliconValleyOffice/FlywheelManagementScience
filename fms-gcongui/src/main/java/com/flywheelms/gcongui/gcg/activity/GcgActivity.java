@@ -213,7 +213,9 @@ public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNo
 	}
 	
 	public void resetApplicationContext() {
-		this.gcgApplicationContextHeader.resetApplicationContext();
+        if(this.gcgApplicationContextHeader != null) {
+            this.gcgApplicationContextHeader.resetApplicationContext();
+        }
 	}
 
 	protected void initializeGcgApplicationContextHeader() {

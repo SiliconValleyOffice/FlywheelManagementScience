@@ -207,9 +207,9 @@ public class HeadlineNodeCreateDialog extends FmsCancelOkApplyFdkDialog {
     }
 
     private boolean isPeerLaunch() {
-		return getFmmNodeDefinition() == this.launchHeadlineNode.getFmmNodeDefinition();
+        return FmsTreeViewAdapter.isPeerLaunch(getFmmNodeDefinition(), this.launchHeadlineNode.getFmmNodeDefinition());
 	}
-	
+
 	private FmmHeadlineNode getLogicalParentHeadlineNode() {
 		return isPeerLaunch() ?
 				getParentFmmHeadlineNode() : this.launchHeadlineNode;

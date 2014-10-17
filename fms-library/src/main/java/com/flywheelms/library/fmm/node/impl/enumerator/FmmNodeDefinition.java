@@ -56,6 +56,7 @@ import com.flywheelms.library.fmm.meta_data.FiscalYearMetaData;
 import com.flywheelms.library.fmm.meta_data.FlywheelCadenceMetaData;
 import com.flywheelms.library.fmm.meta_data.ProjectAssetMetaData;
 import com.flywheelms.library.fmm.meta_data.ProjectMetaData;
+import com.flywheelms.library.fmm.meta_data.StrategicAssetMetaData;
 import com.flywheelms.library.fmm.meta_data.StrategicMilestoneMetaData;
 import com.flywheelms.library.fmm.meta_data.WorkPackageMetaData;
 import com.flywheelms.library.fmm.meta_data.WorkPlanMetaData;
@@ -1139,7 +1140,7 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     		10067 ),
     WORK_ASSET (
             WorkAsset.class,
-            "PAT",
+            "WAT",
             R.string.fmm_node_definition__work_asset__term,
             R.string.fmm_node_definition__work_asset__definition,
             R.drawable.fmm_noun__project_asset__gray,
@@ -2116,6 +2117,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 		STRATEGIC_MILESTONE.setPrimaryParentNodeDefinition(FmmNodeDefinition.FISCAL_YEAR);
         STRATEGIC_MILESTONE.setPrimaryParentIdColumnName(StrategicMilestoneMetaData.column_FISCAL_YEAR_ID);
 		STRATEGIC_MILESTONE.setPrimaryLinkNodeDefinition(FmmNodeDefinition.STRATEGIC_ASSET);
+		STRATEGIC_ASSET.setPrimaryParentNodeDefinition(FmmNodeDefinition.PROJECT);
+		STRATEGIC_ASSET.setPrimaryParentIdColumnName(StrategicAssetMetaData.column_PROJECT_ID);
 		STRATEGY_TEAM.setPrimaryParentNodeDefinition(FmmNodeDefinition.FMS_ORGANIZATION);
 		WORK_PACKAGE.setPrimaryParentNodeDefinition(FmmNodeDefinition.PROJECT_ASSET);
         WORK_PACKAGE.setPrimaryParentIdColumnName(WorkPackageMetaData.column_WORK_ASSET_ID);

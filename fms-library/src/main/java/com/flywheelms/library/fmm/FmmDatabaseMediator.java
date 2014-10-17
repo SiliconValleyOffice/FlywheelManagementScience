@@ -1205,6 +1205,18 @@ public class FmmDatabaseMediator {
         return this.persistenceTechnologyDelegate.updateSimpleIdTable(anOrphanNode, ProjectAssetDaoSqLite.getInstance(), bAtomicTransaction);
     }
 
+    public boolean adoptPrimaryLinkOrphanIntoParent(FmmCompletionNode anOrphanNode, FmmCompletionNode aParentNode, FmmCompletionNode aPeerNode, boolean bSequenceAtEnd, boolean bAtomicTransaction) {
+        boolean theResult = newStrategicCommitment(aParentNode, aPeerNode, bSequenceAtEnd, (StrategicAsset) anOrphanNode);
+        ((StrategicAsset) anOrphanNode).setStrategic(true);
+        return this.persistenceTechnologyDelegate.updateSimpleIdTable(anOrphanNode, bAtomicTransaction);
+    }
+
+    public boolean adoptProjectAssetIntoStrategicMilestone(FmmCompletionNode anOrphanNode, FmmCompletionNode aParentNode, FmmCompletionNode aPeerNode, boolean bSequenceAtEnd) {
+        boolean theResult = newStrategicCommitment(aParentNode, aPeerNode, bSequenceAtEnd, (WorkAsset) anOrphanNode);
+        ((WorkAsset) anOrphanNode).setStrategic(true);
+        return theResult && this.persistenceTechnologyDelegate.updateSimpleIdTable(anOrphanNode, true);
+    }
+
     public boolean adoptOrphanProjectAssetIntoStrategicMilestone(
             String aProjectAssetId,
             String aStrategicMilestoneId,
@@ -1304,10 +1316,15 @@ public class FmmDatabaseMediator {
         StrategicAsset theNewStrategicAsset = new StrategicAsset();
         theNewStrategicAsset.setHeadline(aHeadline);
         boolean isSuccess = newStrategicAsset(theNewStrategicAsset, true);
+        isSuccess &= newStrategicCommitment(aParentNode, aPeerNode, bSequenceAtEnd, theNewStrategicAsset);
+        isSuccess &= newNodeFragTribKnQuality(theNewStrategicAsset) != null;
+        endTransaction(isSuccess);
+        return theNewStrategicAsset;
+    }
 
+    private boolean newStrategicCommitment(FmmHeadlineNode aParentNode, FmmHeadlineNode aPeerNode, boolean bSequenceAtEnd, WorkAsset theNewStrategicAsset) {
         StrategicCommitment theNewStrategicCommitment = new StrategicCommitment(
                 aParentNode.getNodeIdString(), theNewStrategicAsset.getNodeIdString() );
-
         int theNewSequenceNumber = initializeNewSequenceNumberForLinkTable(
                 FmmNodeDefinition.STRATEGIC_COMMITMENT,
                 StrategicCommitmentMetaData.column_STRATEGIC_MILESTONE_ID,
@@ -1317,10 +1334,7 @@ public class FmmDatabaseMediator {
                 bSequenceAtEnd);
         theNewStrategicCommitment.setSequence(theNewSequenceNumber);
         theNewStrategicCommitment.setCompletionCommitmentType(CompletionCommitmentType.NONE);
-        isSuccess = isSuccess && newStrategicCommitment(theNewStrategicCommitment, false);
-        isSuccess = isSuccess && newNodeFragTribKnQuality(theNewStrategicAsset) != null;
-        endTransaction(isSuccess);
-        return theNewStrategicAsset;
+        return newStrategicCommitment(theNewStrategicCommitment, false);
     }
 
     public boolean updateStrategicAsset(StrategicAsset aStrategicAsset, boolean bAtomicTransaction) {

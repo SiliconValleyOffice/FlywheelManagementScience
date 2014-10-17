@@ -53,7 +53,9 @@ public interface WorkAsset extends FmmCompletionNode {
 
     void setProjectId(String aNodeIdString);
 
-    void setStrategic(int bStrategic);
+    void setStrategic(int intStrategic);
+
+    void setStrategic(boolean bStrategic);
 
     void setPrimaryParentId(String aNodeIdString);
 }

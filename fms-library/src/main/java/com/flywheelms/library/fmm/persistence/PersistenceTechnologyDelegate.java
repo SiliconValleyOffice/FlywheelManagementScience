@@ -594,7 +594,9 @@ public abstract class PersistenceTechnologyDelegate {
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////
         //////  Node - WORK ASSET  ///////////////////////////////////////////////////////////////////////////////
 
-        public abstract ArrayList<WorkAsset> dbListWorkAssets(Project aProject, WorkAsset aWorkAssetException);
+        public ArrayList<WorkAsset> dbListWorkAssets(Project aProject, WorkAsset aWorkAssetException) {
+            return dbListWorkAssetsForProject(aProject.getNodeIdString(), aWorkAssetException == null ? null : aWorkAssetException.getNodeIdString());
+        }
 
         public abstract ArrayList<WorkAsset> dbListWorkAssetsForProject(String aProjectId, String aWorkAssetExceptionId);
 		

@@ -329,6 +329,9 @@ public abstract class HeadlineNodeAdoptOrphanDialog extends FmsCancelOkApplyFdkD
             case PRIMARY__ALPHA_SORT:
                 theAdoptionStatus = adoptPrimaryOrphanIntoParentAlphaSort();
                 break;
+            case PRIMARY_LINK:
+                theAdoptionStatus = adoptPrimaryLinkOrphanIntoParent();
+                break;
             default:
                 theAdoptionStatus = false;
         }
@@ -349,6 +352,15 @@ public abstract class HeadlineNodeAdoptOrphanDialog extends FmsCancelOkApplyFdkD
         return FmmDatabaseMediator.getActiveMediator().adoptPrimaryOrphanIntoParentAlphaSort(
                 (FmmCompletionNode) this.adoptionCandidateWidgetSpinner.getFmmNode(),
                 this.parentNode,
+                true);  // atomic transaction
+    }
+
+    public boolean adoptPrimaryLinkOrphanIntoParent () {
+        return FmmDatabaseMediator.getActiveMediator().adoptPrimaryLinkOrphanIntoParent(
+                (FmmCompletionNode) this.adoptionCandidateWidgetSpinner.getFmmNode(),
+                this.parentNode,
+                this.parentNode == this.launchNode ? null : this.launchNode,
+                this.lastRadioButton == null ? false : this.lastRadioButton.isChecked(),
                 true);  // atomic transaction
     }
 

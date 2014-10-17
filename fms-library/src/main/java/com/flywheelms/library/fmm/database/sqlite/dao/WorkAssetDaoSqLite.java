@@ -104,17 +104,14 @@ public class WorkAssetDaoSqLite extends CompletableNodeDaoSqLite<WorkAsset> {
 
 	@Override
 	protected WorkAsset getNextObjectFromCursor(Cursor aCursor) {
-        WorkAsset theWorkAsset;
         if(aCursor.getInt(this.columnIndexMap.get(ProjectAssetMetaData.column_IS_STRATEGIC)) > 0) {
             StrategicAsset theStrategicAsset = new StrategicAsset(aCursor.getString(this.columnIndexMap.get(IdNodeMetaData.column_ID)) );
             getColumnValues(this.columnIndexMap, aCursor, theStrategicAsset);
-            theWorkAsset = theStrategicAsset;
-
+            return theStrategicAsset;
         } else {
             ProjectAsset theProjectAsset = new ProjectAsset(aCursor.getString(this.columnIndexMap.get(IdNodeMetaData.column_ID)) );
             getColumnValues(this.columnIndexMap, aCursor, theProjectAsset);
-            theWorkAsset = theProjectAsset;
+            return theProjectAsset;
         }
-		return theWorkAsset;
 	}
 }

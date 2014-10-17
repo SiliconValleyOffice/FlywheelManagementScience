@@ -147,24 +147,6 @@ public class FwbContextWorkBreakdownPerspective extends FmsPerspectiveFlipperTre
                     }
                 }
             }
-            
-//            for(Project theProject : theProjectCollection) {
-//                Collection<ProjectAsset> theProjectAssetCollection =
-//                        FmmDatabaseMediator.getActiveMediator().listProjectAssets(theProject);
-//                GcgTreeNodeInfo theProjectTreeNodeInfo = theTreeBuilder.addChildNode(
-//                        theProject, theProjectAssetCollection.size()>0, thePortfolioTreeNodeInfo, FmmPerspective.WORK_BREAKDOWN);
-//                for(ProjectAsset theProjectAsset : theProjectAssetCollection) {
-//                    Collection<WorkPackage> theWorkPackageCollection =
-//                            FmmDatabaseMediator.getActiveMediator().listWorkPackage(theProjectAsset);
-//                    GcgTreeNodeInfo theProjectAssetTreeNodeInfo = theTreeBuilder.addChildNode(
-//                            theProjectAsset, theWorkPackageCollection.size()>0, theProjectTreeNodeInfo, FmmPerspective.WORK_BREAKDOWN);
-//                    for(WorkPackage theWorkPackage : theWorkPackageCollection) {
-//                        GcgTreeNodeInfo theTreeNodeInfo = theTreeBuilder.addLeafNode(
-//                                theWorkPackage, theProjectAssetTreeNodeInfo, FmmPerspective.WORK_BREAKDOWN);
-//                        theTreeNodeInfo.setLeafNode(true);
-//                    }
-//                }
-//            }
         }
         return theTreeContentMediator;
 	}

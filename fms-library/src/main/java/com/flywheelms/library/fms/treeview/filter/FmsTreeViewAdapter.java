@@ -87,6 +87,7 @@ import com.flywheelms.library.fms.dialog.ProjectDeleteDialog;
 import com.flywheelms.library.fms.dialog.ProjectMoveDialog;
 import com.flywheelms.library.fms.dialog.ProjectOrphanDialog;
 import com.flywheelms.library.fms.dialog.StrategicAssetDeleteDialog;
+import com.flywheelms.library.fms.dialog.StrategicMilestoneAdoptOrphanProjectAssetDialog;
 import com.flywheelms.library.fms.dialog.StrategicMilestoneDeleteDialog;
 import com.flywheelms.library.fms.dialog.StrategicMilestoneMoveDialog;
 import com.flywheelms.library.fms.dialog.StrategicMilestoneTargetDateEditDialog;
@@ -423,6 +424,8 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
             editFmmHeadlineNodeChildren(aLaunchTreeNodeInfo, FmmNodeDefinition.STRATEGIC_ASSET);
         } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__ADOPT_ORPHAN_STRATEGIC_ASSET)) {
             adoptOrphanStrategicAsset(aLaunchHeadlineNode);
+        } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__PROMOTE_PROJECT_ASSET_TO_STRATEGIC_ASSET)) {
+            promoteProjectAssetToStrategicAsset(aLaunchHeadlineNode);
 
 
 
@@ -546,6 +549,16 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
         FmsActivityHelper.startCreateAllFlywheelCadenceForYearWizard(getGcgActivity(), aLaunchHeadlineNode.getNodeIdString());
     }
 
+    public static boolean isPeerLaunch(FmmNodeDefinition aTargetNodeDefinition, FmmNodeDefinition aLaunchNodeDefinition) {
+        boolean isPeerLaunch = aTargetNodeDefinition == aLaunchNodeDefinition;
+        if(! isPeerLaunch) {
+            if(aTargetNodeDefinition == FmmNodeDefinition.PROJECT_ASSET && aLaunchNodeDefinition == FmmNodeDefinition.STRATEGIC_ASSET) {
+                isPeerLaunch = true;
+            }
+        }
+        return isPeerLaunch;
+    }
+
 	private void createFmmHeadlineNode(
 			FmmNodeDefinition anFmmNodeDefinition,
 			FmmHeadlineNode aLaunchHeadlineNode,
@@ -607,6 +620,10 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
 
     private void adoptOrphanStrategicAsset(FmmHeadlineNode aParentHeadlineNode) {
             getGcgActivity().startDialog(new ProjectAdoptOrphanStrategicAssetDialog(getGcgActivity(), this, aParentHeadlineNode));
+    }
+
+    private void promoteProjectAssetToStrategicAsset(FmmHeadlineNode aParentHeadlineNode) {
+        getGcgActivity().startDialog(new StrategicMilestoneAdoptOrphanProjectAssetDialog(getGcgActivity(), this, aParentHeadlineNode));
     }
 
 	private void deleteWorkPackage(FmmHeadlineNode aWorkPackageNode) {

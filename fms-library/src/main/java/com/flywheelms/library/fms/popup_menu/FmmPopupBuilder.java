@@ -48,6 +48,7 @@ import android.widget.PopupMenu;
 
 import com.flywheelms.gcongui.gcg.treeview.node.GcgTreeNodeInfo;
 import com.flywheelms.library.fmm.context.FmmPerspective;
+import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.fms.treeview.filter.FmsTreeViewAdapter;
 
@@ -93,6 +94,7 @@ public class FmmPopupBuilder {
 	public static final String menu_item__DELETE_PROJECT_ASSET = "Delete Project Asset...";
 	public static final String menu_item__MOVE_PROJECT_ASSET = "Move Project Asset...";
 	public static final String menu_item__ORPHAN_PROJECT_ASSET = "Orphan Project Asset...";
+	public static final String menu_item__ORPHAN_STRATEGIC_ASSET = "Orphan Strategic Asset...";
 	public static final String menu_item__CREATE_STRATEGIC_MILESTONE = "Create Strategic Milestone...";
 	public static final String menu_item__EDIT_STRATEGIC_MILESTONES = "Edit Strategic Milestones...";
 	public static final String menu_item__DELETE_STRATEGIC_MILESTONE = "Delete Strategic Milestone...";
@@ -102,8 +104,9 @@ public class FmmPopupBuilder {
     public static final String menu_item__EDIT_STRATEGIC_ASSETS = "Edit Strategic Assets...";
     public static final String menu_item__DELETE_STRATEGIC_ASSET = "Delete Strategic Asset...";
     public static final String menu_item__DEMOTE_STRATEGIC_ASSET = "Demote Strategic Asset...";
-    public static final String menu_item__MOVE_STRATEGIC_ASSET = "Move Strategic Asset...";
-    public static final String menu_item__PROMOTE_PROJECT_ASSET_TO_STRATEGIC = "Select Project Asset as strategic...";
+    public static final String menu_item__MOVE_STRATEGIC_ASSET__TO__MILESTONE = "Move Strategic Asset...";
+    public static final String menu_item__MOVE_STRATEGIC_ASSET__TO__PROJECT = "Move Strategic Asset...";
+    public static final String menu_item__PROMOTE_PROJECT_ASSET_TO_STRATEGIC_ASSET = "Select Project Asset as strategic...";
 
 	public static final String menu_item__ADOPT_ORPHAN_WORK_PACKAGE = "Adopt orphan Work Package...";
 	public static final String menu_item__CREATE_WORK_PACKAGE = "Create Work Package...";
@@ -162,7 +165,11 @@ public class FmmPopupBuilder {
         case PROJECT_ASSET:
             return createProjectAssetPopupMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, bCanMove, bCanOrphan, bCanSequenceDown, bCanSequenceUp, aLaunchNodeSequence, aLaunchNodeChildCount);
         case STRATEGIC_ASSET:
-            return createStrategicAssetPopupMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, bCanMove, bCanOrphan, bCanSequenceDown, bCanSequenceUp, aLaunchNodeSequence, aLaunchNodeChildCount);
+            if(theParentHeadlineNode.getFmmNodeDefinition() == FmmNodeDefinition.STRATEGIC_MILESTONE) {
+                return createStrategicAssetPopupMenuForStrategicPlanning(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, bCanMove, bCanOrphan, bCanSequenceDown, bCanSequenceUp, aLaunchNodeSequence, aLaunchNodeChildCount);
+            } else {
+                return createStrategicAssetPopupMenuForWorkBreakdown(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, bCanMove, bCanOrphan, bCanSequenceDown, bCanSequenceUp, aLaunchNodeSequence, aLaunchNodeChildCount);
+            }
         case STRATEGIC_MILESTONE:
             return createStrategicMilestonePopupMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, bCanMove, bCanOrphan, bCanSequenceDown, bCanSequenceUp, aLaunchNodeSequence, aLaunchNodeChildCount);
         case WORK_PACKAGE:
@@ -247,7 +254,7 @@ public class FmmPopupBuilder {
         if(aLaunchNodeChildCount > 0) {
             thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_STRATEGIC_ASSETS);
         }
-		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__PROMOTE_PROJECT_ASSET_TO_STRATEGIC);
+		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__PROMOTE_PROJECT_ASSET_TO_STRATEGIC_ASSET);
 		return thePopupMenu;
 	}
 
@@ -359,7 +366,7 @@ public class FmmPopupBuilder {
 		return thePopupMenu;
 	}
 
-	private static PopupMenu createStrategicAssetPopupMenu(
+	private static PopupMenu createStrategicAssetPopupMenuForWorkBreakdown(
 			FmmHeadlineNodePopupListener aNodePopupListener,
 			GcgTreeNodeInfo aLaunchTreeNodeInfo,
 			FmmHeadlineNode aLaunchHeadlineNode,
@@ -372,15 +379,14 @@ public class FmmPopupBuilder {
 			boolean bCanSequenceDown,
 			int aLaunchNodeSequence,
 			int aLaunchNodeChildCount ) {
-        FmmHeadlineNodePopupMenu thePopupMenu = new FmmHeadlineNodePopupMenu(
+		FmmHeadlineNodePopupMenu thePopupMenu = new FmmHeadlineNodePopupMenu(
 				aNodePopupListener, aView, aLaunchHeadlineNode, aParentHeadlineNode, aLaunchTreeNodeInfo, aLaunchNodeSequence, aLaunchNodeChildCount );
-		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_STRATEGIC_ASSET);
-		if(bCanDelete) {
-			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__DELETE_STRATEGIC_ASSET);
-			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__DEMOTE_STRATEGIC_ASSET);
-		}
+		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_PROJECT_ASSET);
 		if(bCanMove) {
-			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__MOVE_STRATEGIC_ASSET);
+			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__MOVE_STRATEGIC_ASSET__TO__PROJECT);
+		}
+		if(bCanOrphan) {
+			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__ORPHAN_STRATEGIC_ASSET);
 		}
 		if(bCanSequenceUp) {
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__SEQUENCE_FIRST);
@@ -391,7 +397,47 @@ public class FmmPopupBuilder {
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__SEQUENCE_LAST);
 		}
 		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_HEADLINE);
-        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__PROMOTE_PROJECT_ASSET_TO_STRATEGIC);
+		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_WORK_PACKAGE);
+        if(aLaunchNodeChildCount > 0) {
+            thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_WORK_PACKAGES);
+        }
+		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__ADOPT_ORPHAN_WORK_PACKAGE);
+		return thePopupMenu;
+	}
+
+	private static PopupMenu createStrategicAssetPopupMenuForStrategicPlanning(
+            FmmHeadlineNodePopupListener aNodePopupListener,
+            GcgTreeNodeInfo aLaunchTreeNodeInfo,
+            FmmHeadlineNode aLaunchHeadlineNode,
+            FmmHeadlineNode aParentHeadlineNode,
+            View aView,
+            boolean bCanDelete,
+            boolean bCanMove,
+            boolean bCanOrphan,
+            boolean bCanSequenceUp,
+            boolean bCanSequenceDown,
+            int aLaunchNodeSequence,
+            int aLaunchNodeChildCount) {
+        FmmHeadlineNodePopupMenu thePopupMenu = new FmmHeadlineNodePopupMenu(
+				aNodePopupListener, aView, aLaunchHeadlineNode, aParentHeadlineNode, aLaunchTreeNodeInfo, aLaunchNodeSequence, aLaunchNodeChildCount );
+		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_STRATEGIC_ASSET);
+		if(bCanDelete) {
+			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__DELETE_STRATEGIC_ASSET);
+			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__DEMOTE_STRATEGIC_ASSET);
+		}
+		if(bCanMove) {
+			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__MOVE_STRATEGIC_ASSET__TO__MILESTONE);
+		}
+		if(bCanSequenceUp) {
+			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__SEQUENCE_FIRST);
+			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__SEQUENCE_UP);
+		}
+		if(bCanSequenceDown) {
+			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__SEQUENCE_DOWN);
+			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__SEQUENCE_LAST);
+		}
+		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_HEADLINE);
+        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__PROMOTE_PROJECT_ASSET_TO_STRATEGIC_ASSET);
 		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_WORK_PACKAGE);
         if(aLaunchNodeChildCount > 0) {
             thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_WORK_PACKAGES);

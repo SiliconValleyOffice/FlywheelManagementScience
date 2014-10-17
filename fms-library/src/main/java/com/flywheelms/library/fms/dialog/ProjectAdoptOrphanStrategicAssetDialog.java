@@ -88,4 +88,23 @@ public class ProjectAdoptOrphanStrategicAssetDialog extends HeadlineNodeAdoptOrp
     protected ChildNodeType getOrphanType() {
         return ChildNodeType.PRIMARY;
     }
+
+    protected boolean adoptOrphanHeadlineNode() {
+        boolean theAdoptionStatus;
+        switch(getOrphanType()) {
+            case PRIMARY:
+                theAdoptionStatus = adoptPrimaryOrphanIntoParent();
+                break;
+            case PRIMARY__ALPHA_SORT:
+                theAdoptionStatus = adoptPrimaryOrphanIntoParentAlphaSort();
+                break;
+            case PRIMARY_LINK:
+                theAdoptionStatus = adoptPrimaryLinkOrphanIntoParent();
+                break;
+            default:
+                theAdoptionStatus = false;
+        }
+        toastAdoptionResult(theAdoptionStatus);
+        return theAdoptionStatus;
+    }
 }
