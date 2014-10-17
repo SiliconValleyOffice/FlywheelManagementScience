@@ -63,7 +63,6 @@ import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewAdapter;
 import com.flywheelms.gcongui.gcg.widget.edit_text.GcgWidgetGenericEditText;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
-import com.flywheelms.library.fmm.enumerator.ChildNodeType;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmCompletionNode;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
@@ -125,6 +124,7 @@ public abstract class HeadlineNodeAdoptOrphanDialog extends FmsCancelOkApplyFdkD
         this.parentNode = (FmmCompletionNode) aParentNode;
         this.parentNodeChildCount = aParentNodeChildCount;
         this.isParentNodeLaunch = this.parentNode == this.launchNode;
+//        this.isParentNodeLaunch = this.parentNode == this.launchNode;
 		initializeDialogBodyLate();
 		initFdkHostSupport();
 	}
@@ -134,7 +134,7 @@ public abstract class HeadlineNodeAdoptOrphanDialog extends FmsCancelOkApplyFdkD
 		return R.layout.fmm__headline_node__adopt_orphan__dialog;
 	}
 
-    protected abstract ChildNodeType getOrphanType();
+//    protected abstract ChildNodeType getOrphanType();
 
     protected abstract void initializeOrphanSpinner(LinearLayout aFilterPanelLayout);
 
@@ -151,11 +151,15 @@ public abstract class HeadlineNodeAdoptOrphanDialog extends FmsCancelOkApplyFdkD
 		manageButtonState();
 	}
 
-    private void initializeSequenceGroupBox() {
+    protected boolean isAlphaSort() {
+        return false;
+    }
+
+    protected void initializeSequenceGroupBox() {
         this.firstRadioButton = (RadioButton) this.dialogBodyView.findViewById(R.id.first__radio_button);
         this.lastRadioButton = (RadioButton) this.dialogBodyView.findViewById(R.id.last__radio_button);
         this.headlineWidgetTextView = (HeadlineWidgetTextView) this.dialogBodyView.findViewById(R.id.headline__launch_node);
-        if(getOrphanType() == ChildNodeType.PRIMARY__ALPHA_SORT) {
+        if(isAlphaSort()) {
             this.firstRadioButton.setVisibility(View.GONE);
             this.lastRadioButton.setVisibility(View.GONE);
             this.headlineWidgetTextView.setVisibility(View.GONE);
@@ -320,26 +324,28 @@ public abstract class HeadlineNodeAdoptOrphanDialog extends FmsCancelOkApplyFdkD
 		fdkFocusConsumer(this.currentFdkDictationResultsConsumer);
 	}
 
-    protected boolean adoptOrphanHeadlineNode() {
-        boolean theAdoptionStatus;
-        switch(getOrphanType()) {
-            case PRIMARY:
-                theAdoptionStatus = adoptPrimaryOrphanIntoParent();
-                break;
-            case PRIMARY__ALPHA_SORT:
-                theAdoptionStatus = adoptPrimaryOrphanIntoParentAlphaSort();
-                break;
-            case PRIMARY_LINK:
-                theAdoptionStatus = adoptPrimaryLinkOrphanIntoParent();
-                break;
-            default:
-                theAdoptionStatus = false;
-        }
-        toastAdoptionResult(theAdoptionStatus);
-        return theAdoptionStatus;
-    }
+    protected abstract boolean adoptOrphanHeadlineNode();
 
-    public boolean adoptPrimaryOrphanIntoParent () {
+//    protected boolean adoptOrphanHeadlineNode() {
+//        boolean theAdoptionStatus;
+//        switch(getOrphanType()) {
+//            case PRIMARY:
+//                theAdoptionStatus = adoptPrimaryOrphanIntoParent();
+//                break;
+//            case PRIMARY__ALPHA_SORT:
+//                theAdoptionStatus = adoptPrimaryOrphanIntoParentAlphaSort();
+//                break;
+//            case PRIMARY_LINK:
+//                theAdoptionStatus = adoptPrimaryLinkOrphanIntoParent();
+//                break;
+//            default:
+//                theAdoptionStatus = false;
+//        }
+//        toastAdoptionResult(theAdoptionStatus);
+//        return theAdoptionStatus;
+//    }
+
+    protected boolean adoptPrimaryOrphanIntoParent () {
         return FmmDatabaseMediator.getActiveMediator().adoptPrimaryOrphanIntoParent(
                 (FmmCompletionNode) this.adoptionCandidateWidgetSpinner.getFmmNode(),
                 this.parentNode,
@@ -348,14 +354,14 @@ public abstract class HeadlineNodeAdoptOrphanDialog extends FmsCancelOkApplyFdkD
                 true);  // atomic transaction
     }
 
-    public boolean adoptPrimaryOrphanIntoParentAlphaSort () {
+    protected boolean adoptPrimaryOrphanIntoParentAlphaSort () {
         return FmmDatabaseMediator.getActiveMediator().adoptPrimaryOrphanIntoParentAlphaSort(
                 (FmmCompletionNode) this.adoptionCandidateWidgetSpinner.getFmmNode(),
                 this.parentNode,
                 true);  // atomic transaction
     }
 
-    public boolean adoptPrimaryLinkOrphanIntoParent () {
+    protected boolean adoptPrimaryLinkOrphanIntoParent () {
         return FmmDatabaseMediator.getActiveMediator().adoptPrimaryLinkOrphanIntoParent(
                 (FmmCompletionNode) this.adoptionCandidateWidgetSpinner.getFmmNode(),
                 this.parentNode,

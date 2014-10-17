@@ -45,7 +45,6 @@ package com.flywheelms.library.fmm;
 import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
 import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
 import com.flywheelms.library.fca.FlywheelCommunityAuthentication;
-import com.flywheelms.library.fmm.database.sqlite.dao.ProjectAssetDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.StrategicAssetDaoSqLite;
 import com.flywheelms.library.fmm.helper.FmmHelper;
 import com.flywheelms.library.fmm.interfaces.WorkAsset;
@@ -1195,14 +1194,8 @@ public class FmmDatabaseMediator {
     }
 
     public boolean adoptPrimaryOrphanIntoParentAlphaSort(FmmCompletionNode anOrphanNode, FmmCompletionNode aParentNode, boolean bAtomicTransaction) {
-        int theNewSequenceNumber = resequenceChildTableForAlphaSort(
-                anOrphanNode.getFmmNodeDefinition(),
-                anOrphanNode.getFmmNodeDefinition().getPrimaryParentIdColumnName(),
-                aParentNode.getNodeIdString(),
-                anOrphanNode.getFmmNodeDefinition().getPrimaryParentIdColumnName());
-
-        anOrphanNode.setSequence(theNewSequenceNumber);
-        return this.persistenceTechnologyDelegate.updateSimpleIdTable(anOrphanNode, ProjectAssetDaoSqLite.getInstance(), bAtomicTransaction);
+        anOrphanNode.setPrimaryParentId(aParentNode.getNodeIdString());
+        return this.persistenceTechnologyDelegate.updateSimpleIdTable(anOrphanNode, bAtomicTransaction);
     }
 
     public boolean adoptPrimaryLinkOrphanIntoParent(FmmCompletionNode anOrphanNode, FmmCompletionNode aParentNode, FmmCompletionNode aPeerNode, boolean bSequenceAtEnd, boolean bAtomicTransaction) {

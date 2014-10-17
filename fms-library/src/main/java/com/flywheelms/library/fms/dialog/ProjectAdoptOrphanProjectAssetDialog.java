@@ -49,7 +49,6 @@ import android.widget.LinearLayout;
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewAdapter;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.enumerator.ChildNodeType;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.fms.widget.spinner.ProjectAssetWidgetSpinner;
@@ -79,15 +78,23 @@ public class ProjectAdoptOrphanProjectAssetDialog extends HeadlineNodeAdoptOrpha
         return R.string.fms__adopt_orphan__project_asset;
     }
 
-    @Override
-    protected ChildNodeType getOrphanType() {
-        return ChildNodeType.PRIMARY;
-    }
-
     protected void initializeOrphanSpinner(LinearLayout anAdoptionCandidateLayout) {
         LayoutInflater.from(getContext()).inflate(R.layout.adopt_orphan__project_asset__into__project, anAdoptionCandidateLayout, true);
         this.adoptionCandidateWidgetSpinner = (ProjectAssetWidgetSpinner) this.dialogBodyView.findViewById(R.id.adoption_candidate__spinner);
     }
 
-    // adoptProjectAssetIntoStrategicMilestone
+    @Override
+    protected void initializeSequenceGroupBox() {
+        super.initializeSequenceGroupBox();
+        if(this.launchNode.getFmmNodeDefinition() == FmmNodeDefinition.STRATEGIC_ASSET) {
+            this.firstRadioButton.setChecked(true);
+        }
+    }
+
+    protected boolean adoptOrphanHeadlineNode() {
+        boolean theAdoptionStatus;
+        theAdoptionStatus = adoptPrimaryOrphanIntoParent();
+        toastAdoptionResult(theAdoptionStatus);
+        return theAdoptionStatus;
+    }
 }

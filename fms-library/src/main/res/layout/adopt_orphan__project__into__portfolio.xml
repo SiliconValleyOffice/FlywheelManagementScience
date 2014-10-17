@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.flywheelms.library.fms.widget.spinner.ProjectWidgetSpinner
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:gcg="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/adoption_candidate__spinner"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    gcg:labelWidth="180"
+    gcg:zoomable="true"
+    gcg:filterId="@string/filter_id__orphan_nodes__primary_parent" />
+

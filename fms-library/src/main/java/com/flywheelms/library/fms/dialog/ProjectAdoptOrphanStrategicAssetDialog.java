@@ -49,7 +49,6 @@ import android.widget.LinearLayout;
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewAdapter;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.enumerator.ChildNodeType;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmCompletionNode;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
@@ -84,26 +83,10 @@ public class ProjectAdoptOrphanStrategicAssetDialog extends HeadlineNodeAdoptOrp
         LayoutInflater.from(getContext()).inflate(R.layout.adopt_orphan__strategic_asset__into__project, anAdoptionCandidateLayout, true);
         this.adoptionCandidateWidgetSpinner = (StrategicAssetWidgetSpinner) this.dialogBodyView.findViewById(R.id.adoption_candidate__spinner);
     }
-    @Override
-    protected ChildNodeType getOrphanType() {
-        return ChildNodeType.PRIMARY;
-    }
 
     protected boolean adoptOrphanHeadlineNode() {
         boolean theAdoptionStatus;
-        switch(getOrphanType()) {
-            case PRIMARY:
-                theAdoptionStatus = adoptPrimaryOrphanIntoParent();
-                break;
-            case PRIMARY__ALPHA_SORT:
-                theAdoptionStatus = adoptPrimaryOrphanIntoParentAlphaSort();
-                break;
-            case PRIMARY_LINK:
-                theAdoptionStatus = adoptPrimaryLinkOrphanIntoParent();
-                break;
-            default:
-                theAdoptionStatus = false;
-        }
+        theAdoptionStatus = adoptPrimaryOrphanIntoParent();
         toastAdoptionResult(theAdoptionStatus);
         return theAdoptionStatus;
     }

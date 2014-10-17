@@ -49,10 +49,9 @@ import android.widget.LinearLayout;
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewAdapter;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.enumerator.ChildNodeType;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmCompletionNode;
-import com.flywheelms.library.fms.widget.spinner.ProjectAssetWidgetSpinner;
+import com.flywheelms.library.fms.widget.spinner.ProjectWidgetSpinner;
 
 public class PortfolioAdoptOrphanProjectDialog extends HeadlineNodeAdoptOrphanDialog {
 
@@ -65,15 +64,23 @@ public class PortfolioAdoptOrphanProjectDialog extends HeadlineNodeAdoptOrphanDi
 
     @Override
     protected int getDialogTitleStringResourceId() {
-        return R.string.fms__adopt_orphan__project_asset;
+        return R.string.fms__adopt_orphan__project;
     }
 
     protected void initializeOrphanSpinner(LinearLayout anAdoptionCandidateLayout) {
-        LayoutInflater.from(getContext()).inflate(R.layout.adopt_orphan__project_asset__into__project, anAdoptionCandidateLayout, true);
-        this.adoptionCandidateWidgetSpinner = (ProjectAssetWidgetSpinner) this.dialogBodyView.findViewById(R.id.adoption_candidate__spinner);
+        LayoutInflater.from(getContext()).inflate(R.layout.adopt_orphan__project__into__portfolio, anAdoptionCandidateLayout, true);
+        this.adoptionCandidateWidgetSpinner = (ProjectWidgetSpinner) this.dialogBodyView.findViewById(R.id.adoption_candidate__spinner);
     }
 
-    @Override
-    protected ChildNodeType getOrphanType() {
-        return ChildNodeType.PRIMARY__ALPHA_SORT;
-    }}
+    protected boolean isAlphaSort() {
+        return true;
+    }
+
+    protected boolean adoptOrphanHeadlineNode() {
+        boolean theAdoptionStatus;
+        theAdoptionStatus = adoptPrimaryOrphanIntoParentAlphaSort();
+        toastAdoptionResult(theAdoptionStatus);
+        return theAdoptionStatus;
+    }
+
+}

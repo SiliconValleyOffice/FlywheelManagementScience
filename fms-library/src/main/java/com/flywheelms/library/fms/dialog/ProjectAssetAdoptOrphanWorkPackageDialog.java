@@ -49,7 +49,6 @@ import android.widget.LinearLayout;
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewAdapter;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.enumerator.ChildNodeType;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmCompletionNode;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
@@ -85,8 +84,10 @@ public class ProjectAssetAdoptOrphanWorkPackageDialog extends HeadlineNodeAdoptO
         this.adoptionCandidateWidgetSpinner = (ProjectAssetWidgetSpinner) this.dialogBodyView.findViewById(R.id.adoption_candidate__spinner);
     }
 
-    @Override
-    protected ChildNodeType getOrphanType() {
-        return ChildNodeType.PRIMARY;
+    protected boolean adoptOrphanHeadlineNode() {
+        boolean theAdoptionStatus;
+        theAdoptionStatus = adoptPrimaryOrphanIntoParent();
+        toastAdoptionResult(theAdoptionStatus);
+        return theAdoptionStatus;
     }
 }
