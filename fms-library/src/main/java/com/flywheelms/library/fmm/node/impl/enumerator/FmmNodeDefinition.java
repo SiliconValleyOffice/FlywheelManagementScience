@@ -1219,8 +1219,9 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 	public static final String name_COLUMN_2 = "node_name";
 	public static final String name_COLUMN_3 = "description";
 
-    static {
+    static {  // TODO - refactor for WorkAsset table being the overridded definition
         FmmNodeDefinition.STRATEGIC_ASSET.setFmmNodeDefinitionOverride(FmmNodeDefinition.PROJECT_ASSET);
+        FmmNodeDefinition.WORK_ASSET.setFmmNodeDefinitionOverride(FmmNodeDefinition.PROJECT_ASSET);
     }
 	
 	public static final ArrayList<FmmNodeDefinition> DATABASE_LOAD_ORDER = new ArrayList<FmmNodeDefinition>(

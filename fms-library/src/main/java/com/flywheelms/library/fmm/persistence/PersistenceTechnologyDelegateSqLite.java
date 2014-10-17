@@ -102,6 +102,7 @@ import com.flywheelms.library.fmm.meta_data.SequencedLinkNodeMetaData;
 import com.flywheelms.library.fmm.meta_data.StrategicAssetMetaData;
 import com.flywheelms.library.fmm.meta_data.StrategicCommitmentMetaData;
 import com.flywheelms.library.fmm.meta_data.StrategicMilestoneMetaData;
+import com.flywheelms.library.fmm.meta_data.WorkAssetMetaData;
 import com.flywheelms.library.fmm.meta_data.WorkPackageMetaData;
 import com.flywheelms.library.fmm.meta_data.WorkPlanMetaData;
 import com.flywheelms.library.fmm.meta_data.WorkTaskMetaData;
@@ -1867,9 +1868,18 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
     @SuppressWarnings("resource")
     @Override
+    public ArrayList<WorkAsset> dbListWorkAssets() {
+        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.WORK_ASSET.getTableName();
+        theRawQuery += " ORDER BY " + CompletableNodeMetaData.column_SEQUENCE + " ASC";
+        Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
+        return WorkAssetDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
+    }
+
+    @SuppressWarnings("resource")
+    @Override
     public ArrayList<WorkAsset> dbListWorkAssetsForProject(String aProjectId, String aWorkAssetExceptionId) {
-        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.PROJECT_ASSET.getTableName() +
-                " WHERE " + ProjectAssetMetaData.column_PROJECT_ID + " = '" + aProjectId + "'";
+        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.WORK_ASSET.getTableName() +
+                " WHERE " + WorkAssetMetaData.column_PROJECT_ID + " = '" + aProjectId + "'";
         if(aWorkAssetExceptionId != null) {
             theRawQuery += " AND " + IdNodeMetaData.column_ID + " != '" + aWorkAssetExceptionId + "'";
         }
@@ -1878,7 +1888,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
         return WorkAssetDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
     }
 
-    
+
 	////  Node - PROJECT ASSET  ////////////////////////////////////////////////////////////////////////////////
 
     @SuppressWarnings("resource")

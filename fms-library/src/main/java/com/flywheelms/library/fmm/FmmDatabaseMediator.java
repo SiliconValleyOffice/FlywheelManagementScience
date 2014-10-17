@@ -959,12 +959,16 @@ public class FmmDatabaseMediator {
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////  Node - WORK ASSET  ///////////////////////////////////////////////////////////////////////////////
 
+    public ArrayList<WorkAsset> listWorkAssets() {
+        return this.persistenceTechnologyDelegate.dbListWorkAssets();
+    }
+
     public ArrayList<WorkAsset> listWorkAssets(Project aProject) {
         return listWorkAssets(aProject, null);
     }
 
     public ArrayList<WorkAsset> listWorkAssets(Project aProject, WorkAsset aWorkAssetException) {
-        return this.persistenceTechnologyDelegate.dbListWorkAssets(aProject, aWorkAssetException);
+        return listWorkAssetsForProject(aProject.getNodeIdString(), aWorkAssetException == null ? null : aWorkAssetException.getNodeIdString());
     }
 
     public ArrayList<WorkAsset> listWorkAssetsForProject(String aProjectId) {
@@ -2921,7 +2925,8 @@ public class FmmDatabaseMediator {
 			FmmHeadlineNode aParentNode,
 			FmmHeadlineNode aPeerNode,
 			boolean bSequenceAtEnd ) {
-		return aParentNode.getFmmNodeDefinition() == FmmNodeDefinition.PROJECT_ASSET ?
+		return aParentNode.getFmmNodeDefinition() == FmmNodeDefinition.PROJECT_ASSET ||
+                aParentNode.getFmmNodeDefinition() == FmmNodeDefinition.STRATEGIC_ASSET ?
 				newWorkPackageForProjectAsset(aHeadline, aParentNode, aPeerNode, bSequenceAtEnd) :
 					newWorkPackageForFlywheelCadence(aHeadline, aParentNode, aPeerNode, bSequenceAtEnd);
 	}
