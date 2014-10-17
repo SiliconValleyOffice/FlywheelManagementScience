@@ -2180,6 +2180,20 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
         return StrategicAssetDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
     }
 
+    @SuppressWarnings("resource")
+    @Override
+    public ArrayList<StrategicAsset> dbListStrategicAssetsForProject(String aProjectId, String aStrategicAssetExceptionId) {
+        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.STRATEGIC_ASSET.getTableName() +
+                " WHERE " + StrategicAssetMetaData.column_PROJECT_ID + " = '" + aProjectId + "'" +
+                " AND " + StrategicAssetMetaData.column_IS_STRATEGIC + " = 1 ";
+        if(aStrategicAssetExceptionId != null) {
+            theRawQuery += " AND " + IdNodeMetaData.column_ID + " != '" + aStrategicAssetExceptionId + "'";
+        }
+        theRawQuery += " ORDER BY " + CompletableNodeMetaData.column_SEQUENCE + " ASC";
+        Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
+        return StrategicAssetDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
+    }
+
 
 
 

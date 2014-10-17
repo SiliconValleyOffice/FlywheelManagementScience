@@ -1279,6 +1279,10 @@ public class FmmDatabaseMediator {
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////  Node - STRATEGIC ASSET  ///////////////////////////////////////////////////////////////////////////////
 
+    public ArrayList<StrategicAsset> listStrategicAssets(Project aProject) {
+        return this.persistenceTechnologyDelegate.dbListStrategicAssets(aProject);
+    }
+
     public ArrayList<StrategicAsset> listStrategicAssets(StrategicMilestone aStrategicMilestone) {
         return this.persistenceTechnologyDelegate.dbListStrategicAssets(aStrategicMilestone);
     }

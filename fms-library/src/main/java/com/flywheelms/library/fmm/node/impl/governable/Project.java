@@ -199,10 +199,16 @@ public class Project extends FmmCompletableNodeImpl {
 
     @Override
     public ArrayList<? extends FmmHeadlineNode> getChildList(FmmNodeDefinition aChildNodeDefinition) {
-        ArrayList<? extends FmmHeadlineNodeImpl> theList = null;
+        ArrayList<? extends FmmHeadlineNode> theList = null;
         switch(aChildNodeDefinition) {
             case PROJECT_ASSET:
                 theList = FmmDatabaseMediator.getActiveMediator().listProjectAssets(this);
+                break;
+            case WORK_ASSET:
+                theList = FmmDatabaseMediator.getActiveMediator().listWorkAssets(this);
+                break;
+            case STRATEGIC_ASSET:
+                theList = FmmDatabaseMediator.getActiveMediator().listStrategicAssets(this);
                 break;
         }
         return theList;

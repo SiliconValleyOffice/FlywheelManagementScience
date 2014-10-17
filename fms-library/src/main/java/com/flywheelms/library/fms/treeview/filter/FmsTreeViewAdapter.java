@@ -437,7 +437,7 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
                     aLaunchNodeSequence,
                     aLaunchNodeCount);
         } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__EDIT_ALL_ASSETS)) {
-            editFmmHeadlineNodeChildren(aLaunchTreeNodeInfo, FmmNodeDefinition.PROJECT_ASSET);
+            editFmmHeadlineNodeChildren(aLaunchTreeNodeInfo, FmmNodeDefinition.WORK_ASSET);
 		} else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__DELETE_PROJECT_ASSET)) {
 			deleteProjectAsset(aLaunchHeadlineNode);
 		} else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__ORPHAN_PROJECT_ASSET)) {

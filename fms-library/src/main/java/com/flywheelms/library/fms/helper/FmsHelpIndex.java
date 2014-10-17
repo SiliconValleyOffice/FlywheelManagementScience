@@ -49,6 +49,7 @@ public class FmsHelpIndex {
 	public static final String COMMUNITY_MEMBER_ACTIVITY = "http://code.google.com/p/flywheel-management-science/wiki/UserDocCommunityMember";
 	public static final String FISCAL_YEAR_ACTIVITY = "http://code.google.com/p/flywheel-management-science/wiki/UserDocFiscalYearActivity";
 	public static final String PROJECT_ASSET_ACTIVITY = "http://code.google.com/p/flywheel-management-science/wiki/UserDocProjectAssetActivity";
+	public static final String WORK_ASSET_ACTIVITY = "http://code.google.com/p/flywheel-management-science/wiki/UserDocWorkAssetActivity";
 	public static final String STRATEGIC_ASSET_ACTIVITY = "http://code.google.com/p/flywheel-management-science/wiki/UserDocStrategicAssetActivity";
 	public static final String STRATEGIC_MILESTONE_ACTIVITY = "http://code.google.com/p/flywheel-management-science/wiki/UserDocStrategicMilestone";
 	public static final String FLYWHEEL_CADENCE_ACTIVITY = "http://code.google.com/p/flywheel-management-science/wiki/UserDocFlywheelCadence";

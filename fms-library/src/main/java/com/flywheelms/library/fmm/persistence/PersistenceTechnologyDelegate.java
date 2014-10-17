@@ -848,6 +848,12 @@ public abstract class PersistenceTechnologyDelegate {
 
     public abstract ArrayList<StrategicAsset> dbListStrategicAssets(StrategicMilestone aStrategicMilestone);
 
+    public ArrayList<StrategicAsset> dbListStrategicAssets(Project aProject) {
+        return dbListStrategicAssetsForProject(aProject.getNodeIdString(), null);
+    }
+
+    public abstract ArrayList<StrategicAsset> dbListStrategicAssetsForProject(String aProjectId, String aStrategicAssetExceptionId);
+
     public abstract boolean dbMoveSingleStrategicAssetIntoStrategicMilestone(String aStrategicAssetId, String anOriginalStrategicMilestonetId, String aDestinationStrategicMilestoneId, boolean bSequenceAtEnd, boolean bAtomicTransaction);
 
     public abstract ArrayList<StrategicAsset> dbListStrategicAssetsWithNoProject();
