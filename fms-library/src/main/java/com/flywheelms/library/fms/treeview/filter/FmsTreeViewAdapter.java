@@ -93,7 +93,7 @@ import com.flywheelms.library.fms.dialog.StrategicMilestoneMoveDialog;
 import com.flywheelms.library.fms.dialog.StrategicMilestoneTargetDateEditDialog;
 import com.flywheelms.library.fms.dialog.WorkPackageAdoptOrphanWorkTaskDialog;
 import com.flywheelms.library.fms.dialog.WorkPackageDeleteDialog;
-import com.flywheelms.library.fms.dialog.WorkPackageMoveWorkBreakdownDialog;
+import com.flywheelms.library.fms.dialog.WorkPackageMoveIntoWorkAssetDialog;
 import com.flywheelms.library.fms.dialog.WorkPackageOrphanDialog;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
 import com.flywheelms.library.fms.popup_menu.FmmHeadlineNodePopupListener;
@@ -639,7 +639,7 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
 
     private void moveWorkPackage(FmmHeadlineNode aLaunchHeadlineNode, FmmHeadlineNode aParentHeadlineNode, GcgPerspective aGcgPerspective) {
         if(aGcgPerspective == FmmPerspective.WORK_BREAKDOWN) {
-            getGcgActivity().startDialog(new WorkPackageMoveWorkBreakdownDialog(getGcgActivity(), this, (WorkPackage) aLaunchHeadlineNode, aParentHeadlineNode));
+            getGcgActivity().startDialog(new WorkPackageMoveIntoWorkAssetDialog(getGcgActivity(), this, (WorkPackage) aLaunchHeadlineNode, aParentHeadlineNode));
         }
     }
 

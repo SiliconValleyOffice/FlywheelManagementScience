@@ -1,4 +1,4 @@
-/* @(#)WorkPackageMoveDialog.java
+/* @(#)WorkPackageMoveIntoWorkAssetDialog.java
  ** 
  ** Copyright (C) 2012 by Steven D. Stamps
  **
@@ -51,31 +51,31 @@ import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewAdapter;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.interfaces.WorkAsset;
 import com.flywheelms.library.fmm.node.impl.governable.Portfolio;
 import com.flywheelms.library.fmm.node.impl.governable.Project;
-import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
 import com.flywheelms.library.fmm.node.impl.governable.WorkPackage;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.fms.widget.spinner.PortfolioWidgetSpinner;
-import com.flywheelms.library.fms.widget.spinner.ProjectAssetWidgetSpinner;
 import com.flywheelms.library.fms.widget.spinner.ProjectWidgetSpinner;
+import com.flywheelms.library.fms.widget.spinner.WorkAssetWidgetSpinner;
 
-public class WorkPackageMoveWorkBreakdownDialog extends HeadlineNodeMoveDialog {
+public class WorkPackageMoveIntoWorkAssetDialog extends HeadlineNodeMoveDialog {
 
-	public WorkPackageMoveWorkBreakdownDialog(GcgActivity aLibraryActivity, GcgTreeViewAdapter aTreeViewAdapter, WorkPackage aWorkPackage, FmmHeadlineNode aTargetHeadlineNodeException) {
+	public WorkPackageMoveIntoWorkAssetDialog(GcgActivity aLibraryActivity, GcgTreeViewAdapter aTreeViewAdapter, WorkPackage aWorkPackage, FmmHeadlineNode aTargetHeadlineNodeException) {
 		super(aLibraryActivity, aTreeViewAdapter, aWorkPackage, aTargetHeadlineNodeException);
 		initializeDialogBodyLate();
 	}
 
 	@Override
 	protected int getMoveDispositionLayoutResourceId() {
-        return R.layout.work_package__move_into__project_asset;
+        return R.layout.work_package__move_into__work_asset;
 	}
 
 	@Override
 	protected void setInitialDispositionTargetGrandparentSpinnerData() {
             ((PortfolioWidgetSpinner) this.dispositionTargetGrandparentWidgetSpinner).updateSpinnerData(
-                    (ProjectAsset) this.targetHeadlineNodeException);
+                    (WorkAsset) this.targetHeadlineNodeException);
 	}
 
 	@Override
@@ -92,14 +92,14 @@ public class WorkPackageMoveWorkBreakdownDialog extends HeadlineNodeMoveDialog {
     protected void updateDispositionTargetParentWidgetSpinner() {
         ((ProjectWidgetSpinner) this.dispositionTargetParentWidgetSpinner).updateSpinnerData(
                 (Portfolio) this.dispositionTargetGrandparentWidgetSpinner.getSelectedItem(),
-                (ProjectAsset) this.targetHeadlineNodeException);
+                (WorkAsset) this.targetHeadlineNodeException);
     }
 
 	@Override
 	protected void updateDispositionTargetWidgetSpinner() {
-            ((ProjectAssetWidgetSpinner) this.dispositionTargetWidgetSpinner).updateSpinnerData(
+            ((WorkAssetWidgetSpinner) this.dispositionTargetWidgetSpinner).updateSpinnerData(
                     (Project) this.dispositionTargetParentWidgetSpinner.getSelectedItem(),
-                    (ProjectAsset) this.targetHeadlineNodeException);
+                    (WorkAsset) this.targetHeadlineNodeException);
 	}
 
     @Override
@@ -119,7 +119,7 @@ public class WorkPackageMoveWorkBreakdownDialog extends HeadlineNodeMoveDialog {
 
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                WorkPackageMoveWorkBreakdownDialog.this.updateDispositionTargetParentWidgetSpinner();
+                WorkPackageMoveIntoWorkAssetDialog.this.updateDispositionTargetParentWidgetSpinner();
             }
 
             @Override
@@ -133,7 +133,7 @@ public class WorkPackageMoveWorkBreakdownDialog extends HeadlineNodeMoveDialog {
 
 			@Override
 			public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-				WorkPackageMoveWorkBreakdownDialog.this.updateDispositionTargetWidgetSpinner();
+				WorkPackageMoveIntoWorkAssetDialog.this.updateDispositionTargetWidgetSpinner();
 			}
 
 			@Override
@@ -144,7 +144,7 @@ public class WorkPackageMoveWorkBreakdownDialog extends HeadlineNodeMoveDialog {
 	@Override
 	protected boolean moveHeadlineNode() {
         boolean theMoveStatus = false;
-        theMoveStatus = FmmDatabaseMediator.getActiveMediator().moveSingleWorkPackageIntoProjectAsset(
+        theMoveStatus = FmmDatabaseMediator.getActiveMediator().moveSingleWorkPackageIntoWorkAsset(
                 getFmmHeadlineNode().getNodeIdString(),
                 ((WorkPackage) getFmmHeadlineNode()).getProjectAssetNodeIdString(),
                 this.dispositionTargetWidgetSpinner.getFmmNode().getNodeIdString(),

@@ -1039,7 +1039,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
     // TODO - should use MOVE_TARGET view and not include confirmed or proposed completions
     @SuppressWarnings("resource")
     @Override
-    public ArrayList<Portfolio> dbListPortfolioForProjectAssetMoveTarget(FmsOrganization anFmsOrganization, Project aProjectException) {
+    public ArrayList<Portfolio> dbListPortfolioForWorkAssetMoveTarget(FmsOrganization anFmsOrganization, Project aProjectException) {
         String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.PORTFOLIO.getTableName() +
                 " WHERE " + IdNodeMetaData.column_ID +
                 " IN (" +
@@ -1054,7 +1054,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
     }
 
     @Override
-    public ArrayList<Portfolio> dbListPortfolioForWorkPackageMoveTarget(FmsOrganization anFmsOrganization, ProjectAsset aProjectAssetException) {
+    public ArrayList<Portfolio> dbListPortfolioForWorkPackageMoveTarget(FmsOrganization anFmsOrganization, WorkAsset aWorkAssetException) {
         String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.PORTFOLIO.getTableName() +
             " WHERE " + IdNodeMetaData.column_ID +
             " IN (" +
@@ -1064,8 +1064,8 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
             " IN (" +
 
             " SELECT " + ProjectAssetMetaData.column_PROJECT_ID + " FROM " + FmmNodeDefinition.PROJECT_ASSET.getTableName();
-        if(aProjectAssetException != null) {
-            theRawQuery += " WHERE " + IdNodeMetaData.column_ID + " != '" + aProjectAssetException.getNodeIdString() + "' ";
+        if(aWorkAssetException != null) {
+            theRawQuery += " WHERE " + IdNodeMetaData.column_ID + " != '" + aWorkAssetException.getNodeIdString() + "' ";
         }
         theRawQuery += ")) ORDER BY " + HeadlineNodeMetaData.column_HEADLINE + " ASC";
         Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
@@ -1188,13 +1188,13 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
     }
 
     @Override
-    public ArrayList<Project> dbListProjectsForWorkPackageMoveTarget(Portfolio aPortfolio, ProjectAsset aProjectAssetException) {
+    public ArrayList<Project> dbListProjectsForWorkPackageMoveTarget(Portfolio aPortfolio, WorkAsset aWorkAssetException) {
         String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.PROJECT.getTableName() +
                 " WHERE " + ProjectMetaData.column_PORTFOLIO_ID + " = '" + aPortfolio.getNodeIdString() + "' AND " + IdNodeMetaData.column_ID +
                 " IN (" +
                 " SELECT " + ProjectAssetMetaData.column_PROJECT_ID + " FROM " + FmmNodeDefinition.PROJECT_ASSET.getTableName();
-        if(aProjectAssetException != null) {
-            theRawQuery += " WHERE " + IdNodeMetaData.column_ID + " != '" + aProjectAssetException.getNodeIdString() + "'";
+        if(aWorkAssetException != null) {
+            theRawQuery += " WHERE " + IdNodeMetaData.column_ID + " != '" + aWorkAssetException.getNodeIdString() + "'";
         }
         theRawQuery += ") ";
         theRawQuery += " ORDER BY " + HeadlineNodeMetaData.column_HEADLINE + " ASC";

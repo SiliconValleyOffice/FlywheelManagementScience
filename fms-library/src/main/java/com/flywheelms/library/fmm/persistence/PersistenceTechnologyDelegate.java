@@ -222,9 +222,9 @@ public abstract class PersistenceTechnologyDelegate {
 
     public abstract ArrayList<? extends GcgGuiable> dbListPortfolioForProjectMoveTarget(FmsOrganization anFmsOrganization, Portfolio aPortfolioException);
 
-    public abstract ArrayList<Portfolio> dbListPortfolioForProjectAssetMoveTarget(FmsOrganization anFmsOrganization, Project aProjectException);
+    public abstract ArrayList<Portfolio> dbListPortfolioForWorkAssetMoveTarget(FmsOrganization anFmsOrganization, Project aProjectException);
 
-    public abstract ArrayList<Portfolio> dbListPortfolioForWorkPackageMoveTarget(FmsOrganization anFmsOrganization, ProjectAsset aProjectAssetException);
+    public abstract ArrayList<Portfolio> dbListPortfolioForWorkPackageMoveTarget(FmsOrganization anFmsOrganization, WorkAsset aWorkAssetException);
 
     public abstract ArrayList<? extends GcgGuiable> dbListPortfolioForWorkTaskMoveTarget(FmsOrganization anFmsOrganization, WorkPackage aWorkPackageException);
 
@@ -580,7 +580,7 @@ public abstract class PersistenceTechnologyDelegate {
 
         public abstract ArrayList<Project> dbListProjectsForProjectAssetMoveTarget(Portfolio aPortfolio, Project aProjectException);
 
-        public abstract ArrayList<Project> dbListProjectsForWorkPackageMoveTarget(Portfolio aPortfolio, ProjectAsset aProjectAssetException);
+        public abstract ArrayList<Project> dbListProjectsForWorkPackageMoveTarget(Portfolio aPortfolio, WorkAsset aWorkAssetException);
 
         public abstract ArrayList<Project> dbListProjectsForWorkTaskMoveTarget(Portfolio aPortfolio, WorkPackage aWorkPackageException);
 

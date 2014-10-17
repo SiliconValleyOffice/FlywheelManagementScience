@@ -48,10 +48,10 @@ import android.util.AttributeSet;
 
 import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.interfaces.WorkAsset;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.governable.Portfolio;
 import com.flywheelms.library.fmm.node.impl.governable.Project;
-import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
 import com.flywheelms.library.fmm.node.impl.governable.WorkPackage;
 import com.flywheelms.library.fms.widget.FmmHeadlineNodeWidgetSpinner;
 
@@ -61,7 +61,7 @@ public class ProjectWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 
 	private Portfolio portfolio;  // primary parent
     private Project projectException;  // peer exception
-    private ProjectAsset projectAssetException;  // primary child exception
+    private WorkAsset workAssetException;  // primary child exception
     private WorkPackage workPackageException;  // primary child, primary child exception
 
 	public ProjectWidgetSpinner(Context aContext, AttributeSet anAttributeSet) {
@@ -111,7 +111,7 @@ public class ProjectWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 			theGuiableList = new ArrayList<GcgGuiable>(); 
 		} else {	
 			theGuiableList = new ArrayList<GcgGuiable>(FmmDatabaseMediator.getActiveMediator().listProjectsForWorkPackageMoveTarget(
-					this.portfolio, this.projectAssetException));
+					this.portfolio, this.workAssetException));
 		}
 		return theGuiableList;
 	}
@@ -134,9 +134,9 @@ public class ProjectWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 		super.updateSpinnerData();
 	}
 
-	public void updateSpinnerData(Portfolio aPortfolio, ProjectAsset aProjectAssetException) {
+	public void updateSpinnerData(Portfolio aPortfolio, WorkAsset aWorkAssetException) {
 		this.portfolio = aPortfolio;
-		this.projectAssetException = aProjectAssetException;
+		this.workAssetException = aWorkAssetException;
 		super.updateSpinnerData();
 	}
 

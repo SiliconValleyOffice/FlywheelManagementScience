@@ -128,9 +128,9 @@ public class WorkAssetWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 		super.updateSpinnerData();
 	}
 
-	public void updateSpinnerData(Project aProject, ProjectAsset aProjectAssetException) {
+	public void updateSpinnerData(Project aProject, WorkAsset aWorkAssetException) {
 		this.project = aProject;
-		this.workAssetException = aProjectAssetException;
+		this.workAssetException = aWorkAssetException;
 		super.updateSpinnerData();
 	}
 

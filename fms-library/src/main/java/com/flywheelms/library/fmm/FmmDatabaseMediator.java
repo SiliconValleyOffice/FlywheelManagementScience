@@ -839,12 +839,12 @@ public class FmmDatabaseMediator {
         return this.persistenceTechnologyDelegate.dbListPortfolioForProjectMoveTarget(anFmsOrganization, aPortfolioException);
     }
 
-    public ArrayList<? extends GcgGuiable> listPortfolioForProjectAssetMoveTarget(FmsOrganization anFmsOrganization, Project aProjectException) {
-        return this.persistenceTechnologyDelegate.dbListPortfolioForProjectAssetMoveTarget(anFmsOrganization, aProjectException);
+    public ArrayList<? extends GcgGuiable> listPortfolioForWorkAssetMoveTarget(FmsOrganization anFmsOrganization, Project aProjectException) {
+        return this.persistenceTechnologyDelegate.dbListPortfolioForWorkAssetMoveTarget(anFmsOrganization, aProjectException);
     }
 
-    public ArrayList<? extends GcgGuiable> listPortfolioForWorkPackageMoveTarget(FmsOrganization anFmsOrganization, ProjectAsset aProjectAssetException) {
-        return this.persistenceTechnologyDelegate.dbListPortfolioForWorkPackageMoveTarget(anFmsOrganization, aProjectAssetException);
+    public ArrayList<? extends GcgGuiable> listPortfolioForWorkPackageMoveTarget(FmsOrganization anFmsOrganization, WorkAsset aWorkAssetException) {
+        return this.persistenceTechnologyDelegate.dbListPortfolioForWorkPackageMoveTarget(anFmsOrganization, aWorkAssetException);
     }
 
     public ArrayList<? extends GcgGuiable> listPortfolioForWorkTaskMoveTarget(FmsOrganization anFmsOrganization, WorkPackage aWorkPackageException) {
@@ -943,8 +943,8 @@ public class FmmDatabaseMediator {
         return this.persistenceTechnologyDelegate.dbListProjectsForProjectAssetMoveTarget(aPortfolio, aProjectException);
     }
 
-    public ArrayList<Project> listProjectsForWorkPackageMoveTarget(Portfolio aPortfolio, ProjectAsset aProjectAssetException) {
-        return this.persistenceTechnologyDelegate.dbListProjectsForWorkPackageMoveTarget(aPortfolio, aProjectAssetException);
+    public ArrayList<Project> listProjectsForWorkPackageMoveTarget(Portfolio aPortfolio, WorkAsset aWorkAssetException) {
+        return this.persistenceTechnologyDelegate.dbListProjectsForWorkPackageMoveTarget(aPortfolio, aWorkAssetException);
     }
 
     public ArrayList<Project> listProjectOrphansFromPortfolio() {
@@ -3031,7 +3031,7 @@ public class FmmDatabaseMediator {
             bAtomicTransaction);
 	}
 
-    public boolean moveSingleWorkPackageIntoProjectAsset(
+    public boolean moveSingleWorkPackageIntoWorkAsset(
             String aWorkPackageId,
             String anOriginalProjectAssetId,
             String aDestinationProjectAssetId,

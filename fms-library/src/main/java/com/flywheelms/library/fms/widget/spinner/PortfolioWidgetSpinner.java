@@ -48,11 +48,11 @@ import android.util.AttributeSet;
 
 import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.interfaces.WorkAsset;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.governable.FmsOrganization;
 import com.flywheelms.library.fmm.node.impl.governable.Portfolio;
 import com.flywheelms.library.fmm.node.impl.governable.Project;
-import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
 import com.flywheelms.library.fmm.node.impl.governable.WorkPackage;
 import com.flywheelms.library.fms.widget.FmmHeadlineNodeWidgetSpinner;
 
@@ -62,7 +62,7 @@ public class PortfolioWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 
 	// primary parent is FmsOrganization, obtained using FmmDatabaseMediator.getActiveMediator().getFmmOwner()
 	private Project projectException;  // primary child
-	private ProjectAsset projectAssetException; // primary child, primary child
+	private WorkAsset projectAssetException; // primary child, primary child
 	private WorkPackage workPackageException;  // primary child, primary child, primary child
 	private Portfolio portfolioException; // peer exception
 
@@ -111,8 +111,8 @@ public class PortfolioWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
     // filter_id__PRIMARY_PARENT__PRIMARY_CHILD__PRIMARY_CHILD__MOVE_TARGET
 
     @Override
-    protected ArrayList<? extends GcgGuiable> getPrimaryParentPrimaryChildPrimaryChildMoveTargetGuiableList() { // ProjectAsset move target
-        return FmmDatabaseMediator.getActiveMediator().listPortfolioForProjectAssetMoveTarget(
+    protected ArrayList<? extends GcgGuiable> getPrimaryParentPrimaryChildPrimaryChildMoveTargetGuiableList() { // WorkAsset move target
+        return FmmDatabaseMediator.getActiveMediator().listPortfolioForWorkAssetMoveTarget(
                 FmmDatabaseMediator.getActiveMediator().getFmmOwner(), this.projectException);
     }
 
@@ -130,8 +130,8 @@ public class PortfolioWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 				FmmDatabaseMediator.getActiveMediator().getFmmOwner(), this.projectAssetException );
 	}
 
-    public void updateSpinnerData(ProjectAsset aProjectAssetException) {
-        this.projectAssetException = aProjectAssetException;
+    public void updateSpinnerData(WorkAsset aWorkAssetException) {
+        this.projectAssetException = aWorkAssetException;
         super.updateSpinnerData();
     }
 
