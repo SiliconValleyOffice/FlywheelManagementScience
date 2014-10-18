@@ -58,13 +58,6 @@ public class ProjectAdoptOrphanProjectAssetDialog extends HeadlineNodeAdoptOrpha
     public ProjectAdoptOrphanProjectAssetDialog(
             GcgActivity aLibraryActivity,
             GcgTreeViewAdapter aTreeViewAdapter,
-            FmmHeadlineNode aParentHeadlineNode ) {
-        super(aLibraryActivity, aTreeViewAdapter, FmmNodeDefinition.PROJECT_ASSET, aParentHeadlineNode);
-    }
-
-    public ProjectAdoptOrphanProjectAssetDialog(
-            GcgActivity aLibraryActivity,
-            GcgTreeViewAdapter aTreeViewAdapter,
             FmmNodeDefinition anOrphanFmmNodeDefinition,
             FmmHeadlineNode aParentHeadlineNode,
             int aParentNodeChildCount,

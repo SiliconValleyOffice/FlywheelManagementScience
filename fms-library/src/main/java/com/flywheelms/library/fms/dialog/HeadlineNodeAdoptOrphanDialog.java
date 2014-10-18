@@ -129,6 +129,13 @@ public abstract class HeadlineNodeAdoptOrphanDialog extends FmsCancelOkApplyFdkD
 		initFdkHostSupport();
 	}
 
+//    protected int getDialogTitleIconResourceId() {
+//        if (getFmmNodeDefinition() != null) {
+//            return getFmmNodeDefinition().getDialogDrawableResourceId();
+//        }
+//        return 0;
+//    }
+
 	@Override
 	protected int getCustomDialogContentsResourceId() {
 		return R.layout.fmm__headline_node__adopt_orphan__dialog;
@@ -168,9 +175,10 @@ public abstract class HeadlineNodeAdoptOrphanDialog extends FmsCancelOkApplyFdkD
             if(this.isParentNodeLaunch) {
                 this.firstRadioButton.setText("as first " + this.orphanFmmNodeDefinition.getName());
                 if(this.parentNodeChildCount > 0) {
-                    this.lastRadioButton.setVisibility(View.GONE);
-                } else {
                     this.lastRadioButton.setText("as last " + this.orphanFmmNodeDefinition.getName());
+                } else {
+                    this.lastRadioButton.setVisibility(View.GONE);
+                    this.firstRadioButton.setChecked(true);
                 }
                 this.headlineWidgetTextView.setVisibility(View.GONE);
             } else {

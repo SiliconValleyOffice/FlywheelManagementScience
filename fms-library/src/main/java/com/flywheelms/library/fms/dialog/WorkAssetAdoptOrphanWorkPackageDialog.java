@@ -50,26 +50,25 @@ import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewAdapter;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
-import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmCompletionNode;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.fms.widget.spinner.WorkPackageWidgetSpinner;
 
 public class WorkAssetAdoptOrphanWorkPackageDialog extends HeadlineNodeAdoptOrphanDialog {
 
-    public WorkAssetAdoptOrphanWorkPackageDialog(
-            GcgActivity aLibraryActivity,
-            GcgTreeViewAdapter aTreeViewAdapter,
-            FmmHeadlineNode aParentHeadlineNode) {
-        super(aLibraryActivity, aTreeViewAdapter, FmmNodeDefinition.WORK_PACKAGE, aParentHeadlineNode);
-    }
+//    public WorkAssetAdoptOrphanWorkPackageDialog(
+//            GcgActivity aLibraryActivity,
+//            GcgTreeViewAdapter aTreeViewAdapter,
+//            FmmHeadlineNode aParentHeadlineNode) {
+//        super(aLibraryActivity, aTreeViewAdapter, FmmNodeDefinition.WORK_PACKAGE, aParentHeadlineNode);
+//    }
 
     public WorkAssetAdoptOrphanWorkPackageDialog(
             GcgActivity aLibraryActivity,
             GcgTreeViewAdapter aTreeViewAdapter,
             FmmNodeDefinition anOrphanFmmNodeDefinition,
-            FmmCompletionNode aParentHeadlineNode,
+            FmmHeadlineNode aParentHeadlineNode,
             int aParentNodeChildCount,
-            FmmCompletionNode aLaunchHeadlineNode,
+            FmmHeadlineNode aLaunchHeadlineNode,
             int aLaunchNodeSequence) {
         super(aLibraryActivity, aTreeViewAdapter, anOrphanFmmNodeDefinition, aParentHeadlineNode, aParentNodeChildCount, aLaunchHeadlineNode, aLaunchNodeSequence);
     }

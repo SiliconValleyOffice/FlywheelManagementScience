@@ -342,8 +342,8 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
 			boolean bCanOrphan,
 			boolean bCanSequenceUp,
 			boolean bCanSequenceDown,
-			int aLaunchNodeSequence,
-			int aLaunchNodeChildCount ) {
+			int aLaunchHeadlineNodeSequence,
+			int aLaunchHeadlineNodeChildCount ) {
 		return FmmPopupBuilder.createPopupMenu(
 				this,
 				aLaunchTreeNodeInfo,
@@ -354,8 +354,8 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
 				bCanOrphan,
 				bCanSequenceUp,
 				bCanSequenceDown,
-                aLaunchNodeSequence,  // launch node sequence
-				aLaunchNodeChildCount );
+                aLaunchHeadlineNodeSequence,  // launch node sequence
+				aLaunchHeadlineNodeChildCount );
 	}
     
 	@Override
@@ -365,8 +365,8 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
             FmmHeadlineNode aParentHeadlineNode,
             GcgTreeNodeInfo aLaunchTreeNodeInfo,
             FmmHeadlineNode aLaunchHeadlineNode,
-            int aLaunchNodeSequence,
-			int aLaunchNodeChildCount ) {
+            int aLaunchHeadlineNodeSequence,
+			int aLaunchHeadlineNodeChildCount ) {
 		setRowBackground(aView, R.drawable.gcg__background_state_list__tree_row);
 		if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__CREATE_FISCAL_YEAR)) {
 			createFiscalYear();
@@ -377,8 +377,8 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
 					FmmNodeDefinition.STRATEGIC_MILESTONE,
 					aLaunchHeadlineNode,
 					aParentHeadlineNode,
-					aLaunchNodeSequence,
-					aLaunchNodeChildCount );
+					aLaunchHeadlineNodeSequence,
+					aLaunchHeadlineNodeChildCount );
         } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__EDIT_STRATEGIC_MILESTONES)) {
             editFmmHeadlineNodeChildren(aLaunchTreeNodeInfo, FmmNodeDefinition.STRATEGIC_MILESTONE);
 		} else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__DELETE_STRATEGIC_MILESTONE)) {
@@ -402,8 +402,8 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
                     FmmNodeDefinition.PROJECT,
                     aLaunchHeadlineNode,
                     aParentHeadlineNode,
-                    aLaunchNodeSequence,
-                    aLaunchNodeChildCount);
+                    aLaunchHeadlineNodeSequence,
+                    aLaunchHeadlineNodeChildCount);
         } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__EDIT_PROJECTS)) {
             editFmmHeadlineNodeChildren(aLaunchTreeNodeInfo, FmmNodeDefinition.PROJECT);
         } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__DELETE_PROJECT)) {
@@ -419,14 +419,14 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
                     FmmNodeDefinition.STRATEGIC_ASSET,
                     aLaunchHeadlineNode,
                     aParentHeadlineNode,
-                    aLaunchNodeSequence,
-                    aLaunchNodeChildCount);
+                    aLaunchHeadlineNodeSequence,
+                    aLaunchHeadlineNodeChildCount);
         } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__DELETE_STRATEGIC_ASSET)) {
             deleteStrategicAsset(aLaunchHeadlineNode);
         } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__EDIT_STRATEGIC_ASSETS)) {
             editFmmHeadlineNodeChildren(aLaunchTreeNodeInfo, FmmNodeDefinition.STRATEGIC_ASSET);
         } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__ADOPT_ORPHAN_STRATEGIC_ASSET)) {
-            adoptOrphanStrategicAsset(aLaunchHeadlineNode);
+            adoptOrphanStrategicAsset(aParentHeadlineNode, aLaunchHeadlineNodeChildCount, aLaunchHeadlineNode, aLaunchHeadlineNodeSequence);
         } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__PROMOTE_PROJECT_ASSET_TO_STRATEGIC_ASSET)) {
             promoteProjectAssetToStrategicAsset(aLaunchHeadlineNode);
         } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__MOVE_STRATEGIC_ASSET)) {
@@ -441,8 +441,8 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
                     FmmNodeDefinition.PROJECT_ASSET,
                     aLaunchHeadlineNode,
                     aParentHeadlineNode,
-                    aLaunchNodeSequence,
-                    aLaunchNodeChildCount);
+                    aLaunchHeadlineNodeSequence,
+                    aLaunchHeadlineNodeChildCount);
         } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__EDIT_ALL_ASSETS)) {
             editFmmHeadlineNodeChildren(aLaunchTreeNodeInfo, FmmNodeDefinition.WORK_ASSET);
 		} else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__DELETE_PROJECT_ASSET)) {
@@ -450,7 +450,7 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
 		} else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__ORPHAN_PROJECT_ASSET)) {
 			orphanProjectAsset(aLaunchHeadlineNode, aParentHeadlineNode);
 		} else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__ADOPT_ORPHAN_PROJECT_ASSET)) {
-            adoptOrphanProjectAsset(aParentHeadlineNode, aLaunchNodeChildCount, aLaunchHeadlineNode, aLaunchNodeSequence);
+            adoptOrphanProjectAsset(aParentHeadlineNode, aLaunchHeadlineNodeChildCount, aLaunchHeadlineNode, aLaunchHeadlineNodeSequence);
         } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__MOVE_PROJECT_ASSET)) {
             moveProjectAsset(aLaunchHeadlineNode, aParentHeadlineNode);
 		} else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__CREATE_WORK_PACKAGE)) {
@@ -458,8 +458,8 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
                     FmmNodeDefinition.WORK_PACKAGE,
                     aLaunchHeadlineNode,
                     aParentHeadlineNode,
-                    aLaunchNodeSequence,
-                    aLaunchNodeChildCount);
+                    aLaunchHeadlineNodeSequence,
+                    aLaunchHeadlineNodeChildCount);
         } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__EDIT_WORK_PACKAGES)) {
             editFmmHeadlineNodeChildren(aLaunchTreeNodeInfo, FmmNodeDefinition.WORK_PACKAGE);
 		} else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__DELETE_WORK_PACKAGE)) {
@@ -467,7 +467,7 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
         } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__ORPHAN_WORK_PACKAGE)) {
             orphanWorkPackage(aLaunchHeadlineNode, aParentHeadlineNode);
 		} else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__ADOPT_ORPHAN_WORK_PACKAGE)) {
-			adoptOrphanWorkPackage(aLaunchHeadlineNode);
+			adoptOrphanWorkPackage(aParentHeadlineNode, aLaunchHeadlineNodeChildCount, aLaunchHeadlineNode, aLaunchHeadlineNodeSequence);
         } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__MOVE_WORK_PACKAGE)) {
             moveWorkPackage(aLaunchHeadlineNode, aParentHeadlineNode, aLaunchTreeNodeInfo.getGcgPerspective());
         } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__CREATE_WORK_TASK)) {
@@ -475,8 +475,8 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
                     FmmNodeDefinition.WORK_TASK,
                     aLaunchHeadlineNode,
                     aParentHeadlineNode,
-                    aLaunchNodeSequence,
-                    aLaunchNodeChildCount);
+                    aLaunchHeadlineNodeSequence,
+                    aLaunchHeadlineNodeChildCount);
         } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__EDIT_WORK_TASKS)) {
             editFmmHeadlineNodeChildren(aLaunchTreeNodeInfo, FmmNodeDefinition.WORK_TASK);
         } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__DELETE_WORK_TASK)) {
@@ -484,7 +484,7 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
         } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__ORPHAN_WORK_TASK)) {
             orphanWorkTask(aLaunchHeadlineNode, aParentHeadlineNode);
         } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__ADOPT_ORPHAN_WORK_TASK)) {
-            adoptOrphanWorkTask(aLaunchHeadlineNode);
+            adoptOrphanWorkTask(aParentHeadlineNode, aLaunchHeadlineNodeChildCount, aLaunchHeadlineNode, aLaunchHeadlineNodeSequence);
         } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__MOVE_WORK_TASK)) {
             moveWorkTask(aLaunchHeadlineNode, aParentHeadlineNode);
 		} else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__SEQUENCE_DOWN)) {
@@ -556,10 +556,10 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
         FmsActivityHelper.startCreateAllFlywheelCadenceForYearWizard(getGcgActivity(), aLaunchHeadlineNode.getNodeIdString());
     }
 
-    public static boolean isPeerLaunch(FmmNodeDefinition aTargetNodeDefinition, FmmNodeDefinition aLaunchNodeDefinition) {
-        boolean isPeerLaunch = aTargetNodeDefinition == aLaunchNodeDefinition;
+    public static boolean isPeerLaunch(FmmNodeDefinition aTargetNodeDefinition, FmmNodeDefinition aLaunchHeadlineNodeDefinition) {
+        boolean isPeerLaunch = aTargetNodeDefinition == aLaunchHeadlineNodeDefinition;
         if(! isPeerLaunch) {
-            if(aTargetNodeDefinition == FmmNodeDefinition.PROJECT_ASSET && aLaunchNodeDefinition == FmmNodeDefinition.STRATEGIC_ASSET) {
+            if(aTargetNodeDefinition == FmmNodeDefinition.PROJECT_ASSET && aLaunchHeadlineNodeDefinition == FmmNodeDefinition.STRATEGIC_ASSET) {
                 isPeerLaunch = true;
             }
         }
@@ -570,16 +570,16 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
 			FmmNodeDefinition anFmmNodeDefinition,
 			FmmHeadlineNode aLaunchHeadlineNode,
 			FmmHeadlineNode aParentHeadlineNode,
-			int aLaunchNodeSequence,
-			int aLaunchNodeChildNodeCount ) {
+			int aLaunchHeadlineNodeSequence,
+			int aLaunchHeadlineNodeChildNodeCount ) {
 		this.getGcgActivity().startDialog(new HeadlineNodeCreateDialog(
 				getGcgActivity(),
 				this,
 				anFmmNodeDefinition,
 				aLaunchHeadlineNode,
 				aParentHeadlineNode,
-				aLaunchNodeSequence,
-				aLaunchNodeChildNodeCount ));
+				aLaunchHeadlineNodeSequence,
+				aLaunchHeadlineNodeChildNodeCount ));
 	}
 
 	private void deleteStrategicMilestone(FmmHeadlineNode aStrategicMilestoneHeadlineNode) {
@@ -621,19 +621,26 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
         getGcgActivity().startDialog(new StrategicAssetOrphanDialog(getGcgActivity(), this, (StrategicAsset) aStrategicAssetHeadlineNode, aProjectHeadlineNode));
     }
 
-	private void adoptOrphanProjectAsset(FmmHeadlineNode aParentHeadlineNode, int aParentNodeChildCount, FmmHeadlineNode aLaunchNode, int aLaunchNodeSequence) {
+	private void adoptOrphanProjectAsset(FmmHeadlineNode aParentHeadlineNode, int aParentNodeChildCount, FmmHeadlineNode aLaunchHeadlineNode, int aLaunchHeadlineNodeSequence) {
         getGcgActivity().startDialog(new ProjectAdoptOrphanProjectAssetDialog(
                 getGcgActivity(),
                 this,
                 FmmNodeDefinition.PROJECT_ASSET,
-                aParentHeadlineNode,
-                FmsTreeViewAdapter.isPeerLaunch(FmmNodeDefinition.PROJECT_ASSET, aLaunchNode.getFmmNodeDefinition()) ? 0 : aParentNodeChildCount,
-                aLaunchNode,
-                aLaunchNodeSequence ));
+                aParentHeadlineNode.getFmmNodeDefinition() != FmmNodeDefinition.PROJECT_ASSET || aParentHeadlineNode.getFmmNodeDefinition() != FmmNodeDefinition.STRATEGIC_ASSET ? aLaunchHeadlineNode : aParentHeadlineNode,
+                FmsTreeViewAdapter.isPeerLaunch(FmmNodeDefinition.PROJECT_ASSET, aLaunchHeadlineNode.getFmmNodeDefinition()) ? 0 : aParentNodeChildCount,
+                aLaunchHeadlineNode,
+                aLaunchHeadlineNodeSequence ));
 	}
 
-    private void adoptOrphanStrategicAsset(FmmHeadlineNode aParentHeadlineNode) {
-            getGcgActivity().startDialog(new ProjectAdoptOrphanStrategicAssetDialog(getGcgActivity(), this, aParentHeadlineNode));
+    private void adoptOrphanStrategicAsset(FmmHeadlineNode aParentHeadlineNode, int aParentNodeChildCount, FmmHeadlineNode aLaunchHeadlineNode, int aLaunchHeadlineNodeSequence) {
+            getGcgActivity().startDialog(new ProjectAdoptOrphanStrategicAssetDialog(
+                    getGcgActivity(),
+                    this,
+                    FmmNodeDefinition.STRATEGIC_ASSET,
+                    aParentHeadlineNode.getFmmNodeDefinition() != FmmNodeDefinition.PROJECT_ASSET || aParentHeadlineNode.getFmmNodeDefinition() != FmmNodeDefinition.STRATEGIC_ASSET ? aLaunchHeadlineNode : aParentHeadlineNode,
+                    FmsTreeViewAdapter.isPeerLaunch(FmmNodeDefinition.STRATEGIC_ASSET, aLaunchHeadlineNode.getFmmNodeDefinition()) ? 0 : aParentNodeChildCount,
+                    aLaunchHeadlineNode,
+                    aLaunchHeadlineNodeSequence ));
     }
 
     private void promoteProjectAssetToStrategicAsset(FmmHeadlineNode aParentHeadlineNode) {
@@ -644,8 +651,15 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
         getGcgActivity().startDialog(new WorkPackageDeleteDialog(getGcgActivity(), this, aWorkPackageNode));
 	}
 
-	private void adoptOrphanWorkPackage(FmmHeadlineNode aWorkAssetHeadlineNode) {
-		getGcgActivity().startDialog(new WorkAssetAdoptOrphanWorkPackageDialog(getGcgActivity(), this, aWorkAssetHeadlineNode));
+	private void adoptOrphanWorkPackage(FmmHeadlineNode aParentHeadlineNode, int aParentNodeChildCount, FmmHeadlineNode aLaunchHeadlineNode, int aLaunchHeadlineNodeSequence) {
+		getGcgActivity().startDialog(new WorkAssetAdoptOrphanWorkPackageDialog(
+                getGcgActivity(),
+                this,
+                FmmNodeDefinition.WORK_PACKAGE,
+                aParentHeadlineNode.getFmmNodeDefinition() != FmmNodeDefinition.WORK_PACKAGE ? aLaunchHeadlineNode : aParentHeadlineNode,
+                FmsTreeViewAdapter.isPeerLaunch(FmmNodeDefinition.WORK_PACKAGE, aLaunchHeadlineNode.getFmmNodeDefinition()) ? 0 : aParentNodeChildCount,
+                aLaunchHeadlineNode,
+                aLaunchHeadlineNodeSequence ));
 	}
 
     private void moveWorkPackage(FmmHeadlineNode aLaunchHeadlineNode, FmmHeadlineNode aParentHeadlineNode, GcgPerspective aGcgPerspective) {
@@ -658,8 +672,15 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
         getGcgActivity().startDialog(new WorkPackageOrphanDialog(getGcgActivity(), this, (WorkPackage) aWorkPackageHeadlineNode, aParentHeadlineNode));
     }
 
-    private void adoptOrphanWorkTask(FmmHeadlineNode aWorkPackageHeadlineNode) {
-        getGcgActivity().startDialog(new WorkPackageAdoptOrphanWorkTaskDialog(getGcgActivity(), this, aWorkPackageHeadlineNode));
+    private void adoptOrphanWorkTask(FmmHeadlineNode aParentHeadlineNode, int aParentNodeChildCount, FmmHeadlineNode aLaunchHeadlineNode, int aLaunchHeadlineNodeSequence) {
+        getGcgActivity().startDialog(new WorkPackageAdoptOrphanWorkTaskDialog(
+                getGcgActivity(),
+                this,
+                FmmNodeDefinition.WORK_TASK,
+                aParentHeadlineNode.getFmmNodeDefinition() != FmmNodeDefinition.WORK_TASK ? aLaunchHeadlineNode : aParentHeadlineNode,
+                FmsTreeViewAdapter.isPeerLaunch(FmmNodeDefinition.WORK_TASK, aLaunchHeadlineNode.getFmmNodeDefinition()) ? 0 : aParentNodeChildCount,
+                aLaunchHeadlineNode,
+                aLaunchHeadlineNodeSequence ));
     }
 
     private void deleteWorkTask(@SuppressWarnings("unused") FmmHeadlineNode aFiscalYearHeadlineNode) {
