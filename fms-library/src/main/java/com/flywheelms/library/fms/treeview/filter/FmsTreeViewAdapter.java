@@ -626,7 +626,7 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
                 getGcgActivity(),
                 this,
                 FmmNodeDefinition.PROJECT_ASSET,
-                aParentHeadlineNode.getFmmNodeDefinition() != FmmNodeDefinition.PROJECT_ASSET || aParentHeadlineNode.getFmmNodeDefinition() != FmmNodeDefinition.STRATEGIC_ASSET ? aLaunchHeadlineNode : aParentHeadlineNode,
+                FmsTreeViewAdapter.isPeerLaunch(FmmNodeDefinition.PROJECT_ASSET, aLaunchHeadlineNode.getFmmNodeDefinition()) ? aParentHeadlineNode : aLaunchHeadlineNode,
                 FmsTreeViewAdapter.isPeerLaunch(FmmNodeDefinition.PROJECT_ASSET, aLaunchHeadlineNode.getFmmNodeDefinition()) ? 0 : aParentNodeChildCount,
                 aLaunchHeadlineNode,
                 aLaunchHeadlineNodeSequence ));
@@ -637,7 +637,7 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
                     getGcgActivity(),
                     this,
                     FmmNodeDefinition.STRATEGIC_ASSET,
-                    aParentHeadlineNode.getFmmNodeDefinition() != FmmNodeDefinition.PROJECT_ASSET || aParentHeadlineNode.getFmmNodeDefinition() != FmmNodeDefinition.STRATEGIC_ASSET ? aLaunchHeadlineNode : aParentHeadlineNode,
+                    FmsTreeViewAdapter.isPeerLaunch(FmmNodeDefinition.PROJECT_ASSET, aLaunchHeadlineNode.getFmmNodeDefinition()) ? aParentHeadlineNode : aLaunchHeadlineNode,
                     FmsTreeViewAdapter.isPeerLaunch(FmmNodeDefinition.STRATEGIC_ASSET, aLaunchHeadlineNode.getFmmNodeDefinition()) ? 0 : aParentNodeChildCount,
                     aLaunchHeadlineNode,
                     aLaunchHeadlineNodeSequence ));
@@ -656,7 +656,7 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
                 getGcgActivity(),
                 this,
                 FmmNodeDefinition.WORK_PACKAGE,
-                aParentHeadlineNode.getFmmNodeDefinition() != FmmNodeDefinition.WORK_PACKAGE ? aLaunchHeadlineNode : aParentHeadlineNode,
+                FmsTreeViewAdapter.isPeerLaunch(FmmNodeDefinition.WORK_PACKAGE, aLaunchHeadlineNode.getFmmNodeDefinition()) ? aParentHeadlineNode : aLaunchHeadlineNode,
                 FmsTreeViewAdapter.isPeerLaunch(FmmNodeDefinition.WORK_PACKAGE, aLaunchHeadlineNode.getFmmNodeDefinition()) ? 0 : aParentNodeChildCount,
                 aLaunchHeadlineNode,
                 aLaunchHeadlineNodeSequence ));
@@ -677,7 +677,7 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
                 getGcgActivity(),
                 this,
                 FmmNodeDefinition.WORK_TASK,
-                aParentHeadlineNode.getFmmNodeDefinition() != FmmNodeDefinition.WORK_TASK ? aLaunchHeadlineNode : aParentHeadlineNode,
+                FmsTreeViewAdapter.isPeerLaunch(FmmNodeDefinition.WORK_TASK, aLaunchHeadlineNode.getFmmNodeDefinition()) ? aParentHeadlineNode : aLaunchHeadlineNode,
                 FmsTreeViewAdapter.isPeerLaunch(FmmNodeDefinition.WORK_TASK, aLaunchHeadlineNode.getFmmNodeDefinition()) ? 0 : aParentNodeChildCount,
                 aLaunchHeadlineNode,
                 aLaunchHeadlineNodeSequence ));

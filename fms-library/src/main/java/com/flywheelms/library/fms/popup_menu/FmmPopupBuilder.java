@@ -537,7 +537,8 @@ public class FmmPopupBuilder {
 		if(bCanOrphan) {
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__ORPHAN_WORK_PACKAGE);
 		}
-		if(bCanSequenceUp) {
+        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__ADOPT_ORPHAN_WORK_PACKAGE);
+        if(bCanSequenceUp) {
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__SEQUENCE_FIRST);
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__SEQUENCE_UP);
 		}

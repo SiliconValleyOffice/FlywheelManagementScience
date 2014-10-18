@@ -67,6 +67,7 @@ import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmCompletionNode;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.fms.helper.FmsSearchHelper;
+import com.flywheelms.library.fms.treeview.filter.FmsTreeViewAdapter;
 import com.flywheelms.library.fms.widget.FmmHeadlineNodeWidgetSpinner;
 import com.flywheelms.library.fms.widget.text_view.FmmNodeTypeWidgetTextView;
 import com.flywheelms.library.fms.widget.text_view.HeadlineWidgetTextView;
@@ -357,7 +358,7 @@ public abstract class HeadlineNodeAdoptOrphanDialog extends FmsCancelOkApplyFdkD
         return FmmDatabaseMediator.getActiveMediator().adoptPrimaryOrphanIntoParent(
                 (FmmCompletionNode) this.adoptionCandidateWidgetSpinner.getFmmNode(),
                 this.parentNode,
-                this.parentNode == this.launchNode ? null : this.launchNode,
+                FmsTreeViewAdapter.isPeerLaunch(this.parentNode.getFmmNodeDefinition(), this.launchNode.getFmmNodeDefinition()) ? null : this.launchNode,
                 this.lastRadioButton == null ? false : this.lastRadioButton.isChecked(),
                 true);  // atomic transaction
     }

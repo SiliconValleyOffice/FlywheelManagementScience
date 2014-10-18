@@ -41,18 +41,12 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="app: com.flywheelms.workbench" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c0b3b16b-24dc-4ad0-83f8-e1821de85d20" name="Default" comment="iteration - orphan Work Package from Strategic Asset">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout/adopt_orphan__work_task__into__work_package.xml" />
+    <list default="true" id="c0b3b16b-24dc-4ad0-83f8-e1821de85d20" name="Default" comment="iteration - orphan framework">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/fms_activity__work_asset.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/fms_dialog__work_asset.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/popup_menu/FmmPopupBuilder.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/popup_menu/FmmPopupBuilder.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/treeview/filter/FmsTreeViewAdapter.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/treeview/filter/FmsTreeViewAdapter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/HeadlineNodeAdoptOrphanDialog.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/HeadlineNodeAdoptOrphanDialog.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/ProjectAdoptOrphanProjectAssetDialog.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/ProjectAdoptOrphanProjectAssetDialog.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/ProjectAdoptOrphanStrategicAssetDialog.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/ProjectAdoptOrphanStrategicAssetDialog.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/WorkAssetAdoptOrphanWorkPackageDialog.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/WorkAssetAdoptOrphanWorkPackageDialog.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/WorkPackageAdoptOrphanWorkTaskDialog.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/WorkPackageAdoptOrphanWorkTaskDialog.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout/adopt_orphan__project__into__portfolio.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout/adopt_orphan__project__into__portfolio.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout/adopt_orphan__project_asset__into__project.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout/adopt_orphan__project_asset__into__project.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout/adopt_orphan__project_asset__into__strategic_milestone.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout/adopt_orphan__project_asset__into__strategic_milestone.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout/adopt_orphan__strategic_asset__into__project.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout/adopt_orphan__strategic_asset__into__project.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -77,60 +71,34 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="HeadlineNodeAdoptOrphanDialog.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/HeadlineNodeAdoptOrphanDialog.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.767857" vertical-offset="1180" max-vertical-offset="5678">
-              <caret line="136" column="7" selection-start-line="131" selection-start-column="4" selection-end-line="136" selection-end-column="7" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#4599#4611#0" expanded="true" />
-                <element signature="e#8207#8233#0" expanded="true" />
-                <element signature="e#8281#8306#0" expanded="true" />
-                <element signature="e#11849#11879#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="FmsTreeViewAdapter.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/treeview/filter/FmsTreeViewAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="4.798371" vertical-offset="9255" max-vertical-offset="13651">
-              <caret line="683" column="35" selection-start-line="683" selection-start-column="35" selection-end-line="683" selection-end-column="35" />
+            <state vertical-scroll-proportion="0.33197555" vertical-offset="11380" max-vertical-offset="13634">
+              <caret line="679" column="47" selection-start-line="679" selection-start-column="35" selection-end-line="679" selection-end-column="47" />
               <folding>
-                <element signature="e#0#43316#0" expanded="true" />
+                <element signature="e#0#43218#0" expanded="true" />
                 <element signature="imports" expanded="true" />
-                <element signature="e#6044#6248#0" expanded="true" />
-                <element signature="e#6244#6245#0" expanded="true" />
-                <element signature="e#6326#6537#0" expanded="true" />
-                <element signature="e#6533#6534#0" expanded="true" />
-                <element signature="e#6618#6832#0" expanded="true" />
-                <element signature="e#6828#6829#0" expanded="true" />
-                <element signature="e#6902#7105#0" expanded="true" />
-                <element signature="e#7101#7102#0" expanded="true" />
-                <element signature="e#14293#14294#0" expanded="true" />
-                <element signature="e#14353#14354#0" expanded="true" />
-                <element signature="e#14681#14705#0" expanded="true" />
-                <element signature="e#27772#27773#0" expanded="true" />
-                <element signature="e#27831#27832#0" expanded="true" />
-                <element signature="e#37662#37689#1" expanded="true" />
-                <element signature="e#39714#39738#0" expanded="true" />
-                <element signature="e#40048#40075#1" expanded="true" />
-                <element signature="e#40546#40547#0" expanded="true" />
-                <element signature="e#40573#40574#0" expanded="true" />
-                <element signature="e#40611#40638#1" expanded="true" />
+                <element signature="e#5988#6192#0" expanded="true" />
+                <element signature="e#6188#6189#0" expanded="true" />
+                <element signature="e#6270#6481#0" expanded="true" />
+                <element signature="e#6477#6478#0" expanded="true" />
+                <element signature="e#6562#6776#0" expanded="true" />
+                <element signature="e#6772#6773#0" expanded="true" />
+                <element signature="e#6846#7049#0" expanded="true" />
+                <element signature="e#7045#7046#0" expanded="true" />
+                <element signature="e#14237#14238#0" expanded="true" />
+                <element signature="e#14297#14298#0" expanded="true" />
+                <element signature="e#14625#14649#0" expanded="true" />
+                <element signature="e#27716#27717#0" expanded="true" />
+                <element signature="e#27775#27776#0" expanded="true" />
+                <element signature="e#37564#37591#1" expanded="true" />
+                <element signature="e#39616#39640#0" expanded="true" />
+                <element signature="e#39950#39977#1" expanded="true" />
+                <element signature="e#40448#40449#0" expanded="true" />
+                <element signature="e#40475#40476#0" expanded="true" />
+                <element signature="e#40513#40540#1" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WorkAssetAdoptOrphanWorkPackageDialog.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/WorkAssetAdoptOrphanWorkPackageDialog.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="54" max-vertical-offset="816">
-              <caret line="65" column="11" selection-start-line="65" selection-start-column="11" selection-end-line="65" selection-end-column="11" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -2831,7 +2799,6 @@
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/WorkPackageMoveIntoWorkAssetDialog.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/ProjectAssetMoveDialog.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/StrategicAssetMoveDialog.java" />
-        <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/popup_menu/FmmPopupBuilder.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/FmmDatabaseMediator.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/persistence/PersistenceTechnologyDelegateSqLite.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/persistence/PersistenceTechnologyDelegate.java" />
@@ -2850,6 +2817,7 @@
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/WorkAssetAdoptOrphanWorkPackageDialog.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/WorkPackageAdoptOrphanWorkTaskDialog.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/HeadlineNodeAdoptOrphanDialog.java" />
+        <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/popup_menu/FmmPopupBuilder.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/treeview/filter/FmsTreeViewAdapter.java" />
       </list>
     </option>
@@ -4042,7 +4010,11 @@
       <created>1413648564061</created>
       <updated>1413648564062</updated>
     </task>
-    <option name="localTasksCounter" value="218" />
+    <task id="LOCAL-00218" summary="iteration - orphan framework">
+      <created>1413654419287</created>
+      <updated>1413654419287</updated>
+    </task>
+    <option name="localTasksCounter" value="219" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -4066,13 +4038,13 @@
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37619555" sideWeight="0.4989953" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33553252" sideWeight="0.5010047" order="13" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19249862" sideWeight="0.48455057" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19249862" sideWeight="0.4855196" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24916276" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32837406" sideWeight="0.4989953" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32953784" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24983256" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39868048" sideWeight="0.4996651" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23375754" sideWeight="0.51404494" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3985122" sideWeight="0.4996651" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19249862" sideWeight="0.5144804" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -4126,7 +4098,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="2nd iteration - expand/collapse all from long press" />
     <MESSAGE value="code tweaks" />
     <MESSAGE value="new feature - secondary TreeView headlines for FlywheelCadence and WorkPlan" />
     <MESSAGE value="new GCG class to support saving/recovery of TreeNode state on pause/resume" />
@@ -4151,34 +4122,19 @@
     <MESSAGE value="incremental - orphan Strategic Asset from Project" />
     <MESSAGE value="incremental - orphan Work Package from Strategic Asset" />
     <MESSAGE value="iteration - orphan Work Package from Strategic Asset" />
-    <option name="LAST_COMMIT_MESSAGE" value="iteration - orphan Work Package from Strategic Asset" />
+    <MESSAGE value="iteration - orphan framework" />
+    <option name="LAST_COMMIT_MESSAGE" value="iteration - orphan framework" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/persistence/PersistenceTechnologyDelegate.java</url>
-          <line>598</line>
-          <properties class="com.flywheelms.library.fmm.persistence.PersistenceTechnologyDelegate" method="dbListWorkAssetsForProject" />
-          <option name="timeStamp" value="225" />
-        </line-breakpoint>
-      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="226" />
+      <option name="time" value="228" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/helper/FmsActivityHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3295" max-vertical-offset="3978">
-          <caret line="276" column="23" selection-start-line="276" selection-start-column="23" selection-end-line="276" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fms-workbench/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1173" max-vertical-offset="3247">
@@ -4369,14 +4325,6 @@
       </provider>
       <provider editor-type-id="android-designer">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/popup_menu/FmmPopupBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33279222" vertical-offset="6289" max-vertical-offset="9384">
-          <caret line="430" column="86" selection-start-line="430" selection-start-column="86" selection-end-line="430" selection-end-column="86" />
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/ProjectAssetOrphanDialog.java">
@@ -4601,17 +4549,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/layout/adopt_orphan__work_package__into__work_asset.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.2692308" vertical-offset="0" max-vertical-offset="306">
-          <caret line="5" column="39" selection-start-line="5" selection-start-column="39" selection-end-line="5" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/ProjectAdoptOrphanStrategicAssetDialog.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4885845" vertical-offset="36" max-vertical-offset="816">
@@ -4624,14 +4561,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3105023" vertical-offset="0" max-vertical-offset="657">
           <caret line="61" column="8" selection-start-line="61" selection-start-column="8" selection-end-line="61" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/ProjectAdoptOrphanProjectAssetDialog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20700152" vertical-offset="0" max-vertical-offset="833">
-          <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -4649,9 +4578,9 @@
         <state vertical-scroll-proportion="0.4885845" vertical-offset="36" max-vertical-offset="816">
           <caret line="72" column="27" selection-start-line="72" selection-start-column="27" selection-end-line="72" selection-end-column="27" />
           <folding>
-            <element signature="e#3847#3848#0" expanded="true" />
-            <element signature="e#3864#3901#0" expanded="true" />
-            <element signature="e#3907#3908#0" expanded="true" />
+            <element signature="e#3691#3692#0" expanded="true" />
+            <element signature="e#3708#3745#0" expanded="true" />
+            <element signature="e#3751#3752#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -4675,54 +4604,89 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/layout/adopt_orphan__work_package__into__work_asset.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15917604" vertical-offset="0" max-vertical-offset="534">
+          <caret line="5" column="39" selection-start-line="5" selection-start-column="39" selection-end-line="5" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/ProjectAdoptOrphanProjectAssetDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="833">
+          <caret line="57" column="11" selection-start-line="57" selection-start-column="11" selection-end-line="57" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/popup_menu/FmmPopupBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.39488116" vertical-offset="7995" max-vertical-offset="9401">
+          <caret line="531" column="87" selection-start-line="531" selection-start-column="87" selection-end-line="531" selection-end-column="87" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/HeadlineNodeAdoptOrphanDialog.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.767857" vertical-offset="1180" max-vertical-offset="5678">
-          <caret line="136" column="7" selection-start-line="131" selection-start-column="4" selection-end-line="136" selection-end-column="7" />
+        <state vertical-scroll-proportion="-2.9107144" vertical-offset="1027" max-vertical-offset="5695">
+          <caret line="111" column="11" selection-start-line="111" selection-start-column="11" selection-end-line="111" selection-end-column="11" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4599#4611#0" expanded="true" />
-            <element signature="e#8207#8233#0" expanded="true" />
-            <element signature="e#8281#8306#0" expanded="true" />
-            <element signature="e#11849#11879#0" expanded="true" />
+            <element signature="e#4669#4681#0" expanded="true" />
+            <element signature="e#8277#8303#0" expanded="true" />
+            <element signature="e#8351#8376#0" expanded="true" />
+            <element signature="e#11919#11949#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/activity/GcgActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="12218" max-vertical-offset="14297">
+          <caret line="904" column="0" selection-start-line="904" selection-start-column="0" selection-end-line="904" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/WorkAssetAdoptOrphanWorkPackageDialog.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="54" max-vertical-offset="816">
-          <caret line="65" column="11" selection-start-line="65" selection-start-column="11" selection-end-line="65" selection-end-column="11" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="212" max-vertical-offset="816">
+          <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/treeview/filter/FmsTreeViewAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="4.798371" vertical-offset="9255" max-vertical-offset="13651">
-          <caret line="683" column="35" selection-start-line="683" selection-start-column="35" selection-end-line="683" selection-end-column="35" />
+        <state vertical-scroll-proportion="0.33197555" vertical-offset="11380" max-vertical-offset="13634">
+          <caret line="679" column="47" selection-start-line="679" selection-start-column="35" selection-end-line="679" selection-end-column="47" />
           <folding>
-            <element signature="e#0#43316#0" expanded="true" />
+            <element signature="e#0#43218#0" expanded="true" />
             <element signature="imports" expanded="true" />
-            <element signature="e#6044#6248#0" expanded="true" />
-            <element signature="e#6244#6245#0" expanded="true" />
-            <element signature="e#6326#6537#0" expanded="true" />
-            <element signature="e#6533#6534#0" expanded="true" />
-            <element signature="e#6618#6832#0" expanded="true" />
-            <element signature="e#6828#6829#0" expanded="true" />
-            <element signature="e#6902#7105#0" expanded="true" />
-            <element signature="e#7101#7102#0" expanded="true" />
-            <element signature="e#14293#14294#0" expanded="true" />
-            <element signature="e#14353#14354#0" expanded="true" />
-            <element signature="e#14681#14705#0" expanded="true" />
-            <element signature="e#27772#27773#0" expanded="true" />
-            <element signature="e#27831#27832#0" expanded="true" />
-            <element signature="e#37662#37689#1" expanded="true" />
-            <element signature="e#39714#39738#0" expanded="true" />
-            <element signature="e#40048#40075#1" expanded="true" />
-            <element signature="e#40546#40547#0" expanded="true" />
-            <element signature="e#40573#40574#0" expanded="true" />
-            <element signature="e#40611#40638#1" expanded="true" />
+            <element signature="e#5988#6192#0" expanded="true" />
+            <element signature="e#6188#6189#0" expanded="true" />
+            <element signature="e#6270#6481#0" expanded="true" />
+            <element signature="e#6477#6478#0" expanded="true" />
+            <element signature="e#6562#6776#0" expanded="true" />
+            <element signature="e#6772#6773#0" expanded="true" />
+            <element signature="e#6846#7049#0" expanded="true" />
+            <element signature="e#7045#7046#0" expanded="true" />
+            <element signature="e#14237#14238#0" expanded="true" />
+            <element signature="e#14297#14298#0" expanded="true" />
+            <element signature="e#14625#14649#0" expanded="true" />
+            <element signature="e#27716#27717#0" expanded="true" />
+            <element signature="e#27775#27776#0" expanded="true" />
+            <element signature="e#37564#37591#1" expanded="true" />
+            <element signature="e#39616#39640#0" expanded="true" />
+            <element signature="e#39950#39977#1" expanded="true" />
+            <element signature="e#40448#40449#0" expanded="true" />
+            <element signature="e#40475#40476#0" expanded="true" />
+            <element signature="e#40513#40540#1" expanded="true" />
           </folding>
         </state>
       </provider>
