@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.flywheelms.library.fms.widget.spinner.WorkPackageWidgetSpinner
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:gcg="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/adoption_candidate__spinner"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    gcg:labelWidth="155"
+    gcg:zoomable="true" />
+

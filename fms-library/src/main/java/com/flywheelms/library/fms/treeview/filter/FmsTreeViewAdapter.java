@@ -80,7 +80,6 @@ import com.flywheelms.library.fms.dialog.PortfolioCreateDialog;
 import com.flywheelms.library.fms.dialog.PortfolioDeleteDialog;
 import com.flywheelms.library.fms.dialog.ProjectAdoptOrphanProjectAssetDialog;
 import com.flywheelms.library.fms.dialog.ProjectAdoptOrphanStrategicAssetDialog;
-import com.flywheelms.library.fms.dialog.ProjectAssetAdoptOrphanWorkPackageDialog;
 import com.flywheelms.library.fms.dialog.ProjectAssetDeleteDialog;
 import com.flywheelms.library.fms.dialog.ProjectAssetMoveDialog;
 import com.flywheelms.library.fms.dialog.ProjectAssetOrphanDialog;
@@ -94,6 +93,7 @@ import com.flywheelms.library.fms.dialog.StrategicMilestoneAdoptOrphanProjectAss
 import com.flywheelms.library.fms.dialog.StrategicMilestoneDeleteDialog;
 import com.flywheelms.library.fms.dialog.StrategicMilestoneMoveDialog;
 import com.flywheelms.library.fms.dialog.StrategicMilestoneTargetDateEditDialog;
+import com.flywheelms.library.fms.dialog.WorkAssetAdoptOrphanWorkPackageDialog;
 import com.flywheelms.library.fms.dialog.WorkPackageAdoptOrphanWorkTaskDialog;
 import com.flywheelms.library.fms.dialog.WorkPackageDeleteDialog;
 import com.flywheelms.library.fms.dialog.WorkPackageMoveIntoWorkAssetDialog;
@@ -644,8 +644,8 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
         getGcgActivity().startDialog(new WorkPackageDeleteDialog(getGcgActivity(), this, aWorkPackageNode));
 	}
 
-	private void adoptOrphanWorkPackage(FmmHeadlineNode aProjectAssetHeadlineNode) {
-		getGcgActivity().startDialog(new ProjectAssetAdoptOrphanWorkPackageDialog(getGcgActivity(), this, aProjectAssetHeadlineNode));
+	private void adoptOrphanWorkPackage(FmmHeadlineNode aWorkAssetHeadlineNode) {
+		getGcgActivity().startDialog(new WorkAssetAdoptOrphanWorkPackageDialog(getGcgActivity(), this, aWorkAssetHeadlineNode));
 	}
 
     private void moveWorkPackage(FmmHeadlineNode aLaunchHeadlineNode, FmmHeadlineNode aParentHeadlineNode, GcgPerspective aGcgPerspective) {

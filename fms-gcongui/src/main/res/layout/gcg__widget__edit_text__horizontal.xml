@@ -6,7 +6,8 @@
         android:id="@+id/widget__label"
         style="@style/GcgWidgetLabelHorizontalContainer"
         android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true" />
+        android:layout_centerVertical="true"
+        android:layout_marginRight="3dp"/>
     
     <TextView
         android:id="@+id/widget_fdk_cursor"

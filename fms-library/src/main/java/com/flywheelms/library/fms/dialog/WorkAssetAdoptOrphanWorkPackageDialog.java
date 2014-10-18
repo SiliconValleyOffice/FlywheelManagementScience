@@ -52,18 +52,18 @@ import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmCompletionNode;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
-import com.flywheelms.library.fms.widget.spinner.ProjectAssetWidgetSpinner;
+import com.flywheelms.library.fms.widget.spinner.WorkPackageWidgetSpinner;
 
-public class ProjectAssetAdoptOrphanWorkPackageDialog extends HeadlineNodeAdoptOrphanDialog {
+public class WorkAssetAdoptOrphanWorkPackageDialog extends HeadlineNodeAdoptOrphanDialog {
 
-    public ProjectAssetAdoptOrphanWorkPackageDialog(
+    public WorkAssetAdoptOrphanWorkPackageDialog(
             GcgActivity aLibraryActivity,
             GcgTreeViewAdapter aTreeViewAdapter,
-            FmmHeadlineNode aParentHeadlineNode ) {
-        super(aLibraryActivity, aTreeViewAdapter, FmmNodeDefinition.PROJECT, aParentHeadlineNode);
+            FmmHeadlineNode aParentHeadlineNode) {
+        super(aLibraryActivity, aTreeViewAdapter, FmmNodeDefinition.WORK_PACKAGE, aParentHeadlineNode);
     }
 
-    public ProjectAssetAdoptOrphanWorkPackageDialog(
+    public WorkAssetAdoptOrphanWorkPackageDialog(
             GcgActivity aLibraryActivity,
             GcgTreeViewAdapter aTreeViewAdapter,
             FmmNodeDefinition anOrphanFmmNodeDefinition,
@@ -76,12 +76,12 @@ public class ProjectAssetAdoptOrphanWorkPackageDialog extends HeadlineNodeAdoptO
 
     @Override
     protected int getDialogTitleStringResourceId() {
-        return R.string.fms__adopt_orphan__project_asset;
+        return R.string.fms__adopt_orphan__work_package;
     }
 
     protected void initializeOrphanSpinner(LinearLayout anAdoptionCandidateLayout) {
-        LayoutInflater.from(getContext()).inflate(R.layout.adopt_orphan__project_asset__into__project, anAdoptionCandidateLayout, true);
-        this.adoptionCandidateWidgetSpinner = (ProjectAssetWidgetSpinner) this.dialogBodyView.findViewById(R.id.adoption_candidate__spinner);
+        LayoutInflater.from(getContext()).inflate(R.layout.adopt_orphan__work_package__into__work_asset, anAdoptionCandidateLayout, true);
+        this.adoptionCandidateWidgetSpinner = (WorkPackageWidgetSpinner) this.dialogBodyView.findViewById(R.id.adoption_candidate__spinner);
     }
 
     protected boolean adoptOrphanHeadlineNode() {
