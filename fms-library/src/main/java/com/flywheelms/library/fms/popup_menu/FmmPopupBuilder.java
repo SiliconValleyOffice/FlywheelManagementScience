@@ -104,8 +104,7 @@ public class FmmPopupBuilder {
     public static final String menu_item__EDIT_STRATEGIC_ASSETS = "Edit Strategic Assets...";
     public static final String menu_item__DELETE_STRATEGIC_ASSET = "Delete Strategic Asset...";
     public static final String menu_item__DEMOTE_STRATEGIC_ASSET = "Demote Strategic Asset...";
-    public static final String menu_item__MOVE_STRATEGIC_ASSET__TO__MILESTONE = "Move Strategic Asset...";
-    public static final String menu_item__MOVE_STRATEGIC_ASSET__TO__PROJECT = "Move Strategic Asset...";
+    public static final String menu_item__MOVE_STRATEGIC_ASSET = "Move Strategic Asset...";
     public static final String menu_item__PROMOTE_PROJECT_ASSET_TO_STRATEGIC_ASSET = "Adopt Project Asset as strategic...";
 
 	public static final String menu_item__ADOPT_ORPHAN_WORK_PACKAGE = "Adopt orphan Work Package...";
@@ -385,7 +384,7 @@ public class FmmPopupBuilder {
 		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_PROJECT_ASSET);
         thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__ADOPT_ORPHAN_PROJECT_ASSET);
 		if(bCanMove) {
-			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__MOVE_STRATEGIC_ASSET__TO__PROJECT);
+			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__MOVE_STRATEGIC_ASSET);
 		}
 		if(bCanOrphan) {
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__ORPHAN_STRATEGIC_ASSET);
@@ -429,7 +428,7 @@ public class FmmPopupBuilder {
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__DEMOTE_STRATEGIC_ASSET);
 		}
 		if(bCanMove) {
-			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__MOVE_STRATEGIC_ASSET__TO__MILESTONE);
+			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__MOVE_STRATEGIC_ASSET);
 		}
         thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__PROMOTE_PROJECT_ASSET_TO_STRATEGIC_ASSET);
 		if(bCanSequenceUp) {

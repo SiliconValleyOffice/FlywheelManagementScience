@@ -51,29 +51,43 @@ import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewAdapter;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
+import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
 import com.flywheelms.library.fmm.node.impl.governable.Portfolio;
 import com.flywheelms.library.fmm.node.impl.governable.Project;
-import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
+import com.flywheelms.library.fmm.node.impl.governable.StrategicAsset;
+import com.flywheelms.library.fmm.node.impl.governable.StrategicMilestone;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
+import com.flywheelms.library.fms.widget.spinner.FiscalYearWidgetSpinner;
 import com.flywheelms.library.fms.widget.spinner.PortfolioWidgetSpinner;
 import com.flywheelms.library.fms.widget.spinner.ProjectWidgetSpinner;
+import com.flywheelms.library.fms.widget.spinner.StrategicMilestoneWidgetSpinner;
 
-public class ProjectAssetMoveDialog extends HeadlineNodeMoveDialog {
+public class StrategicAssetMoveDialog extends HeadlineNodeMoveDialog {
 
-	public ProjectAssetMoveDialog(GcgActivity aLibraryActivity, GcgTreeViewAdapter aTreeViewAdapter, ProjectAsset aHeadlineNode, FmmHeadlineNode aTargetHeadlineNodeException) {
+    private final boolean strataegicMilestoneParent;
+
+	public StrategicAssetMoveDialog(GcgActivity aLibraryActivity, GcgTreeViewAdapter aTreeViewAdapter, StrategicAsset aHeadlineNode, FmmHeadlineNode aTargetHeadlineNodeException) {
 		super(aLibraryActivity, aTreeViewAdapter, aHeadlineNode, aTargetHeadlineNodeException);
+        this.strataegicMilestoneParent = this.targetHeadlineNodeException.getFmmNodeDefinition() == FmmNodeDefinition.STRATEGIC_MILESTONE;
 		initializeDialogBodyLate();
 	}
 
 	@Override
 	protected int getMoveDispositionLayoutResourceId() {
-		return R.layout.project_asset__move_into__project;
+		return this.strataegicMilestoneParent ? R.layout.strategic_asset__move_into__strategic_milestone :
+                R.layout.strategic_asset__move_into__project;
 	}
 
 	@Override
 	protected void setInitialDispositionTargetParentSpinnerData() {
-        ((PortfolioWidgetSpinner) this.dispositionTargetParentWidgetSpinner).updateSpinnerData(
-                (Project) this.targetHeadlineNodeException);
+        if(this.strataegicMilestoneParent) {
+            ((FiscalYearWidgetSpinner) this.dispositionTargetParentWidgetSpinner).updateSpinnerData(
+                    (StrategicMilestone) this.targetHeadlineNodeException);
+        } else {
+            ((PortfolioWidgetSpinner) this.dispositionTargetParentWidgetSpinner).updateSpinnerData(
+                    (Project) this.targetHeadlineNodeException);
+        }
 	}
 
 	@Override
@@ -83,9 +97,15 @@ public class ProjectAssetMoveDialog extends HeadlineNodeMoveDialog {
 
 	@Override
 	protected void updateDispositionTargetWidgetSpinner() {
-        ((ProjectWidgetSpinner) this.dispositionTargetWidgetSpinner).updateSpinnerData(
-                (Portfolio) this.dispositionTargetParentWidgetSpinner.getSelectedItem(),
-                (Project) this.targetHeadlineNodeException );
+        if(this.strataegicMilestoneParent) {
+            ((StrategicMilestoneWidgetSpinner) this.dispositionTargetWidgetSpinner).updateSpinnerData(
+                    (FiscalYear) this.dispositionTargetParentWidgetSpinner.getSelectedItem(),
+                    (StrategicMilestone) this.targetHeadlineNodeException );
+        } else {
+            ((ProjectWidgetSpinner) this.dispositionTargetWidgetSpinner).updateSpinnerData(
+                    (Portfolio) this.dispositionTargetParentWidgetSpinner.getSelectedItem(),
+                    (Project) this.targetHeadlineNodeException );
+        }
 	}
 
 	@Override
@@ -105,7 +125,7 @@ public class ProjectAssetMoveDialog extends HeadlineNodeMoveDialog {
 
 			@Override
 			public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-				ProjectAssetMoveDialog.this.updateDispositionTargetWidgetSpinner();
+				StrategicAssetMoveDialog.this.updateDispositionTargetWidgetSpinner();
 			}
 
 			@Override
@@ -119,7 +139,7 @@ public class ProjectAssetMoveDialog extends HeadlineNodeMoveDialog {
 
 			@Override
 			public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-				ProjectAssetMoveDialog.this.updateSequencePositionWidgetSpinner();
+				StrategicAssetMoveDialog.this.updateSequencePositionWidgetSpinner();
 			}
 
 			@Override
@@ -130,12 +150,21 @@ public class ProjectAssetMoveDialog extends HeadlineNodeMoveDialog {
 	@Override
 	protected boolean moveHeadlineNode() {
         boolean theMoveStatus = false;
-        theMoveStatus = FmmDatabaseMediator.getActiveMediator().moveSingleProjectAssetIntoProject(
-                getFmmHeadlineNode().getNodeIdString(),
-                ((ProjectAsset) getFmmHeadlineNode()).getProjectNodeIdString(),
-                this.dispositionTargetWidgetSpinner.getFmmNode().getNodeIdString(),
-                this.sequencePositionSpinner.sequenceAtEnd(),
-                true);
+        if(this.strataegicMilestoneParent) {
+            theMoveStatus = FmmDatabaseMediator.getActiveMediator().moveSingleStrategicAssetIntoStrategicMilestone(
+                    getFmmHeadlineNode().getNodeIdString(),
+                    ((StrategicAsset) getFmmHeadlineNode()).getStrategicMilestoneNodeId(),
+                    this.dispositionTargetWidgetSpinner.getFmmNode().getNodeIdString(),
+                    this.sequencePositionSpinner.sequenceAtEnd(),
+                    true);
+        } else {
+            theMoveStatus = FmmDatabaseMediator.getActiveMediator().moveSingleStrategicAssetIntoProject(
+                    getFmmHeadlineNode().getNodeIdString(),
+                    ((StrategicAsset) getFmmHeadlineNode()).getProjectNodeIdString(),
+                    this.dispositionTargetWidgetSpinner.getFmmNode().getNodeIdString(),
+                    this.sequencePositionSpinner.sequenceAtEnd(),
+                    true);
+        }
 		toastMoveResult(theMoveStatus);
 		return theMoveStatus;
 	}

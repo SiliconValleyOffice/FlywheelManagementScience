@@ -858,6 +858,15 @@ public abstract class PersistenceTechnologyDelegate {
 
     public abstract boolean dbUpdateProjectAssetIsStrategic(String aProjectAssetId, boolean bStrategic);
 
+    public abstract boolean dbMoveSingleStrategicAssetIntoProject(
+            String aStrategicAssetId,
+            String aSourceProjectId,
+            String aDestinationProjectId,
+            boolean bSequenceAtEnd,
+            boolean bAtomicTransaction);
+
+    public abstract boolean dbOrphanSingleStrategicAssetFromProject(String aStrategicAssetId, String aProjectId, boolean bAtomicTransaction);
+
 
 
     /////////////////////////////////////////

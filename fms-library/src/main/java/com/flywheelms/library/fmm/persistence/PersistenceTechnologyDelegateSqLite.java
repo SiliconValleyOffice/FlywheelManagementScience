@@ -2204,6 +2204,45 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
         return StrategicAssetDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
     }
 
+    @Override
+    public boolean dbMoveSingleStrategicAssetIntoProject(
+            String aStrategicAssetId,
+            String aSourceProjectId,
+            String aDestinationProjectId,
+            boolean bSequenceAtEnd,
+            boolean bAtomicTransaction) {
+        if(bAtomicTransaction) {
+            startTransaction();
+        }
+        this.contentValues.clear();
+        this.contentValues.put(StrategicAssetMetaData.column_PROJECT_ID, aDestinationProjectId);
+        this.contentValues.put(CompletableNodeMetaData.column_SEQUENCE, updateSequenceBeforeAddingNewPeer(
+                FmmNodeDefinition.PROJECT_ASSET,
+                StrategicAssetMetaData.column_PROJECT_ID,
+                aDestinationProjectId,
+                bSequenceAtEnd ));
+        int theRowCount = getSqLiteDatabase().update(FmmNodeDefinition.PROJECT_ASSET.getTableName(), this.contentValues,
+                IdNodeMetaData.column_ID + " = '" + aStrategicAssetId + "'", null);
+        if(bAtomicTransaction) {
+            endTransaction(theRowCount > 0);
+        }
+        return theRowCount > 0;
+    }
+
+    @Override
+    public boolean dbOrphanSingleStrategicAssetFromProject(String aStrategicAssetId, String aProjectId, boolean bAtomicTransaction) {
+        boolean bSuccess = orphanSequenceRows(
+                FmmNodeDefinition.STRATEGIC_ASSET.getTableName(),
+                StrategicAssetMetaData.column_PROJECT_ID,
+                IdNodeMetaData.column_ID + " = '" + aStrategicAssetId + "'",
+                bAtomicTransaction);
+        reSequenceRows(
+                FmmNodeDefinition.STRATEGIC_ASSET.getTableName(),
+                StrategicAssetMetaData.column_PROJECT_ID,
+                aProjectId );
+        return bSuccess;
+    }
+
 
 
 

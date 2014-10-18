@@ -1164,6 +1164,17 @@ public class FmmDatabaseMediator {
         return isSuccess;
     }
 
+    public boolean orphanSingleStrategicAssetFromProject(String aStrategicAssetId, String aProjectId, boolean bAtomicTransaction) {
+        if(bAtomicTransaction) {
+            startTransaction();
+        }
+        boolean isSuccess = this.persistenceTechnologyDelegate.dbOrphanSingleStrategicAssetFromProject(aStrategicAssetId, aProjectId, bAtomicTransaction);
+        if(bAtomicTransaction) {
+            endTransaction(isSuccess);
+        }
+        return isSuccess;
+    }
+
     public ArrayList<ProjectAsset> listProjectAssetOrphansFromProject() {
         return this.persistenceTechnologyDelegate.dbListProjectAssetOrphansFromProject();
     }
@@ -1442,6 +1453,20 @@ public class FmmDatabaseMediator {
 
     public boolean existsStrategicAsset(String aNodeIdString) {
         return retrieveStrategicAsset(aNodeIdString) != null;
+    }
+
+    public boolean moveSingleStrategicAssetIntoProject(
+            String aStrategicAssetId,
+            String anOriginalProjectId,
+            String aDestinationProjectId,
+            boolean bSequenceAtEnd,
+            boolean bAtomicTransaction) {
+        return this.persistenceTechnologyDelegate.dbMoveSingleStrategicAssetIntoProject(
+                aStrategicAssetId,
+                anOriginalProjectId,
+                aDestinationProjectId,
+                bSequenceAtEnd,
+                bAtomicTransaction);
     }
 
 
