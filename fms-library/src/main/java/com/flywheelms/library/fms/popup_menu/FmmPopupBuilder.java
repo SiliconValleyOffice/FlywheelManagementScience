@@ -197,6 +197,7 @@ public class FmmPopupBuilder {
             thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__DELETE_FISCAL_YEAR);
         }
         if(aNodePopupListener.getFmsTreeViewParent().getGcgPerspective() == FmmPerspective.STRATEGIC_PLANNING) {
+            startNewGroup(thePopupMenu);
             thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_STRATEGIC_MILESTONE);
             if(aLaunchNodeChildCount > 0) {
                 thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_STRATEGIC_MILESTONES);
@@ -239,6 +240,9 @@ public class FmmPopupBuilder {
 		if(bCanMove) {
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__MOVE_STRATEGIC_MILESTONE);
 		}
+        if(bCanSequenceUp || bCanSequenceDown) {
+            startNewGroup(thePopupMenu);
+        }
 		if(bCanSequenceUp) {
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__SEQUENCE_FIRST);
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__SEQUENCE_UP);
@@ -247,13 +251,16 @@ public class FmmPopupBuilder {
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__SEQUENCE_DOWN);
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__SEQUENCE_LAST);
 		}
-		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_HEADLINE);
-		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_STRATEGIC_MILESTONE_TARGET_DATE);
-		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_STRATEGIC_ASSET);
+        startNewGroup(thePopupMenu);
+        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_HEADLINE);
+        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_STRATEGIC_MILESTONE_TARGET_DATE);
+        startNewGroup(thePopupMenu);
+        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_STRATEGIC_ASSET);
         if(aLaunchNodeChildCount > 0) {
             thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_STRATEGIC_ASSETS);
         }
-		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__PROMOTE_PROJECT_ASSET_TO_STRATEGIC_ASSET);
+        startNewGroup(thePopupMenu);
+        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__PROMOTE_PROJECT_ASSET_TO_STRATEGIC_ASSET);
 		return thePopupMenu;
 	}
 
@@ -271,7 +278,9 @@ public class FmmPopupBuilder {
         if(bCanDelete) {
             thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__DELETE_PORTFOLIO);
         }
+        startNewGroup(thePopupMenu);
         thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_HEADLINE);
+        startNewGroup(thePopupMenu);
         thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_PROJECT);
         if(aLaunchNodeChildCount > 0) {
             thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_PROJECTS);
@@ -280,7 +289,6 @@ public class FmmPopupBuilder {
         return thePopupMenu;
     }
 
-    // return createProjectPopupMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, bCanMove, bCanOrphan, bCanSequenceDown, bCanSequenceUp, aLauncNodeSequence, aLaunchNodeChildCount);
 	private static PopupMenu createProjectPopupMenu(
 			FmmHeadlineNodePopupListener aNodePopupListener,
 			GcgTreeNodeInfo aLaunchTreeNodeInfo,
@@ -305,6 +313,9 @@ public class FmmPopupBuilder {
 		if(bCanOrphan) {
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__ORPHAN_PROJECT);
 		}
+        if(bCanSequenceUp || bCanSequenceDown) {
+            startNewGroup(thePopupMenu);
+        }
 		if(bCanSequenceUp) {
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__SEQUENCE_FIRST);
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__SEQUENCE_UP);
@@ -313,12 +324,15 @@ public class FmmPopupBuilder {
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__SEQUENCE_DOWN);
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__SEQUENCE_LAST);
 		}
+        startNewGroup(thePopupMenu);
 		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_HEADLINE);
-		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_PROJECT_ASSET);
+        startNewGroup(thePopupMenu);
+        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_PROJECT_ASSET);
         if(aLaunchNodeChildCount > 0) {
             thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_ALL_ASSETS);
         }
-		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__ADOPT_ORPHAN_STRATEGIC_ASSET);
+        startNewGroup(thePopupMenu);
+        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__ADOPT_ORPHAN_STRATEGIC_ASSET);
 		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__ADOPT_ORPHAN_PROJECT_ASSET);
 		return thePopupMenu;
 	}
@@ -349,6 +363,9 @@ public class FmmPopupBuilder {
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__ORPHAN_PROJECT_ASSET);
 		}
         thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__ADOPT_ORPHAN_PROJECT_ASSET);
+        if(bCanSequenceUp || bCanSequenceDown) {
+            startNewGroup(thePopupMenu);
+        }
 		if(bCanSequenceUp) {
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__SEQUENCE_FIRST);
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__SEQUENCE_UP);
@@ -357,8 +374,10 @@ public class FmmPopupBuilder {
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__SEQUENCE_DOWN);
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__SEQUENCE_LAST);
 		}
+        startNewGroup(thePopupMenu);
 		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_HEADLINE);
-		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_WORK_PACKAGE);
+        startNewGroup(thePopupMenu);
+        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_WORK_PACKAGE);
         if(aLaunchNodeChildCount > 0) {
             thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_WORK_PACKAGES);
         }
@@ -383,6 +402,7 @@ public class FmmPopupBuilder {
 				aNodePopupListener, aView, aLaunchHeadlineNode, aParentHeadlineNode, aLaunchTreeNodeInfo, aLaunchNodeSequence, aLaunchNodeChildCount );
 		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_PROJECT_ASSET);
         thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__ADOPT_ORPHAN_PROJECT_ASSET);
+        startNewGroup(thePopupMenu);
 		if(bCanMove) {
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__MOVE_STRATEGIC_ASSET);
 		}
@@ -390,6 +410,9 @@ public class FmmPopupBuilder {
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__ORPHAN_STRATEGIC_ASSET);
 		}
         thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__ADOPT_ORPHAN_STRATEGIC_ASSET);
+        if(bCanSequenceUp || bCanSequenceDown) {
+            startNewGroup(thePopupMenu);
+        }
 		if(bCanSequenceUp) {
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__SEQUENCE_FIRST);
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__SEQUENCE_UP);
@@ -398,8 +421,10 @@ public class FmmPopupBuilder {
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__SEQUENCE_DOWN);
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__SEQUENCE_LAST);
 		}
+        startNewGroup(thePopupMenu);
 		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_HEADLINE);
-		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_WORK_PACKAGE);
+        startNewGroup(thePopupMenu);
+        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_WORK_PACKAGE);
         if(aLaunchNodeChildCount > 0) {
             thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_WORK_PACKAGES);
         }
@@ -430,8 +455,12 @@ public class FmmPopupBuilder {
 		if(bCanMove) {
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__MOVE_STRATEGIC_ASSET);
 		}
+        startNewGroup(thePopupMenu);
         thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__PROMOTE_PROJECT_ASSET_TO_STRATEGIC_ASSET);
-		if(bCanSequenceUp) {
+        if(bCanSequenceUp || bCanSequenceDown) {
+            startNewGroup(thePopupMenu);
+        }
+        if(bCanSequenceUp) {
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__SEQUENCE_FIRST);
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__SEQUENCE_UP);
 		}
@@ -439,8 +468,10 @@ public class FmmPopupBuilder {
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__SEQUENCE_DOWN);
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__SEQUENCE_LAST);
 		}
+        startNewGroup(thePopupMenu);
 		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_HEADLINE);
-		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_WORK_PACKAGE);
+        startNewGroup(thePopupMenu);
+        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_WORK_PACKAGE);
         if(aLaunchNodeChildCount > 0) {
             thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_WORK_PACKAGES);
         }
@@ -538,6 +569,9 @@ public class FmmPopupBuilder {
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__ORPHAN_WORK_PACKAGE);
 		}
         thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__ADOPT_ORPHAN_WORK_PACKAGE);
+        if(bCanSequenceUp || bCanSequenceDown) {
+            startNewGroup(thePopupMenu);
+        }
         if(bCanSequenceUp) {
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__SEQUENCE_FIRST);
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__SEQUENCE_UP);
@@ -546,8 +580,10 @@ public class FmmPopupBuilder {
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__SEQUENCE_DOWN);
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__SEQUENCE_LAST);
 		}
+        startNewGroup(thePopupMenu);
 		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_HEADLINE);
-		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_WORK_TASK);
+        startNewGroup(thePopupMenu);
+        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_WORK_TASK);
         if(aLaunchNodeChildCount > 0) {
             thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_WORK_TASKS);
         }
@@ -580,6 +616,9 @@ public class FmmPopupBuilder {
 		if(bCanOrphan) {
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__ORPHAN_WORK_TASK);
 		}
+        if(bCanSequenceUp || bCanSequenceDown) {
+            startNewGroup(thePopupMenu);
+        }
 		if(bCanSequenceUp) {
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__SEQUENCE_FIRST);
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__SEQUENCE_UP);
@@ -588,8 +627,13 @@ public class FmmPopupBuilder {
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__SEQUENCE_DOWN);
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__SEQUENCE_LAST);
 		}
+        startNewGroup(thePopupMenu);
 		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_HEADLINE);
 		return thePopupMenu;
 	}
+
+    private static void startNewGroup(FmmHeadlineNodePopupMenu aPopupMenu) {
+        aPopupMenu.getMenu().add("--------------------------");
+    }
 
 }
