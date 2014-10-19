@@ -429,7 +429,7 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
         } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__ADOPT_ORPHAN_STRATEGIC_ASSET)) {
             adoptOrphanStrategicAsset(aParentHeadlineNode, aLaunchHeadlineNodeChildCount, aLaunchHeadlineNode, aLaunchHeadlineNodeSequence);
         } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__PROMOTE_PROJECT_ASSET_TO_STRATEGIC_ASSET)) {
-            promoteProjectAssetToStrategicAsset(aLaunchHeadlineNode);
+            promoteProjectAssetToStrategicAsset(aLaunchHeadlineNode, aLaunchHeadlineNodeChildCount);
         } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__MOVE_STRATEGIC_ASSET)) {
             moveStrategicAsset(aLaunchHeadlineNode, aParentHeadlineNode);
         } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__ORPHAN_STRATEGIC_ASSET)) {
@@ -646,8 +646,13 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
                     aLaunchHeadlineNodeSequence ));
     }
 
-    private void promoteProjectAssetToStrategicAsset(FmmHeadlineNode aParentHeadlineNode) {
-        getGcgActivity().startDialog(new StrategicMilestoneAdoptOrphanProjectAssetDialog(getGcgActivity(), this, aParentHeadlineNode));
+    private void promoteProjectAssetToStrategicAsset(FmmHeadlineNode aStrategicMilestone, int aChildCount) {
+        getGcgActivity().startDialog(new StrategicMilestoneAdoptOrphanProjectAssetDialog(
+                getGcgActivity(),
+                this,
+                FmmNodeDefinition.STRATEGIC_MILESTONE,
+                aStrategicMilestone,
+                aChildCount ));
     }
 
     private void demoteStrategicAsset(FmmHeadlineNode aLaunchHeadlineNode) {

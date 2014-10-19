@@ -60,8 +60,10 @@ public class StrategicMilestoneAdoptOrphanProjectAssetDialog extends HeadlineNod
     public StrategicMilestoneAdoptOrphanProjectAssetDialog(
             GcgActivity aLibraryActivity,
             GcgTreeViewAdapter aTreeViewAdapter,
-            FmmHeadlineNode aParentHeadlineNode ) {
-        super(aLibraryActivity, aTreeViewAdapter, FmmNodeDefinition.PROJECT_ASSET, aParentHeadlineNode);
+            FmmNodeDefinition anFmmNodeDefinition,
+            FmmHeadlineNode aStrategicMilestone,
+            int aChildCount ) {
+        this(aLibraryActivity, aTreeViewAdapter, anFmmNodeDefinition, (FmmCompletionNode) aStrategicMilestone, aChildCount, (FmmCompletionNode) aStrategicMilestone, 0);
     }
 
     public StrategicMilestoneAdoptOrphanProjectAssetDialog(
