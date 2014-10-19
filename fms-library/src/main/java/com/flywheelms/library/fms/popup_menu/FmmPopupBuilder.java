@@ -473,8 +473,6 @@ public class FmmPopupBuilder {
         startNewGroup(thePopupMenu);
 		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_HEADLINE);
         startNewGroup(thePopupMenu);
-        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__PROMOTE_PROJECT_ASSET_TO_STRATEGIC_ASSET);
-        startNewGroup(thePopupMenu);
         thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_WORK_PACKAGE);
         if(aLaunchNodeChildCount > 0) {
             thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_WORK_PACKAGES);

@@ -2243,14 +2243,18 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
         return bSuccess;
     }
 
-
-
-
-
-
     public boolean dbMoveAllStrategicAssetsIntoStrategicMilestone(String aSourceStrateticMilestoneId, String aDestinationStrategicMilestoneId, boolean bSequenceAtEnd, boolean bAtomicTransaction) {         return false;     }
 
-    public boolean dbMoveSingleStrategicAssetIntoStrategicMilestone(String aStrategicAssetId, String anOriginalStrategicMilestonetId, String aDestinationStrategicMilestoneId, boolean bSequenceAtEnd, boolean bAtomicTransaction) {         return false;     }
+    public boolean dbMoveSingleStrategicAssetIntoStrategicMilestone(String aStrategicAssetId, String anOriginalStrategicMilestoneId, String aDestinationStrategicMilestoneId, boolean bSequenceAtEnd, boolean bAtomicTransaction) {
+        return moveSingleLinkNode(
+                FmmNodeDefinition.STRATEGIC_COMMITMENT,
+                StrategicCommitmentMetaData.column_STRATEGIC_ASSET_ID,
+                aStrategicAssetId,
+                StrategicCommitmentMetaData.column_STRATEGIC_MILESTONE_ID,
+                anOriginalStrategicMilestoneId,
+                aDestinationStrategicMilestoneId,
+                bSequenceAtEnd);
+    }
 
     public ArrayList<StrategicAsset> dbListStrategicAssetsWithNoProject() {         return null;     }
 
