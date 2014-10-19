@@ -2319,6 +2319,11 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	}
 
     @Override
+    public boolean dbDeleteStrategicCommitment(String aStrategicAssetId, boolean bAtomicTransaction) {
+        return dbDeleteRowsWithValue(FmmNodeDefinition.STRATEGIC_COMMITMENT, StrategicCommitmentMetaData.column_STRATEGIC_ASSET_ID, aStrategicAssetId, bAtomicTransaction);
+    }
+
+    @Override
     public boolean dbDeleteStrategicCommitment(String aStrategicCommitmentId, String aProjectAssetId, boolean bAtomicTransaction) {
         return false;
     }

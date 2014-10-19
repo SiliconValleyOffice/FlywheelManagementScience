@@ -71,6 +71,7 @@ import com.flywheelms.library.fmm.node.impl.governable.StrategicAsset;
 import com.flywheelms.library.fmm.node.impl.governable.WorkPackage;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmCompletionNode;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
+import com.flywheelms.library.fms.dialog.DemoteStrategicAssetDialog;
 import com.flywheelms.library.fms.dialog.FiscalYearCreateDialog;
 import com.flywheelms.library.fms.dialog.FiscalYearDeleteDialog;
 import com.flywheelms.library.fms.dialog.HeadlineNodeCreateDialog;
@@ -433,6 +434,8 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
             moveStrategicAsset(aLaunchHeadlineNode, aParentHeadlineNode);
         } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__ORPHAN_STRATEGIC_ASSET)) {
             orphanStrategicAsset(aLaunchHeadlineNode, aParentHeadlineNode);
+        } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__DEMOTE_STRATEGIC_ASSET)) {
+            demoteStrategicAsset(aLaunchHeadlineNode);
 
 
 
@@ -645,6 +648,10 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
 
     private void promoteProjectAssetToStrategicAsset(FmmHeadlineNode aParentHeadlineNode) {
         getGcgActivity().startDialog(new StrategicMilestoneAdoptOrphanProjectAssetDialog(getGcgActivity(), this, aParentHeadlineNode));
+    }
+
+    private void demoteStrategicAsset(FmmHeadlineNode aLaunchHeadlineNode) {
+        getGcgActivity().startDialog(new DemoteStrategicAssetDialog(getGcgActivity(), this, aLaunchHeadlineNode));
     }
 
 	private void deleteWorkPackage(FmmHeadlineNode aWorkPackageNode) {

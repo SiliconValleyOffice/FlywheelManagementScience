@@ -1414,17 +1414,15 @@ public class FmmDatabaseMediator {
         return (StrategicAsset) this.persistenceTechnologyDelegate.retrieveFmmNodeFromSimpleIdTable(aNodeIdString, StrategicAssetDaoSqLite.getInstance());
     }
 
-    // TODO  !!!
-    public boolean demoteProjectAssetToStrategicAsset(
-            String aProjectAssetId,
-            String aStrategicMilestoneId,
-            boolean bSequenceAtEnd,
+    public boolean demoteStrategicAssetToProjectAsset(
+            StrategicAsset aStrategicAsset,
             boolean bAtomicTransaction ) {
         if(bAtomicTransaction) {
             startTransaction();
         }
-        boolean isSuccess = this.persistenceTechnologyDelegate.dbDeleteStrategicCommitment(aStrategicMilestoneId, aProjectAssetId, bAtomicTransaction);
-        isSuccess &= this.persistenceTechnologyDelegate.dbUpdateProjectAssetIsStrategic(aProjectAssetId, false);
+        aStrategicAsset.setStrategic(false);
+        boolean isSuccess = this.persistenceTechnologyDelegate.updateSimpleIdTable(aStrategicAsset,false);
+        isSuccess &= this.persistenceTechnologyDelegate.dbDeleteStrategicCommitment(aStrategicAsset.getNodeIdString(), false);
         if(bAtomicTransaction) {
             endTransaction(isSuccess);
         }

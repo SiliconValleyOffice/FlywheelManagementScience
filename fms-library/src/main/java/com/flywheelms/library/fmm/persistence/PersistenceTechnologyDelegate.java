@@ -696,6 +696,8 @@ public abstract class PersistenceTechnologyDelegate {
 
 		public abstract boolean dbDeleteStrategicCommitment(StrategicCommitment aStrategicCommitment, boolean bAtomicTransaction);
 
+        public abstract boolean dbDeleteStrategicCommitment(String aStrategicAssetId, boolean bAtomicTransaction);
+
         public abstract boolean dbDeleteStrategicCommitment(String aStrategicCommitmentId, String aProjectAssetId, boolean bAtomicTransaction);
 
 
