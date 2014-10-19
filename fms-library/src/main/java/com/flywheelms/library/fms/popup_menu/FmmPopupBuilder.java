@@ -117,7 +117,9 @@ public class FmmPopupBuilder {
 	public static final String menu_item__DELETE_WORK_PLAN = "Delete Work Plan...";
 	public static final String menu_item__MOVE_WORK_PLAN = "Move Work Plan...";
 	public static final String menu_item__ADOPT_ORPHAN_WORK_TASK= "Adopt orphan Work Task...";
-	public static final String menu_item__CREATE_WORK_TASK= "Create Work Task...";
+	public static final String menu_item__CREATE_WORK_TASK_FOR_WORK_PACKAGE = "Create Work Task...";
+	public static final String menu_item__CREATE_WORK_TASK_FOR_WORK_PLAN= "Create Work Task...";
+	public static final String menu_item__ADOPT_ORPHAN_TACTICAL_WORK_TASK = "Adopt Tactical Work Task...";
 	public static final String menu_item__EDIT_WORK_TASKS= "Edit Work Tasks...";
 	public static final String menu_item__DELETE_WORK_TASK= "Delete Work Task...";
 	public static final String menu_item__MOVE_WORK_TASK = "Move Work Task...";
@@ -203,9 +205,11 @@ public class FmmPopupBuilder {
                 thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_STRATEGIC_MILESTONES);
             }
         } else {
-            thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_ALL_FLYWHEEL_CADENCES);
+            startNewGroup(thePopupMenu);
             if(aLaunchNodeChildCount > 0) {
                 thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_FLYWHEEL_CADENCES);
+            } else {
+                thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_ALL_FLYWHEEL_CADENCES);
             }
         }
         return thePopupMenu;
@@ -400,9 +404,6 @@ public class FmmPopupBuilder {
 			int aLaunchNodeChildCount ) {
 		FmmHeadlineNodePopupMenu thePopupMenu = new FmmHeadlineNodePopupMenu(
 				aNodePopupListener, aView, aLaunchHeadlineNode, aParentHeadlineNode, aLaunchTreeNodeInfo, aLaunchNodeSequence, aLaunchNodeChildCount );
-		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_PROJECT_ASSET);
-        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__ADOPT_ORPHAN_PROJECT_ASSET);
-        startNewGroup(thePopupMenu);
 		if(bCanMove) {
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__MOVE_STRATEGIC_ASSET);
 		}
@@ -423,6 +424,9 @@ public class FmmPopupBuilder {
 		}
         startNewGroup(thePopupMenu);
 		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_HEADLINE);
+        startNewGroup(thePopupMenu);
+        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_PROJECT_ASSET);
+        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__ADOPT_ORPHAN_PROJECT_ASSET);
         startNewGroup(thePopupMenu);
         thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_WORK_PACKAGE);
         if(aLaunchNodeChildCount > 0) {
@@ -455,8 +459,6 @@ public class FmmPopupBuilder {
 		if(bCanMove) {
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__MOVE_STRATEGIC_ASSET);
 		}
-        startNewGroup(thePopupMenu);
-        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__PROMOTE_PROJECT_ASSET_TO_STRATEGIC_ASSET);
         if(bCanSequenceUp || bCanSequenceDown) {
             startNewGroup(thePopupMenu);
         }
@@ -470,6 +472,8 @@ public class FmmPopupBuilder {
 		}
         startNewGroup(thePopupMenu);
 		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_HEADLINE);
+        startNewGroup(thePopupMenu);
+        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__PROMOTE_PROJECT_ASSET_TO_STRATEGIC_ASSET);
         startNewGroup(thePopupMenu);
         thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_WORK_PACKAGE);
         if(aLaunchNodeChildCount > 0) {
@@ -536,7 +540,8 @@ public class FmmPopupBuilder {
             int aLaunchNodeChildCount ) {
         FmmHeadlineNodePopupMenu thePopupMenu = new FmmHeadlineNodePopupMenu(
                 aNodePopupListener, aView, aLaunchHeadlineNode, aParentHeadlineNode, aLaunchTreeNodeInfo, aLaunchNodeSequence, aLaunchNodeChildCount );
-        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_WORK_TASK);
+        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_WORK_TASK_FOR_WORK_PLAN);
+        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__ADOPT_ORPHAN_TACTICAL_WORK_TASK);
         if(aLaunchNodeChildCount > 0) {
             thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_WORK_TASKS);
         }
@@ -583,7 +588,7 @@ public class FmmPopupBuilder {
         startNewGroup(thePopupMenu);
 		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_HEADLINE);
         startNewGroup(thePopupMenu);
-        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_WORK_TASK);
+        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_WORK_TASK_FOR_WORK_PACKAGE);
         if(aLaunchNodeChildCount > 0) {
             thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_WORK_TASKS);
         }
@@ -606,7 +611,7 @@ public class FmmPopupBuilder {
 			int aLaunchNodeChildCount ) {
 		FmmHeadlineNodePopupMenu thePopupMenu = new FmmHeadlineNodePopupMenu(
 				aNodePopupListener, aView, aLaunchHeadlineNode, aParentHeadlineNode, aLaunchTreeNodeInfo, aLaunchNodeSequence, aLaunchNodeChildCount );
-		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_WORK_TASK);
+		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_WORK_TASK_FOR_WORK_PACKAGE);
 		if(bCanDelete) {
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__DELETE_WORK_TASK);
 		}

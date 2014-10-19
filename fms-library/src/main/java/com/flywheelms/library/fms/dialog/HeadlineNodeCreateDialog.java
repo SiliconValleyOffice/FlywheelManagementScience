@@ -172,6 +172,9 @@ public class HeadlineNodeCreateDialog extends FmsCancelOkApplyFdkDialog {
             } else {
                 this.firstRadioButton = (RadioButton) this.dialogBodyView.findViewById(R.id.first__radio_button);
                 this.lastRadioButton = (RadioButton) this.dialogBodyView.findViewById(R.id.last__radio_button);
+                if(this.launchHeadlineNode.getFmmNodeDefinition() == FmmNodeDefinition.STRATEGIC_ASSET && getFmmNodeDefinition() == FmmNodeDefinition.PROJECT_ASSET) {
+                    this.firstRadioButton.setChecked(true);
+                }
             }
         }
 		this.editNewHeadlineNode = (CheckBox) this.dialogBodyView.findViewById(R.id.edit_new_headline_node);
