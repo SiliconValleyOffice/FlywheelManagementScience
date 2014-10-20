@@ -49,8 +49,8 @@ import android.util.AttributeSet;
 import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
+import com.flywheelms.library.fmm.node.impl.governable.Cadence;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
-import com.flywheelms.library.fmm.node.impl.governable.FlywheelCadence;
 import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
 import com.flywheelms.library.fmm.node.impl.governable.StrategicMilestone;
 import com.flywheelms.library.fms.widget.FmmHeadlineNodeWidgetSpinner;
@@ -62,7 +62,7 @@ public class FiscalYearWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 	// primary parent is FmsOrganization, obtained using FmmDatabaseMediator.getActiveMediator().getFmmOwner()
 	private StrategicMilestone strategicMilestoneException;  // primary child
 	private ProjectAsset projectAssetException; // primary child, primary grandchild
-	private FlywheelCadence FlywheelCadenceException;  // secondary child
+	private Cadence CadenceException;  // secondary child
 	private FiscalYear fiscalYearException;
 	
 	public FiscalYearWidgetSpinner(Context aContext, AttributeSet anAttributeSet) {
@@ -124,15 +124,15 @@ public class FiscalYearWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 	
 	// filter_id__PRIMARY_PARENT__SECONDARY_CHILD__MOVE_TARGET
 	@Override
-	protected ArrayList<? extends GcgGuiable> getPrimaryParentSecondaryChildMoveTargetGuiableList() { // FlywheelCadence move target
+	protected ArrayList<? extends GcgGuiable> getPrimaryParentSecondaryChildMoveTargetGuiableList() { // Cadence move target
 		return FmmDatabaseMediator.getActiveMediator().getFiscalYearList(
 				FmmDatabaseMediator.getActiveMediator().getFmmOwner(), this.fiscalYearException );
 	}
 
 	// filter_id__SECONDARY_PARENT__PRIMARY_CHILD__MOVE_TARGET
 	// filter_id__PRIMARY_PARENT__SECONDARY_CHILD__SECONDARY_CHILD__MOVE_TARGET
-	public void updateSpinnerData(FlywheelCadence aFlywheelCadencexception) { // WorkPackage or WorkPlan move target
-		this.FlywheelCadenceException = aFlywheelCadencexception;
+	public void updateSpinnerData(Cadence aCadencexception) { // WorkPackage or WorkPlan move target
+		this.CadenceException = aCadencexception;
 		super.updateSpinnerData();
 	}
 

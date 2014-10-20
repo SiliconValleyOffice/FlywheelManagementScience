@@ -1,4 +1,4 @@
-/* @(#)FlywheelCadenceMetaData.java
+/* @(#)CadenceMetaData.java
 ** 
 ** Copyright (C) 2012 by Steven D. Stamps
 **
@@ -43,7 +43,7 @@
 
 package com.flywheelms.library.fmm.meta_data;
 
-public class FlywheelCadenceMetaData extends CompletableNodeMetaData {
+public class CadenceMetaData extends CompletableNodeMetaData {
 
 	public static final String column_FISCAL_YEAR_ID = "FiscalYear__id";
 	public static final String child_fractals_WORK_PACKAGE_LIST = "WorkPackageList";

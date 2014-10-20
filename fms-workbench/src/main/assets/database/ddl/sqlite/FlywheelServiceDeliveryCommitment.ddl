@@ -1,7 +1,7 @@
 CREATE TABLE `FlywheelServiceDeliveryCommitment` (
   `ServiceRequest__id` CHAR(40) NOT NULL,
   `row_timestamp` BIGINT(14) NOT NULL DEFAULT 0,
-  `FlywheelCadence__id` CHAR(40) NOT NULL,
+  `Cadence__id` CHAR(40) NOT NULL,
   `sequence` INT(11) NOT NULL,
   `completion_commitment_type` CHAR(9) NOT NULL,
   `suggested_by` CHAR(40) NULL,
@@ -16,8 +16,8 @@ CREATE TABLE `FlywheelServiceDeliveryCommitment` (
   `canceled_timestamp` BIGINT(14) NULL,
   PRIMARY KEY (`ServiceRequest__id`),
   CONSTRAINT `fk_ServiceDeliveryCommitment_Cadence`
-    FOREIGN KEY (`FlywheelCadence__id`)
-    REFERENCES `FlywheelCadence` (`_id`),
+    FOREIGN KEY (`Cadence__id`)
+    REFERENCES `Cadence` (`_id`),
   CONSTRAINT `fk_ServiceDeliveryCommitment_CompletionCommitmentType`
     FOREIGN KEY (`completion_commitment_type`)
     REFERENCES `CompletionCommitmentType` (`completion_commitment_type`),

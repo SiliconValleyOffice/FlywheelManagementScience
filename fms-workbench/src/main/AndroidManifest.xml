@@ -62,7 +62,7 @@
             android:screenOrientation="sensorLandscape" />
 
         <activity
-            android:name="com.flywheelms.library.fms.activity.CreateAllFlywheelCadenceForYearWizard"
+            android:name="com.flywheelms.library.fms.activity.CreateAllCadenceForYearWizard"
             android:label="@string/create__all_cadence_for_year__wizard"
             android:icon="@drawable/fms_activity__flywheel_cadence"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
@@ -78,7 +78,7 @@
             android:screenOrientation="sensorLandscape" />
 
         <activity
-            android:name="com.flywheelms.library.fms.activity.FlywheelCadenceEditorActivity"
+            android:name="com.flywheelms.library.fms.activity.CadenceEditorActivity"
             android:label="@string/editor_activity__flywheel_cadence"
             android:icon="@drawable/fms_activity__flywheel_cadence"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan"

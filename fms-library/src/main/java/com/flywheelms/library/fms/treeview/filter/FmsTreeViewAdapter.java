@@ -387,7 +387,7 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
         } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__EDIT_STRATEGIC_MILESTONE_TARGET_DATE)) {
             editStrategicMilestoneTargetDate(aLaunchHeadlineNode);
         } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__CREATE_ALL_FLYWHEEL_CADENCES)) {
-            createAllFlywheelCadences(aLaunchHeadlineNode);
+            createAllCadences(aLaunchHeadlineNode);
         } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__EDIT_FLYWHEEL_CADENCES)) {
             editFmmHeadlineNodeChildren(aLaunchTreeNodeInfo, FmmNodeDefinition.FLYWHEEL_CADENCE);
         } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__EDIT_WORK_PLANS)) {
@@ -555,8 +555,8 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
         getGcgActivity().startDialog(new PortfolioDeleteDialog(getGcgActivity(), this, aPortfolioHeadlineNode));
     }
 
-    private void createAllFlywheelCadences(FmmHeadlineNode aLaunchHeadlineNode) {
-        FmsActivityHelper.startCreateAllFlywheelCadenceForYearWizard(getGcgActivity(), aLaunchHeadlineNode.getNodeIdString());
+    private void createAllCadences(FmmHeadlineNode aLaunchHeadlineNode) {
+        FmsActivityHelper.startCreateAllCadenceForYearWizard(getGcgActivity(), aLaunchHeadlineNode.getNodeIdString());
     }
 
     public static boolean isPeerLaunch(FmmNodeDefinition aTargetNodeDefinition, FmmNodeDefinition aLaunchHeadlineNodeDefinition) {

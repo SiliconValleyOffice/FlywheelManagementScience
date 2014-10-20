@@ -58,7 +58,7 @@ import com.flywheelms.library.fmm.node.FmmHeadlineNodeShallow;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.fmm.repository.FmmAccessScope;
-import com.flywheelms.library.fms.activity.CreateAllFlywheelCadenceForYearWizard;
+import com.flywheelms.library.fms.activity.CreateAllCadenceForYearWizard;
 import com.flywheelms.library.fms.activity.CreateFmmWizard;
 import com.flywheelms.library.fms.activity.DecKanGlGlyphDictionaryActivity;
 import com.flywheelms.library.fms.activity.FiscalYearEditorActivity;
@@ -266,9 +266,9 @@ public class FmsActivityHelper extends GcgActivityHelper {
 		return theJsonArray.toString();
 	}
 
-    public static void startCreateAllFlywheelCadenceForYearWizard(GcgActivity aParentActivity, String aFiscalYearId) {
+    public static void startCreateAllCadenceForYearWizard(GcgActivity aParentActivity, String aFiscalYearId) {
         aParentActivity.startBlueActivityStatusAnimation();
-        Intent theIntent = new Intent(aParentActivity, CreateAllFlywheelCadenceForYearWizard.class);
+        Intent theIntent = new Intent(aParentActivity, CreateAllCadenceForYearWizard.class);
         theIntent.putExtra(bundle_key__FMM_NODE__ID_STRING, aFiscalYearId);
         theIntent.putExtra(bundle_key__GCG__APPLICATION_CONTEXT, aParentActivity.getChildGcgApplicationContext().getSerialized());
         aParentActivity.startActivityForResult(theIntent, FmmNodeDefinition.FLYWHEEL_CADENCE.getNodeEditorActivityRequestCode());

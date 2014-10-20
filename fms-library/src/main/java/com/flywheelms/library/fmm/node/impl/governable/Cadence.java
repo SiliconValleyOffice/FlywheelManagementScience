@@ -1,4 +1,4 @@
-/* @(#)FlywheelCadence.java
+/* @(#)Cadence.java
 ** 
 ** Copyright (C) 2012 by Steven D. Stamps
 **
@@ -47,7 +47,7 @@ import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fmm.enumerator.FmmHoliday;
-import com.flywheelms.library.fmm.meta_data.FlywheelCadenceMetaData;
+import com.flywheelms.library.fmm.meta_data.CadenceMetaData;
 import com.flywheelms.library.fmm.meta_data.SequencedLinkNodeMetaData;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.completable.FmmCompletableNodeImpl;
@@ -64,7 +64,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
-public class FlywheelCadence extends FmmCompletableNodeImpl {
+public class Cadence extends FmmCompletableNodeImpl {
 
 	private static final long serialVersionUID = -7058798359923528163L;
 	private String fiscalYearId;
@@ -74,34 +74,34 @@ public class FlywheelCadence extends FmmCompletableNodeImpl {
     private ArrayList<WorkPackage> workPackageList;
     private Date scheduledEndDate;
 
-	public FlywheelCadence(NodeId aNodeId, String aFiscalYearId) {
+	public Cadence(NodeId aNodeId, String aFiscalYearId) {
 		super(aNodeId);
         setFiscalYearId(aFiscalYearId);
 	}
 
-    public FlywheelCadence(String aFiscalYearId, Date aScheduledStartDate, Date aScheduledEndDate) {
+    public Cadence(String aFiscalYearId, Date aScheduledStartDate, Date aScheduledEndDate) {
         this(new NodeId(FmmNodeDefinition.FLYWHEEL_CADENCE), aFiscalYearId);
     }
 
-    public FlywheelCadence(String aNodeIdString, String aFiscalYearId) {
-        super(FlywheelCadence.class, aNodeIdString);
+    public Cadence(String aNodeIdString, String aFiscalYearId) {
+        super(Cadence.class, aNodeIdString);
         this.fiscalYearId = aFiscalYearId;
     }
 
-    public FlywheelCadence(FiscalYear aFiscalYear) {
+    public Cadence(FiscalYear aFiscalYear) {
         super(new NodeId(FmmNodeDefinition.FLYWHEEL_CADENCE));
         setFiscalYear(aFiscalYear);
     }
 
-    public FlywheelCadence(JSONObject aJsonObject) {
-        super(FlywheelCadence.class, aJsonObject);
+    public Cadence(JSONObject aJsonObject) {
+        super(Cadence.class, aJsonObject);
         try {
             validateSerializationFormatVersion(aJsonObject.getString(JsonHelper.key__SERIALIZATION_FORMAT_VERSION));
             setSequence(aJsonObject.getInt(SequencedLinkNodeMetaData.column_SEQUENCE));
-            setFiscalYearId(aJsonObject.getString(FlywheelCadenceMetaData.column_FISCAL_YEAR_ID));
-            setScheduledEndDate(aJsonObject.getLong(FlywheelCadenceMetaData.column_SCHEDULED_END_DATE));
-            setWorkPlanList(aJsonObject.getJSONArray(FlywheelCadenceMetaData.child_fractals_WORK_PLAN_LIST));
-            setWorkPackageList(aJsonObject.getJSONArray(FlywheelCadenceMetaData.child_fractals_WORK_PACKAGE_LIST));
+            setFiscalYearId(aJsonObject.getString(CadenceMetaData.column_FISCAL_YEAR_ID));
+            setScheduledEndDate(aJsonObject.getLong(CadenceMetaData.column_SCHEDULED_END_DATE));
+            setWorkPlanList(aJsonObject.getJSONArray(CadenceMetaData.child_fractals_WORK_PLAN_LIST));
+            setWorkPackageList(aJsonObject.getJSONArray(CadenceMetaData.child_fractals_WORK_PACKAGE_LIST));
         } catch (JSONException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -148,8 +148,8 @@ public class FlywheelCadence extends FmmCompletableNodeImpl {
         try {
             theJsonObject.put(JsonHelper.key__SERIALIZATION_FORMAT_VERSION, SERIALIZATION_FORMAT_VERSION);
             theJsonObject.put(SequencedLinkNodeMetaData.column_SEQUENCE, getSequence());
-            theJsonObject.put(FlywheelCadenceMetaData.column_FISCAL_YEAR_ID, getFiscalYearId());
-            theJsonObject.put(FlywheelCadenceMetaData.column_SCHEDULED_END_DATE, getScheduledEndDateFormattedUtcLong());
+            theJsonObject.put(CadenceMetaData.column_FISCAL_YEAR_ID, getFiscalYearId());
+            theJsonObject.put(CadenceMetaData.column_SCHEDULED_END_DATE, getScheduledEndDateFormattedUtcLong());
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -173,8 +173,8 @@ public class FlywheelCadence extends FmmCompletableNodeImpl {
     }
 
     @Override
-    public FlywheelCadence getClone() {
-        return new FlywheelCadence(getJsonObject());
+    public Cadence getClone() {
+        return new Cadence(getJsonObject());
     }
 
     public String getFiscalYearId() {
@@ -291,7 +291,7 @@ public class FlywheelCadence extends FmmCompletableNodeImpl {
     public ArrayList<WorkPlan> getWorkPlanList() {
         if(this.workPlanList == null) {
             this.workPlanList = new ArrayList<WorkPlan>(
-                    FmmDatabaseMediator.getActiveMediator().getWorkPlanListForFlywheelCadence(this.getNodeIdString()) );
+                    FmmDatabaseMediator.getActiveMediator().getWorkPlanListForCadence(this.getNodeIdString()) );
         }
         return this.workPlanList;
     }

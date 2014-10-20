@@ -1,4 +1,4 @@
-/* @(#)FlywheelCadenceDaoSqLite.java
+/* @(#)CadenceDaoSqLite.java
  ** 
  ** Copyright (C) 2012 by Steven D. Stamps
  **
@@ -46,23 +46,23 @@ package com.flywheelms.library.fmm.database.sqlite.dao;
 import android.content.ContentValues;
 import android.database.Cursor;
 
+import com.flywheelms.library.fmm.meta_data.CadenceMetaData;
 import com.flywheelms.library.fmm.meta_data.CompletableNodeMetaData;
-import com.flywheelms.library.fmm.meta_data.FlywheelCadenceMetaData;
 import com.flywheelms.library.fmm.meta_data.IdNodeMetaData;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
-import com.flywheelms.library.fmm.node.impl.governable.FlywheelCadence;
+import com.flywheelms.library.fmm.node.impl.governable.Cadence;
 
 import java.util.HashMap;
 
-public class FlywheelCadenceDaoSqLite extends CompletableNodeDaoSqLite<FlywheelCadence> {
+public class CadenceDaoSqLite extends CompletableNodeDaoSqLite<Cadence> {
 
-    private static FlywheelCadenceDaoSqLite singleton;
+    private static CadenceDaoSqLite singleton;
 
-    public static FlywheelCadenceDaoSqLite getInstance() {
-        if(FlywheelCadenceDaoSqLite.singleton == null) {
-            FlywheelCadenceDaoSqLite.singleton = new FlywheelCadenceDaoSqLite();
+    public static CadenceDaoSqLite getInstance() {
+        if(CadenceDaoSqLite.singleton == null) {
+            CadenceDaoSqLite.singleton = new CadenceDaoSqLite();
         }
-        return FlywheelCadenceDaoSqLite.singleton;
+        return CadenceDaoSqLite.singleton;
     }
 
     @Override
@@ -73,37 +73,37 @@ public class FlywheelCadenceDaoSqLite extends CompletableNodeDaoSqLite<FlywheelC
     @Override
     protected void buildColumnIndexMap(Cursor aCursor) {
         super.buildColumnIndexMap(aCursor);
-        putColumnIndexMapEntry(this.columnIndexMap, aCursor, FlywheelCadenceMetaData.column_FISCAL_YEAR_ID);
+        putColumnIndexMapEntry(this.columnIndexMap, aCursor, CadenceMetaData.column_FISCAL_YEAR_ID);
         putColumnIndexMapEntry(this.columnIndexMap, aCursor, CompletableNodeMetaData.column_SEQUENCE);
-        putColumnIndexMapEntry(this.columnIndexMap, aCursor, FlywheelCadenceMetaData.column_SCHEDULED_END_DATE);
+        putColumnIndexMapEntry(this.columnIndexMap, aCursor, CadenceMetaData.column_SCHEDULED_END_DATE);
     }
 
     @Override
-    protected void getColumnValues(HashMap<String, Integer> aHashMap, Cursor aCursor, FlywheelCadence aFlywheelCadence) {
-        super.getColumnValues(aHashMap, aCursor, aFlywheelCadence);
-        aFlywheelCadence.setScheduledEndDate(aCursor.getLong(aHashMap.get(FlywheelCadenceMetaData.column_SCHEDULED_END_DATE)));
+    protected void getColumnValues(HashMap<String, Integer> aHashMap, Cursor aCursor, Cadence aCadence) {
+        super.getColumnValues(aHashMap, aCursor, aCadence);
+        aCadence.setScheduledEndDate(aCursor.getLong(aHashMap.get(CadenceMetaData.column_SCHEDULED_END_DATE)));
     }
 
     @Override
-    public ContentValues buildContentValues(FlywheelCadence aFlywheelCadence) {
-        ContentValues theContentValues = super.buildContentValues(aFlywheelCadence);
-        theContentValues.put(FlywheelCadenceMetaData.column_FISCAL_YEAR_ID, aFlywheelCadence.getFiscalYearId());
-        theContentValues.put(FlywheelCadenceMetaData.column_SCHEDULED_END_DATE, aFlywheelCadence.getScheduledEndDateFormattedUtcLong());
+    public ContentValues buildContentValues(Cadence aCadence) {
+        ContentValues theContentValues = super.buildContentValues(aCadence);
+        theContentValues.put(CadenceMetaData.column_FISCAL_YEAR_ID, aCadence.getFiscalYearId());
+        theContentValues.put(CadenceMetaData.column_SCHEDULED_END_DATE, aCadence.getScheduledEndDateFormattedUtcLong());
         return theContentValues;
     }
 
     @Override
-    public ContentValues buildUpdateContentValues(FlywheelCadence aFlywheelCadence) {
-        return buildContentValues(aFlywheelCadence);
+    public ContentValues buildUpdateContentValues(Cadence aCadence) {
+        return buildContentValues(aCadence);
     }
 
     @Override
-    protected FlywheelCadence getNextObjectFromCursor(Cursor aCursor) {
-        FlywheelCadence theFlywheelCadence = new FlywheelCadence(
+    protected Cadence getNextObjectFromCursor(Cursor aCursor) {
+        Cadence theCadence = new Cadence(
                 aCursor.getString(this.columnIndexMap.get(IdNodeMetaData.column_ID)),
-                aCursor.getString(this.columnIndexMap.get(FlywheelCadenceMetaData.column_FISCAL_YEAR_ID)) );
-        getColumnValues(this.columnIndexMap, aCursor, theFlywheelCadence);
-        return theFlywheelCadence;
+                aCursor.getString(this.columnIndexMap.get(CadenceMetaData.column_FISCAL_YEAR_ID)) );
+        getColumnValues(this.columnIndexMap, aCursor, theCadence);
+        return theCadence;
     }
 
 }

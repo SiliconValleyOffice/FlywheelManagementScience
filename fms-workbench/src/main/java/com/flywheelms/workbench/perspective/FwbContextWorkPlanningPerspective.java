@@ -57,8 +57,8 @@ import com.flywheelms.gcongui.gcg.treeview.node.GcgTreeNodeInfo;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.context.FmmPerspective;
+import com.flywheelms.library.fmm.node.impl.governable.Cadence;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
-import com.flywheelms.library.fmm.node.impl.governable.FlywheelCadence;
 import com.flywheelms.library.fmm.node.impl.governable.WorkPlan;
 import com.flywheelms.library.fms.helper.FmsHelpIndex;
 import com.flywheelms.library.fms.popup_menu.FmmPopupBuilder;
@@ -124,18 +124,18 @@ public class FwbContextWorkPlanningPerspective extends FmsPerspectiveFlipperTree
         Collection<FiscalYear> theFiscalYearCollection = FmmDatabaseMediator.getActiveMediator().getFiscalYearList(
                 FmmDatabaseMediator.getActiveMediator().getFmmOwner() );
         for(FiscalYear theFiscalYear : theFiscalYearCollection) {
-            Collection<FlywheelCadence> theFlywheelCadenceCollection =
-                    FmmDatabaseMediator.getActiveMediator().getFlywheelCadenceList(theFiscalYear);
+            Collection<Cadence> theCadenceCollection =
+                    FmmDatabaseMediator.getActiveMediator().getCadenceList(theFiscalYear);
             GcgTreeNodeInfo theFiscalYearTreeNodeInfo = theTreeBuilder.addTopNode(
-                    theFiscalYear, theFlywheelCadenceCollection.size()>0, FmmPerspective.WORK_PLANNING );
-            for(FlywheelCadence theFlywheelCadence : theFlywheelCadenceCollection) {
+                    theFiscalYear, theCadenceCollection.size()>0, FmmPerspective.WORK_PLANNING );
+            for(Cadence theCadence : theCadenceCollection) {
                 Collection<WorkPlan> theWorkPlanCollection =
-                        FmmDatabaseMediator.getActiveMediator().getWorkPlanList(theFlywheelCadence);
-                GcgTreeNodeInfo theFlywheelCadenceTreeNodeInfo = theTreeBuilder.addChildNode(
-                        theFlywheelCadence, theWorkPlanCollection.size()>0, theFiscalYearTreeNodeInfo, FmmPerspective.WORK_PLANNING);
+                        FmmDatabaseMediator.getActiveMediator().getWorkPlanList(theCadence);
+                GcgTreeNodeInfo theCadenceTreeNodeInfo = theTreeBuilder.addChildNode(
+                        theCadence, theWorkPlanCollection.size()>0, theFiscalYearTreeNodeInfo, FmmPerspective.WORK_PLANNING);
                 for(WorkPlan theWorkPlan : theWorkPlanCollection) {
                     GcgTreeNodeInfo theTreeNodeInfo = theTreeBuilder.addLeafNode(
-                            theWorkPlan, theFlywheelCadenceTreeNodeInfo, FmmPerspective.WORK_PLANNING);
+                            theWorkPlan, theCadenceTreeNodeInfo, FmmPerspective.WORK_PLANNING);
                     theTreeNodeInfo.setLeafNode(true);
                 }
             }

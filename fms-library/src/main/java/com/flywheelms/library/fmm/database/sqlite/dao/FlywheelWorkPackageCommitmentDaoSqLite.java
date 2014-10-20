@@ -81,7 +81,7 @@ public class FlywheelWorkPackageCommitmentDaoSqLite extends CommitmentNodeDaoSqL
 	protected void getColumnValues(HashMap<String, Integer> aHashMap,
 			Cursor aCursor, FlywheelWorkPackageCommitment aCommitmentNode) {
 		super.getColumnValues(aHashMap, aCursor, aCommitmentNode);
-		aCommitmentNode.setFlywheelCadenceNodeId(aCursor.getString(aHashMap.get(FlywheelWorkPackageCommitmentMetaData.column_FLYWHEEL_CADENCE_ID)));
+		aCommitmentNode.setCadenceNodeId(aCursor.getString(aHashMap.get(FlywheelWorkPackageCommitmentMetaData.column_FLYWHEEL_CADENCE_ID)));
 		aCommitmentNode.setWorkPackageNodeId(aCursor.getString(aHashMap.get(FlywheelWorkPackageCommitmentMetaData.column_WORK_PACKAGE_ID)));
 	}
 

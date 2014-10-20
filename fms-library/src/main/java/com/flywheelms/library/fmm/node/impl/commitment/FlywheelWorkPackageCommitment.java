@@ -44,7 +44,7 @@
 package com.flywheelms.library.fmm.node.impl.commitment;
 
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
-import com.flywheelms.library.fmm.node.impl.governable.FlywheelCadence;
+import com.flywheelms.library.fmm.node.impl.governable.Cadence;
 import com.flywheelms.library.fmm.node.impl.governable.WorkPackage;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmNode;
 
@@ -52,33 +52,33 @@ import java.util.Date;
 
 public class FlywheelWorkPackageCommitment extends FmmCommitmentNodeImpl {
 
-	private FlywheelCadence flywheelCadence;
+	private Cadence flywheelCadence;
 	private WorkPackage workPackage;
 
-	public FlywheelWorkPackageCommitment(String aFlywheelCadenceNodeIdString, String aWorkPackageNodeIdString) {
-		super(FlywheelWorkPackageCommitment.class, aFlywheelCadenceNodeIdString, aWorkPackageNodeIdString);
+	public FlywheelWorkPackageCommitment(String aCadenceNodeIdString, String aWorkPackageNodeIdString) {
+		super(FlywheelWorkPackageCommitment.class, aCadenceNodeIdString, aWorkPackageNodeIdString);
 	}
 
-	public String getFlywheelCadenceNodeId() {
+	public String getCadenceNodeId() {
 		return this.parentNodeIdString;
 	}
 	
-//	public FlywheelCadence getFlywheelCadence() {
-//		if(this.FlywheelCadence == null && this.parentNodeIdString != null) {
-//			this.FlywheelCadence =
-//					FmmDatabaseMediator.getActiveMediator().getFlywheelCadence(this.parentNodeIdString);
+//	public Cadence getCadence() {
+//		if(this.Cadence == null && this.parentNodeIdString != null) {
+//			this.Cadence =
+//					FmmDatabaseMediator.getActiveMediator().getCadence(this.parentNodeIdString);
 //		}
-//		return this.FlywheelCadence;
+//		return this.Cadence;
 //	}
 
-	public void setFlywheelCadenceNodeId(String aFlywheelCadenceNodeId) {
-		this.parentNodeIdString = aFlywheelCadenceNodeId;
+	public void setCadenceNodeId(String aCadenceNodeId) {
+		this.parentNodeIdString = aCadenceNodeId;
 		this.flywheelCadence = null;
 	}
 
-	public void setFlywheelCadence(FlywheelCadence aFlywheelCadence) {
-		this.flywheelCadence = aFlywheelCadence;
-		this.parentNodeIdString = aFlywheelCadence.getNodeIdString();
+	public void setCadence(Cadence aCadence) {
+		this.flywheelCadence = aCadence;
+		this.parentNodeIdString = aCadence.getNodeIdString();
 	}
 
 	public String getWorkPackageNodeIdString() {
@@ -103,7 +103,7 @@ public class FlywheelWorkPackageCommitment extends FmmCommitmentNodeImpl {
 		this.childNodeIdString = aWorkPackage.getNodeIdString();
 	}
 
-	public FlywheelCadence getFlywheelCadence() {
+	public Cadence getCadence() {
 		return this.flywheelCadence;
 	}
 
@@ -121,7 +121,7 @@ public class FlywheelWorkPackageCommitment extends FmmCommitmentNodeImpl {
 
 	@Override
 	public Class<? extends FmmNode> getParentClass() {
-		return FlywheelCadence.class;
+		return Cadence.class;
 	}
 
 	@Override

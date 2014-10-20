@@ -220,7 +220,7 @@ public class WorkPackage extends FmmCompletableNodeImpl implements Comparable<Wo
                 theList = FmmDatabaseMediator.getActiveMediator().listWorkPackageForProjectAsset(aParentHeadlineNode.getNodeIdString());
                 break;
             case FLYWHEEL_CADENCE:
-                theList = FmmDatabaseMediator.getActiveMediator().listWorkPackageForFlywheelCadence(aParentHeadlineNode.getNodeIdString());
+                theList = FmmDatabaseMediator.getActiveMediator().listWorkPackageForCadence(aParentHeadlineNode.getNodeIdString());
                 break;
             default:
                 theList = new ArrayList<WorkPackage>();

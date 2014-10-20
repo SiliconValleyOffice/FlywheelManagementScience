@@ -68,11 +68,11 @@ import com.flywheelms.library.fmm.node.impl.enumerator.OrganizationParticipation
 import com.flywheelms.library.fmm.node.impl.enumerator.TeamMemberStatus;
 import com.flywheelms.library.fmm.node.impl.event.PdfPublication;
 import com.flywheelms.library.fmm.node.impl.governable.Bookshelf;
+import com.flywheelms.library.fmm.node.impl.governable.Cadence;
 import com.flywheelms.library.fmm.node.impl.governable.CommunityMember;
 import com.flywheelms.library.fmm.node.impl.governable.DiscussionTopic;
 import com.flywheelms.library.fmm.node.impl.governable.FacilitationIssue;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
-import com.flywheelms.library.fmm.node.impl.governable.FlywheelCadence;
 import com.flywheelms.library.fmm.node.impl.governable.FlywheelTeam;
 import com.flywheelms.library.fmm.node.impl.governable.FmsOrganization;
 import com.flywheelms.library.fmm.node.impl.governable.FunctionalTeam;
@@ -181,7 +181,7 @@ public class FmmDatabaseBuilderSqLite implements FmmDatabaseBuilder {
 		createTable(aSqLiteDatabase, StrategicMilestone.class);
 		createTable(aSqLiteDatabase, StrategyTeam.class);
 		createTable(aSqLiteDatabase, FlywheelWorkPackageCommitment.class);
-		createTable(aSqLiteDatabase, FlywheelCadence.class);
+		createTable(aSqLiteDatabase, Cadence.class);
 		createTable(aSqLiteDatabase, WorkPackage.class);
 		createTable(aSqLiteDatabase, WorkPlan.class);
 		createTable(aSqLiteDatabase, WorkTask.class);

@@ -69,7 +69,7 @@ public class WorkPlan extends FmmCompletableNodeImpl {
 
 	private static final long serialVersionUID = -5268115673220940748L;
     private String flywheelCadenceId;
-    private FlywheelCadence flywheelCadence;
+    private Cadence flywheelCadence;
     private Date scheduledStartDate;
     private Date scheduledEndDate;
     private FmmHoliday fmmHoliday;
@@ -80,9 +80,9 @@ public class WorkPlan extends FmmCompletableNodeImpl {
 		// TODO Auto-generated constructor stub
 	}
 
-    public WorkPlan(FlywheelCadence aFlywheelCadence, Date aStartDate, Date anEndDate) {
+    public WorkPlan(Cadence aCadence, Date aStartDate, Date anEndDate) {
         super(new NodeId(FmmNodeDefinition.WORK_PLAN));
-        setFlywheelCadence(aFlywheelCadence);
+        setCadence(aCadence);
         setScheduledStartDate(aStartDate);
         setScheduledEndDate(anEndDate);
     }
@@ -96,7 +96,7 @@ public class WorkPlan extends FmmCompletableNodeImpl {
         try {
             validateSerializationFormatVersion(aJsonObject.getString(JsonHelper.key__SERIALIZATION_FORMAT_VERSION));
             setSequence(aJsonObject.getInt(SequencedLinkNodeMetaData.column_SEQUENCE));
-            setFlywheelCadenceId(aJsonObject.getString(WorkPlanMetaData.column_FLYWHEEL_CADENCE_ID));
+            setCadenceId(aJsonObject.getString(WorkPlanMetaData.column_FLYWHEEL_CADENCE_ID));
             setScheduledStartDate(aJsonObject.getLong(WorkPlanMetaData.column_SCHEDULED_START_DATE));
             setScheduledEndDate(aJsonObject.getLong(WorkPlanMetaData.column_SCHEDULED_END_DATE));
             setWorkTaskList(aJsonObject.getJSONArray(WorkPlanMetaData.child_fractals_WORK_TASK_LIST));
@@ -130,7 +130,7 @@ public class WorkPlan extends FmmCompletableNodeImpl {
         try {
             theJsonObject.put(JsonHelper.key__SERIALIZATION_FORMAT_VERSION, SERIALIZATION_FORMAT_VERSION);
             theJsonObject.put(SequencedLinkNodeMetaData.column_SEQUENCE, getSequence());
-            theJsonObject.put(WorkPlanMetaData.column_FLYWHEEL_CADENCE_ID, getFlywheelCadenceId());
+            theJsonObject.put(WorkPlanMetaData.column_FLYWHEEL_CADENCE_ID, getCadenceId());
             theJsonObject.put(WorkPlanMetaData.column_SCHEDULED_START_DATE, getScheduledStartDateFormattedUtcLong());
             theJsonObject.put(WorkPlanMetaData.column_SCHEDULED_END_DATE, getScheduledEndDateFormattedUtcLong());
         } catch (JSONException e) {
@@ -152,28 +152,28 @@ public class WorkPlan extends FmmCompletableNodeImpl {
         return new WorkPlan(getJsonObject());
     }
 
-    public String getFlywheelCadenceId() {
+    public String getCadenceId() {
         return this.flywheelCadenceId;
     }
 
-    public FlywheelCadence getFlywheelCadence() {
+    public Cadence getCadence() {
         if(this.flywheelCadence == null && this.flywheelCadenceId != null) {
             this.flywheelCadence =
-                    FmmDatabaseMediator.getActiveMediator().retrieveFlywheelCadence(this.flywheelCadenceId);
+                    FmmDatabaseMediator.getActiveMediator().retrieveCadence(this.flywheelCadenceId);
         }
         return this.flywheelCadence;
     }
 
-    public void setFlywheelCadenceId(String aNodeIdString) {
+    public void setCadenceId(String aNodeIdString) {
         this.flywheelCadenceId = aNodeIdString;
         if(this.flywheelCadence != null && !this.flywheelCadence.getNodeIdString().equals(aNodeIdString)) {
             this.flywheelCadence = null;
         }
     }
 
-    public void setFlywheelCadence(FlywheelCadence aFlywheelCadence) {
-        this.flywheelCadence = aFlywheelCadence;
-        this.flywheelCadenceId = aFlywheelCadence.getNodeId().getNodeIdString();
+    public void setCadence(Cadence aCadence) {
+        this.flywheelCadence = aCadence;
+        this.flywheelCadenceId = aCadence.getNodeId().getNodeIdString();
     }
 
 	public boolean isWorkTaskMoveTarget() {
@@ -298,6 +298,6 @@ public class WorkPlan extends FmmCompletableNodeImpl {
     }
 
     public void setPrimaryParentId(String aNodeIdString) {
-        setFlywheelCadenceId(aNodeIdString);
+        setCadenceId(aNodeIdString);
     }
 }

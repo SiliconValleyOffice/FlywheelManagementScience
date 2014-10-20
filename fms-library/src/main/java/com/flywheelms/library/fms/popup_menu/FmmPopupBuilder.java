@@ -158,7 +158,7 @@ public class FmmPopupBuilder {
 		case FISCAL_YEAR:
 			return createFiscalYearPopupMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, aLaunchNodeChildCount);
         case FLYWHEEL_CADENCE:
-            return createFlywheelCadencePopupMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, bCanMove, bCanOrphan, bCanSequenceDown, bCanSequenceUp, aLaunchNodeSequence, aLaunchNodeChildCount);
+            return createCadencePopupMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, bCanMove, bCanOrphan, bCanSequenceDown, bCanSequenceUp, aLaunchNodeSequence, aLaunchNodeChildCount);
         case PORTFOLIO:
             return createPortfolioPopupMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, aLaunchNodeChildCount);
         case PROJECT:
@@ -489,7 +489,7 @@ public class FmmPopupBuilder {
         return thePopupMenu;
     }
 
-    private static PopupMenu createFlywheelCadencePopupMenu(
+    private static PopupMenu createCadencePopupMenu(
             FmmHeadlineNodePopupListener aNodePopupListener,
             GcgTreeNodeInfo aLaunchTreeNodeInfo,
             FmmHeadlineNode aLaunchHeadlineNode,

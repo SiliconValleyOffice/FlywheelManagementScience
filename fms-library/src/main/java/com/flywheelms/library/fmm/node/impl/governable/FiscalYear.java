@@ -88,7 +88,7 @@ public class FiscalYear extends FmmCompletableNodeImpl implements Comparable<Fis
     private int cadenceDuration = 3;
     private String workPlanFirstDayOfWeek = "Tue";
 	private ArrayList<StrategicMilestone> strategicMilestoneList;
-	private ArrayList<FlywheelCadence> flywheelCadenceList;
+	private ArrayList<Cadence> flywheelCadenceList;
 
 	// create a new Fiscal Year
 	public FiscalYear(NodeId aNodeId, String anOrganizationNodeIdString, String aYear) {
@@ -235,11 +235,11 @@ public class FiscalYear extends FmmCompletableNodeImpl implements Comparable<Fis
 				aNodeSummary.setShowNodeSummary(false);
 			}
 		} else if(anFmmPerspective == FmmPerspective.WORK_PLANNING) {
-            Collection<FlywheelCadence> theFlywheelCadenceCollection = getFlywheelCadenceCollection();
-            if(theFlywheelCadenceCollection.size() > 0) {
+            Collection<Cadence> theCadenceCollection = getCadenceCollection();
+            if(theCadenceCollection.size() > 0) {
                 aNodeSummary.setShowNodeSummary(true);
-                aNodeSummary.setSummaryPrefix("( " + countGreenFlywheelCadences() + " ");
-                aNodeSummary.setSummarySuffix(" of " + theFlywheelCadenceCollection.size() + " )");
+                aNodeSummary.setSummaryPrefix("( " + countGreenCadences() + " ");
+                aNodeSummary.setSummarySuffix(" of " + theCadenceCollection.size() + " )");
             } else {
                 aNodeSummary.setShowNodeSummary(false);
             }
@@ -267,21 +267,21 @@ public class FiscalYear extends FmmCompletableNodeImpl implements Comparable<Fis
 		return theGreenCount;
 	}
 
-    public Collection<FlywheelCadence> getFlywheelCadenceCollection() {
-        return getFlywheelCadenceList();
+    public Collection<Cadence> getCadenceCollection() {
+        return getCadenceList();
     }
 
-    public ArrayList<FlywheelCadence> getFlywheelCadenceList() {
+    public ArrayList<Cadence> getCadenceList() {
         if(this.flywheelCadenceList == null) {
-            this.flywheelCadenceList = FmmDatabaseMediator.getActiveMediator().getFlywheelCadenceListForFiscalYear(getNodeIdString());
+            this.flywheelCadenceList = FmmDatabaseMediator.getActiveMediator().getCadenceListForFiscalYear(getNodeIdString());
         }
         return this.flywheelCadenceList;
     }
 
-    private int countGreenFlywheelCadences() {
+    private int countGreenCadences() {
         int theGreenCount = 0;
-        for(FlywheelCadence theFlywheelCadence : getFlywheelCadenceCollection()) {
-            if(theFlywheelCadence.isGreen()) {
+        for(Cadence theCadence : getCadenceCollection()) {
+            if(theCadence.isGreen()) {
                 ++theGreenCount;
             }
         }
@@ -370,7 +370,7 @@ public class FiscalYear extends FmmCompletableNodeImpl implements Comparable<Fis
                 theList = FmmDatabaseMediator.getActiveMediator().getStrategicMilestoneList(this);
                 break;
             case FLYWHEEL_CADENCE:
-                theList = FmmDatabaseMediator.getActiveMediator().getFlywheelCadenceList(this);
+                theList = FmmDatabaseMediator.getActiveMediator().getCadenceList(this);
                 break;
         }
         return theList;

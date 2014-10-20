@@ -44,39 +44,39 @@ package com.flywheelms.library.fms.activity;
 
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
-import com.flywheelms.library.fmm.node.impl.governable.FlywheelCadence;
+import com.flywheelms.library.fmm.node.impl.governable.Cadence;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmNode;
 import com.flywheelms.library.fms.helper.FmsHelpIndex;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class FlywheelCadenceEditorActivity extends FmmNodeEditorActivity {
+public class CadenceEditorActivity extends FmmNodeEditorActivity {
 
-	public FlywheelCadenceEditorActivity() {
+	public CadenceEditorActivity() {
 		super(FmmNodeDefinition.FLYWHEEL_CADENCE, FmsHelpIndex.FLYWHEEL_CADENCE_ACTIVITY);
 	}
 
 	@Override
-	protected FlywheelCadence getFmmHeadlineNodeFromSerialized(String aSerializedFmmNode) {
-		FlywheelCadence theFlywheelCadence = null;
+	protected Cadence getFmmHeadlineNodeFromSerialized(String aSerializedFmmNode) {
+		Cadence theCadence = null;
 		try {
-			theFlywheelCadence = new FlywheelCadence(new JSONObject(aSerializedFmmNode));
+			theCadence = new Cadence(new JSONObject(aSerializedFmmNode));
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
-		return theFlywheelCadence;
+		return theCadence;
 	}
 
 	@Override
 	protected Class<? extends FmmNode> getNodeClass() {
-		return FlywheelCadence.class;
+		return Cadence.class;
 	}
 	
 	@Override
 	public void saveAllDataModifications() {
 		super.saveAllDataModifications();
-		FmmDatabaseMediator.getActiveMediator().saveFlywheelCadence((FlywheelCadence) getDisplayedFmmHeadlineNode(), true);
+		FmmDatabaseMediator.getActiveMediator().saveCadence((Cadence) getDisplayedFmmHeadlineNode(), true);
 	}
 
 }

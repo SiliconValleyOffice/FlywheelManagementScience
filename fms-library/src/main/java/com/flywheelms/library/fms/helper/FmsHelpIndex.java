@@ -52,7 +52,7 @@ public class FmsHelpIndex {
 	public static final String WORK_ASSET_ACTIVITY = "http://code.google.com/p/flywheel-management-science/wiki/UserDocWorkAssetActivity";
 	public static final String STRATEGIC_ASSET_ACTIVITY = "http://code.google.com/p/flywheel-management-science/wiki/UserDocStrategicAssetActivity";
 	public static final String STRATEGIC_MILESTONE_ACTIVITY = "http://code.google.com/p/flywheel-management-science/wiki/UserDocStrategicMilestone";
-	public static final String FLYWHEEL_CADENCE_ACTIVITY = "http://code.google.com/p/flywheel-management-science/wiki/UserDocFlywheelCadence";
+	public static final String FLYWHEEL_CADENCE_ACTIVITY = "http://code.google.com/p/flywheel-management-science/wiki/UserDocCadence";
 	public static final String PORTFOLIO_ACTIVITY = "http://code.google.com/p/flywheel-management-science/wiki/UserDocPortfolio";
 	public static final String PROJECT_ACTIVITY = "http://code.google.com/p/flywheel-management-science/wiki/UserDocProject";
 	public static final String WORK_PACKAGE_ACTIVITY = "http://code.google.com/p/flywheel-management-science/wiki/UserDocWorkPackage";

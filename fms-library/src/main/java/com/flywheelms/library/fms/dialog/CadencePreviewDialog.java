@@ -46,13 +46,13 @@ import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.gcongui.gcg.dialog.GcgCancelDialog;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
-import com.flywheelms.library.fmm.node.impl.governable.FlywheelCadence;
+import com.flywheelms.library.fmm.node.impl.governable.Cadence;
 
 import java.util.ArrayList;
 
-public class FlywheelCadencePreviewDialog extends GcgCancelDialog {
+public class CadencePreviewDialog extends GcgCancelDialog {
 
-    public FlywheelCadencePreviewDialog(GcgActivity aGcgActivity, String dataText, String dataText1, String dataText2, ArrayList<FlywheelCadence> flywheelCadences) {
+    public CadencePreviewDialog(GcgActivity aGcgActivity, String dataText, String dataText1, String dataText2, ArrayList<Cadence> flywheelCadences) {
         super(aGcgActivity);
         initialSetup();
     }

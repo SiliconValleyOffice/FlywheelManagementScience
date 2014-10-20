@@ -51,9 +51,9 @@ import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.enumerator.GovernanceRole;
 import com.flywheelms.library.fmm.node.impl.enumerator.GovernanceTarget;
 import com.flywheelms.library.fmm.node.impl.event.PdfPublication;
+import com.flywheelms.library.fmm.node.impl.governable.Cadence;
 import com.flywheelms.library.fmm.node.impl.governable.CommunityMember;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
-import com.flywheelms.library.fmm.node.impl.governable.FlywheelCadence;
 import com.flywheelms.library.fmm.node.impl.governable.FlywheelTeam;
 import com.flywheelms.library.fmm.node.impl.governable.FmsOrganization;
 import com.flywheelms.library.fmm.node.impl.governable.Portfolio;
@@ -254,9 +254,9 @@ public abstract class PersistenceTechnologyDelegate {
 
 	public abstract ArrayList<FiscalYear> dbListFiscalYearForWorkPackageMoveTarget(FmsOrganization anOrganization, ProjectAsset aProjectAssetException);
 
-	public abstract int dbCountFiscalYearForFlywheelCadenceMoveTarget(FmsOrganization anOrganization, FiscalYear aFiscalYearException);
+	public abstract int dbCountFiscalYearForCadenceMoveTarget(FmsOrganization anOrganization, FiscalYear aFiscalYearException);
 
-	public abstract ArrayList<FiscalYear> dbListFiscalYearForFlywheelCadenceMoveTarget(FmsOrganization anOrganization, FiscalYear aFiscalYearException);
+	public abstract ArrayList<FiscalYear> dbListFiscalYearForCadenceMoveTarget(FmsOrganization anOrganization, FiscalYear aFiscalYearException);
 	
 	public abstract FiscalYear dbRetrieveFiscalYear(String aNodeIdString);
 
@@ -288,29 +288,29 @@ public abstract class PersistenceTechnologyDelegate {
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////  Node - FLYWHEEL CADENCE  ////////////////////////////////////////////////////////////////////////////
 
-    public abstract ArrayList<FlywheelCadence> dbGetFlywheelCadenceList(FiscalYear aFiscalYear);
+    public abstract ArrayList<Cadence> dbGetCadenceList(FiscalYear aFiscalYear);
 
-    public abstract ArrayList<FlywheelCadence> dbGetFlywheelCadenceListForFiscalYear(String aFiscalYearId);
+    public abstract ArrayList<Cadence> dbGetCadenceListForFiscalYear(String aFiscalYearId);
 
-    public abstract FlywheelCadence dbRetrieveFlywheelCadence(String aNodeIdString);
+    public abstract Cadence dbRetrieveCadence(String aNodeIdString);
 
-    public abstract boolean dbInsertFlywheelCadence(FlywheelCadence aFlywheelCadence, boolean bAtomicTransaction);
+    public abstract boolean dbInsertCadence(Cadence aCadence, boolean bAtomicTransaction);
 
-    public abstract boolean dbUpdateFlywheelCadence(FlywheelCadence aFlywheelCadence, boolean bAtomicTransaction);
+    public abstract boolean dbUpdateCadence(Cadence aCadence, boolean bAtomicTransaction);
 
-    public abstract boolean dbDeleteFlywheelCadence(FlywheelCadence aFlywheelCadence, boolean bAtomicTransaction);
+    public abstract boolean dbDeleteCadence(Cadence aCadence, boolean bAtomicTransaction);
 
-    public abstract boolean dbDeleteAllFlywheelCadences(FiscalYear aFiscalYear, boolean bAtomicTransaction);
+    public abstract boolean dbDeleteAllCadences(FiscalYear aFiscalYear, boolean bAtomicTransaction);
 
-    public abstract boolean dbDeleteAllFlywheelCadencesForFiscalYear(String aFiscalYearId, boolean bAtomicTransaction);
+    public abstract boolean dbDeleteAllCadencesForFiscalYear(String aFiscalYearId, boolean bAtomicTransaction);
 
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////  Node - WORK PLAN  ///////////////////////////////////////////////////////////////////////////////////
 
-    public abstract ArrayList<WorkPlan> dbGetWorkPlanList(FlywheelCadence aFlywheelCadence);
+    public abstract ArrayList<WorkPlan> dbGetWorkPlanList(Cadence aCadence);
 
-    public abstract ArrayList<WorkPlan> dbGetWorkPlanListForFlywheelCadence(String aFlywheelCadenceId);
+    public abstract ArrayList<WorkPlan> dbGetWorkPlanListForCadence(String aCadenceId);
 
     public abstract WorkPlan dbRetrieveWorkPlan(String aNodeIdString);
 
@@ -320,7 +320,7 @@ public abstract class PersistenceTechnologyDelegate {
 
     public abstract boolean dbDeleteWorkPlan(WorkPlan aWorkPlan, boolean bAtomicTransaction);
 
-    public abstract boolean dbDeleteAllWorkPlans(FlywheelCadence aFlywheelCadence, boolean bAtomicTransaction);
+    public abstract boolean dbDeleteAllWorkPlans(Cadence aCadence, boolean bAtomicTransaction);
 
     public abstract boolean dbDeleteAllWorkPlans(FiscalYear aFiscalYear, boolean bAtomicTransaction);
 
@@ -751,7 +751,7 @@ public abstract class PersistenceTechnologyDelegate {
 
 		public abstract ArrayList<WorkPackage> dbListWorkPackagesForProjectAsset(String aProjectAssetId);
 
-		public abstract ArrayList<WorkPackage> dbListWorkPackageForFlywheelCadence(String aFlywheelCadenceId);
+		public abstract ArrayList<WorkPackage> dbListWorkPackageForCadence(String aCadenceId);
 
 		public abstract ArrayList<WorkPackage> dbListWorkPackagesForWorkTaskMoveTarget(String aParentNodeId, String aWorkPackageExceptionId, boolean bPrimaryParent);
 		
@@ -763,15 +763,15 @@ public abstract class PersistenceTechnologyDelegate {
 
 		public abstract boolean dbOrphanAllWorkPackagesFromProjectAsset(String aProjectAssetNodeId, boolean bAtomicTransaction);
 
-        public abstract boolean dbOrphanAllWorkPackagesFromFlywheelCadence(String aFlywheelCadenceId, boolean bAtomicTransaction);
+        public abstract boolean dbOrphanAllWorkPackagesFromCadence(String aCadenceId, boolean bAtomicTransaction);
 
         public abstract boolean dbOrphanSingleWorkPackageFromProjectAsset(String aWorkPackageId, String aProjectAssetId, boolean bAtomicTransaction);
 
-        public abstract boolean dbOrphanSingleWorkPackageFromFlywheelCadence(String aWorkPackageId, String aFlywheelCadenceId, boolean bAtomicTransaction);
+        public abstract boolean dbOrphanSingleWorkPackageFromCadence(String aWorkPackageId, String aCadenceId, boolean bAtomicTransaction);
 
 		public abstract ArrayList<WorkPackage> dbListWorkPackageOrphansFromProjectAsset();
 
-		public abstract ArrayList<WorkPackage> dbListWorkPackageOrphansFromFlywheelCadence();
+		public abstract ArrayList<WorkPackage> dbListWorkPackageOrphansFromCadence();
 
 		public abstract boolean dbAdoptOrphanWorkPackageIntoProjectAsset(
 				String aWorkPackageId,
@@ -828,13 +828,13 @@ public abstract class PersistenceTechnologyDelegate {
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////  Node - FLYWHEEL CADENCE  ///////////////////////////////////////////////////////////////////////////////////
 
-    public abstract ArrayList<FlywheelCadence> dbListFlywheelCadence(String aFiscalYearId);
+    public abstract ArrayList<Cadence> dbListCadence(String aFiscalYearId);
 
-    public abstract ArrayList<FlywheelCadence> dbListFlywheelCadence(FiscalYear aFiscalYear);
+    public abstract ArrayList<Cadence> dbListCadence(FiscalYear aFiscalYear);
 
-    public abstract ArrayList<FlywheelCadence> dbListFlywheelCadence(FiscalYear aFiscalYear, FlywheelCadence aFlywheelCadenceException);
+    public abstract ArrayList<Cadence> dbListCadence(FiscalYear aFiscalYear, Cadence aCadenceException);
 
-    public abstract ArrayList<FlywheelCadence> dbListFlywheelCadenceForFiscalYear(String aFiscalYearId, String aFlywheelCadenceExceptiionId);
+    public abstract ArrayList<Cadence> dbListCadenceForFiscalYear(String aFiscalYearId, String aCadenceExceptiionId);
 
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////

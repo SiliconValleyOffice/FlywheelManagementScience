@@ -49,7 +49,7 @@ import android.util.AttributeSet;
 import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
-import com.flywheelms.library.fmm.node.impl.governable.FlywheelCadence;
+import com.flywheelms.library.fmm.node.impl.governable.Cadence;
 import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
 import com.flywheelms.library.fmm.node.impl.governable.WorkPackage;
 import com.flywheelms.library.fmm.node.impl.governable.WorkTask;
@@ -60,7 +60,7 @@ import java.util.ArrayList;
 public class WorkPackageWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 	
 	private ProjectAsset projectAsset; // primary parent
-	private FlywheelCadence flywheelCadence; // secondary parent
+	private Cadence flywheelCadence; // secondary parent
 	private WorkTask workTaskException;  // TODO - primary child that should be ignored
 	private WorkPackage workPackageException;  // a peer that should be ignored
 	
@@ -131,7 +131,7 @@ public class WorkPackageWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 	@Override
 	protected ArrayList<? extends GcgGuiable> getOrphanNodesSecondaryParentGuiableList() {
 		ArrayList<GcgGuiable> theGuiableList =
-				new ArrayList<GcgGuiable>(FmmDatabaseMediator.getActiveMediator().listWorkPackageOrphansFromFlywheelCadence());
+				new ArrayList<GcgGuiable>(FmmDatabaseMediator.getActiveMediator().listWorkPackageOrphansFromCadence());
 		return theGuiableList;
 	}
 	
@@ -140,8 +140,8 @@ public class WorkPackageWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 		super.updateSpinnerData();
 	}
 
-	public void updateSpinnerData(FlywheelCadence aFlywheelCadence) {
-		this.flywheelCadence = aFlywheelCadence;
+	public void updateSpinnerData(Cadence aCadence) {
+		this.flywheelCadence = aCadence;
 		super.updateSpinnerData();
 	}
 
@@ -162,14 +162,14 @@ public class WorkPackageWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 		super.updateSpinnerData();
 	}
 
-	public void updateSpinnerData(FlywheelCadence aFlywheelCadence, WorkPackage aWorkPackageException) {
-		this.flywheelCadence = aFlywheelCadence;
+	public void updateSpinnerData(Cadence aCadence, WorkPackage aWorkPackageException) {
+		this.flywheelCadence = aCadence;
 		this.workPackageException = aWorkPackageException;
 		super.updateSpinnerData();
 	}
 
-	public void updateSpinnerData(FlywheelCadence aFlywheelCadence, WorkTask aWorkTaskException) {
-		this.flywheelCadence = aFlywheelCadence;
+	public void updateSpinnerData(Cadence aCadence, WorkTask aWorkTaskException) {
+		this.flywheelCadence = aCadence;
 		this.workTaskException = aWorkTaskException;
 		super.updateSpinnerData();
 	}

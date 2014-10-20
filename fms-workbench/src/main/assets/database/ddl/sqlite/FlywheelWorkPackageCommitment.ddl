@@ -1,7 +1,7 @@
 CREATE TABLE `FlywheelWorkPackageCommitment` (
   `_id` CHAR(40) NOT NULL,
   `row_timestamp` BIGINT(14) NOT NULL DEFAULT 0,
-  `FlywheelCadence__id` CHAR(40) NOT NULL,
+  `Cadence__id` CHAR(40) NOT NULL,
   `WorkPackage__id` CHAR(40) NOT NULL,
   `sequence` INT(11) NOT NULL,
   `completion_commitment_type` CHAR(9) NOT NULL,
@@ -17,8 +17,8 @@ CREATE TABLE `FlywheelWorkPackageCommitment` (
   `canceled_datetime` BIGINT(14) NULL,
   PRIMARY KEY (`_id`),
   CONSTRAINT `fk_Commitment_Cadence`
-    FOREIGN KEY (`FlywheelCadence__id`)
-    REFERENCES `FlywheelCadence` (`_id`),
+    FOREIGN KEY (`Cadence__id`)
+    REFERENCES `Cadence` (`_id`),
   CONSTRAINT `fk_Commitment_CompletionCommitmentType`
     FOREIGN KEY (`completion_commitment_type`)
     REFERENCES `CompletionCommitmentType` (`completion_commitment_type`),

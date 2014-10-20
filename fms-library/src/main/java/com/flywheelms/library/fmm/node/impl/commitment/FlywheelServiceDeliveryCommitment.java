@@ -43,24 +43,24 @@
 
 package com.flywheelms.library.fmm.node.impl.commitment;
 
-import com.flywheelms.library.fmm.node.impl.governable.FlywheelCadence;
+import com.flywheelms.library.fmm.node.impl.governable.Cadence;
 import com.flywheelms.library.fmm.node.impl.governable.ServiceRequest;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmNode;
 
 public class FlywheelServiceDeliveryCommitment extends FmmCommitmentNodeImpl {
 
 	@SuppressWarnings("unused")
-	private FlywheelCadence flywheelCadence;
+	private Cadence flywheelCadence;
 	@SuppressWarnings("unused")
 	private ServiceRequest serviceRequest;
 
-	public FlywheelServiceDeliveryCommitment(String aFlywheelCadenceNodeIdString, String aServiceRequestNodeIdString) {
-		super(FlywheelServiceDeliveryCommitment.class, aFlywheelCadenceNodeIdString, aServiceRequestNodeIdString);
+	public FlywheelServiceDeliveryCommitment(String aCadenceNodeIdString, String aServiceRequestNodeIdString) {
+		super(FlywheelServiceDeliveryCommitment.class, aCadenceNodeIdString, aServiceRequestNodeIdString);
 	}
 
 	@Override
 	public Class<? extends FmmNode> getParentClass() {
-		return FlywheelCadence.class;
+		return Cadence.class;
 	}
 
 	@Override

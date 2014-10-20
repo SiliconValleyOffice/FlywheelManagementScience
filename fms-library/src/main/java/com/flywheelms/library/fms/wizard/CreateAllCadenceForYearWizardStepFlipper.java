@@ -50,10 +50,10 @@ import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
 import com.flywheelms.gcongui.gcg.wizard.GcgWizardStepFlipper;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.node.impl.governable.Cadence;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
-import com.flywheelms.library.fmm.node.impl.governable.FlywheelCadence;
 import com.flywheelms.library.fmm.node.impl.governable.WorkPlan;
-import com.flywheelms.library.fms.activity.CreateAllFlywheelCadenceForYearWizard;
+import com.flywheelms.library.fms.activity.CreateAllCadenceForYearWizard;
 import com.flywheelms.library.fms.wizard.step.CreateAllCadenceDoItNowWizardStepView;
 import com.flywheelms.library.fms.wizard.step.CreateAllCadenceHolidaysWizardStepView;
 import com.flywheelms.library.fms.wizard.step.CreateAllCadenceParametersWizardStepView;
@@ -108,15 +108,15 @@ public class CreateAllCadenceForYearWizardStepFlipper extends GcgWizardStepFlipp
         getFiscalYear().setWorkPlanFirstDayOfWeek(getWizardStepView1().getWorkPlanFirstDayOfWeek());
         FmmDatabaseMediator.getActiveMediator().updateFiscalYear(getFiscalYear(), true);
         FmmDatabaseMediator.getActiveMediator().insertFiscalYearHolidayBreakList(getWizardStepView2().getFiscalYearHolidayBreakList(), true);
-        FmmDatabaseMediator.getActiveMediator().insertFlywheelCadenceList(generateFlywheelCadenceList(), true);
+        FmmDatabaseMediator.getActiveMediator().insertCadenceList(generateCadenceList(), true);
 		getGcgActivity().finish(true);
 	}
 
-    private ArrayList<FlywheelCadence> generateFlywheelCadenceList() {
-        ArrayList<FlywheelCadence> theCadenceList = new ArrayList<FlywheelCadence>();
+    private ArrayList<Cadence> generateCadenceList() {
+        ArrayList<Cadence> theCadenceList = new ArrayList<Cadence>();
         int theSequence = 1;
         while (! getLastDayOfThePreviousWorkPlan().getTime().equals(getLastDayOfTheYear())) {
-            theCadenceList.add(getNextFlywheelCadence(theSequence));
+            theCadenceList.add(getNextCadence(theSequence));
             ++ theSequence;
         }
         return theCadenceList;
@@ -158,13 +158,13 @@ public class CreateAllCadenceForYearWizardStepFlipper extends GcgWizardStepFlipp
     }
 
     public FiscalYear getFiscalYear() {
-        return ((CreateAllFlywheelCadenceForYearWizard) getGcgActivity()).getFiscalYear();
+        return ((CreateAllCadenceForYearWizard) getGcgActivity()).getFiscalYear();
     }
 
-    public FlywheelCadence getNextFlywheelCadence(int aSequence) {
-        FlywheelCadence theFlywheelCadence = new FlywheelCadence(getFiscalYear());
-        theFlywheelCadence.setSequence(aSequence);
-        theFlywheelCadence.setHeadline("Cadence " + aSequence);
+    public Cadence getNextCadence(int aSequence) {
+        Cadence theCadence = new Cadence(getFiscalYear());
+        theCadence.setSequence(aSequence);
+        theCadence.setHeadline("Cadence " + aSequence);
         ArrayList<WorkPlan> theWorkPlanList = new ArrayList<WorkPlan>();
         GregorianCalendar thePlanStartDate;
         GregorianCalendar thePlanEndDate;
@@ -173,7 +173,7 @@ public class CreateAllCadenceForYearWizardStepFlipper extends GcgWizardStepFlipp
             thePlanStartDate.add(Calendar.DATE, 1);
             thePlanEndDate = GcgDateHelper.cloneCalendar(thePlanStartDate);
             thePlanEndDate.add(Calendar.DATE, 6);
-            WorkPlan theWorkPlan = new WorkPlan(theFlywheelCadence, thePlanStartDate.getTime(), thePlanEndDate.getTime());
+            WorkPlan theWorkPlan = new WorkPlan(theCadence, thePlanStartDate.getTime(), thePlanEndDate.getTime());
             theWorkPlan.setHeadline("Work Plan " + aSequence + "-" + Integer.toString(theIndex + 1));
             theWorkPlan.setSequence(theIndex + 1);
             adjustWorkPlanForHolidays(theWorkPlan, thePlanEndDate);
@@ -183,8 +183,8 @@ public class CreateAllCadenceForYearWizardStepFlipper extends GcgWizardStepFlipp
                 break;
             }
         }
-        theFlywheelCadence.setWorkPlanList(theWorkPlanList);
-        return theFlywheelCadence;
+        theCadence.setWorkPlanList(theWorkPlanList);
+        return theCadence;
     }
 
     private void adjustWorkPlanForHolidays(WorkPlan theWorkPlan, GregorianCalendar thePlanEndDate) {

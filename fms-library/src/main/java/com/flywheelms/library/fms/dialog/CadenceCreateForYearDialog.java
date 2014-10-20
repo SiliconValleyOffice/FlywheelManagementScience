@@ -1,4 +1,4 @@
-/* @(#)FlywheelCadenceCreateForYearDialog.java
+/* @(#)CadenceCreateForYearDialog.java
 **
 ** Copyright (C) 2012 by Steven D. Stamps
 **
@@ -51,8 +51,8 @@ import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
+import com.flywheelms.library.fmm.node.impl.governable.Cadence;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
-import com.flywheelms.library.fmm.node.impl.governable.FlywheelCadence;
 import com.flywheelms.library.fms.treeview.filter.FmsTreeViewAdapter;
 import com.flywheelms.library.fms.widget.spinner.CadenceDurationWidgetSpinner;
 import com.flywheelms.library.fms.widget.spinner.WorkPlanFirstDayOfWeekWidgetSpinner;
@@ -61,7 +61,7 @@ import com.flywheelms.library.fms.widget.text_view.HeadlineWidgetTextView;
 
 import java.util.ArrayList;
 
-public class FlywheelCadenceCreateForYearDialog extends FmsCancelOkDialog {
+public class CadenceCreateForYearDialog extends FmsCancelOkDialog {
 
     FmsTreeViewAdapter treeViewAdapter;
     protected final FiscalYear fiscalYear;
@@ -73,7 +73,7 @@ public class FlywheelCadenceCreateForYearDialog extends FmsCancelOkDialog {
     protected WorkPlanFirstDayOfWeekWidgetSpinner workPlanFirstDayOfWeekWidgetSpinner;
     protected Button previewButton;
 
-    public FlywheelCadenceCreateForYearDialog(
+    public CadenceCreateForYearDialog(
             GcgActivity aLibraryActivity,
             FmsTreeViewAdapter aTreeViewAdapter,
             FiscalYear aFiscalYear ) {
@@ -116,35 +116,35 @@ public class FlywheelCadenceCreateForYearDialog extends FmsCancelOkDialog {
         this.previewButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FlywheelCadenceCreateForYearDialog.this.onClickButtonPreview();
+                CadenceCreateForYearDialog.this.onClickButtonPreview();
             }
         });
     }
 
-    private void createFlywheelCadencesForFiscalYear(boolean bOkButtonEvent) {
+    private void createCadencesForFiscalYear(boolean bOkButtonEvent) {
         // update FiscalYear with Cadence Parameters
         // create Cadence collection
     }
 
     protected void onClickButtonPreview() {
-//        this.gcgActivity.startDialog(new FlywheelCadencePreviewDialog(
+//        this.gcgActivity.startDialog(new CadencePreviewDialog(
 //                this.gcgActivity,
 //                this.cadenceDurationSpinner.getSelectedItem().getDataText(),
 //                // TODO - send over list of initialized holidays
 //                this.workPlanFirstDayOfWeekWidgetSpinner.getSelectedItem().getDataText(),
-//                generateFlywheelCadenceList()));
+//                generateCadenceList()));
     }
 
-    private ArrayList<FlywheelCadence> generateFlywheelCadenceList() {
+    private ArrayList<Cadence> generateCadenceList() {
         // create ArrayList of all HolidaySlack
-        // loop to create Arraylist of HolidaySlack and FlywheelCadence
+        // loop to create Arraylist of HolidaySlack and Cadence
         // can create shorter or longer cadence if needed
         return null;
     }
 
     @Override
     protected void onClickButtonOk() {
-        createFlywheelCadencesForFiscalYear(true);
+        createCadencesForFiscalYear(true);
         this.gcgActivity.stopDialog();
     }
 

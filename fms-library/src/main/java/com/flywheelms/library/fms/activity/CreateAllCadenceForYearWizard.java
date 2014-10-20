@@ -52,13 +52,13 @@ import com.flywheelms.library.fms.helper.FmsActivityHelper;
 import com.flywheelms.library.fms.helper.FmsHelpIndex;
 import com.flywheelms.library.fms.wizard.CreateAllCadenceForYearWizardStepFlipper;
 
-public class CreateAllFlywheelCadenceForYearWizard extends GcgWizardActivity {
+public class CreateAllCadenceForYearWizard extends GcgWizardActivity {
 
     private FiscalYear fiscalYear;
 
 	private CreateAllCadenceForYearWizardStepFlipper wizardStepFlipper;
 
-	public CreateAllFlywheelCadenceForYearWizard() {
+	public CreateAllCadenceForYearWizard() {
 		super(FmsHelpIndex.CREATE__ALL_CADENCE_FOR_YEAR__WIZARD);
 	}
 	

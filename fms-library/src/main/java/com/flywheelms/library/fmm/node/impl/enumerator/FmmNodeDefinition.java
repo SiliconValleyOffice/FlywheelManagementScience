@@ -52,8 +52,8 @@ import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.helper.FmmHelper;
 import com.flywheelms.library.fmm.interfaces.WorkAsset;
+import com.flywheelms.library.fmm.meta_data.CadenceMetaData;
 import com.flywheelms.library.fmm.meta_data.FiscalYearMetaData;
-import com.flywheelms.library.fmm.meta_data.FlywheelCadenceMetaData;
 import com.flywheelms.library.fmm.meta_data.ProjectAssetMetaData;
 import com.flywheelms.library.fmm.meta_data.ProjectMetaData;
 import com.flywheelms.library.fmm.meta_data.StrategicAssetMetaData;
@@ -68,11 +68,11 @@ import com.flywheelms.library.fmm.node.impl.commitment.StrategicCommitment;
 import com.flywheelms.library.fmm.node.impl.commitment.WorkTaskAssignment;
 import com.flywheelms.library.fmm.node.impl.event.PdfPublication;
 import com.flywheelms.library.fmm.node.impl.governable.Bookshelf;
+import com.flywheelms.library.fmm.node.impl.governable.Cadence;
 import com.flywheelms.library.fmm.node.impl.governable.CommunityMember;
 import com.flywheelms.library.fmm.node.impl.governable.DiscussionTopic;
 import com.flywheelms.library.fmm.node.impl.governable.FacilitationIssue;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
-import com.flywheelms.library.fmm.node.impl.governable.FlywheelCadence;
 import com.flywheelms.library.fmm.node.impl.governable.FlywheelTeam;
 import com.flywheelms.library.fmm.node.impl.governable.FmsOrganization;
 import com.flywheelms.library.fmm.node.impl.governable.FunctionalTeam;
@@ -373,7 +373,7 @@ public enum FmmNodeDefinition implements FmmEnumNode {
             new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // large drawables
             10015 ),
 	FLYWHEEL_CADENCE (
-			FlywheelCadence.class,
+			Cadence.class,
 			"FCA",
 			R.string.fmm_node_definition__flywheel_cadence__term,
 			R.string.fmm_node_definition__flywheel_cadence__definition,
@@ -2088,7 +2088,7 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 		FISCAL_YEAR.setPrimaryChildNodeDefinition(FmmNodeDefinition.STRATEGIC_MILESTONE);
 		FISCAL_YEAR.setSecondaryChildNodeDefinition(FmmNodeDefinition.FLYWHEEL_CADENCE);
 		FLYWHEEL_CADENCE.setPrimaryParentNodeDefinition(FmmNodeDefinition.FISCAL_YEAR);
-        FLYWHEEL_CADENCE.setPrimaryParentIdColumnName(FlywheelCadenceMetaData.column_FISCAL_YEAR_ID);
+        FLYWHEEL_CADENCE.setPrimaryParentIdColumnName(CadenceMetaData.column_FISCAL_YEAR_ID);
 		FLYWHEEL_CADENCE.setPrimaryChildNodeDefinition(FmmNodeDefinition.WORK_PLAN);
 		FLYWHEEL_TEAM.setPrimaryParentNodeDefinition(FmmNodeDefinition.FMS_ORGANIZATION);
 		FUNCTIONAL_TEAM.setPrimaryParentNodeDefinition(FmmNodeDefinition.FMS_ORGANIZATION);
