@@ -629,8 +629,8 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
                 getGcgActivity(),
                 this,
                 FmmNodeDefinition.WORK_ASSET,
-                FmsTreeViewAdapter.isPeerLaunch(FmmNodeDefinition.WORK_ASSET, aLaunchHeadlineNode.getFmmNodeDefinition()) ? aParentHeadlineNode : aLaunchHeadlineNode,
-                FmsTreeViewAdapter.isPeerLaunch(FmmNodeDefinition.WORK_ASSET, aLaunchHeadlineNode.getFmmNodeDefinition()) ? 0 : aParentNodeChildCount,
+                FmsTreeViewAdapter.isPeerLaunch(FmmNodeDefinition.STRATEGIC_ASSET, aLaunchHeadlineNode.getFmmNodeDefinition()) ? aParentHeadlineNode : aLaunchHeadlineNode,
+                FmsTreeViewAdapter.isPeerLaunch(FmmNodeDefinition.STRATEGIC_ASSET, aLaunchHeadlineNode.getFmmNodeDefinition()) ? 0 : aParentNodeChildCount,
                 aLaunchHeadlineNode,
                 aLaunchHeadlineNodeSequence ));
     }
@@ -640,8 +640,9 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
                     getGcgActivity(),
                     this,
                     FmmNodeDefinition.STRATEGIC_ASSET,
-                    FmsTreeViewAdapter.isPeerLaunch(FmmNodeDefinition.PROJECT_ASSET, aLaunchHeadlineNode.getFmmNodeDefinition()) ? aParentHeadlineNode : aLaunchHeadlineNode,
-                    FmsTreeViewAdapter.isPeerLaunch(FmmNodeDefinition.STRATEGIC_ASSET, aLaunchHeadlineNode.getFmmNodeDefinition()) ? 0 : aParentNodeChildCount,
+                    FmsTreeViewAdapter.isPeerLaunch(FmmNodeDefinition.PROJECT_ASSET, aLaunchHeadlineNode.getFmmNodeDefinition()) || FmsTreeViewAdapter.isPeerLaunch(FmmNodeDefinition.STRATEGIC_ASSET, aLaunchHeadlineNode.getFmmNodeDefinition()) ?
+                            aParentHeadlineNode : aLaunchHeadlineNode,
+                    FmsTreeViewAdapter.isPeerLaunch(FmmNodeDefinition.PROJECT_ASSET, aLaunchHeadlineNode.getFmmNodeDefinition()) || FmsTreeViewAdapter.isPeerLaunch(FmmNodeDefinition.STRATEGIC_ASSET, aLaunchHeadlineNode.getFmmNodeDefinition()) ? 0 : aParentNodeChildCount,
                     aLaunchHeadlineNode,
                     aLaunchHeadlineNodeSequence ));
     }

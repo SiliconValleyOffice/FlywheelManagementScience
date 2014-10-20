@@ -130,13 +130,6 @@ public abstract class HeadlineNodeAdoptOrphanDialog extends FmsCancelOkApplyFdkD
 		initFdkHostSupport();
 	}
 
-//    protected int getDialogTitleIconResourceId() {
-//        if (getFmmNodeDefinition() != null) {
-//            return getFmmNodeDefinition().getDialogDrawableResourceId();
-//        }
-//        return 0;
-//    }
-
 	@Override
 	protected int getCustomDialogContentsResourceId() {
 		return R.layout.fmm__headline_node__adopt_orphan__dialog;

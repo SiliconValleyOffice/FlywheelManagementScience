@@ -103,6 +103,13 @@ public class WorkAssetWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 		return theGuiableList;
 	}
 
+    @Override
+    protected ArrayList<? extends GcgGuiable> getOrphanNodesPrimaryParentGuiableList() {
+        ArrayList<GcgGuiable> theGuiableList =
+                new ArrayList<GcgGuiable>(FmmDatabaseMediator.getActiveMediator().listProjectAssetOrphansFromProject());
+        return theGuiableList;
+    }
+
     protected ArrayList<? extends GcgGuiable> getDefaultGuiableList() {
         return new ArrayList<GcgGuiable>(FmmDatabaseMediator.getActiveMediator().listProjectAssets());
     }
