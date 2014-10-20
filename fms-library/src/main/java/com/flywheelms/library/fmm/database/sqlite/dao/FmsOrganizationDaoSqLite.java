@@ -74,6 +74,7 @@ public class FmsOrganizationDaoSqLite extends HeadlineNodeDaoSqLite<FmsOrganizat
 		super.buildColumnIndexMap(aCursor);
 		putColumnIndexMapEntry(this.columnIndexMap, aCursor, FmsOrganizationMetaData.column_AUTHENTICATION_URL);
 		putColumnIndexMapEntry(this.columnIndexMap, aCursor, FmsOrganizationMetaData.column_AUTHENTICATION_TYPE);
+		putColumnIndexMapEntry(this.columnIndexMap, aCursor, FmsOrganizationMetaData.column_FIRST_MONTH_OF_FISCAL_YEAR);
 	}
 
 	@Override
@@ -81,6 +82,7 @@ public class FmsOrganizationDaoSqLite extends HeadlineNodeDaoSqLite<FmsOrganizat
 		ContentValues theContentValues = super.buildContentValues(anFmsOrganization);
 		theContentValues.put(FmsOrganizationMetaData.column_AUTHENTICATION_URL, anFmsOrganization.getAuthenticationUrlString());
 		theContentValues.put(FmsOrganizationMetaData.column_AUTHENTICATION_TYPE, anFmsOrganization.getAuthenticationType());
+		theContentValues.put(FmsOrganizationMetaData.column_FIRST_MONTH_OF_FISCAL_YEAR, anFmsOrganization.getFirstMonthOfFiscalYear());
 		return theContentValues;
 	}
 
@@ -89,6 +91,7 @@ public class FmsOrganizationDaoSqLite extends HeadlineNodeDaoSqLite<FmsOrganizat
 		super.getColumnValues(aHashMap, aCursor, anOrganization);
 		anOrganization.setAuthenticationUrl(aCursor.getString(aHashMap.get(FmsOrganizationMetaData.column_AUTHENTICATION_URL)));
 		anOrganization.setAuthenticationType(aCursor.getString(aHashMap.get(FmsOrganizationMetaData.column_AUTHENTICATION_TYPE)));
+		anOrganization.setFirstMonthOfFiscalYear(aCursor.getInt(aHashMap.get(FmsOrganizationMetaData.column_FIRST_MONTH_OF_FISCAL_YEAR)));
 	}
 
 	@Override

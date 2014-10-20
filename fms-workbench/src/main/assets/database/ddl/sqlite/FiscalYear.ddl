@@ -4,6 +4,7 @@ CREATE TABLE `FiscalYear` (
   `headline` VARCHAR(256) NOT NULL ,
   `Organization__id` CHAR(40) NOT NULL ,
   `year_number` YEAR NOT NULL ,
+  `first_month_of_fiscal_year` INT NOT NULL,
   `cadence_duration` INT NULL,
   `work_plan_first_day_of_week` CHAR(3) NULL,
   PRIMARY KEY (`_id`) ,

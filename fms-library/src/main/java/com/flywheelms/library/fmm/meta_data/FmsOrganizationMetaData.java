@@ -48,7 +48,8 @@ public class FmsOrganizationMetaData extends HeadlineNodeMetaData {
 	//  _id, headline, Repository__id, last_sync_datetime, authentication_url, authentication_type
 	public static final String column_AUTHENTICATION_URL = "authentication_url";
 	public static final String column_AUTHENTICATION_TYPE = "authentication_type";
-	
+	public static final String column_FIRST_MONTH_OF_FISCAL_YEAR = "first_month_of_fiscal_year";
+
 	public static void init() { return; }
 
 }

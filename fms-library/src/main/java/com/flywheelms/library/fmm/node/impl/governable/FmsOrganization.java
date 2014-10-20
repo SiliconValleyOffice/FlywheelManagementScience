@@ -68,6 +68,7 @@ public class FmsOrganization extends FmmGovernableNodeImpl {
 
 	private String authenticationUrlString;
 	private String authenticationType;
+    private int firstMonthOfFiscalYear = 1;
 
 	public FmsOrganization(NodeId aNodeId) {
 		super(aNodeId);
@@ -153,4 +154,11 @@ public class FmsOrganization extends FmmGovernableNodeImpl {
 		return FmmDatabaseMediator.getActiveMediator().getFmsOrganization(NodeId.getNodeIdString(anIntent));
 	}
 
+    public int getFirstMonthOfFiscalYear() {
+        return this.firstMonthOfFiscalYear;
+    }
+
+    public void setFirstMonthOfFiscalYear(int firstMonthOfFiscalYear) {
+        this.firstMonthOfFiscalYear = firstMonthOfFiscalYear;
+    }
 }

@@ -85,6 +85,7 @@ public class FiscalYear extends FmmCompletableNodeImpl implements Comparable<Fis
 	private String organizationNodeIdString;
 	private FmsOrganization organization;
 	private int year = 0;
+    private int firstMonthOfFiscalYear = 1;
     private int cadenceDuration = 3;
     private String workPlanFirstDayOfWeek = "Tue";
 	private ArrayList<StrategicMilestone> strategicMilestoneList;
@@ -380,4 +381,11 @@ public class FiscalYear extends FmmCompletableNodeImpl implements Comparable<Fis
         setOrganizationId(aNodeIdString);
     }
 
+    public int getFirstMonthOfFiscalYear() {
+        return this.firstMonthOfFiscalYear;
+    }
+
+    public void setFirstMonthOfFiscalYear(int firstMonthOfFiscalYear) {
+        this.firstMonthOfFiscalYear = firstMonthOfFiscalYear;
+    }
 }
