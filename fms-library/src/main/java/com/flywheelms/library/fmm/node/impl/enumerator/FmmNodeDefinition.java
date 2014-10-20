@@ -62,8 +62,8 @@ import com.flywheelms.library.fmm.meta_data.WorkPackageMetaData;
 import com.flywheelms.library.fmm.meta_data.WorkPlanMetaData;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.FmmNodeImpl;
-import com.flywheelms.library.fmm.node.impl.commitment.FlywheelServiceDeliveryCommitment;
-import com.flywheelms.library.fmm.node.impl.commitment.FlywheelWorkPackageCommitment;
+import com.flywheelms.library.fmm.node.impl.commitment.CadenceServiceDeliveryCommitment;
+import com.flywheelms.library.fmm.node.impl.commitment.CadenceWorkPackageCommitment;
 import com.flywheelms.library.fmm.node.impl.commitment.StrategicCommitment;
 import com.flywheelms.library.fmm.node.impl.commitment.WorkTaskAssignment;
 import com.flywheelms.library.fmm.node.impl.event.PdfPublication;
@@ -418,7 +418,7 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // large drawables
     		10018 ),
     FLYWHEEL_WORK_PACKAGE_COMMITMENT (
-    		FlywheelWorkPackageCommitment.class,
+    		CadenceWorkPackageCommitment.class,
     		"FPC",
     		R.string.fmm_node_definition__flywheel_commitment__term,
     		R.string.fmm_node_definition__flywheel_commitment__term,
@@ -914,7 +914,7 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     		10052 ),
     // 10053 used to be PROJECT_ASSET_LINK_TO_WORK_PACKAGE
     SERVICE_DELIVERY_COMMITMENT (
-    		FlywheelServiceDeliveryCommitment.class,
+    		CadenceServiceDeliveryCommitment.class,
     		"SDC",
     		R.string.fmm_node_definition__service_delivery_commitment__term,
     		R.string.fmm_node_definition__service_delivery_commitment__term,

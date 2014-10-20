@@ -50,13 +50,13 @@ import android.database.sqlite.SQLiteDatabase;
 import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
 import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
 import com.flywheelms.library.fmm.database.sqlite.dao.CadenceDaoSqLite;
+import com.flywheelms.library.fmm.database.sqlite.dao.CadenceWorkPackageCommitmentDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.CommunityMemberDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.CommunityMemberOrganizationGovernanceAuthorityDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.CompletionNodeTrashDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.FiscalYearDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.FiscalYearHolidayBreakDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.FlywheelTeamDaoSqLite;
-import com.flywheelms.library.fmm.database.sqlite.dao.FlywheelWorkPackageCommitmentDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.FmmConfigurationDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.FmmNodeDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.FmsOrganizationDaoSqLite;
@@ -82,12 +82,12 @@ import com.flywheelms.library.fmm.database.sqlite.dao.WorkTaskDaoSqLite;
 import com.flywheelms.library.fmm.helper.FmmOpenHelper;
 import com.flywheelms.library.fmm.interfaces.WorkAsset;
 import com.flywheelms.library.fmm.meta_data.CadenceMetaData;
+import com.flywheelms.library.fmm.meta_data.CadenceWorkPackageCommitmentMetaData;
 import com.flywheelms.library.fmm.meta_data.CommunityMemberMetaData;
 import com.flywheelms.library.fmm.meta_data.CommunityMemberOrganizationGovernanceAuthorityMetaData;
 import com.flywheelms.library.fmm.meta_data.CompletableNodeMetaData;
 import com.flywheelms.library.fmm.meta_data.FiscalYearHolidayBreakMetaData;
 import com.flywheelms.library.fmm.meta_data.FiscalYearMetaData;
-import com.flywheelms.library.fmm.meta_data.FlywheelWorkPackageCommitmentMetaData;
 import com.flywheelms.library.fmm.meta_data.FmmConfigurationMetaData;
 import com.flywheelms.library.fmm.meta_data.HeadlineNodeMetaData;
 import com.flywheelms.library.fmm.meta_data.IdNodeMetaData;
@@ -174,7 +174,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
         PersistenceTechnologyDelegateSqLite.daoMap.put(FmmNodeDefinition.FISCAL_YEAR_HOLIDAY_BREAK, FiscalYearHolidayBreakDaoSqLite.getInstance());
         PersistenceTechnologyDelegateSqLite.daoMap.put(FmmNodeDefinition.FLYWHEEL_CADENCE, CadenceDaoSqLite.getInstance());
         PersistenceTechnologyDelegateSqLite.daoMap.put(FmmNodeDefinition.FLYWHEEL_TEAM, FlywheelTeamDaoSqLite.getInstance());
-        PersistenceTechnologyDelegateSqLite.daoMap.put(FmmNodeDefinition.FLYWHEEL_WORK_PACKAGE_COMMITMENT, FlywheelWorkPackageCommitmentDaoSqLite.getInstance());
+        PersistenceTechnologyDelegateSqLite.daoMap.put(FmmNodeDefinition.FLYWHEEL_WORK_PACKAGE_COMMITMENT, CadenceWorkPackageCommitmentDaoSqLite.getInstance());
         PersistenceTechnologyDelegateSqLite.daoMap.put(FmmNodeDefinition.FMM_CONFIGURATION, FmmConfigurationDaoSqLite.getInstance());
         PersistenceTechnologyDelegateSqLite.daoMap.put(FmmNodeDefinition.FMS_ORGANIZATION, FmsOrganizationDaoSqLite.getInstance());
         PersistenceTechnologyDelegateSqLite.daoMap.put(FmmNodeDefinition.FRAG_LOCK, FragLockDaoSqLite.getInstance());
@@ -2706,15 +2706,15 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 				theRawQuery += " ORDER BY " + CompletableNodeMetaData.column_SEQUENCE + " ASC";
 				theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
 		} else {
-			String theAndClause = FmmNodeDefinition.FLYWHEEL_WORK_PACKAGE_COMMITMENT.getTableName() + "." + FlywheelWorkPackageCommitmentMetaData.column_FLYWHEEL_CADENCE_ID + " = '" + aParentNodeId + "'";
+			String theAndClause = FmmNodeDefinition.FLYWHEEL_WORK_PACKAGE_COMMITMENT.getTableName() + "." + CadenceWorkPackageCommitmentMetaData.column_FLYWHEEL_CADENCE_ID + " = '" + aParentNodeId + "'";
 			if(aWorkPackageExceptionId != null) {
-				theAndClause += " AND " + FmmNodeDefinition.FLYWHEEL_WORK_PACKAGE_COMMITMENT.getTableName() + "." + FlywheelWorkPackageCommitmentMetaData.column_WORK_PACKAGE_ID + " != '" + aWorkPackageExceptionId + "'";
+				theAndClause += " AND " + FmmNodeDefinition.FLYWHEEL_WORK_PACKAGE_COMMITMENT.getTableName() + "." + CadenceWorkPackageCommitmentMetaData.column_WORK_PACKAGE_ID + " != '" + aWorkPackageExceptionId + "'";
 			}
 			theCursor = getSqLiteDatabase().rawQuery(getInnerJoinQueryWithAndSpecSorted(
 					FmmNodeDefinition.WORK_PACKAGE.getTableName(),
 					IdNodeMetaData.column_ID,
 					FmmNodeDefinition.FLYWHEEL_WORK_PACKAGE_COMMITMENT.getTableName(),
-					FlywheelWorkPackageCommitmentMetaData.column_WORK_PACKAGE_ID,
+					CadenceWorkPackageCommitmentMetaData.column_WORK_PACKAGE_ID,
 					theAndClause,
 					FmmNodeDefinition.FLYWHEEL_WORK_PACKAGE_COMMITMENT.getTableName() + "." + SequencedLinkNodeMetaData.column_SEQUENCE), null);
 		}

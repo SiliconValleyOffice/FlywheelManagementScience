@@ -8,7 +8,7 @@ CREATE TABLE `WorkPackage` (
   PRIMARY KEY (`_id`) ,
   CONSTRAINT `fk_WorkPackage_FlywheelCommitment1`
     FOREIGN KEY (`FlywheelCommitment__id` )
-    REFERENCES `FlywheelWorkPackageCommitment` (`_id` ) ,
+    REFERENCES `CadenceWorkPackageCommitment` (`_id` ) ,
   CONSTRAINT `fk_WorkPackage_ProjectAsset1`
     FOREIGN KEY (`ProjectAsset__id` )
     REFERENCES `ProjectAsset` (`_id` ) );

@@ -41,44 +41,19 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="app: com.flywheelms.workbench" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c0b3b16b-24dc-4ad0-83f8-e1821de85d20" name="Default" comment="database tweaks">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fms-workbench/src/main/assets/database/template/EmptyFmm.db" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/database/sqlite/dao/FlywheelCadenceDaoSqLite.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/database/sqlite/dao/CadenceDaoSqLite.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/meta_data/FlywheelCadenceMetaData.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/meta_data/CadenceMetaData.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/governable/FlywheelCadence.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/governable/Cadence.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/activity/CreateAllFlywheelCadenceForYearWizard.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/activity/CreateAllCadenceForYearWizard.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/activity/FlywheelCadenceEditorActivity.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/activity/CadenceEditorActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/FlywheelCadenceCreateForYearDialog.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/CadenceCreateForYearDialog.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/FlywheelCadencePreviewDialog.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/CadencePreviewDialog.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-workbench/src/main/assets/database/ddl/sqlite/FlywheelCadence.ddl" afterPath="$PROJECT_DIR$/fms-workbench/src/main/assets/database/ddl/sqlite/Cadence.ddl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-workbench/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/fms-workbench/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/wizard/CreateAllCadenceForYearWizardStepFlipper.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/wizard/CreateAllCadenceForYearWizardStepFlipper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/governable/FiscalYear.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/governable/FiscalYear.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/FiscalYearDeleteDialog.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/FiscalYearDeleteDialog.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/widget/spinner/FiscalYearWidgetSpinner.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/widget/spinner/FiscalYearWidgetSpinner.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-workbench/src/main/assets/database/ddl/sqlite/FlywheelServiceDeliveryCommitment.ddl" afterPath="$PROJECT_DIR$/fms-workbench/src/main/assets/database/ddl/sqlite/FlywheelServiceDeliveryCommitment.ddl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/commitment/FlywheelServiceDeliveryCommitment.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/commitment/FlywheelServiceDeliveryCommitment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-workbench/src/main/assets/database/ddl/sqlite/FlywheelWorkPackageCommitment.ddl" afterPath="$PROJECT_DIR$/fms-workbench/src/main/assets/database/ddl/sqlite/FlywheelWorkPackageCommitment.ddl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/commitment/FlywheelWorkPackageCommitment.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/commitment/FlywheelWorkPackageCommitment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/database/sqlite/dao/FlywheelWorkPackageCommitmentDaoSqLite.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/database/sqlite/dao/FlywheelWorkPackageCommitmentDaoSqLite.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/meta_data/FlywheelWorkPackageCommitmentMetaData.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/meta_data/FlywheelWorkPackageCommitmentMetaData.java" />
+    <list default="true" id="c0b3b16b-24dc-4ad0-83f8-e1821de85d20" name="Default" comment="refactor metaphors - rename FlywheelCadence --&gt; Cadence">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/database/sqlite/dao/FlywheelWorkPackageCommitmentDaoSqLite.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/database/sqlite/dao/CadenceWorkPackageCommitmentDaoSqLite.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/meta_data/FlywheelWorkPackageCommitmentMetaData.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/meta_data/CadenceWorkPackageCommitmentMetaData.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/commitment/FlywheelServiceDeliveryCommitment.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/commitment/CadenceServiceDeliveryCommitment.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/commitment/FlywheelWorkPackageCommitment.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/commitment/CadenceWorkPackageCommitment.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-workbench/src/main/assets/database/ddl/sqlite/FlywheelServiceDeliveryCommitment.ddl" afterPath="$PROJECT_DIR$/fms-workbench/src/main/assets/database/ddl/sqlite/CadenceServiceDeliveryCommitment.ddl" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-workbench/src/main/assets/database/ddl/sqlite/FlywheelWorkPackageCommitment.ddl" afterPath="$PROJECT_DIR$/fms-workbench/src/main/assets/database/ddl/sqlite/CadenceWorkPackageCommitment.ddl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-workbench/src/main/assets/database/template/EmptyFmm.db" afterPath="$PROJECT_DIR$/fms-workbench/src/main/assets/database/template/EmptyFmm.db" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/database/sqlite/FmmDatabaseBuilderSqLite.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/database/sqlite/FmmDatabaseBuilderSqLite.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/FmmDatabaseMediator.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/FmmDatabaseMediator.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/enumerator/FmmNodeDefinition.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/enumerator/FmmNodeDefinition.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/popup_menu/FmmPopupBuilder.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/popup_menu/FmmPopupBuilder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/helper/FmsActivityHelper.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/helper/FmsActivityHelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/helper/FmsHelpIndex.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/helper/FmsHelpIndex.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/treeview/filter/FmsTreeViewAdapter.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/treeview/filter/FmsTreeViewAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-workbench/src/main/java/com/flywheelms/workbench/perspective/FwbContextWorkPlanningPerspective.java" afterPath="$PROJECT_DIR$/fms-workbench/src/main/java/com/flywheelms/workbench/perspective/FwbContextWorkPlanningPerspective.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/persistence/PersistenceTechnologyDelegate.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/persistence/PersistenceTechnologyDelegate.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/persistence/PersistenceTechnologyDelegateSqLite.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/persistence/PersistenceTechnologyDelegateSqLite.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-workbench/src/main/assets/database/ddl/sqlite/WorkPackage.ddl" afterPath="$PROJECT_DIR$/fms-workbench/src/main/assets/database/ddl/sqlite/WorkPackage.ddl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/governable/WorkPackage.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/governable/WorkPackage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/WorkPackageOrphanDialog.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/WorkPackageOrphanDialog.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/widget/spinner/WorkPackageWidgetSpinner.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/widget/spinner/WorkPackageWidgetSpinner.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-workbench/src/main/assets/database/ddl/sqlite/WorkPlan.ddl" afterPath="$PROJECT_DIR$/fms-workbench/src/main/assets/database/ddl/sqlite/WorkPlan.ddl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/governable/WorkPlan.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/governable/WorkPlan.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/database/sqlite/dao/WorkPlanDaoSqLite.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/database/sqlite/dao/WorkPlanDaoSqLite.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/meta_data/WorkPlanMetaData.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/meta_data/WorkPlanMetaData.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -2767,9 +2742,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/interfaces/WorkAsset.java" />
-        <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/database/sqlite/dao/WorkAssetDaoSqLite.java" />
-        <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/FmsDialogExtension.java" />
         <option value="$PROJECT_DIR$/fms-workbench/src/main/java/com/flywheelms/workbench/perspective/FwbContextWorkBreakdownPerspective.java" />
         <option value="$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/activity/GcgActivity.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/helper/FmsHelpIndex.java" />
@@ -2818,6 +2790,9 @@
         <option value="$PROJECT_DIR$/fms-library/src/main/res/values/fms__strings.xml" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/FmmDatabaseMediator.java" />
         <option value="$PROJECT_DIR$/fms-workbench/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/fms-workbench/src/main/assets/database/ddl/sqlite/CadenceServiceDeliveryCommitment.ddl" />
+        <option value="$PROJECT_DIR$/fms-workbench/src/main/assets/database/ddl/sqlite/CadenceWorkPackageCommitment.ddl" />
+        <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/database/sqlite/FmmDatabaseBuilderSqLite.java" />
       </list>
     </option>
   </component>
@@ -4065,7 +4040,11 @@
       <created>1413819664846</created>
       <updated>1413819664846</updated>
     </task>
-    <option name="localTasksCounter" value="228" />
+    <task id="LOCAL-00228" summary="refactor metaphors - rename FlywheelCadence --&gt; Cadence">
+      <created>1413821567107</created>
+      <updated>1413821567107</updated>
+    </task>
+    <option name="localTasksCounter" value="229" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -4086,10 +4065,10 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32624868" sideWeight="0.49865228" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943678" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32987747" sideWeight="0.4989953" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37513283" sideWeight="0.49865228" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37513283" sideWeight="0.49865228" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37525988" sideWeight="0.5013477" order="13" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22724766" sideWeight="0.48469388" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22724766" sideWeight="0.48469388" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32731137" sideWeight="0.4989953" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32953784" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24983256" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -4149,7 +4128,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="corner case - perspective breadcrumb when editing a new child of a TreeView leaf node" />
     <MESSAGE value="incremental = FlywheelMS Dictionary dialog" />
     <MESSAGE value="1st iteration - FlywheelMS Dictionary dialog" />
     <MESSAGE value="GUI tweaks - gcg tabbed container" />
@@ -4174,7 +4152,8 @@
     <MESSAGE value="new feature - StrategicMilestoneAdoptOrphanProjectAssetDialog" />
     <MESSAGE value="new feature - move StrategicAsset to StrategicMilestone" />
     <MESSAGE value="database tweaks" />
-    <option name="LAST_COMMIT_MESSAGE" value="database tweaks" />
+    <MESSAGE value="refactor metaphors - rename FlywheelCadence --&gt; Cadence" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor metaphors - rename FlywheelCadence --&gt; Cadence" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -4186,67 +4165,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/widget/edit_text/GcgWidgetGenericEditText.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2125" vertical-offset="0" max-vertical-offset="560">
-          <caret line="52" column="54" selection-start-line="52" selection-start-column="54" selection-end-line="52" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-gcongui/src/main/res/layout/gcg__filter_panel.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.85955054" vertical-offset="0" max-vertical-offset="612">
-          <caret line="27" column="27" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/layout/fmm__headline_node__adopt_orphan__dialog.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7153558" vertical-offset="26" max-vertical-offset="2108">
-          <caret line="24" column="43" selection-start-line="24" selection-start-column="43" selection-end-line="24" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/layout/adopt_orphan__project__into__portfolio.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.230769" vertical-offset="0" max-vertical-offset="306">
-          <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/layout/adopt_orphan__project_asset__into__project.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.230769" vertical-offset="0" max-vertical-offset="306">
-          <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/layout/adopt_orphan__project_asset__into__strategic_milestone.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.230769" vertical-offset="0" max-vertical-offset="289">
-          <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/layout/adopt_orphan__strategic_asset__into__project.xml">
       <provider editor-type-id="android-designer">
         <state />
@@ -4490,14 +4408,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/database/sqlite/FmmDatabaseBuilderSqLite.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2355">
-          <caret line="122" column="26" selection-start-line="122" selection-start-column="26" selection-end-line="122" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/FmmDatabaseTemplate.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="390" max-vertical-offset="975">
@@ -4514,159 +4424,159 @@
         <state vertical-scroll-proportion="0.3188119" vertical-offset="18229" max-vertical-offset="36960">
           <caret line="1226" column="53" selection-start-line="1226" selection-start-column="53" selection-end-line="1226" selection-end-column="53" />
           <folding>
-            <element signature="e#0#138574#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-            <element signature="e#7977#8039#0" expanded="true" />
-            <element signature="e#8047#8109#0" expanded="true" />
-            <element signature="e#8690#8735#0" expanded="true" />
-            <element signature="e#8743#8794#0" expanded="true" />
-            <element signature="e#9415#9477#0" expanded="true" />
-            <element signature="e#9485#9547#0" expanded="true" />
-            <element signature="e#10143#10195#0" expanded="true" />
-            <element signature="e#10203#10261#0" expanded="true" />
-            <element signature="e#10984#11071#0" expanded="true" />
-            <element signature="e#11079#11166#0" expanded="true" />
-            <element signature="e#11827#11913#0" expanded="true" />
-            <element signature="e#11921#12007#0" expanded="true" />
-            <element signature="e#12616#12675#0" expanded="true" />
-            <element signature="e#12683#12742#0" expanded="true" />
-            <element signature="e#13351#13410#0" expanded="true" />
-            <element signature="e#13418#13477#0" expanded="true" />
-            <element signature="e#14095#14157#0" expanded="true" />
-            <element signature="e#14165#14227#0" expanded="true" />
-            <element signature="e#14830#14887#0" expanded="true" />
-            <element signature="e#14895#14952#0" expanded="true" />
-            <element signature="e#15540#15592#0" expanded="true" />
-            <element signature="e#15600#15658#0" expanded="true" />
-            <element signature="e#16322#16404#0" expanded="true" />
-            <element signature="e#16412#16494#0" expanded="true" />
-            <element signature="e#17094#17148#0" expanded="true" />
-            <element signature="e#17156#17216#0" expanded="true" />
-            <element signature="e#17860#17932#0" expanded="true" />
-            <element signature="e#17940#18012#0" expanded="true" />
-            <element signature="e#18598#18645#0" expanded="true" />
-            <element signature="e#18653#18706#0" expanded="true" />
-            <element signature="e#19349#19410#0" expanded="true" />
-            <element signature="e#19424#19485#0" expanded="true" />
-            <element signature="e#20170#20222#0" expanded="true" />
-            <element signature="e#20227#20285#0" expanded="true" />
-            <element signature="e#20879#20928#0" expanded="true" />
-            <element signature="e#20936#20991#0" expanded="true" />
-            <element signature="e#21618#21684#0" expanded="true" />
-            <element signature="e#21692#21758#0" expanded="true" />
-            <element signature="e#22402#22457#0" expanded="true" />
-            <element signature="e#22465#22520#0" expanded="true" />
-            <element signature="e#23116#23169#0" expanded="true" />
-            <element signature="e#23177#23230#0" expanded="true" />
-            <element signature="e#23825#23870#0" expanded="true" />
-            <element signature="e#23878#23923#0" expanded="true" />
-            <element signature="e#24512#24560#0" expanded="true" />
-            <element signature="e#24568#24616#0" expanded="true" />
-            <element signature="e#25200#25249#0" expanded="true" />
-            <element signature="e#25257#25306#0" expanded="true" />
-            <element signature="e#25912#25946#0" expanded="true" />
-            <element signature="e#25954#25988#0" expanded="true" />
-            <element signature="e#26612#26651#0" expanded="true" />
-            <element signature="e#26659#26698#0" expanded="true" />
-            <element signature="e#27292#27343#0" expanded="true" />
-            <element signature="e#27351#27408#0" expanded="true" />
-            <element signature="e#28041#28109#0" expanded="true" />
-            <element signature="e#28117#28185#0" expanded="true" />
-            <element signature="e#28806#28871#0" expanded="true" />
-            <element signature="e#28879#28944#0" expanded="true" />
-            <element signature="e#29538#29589#0" expanded="true" />
-            <element signature="e#29597#29648#0" expanded="true" />
-            <element signature="e#30259#30318#0" expanded="true" />
-            <element signature="e#30326#30385#0" expanded="true" />
-            <element signature="e#30998#31051#0" expanded="true" />
-            <element signature="e#31059#31112#0" expanded="true" />
-            <element signature="e#31712#31760#0" expanded="true" />
-            <element signature="e#31768#31816#0" expanded="true" />
-            <element signature="e#32402#32449#0" expanded="true" />
-            <element signature="e#32457#32504#0" expanded="true" />
-            <element signature="e#33086#33131#0" expanded="true" />
-            <element signature="e#33139#33184#0" expanded="true" />
-            <element signature="e#33789#33847#0" expanded="true" />
-            <element signature="e#33855#33913#0" expanded="true" />
-            <element signature="e#34510#34567#0" expanded="true" />
-            <element signature="e#34575#34632#0" expanded="true" />
-            <element signature="e#35231#35290#0" expanded="true" />
-            <element signature="e#35304#35363#0" expanded="true" />
-            <element signature="e#35961#36018#0" expanded="true" />
-            <element signature="e#36026#36083#0" expanded="true" />
-            <element signature="e#36686#36747#0" expanded="true" />
-            <element signature="e#36755#36816#0" expanded="true" />
-            <element signature="e#37440#37503#0" expanded="true" />
-            <element signature="e#37511#37574#0" expanded="true" />
-            <element signature="e#38159#38203#0" expanded="true" />
-            <element signature="e#38211#38261#0" expanded="true" />
-            <element signature="e#38896#38965#0" expanded="true" />
-            <element signature="e#38973#39042#0" expanded="true" />
-            <element signature="e#39638#39686#0" expanded="true" />
-            <element signature="e#39694#39748#0" expanded="true" />
-            <element signature="e#40368#40433#0" expanded="true" />
-            <element signature="e#40441#40506#0" expanded="true" />
-            <element signature="e#41129#41195#0" expanded="true" />
-            <element signature="e#41203#41269#0" expanded="true" />
-            <element signature="e#41880#41940#0" expanded="true" />
-            <element signature="e#41948#42008#0" expanded="true" />
-            <element signature="e#42624#42686#0" expanded="true" />
-            <element signature="e#42694#42756#0" expanded="true" />
-            <element signature="e#43350#43393#0" expanded="true" />
-            <element signature="e#43401#43444#0" expanded="true" />
-            <element signature="e#44031#44076#0" expanded="true" />
-            <element signature="e#44084#44135#0" expanded="true" />
-            <element signature="e#44733#44776#0" expanded="true" />
-            <element signature="e#44784#44833#0" expanded="true" />
-            <element signature="e#45424#45473#0" expanded="true" />
-            <element signature="e#45481#45536#0" expanded="true" />
-            <element signature="e#46239#46302#0" expanded="true" />
-            <element signature="e#46310#46373#0" expanded="true" />
-            <element signature="e#46967#47019#0" expanded="true" />
-            <element signature="e#47027#47085#0" expanded="true" />
-            <element signature="e#47702#47758#0" expanded="true" />
-            <element signature="e#47766#47828#0" expanded="true" />
-            <element signature="e#48443#48494#0" expanded="true" />
-            <element signature="e#48502#48559#0" expanded="true" />
-            <element signature="e#49198#49267#0" expanded="true" />
-            <element signature="e#49275#49344#0" expanded="true" />
-            <element signature="e#49958#50020#0" expanded="true" />
-            <element signature="e#50028#50090#0" expanded="true" />
-            <element signature="e#50726#50777#0" expanded="true" />
-            <element signature="e#50791#50848#0" expanded="true" />
-            <element signature="e#51537#51593#0" expanded="true" />
-            <element signature="e#51601#51657#0" expanded="true" />
-            <element signature="e#52257#52312#0" expanded="true" />
-            <element signature="e#52320#52381#0" expanded="true" />
-            <element signature="e#52994#53043#0" expanded="true" />
-            <element signature="e#53051#53106#0" expanded="true" />
-            <element signature="e#53735#53801#0" expanded="true" />
-            <element signature="e#53809#53875#0" expanded="true" />
-            <element signature="e#54479#54533#0" expanded="true" />
-            <element signature="e#54541#54595#0" expanded="true" />
-            <element signature="e#55178#55228#0" expanded="true" />
-            <element signature="e#55233#55283#0" expanded="true" />
-            <element signature="e#55880#55942#0" expanded="true" />
-            <element signature="e#55947#56009#0" expanded="true" />
-            <element signature="e#56631#56704#0" expanded="true" />
-            <element signature="e#56709#56782#0" expanded="true" />
-            <element signature="e#57378#57424#0" expanded="true" />
-            <element signature="e#57438#57490#0" expanded="true" />
-            <element signature="e#58151#58199#0" expanded="true" />
-            <element signature="e#58207#58261#0" expanded="true" />
-            <element signature="e#58922#58967#0" expanded="true" />
-            <element signature="e#58975#59026#0" expanded="true" />
-            <element signature="e#59615#59660#0" expanded="true" />
-            <element signature="e#59668#59719#0" expanded="true" />
-            <element signature="e#60329#60385#0" expanded="true" />
-            <element signature="e#60393#60449#0" expanded="true" />
-            <element signature="e#61541#61560#0" expanded="true" />
-            <element signature="e#130905#130906#0" expanded="true" />
-            <element signature="e#130933#130934#0" expanded="true" />
-            <element signature="e#131503#131504#0" expanded="true" />
-            <element signature="e#131526#131527#0" expanded="true" />
-            <element signature="e#131715#131716#0" expanded="true" />
-            <element signature="e#131752#131753#0" expanded="true" />
+            <element signature="e#0#138570#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#7975#8037#0" expanded="true" />
+            <element signature="e#8045#8107#0" expanded="true" />
+            <element signature="e#8688#8733#0" expanded="true" />
+            <element signature="e#8741#8792#0" expanded="true" />
+            <element signature="e#9413#9475#0" expanded="true" />
+            <element signature="e#9483#9545#0" expanded="true" />
+            <element signature="e#10141#10193#0" expanded="true" />
+            <element signature="e#10201#10259#0" expanded="true" />
+            <element signature="e#10982#11069#0" expanded="true" />
+            <element signature="e#11077#11164#0" expanded="true" />
+            <element signature="e#11825#11911#0" expanded="true" />
+            <element signature="e#11919#12005#0" expanded="true" />
+            <element signature="e#12614#12673#0" expanded="true" />
+            <element signature="e#12681#12740#0" expanded="true" />
+            <element signature="e#13349#13408#0" expanded="true" />
+            <element signature="e#13416#13475#0" expanded="true" />
+            <element signature="e#14093#14155#0" expanded="true" />
+            <element signature="e#14163#14225#0" expanded="true" />
+            <element signature="e#14828#14885#0" expanded="true" />
+            <element signature="e#14893#14950#0" expanded="true" />
+            <element signature="e#15538#15590#0" expanded="true" />
+            <element signature="e#15598#15656#0" expanded="true" />
+            <element signature="e#16320#16402#0" expanded="true" />
+            <element signature="e#16410#16492#0" expanded="true" />
+            <element signature="e#17092#17146#0" expanded="true" />
+            <element signature="e#17154#17214#0" expanded="true" />
+            <element signature="e#17858#17930#0" expanded="true" />
+            <element signature="e#17938#18010#0" expanded="true" />
+            <element signature="e#18596#18643#0" expanded="true" />
+            <element signature="e#18651#18704#0" expanded="true" />
+            <element signature="e#19347#19408#0" expanded="true" />
+            <element signature="e#19422#19483#0" expanded="true" />
+            <element signature="e#20168#20220#0" expanded="true" />
+            <element signature="e#20225#20283#0" expanded="true" />
+            <element signature="e#20877#20926#0" expanded="true" />
+            <element signature="e#20934#20989#0" expanded="true" />
+            <element signature="e#21616#21682#0" expanded="true" />
+            <element signature="e#21690#21756#0" expanded="true" />
+            <element signature="e#22399#22454#0" expanded="true" />
+            <element signature="e#22462#22517#0" expanded="true" />
+            <element signature="e#23113#23166#0" expanded="true" />
+            <element signature="e#23174#23227#0" expanded="true" />
+            <element signature="e#23822#23867#0" expanded="true" />
+            <element signature="e#23875#23920#0" expanded="true" />
+            <element signature="e#24509#24557#0" expanded="true" />
+            <element signature="e#24565#24613#0" expanded="true" />
+            <element signature="e#25197#25246#0" expanded="true" />
+            <element signature="e#25254#25303#0" expanded="true" />
+            <element signature="e#25909#25943#0" expanded="true" />
+            <element signature="e#25951#25985#0" expanded="true" />
+            <element signature="e#26609#26648#0" expanded="true" />
+            <element signature="e#26656#26695#0" expanded="true" />
+            <element signature="e#27289#27340#0" expanded="true" />
+            <element signature="e#27348#27405#0" expanded="true" />
+            <element signature="e#28038#28106#0" expanded="true" />
+            <element signature="e#28114#28182#0" expanded="true" />
+            <element signature="e#28803#28868#0" expanded="true" />
+            <element signature="e#28876#28941#0" expanded="true" />
+            <element signature="e#29535#29586#0" expanded="true" />
+            <element signature="e#29594#29645#0" expanded="true" />
+            <element signature="e#30256#30315#0" expanded="true" />
+            <element signature="e#30323#30382#0" expanded="true" />
+            <element signature="e#30995#31048#0" expanded="true" />
+            <element signature="e#31056#31109#0" expanded="true" />
+            <element signature="e#31709#31757#0" expanded="true" />
+            <element signature="e#31765#31813#0" expanded="true" />
+            <element signature="e#32399#32446#0" expanded="true" />
+            <element signature="e#32454#32501#0" expanded="true" />
+            <element signature="e#33083#33128#0" expanded="true" />
+            <element signature="e#33136#33181#0" expanded="true" />
+            <element signature="e#33786#33844#0" expanded="true" />
+            <element signature="e#33852#33910#0" expanded="true" />
+            <element signature="e#34507#34564#0" expanded="true" />
+            <element signature="e#34572#34629#0" expanded="true" />
+            <element signature="e#35228#35287#0" expanded="true" />
+            <element signature="e#35301#35360#0" expanded="true" />
+            <element signature="e#35958#36015#0" expanded="true" />
+            <element signature="e#36023#36080#0" expanded="true" />
+            <element signature="e#36683#36744#0" expanded="true" />
+            <element signature="e#36752#36813#0" expanded="true" />
+            <element signature="e#37437#37500#0" expanded="true" />
+            <element signature="e#37508#37571#0" expanded="true" />
+            <element signature="e#38156#38200#0" expanded="true" />
+            <element signature="e#38208#38258#0" expanded="true" />
+            <element signature="e#38893#38962#0" expanded="true" />
+            <element signature="e#38970#39039#0" expanded="true" />
+            <element signature="e#39635#39683#0" expanded="true" />
+            <element signature="e#39691#39745#0" expanded="true" />
+            <element signature="e#40365#40430#0" expanded="true" />
+            <element signature="e#40438#40503#0" expanded="true" />
+            <element signature="e#41126#41192#0" expanded="true" />
+            <element signature="e#41200#41266#0" expanded="true" />
+            <element signature="e#41877#41937#0" expanded="true" />
+            <element signature="e#41945#42005#0" expanded="true" />
+            <element signature="e#42621#42683#0" expanded="true" />
+            <element signature="e#42691#42753#0" expanded="true" />
+            <element signature="e#43347#43390#0" expanded="true" />
+            <element signature="e#43398#43441#0" expanded="true" />
+            <element signature="e#44028#44073#0" expanded="true" />
+            <element signature="e#44081#44132#0" expanded="true" />
+            <element signature="e#44730#44773#0" expanded="true" />
+            <element signature="e#44781#44830#0" expanded="true" />
+            <element signature="e#45421#45470#0" expanded="true" />
+            <element signature="e#45478#45533#0" expanded="true" />
+            <element signature="e#46235#46298#0" expanded="true" />
+            <element signature="e#46306#46369#0" expanded="true" />
+            <element signature="e#46963#47015#0" expanded="true" />
+            <element signature="e#47023#47081#0" expanded="true" />
+            <element signature="e#47698#47754#0" expanded="true" />
+            <element signature="e#47762#47824#0" expanded="true" />
+            <element signature="e#48439#48490#0" expanded="true" />
+            <element signature="e#48498#48555#0" expanded="true" />
+            <element signature="e#49194#49263#0" expanded="true" />
+            <element signature="e#49271#49340#0" expanded="true" />
+            <element signature="e#49954#50016#0" expanded="true" />
+            <element signature="e#50024#50086#0" expanded="true" />
+            <element signature="e#50722#50773#0" expanded="true" />
+            <element signature="e#50787#50844#0" expanded="true" />
+            <element signature="e#51533#51589#0" expanded="true" />
+            <element signature="e#51597#51653#0" expanded="true" />
+            <element signature="e#52253#52308#0" expanded="true" />
+            <element signature="e#52316#52377#0" expanded="true" />
+            <element signature="e#52990#53039#0" expanded="true" />
+            <element signature="e#53047#53102#0" expanded="true" />
+            <element signature="e#53731#53797#0" expanded="true" />
+            <element signature="e#53805#53871#0" expanded="true" />
+            <element signature="e#54475#54529#0" expanded="true" />
+            <element signature="e#54537#54591#0" expanded="true" />
+            <element signature="e#55174#55224#0" expanded="true" />
+            <element signature="e#55229#55279#0" expanded="true" />
+            <element signature="e#55876#55938#0" expanded="true" />
+            <element signature="e#55943#56005#0" expanded="true" />
+            <element signature="e#56627#56700#0" expanded="true" />
+            <element signature="e#56705#56778#0" expanded="true" />
+            <element signature="e#57374#57420#0" expanded="true" />
+            <element signature="e#57434#57486#0" expanded="true" />
+            <element signature="e#58147#58195#0" expanded="true" />
+            <element signature="e#58203#58257#0" expanded="true" />
+            <element signature="e#58918#58963#0" expanded="true" />
+            <element signature="e#58971#59022#0" expanded="true" />
+            <element signature="e#59611#59656#0" expanded="true" />
+            <element signature="e#59664#59715#0" expanded="true" />
+            <element signature="e#60325#60381#0" expanded="true" />
+            <element signature="e#60389#60445#0" expanded="true" />
+            <element signature="e#61537#61556#0" expanded="true" />
+            <element signature="e#130901#130902#0" expanded="true" />
+            <element signature="e#130929#130930#0" expanded="true" />
+            <element signature="e#131499#131500#0" expanded="true" />
+            <element signature="e#131522#131523#0" expanded="true" />
+            <element signature="e#131711#131712#0" expanded="true" />
+            <element signature="e#131748#131749#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -4798,6 +4708,62 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.16042781" vertical-offset="0" max-vertical-offset="735">
           <caret line="54" column="23" selection-start-line="54" selection-start-column="23" selection-end-line="54" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-workbench/src/main/assets/database/ddl/sqlite/CadenceServiceDeliveryCommitment.ddl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="645">
+          <caret line="0" column="14" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-workbench/src/main/assets/database/ddl/sqlite/CadenceWorkPackageCommitment.ddl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="660">
+          <caret line="0" column="14" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/database/sqlite/FmmDatabaseBuilderSqLite.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3465">
+          <caret line="48" column="55" selection-start-line="48" selection-start-column="55" selection-end-line="48" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/meta_data/CadenceWorkPackageCommitmentMetaData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
+          <caret line="45" column="27" selection-start-line="45" selection-start-column="27" selection-end-line="45" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/database/sqlite/dao/CadenceWorkPackageCommitmentDaoSqLite.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="855">
+          <caret line="53" column="31" selection-start-line="53" selection-start-column="31" selection-end-line="53" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/commitment/CadenceWorkPackageCommitment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1230">
+          <caret line="52" column="29" selection-start-line="52" selection-start-column="29" selection-end-line="52" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/commitment/CadenceServiceDeliveryCommitment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16042781" vertical-offset="0" max-vertical-offset="561">
+          <caret line="49" column="35" selection-start-line="49" selection-start-column="35" selection-end-line="49" selection-end-column="35" />
           <folding />
         </state>
       </provider>

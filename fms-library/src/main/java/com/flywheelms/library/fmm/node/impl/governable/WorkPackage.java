@@ -52,7 +52,7 @@ import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fmm.meta_data.WorkPackageMetaData;
 import com.flywheelms.library.fmm.node.FmmHeadlineNodeShallow;
 import com.flywheelms.library.fmm.node.NodeId;
-import com.flywheelms.library.fmm.node.impl.commitment.FlywheelWorkPackageCommitment;
+import com.flywheelms.library.fmm.node.impl.commitment.CadenceWorkPackageCommitment;
 import com.flywheelms.library.fmm.node.impl.completable.FmmCompletableNodeImpl;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
@@ -72,7 +72,7 @@ public class WorkPackage extends FmmCompletableNodeImpl implements Comparable<Wo
 	private static final long serialVersionUID = -297745950602591732L;
 	private String projectAssetNodeIdString;
 	private String flywheelCommitmentNodeIdString;
-	private FlywheelWorkPackageCommitment flywheelCommitment;
+	private CadenceWorkPackageCommitment flywheelCommitment;
     private ArrayList<WorkTask> workTaskList;
 
 	public WorkPackage(NodeId aNodeId) {
@@ -120,7 +120,7 @@ public class WorkPackage extends FmmCompletableNodeImpl implements Comparable<Wo
 		}
 	}
 	
-	public FlywheelWorkPackageCommitment getFlywheelCommitment() {
+	public CadenceWorkPackageCommitment getFlywheelCommitment() {
 		if(this.flywheelCommitment == null) {
 			if(this.flywheelCommitmentNodeIdString != null && this.flywheelCommitmentNodeIdString.length() > 0) {
 				// FmmDatabaseMediator
@@ -129,7 +129,7 @@ public class WorkPackage extends FmmCompletableNodeImpl implements Comparable<Wo
 		return this.flywheelCommitment;
 	}
 	
-	public void setFlywheelCommitment(FlywheelWorkPackageCommitment aFlywheelCommitment) {
+	public void setFlywheelCommitment(CadenceWorkPackageCommitment aFlywheelCommitment) {
 		this.flywheelCommitment = aFlywheelCommitment;
 		this.flywheelCommitmentNodeIdString = aFlywheelCommitment.getNodeIdString();
 	}

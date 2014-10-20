@@ -46,8 +46,8 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.flywheelms.library.fmm.database.FmmDatabaseBuilder;
 import com.flywheelms.library.fmm.helper.FmmAssetsHelper;
-import com.flywheelms.library.fmm.node.impl.commitment.FlywheelServiceDeliveryCommitment;
-import com.flywheelms.library.fmm.node.impl.commitment.FlywheelWorkPackageCommitment;
+import com.flywheelms.library.fmm.node.impl.commitment.CadenceServiceDeliveryCommitment;
+import com.flywheelms.library.fmm.node.impl.commitment.CadenceWorkPackageCommitment;
 import com.flywheelms.library.fmm.node.impl.commitment.StrategicCommitment;
 import com.flywheelms.library.fmm.node.impl.commitment.WorkTaskAssignment;
 import com.flywheelms.library.fmm.node.impl.enumerator.AssignmentCommitmentType;
@@ -173,14 +173,14 @@ public class FmmDatabaseBuilderSqLite implements FmmDatabaseBuilder {
 		createTable(aSqLiteDatabase, Portfolio.class);
 		createTable(aSqLiteDatabase, Project.class);
 		createTable(aSqLiteDatabase, ProjectAsset.class);
-		createTable(aSqLiteDatabase, FlywheelServiceDeliveryCommitment.class);
+		createTable(aSqLiteDatabase, CadenceServiceDeliveryCommitment.class);
 		createTable(aSqLiteDatabase, ServiceOffering.class);
 		createTable(aSqLiteDatabase, ServiceOfferingSla.class);
 		createTable(aSqLiteDatabase, ServiceRequest.class);
 		createTable(aSqLiteDatabase, StrategicCommitment.class);
 		createTable(aSqLiteDatabase, StrategicMilestone.class);
 		createTable(aSqLiteDatabase, StrategyTeam.class);
-		createTable(aSqLiteDatabase, FlywheelWorkPackageCommitment.class);
+		createTable(aSqLiteDatabase, CadenceWorkPackageCommitment.class);
 		createTable(aSqLiteDatabase, Cadence.class);
 		createTable(aSqLiteDatabase, WorkPackage.class);
 		createTable(aSqLiteDatabase, WorkPlan.class);

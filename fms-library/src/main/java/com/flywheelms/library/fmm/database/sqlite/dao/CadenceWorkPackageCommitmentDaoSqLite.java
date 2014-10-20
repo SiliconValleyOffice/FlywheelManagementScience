@@ -1,4 +1,4 @@
-/* @(#)FlywheelWorkPackageCommitmentDaoSqLite.java
+/* @(#)CadenceWorkPackageCommitmentDaoSqLite.java
 ** 
 ** Copyright (C) 2012 by Steven D. Stamps
 **
@@ -45,21 +45,21 @@ package com.flywheelms.library.fmm.database.sqlite.dao;
 
 import android.database.Cursor;
 
-import com.flywheelms.library.fmm.meta_data.FlywheelWorkPackageCommitmentMetaData;
-import com.flywheelms.library.fmm.node.impl.commitment.FlywheelWorkPackageCommitment;
+import com.flywheelms.library.fmm.meta_data.CadenceWorkPackageCommitmentMetaData;
+import com.flywheelms.library.fmm.node.impl.commitment.CadenceWorkPackageCommitment;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 
 import java.util.HashMap;
 
-public class FlywheelWorkPackageCommitmentDaoSqLite extends CommitmentNodeDaoSqLite<FlywheelWorkPackageCommitment> {
+public class CadenceWorkPackageCommitmentDaoSqLite extends CommitmentNodeDaoSqLite<CadenceWorkPackageCommitment> {
 
-	private static FlywheelWorkPackageCommitmentDaoSqLite singleton;
+	private static CadenceWorkPackageCommitmentDaoSqLite singleton;
 
-	public static FlywheelWorkPackageCommitmentDaoSqLite getInstance() {
-		if(FlywheelWorkPackageCommitmentDaoSqLite.singleton == null) {
-			FlywheelWorkPackageCommitmentDaoSqLite.singleton = new FlywheelWorkPackageCommitmentDaoSqLite();
+	public static CadenceWorkPackageCommitmentDaoSqLite getInstance() {
+		if(CadenceWorkPackageCommitmentDaoSqLite.singleton == null) {
+			CadenceWorkPackageCommitmentDaoSqLite.singleton = new CadenceWorkPackageCommitmentDaoSqLite();
 		}
-		return FlywheelWorkPackageCommitmentDaoSqLite.singleton;
+		return CadenceWorkPackageCommitmentDaoSqLite.singleton;
 	}
 	
 	@Override
@@ -69,30 +69,30 @@ public class FlywheelWorkPackageCommitmentDaoSqLite extends CommitmentNodeDaoSqL
 
 	@Override
 	protected String getParentIdColumnName() {
-		return FlywheelWorkPackageCommitmentMetaData.column_FLYWHEEL_CADENCE_ID;
+		return CadenceWorkPackageCommitmentMetaData.column_FLYWHEEL_CADENCE_ID;
 	}
 
 	@Override
 	protected String getChildIdColumnName() {
-		return FlywheelWorkPackageCommitmentMetaData.column_WORK_PACKAGE_ID;
+		return CadenceWorkPackageCommitmentMetaData.column_WORK_PACKAGE_ID;
 	}
 
 	@Override
 	protected void getColumnValues(HashMap<String, Integer> aHashMap,
-			Cursor aCursor, FlywheelWorkPackageCommitment aCommitmentNode) {
+			Cursor aCursor, CadenceWorkPackageCommitment aCommitmentNode) {
 		super.getColumnValues(aHashMap, aCursor, aCommitmentNode);
-		aCommitmentNode.setCadenceNodeId(aCursor.getString(aHashMap.get(FlywheelWorkPackageCommitmentMetaData.column_FLYWHEEL_CADENCE_ID)));
-		aCommitmentNode.setWorkPackageNodeId(aCursor.getString(aHashMap.get(FlywheelWorkPackageCommitmentMetaData.column_WORK_PACKAGE_ID)));
+		aCommitmentNode.setCadenceNodeId(aCursor.getString(aHashMap.get(CadenceWorkPackageCommitmentMetaData.column_FLYWHEEL_CADENCE_ID)));
+		aCommitmentNode.setWorkPackageNodeId(aCursor.getString(aHashMap.get(CadenceWorkPackageCommitmentMetaData.column_WORK_PACKAGE_ID)));
 	}
 
 	@Override
-	protected FlywheelWorkPackageCommitment getNextObjectFromCursor(Cursor aCursor) {
-		FlywheelWorkPackageCommitment theFlywheelWorkPackageCommitment = null;
-		theFlywheelWorkPackageCommitment = new FlywheelWorkPackageCommitment(
-				aCursor.getString(this.columnIndexMap.get(FlywheelWorkPackageCommitmentMetaData.column_FLYWHEEL_CADENCE_ID)),
-				aCursor.getString(this.columnIndexMap.get(FlywheelWorkPackageCommitmentMetaData.column_WORK_PACKAGE_ID)));
-		getColumnValues(this.columnIndexMap, aCursor, theFlywheelWorkPackageCommitment);
-		return theFlywheelWorkPackageCommitment;
+	protected CadenceWorkPackageCommitment getNextObjectFromCursor(Cursor aCursor) {
+		CadenceWorkPackageCommitment theCadenceWorkPackageCommitment = null;
+		theCadenceWorkPackageCommitment = new CadenceWorkPackageCommitment(
+				aCursor.getString(this.columnIndexMap.get(CadenceWorkPackageCommitmentMetaData.column_FLYWHEEL_CADENCE_ID)),
+				aCursor.getString(this.columnIndexMap.get(CadenceWorkPackageCommitmentMetaData.column_WORK_PACKAGE_ID)));
+		getColumnValues(this.columnIndexMap, aCursor, theCadenceWorkPackageCommitment);
+		return theCadenceWorkPackageCommitment;
 	}
 
 }

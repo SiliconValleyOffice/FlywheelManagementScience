@@ -1,4 +1,4 @@
-/* @(#)FlywheelWorkPackageCommitmentMetaData.java
+/* @(#)CadenceWorkPackageCommitmentMetaData.java
 ** 
 ** Copyright (C) 2012 by Steven D. Stamps
 **
@@ -43,7 +43,7 @@
 
 package com.flywheelms.library.fmm.meta_data;
 
-public class FlywheelWorkPackageCommitmentMetaData extends CommitmentNodeMetaData {
+public class CadenceWorkPackageCommitmentMetaData extends CommitmentNodeMetaData {
 	
 	public static final String column_FLYWHEEL_CADENCE_ID = "Cadence__id";
 	public static final String column_WORK_PACKAGE_ID = "WorkPackage__id";

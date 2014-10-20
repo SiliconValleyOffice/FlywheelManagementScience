@@ -1,4 +1,4 @@
-CREATE TABLE `FlywheelServiceDeliveryCommitment` (
+CREATE TABLE `CadenceServiceDeliveryCommitment` (
   `ServiceRequest__id` CHAR(40) NOT NULL,
   `row_timestamp` BIGINT(14) NOT NULL DEFAULT 0,
   `Cadence__id` CHAR(40) NOT NULL,

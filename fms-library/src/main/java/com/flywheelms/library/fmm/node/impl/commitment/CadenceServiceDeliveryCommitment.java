@@ -1,4 +1,4 @@
-/* @(#)FlywheelWorkPackageCommitment.java
+/* @(#)CadenceServiceDeliveryCommitment.java
 ** 
 ** Copyright (C) 2012 by Steven D. Stamps
 **
@@ -43,80 +43,19 @@
 
 package com.flywheelms.library.fmm.node.impl.commitment;
 
-import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.node.impl.governable.Cadence;
-import com.flywheelms.library.fmm.node.impl.governable.WorkPackage;
+import com.flywheelms.library.fmm.node.impl.governable.ServiceRequest;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmNode;
 
-import java.util.Date;
+public class CadenceServiceDeliveryCommitment extends FmmCommitmentNodeImpl {
 
-public class FlywheelWorkPackageCommitment extends FmmCommitmentNodeImpl {
-
+	@SuppressWarnings("unused")
 	private Cadence flywheelCadence;
-	private WorkPackage workPackage;
+	@SuppressWarnings("unused")
+	private ServiceRequest serviceRequest;
 
-	public FlywheelWorkPackageCommitment(String aCadenceNodeIdString, String aWorkPackageNodeIdString) {
-		super(FlywheelWorkPackageCommitment.class, aCadenceNodeIdString, aWorkPackageNodeIdString);
-	}
-
-	public String getCadenceNodeId() {
-		return this.parentNodeIdString;
-	}
-	
-//	public Cadence getCadence() {
-//		if(this.Cadence == null && this.parentNodeIdString != null) {
-//			this.Cadence =
-//					FmmDatabaseMediator.getActiveMediator().getCadence(this.parentNodeIdString);
-//		}
-//		return this.Cadence;
-//	}
-
-	public void setCadenceNodeId(String aCadenceNodeId) {
-		this.parentNodeIdString = aCadenceNodeId;
-		this.flywheelCadence = null;
-	}
-
-	public void setCadence(Cadence aCadence) {
-		this.flywheelCadence = aCadence;
-		this.parentNodeIdString = aCadence.getNodeIdString();
-	}
-
-	public String getWorkPackageNodeIdString() {
-		return this.childNodeIdString;
-	}
-	
-	public WorkPackage getWorkPackage() {
-		if(this.workPackage == null) {
-			this.workPackage =
-					FmmDatabaseMediator.getActiveMediator().retrieveWorkPackage(this.childNodeIdString);
-		}
-		return this.workPackage;
-	}
-
-	public void setWorkPackageNodeId(String aWorkPackageNodeId) {
-		this.childNodeIdString = aWorkPackageNodeId;
-		this.workPackage = null;
-	}
-
-	public void setWorkPackage(WorkPackage aWorkPackage) {
-		this.workPackage = aWorkPackage;
-		this.childNodeIdString = aWorkPackage.getNodeIdString();
-	}
-
-	public Cadence getCadence() {
-		return this.flywheelCadence;
-	}
-
-	@Override
-	public String getLinkedByNodeId() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Date getLinkedDateTime() {
-		// TODO Auto-generated method stub
-		return null;
+	public CadenceServiceDeliveryCommitment(String aCadenceNodeIdString, String aServiceRequestNodeIdString) {
+		super(CadenceServiceDeliveryCommitment.class, aCadenceNodeIdString, aServiceRequestNodeIdString);
 	}
 
 	@Override
@@ -126,7 +65,7 @@ public class FlywheelWorkPackageCommitment extends FmmCommitmentNodeImpl {
 
 	@Override
 	public Class<? extends FmmNode> getChildClass() {
-		return WorkPackage.class;
+		return ServiceRequest.class;
 	}
-	
+
 }
