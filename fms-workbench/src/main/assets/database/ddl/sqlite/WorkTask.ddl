@@ -9,9 +9,9 @@ CREATE TABLE `WorkTask` (
   `budgeted_person_hours` INT NULL ,
   `actual_person_hours` INT NULL ,
   PRIMARY KEY (`_id`) ,
-  CONSTRAINT `fk_WorkTask_WorkPlan1`
+  CONSTRAINT `fk_WorkTask_WorkPlan`
     FOREIGN KEY (`WorkPlan__id` )
     REFERENCES `WorkPlan` (`_id` ) ,
-  CONSTRAINT `fk_WorkTask_WorkPackage1`
+  CONSTRAINT `fk_WorkTask_WorkPackage`
     FOREIGN KEY (`WorkPackage__id` )
     REFERENCES `WorkPackage` (`_id` ) );

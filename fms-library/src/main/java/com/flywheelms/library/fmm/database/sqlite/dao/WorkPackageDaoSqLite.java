@@ -75,7 +75,7 @@ public class WorkPackageDaoSqLite extends CompletableNodeDaoSqLite<WorkPackage> 
 		super.buildColumnIndexMap(aCursor);
 		putColumnIndexMapEntry(this.columnIndexMap, aCursor, WorkPackageMetaData.column_WORK_ASSET_ID);
 		putColumnIndexMapEntry(this.columnIndexMap, aCursor, CompletableNodeMetaData.column_SEQUENCE);
-		putColumnIndexMapEntry(this.columnIndexMap, aCursor, WorkPackageMetaData.column_FLYWHEEL_COMMITMENT_ID);
+		putColumnIndexMapEntry(this.columnIndexMap, aCursor, WorkPackageMetaData.column_CADENCE_COMMITMENT_ID);
 	}
 
 	@Override
@@ -83,15 +83,15 @@ public class WorkPackageDaoSqLite extends CompletableNodeDaoSqLite<WorkPackage> 
 		super.getColumnValues(aHashMap, aCursor, aWorkPackage);
 		aWorkPackage.setProjectAssetId(aCursor.getString(aHashMap.get(WorkPackageMetaData.column_WORK_ASSET_ID)));
 		aWorkPackage.setSequence(aCursor.getInt(aHashMap.get(CompletableNodeMetaData.column_SEQUENCE)));
-		aWorkPackage.setFlywheelCommitmentNodeIdString(aCursor.getString(aHashMap.get(WorkPackageMetaData.column_FLYWHEEL_COMMITMENT_ID)));
+		aWorkPackage.setCadenceCommitmentNodeIdString(aCursor.getString(aHashMap.get(WorkPackageMetaData.column_CADENCE_COMMITMENT_ID)));
 	}
 
 	@Override
 	public ContentValues buildContentValues(WorkPackage aWorkPackage) {
 		ContentValues theContentValues = super.buildContentValues(aWorkPackage);
-		theContentValues.put(WorkPackageMetaData.column_WORK_ASSET_ID, aWorkPackage.getProjectAssetNodeIdString());
+		theContentValues.put(WorkPackageMetaData.column_WORK_ASSET_ID, aWorkPackage.getWorkAssetNodeIdString());
 		theContentValues.put(CompletableNodeMetaData.column_SEQUENCE, aWorkPackage.getSequence());
-		theContentValues.put(WorkPackageMetaData.column_FLYWHEEL_COMMITMENT_ID, aWorkPackage.getFlywheelCommitmentNodeIdString());
+		theContentValues.put(WorkPackageMetaData.column_CADENCE_COMMITMENT_ID, aWorkPackage.getCadenceCommitmentNodeIdString());
 		return theContentValues;
 	}
 

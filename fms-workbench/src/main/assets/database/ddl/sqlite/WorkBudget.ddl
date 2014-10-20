@@ -14,7 +14,7 @@ CREATE TABLE `WorkBudget` (
   `completion_actual_person_hours` INT NULL ,
   `completion_average_work_task_size` INT NULL ,
   PRIMARY KEY (`_id`) ,
-  CONSTRAINT `fk_WorkBudget_CommunityMember1`
+  CONSTRAINT `fk_WorkBudget_CommunityMember`
     FOREIGN KEY (`budget_proposed_by` )
     REFERENCES `CommunityMember` (`_id` ) ,
   CONSTRAINT `fk_WorkBudget_CommunityMember2`

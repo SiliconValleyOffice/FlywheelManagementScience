@@ -4,6 +4,6 @@ CREATE TABLE `FlywheelTeam` (
   `headline` VARCHAR(256) NOT NULL ,
   `Organization__id` CHAR(40) NOT NULL ,
   PRIMARY KEY (`_id`) ,
-  CONSTRAINT `fk_FlywheelWorkspace_Organization1`
+  CONSTRAINT `fk_FlywheelWorkspace_Organization`
     FOREIGN KEY (`Organization__id` )
     REFERENCES `FmsOrganization` (`_id` ) );

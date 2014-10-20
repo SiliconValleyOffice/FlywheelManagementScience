@@ -16,7 +16,7 @@ CREATE TABLE `StrategicCommitment` (
   `canceled_by` CHAR(40) NULL ,
   `canceled_timestamp` BIGINT(14) NULL ,
   PRIMARY KEY (`_id`) ,
-  CONSTRAINT `fk_DeliveryCommitment_CommunityMember1`
+  CONSTRAINT `fk_DeliveryCommitment_CommunityMember`
     FOREIGN KEY (`proposed_by` )
     REFERENCES `CommunityMember` (`_id` ) ,
   CONSTRAINT `fk_DeliveryCommitment_CommunityMember2`
@@ -28,13 +28,13 @@ CREATE TABLE `StrategicCommitment` (
   CONSTRAINT `fk_DeliveryCommitment_CommunityMember4`
     FOREIGN KEY (`canceled_by` )
     REFERENCES `CommunityMember` (`_id` ) ,
-  CONSTRAINT `fk_DeliveryCommitment_DeliveryCommitmentType1`
+  CONSTRAINT `fk_DeliveryCommitment_DeliveryCommitmentType`
     FOREIGN KEY (`completion_commitment_type` )
     REFERENCES `CompletionCommitmentType` (`completion_commitment_type` ) ,
-  CONSTRAINT `fk_MilestoneCommitment_Milestone1`
+  CONSTRAINT `fk_MilestoneCommitment_Milestone`
     FOREIGN KEY (`StrategicMilestone__id` )
     REFERENCES `StrategicMilestone` (`_id` ) ,
-  CONSTRAINT `fk_StrategicCommitment_ProjectAsset1`
+  CONSTRAINT `fk_StrategicCommitment_ProjectAsset`
     FOREIGN KEY (`StrategicAsset__id` )
     REFERENCES `ProjectAsset` (`_id` ) );
     

@@ -37,10 +37,10 @@ CREATE TABLE `NodeFragGovernance` (
   `administrator_locked_timestamp` BIGINT(14) NULL ,
   `administrator_satisfaction_score` INT NULL ,
   PRIMARY KEY (`_id`) ,
-  CONSTRAINT `fk_Governance_CommunityMember1`
+  CONSTRAINT `fk_Governance_CommunityMember`
     FOREIGN KEY (`sponsor_id` )
     REFERENCES `CommunityMember` (`_id` ) ,
-  CONSTRAINT `fk_Governance_AssignmentCommitmentType1`
+  CONSTRAINT `fk_Governance_AssignmentCommitmentType`
     FOREIGN KEY (`sponsor_commitment` )
     REFERENCES `AssignmentCommitmentType` (`assignment_commitment_type` ) ,
   CONSTRAINT `fk_Governance_CommunityMember2`
@@ -73,13 +73,13 @@ CREATE TABLE `NodeFragGovernance` (
   CONSTRAINT `fk_Governance_CommunityMember8`
     FOREIGN KEY (`administrator_proposed_by_id` )
     REFERENCES `CommunityMember` (`_id` ) ,
-  CONSTRAINT `fk_NodeFragGovernance_GovernanceTarget1`
+  CONSTRAINT `fk_NodeFragGovernance_GovernanceTarget`
     FOREIGN KEY (`governance_target` )
     REFERENCES `GovernanceTarget` (`governance_target` ) ,
-  CONSTRAINT `fk_NodeFragGovernance_FmmNodeDictionary1`
+  CONSTRAINT `fk_NodeFragGovernance_FmmNodeDictionary`
     FOREIGN KEY (`parent_node_type_code` )
     REFERENCES `FmmNodeDefinition` (`node_type_code` ) ,
-  CONSTRAINT `fk_NodeFragGovernance_GovernanceSatisfaction1`
+  CONSTRAINT `fk_NodeFragGovernance_GovernanceSatisfaction`
     FOREIGN KEY (`sponsor_satisfaction_score` )
     REFERENCES `GovernanceSatisfaction` (`score` ) ,
   CONSTRAINT `fk_NodeFragGovernance_GovernanceSatisfaction2`

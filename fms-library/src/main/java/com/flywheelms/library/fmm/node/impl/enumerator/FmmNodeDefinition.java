@@ -1219,9 +1219,9 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 	public static final String name_COLUMN_2 = "node_name";
 	public static final String name_COLUMN_3 = "description";
 
-    static {  // TODO - refactor for WorkAsset table being the overridded definition
-        FmmNodeDefinition.STRATEGIC_ASSET.setFmmNodeDefinitionOverride(FmmNodeDefinition.PROJECT_ASSET);
-        FmmNodeDefinition.WORK_ASSET.setFmmNodeDefinitionOverride(FmmNodeDefinition.PROJECT_ASSET);
+    static {
+        FmmNodeDefinition.STRATEGIC_ASSET.setFmmNodeDefinitionOverride(FmmNodeDefinition.WORK_ASSET);
+        FmmNodeDefinition.PROJECT_ASSET.setFmmNodeDefinitionOverride(FmmNodeDefinition.WORK_ASSET);
     }
 	
 	public static final ArrayList<FmmNodeDefinition> DATABASE_LOAD_ORDER = new ArrayList<FmmNodeDefinition>(
@@ -1236,7 +1236,7 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 					FmmNodeDefinition.STRATEGIC_MILESTONE,
 					FmmNodeDefinition.PORTFOLIO,
 					FmmNodeDefinition.PROJECT,
-					FmmNodeDefinition.PROJECT_ASSET,
+					FmmNodeDefinition.WORK_ASSET,
 					FmmNodeDefinition.STRATEGIC_COMMITMENT,
 					FmmNodeDefinition.WORK_PACKAGE,
                     FmmNodeDefinition.WORK_TASK) );

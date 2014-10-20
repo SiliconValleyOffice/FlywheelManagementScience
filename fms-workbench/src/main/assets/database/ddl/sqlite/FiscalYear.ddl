@@ -7,6 +7,6 @@ CREATE TABLE `FiscalYear` (
   `cadence_duration` INT NULL,
   `work_plan_first_day_of_week` CHAR(3) NULL,
   PRIMARY KEY (`_id`) ,
-  CONSTRAINT `fk_FiscalYear_Organization1`
+  CONSTRAINT `fk_FiscalYear_Organization`
     FOREIGN KEY (`Organization__id`)
     REFERENCES `FmsOrganization` (`_id`) );

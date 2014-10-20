@@ -12,6 +12,6 @@ CREATE TABLE `CommunityMember` (
   `cell_phone` VARCHAR(45) NULL ,
   `work_phone` VARCHAR(45) NULL ,
   PRIMARY KEY (`_id`) ,
-  CONSTRAINT `fk_CommunityMember_CommunityMemberStatus_enum1`
+  CONSTRAINT `fk_CommunityMember_CommunityMemberStatus_enum`
     FOREIGN KEY (`community_member_status` )
     REFERENCES `CommunityMemberStatus` (`community_member_status` ) );

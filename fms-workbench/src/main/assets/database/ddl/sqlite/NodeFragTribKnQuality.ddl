@@ -28,7 +28,7 @@ CREATE TABLE`NodeFragTribKnQuality` (
   `sequence_quality` INT(11) NOT NULL ,
   `sequence_quality_timestamp` BIGINT(14) NOT NULL ,
   PRIMARY KEY (`_id`) ,
-  CONSTRAINT `fk_NodeQuality_NodeQualityDecorator1`
+  CONSTRAINT `fk_NodeQuality_NodeQualityDecorator`
     FOREIGN KEY (`facilitation_issue_quality` )
     REFERENCES `TribKnQualityEnumeration` (`quality_enumeration` ) ,
   CONSTRAINT `fk_NodeQuality_NodeQualityDecorator2`
@@ -55,13 +55,13 @@ CREATE TABLE`NodeFragTribKnQuality` (
   CONSTRAINT `fk_NodeQuality_NodeQualityDecorator9`
     FOREIGN KEY (`work_task_budget_quality` )
     REFERENCES `TribKnQualityEnumeration` (`quality_enumeration` ) ,
-  CONSTRAINT `fk_NodeFragTribKnQuality_TribKnQualityEnumeration1`
+  CONSTRAINT `fk_NodeFragTribKnQuality_TribKnQualityEnumeration`
     FOREIGN KEY (`flywheel_commitment_quality` )
     REFERENCES `TribKnQualityEnumeration` (`quality_enumeration` ) ,
   CONSTRAINT `fk_NodeFragTribKnQuality_TribKnQualityEnumeration2`
     FOREIGN KEY (`facilitator_quality` )
     REFERENCES `TribKnQualityEnumeration` (`quality_enumeration` ) ,
-  CONSTRAINT `fk_NodeFragTribKnQuality_FmmNodeDictionary1`
+  CONSTRAINT `fk_NodeFragTribKnQuality_FmmNodeDictionary`
     FOREIGN KEY (`parent_node_type_code` )
     REFERENCES `FmmNodeDefinition` (`node_type_code` ) ,
   CONSTRAINT `fk_NodeFragTribKnQuality_TribKnQualityEnumeration3`

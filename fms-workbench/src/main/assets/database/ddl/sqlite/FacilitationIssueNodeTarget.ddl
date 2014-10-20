@@ -4,6 +4,6 @@ CREATE TABLE `FacilitationIssueNodeTarget` (
   `row_timestamp` BIGINT(14) NOT NULL DEFAULT 0 ,
   `sequence` INT(11) NULL ,
   PRIMARY KEY (`FacilitationIssue__id`, `FmmNode__id`) ,
-  CONSTRAINT `fk_FacilitationIssue_has_WorkTask_FacilitationIssue1`
+  CONSTRAINT `fk_FacilitationIssue_has_WorkTask_FacilitationIssue`
     FOREIGN KEY (`FacilitationIssue__id` )
     REFERENCES `FacilitationIssue` (`_id` ) );

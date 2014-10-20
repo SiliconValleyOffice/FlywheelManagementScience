@@ -20,10 +20,10 @@ CREATE TABLE `NodeFragWorkTaskBudget` (
   `task_count_after_completion` INT NULL ,
   `average_hours_per_task_after_completion` FLOAT NULL ,
   PRIMARY KEY (`_id`) ,
-  CONSTRAINT `fk_NodeFragWorkTaskBudget_FmmNodeDictionary1`
+  CONSTRAINT `fk_NodeFragWorkTaskBudget_FmmNodeDictionary`
     FOREIGN KEY (`parent_node_type_code` )
     REFERENCES `FmmNodeDefinition` (`node_type_code` ) ,
-  CONSTRAINT `fk_NodeFragWorkTaskBudget_CommunityMember1`
+  CONSTRAINT `fk_NodeFragWorkTaskBudget_CommunityMember`
     FOREIGN KEY (`swag_by` )
     REFERENCES `CommunityMember` (`_id` ) ,
   CONSTRAINT `fk_NodeFragWorkTaskBudget_CommunityMember2`

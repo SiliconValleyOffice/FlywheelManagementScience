@@ -4,9 +4,9 @@ CREATE TABLE `NotebookLinkToDiscussionTopic` (
   `DiscussionTopic__id` CHAR(40) NOT NULL ,
   `sequence` INT(11) NULL ,
   PRIMARY KEY (`Notebook__id`, `DiscussionTopic__id`) ,
-  CONSTRAINT `fk_Notebook_has_DiscussionTopic_Notebook1`
+  CONSTRAINT `fk_Notebook_has_DiscussionTopic_Notebook`
     FOREIGN KEY (`Notebook__id` )
     REFERENCES `Notebook` (`_id` ) ,
-  CONSTRAINT `fk_Notebook_has_DiscussionTopic_DiscussionTopic1`
+  CONSTRAINT `fk_Notebook_has_DiscussionTopic_DiscussionTopic`
     FOREIGN KEY (`DiscussionTopic__id` )
     REFERENCES `DiscussionTopic` (`_id` ) );

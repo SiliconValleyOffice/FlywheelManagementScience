@@ -12,9 +12,9 @@ CREATE TABLE `CommunityMemberOrganizationGovernanceAuthority` (
   `can_sponsor_customer` TINYINT NULL ,
   `can_sponsor_administrator` TINYINT NULL ,
   PRIMARY KEY (`CommunityMember__id`, `Organization__id`, `governance_target`) ,
-  CONSTRAINT `fk_OrganizationCommunityMemberLinkToOrganizationFmsGovernance1`
+  CONSTRAINT `fk_OrganizationCommunityMemberLinkToOrganizationFmsGovernance`
     FOREIGN KEY (`Organization__id` , `CommunityMember__id` )
     REFERENCES `OrganizationCommunityMember` (`Organization__id` , `CommunityMember__id` ) ,
-  CONSTRAINT `fk_OrganizationCommunityMemberLinkToOrganizationGovernanceTar1`
+  CONSTRAINT `fk_OrganizationCommunityMemberLinkToOrganizationGovernanceTar`
     FOREIGN KEY (`governance_target` )
     REFERENCES `OrganizationGovernanceTarget` (`governance_target` ) );

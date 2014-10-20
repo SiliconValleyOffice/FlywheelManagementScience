@@ -7,9 +7,9 @@ CREATE TABLE `OrganizationLockConfig` (
   `customer_can_lock` TINYINT NULL ,
   `administrator_can_lock` TINYINT NULL ,
   PRIMARY KEY (`Organization__id`, `fmm_node_name`, `lock_type`) ,
-  CONSTRAINT `fk_Organization_LockConfig_Organization1`
+  CONSTRAINT `fk_Organization_LockConfig_Organization`
     FOREIGN KEY (`Organization__id` )
     REFERENCES `Organization` (`_id` ) ,
-  CONSTRAINT `fk_OrganizationLinkToLockConfig_LockConfig1`
+  CONSTRAINT `fk_OrganizationLinkToLockConfig_LockConfig`
     FOREIGN KEY (`fmm_node_name` , `lock_type` )
     REFERENCES `LockConfig` (`fmm_node_name` , `lock_type` ) );

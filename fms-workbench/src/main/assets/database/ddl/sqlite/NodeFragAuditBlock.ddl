@@ -11,13 +11,13 @@ CREATE TABLE `NodeFragAuditBlock` (
   `last_updated_by` CHAR(40) NOT NULL ,
   `serialized_node_history` TEXT NULL ,
   PRIMARY KEY (`_id`) ,
-  CONSTRAINT `fk_NodeStatus_CommunityMember1`
+  CONSTRAINT `fk_NodeStatus_CommunityMember`
     FOREIGN KEY (`last_updated_by` )
     REFERENCES `CommunityMember` (`_id` ) ,
   CONSTRAINT `fk_NodeStatus_CommunityMember2`
     FOREIGN KEY (`created_by` )
     REFERENCES `CommunityMember` (`_id` ) ,
-  CONSTRAINT `fk_NodeFragAuditBlock_FmmNodeDictionary1`
+  CONSTRAINT `fk_NodeFragAuditBlock_FmmNodeDictionary`
     FOREIGN KEY (`parent_node_type_code` )
     REFERENCES `FmmNodeDefinition` (`node_type_code` ) );
     

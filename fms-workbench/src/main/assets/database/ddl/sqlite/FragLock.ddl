@@ -11,16 +11,16 @@ CREATE TABLE `FragLock` (
   `unlocked_by` CHAR(40) NULL ,
   `unlocked_timestamp` BIGINT(14) NULL ,
   PRIMARY KEY (`_id`) ,
-  CONSTRAINT `fk_NodeFrag_Lock_CommunityMember1`
+  CONSTRAINT `fk_NodeFrag_Lock_CommunityMember`
     FOREIGN KEY (`locked_by` )
     REFERENCES `CommunityMember` (`_id` ) ,
-  CONSTRAINT `fk_NodeFragLock_FmmNodeDictionary1`
+  CONSTRAINT `fk_NodeFragLock_FmmNodeDictionary`
     FOREIGN KEY (`parent_node_type_code` )
     REFERENCES `FmmNodeDefinition` (`node_type_code` ) ,
-  CONSTRAINT `fk_NodeFragLock_CommunityMember1`
+  CONSTRAINT `fk_NodeFragLock_CommunityMember`
     FOREIGN KEY (`unlocked_by` )
     REFERENCES `CommunityMember` (`_id` ) ,
-  CONSTRAINT `fk_FragLock_FmmNodeDictionary1`
+  CONSTRAINT `fk_FragLock_FmmNodeDictionary`
     FOREIGN KEY (`grandparent_node_type_code` )
     REFERENCES `FmmNodeDefinition` (`node_type_code` ) );
     

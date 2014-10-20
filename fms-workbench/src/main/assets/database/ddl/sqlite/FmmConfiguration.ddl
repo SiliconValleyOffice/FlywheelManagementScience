@@ -8,7 +8,7 @@ CREATE TABLE `FmmConfiguration` (
   `access_scope` TEXT(7) NOT NULL ,
   `db_version` INT NOT NULL DEFAULT 1 ,
   PRIMARY KEY (`_id`) ,
-  CONSTRAINT `fk_FmmConfiguration_FmsOrganization1`
+  CONSTRAINT `fk_FmmConfiguration_FmsOrganization`
     FOREIGN KEY (`Organization__id` )
     REFERENCES `FmsOrganization` (`_id` ) );
     

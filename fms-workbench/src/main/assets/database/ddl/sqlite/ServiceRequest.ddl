@@ -6,9 +6,9 @@ CREATE TABLE `ServiceRequest` (
   `auto_completable` TINYINT NULL ,
   `work_status` CHAR(23) NOT NULL ,
   PRIMARY KEY (`_id`) ,
-  CONSTRAINT `fk_ServiceRequest_ServiceOffering1`
+  CONSTRAINT `fk_ServiceRequest_ServiceOffering`
     FOREIGN KEY (`ServiceOffering__id` )
     REFERENCES `ServiceOffering` (`_id` ) ,
-  CONSTRAINT `fk_ServiceRequest_WorkStatus1`
+  CONSTRAINT `fk_ServiceRequest_WorkStatus`
     FOREIGN KEY (`work_status` )
     REFERENCES `CompletableWorkStatus` (`work_status` ) );

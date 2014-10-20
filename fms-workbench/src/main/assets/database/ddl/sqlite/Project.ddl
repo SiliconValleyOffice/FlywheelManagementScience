@@ -4,6 +4,6 @@ CREATE TABLE `Project` (
   `headline` VARCHAR(256) NOT NULL ,
   `Portfolio__id` CHAR(40) NULL ,
 PRIMARY KEY (`_id`),
-CONSTRAINT `fk_Project_Portfolio1`
+CONSTRAINT `fk_Project_Portfolio`
  FOREIGN KEY (`Portfolio__id`)
  REFERENCES `Portfolio` (`_id`) );

@@ -146,7 +146,7 @@ public class WorkPackageMoveIntoWorkAssetDialog extends HeadlineNodeMoveDialog {
         boolean theMoveStatus = false;
         theMoveStatus = FmmDatabaseMediator.getActiveMediator().moveSingleWorkPackageIntoWorkAsset(
                 getFmmHeadlineNode().getNodeIdString(),
-                ((WorkPackage) getFmmHeadlineNode()).getProjectAssetNodeIdString(),
+                ((WorkPackage) getFmmHeadlineNode()).getWorkAssetNodeIdString(),
                 this.dispositionTargetWidgetSpinner.getFmmNode().getNodeIdString(),
                 this.sequencePositionSpinner.sequenceAtEnd(),
                 true);

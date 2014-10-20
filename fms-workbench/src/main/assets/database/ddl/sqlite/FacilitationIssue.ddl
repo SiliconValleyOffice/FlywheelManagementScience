@@ -14,10 +14,10 @@ CREATE TABLE `FacilitationIssue` (
   `resolved_by_id` CHAR(40) NOT NULL ,
   `resolved_datetime` BIGINT(14) NULL ,
   PRIMARY KEY (`_id`) ,
-  CONSTRAINT `fk_FacilitationIssue_IssueStatus1`
+  CONSTRAINT `fk_FacilitationIssue_IssueStatus`
     FOREIGN KEY (`issue_status` )
     REFERENCES `FacilitationIssueStatus` (`issue_status` ) ,
-  CONSTRAINT `fk_FacilitationIssue_CommunityMember1`
+  CONSTRAINT `fk_FacilitationIssue_CommunityMember`
     FOREIGN KEY (`proposed_by_id` )
     REFERENCES `CommunityMember` (`_id` ) ,
   CONSTRAINT `fk_FacilitationIssue_CommunityMember2`
@@ -29,6 +29,6 @@ CREATE TABLE `FacilitationIssue` (
   CONSTRAINT `fk_FacilitationIssue_CommunityMember4`
     FOREIGN KEY (`resolved_by_id` )
     REFERENCES `CommunityMember` (`_id` ) ,
-  CONSTRAINT `fk_FacilitationIssue_NodeQualityMetric_enum1`
+  CONSTRAINT `fk_FacilitationIssue_NodeQualityMetric_enum`
     FOREIGN KEY (`node_quality_metric` )
     REFERENCES `TribKnElement` (`tribkn_element` ) );

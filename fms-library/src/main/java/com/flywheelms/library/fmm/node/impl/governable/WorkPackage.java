@@ -70,9 +70,9 @@ import java.util.Collection;
 public class WorkPackage extends FmmCompletableNodeImpl implements Comparable<WorkPackage> {
 
 	private static final long serialVersionUID = -297745950602591732L;
-	private String projectAssetNodeIdString;
-	private String flywheelCommitmentNodeIdString;
-	private CadenceWorkPackageCommitment flywheelCommitment;
+	private String workAssetNodeIdString;
+	private String cadenceCommitmentNodeIdString;
+	private CadenceWorkPackageCommitment cadenceCommitment;
     private ArrayList<WorkTask> workTaskList;
 
 	public WorkPackage(NodeId aNodeId) {
@@ -96,7 +96,7 @@ public class WorkPackage extends FmmCompletableNodeImpl implements Comparable<Wo
         try {
             validateSerializationFormatVersion(aJsonObject.getString(JsonHelper.key__SERIALIZATION_FORMAT_VERSION));
             setProjectAssetId(aJsonObject.getString(WorkPackageMetaData.column_WORK_ASSET_ID));
-            setFlywheelCommitmentNodeIdString(aJsonObject.getString(WorkPackageMetaData.column_FLYWHEEL_COMMITMENT_ID));
+            setCadenceCommitmentNodeIdString(aJsonObject.getString(WorkPackageMetaData.column_CADENCE_COMMITMENT_ID));
         } catch (JSONException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -109,29 +109,29 @@ public class WorkPackage extends FmmCompletableNodeImpl implements Comparable<Wo
 		return 0;
 	}
 	
-	public String getFlywheelCommitmentNodeIdString() {
-		return this.flywheelCommitmentNodeIdString;
+	public String getCadenceCommitmentNodeIdString() {
+		return this.cadenceCommitmentNodeIdString;
 	}
 
-	public void setFlywheelCommitmentNodeIdString(String aNodeIdString) {
-		this.flywheelCommitmentNodeIdString = aNodeIdString;
-		if(this.flywheelCommitment != null && ! this.flywheelCommitment.getNodeIdString().equals(aNodeIdString)) {
-			this.flywheelCommitment = null;
+	public void setCadenceCommitmentNodeIdString(String aNodeIdString) {
+		this.cadenceCommitmentNodeIdString = aNodeIdString;
+		if(this.cadenceCommitment != null && ! this.cadenceCommitment.getNodeIdString().equals(aNodeIdString)) {
+			this.cadenceCommitment = null;
 		}
 	}
 	
-	public CadenceWorkPackageCommitment getFlywheelCommitment() {
-		if(this.flywheelCommitment == null) {
-			if(this.flywheelCommitmentNodeIdString != null && this.flywheelCommitmentNodeIdString.length() > 0) {
+	public CadenceWorkPackageCommitment getCadenceCommitment() {
+		if(this.cadenceCommitment == null) {
+			if(this.cadenceCommitmentNodeIdString != null && this.cadenceCommitmentNodeIdString.length() > 0) {
 				// FmmDatabaseMediator
 			}
 		}
-		return this.flywheelCommitment;
+		return this.cadenceCommitment;
 	}
 	
-	public void setFlywheelCommitment(CadenceWorkPackageCommitment aFlywheelCommitment) {
-		this.flywheelCommitment = aFlywheelCommitment;
-		this.flywheelCommitmentNodeIdString = aFlywheelCommitment.getNodeIdString();
+	public void setCadenceCommitment(CadenceWorkPackageCommitment aFlywheelCommitment) {
+		this.cadenceCommitment = aFlywheelCommitment;
+		this.cadenceCommitmentNodeIdString = aFlywheelCommitment.getNodeIdString();
 	}
 	
 	public static void startNodeEditorActivity(GcgActivity anActivity, String aNodeListParentNodeId, ArrayList<FmmHeadlineNodeShallow> aHeadlineNodeShallowList, String anInitialNodeIdToDisplay) {
@@ -151,16 +151,16 @@ public class WorkPackage extends FmmCompletableNodeImpl implements Comparable<Wo
 		return FmmDatabaseMediator.getActiveMediator().retrieveWorkPackage(NodeId.getNodeIdString(anIntent));
 	}
 
-	public String getProjectAssetNodeIdString() {
-		return this.projectAssetNodeIdString;
+	public String getWorkAssetNodeIdString() {
+		return this.workAssetNodeIdString;
 	}
 
 	public void setProjectAssetId(String aProjectAssetNodeIdString) {
-		this.projectAssetNodeIdString = aProjectAssetNodeIdString;
+		this.workAssetNodeIdString = aProjectAssetNodeIdString;
 	}
 	
 	public ProjectAsset getProjectAsset() {
-		return FmmDatabaseMediator.getActiveMediator().getProjectAsset(this.projectAssetNodeIdString);
+		return FmmDatabaseMediator.getActiveMediator().getProjectAsset(this.workAssetNodeIdString);
 	}
 
 	public boolean isWorkTaskMoveTarget() {

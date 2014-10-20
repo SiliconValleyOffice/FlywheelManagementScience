@@ -16,13 +16,13 @@ CREATE TABLE `NodeFragCompletion` (
   `completion_confirmed_by` CHAR(40) NULL ,
   `completion_confirmed_timestamp` BIGINT(14) NULL ,
   PRIMARY KEY (`_id`) ,
-  CONSTRAINT `fk_NodeFragWorkStatus_WorkStatus1`
+  CONSTRAINT `fk_NodeFragWorkStatus_WorkStatus`
     FOREIGN KEY (`work_status` )
     REFERENCES `CompletableWorkStatus` (`work_status` ) ,
-  CONSTRAINT `fk_NodeFragCompletion_FmmNodeDictionary1`
+  CONSTRAINT `fk_NodeFragCompletion_FmmNodeDictionary`
     FOREIGN KEY (`parent_node_type_code` )
     REFERENCES `FmmNodeDefinition` (`node_type_code` ) ,
-  CONSTRAINT `fk_NodeFragCompletion_CommunityMember1`
+  CONSTRAINT `fk_NodeFragCompletion_CommunityMember`
     FOREIGN KEY (`yellow_by` )
     REFERENCES `CommunityMember` (`_id` ) ,
   CONSTRAINT `fk_NodeFragCompletion_CommunityMember2`

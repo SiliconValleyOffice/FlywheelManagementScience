@@ -8,6 +8,6 @@ CREATE TABLE `StrategicMilestone` (
   `target_date` BIGINT(14) NULL ,
   `target_is_reverse_planning` TINYINT(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`_id`) ,
-  CONSTRAINT `fk_Milestone_FiscalYear1`
+  CONSTRAINT `fk_Milestone_FiscalYear`
     FOREIGN KEY (`FiscalYear__id` )
     REFERENCES `FiscalYear` (`_id` ) );

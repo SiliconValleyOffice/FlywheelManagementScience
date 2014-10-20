@@ -4,9 +4,9 @@ CREATE TABLE `ServiceRequestLinkToWorkTask` (
   `row_timestamp` BIGINT(14) NOT NULL DEFAULT 0 ,
   `sequence` INT(11) NULL ,
   PRIMARY KEY (`ServiceRequest__id`, `WorkTask__id`) ,
-  CONSTRAINT `fk_ServiceRequest_has_WorkTask_ServiceRequest1`
+  CONSTRAINT `fk_ServiceRequest_has_WorkTask_ServiceRequest`
     FOREIGN KEY (`ServiceRequest__id` )
     REFERENCES `ServiceRequest` (`_id` ) ,
-  CONSTRAINT `fk_ServiceRequest_has_WorkTask_WorkTask1`
+  CONSTRAINT `fk_ServiceRequest_has_WorkTask_WorkTask`
     FOREIGN KEY (`WorkTask__id` )
     REFERENCES `WorkTask` (`_id` ) );

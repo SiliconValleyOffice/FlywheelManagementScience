@@ -8,9 +8,9 @@ CREATE TABLE `CommunityMemberFlywheelTeamGovernanceAuthority` (
   `customer` TINYINT NULL ,
   `administrator` TINYINT NULL ,
   PRIMARY KEY (`FlywheelTeam__id`, `CommunityMember__id`, `governance_target`) ,
-  CONSTRAINT `fk_FlywheelTeam_GovernanceAuthority_FlywheelTeam_CommunityMem1`
+  CONSTRAINT `fk_FlywheelTeam_GovernanceAuthority_FlywheelTeam_CommunityMem`
     FOREIGN KEY (`CommunityMember__id` , `FlywheelTeam__id` )
     REFERENCES `FlywheelTeamCommunityMember` (`CommunityMember__id` , `FlywheelTeam__id` ) ,
-  CONSTRAINT `fk_CommunityMemberFlywheelTeamGovernanceAuthority_GovernanceT1`
+  CONSTRAINT `fk_CommunityMemberFlywheelTeamGovernanceAuthority_GovernanceT`
     FOREIGN KEY (`governance_target` )
     REFERENCES `GovernanceTarget` (`governance_target` ) );

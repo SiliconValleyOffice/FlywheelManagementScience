@@ -7,10 +7,10 @@ CREATE TABLE `NodeFragFseDocument` (
   `document_transaction_type` TEXT(12) NOT NULL ,
   `serialized_document` TEXT NOT NULL ,
   PRIMARY KEY (`_id`) ,
-  CONSTRAINT `fk_FseDocument_FmmNodeDictionary1`
+  CONSTRAINT `fk_FseDocument_FmmNodeDictionary`
     FOREIGN KEY (`parent_node_type_code` )
     REFERENCES `FmmNodeDefinition` (`node_type_code` ) ,
-  CONSTRAINT `fk_FseDocument_FseDocumentTransactionType1`
+  CONSTRAINT `fk_FseDocument_FseDocumentTransactionType`
     FOREIGN KEY (`document_transaction_type` )
     REFERENCES `FseDocumentTransactionType` (`document_transaction_type` ) );
     

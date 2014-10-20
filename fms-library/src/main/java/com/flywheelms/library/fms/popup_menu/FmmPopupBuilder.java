@@ -87,8 +87,8 @@ public class FmmPopupBuilder {
 	public static final String menu_item__DELETE_PROJECT = "Delete Project...";
 	public static final String menu_item__MOVE_PROJECT = "Move Project...";
 	public static final String menu_item__ORPHAN_PROJECT = "Orphan Project...";
-	public static final String menu_item__ADOPT_ORPHAN_PROJECT_ASSET = "Adopt orphan Project Asset...";
 	public static final String menu_item__ADOPT_ORPHAN_STRATEGIC_ASSET = "Adopt orphan Strategic Asset...";
+	public static final String menu_item__ADOPT_ORPHAN_WORK_ASSET = "Adopt orphan Work Asset...";
 	public static final String menu_item__CREATE_PROJECT_ASSET = "Create Project Asset...";
 	public static final String menu_item__EDIT_ALL_ASSETS = "Edit All Assets...";
 	public static final String menu_item__DELETE_PROJECT_ASSET = "Delete Project Asset...";
@@ -326,7 +326,7 @@ public class FmmPopupBuilder {
         }
         startNewGroup(thePopupMenu);
         thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__ADOPT_ORPHAN_STRATEGIC_ASSET);
-		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__ADOPT_ORPHAN_PROJECT_ASSET);
+		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__ADOPT_ORPHAN_WORK_ASSET);
 		return thePopupMenu;
 	}
 
@@ -355,7 +355,7 @@ public class FmmPopupBuilder {
 		if(bCanOrphan) {
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__ORPHAN_PROJECT_ASSET);
 		}
-        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__ADOPT_ORPHAN_PROJECT_ASSET);
+        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__ADOPT_ORPHAN_WORK_ASSET);
         if(bCanSequenceUp || bCanSequenceDown) {
             startNewGroup(thePopupMenu);
         }
@@ -415,7 +415,7 @@ public class FmmPopupBuilder {
 		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_HEADLINE);
         startNewGroup(thePopupMenu);
         thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_PROJECT_ASSET);
-        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__ADOPT_ORPHAN_PROJECT_ASSET);
+        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__ADOPT_ORPHAN_WORK_ASSET);
         startNewGroup(thePopupMenu);
         thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_WORK_PACKAGE);
         if(aLaunchNodeChildCount > 0) {

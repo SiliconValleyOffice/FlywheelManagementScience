@@ -6,10 +6,10 @@ CREATE TABLE `OrganizationGovernanceTarget` (
   `customer_requirement` CHAR(8) NOT NULL ,
   `administrator_requirement` CHAR(8) NOT NULL ,
   PRIMARY KEY (`Organization__id`, `governance_target`) ,
-  CONSTRAINT `fk_Organization_GovernanceTarget_Organization1`
+  CONSTRAINT `fk_Organization_GovernanceTarget_Organization`
     FOREIGN KEY (`Organization__id` )
     REFERENCES `Organization` (`_id` ) ,
-  CONSTRAINT `fk_Organization_GovernanceTarget_GovernanceParticipationType1`
+  CONSTRAINT `fk_Organization_GovernanceTarget_GovernanceParticipationType`
     FOREIGN KEY (`sponsor_requirement` )
     REFERENCES `GovernanceParticipationType` (`governance_participation_type` ) ,
   CONSTRAINT `fk_Organization_GovernanceTarget_GovernanceParticipationType2`
@@ -21,6 +21,6 @@ CREATE TABLE `OrganizationGovernanceTarget` (
   CONSTRAINT `fk_Organization_GovernanceTarget_GovernanceParticipationType4`
     FOREIGN KEY (`administrator_requirement` )
     REFERENCES `GovernanceParticipationType` (`governance_participation_type` ) ,
-  CONSTRAINT `fk_OrganizationLinkToGovernanceTarget_GovernanceTarget1`
+  CONSTRAINT `fk_OrganizationLinkToGovernanceTarget_GovernanceTarget`
     FOREIGN KEY (`governance_target` )
     REFERENCES `GovernanceTarget` (`governance_target` ) );

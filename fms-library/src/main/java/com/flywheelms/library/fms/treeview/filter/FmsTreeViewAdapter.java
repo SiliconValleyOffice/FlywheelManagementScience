@@ -79,8 +79,8 @@ import com.flywheelms.library.fms.dialog.HeadlineNodeHeadlineEditDialog;
 import com.flywheelms.library.fms.dialog.PortfolioAdoptOrphanProjectDialog;
 import com.flywheelms.library.fms.dialog.PortfolioCreateDialog;
 import com.flywheelms.library.fms.dialog.PortfolioDeleteDialog;
-import com.flywheelms.library.fms.dialog.ProjectAdoptOrphanProjectAssetDialog;
 import com.flywheelms.library.fms.dialog.ProjectAdoptOrphanStrategicAssetDialog;
+import com.flywheelms.library.fms.dialog.ProjectAdoptOrphanWorkAssetDialog;
 import com.flywheelms.library.fms.dialog.ProjectAssetDeleteDialog;
 import com.flywheelms.library.fms.dialog.ProjectAssetMoveDialog;
 import com.flywheelms.library.fms.dialog.ProjectAssetOrphanDialog;
@@ -452,8 +452,8 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
 			deleteProjectAsset(aLaunchHeadlineNode);
 		} else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__ORPHAN_PROJECT_ASSET)) {
 			orphanProjectAsset(aLaunchHeadlineNode, aParentHeadlineNode);
-		} else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__ADOPT_ORPHAN_PROJECT_ASSET)) {
-            adoptOrphanProjectAsset(aParentHeadlineNode, aLaunchHeadlineNodeChildCount, aLaunchHeadlineNode, aLaunchHeadlineNodeSequence);
+        } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__ADOPT_ORPHAN_WORK_ASSET)) {
+            adoptOrphanWorkAsset(aParentHeadlineNode, aLaunchHeadlineNodeChildCount, aLaunchHeadlineNode, aLaunchHeadlineNodeSequence);
         } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__MOVE_PROJECT_ASSET)) {
             moveProjectAsset(aLaunchHeadlineNode, aParentHeadlineNode);
 		} else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__CREATE_WORK_PACKAGE)) {
@@ -624,16 +624,16 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
         getGcgActivity().startDialog(new StrategicAssetOrphanDialog(getGcgActivity(), this, (StrategicAsset) aStrategicAssetHeadlineNode, aProjectHeadlineNode));
     }
 
-	private void adoptOrphanProjectAsset(FmmHeadlineNode aParentHeadlineNode, int aParentNodeChildCount, FmmHeadlineNode aLaunchHeadlineNode, int aLaunchHeadlineNodeSequence) {
-        getGcgActivity().startDialog(new ProjectAdoptOrphanProjectAssetDialog(
+    private void adoptOrphanWorkAsset(FmmHeadlineNode aParentHeadlineNode, int aParentNodeChildCount, FmmHeadlineNode aLaunchHeadlineNode, int aLaunchHeadlineNodeSequence) {
+        getGcgActivity().startDialog(new ProjectAdoptOrphanWorkAssetDialog(
                 getGcgActivity(),
                 this,
-                FmmNodeDefinition.PROJECT_ASSET,
-                FmsTreeViewAdapter.isPeerLaunch(FmmNodeDefinition.PROJECT_ASSET, aLaunchHeadlineNode.getFmmNodeDefinition()) ? aParentHeadlineNode : aLaunchHeadlineNode,
-                FmsTreeViewAdapter.isPeerLaunch(FmmNodeDefinition.PROJECT_ASSET, aLaunchHeadlineNode.getFmmNodeDefinition()) ? 0 : aParentNodeChildCount,
+                FmmNodeDefinition.WORK_ASSET,
+                FmsTreeViewAdapter.isPeerLaunch(FmmNodeDefinition.WORK_ASSET, aLaunchHeadlineNode.getFmmNodeDefinition()) ? aParentHeadlineNode : aLaunchHeadlineNode,
+                FmsTreeViewAdapter.isPeerLaunch(FmmNodeDefinition.WORK_ASSET, aLaunchHeadlineNode.getFmmNodeDefinition()) ? 0 : aParentNodeChildCount,
                 aLaunchHeadlineNode,
                 aLaunchHeadlineNodeSequence ));
-	}
+    }
 
     private void adoptOrphanStrategicAsset(FmmHeadlineNode aParentHeadlineNode, int aParentNodeChildCount, FmmHeadlineNode aLaunchHeadlineNode, int aLaunchHeadlineNodeSequence) {
             getGcgActivity().startDialog(new ProjectAdoptOrphanStrategicAssetDialog(

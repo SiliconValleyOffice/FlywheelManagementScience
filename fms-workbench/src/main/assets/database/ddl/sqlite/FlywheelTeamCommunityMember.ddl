@@ -10,16 +10,16 @@ CREATE TABLE `FlywheelTeamCommunityMember` (
   `confirmed_datetime` BIGINT(14) NULL ,
   `super_user` TINYINT NULL ,
   PRIMARY KEY (`CommunityMember__id`, `FlywheelTeam__id`) ,
-  CONSTRAINT `fk_FlywheelTeam_has_CommunityMember_CommunityMember1`
+  CONSTRAINT `fk_FlywheelTeam_has_CommunityMember_CommunityMember`
     FOREIGN KEY (`CommunityMember__id` )
     REFERENCES `CommunityMember` (`_id` ) ,
-  CONSTRAINT `fk_FlywheelTeam_has_CommunityMember_FlywheelWorkspace1`
+  CONSTRAINT `fk_FlywheelTeam_has_CommunityMember_FlywheelWorkspace`
     FOREIGN KEY (`FlywheelTeam__id` )
     REFERENCES `FlywheelTeam` (`_id` ) ,
-  CONSTRAINT `fk_FlywheelWorkspace_has_CommunityMember_TeamMemberStatus_enum1`
+  CONSTRAINT `fk_FlywheelWorkspace_has_CommunityMember_TeamMemberStatus_enum`
     FOREIGN KEY (`team_member_status` )
     REFERENCES `TeamMemberStatus` (`team_member_status` ),
-  CONSTRAINT `fk_FlywheelTeamLinkToCommunityMember_CommunityMember1`
+  CONSTRAINT `fk_FlywheelTeamLinkToCommunityMember_CommunityMember`
     FOREIGN KEY (`proposed_by` )
     REFERENCES `CommunityMember` (`_id` ) ,
   CONSTRAINT `fk_FlywheelTeamLinkToCommunityMember_CommunityMember2`

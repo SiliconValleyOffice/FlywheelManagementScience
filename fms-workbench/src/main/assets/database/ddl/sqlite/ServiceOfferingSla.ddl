@@ -5,9 +5,9 @@ CREATE TABLE `ServiceOfferingSla` (
   `max_service_requests` INT NOT NULL ,
   `max_service_triage` INT NOT NULL ,
   PRIMARY KEY (`TacticalMilestone__id`, `ServiceOffering__id`) ,
-  CONSTRAINT `fk_Sprint_has_ServiceOffering_Sprint1`
+  CONSTRAINT `fk_Sprint_has_ServiceOffering_Sprint`
     FOREIGN KEY (`TacticalMilestone__id` )
     REFERENCES `TacticalMilestone` (`_id` ) ,
-  CONSTRAINT `fk_Sprint_has_ServiceOffering_ServiceOffering1`
+  CONSTRAINT `fk_Sprint_has_ServiceOffering_ServiceOffering`
     FOREIGN KEY (`ServiceOffering__id` )
     REFERENCES `ServiceOffering` (`_id` ) );

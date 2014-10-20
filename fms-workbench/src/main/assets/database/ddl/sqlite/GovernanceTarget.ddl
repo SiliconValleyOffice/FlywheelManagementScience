@@ -6,7 +6,7 @@ CREATE TABLE `GovernanceTarget` (
   `administrator_requirement` CHAR(8) NOT NULL ,
   `auto_completable` TINYINT NOT NULL ,
   PRIMARY KEY (`governance_target`) ,
-  CONSTRAINT `fk_GovernanceTarget_GovernanceParticipationType1`
+  CONSTRAINT `fk_GovernanceTarget_GovernanceParticipationType`
     FOREIGN KEY (`sponsor_requirement` )
     REFERENCES `GovernanceParticipationType` (`governance_participation_type` ) ,
   CONSTRAINT `fk_GovernanceTarget_GovernanceParticipationType2`
@@ -18,6 +18,6 @@ CREATE TABLE `GovernanceTarget` (
   CONSTRAINT `fk_GovernanceTarget_GovernanceParticipationType4`
     FOREIGN KEY (`administrator_requirement` )
     REFERENCES `GovernanceParticipationType` (`governance_participation_type` ) ,
-  CONSTRAINT `fk_GovernanceTarget_FmmNode1`
+  CONSTRAINT `fk_GovernanceTarget_FmmNode`
     FOREIGN KEY (`governance_target` )
     REFERENCES `FmmNodeDefinition` (`node_name` ) );

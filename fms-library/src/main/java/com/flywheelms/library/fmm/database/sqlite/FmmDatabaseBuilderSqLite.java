@@ -46,6 +46,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.flywheelms.library.fmm.database.FmmDatabaseBuilder;
 import com.flywheelms.library.fmm.helper.FmmAssetsHelper;
+import com.flywheelms.library.fmm.interfaces.WorkAsset;
 import com.flywheelms.library.fmm.node.impl.commitment.CadenceServiceDeliveryCommitment;
 import com.flywheelms.library.fmm.node.impl.commitment.CadenceWorkPackageCommitment;
 import com.flywheelms.library.fmm.node.impl.commitment.StrategicCommitment;
@@ -79,7 +80,6 @@ import com.flywheelms.library.fmm.node.impl.governable.FunctionalTeam;
 import com.flywheelms.library.fmm.node.impl.governable.Notebook;
 import com.flywheelms.library.fmm.node.impl.governable.Portfolio;
 import com.flywheelms.library.fmm.node.impl.governable.Project;
-import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
 import com.flywheelms.library.fmm.node.impl.governable.ServiceOffering;
 import com.flywheelms.library.fmm.node.impl.governable.ServiceOfferingSla;
 import com.flywheelms.library.fmm.node.impl.governable.ServiceRequest;
@@ -172,7 +172,7 @@ public class FmmDatabaseBuilderSqLite implements FmmDatabaseBuilder {
 		createTable(aSqLiteDatabase, FmsOrganization.class);
 		createTable(aSqLiteDatabase, Portfolio.class);
 		createTable(aSqLiteDatabase, Project.class);
-		createTable(aSqLiteDatabase, ProjectAsset.class);
+		createTable(aSqLiteDatabase, WorkAsset.class);
 		createTable(aSqLiteDatabase, CadenceServiceDeliveryCommitment.class);
 		createTable(aSqLiteDatabase, ServiceOffering.class);
 		createTable(aSqLiteDatabase, ServiceOfferingSla.class);

@@ -8,18 +8,18 @@ CREATE TABLE `WorkTaskAssignment` (
   `actual_hours` INT NULL ,
   `work_status` CHAR(23) NOT NULL ,
   PRIMARY KEY (`CommunityMember__id`, `WorkTask__id`) ,
-  CONSTRAINT `fk_CommunityMember_has_WorkTask_CommunityMember1`
+  CONSTRAINT `fk_CommunityMember_has_WorkTask_CommunityMember`
     FOREIGN KEY (`CommunityMember__id` )
     REFERENCES `CommunityMember` (`_id` ) ,
-  CONSTRAINT `fk_CommunityMember_has_WorkTask_WorkTask1`
+  CONSTRAINT `fk_CommunityMember_has_WorkTask_WorkTask`
     FOREIGN KEY (`WorkTask__id` )
     REFERENCES `WorkTask` (`_id` ) ,
-  CONSTRAINT `fk_CommunityMember_has_WorkTask_FunctionalTeam1`
+  CONSTRAINT `fk_CommunityMember_has_WorkTask_FunctionalTeam`
     FOREIGN KEY (`FunctionalTeam__id` )
     REFERENCES `FunctionalTeam` (`_id` ) ,
-  CONSTRAINT `fk_CommunityMember_has_WorkTask_AssignmentCommitmentType_enum1`
+  CONSTRAINT `fk_CommunityMember_has_WorkTask_AssignmentCommitmentType_enum`
     FOREIGN KEY (`assignment_commitment_type` )
     REFERENCES `AssignmentCommitmentType` (`assignment_commitment_type` ) ,
-  CONSTRAINT `fk_WorkTaskAssignment_WorkStatus1`
+  CONSTRAINT `fk_WorkTaskAssignment_WorkStatus`
     FOREIGN KEY (`work_status` )
     REFERENCES `CompletableWorkStatus` (`work_status` ) );
