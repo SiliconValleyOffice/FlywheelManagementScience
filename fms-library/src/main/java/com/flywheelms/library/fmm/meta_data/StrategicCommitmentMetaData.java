@@ -45,7 +45,7 @@ package com.flywheelms.library.fmm.meta_data;
 
 public class StrategicCommitmentMetaData extends CommitmentNodeMetaData {
 
-	public static final String column_STRATEGIC_ASSET_ID = "ProjectAsset__id";
+	public static final String column_STRATEGIC_ASSET_ID = "StrategicAsset__id";
 	public static final String column_STRATEGIC_MILESTONE_ID = "StrategicMilestone__id";
 
 }

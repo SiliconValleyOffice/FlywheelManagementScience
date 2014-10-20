@@ -1,7 +1,7 @@
 CREATE TABLE `StrategicCommitment` (
   `_id` CHAR(40) NOT NULL ,
   `row_timestamp` BIGINT(14) NOT NULL DEFAULT 0 ,
-  `ProjectAsset__id` CHAR(40) NOT NULL UNIQUE ,
+  `StrategicAsset__id` CHAR(40) NOT NULL UNIQUE ,
   `StrategicMilestone__id` CHAR(40) NOT NULL ,
   `sequence` INT(11) NOT NULL ,
   `completion_commitment_type` CHAR(9) NOT NULL ,
@@ -35,6 +35,6 @@ CREATE TABLE `StrategicCommitment` (
     FOREIGN KEY (`StrategicMilestone__id` )
     REFERENCES `StrategicMilestone` (`_id` ) ,
   CONSTRAINT `fk_StrategicCommitment_ProjectAsset1`
-    FOREIGN KEY (`ProjectAsset__id` )
+    FOREIGN KEY (`StrategicAsset__id` )
     REFERENCES `ProjectAsset` (`_id` ) );
     

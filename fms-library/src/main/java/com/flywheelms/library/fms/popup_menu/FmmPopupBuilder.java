@@ -119,7 +119,7 @@ public class FmmPopupBuilder {
 	public static final String menu_item__ADOPT_ORPHAN_WORK_TASK= "Adopt orphan Work Task...";
 	public static final String menu_item__CREATE_WORK_TASK_FOR_WORK_PACKAGE = "Create Work Task...";
 	public static final String menu_item__CREATE_WORK_TASK_FOR_WORK_PLAN= "Create Work Task...";
-	public static final String menu_item__ADOPT_ORPHAN_TACTICAL_WORK_TASK = "Adopt Tactical Work Task...";
+	public static final String menu_item__SCHEDULE_WORK_TASK_FROM_COMMITMENT = "Schedule Work Task from Commitment...";
 	public static final String menu_item__EDIT_WORK_TASKS= "Edit Work Tasks...";
 	public static final String menu_item__DELETE_WORK_TASK= "Delete Work Task...";
 	public static final String menu_item__MOVE_WORK_TASK = "Move Work Task...";
@@ -316,17 +316,6 @@ public class FmmPopupBuilder {
 		}
 		if(bCanOrphan) {
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__ORPHAN_PROJECT);
-		}
-        if(bCanSequenceUp || bCanSequenceDown) {
-            startNewGroup(thePopupMenu);
-        }
-		if(bCanSequenceUp) {
-			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__SEQUENCE_FIRST);
-			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__SEQUENCE_UP);
-		}
-		if(bCanSequenceDown) {
-			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__SEQUENCE_DOWN);
-			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__SEQUENCE_LAST);
 		}
         startNewGroup(thePopupMenu);
 		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_HEADLINE);
@@ -539,7 +528,7 @@ public class FmmPopupBuilder {
         FmmHeadlineNodePopupMenu thePopupMenu = new FmmHeadlineNodePopupMenu(
                 aNodePopupListener, aView, aLaunchHeadlineNode, aParentHeadlineNode, aLaunchTreeNodeInfo, aLaunchNodeSequence, aLaunchNodeChildCount );
         thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_WORK_TASK_FOR_WORK_PLAN);
-        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__ADOPT_ORPHAN_TACTICAL_WORK_TASK);
+        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__SCHEDULE_WORK_TASK_FROM_COMMITMENT);
         if(aLaunchNodeChildCount > 0) {
             thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_WORK_TASKS);
         }

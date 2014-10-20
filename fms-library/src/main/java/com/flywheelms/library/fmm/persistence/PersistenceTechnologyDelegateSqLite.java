@@ -842,7 +842,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 		Cursor theCursor = getSqLiteDatabase().rawQuery(
 				"SELECT " + SequencedLinkNodeMetaData.column_SEQUENCE +
 				" FROM " + aTargetNode.getFmmNodeDefinition().getSecondaryParentNodeDefinition().getTableName() +
-				" WHERE " + aTargetNode.getFmmNodeDefinition().getTableName() + "__id = '" + aTargetNode.getNodeIdString() + "'" , null);
+				" WHERE " + aTargetNode.getFmmNodeDefinition().getClassName() + "__id = '" + aTargetNode.getNodeIdString() + "'" , null);
 		theCursor.moveToFirst();
 		int theSequence = theCursor.getInt(theCursor.getColumnIndex(SequencedLinkNodeMetaData.column_SEQUENCE));
 		theCursor.close();
@@ -854,7 +854,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 		getSqLiteDatabase().execSQL(
 				"UPDATE " + aTargetNode.getFmmNodeDefinition().getSecondaryParentNodeDefinition().getTableName() +
 				" SET "+ SequencedLinkNodeMetaData.column_SEQUENCE + " = " + aNewSequence +
-				" WHERE " + aTargetNode.getFmmNodeDefinition().getTableName() + "__id = '" + aTargetNode.getNodeIdString() + "'" );
+				" WHERE " + aTargetNode.getFmmNodeDefinition().getClassName() + "__id = '" + aTargetNode.getNodeIdString() + "'" );
 	}
 	
 	//-->>  Link Node
@@ -871,7 +871,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 		Cursor theCursor = getSqLiteDatabase().rawQuery(
 				"SELECT " + SequencedLinkNodeMetaData.column_SEQUENCE +
 				" FROM " + aTargetNode.getFmmNodeDefinition().getSecondaryLinkNodeDefinition().getTableName() +
-				" WHERE " + aTargetNode.getFmmNodeDefinition().getTableName() + "__id = '" + aTargetNode.getNodeIdString() + "'" , null);
+				" WHERE " + aTargetNode.getFmmNodeDefinition().getClassName() + "__id = '" + aTargetNode.getNodeIdString() + "'" , null);
 		theCursor.moveToFirst();
 		int theSequence = theCursor.getInt(theCursor.getColumnIndex(SequencedLinkNodeMetaData.column_SEQUENCE));
 		theCursor.close();
@@ -883,7 +883,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 		getSqLiteDatabase().execSQL(
 				"UPDATE " + aTargetNode.getFmmNodeDefinition().getSecondaryLinkNodeDefinition().getTableName() +
 				" SET "+ SequencedLinkNodeMetaData.column_SEQUENCE + " = " + aNewSequence +
-				" WHERE " + aTargetNode.getFmmNodeDefinition().getTableName() + "__id = '" + aTargetNode.getNodeIdString() + "'" );
+				" WHERE " + aTargetNode.getFmmNodeDefinition().getClassName() + "__id = '" + aTargetNode.getNodeIdString() + "'" );
 	}
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////

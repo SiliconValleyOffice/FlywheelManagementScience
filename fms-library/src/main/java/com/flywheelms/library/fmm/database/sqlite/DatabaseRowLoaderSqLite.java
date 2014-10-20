@@ -102,7 +102,7 @@ public class DatabaseRowLoaderSqLite {
 	
 	private static boolean fileExistsForNode(String[] theFileList, FmmNodeDefinition theFmmNodeDefinition) {
 		for(String theFileName : Arrays.asList(theFileList)) {
-			if(theFileName.split("\\.")[0].equals(theFmmNodeDefinition.getName())) {
+			if(theFileName.split("\\.")[0].equals(theFmmNodeDefinition.getClassName())) {
 				return true;
 			}
 		}

@@ -690,8 +690,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     NODE_FRAG__FSE_DOCUMENT (
     		NodeFragFseDocument.class,
     		"NFD",
-    		R.string.fmm_node_definition__fse_document__term,
-    		R.string.fmm_node_definition__fse_document__term,
+    		R.string.fmm_node_definition__node_frag__fse_document__term,
+            R.string.fmm_node_definition__node_frag__fse_document__term,
     		R.drawable.fse_document,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -720,8 +720,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     NODE_FRAG__TRIBKN_QUALITY (
     		NodeFragTribKnQuality.class,
     		"NFT",
-    		R.string.fmm_node_definition__frag_lock__term,
-    		R.string.fmm_node_definition__frag_lock__term,
+    		R.string.fmm_node_definition__node_frag__tribkn_quality__term,
+    		R.string.fmm_node_definition__node_frag__tribkn_quality__term,
     		R.drawable.deckangl__noun_quality__good,
     		0,
     		R.drawable.gcg__unspecified_glyph,
@@ -2120,6 +2120,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 		STRATEGIC_MILESTONE.setPrimaryLinkNodeDefinition(FmmNodeDefinition.STRATEGIC_ASSET);
 		STRATEGIC_ASSET.setPrimaryParentNodeDefinition(FmmNodeDefinition.PROJECT);
 		STRATEGIC_ASSET.setPrimaryParentIdColumnName(StrategicAssetMetaData.column_PROJECT_ID);
+        STRATEGIC_ASSET.setSecondaryParentNodeDefinition(FmmNodeDefinition.STRATEGIC_MILESTONE);
+        STRATEGIC_ASSET.setSecondaryLinkNodeDefinition(FmmNodeDefinition.STRATEGIC_COMMITMENT);
 		STRATEGY_TEAM.setPrimaryParentNodeDefinition(FmmNodeDefinition.FMS_ORGANIZATION);
 		WORK_PACKAGE.setPrimaryParentNodeDefinition(FmmNodeDefinition.PROJECT_ASSET);
         WORK_PACKAGE.setPrimaryParentIdColumnName(WorkPackageMetaData.column_WORK_ASSET_ID);
