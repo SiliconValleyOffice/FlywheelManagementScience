@@ -87,7 +87,7 @@ public class CreateAllFlywheelCadenceForYearWizard extends GcgWizardActivity {
 
     @Override
 	protected String getBreadcrumbHeadline() {
-		return "Create All Flywheel Cadence for Fiscal Year";
+		return "Create All Cadences for Fiscal Year";
 	}
 
 	@Override

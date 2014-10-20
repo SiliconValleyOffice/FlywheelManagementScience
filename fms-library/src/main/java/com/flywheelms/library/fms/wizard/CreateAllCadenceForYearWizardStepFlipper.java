@@ -103,7 +103,7 @@ public class CreateAllCadenceForYearWizardStepFlipper extends GcgWizardStepFlipp
 
 	@Override
 	public void doItNow() {
-		GcgHelper.makeToast("Creating all Flywheel Cadence for Fiscal Year " + getFiscalYear().getHeadline() + "...");
+		GcgHelper.makeToast("Creating all Cadence for Fiscal Year " + getFiscalYear().getHeadline() + "...");
         getFiscalYear().setCadenceDuration(getWizardStepView1().getCadenceDuration());
         getFiscalYear().setWorkPlanFirstDayOfWeek(getWizardStepView1().getWorkPlanFirstDayOfWeek());
         FmmDatabaseMediator.getActiveMediator().updateFiscalYear(getFiscalYear(), true);

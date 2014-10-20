@@ -123,7 +123,7 @@ public class FlywheelCadenceCreateForYearDialog extends FmsCancelOkDialog {
 
     private void createFlywheelCadencesForFiscalYear(boolean bOkButtonEvent) {
         // update FiscalYear with Cadence Parameters
-        // create Flywheel Cadence collection
+        // create Cadence collection
     }
 
     protected void onClickButtonPreview() {

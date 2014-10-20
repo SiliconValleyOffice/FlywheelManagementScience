@@ -70,10 +70,10 @@ public class FmmPopupBuilder {
 	public static final String menu_item__REMOVE_DISCUSSION_TOPIC = "Remove Discussion Topic...";
 	public static final String menu_item__CREATE_FISCAL_YEAR = "Create Fiscal Year...";
 	public static final String menu_item__DELETE_FISCAL_YEAR = "Delete Fiscal Year...";
-	public static final String menu_item__CREATE_ALL_FLYWHEEL_CADENCES = "Create all Flywheel Cadences...";
-	public static final String menu_item__EDIT_FLYWHEEL_CADENCES = "Edit Flywheel Cadences...";
-	public static final String menu_item__DELETE_FLYWHEEL_CADENCE = "Delete Flywheel Cadence...";
-	public static final String menu_item__MOVE_FLYWHEEL_CADENCE = "Move Flywheel Cadence...";
+	public static final String menu_item__CREATE_ALL_FLYWHEEL_CADENCES = "Create all Cadences...";
+	public static final String menu_item__EDIT_FLYWHEEL_CADENCES = "Edit Cadences...";
+	public static final String menu_item__DELETE_FLYWHEEL_CADENCE = "Delete Cadence...";
+	public static final String menu_item__MOVE_FLYWHEEL_CADENCE = "Move Cadence...";
 	public static final String menu_item__ADOPT_ORPHAN_NOTEBOOK = "Adopt orphan Notebook...";
 	public static final String menu_item__CREATE_NOTEBOOK = "Create Notebook...";
 	public static final String menu_item__DELETE_NOTEBOOK = "Delete Notebook...";
