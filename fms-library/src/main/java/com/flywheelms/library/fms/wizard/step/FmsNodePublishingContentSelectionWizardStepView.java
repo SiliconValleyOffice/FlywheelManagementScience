@@ -139,7 +139,7 @@ public class FmsNodePublishingContentSelectionWizardStepView extends GcgWizardSt
 		initializeTableRowClickListener(this.workBreakdown, R.id.row__d2);
 		this.workPlanning = (CheckBox) findViewById(R.id.context__work_planning__check_box);
 		initializeTableRowClickListener(this.workPlanning, R.id.row__d3);
-		this.analysis = (CheckBox) findViewById(R.id.context__analysis__check_box);
+		this.analysis = (CheckBox) findViewById(R.id.context__notebook__check_box);
 		initializeTableRowClickListener(this.analysis, R.id.row__d4);
 		this.previewPdf = (Button) findViewById(R.id.preview_pdf);
 		this.previewPdf.setOnClickListener(new OnClickListener() {

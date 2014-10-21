@@ -90,14 +90,14 @@
                         gcg:perspectiveNumber="3" />
 
                     <com.flywheelms.gcongui.gcg.menu.GcgPerspectiveMenuButton
-                        android:id="@+id/context_frame__analysis__button"
+                        android:id="@+id/context_frame__notebook__button"
                         style="?android:attr/borderlessButtonStyle"
                         android:layout_width="65dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginBottom="@dimen/gcg__menu_button__bottom_margin"
                         android:layout_marginTop="16dp"
-                        android:drawableStart="@drawable/button_state_list__context__analysis"
+                        android:drawableStart="@drawable/button_state_list__context__notebook"
                         gcg:frameNumber="0"
                         gcg:perspectiveNumber="4" />
                 </LinearLayout>

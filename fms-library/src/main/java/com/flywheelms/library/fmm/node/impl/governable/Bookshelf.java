@@ -61,7 +61,7 @@ public class Bookshelf extends FmmGovernableNodeImpl {
 		super.initializeNodeCompletionSummaryMap();
 		NodeCompletionSummary theContextNodeSummary = new FmmHeadlineNodeImpl.NodeCompletionSummary();
 //		theContextNodeSummary.setSummaryDrawableResourceId(FmmNodeDictionary.BOOKSHELF.get)
-		this.nodeCompletionSummaryMap.put(FmmPerspective.ANALYSIS, theContextNodeSummary);
+		this.nodeCompletionSummaryMap.put(FmmPerspective.NOTEBOOK, theContextNodeSummary);
 	}
 
 }

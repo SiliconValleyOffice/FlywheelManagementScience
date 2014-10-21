@@ -50,27 +50,6 @@ import java.util.Arrays;
 
 public class FmmPerspective extends GcgPerspective {
 
-    public static FmmPerspective ANALYSIS = new FmmPerspective(
-            R.string.fmm_perspective__analysis,
-            R.string.fmm_perspective_definition__analysis,
-            R.drawable.perspective__analysis,
-//		R.id.perspective_button__analysis,
-            0,
-                    3,
-                    true,
-                    true,
-                    false,
-                    new ArrayList<FmmNodeDefinition>(Arrays.asList(
-                        FmmNodeDefinition.BOOKSHELF,
-                        FmmNodeDefinition.NOTEBOOK,
-                        FmmNodeDefinition.DISCUSSION_TOPIC,
-                        FmmNodeDefinition.PROJECT_ASSET,
-                        FmmNodeDefinition.WORK_PACKAGE,
-                        FmmNodeDefinition.WORK_TASK,
-                        FmmNodeDefinition.FACILITATION_ISSUE)
-
-    ));
-
     public static FmmPerspective BUDGETING = new FmmPerspective(
             R.string.fmm_perspective__budgeting,
             R.string.fmm_perspective_definition__budgeting,
@@ -304,6 +283,27 @@ public class FmmPerspective extends GcgPerspective {
 
     ));
 
+    public static FmmPerspective NOTEBOOK = new FmmPerspective(
+            R.string.fmm_perspective__notebook,
+            R.string.fmm_perspective_definition__notebook,
+            R.drawable.perspective__notebook,
+//		R.id.perspective_button__notebook,
+            0,
+            3,
+            true,
+            true,
+            false,
+            new ArrayList<FmmNodeDefinition>(Arrays.asList(
+                    FmmNodeDefinition.BOOKSHELF,
+                    FmmNodeDefinition.NOTEBOOK,
+                    FmmNodeDefinition.DISCUSSION_TOPIC,
+                    FmmNodeDefinition.PROJECT_ASSET,
+                    FmmNodeDefinition.WORK_PACKAGE,
+                    FmmNodeDefinition.WORK_TASK,
+                    FmmNodeDefinition.FACILITATION_ISSUE)
+
+            ));
+
     public static FmmPerspective NOTES = new FmmPerspective(
             R.string.fmm_perspective__notes,
             R.string.fmm_perspective_definition__notes,
@@ -487,7 +487,7 @@ public class FmmPerspective extends GcgPerspective {
     ));
 
     static {
-        GcgPerspective.VALUES.add(ANALYSIS);
+        GcgPerspective.VALUES.add(NOTEBOOK);
         GcgPerspective.VALUES.add(BUDGETING);
         GcgPerspective.VALUES.add(COMMITMENTS);
         GcgPerspective.VALUES.add(COMMUNITY);

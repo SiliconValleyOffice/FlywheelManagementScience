@@ -513,12 +513,12 @@
                         <TextView
                             android:id="@+id/context__analysis__label"
                             style="@style/gcgLabel"
-                            android:drawableLeft="@drawable/perspective__analysis__32"
+                            android:drawableLeft="@drawable/perspective__notebook"
                             android:drawablePadding="6dp"
-                            android:text="@string/fmm_perspective__analysis" />
+                            android:text="@string/fmm_perspective__notebook" />
 
                         <CheckBox
-                            android:id="@+id/context__analysis__check_box"
+                            android:id="@+id/context__notebook__check_box"
                             android:layout_gravity="bottom"
                             android:checked="false" />
                     </TableRow>

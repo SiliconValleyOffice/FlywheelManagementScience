@@ -39,8 +39,8 @@
 
                 <!-- page 5 -->
 
-                <com.flywheelms.workbench.perspective.FwbContextAnalysisPerspective
-                    android:id="@+id/fwb_context__analysis"
+                <com.flywheelms.workbench.perspective.FwbContextNotebookPerspective
+                    android:id="@+id/fwb_context__notebook"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
 

@@ -1,4 +1,4 @@
-/* @(#)public class FwbQualityWorkPlanningPerspective.java
+/* @(#)FwbContextAnalysisPerspective.java
 ** 
 ** Copyright (C) 2012 by Steven D. Stamps
 **
@@ -45,31 +45,63 @@ package com.flywheelms.workbench.perspective;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.PopupMenu;
+import android.widget.PopupMenu.OnMenuItemClickListener;
 
-import com.flywheelms.gcongui.gcg.interfaces.GcgPerspective;
-import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.context.FmmPerspective;
-import com.flywheelms.library.fms.helper.FmsHelpIndex;
+import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewAdapter;
+import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewMediator;
+import com.flywheelms.library.fms.tree_view_flipper.tree_view.FmsPerspectiveFlipperTreeView;
 
-public class FwbQualityWorkPlanningPerspective extends FwbNotImplementedPerspective {
-	
-	@Override
-	public GcgPerspective getGcgPerspective() {
-		return FmmPerspective.WORK_PLANNING;
-	}
+public abstract class FwbNotImplementedPerspective extends FmsPerspectiveFlipperTreeView {
 
-	public FwbQualityWorkPlanningPerspective(Context context, AttributeSet attrs) {
+	public FwbNotImplementedPerspective(Context context, AttributeSet attrs) {
 		super(context, attrs);
 	}
 
+    @Override
+    protected void initializeRightMenu() {
+        // TODO - get rid of this over ride when class is fully implemented - SDS
+        return;
+    }
+
 	@Override
-	protected int getPageTitleResourceId() {
-		return R.string.tribkn_quality__work_planning;
+	public void guiPreferencesApply() {
+		// TODO - get rid of this over ride when class is fully implemented - SDS
+	}
+
+    @Override
+    public void guiPreferencesSaveTransient() {
+        // TODO - get rid of this over ride when class is fully implemented - SDS
+    }
+
+    @Override
+    protected void activateView() {
+        // TODO - get rid of this over ride when class is fully implemented - SDS
+    }
+
+	@Override
+	protected GcgTreeViewMediator createGcgTreeViewMediator() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
-	protected String getHelpContextUrlString() {
-		return FmsHelpIndex.PERSPECTIVE__QUALITY__WORK_PLANNING;
+	protected PopupMenu getTreeViewBackgroundPopupMenu(View aView, final GcgTreeViewAdapter aTreeViewAdapter) {
+		PopupMenu thePopupMenu = new PopupMenu(getContext(), aView);
+		thePopupMenu.setOnMenuItemClickListener(new OnMenuItemClickListener() {
+			
+			@Override
+			public boolean onMenuItemClick(MenuItem aMenuItem) {
+//				if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__CREATE_FISCAL_YEAR)) {
+//					aTreeViewAdapter.createFiscalYear();
+//				}
+				return true;
+			}
+		});
+//		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_FISCAL_YEAR);
+		return thePopupMenu;
 	}
 
 }

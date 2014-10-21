@@ -52,7 +52,7 @@ import com.flywheelms.gcongui.gcg.viewflipper.GcgPerspectiveFlipper;
 import com.flywheelms.gcongui.gcg.viewflipper.GcgViewFlipperListener;
 import com.flywheelms.library.fmm.context.FmmFrame;
 import com.flywheelms.workbench.R;
-import com.flywheelms.workbench.perspective.FwbContextAnalysisPerspective;
+import com.flywheelms.workbench.perspective.FwbContextNotebookPerspective;
 import com.flywheelms.workbench.perspective.FwbContextServiceDeliveryPerspective;
 import com.flywheelms.workbench.perspective.FwbContextStrategicPlanningPerspective;
 import com.flywheelms.workbench.perspective.FwbContextWorkBreakdownPerspective;
@@ -65,12 +65,12 @@ public class FwbContextPerspectiveFlipper extends GcgPerspectiveFlipper {
 	public static final int menu_position__WORK_BREAKDOWN = 1;
 	public static final int menu_position__WORK_PLANNING = 2; 
 	public static final int menu_position__SERVICE_DELIVERY = 3; 
-	public static final int menu_position__ANALYSIS = 4; 
+	public static final int menu_position__Notebook = 4;
 	private FwbContextStrategicPlanningPerspective strategicPlanningPerspective;
 	private FwbContextWorkBreakdownPerspective workBreakdownPerspective;
 	private FwbContextWorkPlanningPerspective workPlanningPerspective;
 	private FwbContextServiceDeliveryPerspective serviceDeliveryPerspective;
-	private FwbContextAnalysisPerspective analysisPerspective;
+	private FwbContextNotebookPerspective notebookPerspective;
 
 	public FwbContextPerspectiveFlipper(Context aContext, AttributeSet anAttributeSet) {
 		super(aContext, anAttributeSet);
@@ -91,8 +91,8 @@ public class FwbContextPerspectiveFlipper extends GcgPerspectiveFlipper {
 		this.workPlanningPerspective.initialize(getGcgActivity(), this, this.spinnnableMenuIndex, FwbContextPerspectiveFlipper.menu_position__WORK_PLANNING);
 		this.serviceDeliveryPerspective = (FwbContextServiceDeliveryPerspective) getGcgActivity().findViewById(R.id.fwb_context__service_delivery);
 		this.serviceDeliveryPerspective.initialize(getGcgActivity(), this, this.spinnnableMenuIndex, FwbContextPerspectiveFlipper.menu_position__SERVICE_DELIVERY);
-		this.analysisPerspective = (FwbContextAnalysisPerspective) getGcgActivity().findViewById(R.id.fwb_context__analysis);
-		this.analysisPerspective.initialize(getGcgActivity(), this, this.spinnnableMenuIndex, FwbContextPerspectiveFlipper.menu_position__ANALYSIS);
+		this.notebookPerspective = (FwbContextNotebookPerspective) getGcgActivity().findViewById(R.id.fwb_context__notebook);
+		this.notebookPerspective.initialize(getGcgActivity(), this, this.spinnnableMenuIndex, FwbContextPerspectiveFlipper.menu_position__Notebook);
 		super.initializeViewFlipperViews();
 	}
 
@@ -112,8 +112,8 @@ public class FwbContextPerspectiveFlipper extends GcgPerspectiveFlipper {
 		return this.workPlanningPerspective;
 	}
 
-	public FwbContextAnalysisPerspective getAnalysisView() {
-		return this.analysisPerspective;
+	public FwbContextNotebookPerspective getNotebookView() {
+		return this.notebookPerspective;
 	}
 
 	@Override

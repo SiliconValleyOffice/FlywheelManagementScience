@@ -63,13 +63,13 @@ public class FmmFrame extends GcgFrame {
             FmmPerspective.WORK_BREAKDOWN,      // 2
             FmmPerspective.WORK_PLANNING,       // 3
             FmmPerspective.SERVICE_DELIVERY,    // 4
-            FmmPerspective.ANALYSIS });         // 5
+            FmmPerspective.NOTEBOOK});         // 5
     
     public static FmmFrame CONTEXT_FOR_NODE = new FmmFrame(R.string.fmm_frame__context, R.string.fmm_frame_definition__context, new FmmPerspective[] {
 			FmmPerspective.STRATEGIC_PLANNING,  // 1
             FmmPerspective.WORK_BREAKDOWN,      // 2
             FmmPerspective.WORK_PLANNING,       // 3
-            FmmPerspective.ANALYSIS });         // 4
+            FmmPerspective.NOTEBOOK});         // 4
     
     public static FmmFrame FSE = new FmmFrame(R.string.fmm_frame__fse, R.string.fmm_frame_definition__fse, new FmmPerspective[] {
 			FmmPerspective.STORY,        // 1
@@ -100,7 +100,7 @@ public class FmmFrame extends GcgFrame {
             FmmPerspective.STORY,       // 2
             FmmPerspective.GOVERNANCE,  // 3
             FmmPerspective.COMMUNITY,   // 4
-            FmmPerspective.ANALYSIS }); // 5
+            FmmPerspective.NOTEBOOK}); // 5
 
     static {
         GcgFrame.VALUES.add(COMMITMENT);

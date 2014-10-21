@@ -53,7 +53,7 @@ import com.flywheelms.library.fms.helper.FmsHelpIndex;
 
 public class FmsAnalysisPerspective extends FmsPerspectiveFlipperView {
 	
-	private GcgPerspective gcgPerspective = FmmPerspective.ANALYSIS;
+	private GcgPerspective gcgPerspective = FmmPerspective.NOTEBOOK;
 
 	@Override
 	public GcgPerspective getGcgPerspective() {

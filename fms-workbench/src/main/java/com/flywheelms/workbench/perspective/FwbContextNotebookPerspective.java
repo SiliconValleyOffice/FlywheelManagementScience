@@ -58,14 +58,14 @@ import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fms.helper.FmsHelpIndex;
 import com.flywheelms.library.fms.tree_view_flipper.tree_view.FmsPerspectiveFlipperTreeView;
 
-public class FwbContextAnalysisPerspective extends FmsPerspectiveFlipperTreeView {
+public class FwbContextNotebookPerspective extends FmsPerspectiveFlipperTreeView {
 	
 	@Override
 	public GcgPerspective getGcgPerspective() {
-		return FmmPerspective.ANALYSIS;
+		return FmmPerspective.NOTEBOOK;
 	}
 
-	public FwbContextAnalysisPerspective(Context context, AttributeSet attrs) {
+	public FwbContextNotebookPerspective(Context context, AttributeSet attrs) {
 		super(context, attrs);
 	}
 
@@ -85,9 +85,14 @@ public class FwbContextAnalysisPerspective extends FmsPerspectiveFlipperTreeView
         // TODO - get rid of this over ride when class is fully implemented - SDS
     }
 
+    @Override
+    protected void activateView() {
+        // TODO - get rid of this over ride when class is fully implemented - SDS
+    }
+
 	@Override
 	protected int getPageTitleResourceId() {
-		return R.string.fmm_perspective__analysis;
+		return R.string.fmm_perspective__notebook;
 	}
 
 	@Override
@@ -98,7 +103,7 @@ public class FwbContextAnalysisPerspective extends FmsPerspectiveFlipperTreeView
 
 	@Override
 	protected String getHelpContextUrlString() {
-		return FmsHelpIndex.PERSPECTIVE__CONTEXT__ANALYSIS;
+		return FmsHelpIndex.PERSPECTIVE__CONTEXT__NOTEBOOK;
 	}
 
 	@Override

@@ -318,7 +318,7 @@ public class WorkbenchActivity extends FmsActivity implements FmsDecKanGlNavigat
 		thePerspectiveButtonList.add((GcgPerspectiveMenuButton) getFdkKeypadPeerViewLeft().findViewById(com.flywheelms.workbench.R.id.context_frame__work_breakdown__button));
 		thePerspectiveButtonList.add((GcgPerspectiveMenuButton) getFdkKeypadPeerViewLeft().findViewById(com.flywheelms.workbench.R.id.context_frame__work_planning__button));
 		thePerspectiveButtonList.add((GcgPerspectiveMenuButton) getFdkKeypadPeerViewLeft().findViewById(com.flywheelms.workbench.R.id.context_frame__service_delivery__button));
-		thePerspectiveButtonList.add((GcgPerspectiveMenuButton) getFdkKeypadPeerViewLeft().findViewById(com.flywheelms.workbench.R.id.context_frame__analysis__button));
+		thePerspectiveButtonList.add((GcgPerspectiveMenuButton) getFdkKeypadPeerViewLeft().findViewById(com.flywheelms.workbench.R.id.context_frame__notebook__button));
 		TextView theMenuSpacer = (TextView) getFdkKeypadPeerViewLeft().findViewById(com.flywheelms.workbench.R.id.fwb__context__menu_filler);
 		GcgPerspectiveMenu theGcgPerspectiveMenu = new GcgPerspectiveMenu(thePerspectiveButtonList, theMenuSpacer);
 		FwbContextPerspectiveFlipper theFwbContextPerspectiveFlipper = (FwbContextPerspectiveFlipper) findViewById(com.flywheelms.workbench.R.id.context_frame__perspective_flipper);

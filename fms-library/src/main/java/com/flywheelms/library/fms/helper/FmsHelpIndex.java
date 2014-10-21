@@ -109,7 +109,7 @@ public class FmsHelpIndex {
 	public static final String PERSPECTIVE__NODE__WORK_BREAKDOWN = "http://code.google.com/p/flywheel-management-science/wiki/PerspectiveWorkBreakdown";
 	public static final String PERSPECTIVE__NODE__WORK_PLANNING = "http://code.google.com/p/flywheel-management-science/wiki/PerspectiveWorkPlanning";
 	
-	public static final String PERSPECTIVE__CONTEXT__ANALYSIS = "http://code.google.com/p/flywheel-management-science/wiki/PerspectiveContextAnalysis";
+	public static final String PERSPECTIVE__CONTEXT__NOTEBOOK = "http://code.google.com/p/flywheel-management-science/wiki/PerspectiveContextNotebook";
 	public static final String PERSPECTIVE__CONTEXT__SERVICE_DELIVERY = "http://code.google.com/p/flywheel-management-science/wiki/PerspectiveContextServiceDelivery";
 	public static final String PERSPECTIVE__CONTEXT__STRATEGIC_PLANNING = "http://code.google.com/p/flywheel-management-science/wiki/PerspectiveContextStrategicPlannning";
 	public static final String PERSPECTIVE__CONTEXT__WORK_BREAKDOWN = "http://code.google.com/p/flywheel-management-science/wiki/PerspectiveContextWorkBreakdown";
