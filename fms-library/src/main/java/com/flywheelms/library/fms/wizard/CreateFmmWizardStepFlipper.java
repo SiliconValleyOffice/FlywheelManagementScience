@@ -151,8 +151,6 @@ public class CreateFmmWizardStepFlipper extends GcgWizardStepFlipper implements 
 				}
 				FmmDatabaseHelper.initializeNewFmm(anFmmConfiguration, anFmsOrganization);
 				break;
-			case SHARED:
-				break;
 			case TEAM:
 			case ASSETS:
 				theDestinationFile = FmsFileHelper.getDatabaseFile(this.fmmTemplateWizardStepView.getDbFileName());
@@ -181,8 +179,6 @@ public class CreateFmmWizardStepFlipper extends GcgWizardStepFlipper implements 
 	//				GcgHelper.makeToast("FATAL ERROR - Could not copy " + this.fmmTemplateWizardStepView.getTemplateFileName() + " to " + this.fmmTemplateWizardStepView.getDbFileName());
 	//			}
 				break;
-			case SHARED:
-				break;
 			case TEAM:
 			case ASSETS:
 			case CLOUD:
@@ -202,8 +198,6 @@ public class CreateFmmWizardStepFlipper extends GcgWizardStepFlipper implements 
 	//			if(! theResults) {
 	//				GcgHelper.makeToast("FATAL ERROR - Could not copy " + this.fmmTemplateWizardStepView.getTemplateFileName() + " to " + this.fmmTemplateWizardStepView.getDbFileName());
 	//			}
-				break;
-			case SHARED:
 				break;
 			case TEAM:
 			case ASSETS:
@@ -254,8 +248,6 @@ public class CreateFmmWizardStepFlipper extends GcgWizardStepFlipper implements 
 		switch(this.fmmTemplateWizardStepView.getFmmTemplateSource()) {
 			case PRIVATE:
 				aBoolean = FmsFileHelper.dbFileExists(aFileName); 
-				break;
-			case SHARED:
 				break;
 			case TEAM:
 			default:

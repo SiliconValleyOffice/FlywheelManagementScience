@@ -157,7 +157,7 @@ public abstract class GcgWizardStepView extends GcgViewFlipperChildView {
 	}
 
 	public GcgWizardStepFlipper getWizardStepFlipper() {
-		return (GcgWizardStepFlipper) this.viewFlipper;
+		return (GcgWizardStepFlipper) this.gcgViewFlipper;
 	}
 	
 	public GcgWizardActivity getWizardActivity() {

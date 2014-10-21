@@ -45,6 +45,7 @@ package com.flywheelms.library.fms.wizard.step;
 import android.content.Context;
 import android.text.Html;
 import android.util.AttributeSet;
+import android.view.View;
 import android.widget.Button;
 
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
@@ -84,19 +85,31 @@ public class CreateAllCadenceDoItNowWizardStepView extends GcgWizardStepView {
         this.fiscalYearWidgetTextView = (FiscalYearWidgetTextView) findViewById(R.id.fiscal_year__text_view);
         this.fiscalYearWidgetTextView.setFiscalYear(getFiscalYear());
 		this.summaryBoxStep1 = (GcgWidgetTextViewSummaryBox) findViewById(R.id.summary__step_1);
+        this.summaryBoxStep1.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View aView) {
+                CreateAllCadenceDoItNowWizardStepView.this.getGcgViewFlipper().flipToIndex(0);
+            }
+        });
 		this.summaryBoxStep2 = (GcgWidgetTextViewSummaryBox) findViewById(R.id.summary__step_2);
+        this.summaryBoxStep2.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View aView) {
+                CreateAllCadenceDoItNowWizardStepView.this.getGcgViewFlipper().flipToIndex(2);
+            }
+        });
 	}
 	
 	@Override
 	protected void activateView() {
 		super.activateView();
-        CreateAllCadenceForYearWizardStepFlipper theWizardStepFlipper = (CreateAllCadenceForYearWizardStepFlipper) getViewFlipper();
+        CreateAllCadenceForYearWizardStepFlipper theWizardStepFlipper = (CreateAllCadenceForYearWizardStepFlipper) getGcgViewFlipper();
 		this.summaryBoxStep1.setText(Html.fromHtml(theWizardStepFlipper.getWizardStepView1().getSummaryText()));
 		this.summaryBoxStep2.setText(Html.fromHtml(theWizardStepFlipper.getWizardStepView2().getSummaryText()));
 	}
 
     private FiscalYear getFiscalYear() {
-        return ((CreateAllCadenceForYearWizardStepFlipper) getViewFlipper()).getFiscalYear();
+        return ((CreateAllCadenceForYearWizardStepFlipper) getGcgViewFlipper()).getFiscalYear();
     }
 
 	@Override

@@ -55,7 +55,7 @@ import java.util.ArrayList;
 
 // com.flywheelms.gcongui.gcg.widget.GcgWidgetTextViewSummaryBox
 public class GcgWidgetTextViewSummaryBox extends GcgWidget {
-    
+
     private EditText editText;
 
 	public GcgWidgetTextViewSummaryBox(Context aContext, AttributeSet anAttributeSet) {
@@ -69,8 +69,7 @@ public class GcgWidgetTextViewSummaryBox extends GcgWidget {
 
 	@Override
 	protected int getWidgetLayoutResourceId() {
-		int theResourceId = R.layout.gcg__widget__text_view__summary_box;
-		return theResourceId;
+		return R.layout.gcg__widget__text_view__summary_box;
 	}
 
     @Override
@@ -155,12 +154,11 @@ public class GcgWidgetTextViewSummaryBox extends GcgWidget {
         }
         if(this.copyButton != null) {
             this.copyButton.setOnClickListener(theWrappedOnClickListener);
-        } else {
-            setBackgroundResource(R.drawable.gcg__background_state_list__text_view);
-            this.editText.setBackgroundResource(R.drawable.gcg__background_state_list__text_view);
-            if (this.labelTextView != null) {
-                this.labelTextView.setBackgroundResource(R.drawable.gcg__background_state_list__text_view);
-            }
+        }
+        setBackgroundResource(R.drawable.gcg__background_state_list__text_view);
+        this.editText.setBackgroundResource(R.drawable.gcg__background_state_list__text_view);
+        if (this.labelTextView != null) {
+            this.labelTextView.setBackgroundResource(R.drawable.gcg__background_state_list__headling);
         }
     }
 

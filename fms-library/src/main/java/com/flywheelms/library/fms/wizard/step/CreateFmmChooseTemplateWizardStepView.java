@@ -104,7 +104,7 @@ public class CreateFmmChooseTemplateWizardStepView extends FdkWizardStepView {
 		this.fmmConfigurationTemplateWidgetSpinner.updateSpinnerData(getFmmTemplateSource());
 		this.fmmFileNameWidgetEditText = (GcgWidgetFileNameEditText) findViewById(R.id.fmm_repository__file_name);
 		this.fmmFileNameWidgetEditText.setGcgActivity(getGcgActivity());
-		this.fmmFileNameWidgetEditText.setFileNameValidator((CreateFmmWizardStepFlipper) getViewFlipper());
+		this.fmmFileNameWidgetEditText.setFileNameValidator((CreateFmmWizardStepFlipper) getGcgViewFlipper());
 		this.fmmFileNameWidgetEditText.addTextChangedListener(new TextWatcher() {
 
 			@Override
@@ -150,8 +150,6 @@ public class CreateFmmChooseTemplateWizardStepView extends FdkWizardStepView {
 		int theSelectionId = this.radioGroup.getCheckedRadioButtonId();
 		if(theSelectionId == R.id.template_source__existing_private) {
 			theFmmAccessScope = FmmConfigurationTemplateSource.PRIVATE;
-		} else if(theSelectionId == R.id.template_source__existing_shared) {
-			theFmmAccessScope = FmmConfigurationTemplateSource.SHARED;
 		} else if(theSelectionId == R.id.template_source__existing_team) {
 			theFmmAccessScope = FmmConfigurationTemplateSource.TEAM;
 		} else if(theSelectionId == R.id.template_source__fmm_assets) {
@@ -188,7 +186,7 @@ public class CreateFmmChooseTemplateWizardStepView extends FdkWizardStepView {
 		} else {
 			theStringBuilder.append(GcgHelper.html__INDENT);
 			theStringBuilder.append(GcgHelper.html__ERROR);
-			if(((CreateFmmWizardStepFlipper) getViewFlipper()).fileNameExists(this.fmmFileNameWidgetEditText.getText().toString())) {
+			if(((CreateFmmWizardStepFlipper) getGcgViewFlipper()).fileNameExists(this.fmmFileNameWidgetEditText.getText().toString())) {
 				theStringBuilder.append(" - File name already exists" + "<br/><br/>");
 			} else {
 				theStringBuilder.append(" - Invalid file name" + "<br/><br/>");

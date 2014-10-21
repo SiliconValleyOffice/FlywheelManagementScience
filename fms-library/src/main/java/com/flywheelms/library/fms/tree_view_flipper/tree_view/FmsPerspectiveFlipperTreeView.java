@@ -693,7 +693,7 @@ public abstract class FmsPerspectiveFlipperTreeView extends GcgPerspectiveFlippe
 
 	protected void guiPreferencesSaveShowMenu() {
 		guiPreferencesSaveShowMenu(GcgPreferencesHelper.getGuiPreferences(
-				getViewFlipper().getGcgActivity(), getPreferencesBundleNameShowMenu() ));
+				getGcgViewFlipper().getGcgActivity(), getPreferencesBundleNameShowMenu() ));
 	}
 
 	protected void guiPreferencesSaveShowMenuTransient() {
@@ -717,7 +717,7 @@ public abstract class FmsPerspectiveFlipperTreeView extends GcgPerspectiveFlippe
 
 	protected void guiPreferencesSaveGovernanceMenu() {
 		guiPreferencesSaveGovernanceMenu(GcgPreferencesHelper.getGuiPreferences(
-				getViewFlipper().getGcgActivity(), getPreferencesBundleNameGovernanceMenu() ));
+				getGcgViewFlipper().getGcgActivity(), getPreferencesBundleNameGovernanceMenu() ));
 	}
 
 	protected void guiPreferencesSaveGovernanceMenuTransient() {
@@ -747,7 +747,7 @@ public abstract class FmsPerspectiveFlipperTreeView extends GcgPerspectiveFlippe
 
 	protected void guiPreferencesSaveWorkStatusMenu() {
 		guiPreferencesSaveWorkStatusMenu(GcgPreferencesHelper.getGuiPreferences(
-				getViewFlipper().getGcgActivity(), getPreferencesBundleNameWorkStatusMenu() ));
+				getGcgViewFlipper().getGcgActivity(), getPreferencesBundleNameWorkStatusMenu() ));
 	}
 
 	protected void guiPreferencesSaveWorkStatusMenuTransient() {
@@ -777,7 +777,7 @@ public abstract class FmsPerspectiveFlipperTreeView extends GcgPerspectiveFlippe
 
 	protected void guiPreferencesSaveTeamMenu() {
 		guiPreferencesSaveTeamMenu(GcgPreferencesHelper.getGuiPreferences(
-				getViewFlipper().getGcgActivity(), getPreferencesBundleNameTeamMenu() ));
+				getGcgViewFlipper().getGcgActivity(), getPreferencesBundleNameTeamMenu() ));
 	}
 
 	protected void guiPreferencesSaveTeamMenuTransient() {
@@ -807,7 +807,7 @@ public abstract class FmsPerspectiveFlipperTreeView extends GcgPerspectiveFlippe
 	
 	public void guiPreferencesRestoreShowMenu() {
 		guiPreferencesRestoreShowMenu(GcgPreferencesHelper.getGuiPreferences(
-			getViewFlipper().getGcgActivity(), getPreferencesBundleNameShowMenu() ));
+			getGcgViewFlipper().getGcgActivity(), getPreferencesBundleNameShowMenu() ));
 	}
 	
 	public void guiPreferencesRestoreShowMenuTransient() {
@@ -826,7 +826,7 @@ public abstract class FmsPerspectiveFlipperTreeView extends GcgPerspectiveFlippe
 	
 	public void guiPreferencesRestoreGovernanceMenu() {
 		guiPreferencesRestoreGovernanceMenu(GcgPreferencesHelper.getGuiPreferences(
-                getViewFlipper().getGcgActivity(), getPreferencesBundleNameGovernanceMenu()));
+                getGcgViewFlipper().getGcgActivity(), getPreferencesBundleNameGovernanceMenu()));
 	}
 	
 	public void guiPreferencesRestoreGovernanceMenuTransient() {
@@ -847,7 +847,7 @@ public abstract class FmsPerspectiveFlipperTreeView extends GcgPerspectiveFlippe
 	
 	public void guiPreferencesRestoreWorkStatusMenu() {
 		guiPreferencesRestoreWorkStatusMenu(GcgPreferencesHelper.getGuiPreferences(
-				getViewFlipper().getGcgActivity(), getPreferencesBundleNameWorkStatusMenu() ));
+				getGcgViewFlipper().getGcgActivity(), getPreferencesBundleNameWorkStatusMenu() ));
 	}
 	
 	public void guiPreferencesRestoreWorkStatusMenuTransient() {
@@ -871,7 +871,7 @@ public abstract class FmsPerspectiveFlipperTreeView extends GcgPerspectiveFlippe
 	
 	public void guiPreferencesRestoreTeamMenu() {
 		guiPreferencesRestoreTeamMenu(GcgPreferencesHelper.getGuiPreferences(
-				getViewFlipper().getGcgActivity(), getPreferencesBundleNameTeamMenu() ));
+				getGcgViewFlipper().getGcgActivity(), getPreferencesBundleNameTeamMenu() ));
 	}
 	
 	public void guiPreferencesRestoreTeamMenuTransient() {
@@ -896,22 +896,22 @@ public abstract class FmsPerspectiveFlipperTreeView extends GcgPerspectiveFlippe
 	}
 	
 	public void guiPreferencesClearShowMenu() {
-		GcgPreferencesHelper.guiPreferencesClear(getViewFlipper().getGcgActivity(), getPreferencesBundleNameShowMenu());
+		GcgPreferencesHelper.guiPreferencesClear(getGcgViewFlipper().getGcgActivity(), getPreferencesBundleNameShowMenu());
 		guiPreferencesRestoreShowMenu();
 	}
 	
 	public void guiPreferencesClearGovernanceMenu() {
-		GcgPreferencesHelper.guiPreferencesClear(getViewFlipper().getGcgActivity(), getPreferencesBundleNameGovernanceMenu());
+		GcgPreferencesHelper.guiPreferencesClear(getGcgViewFlipper().getGcgActivity(), getPreferencesBundleNameGovernanceMenu());
 		guiPreferencesRestoreGovernanceMenu();
 	}
 	
 	public void guiPreferencesClearWorkStatusMenu() {
-		GcgPreferencesHelper.guiPreferencesClear(getViewFlipper().getGcgActivity(), getPreferencesBundleNameWorkStatusMenu());
+		GcgPreferencesHelper.guiPreferencesClear(getGcgViewFlipper().getGcgActivity(), getPreferencesBundleNameWorkStatusMenu());
 		guiPreferencesRestoreWorkStatusMenu();
 	}
 	
 	public void guiPreferencesClearTeamMenu() {
-		GcgPreferencesHelper.guiPreferencesClear(getViewFlipper().getGcgActivity(), getPreferencesBundleNameTeamMenu());
+		GcgPreferencesHelper.guiPreferencesClear(getGcgViewFlipper().getGcgActivity(), getPreferencesBundleNameTeamMenu());
 		guiPreferencesRestoreTeamMenu();
 	}
 	

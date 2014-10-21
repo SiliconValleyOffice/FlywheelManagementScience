@@ -46,6 +46,7 @@ package com.flywheelms.library.fms.wizard.step;
 import android.content.Context;
 import android.text.Html;
 import android.util.AttributeSet;
+import android.view.View;
 
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.gcongui.gcg.viewflipper.GcgViewFlipper;
@@ -80,15 +81,39 @@ public class CreateFmmDoItNowWizardStepView extends GcgWizardStepView {
 	public void initialize(GcgActivity anGcgActivity, GcgViewFlipper aViewFlipper, int aPageNumber) {
 		super.initialize(anGcgActivity, aViewFlipper, aPageNumber);
 		this.summaryBoxStep1 = (GcgWidgetTextViewSummaryBox) findViewById(R.id.summary__step_1);
+        this.summaryBoxStep1.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View aView) {
+                CreateFmmDoItNowWizardStepView.this.getGcgViewFlipper().flipToIndex(0);
+            }
+        });
 		this.summaryBoxStep2 = (GcgWidgetTextViewSummaryBox) findViewById(R.id.summary__step_2);
+        this.summaryBoxStep2.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View aView) {
+                CreateFmmDoItNowWizardStepView.this.getGcgViewFlipper().flipToIndex(4);
+            }
+        });
 		this.summaryBoxStep3 = (GcgWidgetTextViewSummaryBox) findViewById(R.id.summary__step_3);
+        this.summaryBoxStep3.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View aView) {
+                CreateFmmDoItNowWizardStepView.this.getGcgViewFlipper().flipToIndex(3);
+            }
+        });
 		this.summaryBoxStep4 = (GcgWidgetTextViewSummaryBox) findViewById(R.id.summary__step_4);
+        this.summaryBoxStep4.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View aView) {
+                CreateFmmDoItNowWizardStepView.this.getGcgViewFlipper().flipToIndex(2);
+            }
+        });
 	}
 	
 	@Override
 	protected void activateView() {
 		super.activateView();
-		CreateFmmWizardStepFlipper theWizardStepFlipper = (CreateFmmWizardStepFlipper) getViewFlipper();
+		CreateFmmWizardStepFlipper theWizardStepFlipper = (CreateFmmWizardStepFlipper) getGcgViewFlipper();
 		this.summaryBoxStep1.setText(Html.fromHtml(theWizardStepFlipper.getWizardStepView1().getSummaryText()));
 		this.summaryBoxStep2.setText(Html.fromHtml(theWizardStepFlipper.getWizardStepView2().getSummaryText()));
 		this.summaryBoxStep3.setText(Html.fromHtml(theWizardStepFlipper.getWizardStepView3().getSummaryText()));

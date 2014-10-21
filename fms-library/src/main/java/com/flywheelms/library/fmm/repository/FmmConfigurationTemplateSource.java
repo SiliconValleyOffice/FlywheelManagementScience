@@ -56,7 +56,6 @@ import java.util.Arrays;
 public enum FmmConfigurationTemplateSource implements GcgGuiable {
 	
 	PRIVATE ("Private", R.drawable.fmm_repository__scope__private),
-	SHARED ("Shared", R.drawable.fmm_repository__scope__shared),
 	TEAM ("Team", R.drawable.fmm_repository__scope__team),
 	ASSETS ("FlywheelMS", R.drawable.flywheel_ms__16),
 	CLOUD ("Template Cloud", R.drawable.gcg__cloud__16);

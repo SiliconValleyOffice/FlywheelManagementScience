@@ -70,7 +70,7 @@ public abstract class FmsPerspectiveFlipperView extends GcgPerspectiveFlipperChi
 	}
 	
 	public FmsPerspectiveFlipper getFmsPerspectiveFlipper() {
-		return (FmsPerspectiveFlipper) getViewFlipper();
+		return (FmsPerspectiveFlipper) getGcgViewFlipper();
 	}
 
 }

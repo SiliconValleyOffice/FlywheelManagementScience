@@ -22,20 +22,19 @@
             android:layout_height="280dp"
             android:layout_marginLeft="14dp"
             android:layout_marginTop="11dp"
-            android:background="@drawable/gcg__group_box__background_1"
-            android:orientation="vertical"
-            android:paddingBottom="@dimen/gcg__group_box__padding_bottom"
-            android:paddingLeft="@dimen/gcg__group_box__padding_left"
-            android:paddingRight="@dimen/gcg__group_box__padding_right"
-            android:paddingTop="@dimen/gcg__group_box__padding_top" >
+            android:background="@drawable/gcg__background_state_list__text_view"
+            android:orientation="vertical" >
 
             <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal" >
+                android:layout_width="325dp"
+                android:layout_height="wrap_content" >
 
                 <TextView
+                    android:id="@+id/label__content_summary"
                     style="@style/GcgGroupLabel"
+                    android:layout_width="325dp"
+                    android:background="@drawable/gcg__background_state_list__headling"
+                    android:textColor="@color/w3c__black"
                     android:text="Content Summary" />
             </TableRow>
 
@@ -57,6 +56,7 @@
                 <TextView
                     android:id="@+id/summary__content"
                     style="@style/gcgLabel"
+                    android:layout_gravity="left"
                     android:gravity="left"
                     android:paddingLeft="10dp"
                     android:paddingRight="15dp"
@@ -72,20 +72,19 @@
             android:layout_height="280dp"
             android:layout_marginLeft="25dp"
             android:layout_marginTop="11dp"
-            android:background="@drawable/gcg__group_box__background_1"
-            android:orientation="vertical"
-            android:paddingBottom="@dimen/gcg__group_box__padding_bottom"
-            android:paddingLeft="@dimen/gcg__group_box__padding_left"
-            android:paddingRight="@dimen/gcg__group_box__padding_right"
-            android:paddingTop="@dimen/gcg__group_box__padding_top" >
+            android:background="@drawable/gcg__background_state_list__text_view"
+            android:orientation="vertical" >
 
             <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal" >
+                android:layout_width="555dp"
+                android:layout_height="wrap_content" >
 
                 <TextView
+                    android:id="@+id/label__destination_summary"
                     style="@style/GcgGroupLabel"
+                    android:layout_width="555dp"
+                    android:background="@drawable/gcg__background_state_list__headling"
+                    android:textColor="@color/w3c__black"
                     android:text="Destination Summary" />
             </TableRow>
 

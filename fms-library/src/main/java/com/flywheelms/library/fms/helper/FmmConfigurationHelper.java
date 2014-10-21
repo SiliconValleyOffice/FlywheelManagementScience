@@ -153,7 +153,6 @@ public class FmmConfigurationHelper {
 				theGuiableList = new ArrayList<GcgGuiable>(getAssetsConfigurationTemplateList());
 				break;
 			case CLOUD:
-			case SHARED:
 			case TEAM:
 			default:
 				theGuiableList = new ArrayList<GcgGuiable>();

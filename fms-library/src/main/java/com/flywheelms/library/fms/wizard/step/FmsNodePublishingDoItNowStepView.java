@@ -45,6 +45,7 @@ package com.flywheelms.library.fms.wizard.step;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.View;
 import android.widget.TextView;
 
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
@@ -78,18 +79,30 @@ public class FmsNodePublishingDoItNowStepView extends GcgWizardStepView {
 	@Override
 	public void initialize(GcgActivity anGcgActivity, GcgViewFlipper aViewFlipper, int aPageNumber) {
 		super.initialize(anGcgActivity, aViewFlipper, aPageNumber);
+        ((TextView) findViewById(R.id.label__content_summary)).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View aView) {
+                FmsNodePublishingDoItNowStepView.this.getGcgViewFlipper().flipToIndex(0);
+            }
+        });
 		this.contentSummary = (TextView) findViewById(R.id.summary__content);
-		GcgHelper.initializeViewFlingListener(this.context, getViewFlipper(), this.contentSummary);
+		GcgHelper.initializeViewFlingListener(this.context, getGcgViewFlipper(), this.contentSummary);
+        ((TextView) findViewById(R.id.label__destination_summary)).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View aView) {
+                FmsNodePublishingDoItNowStepView.this.getGcgViewFlipper().flipToIndex(2);
+            }
+        });
 		this.destinationSummary_1 = (TextView) findViewById(R.id.summary__destination_1);
-		GcgHelper.initializeViewFlingListener(this.context, getViewFlipper(), this.destinationSummary_1);
+		GcgHelper.initializeViewFlingListener(this.context, getGcgViewFlipper(), this.destinationSummary_1);
 		this.destinationSummary_2 = (TextView) findViewById(R.id.summary__destination_2);
-		GcgHelper.initializeViewFlingListener(this.context, getViewFlipper(), this.destinationSummary_2);
+		GcgHelper.initializeViewFlingListener(this.context, getGcgViewFlipper(), this.destinationSummary_2);
 	}
 	
 	@Override
 	protected void activateView() {
 		super.activateView();
-		FmsNodePublishingWizardStepFlipper theWizardStepFlipper = (FmsNodePublishingWizardStepFlipper) getViewFlipper();
+		FmsNodePublishingWizardStepFlipper theWizardStepFlipper = (FmsNodePublishingWizardStepFlipper) getGcgViewFlipper();
 		this.contentSummary.setText(theWizardStepFlipper.getWizardStepView1().getSummaryText());
 		this.destinationSummary_1.setText(theWizardStepFlipper.getWizardStepView2().getSummaryText());
 		this.destinationSummary_2.setText(theWizardStepFlipper.getWizardStepView2().getSummaryText_2());

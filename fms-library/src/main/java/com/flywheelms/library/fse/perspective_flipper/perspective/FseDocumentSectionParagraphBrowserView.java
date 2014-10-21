@@ -65,7 +65,7 @@ public abstract class FseDocumentSectionParagraphBrowserView extends FseDocument
 	public void initialize(FmsPerspectiveFlipperParent anGcgActivity, GcgViewFlipper aViewFlipper, int aPageNumber, @SuppressWarnings("unused") String aJunkSignatureArg) {
 		initialize(anGcgActivity.getFsePerspectiveFlipper());
 		this.gcgActivity = (GcgActivity) anGcgActivity;
-		this.viewFlipper = aViewFlipper;
+		this.gcgViewFlipper = aViewFlipper;
 		this.spinnableMenuIndex = -1;
 		this.pageNumber = aPageNumber;
 		this.pageTitle = this.gcgActivity.getResources().getString(getPageTitleResourceId());

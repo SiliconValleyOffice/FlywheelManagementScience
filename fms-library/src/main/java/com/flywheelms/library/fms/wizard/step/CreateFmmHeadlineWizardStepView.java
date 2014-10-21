@@ -105,11 +105,11 @@ public class CreateFmmHeadlineWizardStepView extends FdkWizardStepView {
 			}
 		});
 		this.accessScopeWidget = (FmmAccessScopeTextView) findViewById(R.id.fmm_repository__scope);
-		this.accessScopeWidget.setText(((CreateFmmWizardStepFlipper) getViewFlipper()).getAccessScope().getName());
-		GcgHelper.setDrawableLeft(this.accessScopeWidget.getTextView(), ((CreateFmmWizardStepFlipper) getViewFlipper()).getAccessScope().getDrawable());
+		this.accessScopeWidget.setText(((CreateFmmWizardStepFlipper) getGcgViewFlipper()).getAccessScope().getName());
+		GcgHelper.setDrawableLeft(this.accessScopeWidget.getTextView(), ((CreateFmmWizardStepFlipper) getGcgViewFlipper()).getAccessScope().getDrawable());
 		this.serviceProviderSpinner = (PersistenceServiceProviderWidgetSpinner) findViewById(R.id.fmm_repository__service_provider__spinner);
 //		this.serviceProviderSpinner.setFdkListener(this);
-		this.serviceProviderSpinner.setAccessScope(((CreateFmmWizardStepFlipper) getViewFlipper()).getAccessScope());
+		this.serviceProviderSpinner.setAccessScope(((CreateFmmWizardStepFlipper) getGcgViewFlipper()).getAccessScope());
 	}
 	
 	@Override

@@ -95,7 +95,7 @@ public class FmsNodePublishingDestinationWizardStepView extends GcgWizardStepVie
 		this.dropBox = (CheckBox) findViewById(R.id.file_storage__dropbox__check_box);
 		initializeTableRowClickListener(this.dropBox, R.id.row__a2);
 		this.dropBoxDirectory = (EditText) findViewById(R.id.dropbox_directory__data);
-		GcgHelper.initializeViewFlingListener(this.context, getViewFlipper(), this.dropBoxDirectory);
+		GcgHelper.initializeViewFlingListener(this.context, getGcgViewFlipper(), this.dropBoxDirectory);
 		this.print = (CheckBox) findViewById(R.id.printer__check_box);
 		initializeTableRowClickListener(this.print, R.id.row__b1);
 		initializeAndroidContactListViewWidget();
@@ -225,7 +225,7 @@ public class FmsNodePublishingDestinationWizardStepView extends GcgWizardStepVie
 	@Override
 	public void guiPreferencesClear() {
 		SharedPreferences theGuiPreferences = GcgPreferencesHelper.getGuiPreferences(
-				getViewFlipper().getGcgActivity(), GuiPreferencesBundle.PUBLISH_PDF__DESTINATION.getKey());
+				getGcgViewFlipper().getGcgActivity(), GuiPreferencesBundle.PUBLISH_PDF__DESTINATION.getKey());
 		theGuiPreferences.edit().clear().commit();
 		guiPreferencesRestore();
 	}
@@ -233,7 +233,7 @@ public class FmsNodePublishingDestinationWizardStepView extends GcgWizardStepVie
 	@Override
 	public void guiPreferencesRestore() {
 		SharedPreferences theGuiPreferences = GcgPreferencesHelper.getGuiPreferences(
-				getViewFlipper().getGcgActivity(), GuiPreferencesBundle.PUBLISH_PDF__DESTINATION.getKey());
+				getGcgViewFlipper().getGcgActivity(), GuiPreferencesBundle.PUBLISH_PDF__DESTINATION.getKey());
 		this.dropBox.setChecked(theGuiPreferences.getBoolean(GuiPreferenceAttribute.DROPBOX__PERSISTENCE.getKey(), false));
 		this.dropBoxDirectory.setText(theGuiPreferences.getString(GuiPreferenceAttribute.DROPBOX__DIRECTORY_NAME.getKey(), ""));
 		this.print.setChecked(theGuiPreferences.getBoolean(GuiPreferenceAttribute.PRINT.getKey(), false));
@@ -246,7 +246,7 @@ public class FmsNodePublishingDestinationWizardStepView extends GcgWizardStepVie
 	@Override
 	public void guiPreferencesSave() {
 		SharedPreferences theGuiPreferences = GcgPreferencesHelper.getGuiPreferences(
-				getViewFlipper().getGcgActivity(), GuiPreferencesBundle.PUBLISH_PDF__DESTINATION.getKey());
+				getGcgViewFlipper().getGcgActivity(), GuiPreferencesBundle.PUBLISH_PDF__DESTINATION.getKey());
 		theGuiPreferences.edit().putBoolean(GuiPreferenceAttribute.DROPBOX__PERSISTENCE.getKey(), this.dropBox.isChecked()).commit();
 		theGuiPreferences.edit().putString(GuiPreferenceAttribute.DROPBOX__DIRECTORY_NAME.getKey(), this.dropBoxDirectory.getText().toString()).commit();
 		theGuiPreferences.edit().putBoolean(GuiPreferenceAttribute.PRINT.getKey(), this.print.isChecked()).commit();

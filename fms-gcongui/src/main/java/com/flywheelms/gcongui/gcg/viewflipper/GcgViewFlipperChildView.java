@@ -67,7 +67,7 @@ public abstract class GcgViewFlipperChildView extends LinearLayout implements Gc
 	public static final String bundle_arg_PAGE_NUMBER = "PageNumber";
 	public static final String bundle_arg_PAGE_TITLE = "PageTitle";
 	protected GcgActivity gcgActivity;
-	protected GcgViewFlipper viewFlipper;
+	protected GcgViewFlipper gcgViewFlipper;
     protected TextView viewCurtain;
 	protected int spinnableMenuIndex; // negative number means no spinnable menu
 	protected int pageNumber;
@@ -84,8 +84,8 @@ public abstract class GcgViewFlipperChildView extends LinearLayout implements Gc
         this.viewCurtain = (TextView) findViewById(R.id.gcg__view_curtain);
 	}
 
-	public GcgViewFlipper getViewFlipper() {
-		return this.viewFlipper;
+	public GcgViewFlipper getGcgViewFlipper() {
+		return this.gcgViewFlipper;
 	}
 
 	public int getFrameMenuSpacerBackgroundResourceId() {
@@ -101,7 +101,7 @@ public abstract class GcgViewFlipperChildView extends LinearLayout implements Gc
 				
 				@Override
 				public void onClick(View v) {
-					GcgViewFlipperChildView.this.getViewFlipper().flipPrevious();
+					GcgViewFlipperChildView.this.getGcgViewFlipper().flipPrevious();
 				}
 			});
 		} else {
@@ -116,7 +116,7 @@ public abstract class GcgViewFlipperChildView extends LinearLayout implements Gc
 				
 				@Override
 				public void onClick(View v) {
-					GcgViewFlipperChildView.this.getViewFlipper().flipNext();
+					GcgViewFlipperChildView.this.getGcgViewFlipper().flipNext();
 				}
 			});
 		} else {
@@ -142,7 +142,7 @@ public abstract class GcgViewFlipperChildView extends LinearLayout implements Gc
 	}
 
 	protected String getPreviousPageTitle() {
-		return getViewFlipper().getPreviousPageTitle(this);
+		return getGcgViewFlipper().getPreviousPageTitle(this);
 	}
 
 	protected String getCurrentPageTitle() {
@@ -154,7 +154,7 @@ public abstract class GcgViewFlipperChildView extends LinearLayout implements Gc
 	}
 
 	protected String getNextPageTitle() {
-		return getViewFlipper().getNextPageTitle(this);
+		return getGcgViewFlipper().getNextPageTitle(this);
 	}
 
 	public void initialize(GcgActivity anGcgActivity, GcgViewFlipper aViewFlipper, int aPageNumber) {
@@ -163,7 +163,7 @@ public abstract class GcgViewFlipperChildView extends LinearLayout implements Gc
 
 	public void initialize(GcgActivity anGcgActivity, GcgViewFlipper aViewFlipper, int aSpinnableMenuIndex, int aPageNumber) {
 		this.gcgActivity = anGcgActivity;
-		this.viewFlipper = aViewFlipper;
+		this.gcgViewFlipper = aViewFlipper;
 		this.spinnableMenuIndex = aSpinnableMenuIndex;
 		this.pageNumber = aPageNumber;
 		this.pageTitle = anGcgActivity.getResources().getString(getPageTitleResourceId());
@@ -182,7 +182,7 @@ public abstract class GcgViewFlipperChildView extends LinearLayout implements Gc
 
 				@Override
 				public void onClick(View v) {
-					GcgViewFlipperChildView.this.viewFlipper.flipPrevious();
+					GcgViewFlipperChildView.this.gcgViewFlipper.flipPrevious();
 				}
 			});
 		} else if(thePreviousButton != null) {
@@ -194,7 +194,7 @@ public abstract class GcgViewFlipperChildView extends LinearLayout implements Gc
 
 				@Override
 				public void onClick(View v) {
-					GcgViewFlipperChildView.this.viewFlipper.flipNext();
+					GcgViewFlipperChildView.this.gcgViewFlipper.flipNext();
 				}
 			});
 		} else if(theNextButton != null) {

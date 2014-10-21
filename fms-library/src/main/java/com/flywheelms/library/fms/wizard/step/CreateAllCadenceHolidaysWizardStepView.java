@@ -135,7 +135,7 @@ public class CreateAllCadenceHolidaysWizardStepView extends GcgWizardStepView {
 	}
 
     private FiscalYear getFiscalYear() {
-        return ((CreateAllCadenceForYearWizardStepFlipper) getViewFlipper()).getFiscalYear();
+        return ((CreateAllCadenceForYearWizardStepFlipper) getGcgViewFlipper()).getFiscalYear();
     }
     
     public ArrayList<FiscalYearHolidayBreak> getFiscalYearHolidayBreakList() {

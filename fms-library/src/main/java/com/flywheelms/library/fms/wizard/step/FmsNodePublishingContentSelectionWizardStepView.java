@@ -172,7 +172,7 @@ public class FmsNodePublishingContentSelectionWizardStepView extends GcgWizardSt
 	@Override
 	public void guiPreferencesRestore() {
 		SharedPreferences theGuiPreferences = GcgPreferencesHelper.getGuiPreferences(
-				getViewFlipper().getGcgActivity(), GuiPreferencesBundle.PUBLISH_PDF__CONTENT.getKey());
+				getGcgViewFlipper().getGcgActivity(), GuiPreferencesBundle.PUBLISH_PDF__CONTENT.getKey());
 		this.titlePage.setChecked(theGuiPreferences.getBoolean(GuiPreferenceAttribute.SHOW__TITLE_PAGE.getKey(), false));
 		this.tableOfContents.setChecked(theGuiPreferences.getBoolean(GuiPreferenceAttribute.SHOW__TABLE_OF_CONTENTS.getKey(), false));
 		this.locks.setChecked(theGuiPreferences.getBoolean(GuiPreferenceAttribute.SHOW__LOCKS.getKey(), false));
@@ -197,7 +197,7 @@ public class FmsNodePublishingContentSelectionWizardStepView extends GcgWizardSt
 	@Override
 	public void guiPreferencesSave() {
 		SharedPreferences theGuiPreferences = GcgPreferencesHelper.getGuiPreferences(
-				getViewFlipper().getGcgActivity(), GuiPreferencesBundle.PUBLISH_PDF__CONTENT.getKey());
+				getGcgViewFlipper().getGcgActivity(), GuiPreferencesBundle.PUBLISH_PDF__CONTENT.getKey());
 		theGuiPreferences.edit().putBoolean(GuiPreferenceAttribute.SHOW__TITLE_PAGE.getKey(), this.titlePage.isChecked()).commit();
 		theGuiPreferences.edit().putBoolean(GuiPreferenceAttribute.SHOW__TABLE_OF_CONTENTS.getKey(), this.tableOfContents.isChecked()).commit();
 		theGuiPreferences.edit().putBoolean(GuiPreferenceAttribute.SHOW__LOCKS.getKey(), this.locks.isChecked()).commit();
@@ -220,7 +220,7 @@ public class FmsNodePublishingContentSelectionWizardStepView extends GcgWizardSt
 	@Override
 	public void guiPreferencesClear() {
 		SharedPreferences theGuiPreferences = GcgPreferencesHelper.getGuiPreferences(
-				getViewFlipper().getGcgActivity(), GuiPreferencesBundle.PUBLISH_PDF__CONTENT.getKey());
+				getGcgViewFlipper().getGcgActivity(), GuiPreferencesBundle.PUBLISH_PDF__CONTENT.getKey());
 		theGuiPreferences.edit().clear().commit();
 		guiPreferencesRestore();
 	}

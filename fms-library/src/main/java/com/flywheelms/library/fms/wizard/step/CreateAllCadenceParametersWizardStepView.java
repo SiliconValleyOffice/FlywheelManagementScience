@@ -94,11 +94,11 @@ public class CreateAllCadenceParametersWizardStepView extends GcgWizardStepView 
 	@Override
 	public void activateView() {
 		super.activateView();
-        CreateAllCadenceForYearWizardStepFlipper theWizardStepFlipper = (CreateAllCadenceForYearWizardStepFlipper) getViewFlipper();
+        CreateAllCadenceForYearWizardStepFlipper theWizardStepFlipper = (CreateAllCadenceForYearWizardStepFlipper) getGcgViewFlipper();
 	}
 
     private FiscalYear getFiscalYear() {
-        return ((CreateAllCadenceForYearWizardStepFlipper) getViewFlipper()).getFiscalYear();
+        return ((CreateAllCadenceForYearWizardStepFlipper) getGcgViewFlipper()).getFiscalYear();
     }
 
     @Override
