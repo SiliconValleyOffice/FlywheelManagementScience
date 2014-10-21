@@ -50,6 +50,7 @@ import android.util.AttributeSet;
 
 import com.flywheelms.gcongui.fdk.wizard.FdkWizardStepView;
 import com.flywheelms.gcongui.gcg.helper.GcgHelper;
+import com.flywheelms.gcongui.gcg.widget.date.GcgWidgetMonthSpinner;
 import com.flywheelms.gcongui.gcg.widget.list_view.AndroidContactsWidgetListView;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fms.helper.FmsHelpIndex;
@@ -58,6 +59,7 @@ import com.flywheelms.library.fms.widget.edit_text.HeadlineWidgetEditText;
 public class CreateFmmOrganizationWizardStepView extends FdkWizardStepView {
 
 	private HeadlineWidgetEditText headlineWidget;
+    private GcgWidgetMonthSpinner monthSpinner;
 	private AndroidContactsWidgetListView androidContactsWidget;
 
 	public CreateFmmOrganizationWizardStepView(Context context, AttributeSet attrs) {
@@ -93,6 +95,8 @@ public class CreateFmmOrganizationWizardStepView extends FdkWizardStepView {
 				CreateFmmOrganizationWizardStepView.this.manageButtonState();
 			}
 		});
+		this.monthSpinner = (GcgWidgetMonthSpinner) findViewById(R.id.gcg__month__spinner);
+        this.monthSpinner.setEnabled(false);
 		this.androidContactsWidget = (AndroidContactsWidgetListView) findViewById(R.id.android_contacts__widget);
 		this.androidContactsWidget.setGcgActivity(getGcgActivity());
 	}

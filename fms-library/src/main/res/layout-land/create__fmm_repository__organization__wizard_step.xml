@@ -32,17 +32,25 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_below="@id/use_template__organization_headline"
-            android:layout_marginLeft="13dp"
             gcg:labelHint="Organization"
-            gcg:labelWidth="175"
+            gcg:labelWidth="190"
             gcg:fdkCursorEnabled="true" />
+
+        <com.flywheelms.gcongui.gcg.widget.date.GcgWidgetMonthSpinner
+            android:id="@+id/gcg__month__spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/headline"
+            android:layout_marginLeft="4dp"
+            gcg:labelWidth="190"
+            gcg:labelText="First month of Fiscal Year" />
         
         <CheckBox
             android:id="@+id/use_template__community"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/headline"
-            android:layout_marginTop="30dp"
+            android:layout_below="@id/gcg__month__spinner"
+            android:layout_marginTop="20dp"
             android:enabled="false"
             android:checked="true"
             android:text="retain Community from template" />
@@ -50,7 +58,7 @@
         <com.flywheelms.gcongui.gcg.widget.list_view.AndroidContactsWidgetListView
             android:id="@+id/android_contacts__widget"
             android:layout_width="match_parent"
-            android:layout_height="210dp"
+            android:layout_height="180dp"
             android:layout_below="@id/use_template__community"
             android:layout_marginRight="20dp"
             android:layout_marginLeft="19dp"

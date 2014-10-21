@@ -66,7 +66,7 @@ public class GcgWidgetMonthSpinner extends GcgWidgetSpinner {
 
 	@Override
 	protected String getLabelText() {
-		return "Month";
+		return this.labelTextString == null ? "Month" : this.labelTextString;
 	}
 
 	@Override
