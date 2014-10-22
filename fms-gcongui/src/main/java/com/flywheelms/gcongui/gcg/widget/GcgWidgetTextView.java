@@ -72,14 +72,18 @@ public abstract class GcgWidgetTextView extends GcgWidget {
 		super.setup();
 		this.textView = (TextView) this.widgetContainer.findViewById(resource_id__WIDGET_DATA);
         this.textView.setEllipsize(TextUtils.TruncateAt.valueOf("END"));
-		if(this.isTransparentBackground) {
+		if(isTransparentBackground()) {
 			setTransparentBackground();
 		}
 		setInitialValue();
 		manageBackgroundState();
 	}
 
-	@Override
+    protected boolean isTransparentBackground() {
+        return this.isTransparentBackground;
+    }
+
+    @Override
 	protected void setLabelWidth() {
 		if(this.labelContainer == null) {
 			super.setLabelWidth();
@@ -112,7 +116,7 @@ public abstract class GcgWidgetTextView extends GcgWidget {
 
 	protected void manageBackgroundState() {
 		this.textView.setBackgroundResource(isMinimumInput() ?
-				this.isTransparentBackground ? R.color.gcg__transparent : R.drawable.gcg__edit_text :
+				isTransparentBackground() ? R.color.gcg__transparent : R.drawable.gcg__edit_text :
 				R.drawable.gcg__edit_text__invalid);
 	}
 

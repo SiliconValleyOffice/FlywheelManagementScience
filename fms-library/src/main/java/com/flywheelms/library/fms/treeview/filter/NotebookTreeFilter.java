@@ -1,4 +1,4 @@
-/* @(#)CustomerNicknameWidgetTextView.java
+/* @(#)WorkBreakdownTreeFilter.java
 ** 
 ** Copyright (C) 2012 by Steven D. Stamps
 **
@@ -41,39 +41,25 @@
 ** <http://www.gnu.org/licenses/gpl-3.0.html>.
 */
 
-package com.flywheelms.library.fms.widget.text_view;
+package com.flywheelms.library.fms.treeview.filter;
 
-import android.content.Context;
-import android.util.AttributeSet;
+import android.view.View;
 
-import com.flywheelms.gcongui.gcg.widget.GcgWidgetTextView;
-import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
-import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
+import com.flywheelms.gcongui.gcg.treeview.GcgTreeFilter;
+import com.flywheelms.gcongui.gcg.treeview.node.GcgTreeNode;
 
-// com.flywheelms.library.fms.widget.text_view.FiscalYearWidgetTextView
-public class FiscalYearWidgetTextView extends GcgWidgetTextView {
+public class NotebookTreeFilter extends GcgTreeFilter {
 
-    private FiscalYear fiscalYear;
-	
-	public FiscalYearWidgetTextView(Context aContext, AttributeSet anAttributeSet) {
-		super(aContext, anAttributeSet);
+	public NotebookTreeFilter(View aTreeView) {
+		super(aTreeView);
 	}
+
+	private static final long serialVersionUID = 5990797791416868765L;
 
 	@Override
-	protected String getLabelText() {
-		return FmmNodeDefinition.FISCAL_YEAR.getLabelText();
+	public boolean showInTree(GcgTreeNode aTreeNodeInfo) {
+		// TODO Auto-generated method stub
+		return true;
 	}
 
-    protected boolean isTransparentBackground() {
-        return true;
-    }
-
-    public FiscalYear getFiscalYear() {
-        return fiscalYear;
-    }
-
-    public void setFiscalYear(FiscalYear aFiscalYear) {
-        this.fiscalYear = aFiscalYear;
-        this.textView.setText(this.fiscalYear.getHeadline());
-    }
 }

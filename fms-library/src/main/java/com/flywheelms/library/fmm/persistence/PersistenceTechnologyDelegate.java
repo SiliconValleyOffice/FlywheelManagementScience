@@ -51,6 +51,7 @@ import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.enumerator.GovernanceRole;
 import com.flywheelms.library.fmm.node.impl.enumerator.GovernanceTarget;
 import com.flywheelms.library.fmm.node.impl.event.PdfPublication;
+import com.flywheelms.library.fmm.node.impl.governable.Bookshelf;
 import com.flywheelms.library.fmm.node.impl.governable.Cadence;
 import com.flywheelms.library.fmm.node.impl.governable.CommunityMember;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
@@ -210,9 +211,17 @@ public abstract class PersistenceTechnologyDelegate {
 
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	//////  Node - PORTFOLIO  ////////////////////////////////////////////////////////////////////////////////
+    //////  Node - BOOKSHELF  ////////////////////////////////////////////////////////////////////////////////
 
-    public abstract ArrayList<Portfolio> dbListPortfolio(FmsOrganization anOrganization);
+    public ArrayList<Bookshelf> dbListBookshelf(FmsOrganization anOrganization) {
+        return dbListBookshelf(anOrganization, null);
+    }
+
+    public abstract ArrayList<Bookshelf> dbListBookshelf(FmsOrganization anOrganization, Bookshelf aBookshelfException);
+
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//////  Node - PORTFOLIO  ////////////////////////////////////////////////////////////////////////////////
 
     public abstract ArrayList<Portfolio> dbListPortfolio(FmsOrganization anOrganization, Portfolio aPortfolioException);
 

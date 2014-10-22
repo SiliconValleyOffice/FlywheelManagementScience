@@ -222,18 +222,22 @@ public class GcgDateHelper {
 		return new Date(System.currentTimeMillis());
 	}
 
+    private static ArrayList<GcgGuiable> GUIABLE_MONTH_LIST;
+
 	public static ArrayList<GcgGuiable> getMonthGuiableList() {
-		ArrayList<GcgGuiable> theGuiableList = new ArrayList<GcgGuiable>();
-		for(GcgMonth theGcgMonth : GcgMonth.values()) {
-			theGuiableList.add(new GcgGuiableImpl(
-				"Month",
-				null,
-				0,
-				theGcgMonth.getMonthName(),
-				null,
-				0 ));
-		}
-		return theGuiableList;
+        if(GcgDateHelper.GUIABLE_MONTH_LIST == null) {
+            GcgDateHelper.GUIABLE_MONTH_LIST = new ArrayList<GcgGuiable>();
+            for(GcgMonth theGcgMonth : GcgMonth.values()) {
+                GcgDateHelper.GUIABLE_MONTH_LIST.add(new GcgGuiableImpl(
+                        "Month",
+                        null,
+                        0,
+                        theGcgMonth.getMonthName(),
+                        null,
+                        0 ));
+            }
+        }
+		return GcgDateHelper.GUIABLE_MONTH_LIST;
 	}
 
 	public static GcgMonth getGcgMonthForName(String dataText) {

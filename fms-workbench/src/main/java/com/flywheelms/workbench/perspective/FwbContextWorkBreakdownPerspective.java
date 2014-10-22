@@ -120,9 +120,9 @@ public class FwbContextWorkBreakdownPerspective extends FmsPerspectiveFlipperTre
 
 	@Override
 	protected GcgTreeViewMediator createGcgTreeViewMediator() {
-        GcgTreeViewMediator theTreeContentMediator =
+        GcgTreeViewMediator theGcgTreeViewMediator =
                 new FmsTreeViewMediatorMemoryResident(new WorkBreakdownTreeFilter(this));
-        final FmsTreeBuilder theTreeBuilder = new FmsTreeBuilder(theTreeContentMediator);
+        final FmsTreeBuilder theTreeBuilder = new FmsTreeBuilder(theGcgTreeViewMediator);
         Collection<Portfolio> thePortfolioCollection = FmmDatabaseMediator.getActiveMediator().getPortfolioList(
                 FmmDatabaseMediator.getActiveMediator().getFmmOwner() );
         for(Portfolio thePortfolio : thePortfolioCollection) {
@@ -148,7 +148,7 @@ public class FwbContextWorkBreakdownPerspective extends FmsPerspectiveFlipperTre
                 }
             }
         }
-        return theTreeContentMediator;
+        return theGcgTreeViewMediator;
 	}
 
 	@Override

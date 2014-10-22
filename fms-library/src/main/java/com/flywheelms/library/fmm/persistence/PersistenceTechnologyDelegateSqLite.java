@@ -49,6 +49,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
 import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
+import com.flywheelms.library.fmm.database.sqlite.dao.BookshelfDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.CadenceDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.CadenceWorkPackageCommitmentDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.CommunityMemberDaoSqLite;
@@ -81,6 +82,7 @@ import com.flywheelms.library.fmm.database.sqlite.dao.WorkPlanDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.WorkTaskDaoSqLite;
 import com.flywheelms.library.fmm.helper.FmmOpenHelper;
 import com.flywheelms.library.fmm.interfaces.WorkAsset;
+import com.flywheelms.library.fmm.meta_data.BookshelfMetaData;
 import com.flywheelms.library.fmm.meta_data.CadenceMetaData;
 import com.flywheelms.library.fmm.meta_data.CadenceWorkPackageCommitmentMetaData;
 import com.flywheelms.library.fmm.meta_data.CommunityMemberMetaData;
@@ -111,6 +113,7 @@ import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.enumerator.GovernanceRole;
 import com.flywheelms.library.fmm.node.impl.enumerator.GovernanceTarget;
 import com.flywheelms.library.fmm.node.impl.event.PdfPublication;
+import com.flywheelms.library.fmm.node.impl.governable.Bookshelf;
 import com.flywheelms.library.fmm.node.impl.governable.Cadence;
 import com.flywheelms.library.fmm.node.impl.governable.CommunityMember;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
@@ -1000,12 +1003,23 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	}
 
 
-    //////  Node - PORTFOLIO  ////////////////////////////////////////////////////////////////////////////////
+    //////  Node - BOOKSHELF  ////////////////////////////////////////////////////////////////////////////////
 
+    @SuppressWarnings("resource")
     @Override
-    public ArrayList<Portfolio> dbListPortfolio(FmsOrganization anOrganization) {
-        return dbListPortfolio(anOrganization, null);
+    public ArrayList<Bookshelf> dbListBookshelf(FmsOrganization anOrganization, Bookshelf aBookshelfException) {
+        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.BOOKSHELF.getTableName() +
+                " WHERE " + BookshelfMetaData.column_ORGANIZATION_ID + " = '" + anOrganization.getNodeIdString() + "'";
+        if(aBookshelfException != null) {
+            theRawQuery += " AND " + IdNodeMetaData.column_ID + " != '" + aBookshelfException.getNodeIdString() + "'";
+        }
+        theRawQuery += " ORDER BY LOWER(" + HeadlineNodeMetaData.column_HEADLINE + ") ASC";
+        Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
+        return BookshelfDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
     }
+
+
+    //////  Node - PORTFOLIO  ////////////////////////////////////////////////////////////////////////////////
 
     @SuppressWarnings("resource")
     @Override

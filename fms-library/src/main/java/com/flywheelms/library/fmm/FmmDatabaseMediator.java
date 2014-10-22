@@ -45,6 +45,7 @@ package com.flywheelms.library.fmm;
 import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
 import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
 import com.flywheelms.library.fca.FlywheelCommunityAuthentication;
+import com.flywheelms.library.fmm.database.sqlite.dao.BookshelfDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.StrategicAssetDaoSqLite;
 import com.flywheelms.library.fmm.helper.FmmHelper;
 import com.flywheelms.library.fmm.interfaces.WorkAsset;
@@ -84,11 +85,13 @@ import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.enumerator.GovernanceRole;
 import com.flywheelms.library.fmm.node.impl.enumerator.GovernanceTarget;
 import com.flywheelms.library.fmm.node.impl.event.PdfPublication;
+import com.flywheelms.library.fmm.node.impl.governable.Bookshelf;
 import com.flywheelms.library.fmm.node.impl.governable.Cadence;
 import com.flywheelms.library.fmm.node.impl.governable.CommunityMember;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
 import com.flywheelms.library.fmm.node.impl.governable.FlywheelTeam;
 import com.flywheelms.library.fmm.node.impl.governable.FmsOrganization;
+import com.flywheelms.library.fmm.node.impl.governable.Notebook;
 import com.flywheelms.library.fmm.node.impl.governable.Portfolio;
 import com.flywheelms.library.fmm.node.impl.governable.Project;
 import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
@@ -611,6 +614,10 @@ public class FmmDatabaseMediator {
 		return this.fmmOwner;
 	}
 
+    public FmsOrganization getFmsOrganization() {
+        return this.fmmOwner;
+    }
+
 	public boolean ownsThisFmm(FmsOrganization anFmsOrganization) {
 		return anFmsOrganization.getNodeIdString().equals(this.fmmOwner.getNodeIdString());
 	}
@@ -818,6 +825,40 @@ public class FmmDatabaseMediator {
 		}
 		return isSuccess;
 	}
+
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////  Node - BOOKSHELF  ////////////////////////////////////////////////////////////////////////////////
+
+    public ArrayList<Bookshelf> getBookshelfList(FmsOrganization anOrganization) {
+        return getBookshelfList(anOrganization, null);
+    }
+
+    public ArrayList<Bookshelf> getBookshelfList(FmsOrganization anOrganization, Bookshelf aBookshelfException) {
+        return this.persistenceTechnologyDelegate.dbListBookshelf(anOrganization, aBookshelfException);
+    }
+
+    public Bookshelf createBookshelf(String aHeadline) {
+        Bookshelf thePortfoliBookshelf = new Bookshelf(
+                new NodeId(FmmNodeDefinition.PORTFOLIO),
+                aHeadline,
+                FmmDatabaseMediator.getActiveMediator().getFmmOwner() );
+        return FmmDatabaseMediator.getActiveMediator().newBookshelf(thePortfoliBookshelf, true) ?
+                thePortfoliBookshelf : null;
+    }
+
+    public boolean newBookshelf(Bookshelf aBookshelf, boolean bAtomicTransaction) {
+        if(bAtomicTransaction) {
+            startTransaction();
+        }
+        boolean isSuccess = this.persistenceTechnologyDelegate.insertSimpleIdTable(
+                aBookshelf, BookshelfDaoSqLite.getInstance(), bAtomicTransaction);
+        isSuccess &= newNodeFragTribKnQuality(aBookshelf) != null;
+        if(bAtomicTransaction) {
+            endTransaction(isSuccess);
+        }
+        return isSuccess;
+    }
 
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -3098,4 +3139,12 @@ public class FmmDatabaseMediator {
 		}
 		return isSuccess;
 	}
+
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////  Node - NOTEBOOK  ////////////////////////////////////////////////////////////////////////////////////
+
+    public ArrayList<Notebook> getNotebookList(Bookshelf bookshelf) {
+        return null;
+    }
 }

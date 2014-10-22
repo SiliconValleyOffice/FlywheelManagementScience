@@ -71,6 +71,7 @@ import com.flywheelms.library.fmm.node.impl.governable.StrategicAsset;
 import com.flywheelms.library.fmm.node.impl.governable.WorkPackage;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmCompletionNode;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
+import com.flywheelms.library.fms.dialog.BookshelfCreateDialog;
 import com.flywheelms.library.fms.dialog.DemoteStrategicAssetDialog;
 import com.flywheelms.library.fms.dialog.FiscalYearCreateDialog;
 import com.flywheelms.library.fms.dialog.FiscalYearDeleteDialog;
@@ -549,6 +550,10 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
 
     public void createPortfolio() {
         this.getGcgActivity().startDialog(new PortfolioCreateDialog(getGcgActivity(), this));
+    }
+
+    public void createBookshelf() {
+        this.getGcgActivity().startDialog(new BookshelfCreateDialog(getGcgActivity(), this));
     }
 
     private void deletePortfolio(FmmHeadlineNode aPortfolioHeadlineNode) {

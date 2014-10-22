@@ -118,9 +118,9 @@ public class FwbContextStrategicPlanningPerspective extends FmsPerspectiveFlippe
 
 	@Override
 	protected GcgTreeViewMediator createGcgTreeViewMediator() {
-		GcgTreeViewMediator theTreeContentMediator =
+		GcgTreeViewMediator theGcgTreeViewMediator =
 				new FmsTreeViewMediatorMemoryResident(new StrategicPlanningTreeFilter(this));
-		final FmsTreeBuilder theTreeBuilder = new FmsTreeBuilder(theTreeContentMediator);
+		final FmsTreeBuilder theTreeBuilder = new FmsTreeBuilder(theGcgTreeViewMediator);
 		Collection<FiscalYear> theFiscalYearCollection = FmmDatabaseMediator.getActiveMediator().getFiscalYearList(
 				FmmDatabaseMediator.getActiveMediator().getFmmOwner() );
 		for(FiscalYear theFiscalYear : theFiscalYearCollection) {
@@ -140,7 +140,7 @@ public class FwbContextStrategicPlanningPerspective extends FmsPerspectiveFlippe
 				}
 			}
 		}
-		return theTreeContentMediator;
+		return theGcgTreeViewMediator;
 	}
 
 	@Override

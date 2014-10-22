@@ -42,26 +42,207 @@
 
 package com.flywheelms.library.fmm.node.impl.governable;
 
-import com.flywheelms.library.fmm.context.FmmPerspective;
+import com.flywheelms.gcongui.deckangl.enumerator.DecKanGlDecoratorCanvasLocation;
+import com.flywheelms.gcongui.deckangl.interfaces.DecKanGlDecorator;
+import com.flywheelms.gcongui.gcg.activity.GcgActivity;
+import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.deckangl.FmsDecoratorChildFractals;
+import com.flywheelms.library.fmm.deckangl.FmsDecoratorCompletion;
+import com.flywheelms.library.fmm.deckangl.FmsDecoratorFacilitationIssue;
+import com.flywheelms.library.fmm.deckangl.FmsDecoratorFacilitator;
+import com.flywheelms.library.fmm.deckangl.FmsDecoratorFlywheelCommitment;
+import com.flywheelms.library.fmm.deckangl.FmsDecoratorGovernance;
+import com.flywheelms.library.fmm.deckangl.FmsDecoratorParentFractals;
+import com.flywheelms.library.fmm.deckangl.FmsDecoratorSequence;
+import com.flywheelms.library.fmm.deckangl.FmsDecoratorStory;
+import com.flywheelms.library.fmm.deckangl.FmsDecoratorStrategicCommitment;
+import com.flywheelms.library.fmm.deckangl.FmsDecoratorWorkTaskBudget;
+import com.flywheelms.library.fmm.deckangl.FmsDecoratorWorkTeam;
+import com.flywheelms.library.fmm.meta_data.BookshelfMetaData;
+import com.flywheelms.library.fmm.node.FmmHeadlineNodeShallow;
 import com.flywheelms.library.fmm.node.NodeId;
+import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
+import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
+import com.flywheelms.library.fms.helper.FmsActivityHelper;
+import com.flywheelms.library.util.JsonHelper;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
 
 
 public class Bookshelf extends FmmGovernableNodeImpl {
 
 	private static final long serialVersionUID = -4572739802256638560L;
+    public static final String SERIALIZATION_FORMAT_VERSION = "0.1";
+    private String organizationNodeIdString;
+    private FmsOrganization organization;
+    private ArrayList<Notebook> notebookList;
 
-	public Bookshelf(NodeId aNodeId) {
-		super(aNodeId);
-		// TODO Auto-generated constructor stub
-	}
+    public Bookshelf(String anExistingNodeIdString) {
+        super(NodeId.hydrate(
+                Bookshelf.class,
+                anExistingNodeIdString));
+    }
 
-	@Override
-	protected void initializeNodeCompletionSummaryMap() {
-		super.initializeNodeCompletionSummaryMap();
-		NodeCompletionSummary theContextNodeSummary = new FmmHeadlineNodeImpl.NodeCompletionSummary();
-//		theContextNodeSummary.setSummaryDrawableResourceId(FmmNodeDictionary.BOOKSHELF.get)
-		this.nodeCompletionSummaryMap.put(FmmPerspective.NOTEBOOK, theContextNodeSummary);
-	}
+    public Bookshelf(NodeId aNodeId, String aHeadline, String anOrganizationNodeIdString) {
+        super(aNodeId);
+        setHeadline(aHeadline);
+        setOrganizationId(anOrganizationNodeIdString);
+    }
+
+    public Bookshelf(NodeId aNodeId, String aHeadline, FmsOrganization anOrganization) {
+        super(aNodeId);
+        setHeadline(aHeadline);
+        setOrganization(anOrganization);
+    }
+
+    public Bookshelf(JSONObject aJsonObject) {
+        super(Bookshelf.class, aJsonObject);
+        try {
+            validateSerializationFormatVersion(aJsonObject.getString(JsonHelper.key__SERIALIZATION_FORMAT_VERSION));
+            setOrganizationId(aJsonObject.getString(BookshelfMetaData.column_ORGANIZATION_ID));
+        } catch (JSONException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public JSONObject getJsonObject() {
+        JSONObject theJsonObject = super.getJsonObject();
+        try {
+            theJsonObject.put(JsonHelper.key__SERIALIZATION_FORMAT_VERSION, SERIALIZATION_FORMAT_VERSION);
+            theJsonObject.put(BookshelfMetaData.column_ORGANIZATION_ID, getOrganizationNodeIdString());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return theJsonObject;
+    }
+
+    public JSONArray getNotebooktNodeIdStringJsonArray() {
+        JSONArray theJsonArray = new JSONArray();
+        for(Notebook theNotebook : getNotebookList()) {
+            theJsonArray.put(theNotebook.getNodeIdString());
+        }
+        return theJsonArray;
+    }
+
+    @Override
+    public Bookshelf getClone() {
+        return new Bookshelf(getJsonObject());
+    }
+
+    public String getOrganizationNodeIdString() {
+        return this.organizationNodeIdString;
+    }
+
+    public void setOrganizationId(String anOrganizationNodeId) {
+        this.organizationNodeIdString = anOrganizationNodeId;
+        if(this.organization != null && ! this.organization.getNodeIdString().equals(anOrganizationNodeId)) {
+            this.organization = null;
+        }
+    }
+
+    public FmsOrganization getOrganization() {
+        if(this.organization == null && this.organizationNodeIdString != null) {
+            this.organization = FmmDatabaseMediator.getActiveMediator().getFmsOrganization(this.organizationNodeIdString);
+        }
+        return this.organization;
+    }
+
+    public void setOrganization(FmsOrganization anOrganization) {
+        this.organization = anOrganization;
+        this.organizationNodeIdString = anOrganization.getNodeIdString();
+    }
+
+    public Collection<Notebook> getNotebookCollection() {
+        return getNotebookList();
+    }
+
+    public ArrayList<Notebook> getNotebookList() {
+        if(this.notebookList == null) {
+            this.notebookList = FmmDatabaseMediator.getActiveMediator().getNotebookList(this);
+        }
+        return this.notebookList;
+    }
+
+    /////////////////////////////////////////////////////////////////////////
+    //////  TEMPORARY for development scaffolding  //////////////////////////
+    @Override
+    public HashMap<DecKanGlDecoratorCanvasLocation, DecKanGlDecorator> getUpdatedDecKanGlDecoratorMap() {
+        HashMap<DecKanGlDecoratorCanvasLocation, DecKanGlDecorator> theDecKanGlDecoratorMap =
+                new HashMap<DecKanGlDecoratorCanvasLocation, DecKanGlDecorator>();
+        theDecKanGlDecoratorMap.put(
+                FmsDecoratorGovernance.CONFIRMED_GOVERNANCE.getDecoratorCanvasLocation(),
+                FmsDecoratorGovernance.CONFIRMED_GOVERNANCE );
+        theDecKanGlDecoratorMap.put(
+                FmsDecoratorFacilitationIssue.NO_FACILITATION_ISSUE.getDecoratorCanvasLocation(),
+                FmsDecoratorFacilitationIssue.NO_FACILITATION_ISSUE );
+        theDecKanGlDecoratorMap.put(
+                FmsDecoratorFacilitator.CONFIRMED_FACILITATOR.getDecoratorCanvasLocation(),
+                FmsDecoratorFacilitator.CONFIRMED_FACILITATOR );
+        theDecKanGlDecoratorMap.put(
+                FmsDecoratorParentFractals.ONE_CONFIRMED_PARENT_FRACTAL.getDecoratorCanvasLocation(),
+                FmsDecoratorParentFractals.ONE_CONFIRMED_PARENT_FRACTAL );
+        theDecKanGlDecoratorMap.put(
+                FmsDecoratorChildFractals.PROPOSED_CHILD_FRACTALS.getDecoratorCanvasLocation(),
+                FmsDecoratorChildFractals.PROPOSED_CHILD_FRACTALS );
+        theDecKanGlDecoratorMap.put(
+                FmsDecoratorStrategicCommitment.PROPOSED_STRATEGIC_COMMITMENT.getDecoratorCanvasLocation(),
+                FmsDecoratorStrategicCommitment.PROPOSED_STRATEGIC_COMMITMENT );
+        theDecKanGlDecoratorMap.put(
+                FmsDecoratorFlywheelCommitment.PROPOSED_FLYWHEEL_COMMITMENT.getDecoratorCanvasLocation(),
+                FmsDecoratorFlywheelCommitment.PROPOSED_FLYWHEEL_COMMITMENT );
+        theDecKanGlDecoratorMap.put(
+                FmsDecoratorWorkTaskBudget.CONFIRMED_TASK_BUDGET.getDecoratorCanvasLocation(),
+                FmsDecoratorWorkTaskBudget.CONFIRMED_TASK_BUDGET );
+        theDecKanGlDecoratorMap.put(
+                FmsDecoratorWorkTeam.CONFIRMED_TEAM.getDecoratorCanvasLocation(),
+                FmsDecoratorWorkTeam.CONFIRMED_TEAM );
+        theDecKanGlDecoratorMap.put(
+                FmsDecoratorStory.PROPOSED_STORY.getDecoratorCanvasLocation(),
+                FmsDecoratorStory.PROPOSED_STORY );
+        theDecKanGlDecoratorMap.put(
+                FmsDecoratorSequence.PROPOSED_SEQUENCE.getDecoratorCanvasLocation(),
+                FmsDecoratorSequence.PROPOSED_SEQUENCE );
+        theDecKanGlDecoratorMap.put(
+                FmsDecoratorCompletion.NO_COMPLETION_ISSUES.getDecoratorCanvasLocation(),
+                FmsDecoratorCompletion.NO_COMPLETION_ISSUES );
+        return theDecKanGlDecoratorMap;
+    }
+
+    public static void startNodeEditorActivity(GcgActivity anActivity, String aNodeListParentNodeId, ArrayList<FmmHeadlineNodeShallow> aHeadlineNodeShallowList, String anInitialNodeIdToDisplay) {
+        FmmHeadlineNodeImpl.startNodeEditorActivity(
+                anActivity,
+                aNodeListParentNodeId,
+                aHeadlineNodeShallowList,
+                anInitialNodeIdToDisplay,
+                FmmNodeDefinition.BOOKSHELF);
+    }
+
+    public static void startNodePickerActivity(GcgActivity anActivity, ArrayList<String> aNodeIdExclusionList, String aWhereClause, String aListActionLabel) {
+        FmsActivityHelper.startHeadlineNodePickerActivity(anActivity, FmmNodeDefinition.BOOKSHELF, aNodeIdExclusionList, aWhereClause, aListActionLabel);
+    }
+
+    @Override
+    public ArrayList<? extends FmmHeadlineNode> getChildList(FmmNodeDefinition aChildNodeDefinition) {
+        ArrayList<? extends FmmHeadlineNodeImpl> theList = null;
+        switch(aChildNodeDefinition) {
+            case NOTEBOOK:
+                theList = FmmDatabaseMediator.getActiveMediator().getNotebookList(this);
+                break;
+        }
+        return theList;
+    }
+
+    public void setPrimaryParentId(String aNodeIdString) {
+        setOrganizationId(aNodeIdString);
+    }
 
 }

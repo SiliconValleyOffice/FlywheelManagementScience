@@ -82,12 +82,27 @@
                 android:layout_height="1dp"
                 android:background="@color/gcg__dialog_info__border" />
 
-            <com.flywheelms.library.fms.widget.text_view.FiscalYearWidgetTextView
-                android:id="@+id/fiscal_year__text_view"
-                android:layout_width="200dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="5dp" />
+                android:gravity="center_horizontal"
+                android:orientation="vertical" >
+
+                <com.flywheelms.library.fms.widget.text_view.FiscalYearWidgetTextView
+                    android:id="@+id/fiscal_year__text_view"
+                    android:layout_width="500dp"
+                    android:layout_height="wrap_content"
+                    gcg:labelWidth="240" />
+
+                <com.flywheelms.gcongui.gcg.widget.date.GcgWidgetMonthTextView
+                    android:id="@+id/first_month_of_fiscal_year__text_view"
+                    android:layout_width="500dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    gcg:labelWidth="240"
+                    gcg:labelText="First Month of Fiscal Year" />
+
+            </LinearLayout>
 
             <com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear
                 android:id="@+id/group_box__cadence_parameters"
@@ -119,7 +134,7 @@
             </com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear>
 
         </LinearLayout>
-        
+
     </RelativeLayout>
 
     <include

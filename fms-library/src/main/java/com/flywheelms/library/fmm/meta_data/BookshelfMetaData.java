@@ -1,4 +1,4 @@
-/* @(#)CustomerNicknameWidgetTextView.java
+/* @(#)PortfolioMetaData.java
 ** 
 ** Copyright (C) 2012 by Steven D. Stamps
 **
@@ -41,39 +41,12 @@
 ** <http://www.gnu.org/licenses/gpl-3.0.html>.
 */
 
-package com.flywheelms.library.fms.widget.text_view;
+package com.flywheelms.library.fmm.meta_data;
 
-import android.content.Context;
-import android.util.AttributeSet;
+public class BookshelfMetaData extends HeadlineNodeMetaData {
 
-import com.flywheelms.gcongui.gcg.widget.GcgWidgetTextView;
-import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
-import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
+	public static final String column_ORGANIZATION_ID = "Organization__id";
 
-// com.flywheelms.library.fms.widget.text_view.FiscalYearWidgetTextView
-public class FiscalYearWidgetTextView extends GcgWidgetTextView {
+	public static void init() { return; }
 
-    private FiscalYear fiscalYear;
-	
-	public FiscalYearWidgetTextView(Context aContext, AttributeSet anAttributeSet) {
-		super(aContext, anAttributeSet);
-	}
-
-	@Override
-	protected String getLabelText() {
-		return FmmNodeDefinition.FISCAL_YEAR.getLabelText();
-	}
-
-    protected boolean isTransparentBackground() {
-        return true;
-    }
-
-    public FiscalYear getFiscalYear() {
-        return fiscalYear;
-    }
-
-    public void setFiscalYear(FiscalYear aFiscalYear) {
-        this.fiscalYear = aFiscalYear;
-        this.textView.setText(this.fiscalYear.getHeadline());
-    }
 }

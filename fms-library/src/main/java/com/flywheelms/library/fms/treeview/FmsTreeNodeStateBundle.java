@@ -48,14 +48,14 @@ import com.flywheelms.library.fmm.FmmDatabaseMediator;
 
 public class FmsTreeNodeStateBundle extends GcgTreeNodeStateBundle {
 
-    public static final GcgTreeNodeStateBundle FWB__CONTEXT__ANALYSIS = new FmsTreeNodeStateBundle("com.flywheelms.workbench.context.analysis");
+    public static final GcgTreeNodeStateBundle FWB__CONTEXT__NOTEBOOK = new FmsTreeNodeStateBundle("com.flywheelms.workbench.context.notebook");
     public static final GcgTreeNodeStateBundle FWB__CONTEXT__SERVICE_DELIVERY = new FmsTreeNodeStateBundle("com.flywheelms.workbench.context.service_delivery");
     public static final GcgTreeNodeStateBundle FWB__CONTEXT__STRATEGIC_PLANNING = new FmsTreeNodeStateBundle("com.flywheelms.workbench.context.strategic_planning");
     public static final GcgTreeNodeStateBundle FWB__CONTEXT__WORK_BREAKDOWN = new FmsTreeNodeStateBundle("com.flywheelms.workbench.context.work_breakdown");
     public static final GcgTreeNodeStateBundle FWB__CONTEXT__WORK_PLANNING = new FmsTreeNodeStateBundle("com.flywheelms.workbench.context.work_planning");
 
     static {
-        GcgTreeNodeStateBundle.VALUES.add(FWB__CONTEXT__ANALYSIS);
+        GcgTreeNodeStateBundle.VALUES.add(FWB__CONTEXT__NOTEBOOK);
         GcgTreeNodeStateBundle.VALUES.add(FWB__CONTEXT__SERVICE_DELIVERY);
         GcgTreeNodeStateBundle.VALUES.add(FWB__CONTEXT__STRATEGIC_PLANNING);
         GcgTreeNodeStateBundle.VALUES.add(FWB__CONTEXT__WORK_BREAKDOWN);

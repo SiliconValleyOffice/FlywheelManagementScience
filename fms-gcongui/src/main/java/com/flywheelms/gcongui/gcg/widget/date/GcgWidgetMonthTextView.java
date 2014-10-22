@@ -1,4 +1,4 @@
-/* @(#)CustomerNicknameWidgetTextView.java
+/* @(#)GcgWidgetMonthSpinner.java
 ** 
 ** Copyright (C) 2012 by Steven D. Stamps
 **
@@ -41,39 +41,50 @@
 ** <http://www.gnu.org/licenses/gpl-3.0.html>.
 */
 
-package com.flywheelms.library.fms.widget.text_view;
+package com.flywheelms.gcongui.gcg.widget.date;
 
 import android.content.Context;
 import android.util.AttributeSet;
 
 import com.flywheelms.gcongui.gcg.widget.GcgWidgetTextView;
-import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
-import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
 
-// com.flywheelms.library.fms.widget.text_view.FiscalYearWidgetTextView
-public class FiscalYearWidgetTextView extends GcgWidgetTextView {
+// com.flywheelms.gcongui.gcg.widget.date.GcgWidgetMonthTextView
+public class GcgWidgetMonthTextView extends GcgWidgetTextView {
 
-    private FiscalYear fiscalYear;
-	
-	public FiscalYearWidgetTextView(Context aContext, AttributeSet anAttributeSet) {
+    private int displayedMonth;
+
+	public GcgWidgetMonthTextView(Context aContext, AttributeSet anAttributeSet) {
 		super(aContext, anAttributeSet);
 	}
 
 	@Override
 	protected String getLabelText() {
-		return FmmNodeDefinition.FISCAL_YEAR.getLabelText();
+		return this.labelTextString == null ? "Month" : this.labelTextString;
 	}
 
     protected boolean isTransparentBackground() {
         return true;
     }
 
-    public FiscalYear getFiscalYear() {
-        return fiscalYear;
+	@Override
+	public void setInitialValue() {
+		setMonth(1);
+	}
+
+    public void setMonth(int aMonthNumber) {
+        this.displayedMonth = aMonthNumber;
+        setText(GcgDateHelper.getMonthGuiableList().get(aMonthNumber - 1).getDataText());
+    }
+	
+	public GcgMonth getSelectedGcgMonth() {
+		return GcgMonth.getMonthForNumber(this.displayedMonth);
+	}
+
+    public int getSelectedMonthNumber() {
+        return this.displayedMonth;
     }
 
-    public void setFiscalYear(FiscalYear aFiscalYear) {
-        this.fiscalYear = aFiscalYear;
-        this.textView.setText(this.fiscalYear.getHeadline());
-    }
+	private void setSelectedMonth(GcgMonth aMonth) {
+		setMonth(aMonth.getMonthNumber());
+	}
 }
