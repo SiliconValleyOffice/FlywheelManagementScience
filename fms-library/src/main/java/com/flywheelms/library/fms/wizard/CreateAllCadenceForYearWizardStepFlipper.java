@@ -231,10 +231,9 @@ public class CreateAllCadenceForYearWizardStepFlipper extends GcgWizardStepFlipp
         return theCadence;
     }
 
-    private void adjustWorkPlanForHolidays(WorkPlan theWorkPlan, GregorianCalendar thePlanEndDate) {
-        if(theWorkPlan.getScheduledEndDate().after(getLastDayOfTheYear())) {
+    private void adjustWorkPlanForHolidays(WorkPlan theWorkPlan, GregorianCalendar aPlanEndDate) {
+        if(aPlanEndDate.get(Calendar.MONTH) == 11 && aPlanEndDate.get(Calendar.DAY_OF_MONTH) > 23) {
             theWorkPlan.setScheduledEndDate(getLastDayOfTheYear());
         }
-        // adjust headline and end date
     }
 }
