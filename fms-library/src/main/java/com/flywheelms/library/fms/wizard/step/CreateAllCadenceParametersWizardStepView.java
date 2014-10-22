@@ -50,6 +50,7 @@ import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear;
 import com.flywheelms.gcongui.gcg.helper.GcgHelper;
 import com.flywheelms.gcongui.gcg.viewflipper.GcgViewFlipper;
+import com.flywheelms.gcongui.gcg.widget.date.GcgDayOfWeek;
 import com.flywheelms.gcongui.gcg.widget.date.GcgWidgetMonthTextView;
 import com.flywheelms.gcongui.gcg.wizard.step.GcgWizardStepView;
 import com.flywheelms.library.R;
@@ -128,8 +129,12 @@ public class CreateAllCadenceParametersWizardStepView extends GcgWizardStepView 
         return Integer.decode(this.cadenceDurationSpinner.getSelectedItem().getDataText());
     }
 
-    public String getWorkPlanFirstDayOfWeek() {
-        return this.workPlanFirstDayOfWeekWidgetSpinner.getDayOfWeekAbreviation();
+    public GcgDayOfWeek getWorkPlanFirstDayOfWeek() {
+        return this.workPlanFirstDayOfWeekWidgetSpinner.getGcgDayOfWeek();
+    }
+
+    public GcgDayOfWeek getWorkPlanLasttDayOfWeek() {
+        return this.workPlanFirstDayOfWeekWidgetSpinner.getGcgDayOfWeek().getPreviousDayOfWeek();
     }
 
     public int getWorkPlanFirstDayOfWeekAsCalendarConstant() {

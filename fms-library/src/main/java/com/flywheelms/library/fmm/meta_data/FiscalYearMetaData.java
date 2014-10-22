@@ -45,7 +45,7 @@ package com.flywheelms.library.fmm.meta_data;
 
 public class FiscalYearMetaData extends CompletableNodeMetaData {
 
-	public static final String column_ORGANIZATION_ID = "Organization__id";
+	public static final String column_ORGANIZATION_ID = "FmsOrganization__id";
 	public static final String column_YEAR_NUMBER = "year_number";
     public static final String column_FIRST_MONTH_OF_FISCAL_YEAR = "first_month_of_fiscal_year";
 	public static final String column_CADENCE_DURATION = "cadence_duration";

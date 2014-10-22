@@ -45,7 +45,7 @@ package com.flywheelms.library.fmm.meta_data;
 
 public class FmmConfigurationMetaData extends HeadlineNodeMetaData {
 
-	public static final String column_ORGANIZATION_ID = "Organization__id";
+	public static final String column_ORGANIZATION_ID = "FmsOrganization__id";
 	public static final String column_FOR_THIS_FMM = "for_this_fmm";
 	public static final String column_LAST_SYNC_DATE_TIME = "last_sync_datetime";
 	public static final String column_ACCESS_SCOPE = "access_scope";

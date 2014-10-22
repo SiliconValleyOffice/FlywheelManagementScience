@@ -170,7 +170,9 @@ public class FmsActivityHelper extends GcgActivityHelper {
 		theIntent.putExtra(bundle_key__INITIAL_FRAME_TO_DISPLAY, anInitialFrame == null ? FmmFrame.FSE.getName() : anInitialFrame.getName());
 		theIntent.putExtra(bundle_key__INITIAL_PERSPECTIVE_TO_DISPLAY, anInitialPerspective == null ? FmmPerspective.STORY.getName() : anInitialPerspective.getName());
 		theIntent.putExtra(bundle_key__NAVIGATION_PARENT_NODE_ID, aNodeListParentNodeId);
-		theIntent.putExtra(bundle_key__GCG__APPLICATION_CONTEXT, aParentActivity.getChildGcgApplicationContext().getSerialized());
+        if(aParentActivity.getChildGcgApplicationContext() != null) {  // TODO - HACK ALERT !!!  not sure what causes this condition  - SDS
+            theIntent.putExtra(bundle_key__GCG__APPLICATION_CONTEXT, aParentActivity.getChildGcgApplicationContext().getSerialized());
+        }
 		aParentActivity.startActivityForResult(theIntent, anFmmNodeDefinition.getNodeEditorActivityRequestCode());
 	}
 

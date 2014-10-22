@@ -47,6 +47,7 @@ import android.util.AttributeSet;
 
 import com.flywheelms.gcongui.gcg.helper.GcgHelper;
 import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
+import com.flywheelms.gcongui.gcg.widget.date.GcgDayOfWeek;
 import com.flywheelms.gcongui.gcg.wizard.GcgWizardStepFlipper;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
@@ -84,12 +85,16 @@ public class CreateAllCadenceForYearWizardStepFlipper extends GcgWizardStepFlipp
 
     private GregorianCalendar getLastDayOfThePreviousWorkPlan() {
         if(this.theLastDayOfThePreviousWorkPlan == null) {
-            this.theLastDayOfThePreviousWorkPlan = new GregorianCalendar(getFiscalYear().getYearAsInt() - 1, Calendar.DECEMBER, 31 );
+            this.theLastDayOfThePreviousWorkPlan = getLastDayOfPreviousYear();
         }
         return this.theLastDayOfThePreviousWorkPlan;
     }
 
-	@Override
+    private GregorianCalendar getLastDayOfPreviousYear() {
+        return new GregorianCalendar(getFiscalYear().getYearAsInt() - 1, Calendar.DECEMBER, 31 );
+    }
+
+    @Override
 	protected void initializeViewFlipperViews() {
 		this.parametersWizardStepView = (CreateAllCadenceParametersWizardStepView) findViewById(R.id.wizard_step__cadence_parameters);
 		this.parametersWizardStepView.initialize(getGcgActivity(), this, 0);
@@ -105,7 +110,7 @@ public class CreateAllCadenceForYearWizardStepFlipper extends GcgWizardStepFlipp
 	public void doItNow() {
 		GcgHelper.makeToast("Creating all Cadence for Fiscal Year " + getFiscalYear().getHeadline() + "...");
         getFiscalYear().setCadenceDuration(getWizardStepView1().getCadenceDuration());
-        getFiscalYear().setWorkPlanFirstDayOfWeek(getWizardStepView1().getWorkPlanFirstDayOfWeek());
+        getFiscalYear().setWorkPlanFirstDayOfWeek(getWizardStepView1().getWorkPlanFirstDayOfWeek().getDayOfWeekName());
         FmmDatabaseMediator.getActiveMediator().updateFiscalYear(getFiscalYear(), true);
         FmmDatabaseMediator.getActiveMediator().insertFiscalYearHolidayBreakList(getWizardStepView2().getFiscalYearHolidayBreakList(), true);
         FmmDatabaseMediator.getActiveMediator().insertCadenceList(generateCadenceList(), true);
@@ -114,7 +119,8 @@ public class CreateAllCadenceForYearWizardStepFlipper extends GcgWizardStepFlipp
 
     private ArrayList<Cadence> generateCadenceList() {
         ArrayList<Cadence> theCadenceList = new ArrayList<Cadence>();
-        int theSequence = 1;
+        theCadenceList.add(getFirstCadence());
+        int theSequence = 2;
         while (! getLastDayOfThePreviousWorkPlan().getTime().equals(getLastDayOfTheYear())) {
             theCadenceList.add(getNextCadence(theSequence));
             ++ theSequence;
@@ -143,6 +149,12 @@ public class CreateAllCadenceForYearWizardStepFlipper extends GcgWizardStepFlipp
         return new Date();
     }
 
+    private GregorianCalendar getDateOfFirstPlanEndDayOfWeek() {
+        GregorianCalendar theGregorianCalendar = GcgDayOfWeek.getDateForNextDayOfWeek(getLastDayOfPreviousYear(), this.parametersWizardStepView.getWorkPlanLasttDayOfWeek());
+        return GcgDayOfWeek.getDateForNextDayOfWeek(theGregorianCalendar, this.parametersWizardStepView.getWorkPlanLasttDayOfWeek());
+
+    }
+
     @Override
 	public boolean validWizardData() {
         return this.parametersWizardStepView.validWizardStepData() &&
@@ -161,10 +173,42 @@ public class CreateAllCadenceForYearWizardStepFlipper extends GcgWizardStepFlipp
         return ((CreateAllCadenceForYearWizard) getGcgActivity()).getFiscalYear();
     }
 
-    public Cadence getNextCadence(int aSequence) {
+    public Cadence getFirstCadence() {
         Cadence theCadence = new Cadence(getFiscalYear());
-        theCadence.setSequence(aSequence);
-        theCadence.setHeadline("Cadence " + aSequence);
+        theCadence.setSequence(1);
+        theCadence.setHeadline("Cadence 1");
+        ArrayList<WorkPlan> theWorkPlanList = new ArrayList<WorkPlan>();
+        // create first work plan
+        GregorianCalendar thePlanStartDate = getLastDayOfPreviousYear();
+        thePlanStartDate.add(Calendar.DATE, 1);
+        GregorianCalendar thePlanEndDate = getDateOfFirstPlanEndDayOfWeek();
+        WorkPlan theFirstWorkPlan = new WorkPlan(theCadence, thePlanStartDate.getTime(), thePlanEndDate.getTime());
+        theFirstWorkPlan.setHeadline("Work Plan 1-1");
+        theFirstWorkPlan.setSequence(1);
+        adjustWorkPlanForHolidays(theFirstWorkPlan, thePlanEndDate);
+        theWorkPlanList.add(theFirstWorkPlan);
+        getLastDayOfThePreviousWorkPlan().setTime(theFirstWorkPlan.getScheduledEndDate());
+        // create the rest of the work plans
+        for(int theIndex = 1; theIndex < getWizardStepView1().getCadenceDuration(); ++theIndex) {
+            thePlanStartDate = GcgDateHelper.cloneCalendar(getLastDayOfThePreviousWorkPlan());
+            thePlanStartDate.add(Calendar.DATE, 1);
+            thePlanEndDate = GcgDateHelper.cloneCalendar(thePlanStartDate);
+            thePlanEndDate.add(Calendar.DATE, 6);
+            WorkPlan theWorkPlan = new WorkPlan(theCadence, thePlanStartDate.getTime(), thePlanEndDate.getTime());
+            theWorkPlan.setHeadline("Work Plan 1-" + Integer.toString(theIndex + 1));
+            theWorkPlan.setSequence(theIndex + 1);
+            adjustWorkPlanForHolidays(theWorkPlan, thePlanEndDate);
+            theWorkPlanList.add(theWorkPlan);
+            getLastDayOfThePreviousWorkPlan().setTime(theWorkPlan.getScheduledEndDate());
+        }
+        theCadence.setWorkPlanList(theWorkPlanList);
+        return theCadence;
+    }
+
+    public Cadence getNextCadence(int aCadenceNumber) {
+        Cadence theCadence = new Cadence(getFiscalYear());
+        theCadence.setSequence(aCadenceNumber);
+        theCadence.setHeadline("Cadence " + aCadenceNumber);
         ArrayList<WorkPlan> theWorkPlanList = new ArrayList<WorkPlan>();
         GregorianCalendar thePlanStartDate;
         GregorianCalendar thePlanEndDate;
@@ -174,7 +218,7 @@ public class CreateAllCadenceForYearWizardStepFlipper extends GcgWizardStepFlipp
             thePlanEndDate = GcgDateHelper.cloneCalendar(thePlanStartDate);
             thePlanEndDate.add(Calendar.DATE, 6);
             WorkPlan theWorkPlan = new WorkPlan(theCadence, thePlanStartDate.getTime(), thePlanEndDate.getTime());
-            theWorkPlan.setHeadline("Work Plan " + aSequence + "-" + Integer.toString(theIndex + 1));
+            theWorkPlan.setHeadline("Work Plan " + aCadenceNumber + "-" + Integer.toString(theIndex + 1));
             theWorkPlan.setSequence(theIndex + 1);
             adjustWorkPlanForHolidays(theWorkPlan, thePlanEndDate);
             theWorkPlanList.add(theWorkPlan);

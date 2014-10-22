@@ -49,13 +49,12 @@ import com.flywheelms.gcongui.gcg.GcgApplication;
 import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
 import com.flywheelms.gcongui.gcg.interfaces.GcgGuiableImpl;
 import com.flywheelms.gcongui.gcg.widget.GcgWidgetSpinner;
+import com.flywheelms.gcongui.gcg.widget.date.GcgDayOfWeek;
 import com.flywheelms.library.R;
 
 import java.util.ArrayList;
 
 public class WorkPlanFirstDayOfWeekWidgetSpinner extends GcgWidgetSpinner {
-
-    private int dayOfWeekCalendarConstant;
 
     public WorkPlanFirstDayOfWeekWidgetSpinner(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -85,6 +84,11 @@ public class WorkPlanFirstDayOfWeekWidgetSpinner extends GcgWidgetSpinner {
     }
 
     public int getDayOfWeekCalendarConstant() {
-        return dayOfWeekCalendarConstant;
+        return getGcgDayOfWeek().getCalendarConstant();
     }
+
+    public GcgDayOfWeek getGcgDayOfWeek() {
+        return GcgDayOfWeek.getObjectForName(getSelectedItem().getDataText());
+    }
+
 }

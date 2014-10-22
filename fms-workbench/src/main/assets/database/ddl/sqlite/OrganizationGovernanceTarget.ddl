@@ -1,13 +1,13 @@
 CREATE TABLE `OrganizationGovernanceTarget` (
-  `Organization__id` CHAR(40) NOT NULL ,
+  `FmsOrganization__id` CHAR(40) NOT NULL ,
   `governance_target` CHAR(40) NOT NULL ,
   `sponsor_requirement` CHAR(8) NOT NULL ,
   `facilitator_requirement` CHAR(8) NOT NULL ,
   `customer_requirement` CHAR(8) NOT NULL ,
   `administrator_requirement` CHAR(8) NOT NULL ,
-  PRIMARY KEY (`Organization__id`, `governance_target`) ,
+  PRIMARY KEY (`FmsOrganization__id`, `governance_target`) ,
   CONSTRAINT `fk_Organization_GovernanceTarget_Organization`
-    FOREIGN KEY (`Organization__id` )
+    FOREIGN KEY (`FmsOrganization__id` )
     REFERENCES `Organization` (`_id` ) ,
   CONSTRAINT `fk_Organization_GovernanceTarget_GovernanceParticipationType`
     FOREIGN KEY (`sponsor_requirement` )

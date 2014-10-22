@@ -46,7 +46,7 @@ package com.flywheelms.library.fmm.meta_data;
 public class CommunityMemberOrganizationGovernanceAuthorityMetaData extends IdNodeMetaData{
 	
 	public static final String column_COMMUNITY_MEMBER = "CommunityMember__id";
-	public static final String column_ORGANIZATION = "Organization__id";
+	public static final String column_ORGANIZATION = "FmsOrganization__id";
 	public static final String column_GOVERNANCE_TARGET = "governance_target";
 	public static final String column_CAN_BE_SPONSOR = "can_be_sponsor";
 	public static final String column_CAN_BE_CUSTOMER = "can_be_customer";

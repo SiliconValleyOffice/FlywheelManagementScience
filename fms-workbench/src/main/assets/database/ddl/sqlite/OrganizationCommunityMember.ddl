@@ -1,5 +1,5 @@
 CREATE TABLE `OrganizationCommunityMember` (
-  `Organization__id` CHAR(40) NOT NULL ,
+  `FmsOrganization__id` CHAR(40) NOT NULL ,
   `CommunityMember__id` CHAR(40) NOT NULL ,
   `row_timestamp` BIGINT(14) NOT NULL DEFAULT 0 ,
   `OrganizationParticipation_organization_participation` TEXT NOT NULL ,
@@ -10,9 +10,9 @@ CREATE TABLE `OrganizationCommunityMember` (
   `confirmed_timestamp` BIGINT(14) NULL ,
   `authentication_uid` VARCHAR(45) NULL ,
   `is_super_user` TINYINT NULL ,
-  PRIMARY KEY (`Organization__id`, `CommunityMember__id`) ,
+  PRIMARY KEY (`FmsOrganization__id`, `CommunityMember__id`) ,
   CONSTRAINT `fk_Organization_CommunityMember_Organization`
-    FOREIGN KEY (`Organization__id` )
+    FOREIGN KEY (`FmsOrganization__id` )
     REFERENCES `FmsOrganization` (`_id` ) ,
   CONSTRAINT `fk_Organization_CommunityMember_CommunityMember`
     FOREIGN KEY (`CommunityMember__id` )

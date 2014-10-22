@@ -45,7 +45,7 @@ package com.flywheelms.library.fmm.meta_data;
 
 public class OrganizationCommunityMemberMetaData extends LinkNodeMetaData {
 	
-	public static final String column_ORGANIZATION_ID = "Organization__id";
+	public static final String column_ORGANIZATION_ID = "FmsOrganization__id";
 	public static final String column_COMMUNITY_MEMBER_ID = "CommunityMember__id";
 	public static final String column_ORGANIZATION_PARTICIPATION = "OrganizationParticipation_organization_participation";
 	public static final String column_TEAM_MEMBER_STATUS = "TeamMemberStatus_team_member_status";

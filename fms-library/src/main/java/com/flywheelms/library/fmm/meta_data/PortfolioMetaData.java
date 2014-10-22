@@ -45,7 +45,7 @@ package com.flywheelms.library.fmm.meta_data;
 
 public class PortfolioMetaData extends HeadlineNodeMetaData {
 
-	public static final String column_ORGANIZATION_ID = "Organization__id";
+	public static final String column_ORGANIZATION_ID = "FmsOrganization__id";
 
 	public static void init() { return; }
 
