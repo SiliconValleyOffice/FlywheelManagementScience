@@ -80,7 +80,7 @@ public class PortfolioCreateDialog extends FmsCancelOkApplyFdkDialog {
 
     @Override
     protected int getCustomDialogContentsResourceId() {
-        return R.layout.portfolio__create__dialog;
+        return R.layout.root_tree_node__create__dialog;
     }
 
     @Override
@@ -110,7 +110,7 @@ public class PortfolioCreateDialog extends FmsCancelOkApplyFdkDialog {
                 PortfolioCreateDialog.this.manageButtonState();
             }
         });
-		this.editNewPortfolio = (CheckBox) this.dialogBodyView.findViewById(R.id.edit_new_portfolio);
+		this.editNewPortfolio = (CheckBox) this.dialogBodyView.findViewById(R.id.edit_new_fmm_node);
         this.editNewPortfolio.setText("Edit new " + getFmmNodeDefinition().getLabelText());
 	}
 
