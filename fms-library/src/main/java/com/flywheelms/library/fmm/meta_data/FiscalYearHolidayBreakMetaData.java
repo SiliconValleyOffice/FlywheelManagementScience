@@ -48,6 +48,7 @@ public class FiscalYearHolidayBreakMetaData extends HeadlineNodeMetaData {
     public static final String column_HOLIDAY_DATE = "holiday_date";
     public static final String column_BREAK_START_DATE = "break_start_date";
     public static final String column_BREAK_END_DATE = "break_end_date";
+    public static final String column_HOLIDAY = "holiday";
 
     public static void init() { return; }
 

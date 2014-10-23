@@ -2081,7 +2081,7 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 //        DISCUSSION_TOPIC.setPrimaryParentIdColumnName(DiscussionTopicMetaData.column_NOTEBOOK_ID);
 		DISCUSSION_TOPIC.setSecondaryParentNodeDefinition(FmmNodeDefinition.DISCUSSION_TOPIC);
 		FACILITATION_ISSUE.setPrimaryParentNodeDefinition(FmmNodeDefinition.FLYWHEEL_CADENCE);
-//        FACILITATION_ISSUE.setPrimaryParentIdColumnName(FacilitationIssueMetaData.column_FLYWHEEL_CADENCE_ID);
+//        FACILITATION_ISSUE.setPrimaryParentIdColumnName(FacilitationIssueMetaData.column_CADENCE_ID);
 		FACILITATION_ISSUE.setSecondaryParentNodeDefinition(FmmNodeDefinition.COMMUNITY_MEMBER);
 		FISCAL_YEAR.setPrimaryParentNodeDefinition(FmmNodeDefinition.FMS_ORGANIZATION);
         FISCAL_YEAR.setPrimaryParentIdColumnName(FiscalYearMetaData.column_ORGANIZATION_ID);
@@ -2129,7 +2129,7 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 		WORK_PACKAGE.setSecondaryLinkNodeDefinition(FmmNodeDefinition.FLYWHEEL_WORK_PACKAGE_COMMITMENT);
 		WORK_PACKAGE.setPrimaryChildNodeDefinition(FmmNodeDefinition.WORK_TASK);
 		WORK_PLAN.setPrimaryParentNodeDefinition(FmmNodeDefinition.FLYWHEEL_CADENCE);
-        WORK_PLAN.setPrimaryParentIdColumnName(WorkPlanMetaData.column_FLYWHEEL_CADENCE_ID);
+        WORK_PLAN.setPrimaryParentIdColumnName(WorkPlanMetaData.column_CADENCE_ID);
 		WORK_TASK.setPrimaryParentNodeDefinition(FmmNodeDefinition.WORK_PACKAGE);
 		WORK_TASK.setSecondaryParentNodeDefinition(FmmNodeDefinition.WORK_PLAN);
 	}

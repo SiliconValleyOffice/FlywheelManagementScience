@@ -1753,7 +1753,11 @@ public class FmmDatabaseMediator {
     //////  Node - FISCAL YEAR HOLIDAY BREAK  ///////////////////////////////////////////////////////////////////
 
     public ArrayList<FiscalYearHolidayBreak> getFiscalYearHolidayBreakList(FiscalYear aFiscalYear) {
-        return this.persistenceTechnologyDelegate.dbGetFiscalYearHolidayBreakList(aFiscalYear);
+        return getFiscalYearHolidayBreakList(aFiscalYear.getNodeIdString());
+    }
+
+    public ArrayList<FiscalYearHolidayBreak> getFiscalYearHolidayBreakList(String aFiscalYearId) {
+        return this.persistenceTechnologyDelegate.dbGetFiscalYearHolidayBreakList(aFiscalYearId);
     }
 
     public FiscalYearHolidayBreak retrieveFiscalYearHolidayBreak(String aNodeIdString) {

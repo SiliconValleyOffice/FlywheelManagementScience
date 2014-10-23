@@ -96,7 +96,8 @@ public class WorkPlan extends FmmCompletableNodeImpl {
         try {
             validateSerializationFormatVersion(aJsonObject.getString(JsonHelper.key__SERIALIZATION_FORMAT_VERSION));
             setSequence(aJsonObject.getInt(SequencedLinkNodeMetaData.column_SEQUENCE));
-            setCadenceId(aJsonObject.getString(WorkPlanMetaData.column_FLYWHEEL_CADENCE_ID));
+            setCadenceId(aJsonObject.getString(WorkPlanMetaData.column_CADENCE_ID));
+            setFmmHoliday(aJsonObject.getString(WorkPlanMetaData.column_HOLIDAY));
             setScheduledStartDate(aJsonObject.getLong(WorkPlanMetaData.column_SCHEDULED_START_DATE));
             setScheduledEndDate(aJsonObject.getLong(WorkPlanMetaData.column_SCHEDULED_END_DATE));
             setWorkTaskList(aJsonObject.getJSONArray(WorkPlanMetaData.child_fractals_WORK_TASK_LIST));
@@ -130,9 +131,10 @@ public class WorkPlan extends FmmCompletableNodeImpl {
         try {
             theJsonObject.put(JsonHelper.key__SERIALIZATION_FORMAT_VERSION, SERIALIZATION_FORMAT_VERSION);
             theJsonObject.put(SequencedLinkNodeMetaData.column_SEQUENCE, getSequence());
-            theJsonObject.put(WorkPlanMetaData.column_FLYWHEEL_CADENCE_ID, getCadenceId());
+            theJsonObject.put(WorkPlanMetaData.column_CADENCE_ID, getCadenceId());
             theJsonObject.put(WorkPlanMetaData.column_SCHEDULED_START_DATE, getScheduledStartDateFormattedUtcLong());
             theJsonObject.put(WorkPlanMetaData.column_SCHEDULED_END_DATE, getScheduledEndDateFormattedUtcLong());
+            theJsonObject.put(WorkPlanMetaData.column_SCHEDULED_END_DATE, getFmmHolidayName());
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -217,22 +219,27 @@ public class WorkPlan extends FmmCompletableNodeImpl {
 
     @Override
     public String getSecondaryHeadline() {
-        return "ending " + GcgDateHelper.getGuiDateString5(getScheduledEndDate());
-    }
-
-    @Override
-    public String getHeadline() {
-      return this.fmmHoliday != null ?
-              this.headline + " (includes " + this.fmmHoliday.getName() + " break)" :
-              this.headline;
+        String theSecondaryHeadline = "ending " + GcgDateHelper.getGuiDateString5(getScheduledEndDate());
+        if(this.fmmHoliday != null) {
+            theSecondaryHeadline += "        (includes " + this.fmmHoliday.getName() + " break)";
+        }
+        return theSecondaryHeadline;
     }
 
     public FmmHoliday getFmmHoliday() {
         return this.fmmHoliday;
     }
 
+    public String getFmmHolidayName() {
+        return this.fmmHoliday == null ? "" : this.fmmHoliday.getName();
+    }
+
     public void setFmmHoliday(FmmHoliday fmmHoliday) {
         this.fmmHoliday = fmmHoliday;
+    }
+
+    public void setFmmHoliday(String anFmmHolidayName) {
+        this.fmmHoliday = FmmHoliday.getObjectForName(anFmmHolidayName);
     }
 
     public void setWorkTaskList(ArrayList<WorkTask> workTaskList) {

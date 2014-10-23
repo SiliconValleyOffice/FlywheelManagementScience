@@ -46,11 +46,14 @@ package com.flywheelms.library.fmm.node.impl.governable;
 import android.content.Intent;
 
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
+import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.enumerator.FmmHoliday;
 import com.flywheelms.library.fmm.meta_data.FmsOrganizationMetaData;
 import com.flywheelms.library.fmm.node.FmmHeadlineNodeShallow;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
+import com.flywheelms.library.fmm.node.impl.headline.FiscalYearHolidayBreak;
 import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
 import com.flywheelms.library.util.JsonHelper;
@@ -59,6 +62,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
 
 public class FmsOrganization extends FmmGovernableNodeImpl {
 
@@ -69,6 +73,7 @@ public class FmsOrganization extends FmmGovernableNodeImpl {
 	private String authenticationUrlString;
 	private String authenticationType;
     private int firstMonthOfFiscalYear = 1;
+    private ArrayList<FiscalYearHolidayBreak> holidayBreakList;
 
 	public FmsOrganization(NodeId aNodeId) {
 		super(aNodeId);
@@ -160,5 +165,31 @@ public class FmsOrganization extends FmmGovernableNodeImpl {
 
     public void setFirstMonthOfFiscalYear(int firstMonthOfFiscalYear) {
         this.firstMonthOfFiscalYear = firstMonthOfFiscalYear;
+    }
+
+    public ArrayList<FiscalYearHolidayBreak> getHolidayBreakList(FiscalYear aFiscalYear) {
+        return getHolidayBreakList(aFiscalYear.getNodeIdString());
+    }
+
+    public ArrayList<FiscalYearHolidayBreak> getHolidayBreakList(String aFiscalYearId) {
+        if(this.holidayBreakList == null) {
+            this.holidayBreakList = FmmDatabaseMediator.getActiveMediator().getFiscalYearHolidayBreakList(aFiscalYearId);
+        }
+        return this.holidayBreakList;
+    }
+
+    public FiscalYearHolidayBreak includesFiscalYearHolidayBreak(String aFiscalYearId, GregorianCalendar aPlanStartDate, GregorianCalendar aPlanEndDate) {
+        if(GcgDateHelper.isFirstDayOfYear(aPlanStartDate)) {
+            return FiscalYearHolidayBreak.getHolidayBreak(FmmHoliday.NEW_YEARS_DAY, getHolidayBreakList(aFiscalYearId));
+        }
+        for(FiscalYearHolidayBreak theBreak : getHolidayBreakList(aFiscalYearId)) {
+            GregorianCalendar theBreakStartDate = new GregorianCalendar();
+            theBreakStartDate.setTime(theBreak.getFirstDay());
+            if(theBreakStartDate.get(GregorianCalendar.DAY_OF_YEAR) >= aPlanStartDate.get(GregorianCalendar.DAY_OF_YEAR) &&
+                    theBreakStartDate.get(GregorianCalendar.DAY_OF_YEAR) <= aPlanEndDate.get(GregorianCalendar.DAY_OF_YEAR) ) {
+                return theBreak;
+            }
+        }
+        return null;
     }
 }

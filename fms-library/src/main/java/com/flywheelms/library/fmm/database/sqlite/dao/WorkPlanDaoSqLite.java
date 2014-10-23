@@ -72,26 +72,29 @@ public class WorkPlanDaoSqLite extends CompletableNodeDaoSqLite<WorkPlan> {
     @Override
     protected void buildColumnIndexMap(Cursor aCursor) {
         super.buildColumnIndexMap(aCursor);
-        putColumnIndexMapEntry(this.columnIndexMap, aCursor, WorkPlanMetaData.column_FLYWHEEL_CADENCE_ID);
+        putColumnIndexMapEntry(this.columnIndexMap, aCursor, WorkPlanMetaData.column_CADENCE_ID);
         putColumnIndexMapEntry(this.columnIndexMap, aCursor, CompletableNodeMetaData.column_SEQUENCE);
         putColumnIndexMapEntry(this.columnIndexMap, aCursor, WorkPlanMetaData.column_SCHEDULED_START_DATE);
         putColumnIndexMapEntry(this.columnIndexMap, aCursor, WorkPlanMetaData.column_SCHEDULED_END_DATE);
+        putColumnIndexMapEntry(this.columnIndexMap, aCursor, WorkPlanMetaData.column_HOLIDAY);
     }
 
     @Override
     protected void getColumnValues(HashMap<String, Integer> aHashMap, Cursor aCursor, WorkPlan aWorkPlan) {
         super.getColumnValues(aHashMap, aCursor, aWorkPlan);
-        aWorkPlan.setCadenceId(aCursor.getString(aHashMap.get(WorkPlanMetaData.column_FLYWHEEL_CADENCE_ID)));
+        aWorkPlan.setCadenceId(aCursor.getString(aHashMap.get(WorkPlanMetaData.column_CADENCE_ID)));
         aWorkPlan.setScheduledStartDate(aCursor.getLong(aHashMap.get(WorkPlanMetaData.column_SCHEDULED_START_DATE)));
         aWorkPlan.setScheduledEndDate(aCursor.getLong(aHashMap.get(WorkPlanMetaData.column_SCHEDULED_END_DATE)));
+        aWorkPlan.setFmmHoliday(aCursor.getString(aHashMap.get(WorkPlanMetaData.column_HOLIDAY)));
     }
 
     @Override
     public ContentValues buildContentValues(WorkPlan aWorkPlan) {
         ContentValues theContentValues = super.buildContentValues(aWorkPlan);
-        theContentValues.put(WorkPlanMetaData.column_FLYWHEEL_CADENCE_ID, aWorkPlan.getCadenceId());
+        theContentValues.put(WorkPlanMetaData.column_CADENCE_ID, aWorkPlan.getCadenceId());
         theContentValues.put(WorkPlanMetaData.column_SCHEDULED_START_DATE, aWorkPlan.getScheduledStartDateFormattedUtcLong());
         theContentValues.put(WorkPlanMetaData.column_SCHEDULED_END_DATE, aWorkPlan.getScheduledEndDateFormattedUtcLong());
+        theContentValues.put(WorkPlanMetaData.column_HOLIDAY, aWorkPlan.getFmmHolidayName());
         return theContentValues;
     }
 

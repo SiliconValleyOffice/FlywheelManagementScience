@@ -6,6 +6,7 @@ CREATE TABLE `WorkPlan` (
   `sequence` INT(11) NULL,
   `scheduled_start_date` BIGINT(14) NULL,
   `scheduled_end_date` BIGINT(14) NULL,
+  `holiday` VARCHAR(256) NULL,
   PRIMARY KEY (`_id`),
   CONSTRAINT `fk_WorkPlan_Cadence`
     FOREIGN KEY (`Cadence__id`)

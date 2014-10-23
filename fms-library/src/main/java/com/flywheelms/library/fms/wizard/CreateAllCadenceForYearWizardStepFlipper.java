@@ -54,6 +54,7 @@ import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.node.impl.governable.Cadence;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
 import com.flywheelms.library.fmm.node.impl.governable.WorkPlan;
+import com.flywheelms.library.fmm.node.impl.headline.FiscalYearHolidayBreak;
 import com.flywheelms.library.fms.activity.CreateAllCadenceForYearWizard;
 import com.flywheelms.library.fms.wizard.step.CreateAllCadenceDoItNowWizardStepView;
 import com.flywheelms.library.fms.wizard.step.CreateAllCadenceHolidaysWizardStepView;
@@ -69,18 +70,26 @@ public class CreateAllCadenceForYearWizardStepFlipper extends GcgWizardStepFlipp
 	private CreateAllCadenceParametersWizardStepView parametersWizardStepView;
 	private CreateAllCadenceHolidaysWizardStepView holidaysWizardStepView;
 	private CreateAllCadenceDoItNowWizardStepView doItNowWizardStepView;
-    private Date lastDayOfTheYear;
+    private GregorianCalendar lastDayOfTheYear;
+    private GregorianCalendar lastDayOfTheYearToSchedule;
     private GregorianCalendar theLastDayOfThePreviousWorkPlan;
 
     public CreateAllCadenceForYearWizardStepFlipper(Context aContext, AttributeSet anAttributeSet) {
 		super(aContext, anAttributeSet);
 	}
 
-    private Date getLastDayOfTheYear() {
+    private GregorianCalendar getLastDayOfTheYear() {
         if(this.lastDayOfTheYear == null) {
-            this.lastDayOfTheYear = new GregorianCalendar(getFiscalYear().getYearAsInt(), Calendar.DECEMBER, 31 ).getTime();
+            this.lastDayOfTheYear = new GregorianCalendar(getFiscalYear().getYearAsInt(), Calendar.DECEMBER, 31 );
         }
         return this.lastDayOfTheYear;
+    }
+
+    private GregorianCalendar getLastDayOfTheYearToSchedule() {
+        if(this.lastDayOfTheYearToSchedule == null) {
+            this.lastDayOfTheYearToSchedule = new GregorianCalendar(getFiscalYear().getYearAsInt(), Calendar.DECEMBER, 23 );
+        }
+        return this.lastDayOfTheYearToSchedule;
     }
 
     private GregorianCalendar getLastDayOfThePreviousWorkPlan() {
@@ -120,8 +129,11 @@ public class CreateAllCadenceForYearWizardStepFlipper extends GcgWizardStepFlipp
     private ArrayList<Cadence> generateCadenceList() {
         ArrayList<Cadence> theCadenceList = new ArrayList<Cadence>();
         theCadenceList.add(getFirstCadence());
+        if(GcgDateHelper.sameDay(theCadenceList.get(0).getScheduledEndDate(), getLastDayOfTheYear())) {
+            return theCadenceList;
+        }
         int theSequence = 2;
-        while (! getLastDayOfThePreviousWorkPlan().getTime().equals(getLastDayOfTheYear())) {
+        while (! GcgDateHelper.sameDay(getLastDayOfThePreviousWorkPlan(), getLastDayOfTheYear())) {
             theCadenceList.add(getNextCadence(theSequence));
             ++ theSequence;
         }
@@ -185,7 +197,7 @@ public class CreateAllCadenceForYearWizardStepFlipper extends GcgWizardStepFlipp
         WorkPlan theFirstWorkPlan = new WorkPlan(theCadence, thePlanStartDate.getTime(), thePlanEndDate.getTime());
         theFirstWorkPlan.setHeadline("Work Plan 1-1");
         theFirstWorkPlan.setSequence(1);
-        adjustWorkPlanForHolidays(theFirstWorkPlan, thePlanEndDate);
+        adjustWorkPlanForHolidays(theFirstWorkPlan, thePlanStartDate, thePlanEndDate);
         theWorkPlanList.add(theFirstWorkPlan);
         getLastDayOfThePreviousWorkPlan().setTime(theFirstWorkPlan.getScheduledEndDate());
         // create the rest of the work plans
@@ -197,7 +209,7 @@ public class CreateAllCadenceForYearWizardStepFlipper extends GcgWizardStepFlipp
             WorkPlan theWorkPlan = new WorkPlan(theCadence, thePlanStartDate.getTime(), thePlanEndDate.getTime());
             theWorkPlan.setHeadline("Work Plan 1-" + Integer.toString(theIndex + 1));
             theWorkPlan.setSequence(theIndex + 1);
-            adjustWorkPlanForHolidays(theWorkPlan, thePlanEndDate);
+            adjustWorkPlanForHolidays(theWorkPlan, thePlanStartDate, thePlanEndDate);
             theWorkPlanList.add(theWorkPlan);
             getLastDayOfThePreviousWorkPlan().setTime(theWorkPlan.getScheduledEndDate());
         }
@@ -220,20 +232,45 @@ public class CreateAllCadenceForYearWizardStepFlipper extends GcgWizardStepFlipp
             WorkPlan theWorkPlan = new WorkPlan(theCadence, thePlanStartDate.getTime(), thePlanEndDate.getTime());
             theWorkPlan.setHeadline("Work Plan " + aCadenceNumber + "-" + Integer.toString(theIndex + 1));
             theWorkPlan.setSequence(theIndex + 1);
-            adjustWorkPlanForHolidays(theWorkPlan, thePlanEndDate);
+            adjustWorkPlanForHolidays(theWorkPlan, thePlanStartDate, thePlanEndDate);
             theWorkPlanList.add(theWorkPlan);
             getLastDayOfThePreviousWorkPlan().setTime(theWorkPlan.getScheduledEndDate());
-            if(theWorkPlan.getScheduledEndDate().equals(getLastDayOfTheYear())) {
+            if(GcgDateHelper.sameDay(theWorkPlan.getScheduledEndDate(), getLastDayOfTheYear())) {
                 break;
             }
         }
+        addDanglingWorkPlan(theCadence, theWorkPlanList, getWizardStepView1().getCadenceDuration() + 1);
         theCadence.setWorkPlanList(theWorkPlanList);
         return theCadence;
     }
 
-    private void adjustWorkPlanForHolidays(WorkPlan theWorkPlan, GregorianCalendar aPlanEndDate) {
-        if(aPlanEndDate.get(Calendar.MONTH) == 11 && aPlanEndDate.get(Calendar.DAY_OF_MONTH) > 23) {
-            theWorkPlan.setScheduledEndDate(getLastDayOfTheYear());
+    private void addDanglingWorkPlan(Cadence aCadence, ArrayList<WorkPlan> theWorkPlanList, int aWorkPlanNumber) {
+        WorkPlan theLastWorkPlan = theWorkPlanList.get(theWorkPlanList.size() - 1);
+        GregorianCalendar theLastWorkPlanEndDate = new GregorianCalendar();
+        theLastWorkPlanEndDate.setTime(theLastWorkPlan.getScheduledEndDate());
+        int theDaysRemainingInTheYear = getLastDayOfTheYear().get(GregorianCalendar.DAY_OF_YEAR) - theLastWorkPlanEndDate.get(GregorianCalendar.DAY_OF_YEAR);
+        if(! GcgDateHelper.sameDay(theLastWorkPlanEndDate, getLastDayOfTheYear()) && theDaysRemainingInTheYear < 14) {
+            GregorianCalendar thePlanStartDate = GcgDateHelper.cloneCalendar(getLastDayOfThePreviousWorkPlan());
+            thePlanStartDate.add(Calendar.DATE, 1);
+            WorkPlan theWorkPlan = new WorkPlan(aCadence, thePlanStartDate.getTime(), getLastDayOfTheYear().getTime());
+            theWorkPlan.setHeadline("Work Plan " + aCadence.getSequence() + "-" + Integer.toString(aWorkPlanNumber));
+            theWorkPlan.setSequence(aWorkPlanNumber);
+            adjustWorkPlanForHolidays(theWorkPlan, thePlanStartDate, getLastDayOfTheYear());
+            theWorkPlanList.add(theWorkPlan);
+            getLastDayOfThePreviousWorkPlan().setTime(theWorkPlan.getScheduledEndDate());
+
+        }
+    }
+
+    private void adjustWorkPlanForHolidays(WorkPlan theWorkPlan, GregorianCalendar aPlanStartDate, GregorianCalendar aPlanEndDate) {
+        FiscalYearHolidayBreak theHolidayBreak = FmmDatabaseMediator.getActiveMediator().getFmsOrganization().includesFiscalYearHolidayBreak(getFiscalYear().getNodeIdString(), aPlanStartDate, aPlanEndDate);
+        if(theHolidayBreak != null) {
+            aPlanEndDate.add(Calendar.DATE, 6);
+            theWorkPlan.setScheduledEndDate(aPlanEndDate.getTime());
+            theWorkPlan.setFmmHoliday(theHolidayBreak.getFmmHoliday());
+        }
+        if(theWorkPlan.getScheduledEndDate().after(getLastDayOfTheYearToSchedule().getTime())) {
+            theWorkPlan.setScheduledEndDate(getLastDayOfTheYear().getTime());
         }
     }
 }

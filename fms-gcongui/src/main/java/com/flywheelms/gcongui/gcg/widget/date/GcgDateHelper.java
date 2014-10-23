@@ -251,14 +251,6 @@ public class GcgDateHelper {
 		return theGcgMonthForName;
 	}
 
-	public static boolean sameDate(GregorianCalendar aGregorianCalendar, Date aDate) {
-		return sameDate(aGregorianCalendar.getTime(), aDate);
-	}
-
-	public static boolean sameDate(Date aDate1, Date aDate2) {
-		return getGuiDateString3(aDate1).equals(getGuiDateString3(aDate2));
-	}
-
 	public static int getCurrentYear() {
 		return getYear(getCurrentDateTime());
 	}
@@ -298,5 +290,27 @@ public class GcgDateHelper {
                 aGregorianCalendar.get(Calendar.YEAR),
                 aGregorianCalendar.get(Calendar.MONTH),
                 aGregorianCalendar.get(Calendar.DAY_OF_MONTH) );
+    }
+
+    public static boolean sameDay(Date aFirstDate, Date aSecondDate) {
+        GregorianCalendar theFirstGregorianCalendar = new GregorianCalendar();
+        theFirstGregorianCalendar.setTime(aFirstDate);
+        GregorianCalendar theSecondGregorianCalendar = new GregorianCalendar();
+        theSecondGregorianCalendar.setTime(aSecondDate);
+        return sameDay(theFirstGregorianCalendar, theSecondGregorianCalendar);
+    }
+
+    public static boolean sameDay(Date aFirstDate, GregorianCalendar aSecondGregorianCalendar) {
+        GregorianCalendar theFirstGregorianCalendar = new GregorianCalendar();
+        theFirstGregorianCalendar.setTime(aFirstDate);
+        return sameDay(theFirstGregorianCalendar, aSecondGregorianCalendar);
+    }
+
+    public static boolean sameDay(GregorianCalendar aFirstGregorianCalendar, GregorianCalendar aSecondGregorianCalendar) {
+        return aFirstGregorianCalendar.get(GregorianCalendar.DAY_OF_YEAR) == aSecondGregorianCalendar.get(GregorianCalendar.DAY_OF_YEAR);
+    }
+
+    public static boolean isFirstDayOfYear(GregorianCalendar aDate) {
+        return aDate.get(GregorianCalendar.DAY_OF_YEAR) == 1;
     }
 }

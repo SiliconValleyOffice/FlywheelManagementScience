@@ -1430,9 +1430,9 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
     //////  Node - FISCAL YEAR HOLIDAY BREAK  /////////////////////////////////////////////////////////////////////////////////////
 
     @Override
-    public ArrayList<FiscalYearHolidayBreak> dbGetFiscalYearHolidayBreakList(FiscalYear aFiscalYear) {
+    public ArrayList<FiscalYearHolidayBreak> dbGetFiscalYearHolidayBreakList(String aFiscalYearId) {
         String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.FISCAL_YEAR_HOLIDAY_BREAK.getTableName() +
-                " WHERE " + FiscalYearHolidayBreakMetaData.column_FISCAL_YEAR_ID + " = '" + aFiscalYear.getNodeIdString() + "'";
+                " WHERE " + FiscalYearHolidayBreakMetaData.column_FISCAL_YEAR_ID + " = '" + aFiscalYearId + "'";
         theRawQuery += " ORDER BY " + FiscalYearHolidayBreakMetaData.column_HOLIDAY_DATE + " ASC";
         Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
         return FiscalYearHolidayBreakDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
@@ -1531,7 +1531,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
     @Override
     public ArrayList<WorkPlan> dbGetWorkPlanListForCadence(String aCadenceId) {
         String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.WORK_PLAN.getTableName() +
-                " WHERE " + WorkPlanMetaData.column_FLYWHEEL_CADENCE_ID + " = '" + aCadenceId + "'";
+                " WHERE " + WorkPlanMetaData.column_CADENCE_ID + " = '" + aCadenceId + "'";
         theRawQuery += " ORDER BY " + WorkPlanMetaData.column_SCHEDULED_END_DATE + " ASC";
         Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
         return WorkPlanDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
@@ -1562,7 +1562,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
     @Override
     public boolean dbDeleteAllWorkPlans(Cadence aCadence, boolean bAtomicTransaction) {
         return deleteAllRowFromSimpleIdTable(
-                WorkPlanMetaData.column_FLYWHEEL_CADENCE_ID + " = '" + aCadence.getNodeIdString() + "'",
+                WorkPlanMetaData.column_CADENCE_ID + " = '" + aCadence.getNodeIdString() + "'",
                 FmmNodeDefinition.WORK_PLAN, bAtomicTransaction);
     }
 
@@ -1574,7 +1574,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
     @Override
     public boolean dbDeleteAllWorkPlansForFiscalYear(String aFiscalYearId, boolean bAtomicTransaction) {
         return deleteAllRowFromSimpleIdTable(
-                WorkPlanMetaData.column_FLYWHEEL_CADENCE_ID + " IN (" +
+                WorkPlanMetaData.column_CADENCE_ID + " IN (" +
                     " SELECT " + IdNodeMetaData.column_ID + " FROM " + FmmNodeDefinition.FLYWHEEL_CADENCE.getTableName() +
                     " WHERE " + CadenceMetaData.column_FISCAL_YEAR_ID + " = '" + aFiscalYearId + "'" +
                 ")",

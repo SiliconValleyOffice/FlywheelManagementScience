@@ -72,6 +72,7 @@ public class FiscalYearHolidayBreakDaoSqLite extends HeadlineNodeDaoSqLite<Fisca
     protected void buildColumnIndexMap(Cursor aCursor) {
         super.buildColumnIndexMap(aCursor);
         putColumnIndexMapEntry(this.columnIndexMap, aCursor, FiscalYearHolidayBreakMetaData.column_FISCAL_YEAR_ID);
+        putColumnIndexMapEntry(this.columnIndexMap, aCursor, FiscalYearHolidayBreakMetaData.column_HOLIDAY);
         putColumnIndexMapEntry(this.columnIndexMap, aCursor, FiscalYearHolidayBreakMetaData.column_HOLIDAY_DATE);
         putColumnIndexMapEntry(this.columnIndexMap, aCursor, FiscalYearHolidayBreakMetaData.column_BREAK_START_DATE);
         putColumnIndexMapEntry(this.columnIndexMap, aCursor, FiscalYearHolidayBreakMetaData.column_BREAK_END_DATE);
@@ -87,6 +88,7 @@ public class FiscalYearHolidayBreakDaoSqLite extends HeadlineNodeDaoSqLite<Fisca
     public ContentValues buildContentValues(FiscalYearHolidayBreak aFiscalYearHolidayBreak) {
         ContentValues theContentValues = super.buildContentValues(aFiscalYearHolidayBreak);
         theContentValues.put(FiscalYearHolidayBreakMetaData.column_FISCAL_YEAR_ID, aFiscalYearHolidayBreak.getFiscalYearId());
+        theContentValues.put(FiscalYearHolidayBreakMetaData.column_HOLIDAY, aFiscalYearHolidayBreak.getFmmHolidayName());
         theContentValues.put(FiscalYearHolidayBreakMetaData.column_HOLIDAY_DATE, aFiscalYearHolidayBreak.getHolidayDateFormattedUtcLong());
         theContentValues.put(FiscalYearHolidayBreakMetaData.column_BREAK_START_DATE, aFiscalYearHolidayBreak.getStartDateFormattedUtcLong());
         theContentValues.put(FiscalYearHolidayBreakMetaData.column_BREAK_END_DATE, aFiscalYearHolidayBreak.getEndDateFormattedUtcLong());
@@ -102,7 +104,8 @@ public class FiscalYearHolidayBreakDaoSqLite extends HeadlineNodeDaoSqLite<Fisca
     protected FiscalYearHolidayBreak getNextObjectFromCursor(Cursor aCursor) {
         FiscalYearHolidayBreak theFiscalYearHolidayBreak = new FiscalYearHolidayBreak(
             aCursor.getString(this.columnIndexMap.get(IdNodeMetaData.column_ID)),
-            aCursor.getString(this.columnIndexMap.get(FiscalYearHolidayBreakMetaData.column_FISCAL_YEAR_ID)) ,
+            aCursor.getString(this.columnIndexMap.get(FiscalYearHolidayBreakMetaData.column_FISCAL_YEAR_ID)),
+            aCursor.getString(this.columnIndexMap.get(FiscalYearHolidayBreakMetaData.column_HOLIDAY)),
             aCursor.getLong(this.columnIndexMap.get(FiscalYearHolidayBreakMetaData.column_HOLIDAY_DATE)),
             aCursor.getLong(this.columnIndexMap.get(FiscalYearHolidayBreakMetaData.column_BREAK_START_DATE)),
             aCursor.getLong(this.columnIndexMap.get(FiscalYearHolidayBreakMetaData.column_BREAK_END_DATE)) );

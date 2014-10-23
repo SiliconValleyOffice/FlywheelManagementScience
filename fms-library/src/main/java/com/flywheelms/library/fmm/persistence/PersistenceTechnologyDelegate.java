@@ -281,7 +281,7 @@ public abstract class PersistenceTechnologyDelegate {
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////  Node - FISCAL YEAR HOLIDAY BREAK  ////////////////////////////////////////////////////////////////////////////////
 
-    public abstract ArrayList<FiscalYearHolidayBreak> dbGetFiscalYearHolidayBreakList(FiscalYear aFiscalYear);
+    public abstract ArrayList<FiscalYearHolidayBreak> dbGetFiscalYearHolidayBreakList(String aFiscalYearId);
 
     public abstract FiscalYearHolidayBreak dbRetrieveFiscalYearHolidayBreak(String aNodeIdString);
 

@@ -216,7 +216,7 @@ public class GcgWidgetDatePicker extends GcgWidgetTextView {
 	}
 
 	private boolean dateChangeNeeded() {
-		return this.mustBeDifferentFromOriginal && GcgDateHelper.sameDate(this.gregorianCalendar, this.originalDate);
+		return this.mustBeDifferentFromOriginal && GcgDateHelper.sameDay(this.originalDate, this.gregorianCalendar);
 	}
 
 	public Date getSelectedDate() {

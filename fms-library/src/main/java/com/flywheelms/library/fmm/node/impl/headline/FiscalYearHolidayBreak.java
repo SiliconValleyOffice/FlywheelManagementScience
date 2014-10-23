@@ -54,6 +54,7 @@ import com.flywheelms.library.util.JsonHelper;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class FiscalYearHolidayBreak extends FmmHeadlineNodeImpl {
@@ -82,6 +83,7 @@ public class FiscalYearHolidayBreak extends FmmHeadlineNodeImpl {
             setHolidayDate(aJsonObject.getLong(FiscalYearHolidayBreakMetaData.column_HOLIDAY_DATE));
             setStartDate(aJsonObject.getLong(FiscalYearHolidayBreakMetaData.column_BREAK_START_DATE));
             setEndDate(aJsonObject.getLong(FiscalYearHolidayBreakMetaData.column_BREAK_END_DATE));
+            setFmmHoliday(aJsonObject.getString(FiscalYearHolidayBreakMetaData.column_HOLIDAY));
         } catch (JSONException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -90,12 +92,13 @@ public class FiscalYearHolidayBreak extends FmmHeadlineNodeImpl {
 
     public static final String SERIALIZATION_FORMAT_VERSION = "0.1";
 
-    public FiscalYearHolidayBreak(String aNodeIdString, String aFiscalYearId, long aHolidayDateLong, long aBreakStartDateLong, long aBreakEndDateLong) {
+    public FiscalYearHolidayBreak(String aNodeIdString, String aFiscalYearId, String anFmmHolidayName, long aHolidayDateLong, long aBreakStartDateLong, long aBreakEndDateLong) {
         super(new NodeId(FiscalYearHolidayBreak.class, aNodeIdString));
         this.fiscalYearId = aFiscalYearId;
         setHolidayDate(aHolidayDateLong);
         setStartDate(aBreakStartDateLong);
         setEndDate(aBreakEndDateLong);
+        setFmmHoliday(anFmmHolidayName);
     }
 
     public FiscalYearHolidayBreak(FiscalYear aFiscalYear, FmmHoliday anFmmHoliday, Date aHolidayDate, Date aBreakFirstDay, Date aBreakLastDay) {
@@ -116,6 +119,7 @@ public class FiscalYearHolidayBreak extends FmmHeadlineNodeImpl {
             theJsonObject.put(FiscalYearHolidayBreakMetaData.column_HOLIDAY_DATE, getHolidayDateFormattedUtcLong());
             theJsonObject.put(FiscalYearHolidayBreakMetaData.column_BREAK_START_DATE, getStartDateFormattedUtcLong());
             theJsonObject.put(FiscalYearHolidayBreakMetaData.column_BREAK_END_DATE, getEndDateFormattedUtcLong());
+            theJsonObject.put(FiscalYearHolidayBreakMetaData.column_HOLIDAY, getFmmHolidayName());
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -150,8 +154,16 @@ public class FiscalYearHolidayBreak extends FmmHeadlineNodeImpl {
         return this.fmmHoliday;
     }
 
-    public void setFmmHoliday(FmmHoliday fmmHoliday) {
-        this.fmmHoliday = fmmHoliday;
+    public String getFmmHolidayName() {
+        return this.fmmHoliday == null ? "" : this.fmmHoliday.getName();
+    }
+
+    public void setFmmHoliday(FmmHoliday anFmmHoliday) {
+        this.fmmHoliday = anFmmHoliday;
+    }
+
+    public void setFmmHoliday(String anFmmHolidayName) {
+        this.fmmHoliday = FmmHoliday.getObjectForName(anFmmHolidayName);
     }
 
     public Date getHolidayDate() {
@@ -200,5 +212,14 @@ public class FiscalYearHolidayBreak extends FmmHeadlineNodeImpl {
 
     public void setEndDate(Long aLongDate) {
         this.lastDay = GcgDateHelper.getDateFromFormattedUtcLong(aLongDate);
+    }
+
+    public static FiscalYearHolidayBreak getHolidayBreak(FmmHoliday anFmmHoliday, ArrayList<FiscalYearHolidayBreak> aHolidayBreakList) {
+        for(FiscalYearHolidayBreak theBreak : aHolidayBreakList) {
+            if(theBreak.getFmmHoliday() == anFmmHoliday) {
+                return theBreak;
+            }
+        }
+        return null;
     }
 }
