@@ -116,6 +116,14 @@ public class GcgIncrementalButton extends LinearLayout {
             R.drawable.gcg__background_state_list__multi_state_button__level_4,
             R.drawable.gcg__background_state_list__multi_state_button__level_5
     };
+    public static final int[] drawableResourceIdArray6_OFF = {
+            R.drawable.gcg__background_state_list__multi_state_button__on,
+            R.drawable.gcg__background_state_list__multi_state_button__level_2,
+            R.drawable.gcg__background_state_list__multi_state_button__level_3,
+            R.drawable.gcg__background_state_list__multi_state_button__level_4,
+            R.drawable.gcg__background_state_list__multi_state_button__level_5,
+            R.drawable.gcg__background_state_list__multi_state_button__off
+    };
 
 	public GcgIncrementalButton(Context aContext) {
 		super(aContext);
@@ -224,8 +232,10 @@ public class GcgIncrementalButton extends LinearLayout {
 				theResourceIdArray  = isEnableOffState() ? drawableResourceIdArray4_OFF : drawableResourceIdArray4;
 				break;
 			case 5:
-			default:
 				theResourceIdArray  = isEnableOffState() ? drawableResourceIdArray5_OFF : drawableResourceIdArray5;
+            case 6:
+            default:
+                theResourceIdArray  = drawableResourceIdArray6_OFF;
 		}
 		return theResourceIdArray;
 	}
