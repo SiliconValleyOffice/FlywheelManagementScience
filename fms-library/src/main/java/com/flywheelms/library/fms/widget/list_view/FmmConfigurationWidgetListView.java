@@ -112,10 +112,9 @@ public class FmmConfigurationWidgetListView extends FmsWidgetListView <FmmConfig
 
 	@Override
 	protected void launchObjectEditorActivity(FmmConfiguration anFmmConfiguration) {
-        FmmConfiguration theFmmConfiguration = this.objectList.get(this.listItemPosition);
-        if(theFmmConfiguration != null) {
+        if(anFmmConfiguration != null) {
             this.gcgActivity.stopAllDialogs();
-            this.gcgActivity.dataSourceSelected(theFmmConfiguration);
+            this.gcgActivity.dataSourceSelected(anFmmConfiguration);
         }
 	}
 
