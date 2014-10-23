@@ -265,7 +265,7 @@ public class CreateAllCadenceForYearWizardStepFlipper extends GcgWizardStepFlipp
     private void adjustWorkPlanForHolidays(WorkPlan theWorkPlan, GregorianCalendar aPlanStartDate, GregorianCalendar aPlanEndDate) {
         FiscalYearHolidayBreak theHolidayBreak = FmmDatabaseMediator.getActiveMediator().getFmsOrganization().includesFiscalYearHolidayBreak(getFiscalYear().getNodeIdString(), aPlanStartDate, aPlanEndDate);
         if(theHolidayBreak != null) {
-            aPlanEndDate.add(Calendar.DATE, 6);
+            aPlanEndDate.add(Calendar.DATE, 7);
             theWorkPlan.setScheduledEndDate(aPlanEndDate.getTime());
             theWorkPlan.setFmmHoliday(theHolidayBreak.getFmmHoliday());
         }

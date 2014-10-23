@@ -56,13 +56,13 @@ import java.util.List;
 
 public class GcgDayOfWeek implements GcgGuiable {
 
-	public static GcgDayOfWeek SUNDAY = new GcgDayOfWeek(1, "Sun", "Sunday");
-	public static GcgDayOfWeek MONDAY = new GcgDayOfWeek(2, "Mon", "Monday");
-	public static GcgDayOfWeek TUESDAY = new GcgDayOfWeek(3, "Tue", "Tuesday");
-	public static GcgDayOfWeek WEDNESDAY = new GcgDayOfWeek(4, "Wed", "Wednesday");
-	public static GcgDayOfWeek THURSDAY = new GcgDayOfWeek(5, "Thu", "Thursday");
-	public static GcgDayOfWeek FRIDAY = new GcgDayOfWeek(6, "Fri", "Friday");
-	public static GcgDayOfWeek SATURDAY = new GcgDayOfWeek(7, "Sat", "Saturday");
+	public static GcgDayOfWeek SUNDAY = new GcgDayOfWeek(GregorianCalendar.SUNDAY, "Sun", "Sunday");
+	public static GcgDayOfWeek MONDAY = new GcgDayOfWeek(GregorianCalendar.MONDAY, "Mon", "Monday");
+	public static GcgDayOfWeek TUESDAY = new GcgDayOfWeek(GregorianCalendar.TUESDAY, "Tue", "Tuesday");
+	public static GcgDayOfWeek WEDNESDAY = new GcgDayOfWeek(GregorianCalendar.WEDNESDAY, "Wed", "Wednesday");
+	public static GcgDayOfWeek THURSDAY = new GcgDayOfWeek(GregorianCalendar.THURSDAY, "Thu", "Thursday");
+	public static GcgDayOfWeek FRIDAY = new GcgDayOfWeek(GregorianCalendar.FRIDAY, "Fri", "Friday");
+	public static GcgDayOfWeek SATURDAY = new GcgDayOfWeek(GregorianCalendar.SATURDAY, "Sat", "Saturday");
 
 	protected static GcgDayOfWeek staticInstance = SUNDAY;
 
@@ -140,10 +140,10 @@ public class GcgDayOfWeek implements GcgGuiable {
     private GcgDayOfWeek previousDayOfWeek;
     private GcgDayOfWeek nextDayOfWeek;
 
-	private GcgDayOfWeek(int aMonthNumber, String aMonthNameShort, String aMonthName) {
-		this.dayOfWeekNumber = aMonthNumber;
-		this.dayOfWeekNameShort = aMonthNameShort;
-		this.dayOfWeekName = aMonthName;
+	private GcgDayOfWeek(int aDayOfWeekNumber, String aDayOfWeekNameShort, String aDayOfWeekName) {
+		this.dayOfWeekNumber = aDayOfWeekNumber;
+		this.dayOfWeekNameShort = aDayOfWeekNameShort;
+		this.dayOfWeekName = aDayOfWeekName;
 	}
 
 	public int getDayOfWeekNumber() {
