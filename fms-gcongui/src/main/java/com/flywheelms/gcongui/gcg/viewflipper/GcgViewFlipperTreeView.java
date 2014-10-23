@@ -107,7 +107,6 @@ public abstract class GcgViewFlipperTreeView extends GcgViewFlipperChildView imp
         if(getTreeNodePeristentStateBundleKey() == null) {
             return;
         }
-
     }
 
     public void saveGuiState() {

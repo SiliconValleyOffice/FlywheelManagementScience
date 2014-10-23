@@ -225,7 +225,8 @@ public abstract class FmsPerspectiveFlipperTreeView extends GcgPerspectiveFlippe
 			
 			@Override
 			public void onClick(View v) {
-				getTreeViewAdapter().applyShowCollapseToTreeLevel(getShowCollapseToTreeLevel());
+				getTreeViewAdapter().applyShowCollapseToTreeLevel(getShowCollapseNextTreeLevel());
+//				getTreeViewAdapter().applyShowCollapseToTreeLevel(getShowCollapseToTreeLevelForButton());
 				getTreeViewAdapter().refresh();
 			}
 		});
@@ -233,7 +234,8 @@ public abstract class FmsPerspectiveFlipperTreeView extends GcgPerspectiveFlippe
 			
 			@Override
 			public boolean onLongClick(View v) {
-				getTreeViewAdapter().applyShowCollapseToTreeLevel(getShowCollapseToTreeLevel());
+				getTreeViewAdapter().applyShowCollapseToTreeLevel(getShowCollapseNextTreeLevel());
+//				getTreeViewAdapter().applyShowCollapseToTreeLevel(getShowCollapseToTreeLevelForButton());
 				getTreeViewAdapter().refresh();
 				return true;
 			}
@@ -597,43 +599,51 @@ public abstract class FmsPerspectiveFlipperTreeView extends GcgPerspectiveFlippe
 		return theState == theMaxStates ? 99 : theState;
 	}
 
-	public int getShowCollapseToTreeLevel() {
+	public int getShowCollapseToTreeLevelForButton() {
 		if(this.treeDepthMenuItem == null || this.treeDepthMenuItem.getState() == 99) {
 			return 1;
 		}
-		int theState = this.treeDepthMenuItem.getState();
-		int theMaxStates = this.treeDepthMenuItem.getNumberOfStates();
-		int theTreeLevel = theState;
+		return this.treeDepthMenuItem.getState();
+	}
+
+    public int getShowCollapseNextTreeLevel() {
+        if(this.treeDepthMenuItem == null || this.treeDepthMenuItem.getState() == 99) {
+            return 1;
+        }
+        return this.treeDepthMenuItem.getState();
+//        int theState = this.treeDepthMenuItem.getState();
+//        int theMaxStates = this.treeDepthMenuItem.getNumberOfStates();
+//        int theNextTreeLevel;
 //		switch (theState) {
 //			case 2:
-//				theTreeLevel = theMaxStates - 1;
+//				theNextTreeLevel = theMaxStates - 1;
 //				break;
 //			case 3:
-//				theTreeLevel = theMaxStates - 2;
+//				theNextTreeLevel = theMaxStates - 2;
 //				break;
 //			case 4:
-//				theTreeLevel = theMaxStates - 3;
+//				theNextTreeLevel = theMaxStates - 3;
 //				break;
 //			case 5:
-//				theTreeLevel = theMaxStates - 4;
+//				theNextTreeLevel = theMaxStates - 4;
 //				break;
 //			case 6:
-//				theTreeLevel = theMaxStates - 5;
+//				theNextTreeLevel = theMaxStates - 5;
 //				break;
 //			case 7:
-//				theTreeLevel = theMaxStates - 6;
+//				theNextTreeLevel = theMaxStates - 6;
 //				break;
 //			default:
-//				theTreeLevel = 99;  // case 1 and default
+//				theNextTreeLevel = 99;  // case 1 and default
 //		}
-		return theTreeLevel;
-	}
+//        return theNextTreeLevel;
+    }
 	
 	@Override
 	public void guiPreferencesSave() {
 		if(this.queuedGuiPreferencesBundleCategory.equals(GuiPreferencesBundleCategory.SHOW_MENU)) {
 			guiPreferencesSaveShowMenu();
-			getTreeViewAdapter().applyShowCollapseToTreeLevel(getShowCollapseToTreeLevel());
+			getTreeViewAdapter().applyShowCollapseToTreeLevel(getShowCollapseNextTreeLevel());
 		} else if(this.queuedGuiPreferencesBundleCategory.equals(GuiPreferencesBundleCategory.GOVERNANCE_MENU)) {
 			guiPreferencesSaveGovernanceMenu();
 		} else if(this.queuedGuiPreferencesBundleCategory.equals(GuiPreferencesBundleCategory.WORK_STATUS_MENU)) {
@@ -647,7 +657,7 @@ public abstract class FmsPerspectiveFlipperTreeView extends GcgPerspectiveFlippe
 	public void guiPreferencesRestore() {
 		if(this.queuedGuiPreferencesBundleCategory.equals(GuiPreferencesBundleCategory.SHOW_MENU)) {
 			guiPreferencesRestoreShowMenu();
-			getTreeViewAdapter().applyShowCollapseToTreeLevel(getShowCollapseToTreeLevel());
+			getTreeViewAdapter().applyShowCollapseToTreeLevel(getShowCollapseNextTreeLevel());
 		} else if(this.queuedGuiPreferencesBundleCategory.equals(GuiPreferencesBundleCategory.GOVERNANCE_MENU)) {
 			guiPreferencesRestoreGovernanceMenu();
 		} else if(this.queuedGuiPreferencesBundleCategory.equals(GuiPreferencesBundleCategory.WORK_STATUS_MENU)) {
@@ -662,7 +672,7 @@ public abstract class FmsPerspectiveFlipperTreeView extends GcgPerspectiveFlippe
 	public void guiPreferencesClear() {
 		if(this.queuedGuiPreferencesBundleCategory.equals(GuiPreferencesBundleCategory.SHOW_MENU)) {
 			guiPreferencesClearShowMenu();
-			getTreeViewAdapter().applyShowCollapseToTreeLevel(getShowCollapseToTreeLevel());
+			getTreeViewAdapter().applyShowCollapseToTreeLevel(getShowCollapseNextTreeLevel());
 		} else if(this.queuedGuiPreferencesBundleCategory.equals(GuiPreferencesBundleCategory.GOVERNANCE_MENU)) {
 			guiPreferencesClearGovernanceMenu();
 		} else if(this.queuedGuiPreferencesBundleCategory.equals(GuiPreferencesBundleCategory.WORK_STATUS_MENU)) {
@@ -1090,7 +1100,7 @@ public abstract class FmsPerspectiveFlipperTreeView extends GcgPerspectiveFlippe
 
 	@Override
 	public void guiPreferencesApply() {
-		getTreeViewAdapter().applyShowCollapseToTreeLevel(getShowCollapseToTreeLevel());
+		getTreeViewAdapter().applyShowCollapseToTreeLevel(getShowCollapseNextTreeLevel());
 		getTreeStateMediator().refreshViews();
 	}
 
