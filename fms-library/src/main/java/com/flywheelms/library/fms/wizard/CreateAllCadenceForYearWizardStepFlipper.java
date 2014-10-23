@@ -124,7 +124,7 @@ public class CreateAllCadenceForYearWizardStepFlipper extends GcgWizardStepFlipp
         FmmDatabaseMediator.getActiveMediator().updateFiscalYear(getFiscalYear(), true);
         FmmDatabaseMediator.getActiveMediator().insertFiscalYearHolidayBreakList(getWizardStepView2().getFiscalYearHolidayBreakList(), true);
         FmmDatabaseMediator.getActiveMediator().insertCadenceList(generateCadenceList(), true);
-		getGcgActivity().finish(GcgActivity.REFRESH_DATA);
+		getGcgActivity().finish(GcgActivity.REFRESH_DATA, GcgActivity.RESTORE_GUI_STATE);
 	}
 
     private ArrayList<Cadence> generateCadenceList() {

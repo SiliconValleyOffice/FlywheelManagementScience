@@ -102,12 +102,14 @@ import java.util.UUID;
 public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNowClient {
 
     public static final boolean REFRESH_DATA = true;
+    public static final boolean RESTORE_GUI_STATE = true;
 	protected boolean isMainGcgApplicationActivity = false;
 	protected TextView activityCurtain;
 	protected Stack<GcgDialog> modalGcgDialogStack = new Stack<GcgDialog>();
 	protected boolean mustSelectDataSource;
 	protected boolean dataRefreshAll = false;
 	protected boolean parentDataRefreshAll = false;
+    protected boolean restoreGuiState = false;
 	private Bundle savedInstanceState;
 	private String activityLabel;
 	protected GcgFrameSpinner frameSpinner;
@@ -160,8 +162,11 @@ public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNo
 		super.onPostResume();
 		if(this.dataRefreshAll) {
 			refreshDataDisplay();
-            restoreGuiState();
 			this.dataRefreshAll = false;
+		}
+		if(this.restoreGuiState) {
+            restoreGuiState();
+			this.restoreGuiState = false;
 		}
 		resetSoftKeyboard();
 	}
@@ -643,6 +648,9 @@ public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNo
 			updateDataModificationListForContextNavigation(anIntent);
 			processGcgApplicationContextNavigationIntent(anIntent);
 		}
+        if(anIntent.getExtras().containsKey(GcgActivityHelper.bundle_key__RESTORE_GUI_STATE)) {
+            this.restoreGuiState = true;
+        }
 	}
 
 	protected void updateDataRefreshInfo(Intent anIntent) {
@@ -701,8 +709,15 @@ public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNo
 	public void finish() {
 		finishOk();
 	}
+
     public void finish(boolean bParentDataRefreshAll) {
         this.parentDataRefreshAll = bParentDataRefreshAll;
+        finishOk();
+    }
+
+    public void finish(boolean bParentDataRefreshAll, boolean bRestoreGuiState) {
+        this.parentDataRefreshAll = bParentDataRefreshAll;
+        this.restoreGuiState = bRestoreGuiState;
         finishOk();
     }
 
@@ -732,6 +747,9 @@ public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNo
 		if(this.parentDataRefreshAll) {
 			theIntent.putExtra(GcgActivityHelper.bundle_key__DATA_REFRESH__ALL, "");
 		}
+        if(this.restoreGuiState) {
+            theIntent.putExtra(GcgActivityHelper.bundle_key__RESTORE_GUI_STATE, "");
+        }
 		if(hasParentDataRefreshList()) {
 			theIntent.putExtra(GcgActivityHelper.bundle_key__DATA_REFRESH__NOTICE_LIST, getSerializedParentDataRefreshNoticeList());
 		}

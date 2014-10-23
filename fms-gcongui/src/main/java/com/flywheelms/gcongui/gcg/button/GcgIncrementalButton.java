@@ -65,34 +65,57 @@ public class GcgIncrementalButton extends LinearLayout {
 	private String labelString;
 	private int numberOfStates = 99;
 	private int initialState = 99;
+	private boolean enableOffState = true;
     private RelativeLayout menuItemContainer;
 	private TextView labelView;
 	private GcgIncrementalStateButton incrementalStateButton;
 	public static final int[] drawableResourceIdArray1 = {
 		R.drawable.gcg__background_state_list__multi_state_button__on,
 	};
-	public static final int[] drawableResourceIdArray2 = {
+	public static final int[] drawableResourceIdArray2_OFF = {
 		R.drawable.gcg__background_state_list__multi_state_button__on,
 		R.drawable.gcg__background_state_list__multi_state_button__off
 	};
-	public static final int[] drawableResourceIdArray3 = {
+    public static final int[] drawableResourceIdArray2 = {
+            R.drawable.gcg__background_state_list__multi_state_button__on,
+            R.drawable.gcg__background_state_list__multi_state_button__level_2
+    };
+	public static final int[] drawableResourceIdArray3_OFF = {
 		R.drawable.gcg__background_state_list__multi_state_button__on,
 		R.drawable.gcg__background_state_list__multi_state_button__level_2,
 		R.drawable.gcg__background_state_list__multi_state_button__off
 	};
-	public static final int[] drawableResourceIdArray4 = {
+    public static final int[] drawableResourceIdArray3 = {
+            R.drawable.gcg__background_state_list__multi_state_button__on,
+            R.drawable.gcg__background_state_list__multi_state_button__level_2,
+            R.drawable.gcg__background_state_list__multi_state_button__level_3
+    };
+	public static final int[] drawableResourceIdArray4_OFF = {
 		R.drawable.gcg__background_state_list__multi_state_button__on,
 		R.drawable.gcg__background_state_list__multi_state_button__level_2,
 		R.drawable.gcg__background_state_list__multi_state_button__level_3,
 		R.drawable.gcg__background_state_list__multi_state_button__off
 	};
-	public static final int[] drawableResourceIdArray5 = {
+    public static final int[] drawableResourceIdArray4 = {
+            R.drawable.gcg__background_state_list__multi_state_button__on,
+            R.drawable.gcg__background_state_list__multi_state_button__level_2,
+            R.drawable.gcg__background_state_list__multi_state_button__level_3,
+            R.drawable.gcg__background_state_list__multi_state_button__level_4
+    };
+	public static final int[] drawableResourceIdArray5_OFF = {
 		R.drawable.gcg__background_state_list__multi_state_button__on,
 		R.drawable.gcg__background_state_list__multi_state_button__level_2,
 		R.drawable.gcg__background_state_list__multi_state_button__level_3,
 		R.drawable.gcg__background_state_list__multi_state_button__level_4,
 		R.drawable.gcg__background_state_list__multi_state_button__off
 	};
+    public static final int[] drawableResourceIdArray5 = {
+            R.drawable.gcg__background_state_list__multi_state_button__on,
+            R.drawable.gcg__background_state_list__multi_state_button__level_2,
+            R.drawable.gcg__background_state_list__multi_state_button__level_3,
+            R.drawable.gcg__background_state_list__multi_state_button__level_4,
+            R.drawable.gcg__background_state_list__multi_state_button__level_5
+    };
 
 	public GcgIncrementalButton(Context aContext) {
 		super(aContext);
@@ -126,22 +149,23 @@ public class GcgIncrementalButton extends LinearLayout {
 		final int theArraySize = aTypedArray.getIndexCount();
 		for (int theIndex = 0; theIndex < theArraySize; ++theIndex) {
 			int theAttributeIndex = aTypedArray.getIndex(theIndex);
-			switch (theAttributeIndex) {
-				case R.styleable.GcgIncrementalStateButton_buttonLabel:
-					this.labelString = aTypedArray.getString(theAttributeIndex);
-					break;
-				case R.styleable.GcgIncrementalStateButton_numberOfStates:
-					this.numberOfStates = aTypedArray.getInt(theAttributeIndex, 99);
-					break;
-				case R.styleable.GcgIncrementalStateButton_initialState:
-					this.initialState = aTypedArray.getInt(theAttributeIndex, 99);
-					break;
-			}
+            if (theAttributeIndex == R.styleable.GcgIncrementalStateButton_buttonLabel) {
+                this.labelString = aTypedArray.getString(theAttributeIndex);
+
+            } else if (theAttributeIndex == R.styleable.GcgIncrementalStateButton_numberOfStates) {
+                this.numberOfStates = aTypedArray.getInt(theAttributeIndex, 99);
+
+            } else if (theAttributeIndex == R.styleable.GcgIncrementalStateButton_initialState) {
+                this.initialState = aTypedArray.getInt(theAttributeIndex, 99);
+
+            } else if (theAttributeIndex == R.styleable.GcgIncrementalStateButton_enableOffState) {
+                this.enableOffState = aTypedArray.getBoolean(theAttributeIndex, true);
+            }
 		}
 		aTypedArray.recycle();
 	}
-	
-	@Override
+
+    @Override
 	public void setOnClickListener(final OnClickListener aClickListener) {
 		this.incrementalStateButton.setOnClickListener(aClickListener);
         this.menuItemContainer.setOnClickListener(new OnClickListener() {
@@ -191,17 +215,17 @@ public class GcgIncrementalButton extends LinearLayout {
 				theResourceIdArray  = drawableResourceIdArray1;
 				break;
 			case 2:
-				theResourceIdArray  = drawableResourceIdArray2;
+				theResourceIdArray  = isEnableOffState() ? drawableResourceIdArray2_OFF : drawableResourceIdArray2;
 				break;
 			case 3:
-				theResourceIdArray  = drawableResourceIdArray3;
+				theResourceIdArray  = isEnableOffState() ? drawableResourceIdArray3_OFF : drawableResourceIdArray3;
 				break;
 			case 4:
-				theResourceIdArray  = drawableResourceIdArray4;
+				theResourceIdArray  = isEnableOffState() ? drawableResourceIdArray4_OFF : drawableResourceIdArray4;
 				break;
 			case 5:
 			default:
-				theResourceIdArray  = drawableResourceIdArray5;
+				theResourceIdArray  = isEnableOffState() ? drawableResourceIdArray5_OFF : drawableResourceIdArray5;
 		}
 		return theResourceIdArray;
 	}
@@ -226,7 +250,15 @@ public class GcgIncrementalButton extends LinearLayout {
 		return this.initialState;
 	}
 
-	protected CharSequence getMenuItemLabel() {
+    public boolean isEnableOffState() {
+        return enableOffState;
+    }
+
+    public void setEnableOffState(boolean enableOffState) {
+        this.enableOffState = enableOffState;
+    }
+
+    protected CharSequence getMenuItemLabel() {
 		return this.labelString;
 	}
 

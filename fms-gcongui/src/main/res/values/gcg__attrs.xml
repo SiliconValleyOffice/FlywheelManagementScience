@@ -42,6 +42,7 @@
     <declare-styleable name="GcgIncrementalStateButton">
         <attr name="numberOfStates" format="integer" />
         <attr name="initialState" format="integer" />
+        <attr name="enableOffState" format="boolean" />
         <attr name="buttonLabel" format="string" />
     </declare-styleable>
     

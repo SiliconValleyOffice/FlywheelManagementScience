@@ -78,7 +78,8 @@
                         android:layout_marginBottom="25dp"
                         android:layout_marginLeft="10dp"
                         gcg:buttonLabel="Tree\nDepth"
-                        gcg:initialState="1"
+                        gcg:initialState="99"
+                        gcg:enableOffState="false"
                         gcg:numberOfStates="3" />
 
                     <com.flywheelms.gcongui.gcg.button.GcgIncrementalButton

@@ -598,34 +598,34 @@ public abstract class FmsPerspectiveFlipperTreeView extends GcgPerspectiveFlippe
 	}
 
 	public int getShowCollapseToTreeLevel() {
-		if(this.treeDepthMenuItem == null) {
-			return 99;
+		if(this.treeDepthMenuItem == null || this.treeDepthMenuItem.getState() == 99) {
+			return 1;
 		}
 		int theState = this.treeDepthMenuItem.getState();
 		int theMaxStates = this.treeDepthMenuItem.getNumberOfStates();
-		int theTreeLevel;
-		switch (theState) {
-			case 2:
-				theTreeLevel = theMaxStates - 1;
-				break;
-			case 3:
-				theTreeLevel = theMaxStates - 2;
-				break;
-			case 4:
-				theTreeLevel = theMaxStates - 3;
-				break;
-			case 5:
-				theTreeLevel = theMaxStates - 4;
-				break;
-			case 6:
-				theTreeLevel = theMaxStates - 5;
-				break;
-			case 7:
-				theTreeLevel = theMaxStates - 6;
-				break;
-			default:
-				theTreeLevel = 99;  // case 1 and default
-		}
+		int theTreeLevel = theState;
+//		switch (theState) {
+//			case 2:
+//				theTreeLevel = theMaxStates - 1;
+//				break;
+//			case 3:
+//				theTreeLevel = theMaxStates - 2;
+//				break;
+//			case 4:
+//				theTreeLevel = theMaxStates - 3;
+//				break;
+//			case 5:
+//				theTreeLevel = theMaxStates - 4;
+//				break;
+//			case 6:
+//				theTreeLevel = theMaxStates - 5;
+//				break;
+//			case 7:
+//				theTreeLevel = theMaxStates - 6;
+//				break;
+//			default:
+//				theTreeLevel = 99;  // case 1 and default
+//		}
 		return theTreeLevel;
 	}
 	
