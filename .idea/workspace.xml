@@ -41,29 +41,9 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="app: com.flywheelms.workbench" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c0b3b16b-24dc-4ad0-83f8-e1821de85d20" name="Default" comment="shared layout - root_tree_node__create__dialog">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-workbench/src/main/assets/database/template/EmptyFmm.db" afterPath="$PROJECT_DIR$/fms-workbench/src/main/assets/database/template/EmptyFmm.db" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/design/database/fmm.mwb.bak" afterPath="$PROJECT_DIR$/design/database/fmm.mwb.bak" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/design/database/fmm.mwb" afterPath="$PROJECT_DIR$/design/database/fmm.mwb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/wizard/CreateAllCadenceForYearWizardStepFlipper.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/wizard/CreateAllCadenceForYearWizardStepFlipper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/wizard/step/CreateAllCadenceHolidaysWizardStepView.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/wizard/step/CreateAllCadenceHolidaysWizardStepView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-workbench/src/main/assets/database/ddl/sqlite/FiscalYearHolidayBreak.ddl" afterPath="$PROJECT_DIR$/fms-workbench/src/main/assets/database/ddl/sqlite/FiscalYearHolidayBreak.ddl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/headline/FiscalYearHolidayBreak.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/headline/FiscalYearHolidayBreak.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/database/sqlite/dao/FiscalYearHolidayBreakDaoSqLite.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/database/sqlite/dao/FiscalYearHolidayBreakDaoSqLite.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/meta_data/FiscalYearHolidayBreakMetaData.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/meta_data/FiscalYearHolidayBreakMetaData.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/FmmDatabaseMediator.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/FmmDatabaseMediator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/enumerator/FmmHoliday.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/enumerator/FmmHoliday.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/enumerator/FmmNodeDefinition.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/enumerator/FmmNodeDefinition.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/governable/FmsOrganization.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/governable/FmsOrganization.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/widget/date/GcgDateHelper.java" afterPath="$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/widget/date/GcgDateHelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/widget/date/GcgWidgetDatePicker.java" afterPath="$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/widget/date/GcgWidgetDatePicker.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/persistence/PersistenceTechnologyDelegate.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/persistence/PersistenceTechnologyDelegate.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/persistence/PersistenceTechnologyDelegateSqLite.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/persistence/PersistenceTechnologyDelegateSqLite.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-workbench/src/main/assets/database/ddl/sqlite/WorkPlan.ddl" afterPath="$PROJECT_DIR$/fms-workbench/src/main/assets/database/ddl/sqlite/WorkPlan.ddl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/governable/WorkPlan.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/governable/WorkPlan.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/database/sqlite/dao/WorkPlanDaoSqLite.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/database/sqlite/dao/WorkPlanDaoSqLite.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/meta_data/WorkPlanMetaData.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/meta_data/WorkPlanMetaData.java" />
+    <list default="true" id="c0b3b16b-24dc-4ad0-83f8-e1821de85d20" name="Default" comment="improve Cadence scheduling">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/values/fms__strings.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/values/fms__strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="flywheelms-hd.iws" />
@@ -2767,7 +2747,6 @@
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/treeview/filter/FmsTreeViewAdapter.java" />
         <option value="$PROJECT_DIR$/fms-workbench/src/main/java/com/flywheelms/workbench/perspective/FwbContextNotebookPerspective.java" />
         <option value="$PROJECT_DIR$/fms-workbench/src/main/assets/database/ddl/sqlite/DiscussionTopicLinkToNodeFragAuditBlock.ddl" />
-        <option value="$PROJECT_DIR$/fms-library/src/main/res/values/fms__strings.xml" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/widget/text_view/FiscalYearWidgetTextView.java" />
         <option value="$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/widget/GcgWidgetTextView.java" />
         <option value="$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/widget/date/GcgWidgetMonthTextView.java" />
@@ -2780,7 +2759,6 @@
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/helper/FmsActivityHelper.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/res/values/fmm__dictionary__strings.xml" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/wizard/step/CreateAllCadenceParametersWizardStepView.java" />
-        <option value="$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/widget/date/GcgDayOfWeek.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/widget/spinner/WorkPlanFirstDayOfWeekWidgetSpinner.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/PortfolioCreateDialog.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/res/layout/fiscal_year__create__dialog.xml" />
@@ -2798,10 +2776,12 @@
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/wizard/step/CreateAllCadenceHolidaysWizardStepView.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/governable/WorkPlan.java" />
         <option value="$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/widget/date/GcgWidgetDatePicker.java" />
-        <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/wizard/CreateAllCadenceForYearWizardStepFlipper.java" />
         <option value="$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/widget/date/GcgDateHelper.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/governable/FmsOrganization.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/headline/FiscalYearHolidayBreak.java" />
+        <option value="$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/widget/date/GcgDayOfWeek.java" />
+        <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/wizard/CreateAllCadenceForYearWizardStepFlipper.java" />
+        <option value="$PROJECT_DIR$/fms-library/src/main/res/values/fms__strings.xml" />
       </list>
     </option>
   </component>
@@ -4109,7 +4089,15 @@
       <created>1414008658116</created>
       <updated>1414008658116</updated>
     </task>
-    <option name="localTasksCounter" value="243" />
+    <task id="LOCAL-00243" summary="improve Cadence scheduling">
+      <created>1414077935558</created>
+      <updated>1414077935559</updated>
+    </task>
+    <task id="LOCAL-00244" summary="improve Cadence scheduling">
+      <created>1414080058644</created>
+      <updated>1414080058644</updated>
+    </task>
+    <option name="localTasksCounter" value="245" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -4193,7 +4181,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="incremental - orphan Strategic Asset from Project" />
     <MESSAGE value="incremental - orphan Work Package from Strategic Asset" />
     <MESSAGE value="iteration - orphan Work Package from Strategic Asset" />
     <MESSAGE value="iteration - orphan framework" />
@@ -4218,45 +4205,39 @@
     <MESSAGE value="additional implementation - First Month of Fiscal Year" />
     <MESSAGE value="improve Cadence creation" />
     <MESSAGE value="shared layout - root_tree_node__create__dialog" />
-    <option name="LAST_COMMIT_MESSAGE" value="shared layout - root_tree_node__create__dialog" />
+    <MESSAGE value="improve Cadence scheduling" />
+    <option name="LAST_COMMIT_MESSAGE" value="improve Cadence scheduling" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/wizard/CreateAllCadenceForYearWizardStepFlipper.java</url>
+          <line>164</line>
+          <properties />
+          <option name="timeStamp" value="246" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/wizard/CreateAllCadenceForYearWizardStepFlipper.java</url>
+          <line>165</line>
+          <properties />
+          <option name="timeStamp" value="247" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/widget/date/GcgDayOfWeek.java</url>
+          <line>133</line>
+          <properties />
+          <option name="timeStamp" value="248" />
+        </line-breakpoint>
+      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="246" />
+      <option name="time" value="249" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/layout-land/create__all_cadence_for_year__do_id_now__wizard_step.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3125" vertical-offset="1035" max-vertical-offset="1560">
-          <caret line="74" column="37" selection-start-line="74" selection-start-column="37" selection-end-line="74" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-workbench/src/main/java/com/flywheelms/workbench/perspective/FwbContextWorkBreakdownPerspective.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.08377896" vertical-offset="1108" max-vertical-offset="2175">
-          <caret line="151" column="5" selection-start-line="151" selection-start-column="5" selection-end-line="151" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-workbench/src/main/assets/database/ddl/sqlite/Bookshelf.ddl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.4" vertical-offset="0" max-vertical-offset="225">
-          <caret line="4" column="22" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/meta_data/CommunityMemberOrganizationGovernanceAuthorityMetaData.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="375">
@@ -4394,10 +4375,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7860963" vertical-offset="114" max-vertical-offset="675">
           <caret line="91" column="4" selection-start-line="91" selection-start-column="4" selection-end-line="91" selection-end-column="4" />
-          <folding>
-            <element signature="e#3692#3693#0" expanded="true" />
-            <element signature="e#3754#3755#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -4433,46 +4411,6 @@
           <caret line="140" column="0" selection-start-line="140" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
           <folding>
             <element signature="e#5548#5549#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/widget/spinner/WorkPlanFirstDayOfWeekWidgetSpinner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="720">
-          <caret line="90" column="0" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
-          <folding>
-            <element signature="e#3692#3693#0" expanded="true" />
-            <element signature="e#3754#3755#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/wizard/step/CreateAllCadenceParametersWizardStepView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="930" max-vertical-offset="1665">
-          <caret line="137" column="0" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
-          <folding>
-            <element signature="e#3970#3997#0" expanded="true" />
-            <element signature="e#5544#5613#0" expanded="true" />
-            <element signature="e#5863#5944#0" expanded="true" />
-            <element signature="e#6267#6268#0" expanded="true" />
-            <element signature="e#6325#6326#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/widget/date/GcgDayOfWeek.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1665" max-vertical-offset="2805">
-          <caret line="127" column="0" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#7209#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-            <element signature="e#3281#3295#0" expanded="true" />
-            <element signature="e#3872#3894#0" expanded="true" />
-            <element signature="e#6752#6753#0" expanded="true" />
-            <element signature="e#6797#6798#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -4588,30 +4526,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/governable/WorkPlan.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.8035715" vertical-offset="2457" max-vertical-offset="4035">
-          <caret line="223" column="45" selection-start-line="223" selection-start-column="45" selection-end-line="223" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#7655#7656#0" expanded="true" />
-            <element signature="e#7673#7674#0" expanded="true" />
-            <element signature="e#7716#7717#0" expanded="true" />
-            <element signature="e#7762#7763#0" expanded="true" />
-            <element signature="e#7960#7961#0" expanded="true" />
-            <element signature="e#8012#8013#0" expanded="true" />
-            <element signature="e#8204#8205#0" expanded="true" />
-            <element signature="e#8248#8249#0" expanded="true" />
-            <element signature="e#8439#8440#0" expanded="true" />
-            <element signature="e#8488#8489#0" expanded="true" />
-            <element signature="e#9103#9104#0" expanded="true" />
-            <element signature="e#9141#9142#0" expanded="true" />
-            <element signature="e#9317#9318#0" expanded="true" />
-            <element signature="e#9361#9362#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/widget/date/GcgWidgetDatePicker.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7201426" vertical-offset="1786" max-vertical-offset="2700">
@@ -4625,44 +4539,6 @@
         <state vertical-scroll-proportion="0.33333334" vertical-offset="2018" max-vertical-offset="3960">
           <caret line="211" column="16" selection-start-line="211" selection-start-column="16" selection-end-line="211" selection-end-column="16" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/enumerator/FmmHoliday.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.02970297" vertical-offset="1065" max-vertical-offset="3720">
-          <caret line="112" column="46" selection-start-line="112" selection-start-column="46" selection-end-line="112" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2659#2690#0" expanded="true" />
-            <element signature="e#3248#3280#0" expanded="true" />
-            <element signature="e#3848#3878#0" expanded="true" />
-            <element signature="e#4448#4482#0" expanded="true" />
-            <element signature="e#5038#5065#0" expanded="true" />
-            <element signature="e#5617#5647#0" expanded="true" />
-            <element signature="e#6219#6246#0" expanded="true" />
-            <element signature="e#7289#7317#0" expanded="true" />
-            <element signature="e#7800#7801#0" expanded="true" />
-            <element signature="e#7832#7833#0" expanded="true" />
-            <element signature="e#7888#7889#0" expanded="true" />
-            <element signature="e#7915#7916#0" expanded="true" />
-            <element signature="e#7976#7977#0" expanded="true" />
-            <element signature="e#8000#8001#0" expanded="true" />
-            <element signature="e#8049#8050#0" expanded="true" />
-            <element signature="e#8081#8082#0" expanded="true" />
-            <element signature="e#8136#8137#0" expanded="true" />
-            <element signature="e#8163#8164#0" expanded="true" />
-            <element signature="e#8223#8224#0" expanded="true" />
-            <element signature="e#8269#8270#0" expanded="true" />
-            <element signature="e#8300#8301#0" expanded="true" />
-            <element signature="e#8332#8333#0" expanded="true" />
-            <element signature="e#8378#8379#0" expanded="true" />
-            <element signature="e#8427#8428#0" expanded="true" />
-            <element signature="e#9691#9692#0" expanded="true" />
-            <element signature="e#9741#9742#0" expanded="true" />
-            <element signature="e#11029#11030#0" expanded="true" />
-            <element signature="e#11075#11076#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -4722,14 +4598,116 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/sdk/sources/android-19/java/util/Calendar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5833333" vertical-offset="6210" max-vertical-offset="20295">
+          <caret line="457" column="28" selection-start-line="457" selection-start-column="28" selection-end-line="457" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/widget/spinner/WorkPlanFirstDayOfWeekWidgetSpinner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7326203" vertical-offset="129" max-vertical-offset="690">
+          <caret line="90" column="0" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/wizard/step/CreateAllCadenceParametersWizardStepView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.32085562" vertical-offset="900" max-vertical-offset="1635">
+          <caret line="136" column="0" selection-start-line="136" selection-start-column="0" selection-end-line="136" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/widget/date/GcgDayOfWeek.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3188119" vertical-offset="1834" max-vertical-offset="3225">
+          <caret line="133" column="34" selection-start-line="133" selection-start-column="34" selection-end-line="133" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#7402#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#3335#3336#0" expanded="true" />
+            <element signature="e#3376#3377#0" expanded="true" />
+            <element signature="e#3450#3464#0" expanded="true" />
+            <element signature="e#3806#3807#0" expanded="true" />
+            <element signature="e#3843#3844#0" expanded="true" />
+            <element signature="e#4041#4063#0" expanded="true" />
+            <element signature="e#6299#6300#0" expanded="true" />
+            <element signature="e#6333#6334#0" expanded="true" />
+            <element signature="e#6375#6376#0" expanded="true" />
+            <element signature="e#6412#6413#0" expanded="true" />
+            <element signature="e#6449#6450#0" expanded="true" />
+            <element signature="e#6481#6482#0" expanded="true" />
+            <element signature="e#6525#6526#0" expanded="true" />
+            <element signature="e#6546#6547#0" expanded="true" />
+            <element signature="e#6596#6597#0" expanded="true" />
+            <element signature="e#6614#6615#0" expanded="true" />
+            <element signature="e#6669#6670#0" expanded="true" />
+            <element signature="e#6684#6685#0" expanded="true" />
+            <element signature="e#6727#6728#0" expanded="true" />
+            <element signature="e#6759#6760#0" expanded="true" />
+            <element signature="e#6808#6809#0" expanded="true" />
+            <element signature="e#6826#6827#0" expanded="true" />
+            <element signature="e#6880#6881#0" expanded="true" />
+            <element signature="e#6895#6896#0" expanded="true" />
+            <element signature="e#6945#6946#0" expanded="true" />
+            <element signature="e#6990#6991#0" expanded="true" />
+            <element signature="e#7166#7167#0" expanded="true" />
+            <element signature="e#7202#7203#0" expanded="true" />
+            <element signature="e#7266#7267#0" expanded="true" />
+            <element signature="e#7316#7317#0" expanded="true" />
+            <element signature="e#7356#7357#0" expanded="true" />
+            <element signature="e#7399#7400#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/wizard/CreateAllCadenceForYearWizardStepFlipper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.5711381" vertical-offset="1795" max-vertical-offset="3315">
-          <caret line="266" column="126" selection-start-line="266" selection-start-column="126" selection-end-line="266" selection-end-column="126" />
+        <state vertical-scroll-proportion="0.33333334" vertical-offset="2941" max-vertical-offset="4230">
+          <caret line="207" column="48" selection-start-line="207" selection-start-column="46" selection-end-line="207" selection-end-column="48" />
           <folding>
-            <element signature="e#6591#6600#0" expanded="true" />
-            <element signature="e#8956#8966#0" expanded="true" />
-            <element signature="e#10909#10919#0" expanded="true" />
+            <element signature="e#0#14245#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#6519#6528#0" expanded="true" />
+            <element signature="e#8884#8894#0" expanded="true" />
+            <element signature="e#10837#10847#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/holiday__independence_day.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/values/fms__strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33211678" vertical-offset="523" max-vertical-offset="3330">
+          <caret line="47" column="18" selection-start-line="47" selection-start-column="18" selection-end-line="47" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/enumerator/FmmHoliday.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="315" max-vertical-offset="3270">
+          <caret line="93" column="46" selection-start-line="93" selection-start-column="46" selection-end-line="93" selection-end-column="46" />
+          <folding>
+            <element signature="e#7228#7256#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/governable/WorkPlan.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.37967914" vertical-offset="2307" max-vertical-offset="3825">
+          <caret line="223" column="80" selection-start-line="223" selection-start-column="80" selection-end-line="223" selection-end-column="80" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
