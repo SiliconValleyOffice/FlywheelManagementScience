@@ -101,6 +101,7 @@ import java.util.UUID;
 
 public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNowClient {
 
+    public static final boolean REFRESH_DATA = true;
 	protected boolean isMainGcgApplicationActivity = false;
 	protected TextView activityCurtain;
 	protected Stack<GcgDialog> modalGcgDialogStack = new Stack<GcgDialog>();
@@ -159,6 +160,7 @@ public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNo
 		super.onPostResume();
 		if(this.dataRefreshAll) {
 			refreshDataDisplay();
+            restoreGuiState();
 			this.dataRefreshAll = false;
 		}
 		resetSoftKeyboard();

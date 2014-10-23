@@ -45,6 +45,7 @@ package com.flywheelms.library.fms.wizard;
 import android.content.Context;
 import android.util.AttributeSet;
 
+import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.gcongui.gcg.helper.GcgHelper;
 import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
 import com.flywheelms.gcongui.gcg.widget.date.GcgDayOfWeek;
@@ -123,7 +124,7 @@ public class CreateAllCadenceForYearWizardStepFlipper extends GcgWizardStepFlipp
         FmmDatabaseMediator.getActiveMediator().updateFiscalYear(getFiscalYear(), true);
         FmmDatabaseMediator.getActiveMediator().insertFiscalYearHolidayBreakList(getWizardStepView2().getFiscalYearHolidayBreakList(), true);
         FmmDatabaseMediator.getActiveMediator().insertCadenceList(generateCadenceList(), true);
-		getGcgActivity().finish(true);
+		getGcgActivity().finish(GcgActivity.REFRESH_DATA);
 	}
 
     private ArrayList<Cadence> generateCadenceList() {
