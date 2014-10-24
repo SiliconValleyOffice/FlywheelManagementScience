@@ -825,7 +825,7 @@ public abstract class FmsPerspectiveFlipperTreeView extends GcgPerspectiveFlippe
 	}
 	
 	public void guiPreferencesRestoreShowMenu(SharedPreferences aGuiPreferences) {
-		if(this.nodeChildSummaryMenuItem == null) {  // TODO - HACK ALERT
+		if(this.nodeChildSummaryMenuItem == null) {  // TODO - HACK ALERT   SDS
 			return;
 		}
 		this.nodeChildSummaryMenuItem.setState(aGuiPreferences.getInt(GuiPreferenceAttribute.CHILD_SUMMARY.getKey(), 1));

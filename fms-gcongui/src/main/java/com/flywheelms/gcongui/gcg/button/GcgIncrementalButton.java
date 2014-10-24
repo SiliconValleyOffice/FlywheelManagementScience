@@ -248,6 +248,10 @@ public class GcgIncrementalButton extends LinearLayout {
 		this.incrementalStateButton.setState(aButtonState);
 	}
 
+    public void setDefaultState() {
+        this.incrementalStateButton.setState(getInitialButtonState());
+    }
+
 	public boolean isOff() {
 		return this.incrementalStateButton.isOff();
 	}
