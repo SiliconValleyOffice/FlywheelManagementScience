@@ -58,6 +58,7 @@ public class GcgTabSpec {
 	private final int labelTextResourceId;
 	private boolean mustView;
 	private boolean hasBeenViewed;
+    private GcgTabListener gcgTabListener;
 	
 	public GcgTabSpec(View aTabContentView, int aLabelDrawableResourceId, int aLabelTextResourceId, boolean bMustView) {
 		this.tabContentView = aTabContentView;
@@ -116,10 +117,20 @@ public class GcgTabSpec {
 
 	public void setHasBeenViewed(boolean bHasBeenViewed) {
 		this.hasBeenViewed = bHasBeenViewed;
+        if(this.gcgTabListener != null) {
+            this.gcgTabListener.manageButtonState();
+        }
 	}
 	
 	public boolean mustStillView() {
 		return this.mustView && ! this.hasBeenViewed;
 	}
-	
+
+    public GcgTabListener getGcgTabListener() {
+        return this.gcgTabListener;
+    }
+
+    public void setGcgTabListener(GcgTabListener gcgTabListener) {
+        this.gcgTabListener = gcgTabListener;
+    }
 }

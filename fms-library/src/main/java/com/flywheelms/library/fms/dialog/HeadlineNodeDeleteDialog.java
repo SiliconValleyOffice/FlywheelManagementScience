@@ -54,6 +54,7 @@ import android.widget.TextView;
 
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.gcongui.gcg.container.GcgContainerTabbedLayout;
+import com.flywheelms.gcongui.gcg.container.tabbed.GcgTabListener;
 import com.flywheelms.gcongui.gcg.container.tabbed.GcgTabSpec;
 import com.flywheelms.gcongui.gcg.helper.GcgGuiHelper;
 import com.flywheelms.gcongui.gcg.helper.GcgHelper;
@@ -70,7 +71,7 @@ import com.flywheelms.library.fms.widget.text_view.HeadlineWidgetTextView;
 
 import java.util.ArrayList;
 
-public abstract class HeadlineNodeDeleteDialog  extends FmsCancelOkDialog {
+public abstract class HeadlineNodeDeleteDialog extends FmsCancelOkDialog implements GcgTabListener {
 
 	FmsTreeViewAdapter treeViewAdapter;
 	protected FmmNodeTypeWidgetTextView fmmNodeTypeWidget;
@@ -138,9 +139,7 @@ public abstract class HeadlineNodeDeleteDialog  extends FmsCancelOkDialog {
 		}
 		this.dispositionContainerLayout = new GcgContainerTabbedLayout(this.dialogBodyView.getContext());
 		((GcgContainerTabbedLayout) this.dispositionContainerLayout).setup();
-//		LinearLayout theTargetNodeLayout = (LinearLayout) this.dialogBodyView.findViewById(R.id.target_node);
 		this.customContentsContainer.addView(this.dispositionContainerLayout);
-//		this.dialogBodyView.addView(this.dispositionContainerLayout, 1);
 		if(this.primaryChildDeleteDisposition.getCount() > 0) {
 			initializeDispositionOfPrimaryChildrenLayout();
 		}
@@ -181,6 +180,8 @@ public abstract class HeadlineNodeDeleteDialog  extends FmsCancelOkDialog {
 		aDeleteDisposition.setDispositionLayout((LinearLayout) this.gcgActivity.getLayoutInflater().inflate(aDispositionLayoutResourceId, this.dispositionContainerLayout, false));
 		GcgTabSpec theGcgTabSpec = new GcgTabSpec(aDeleteDisposition.getDispositionLayout(), aDependentNodeDefinition.getLabelDrawableResourceId(), aDependentNodeDefinition.getLabelTextResourceId(), true);
 		((GcgContainerTabbedLayout) this.dispositionContainerLayout).addTab(theGcgTabSpec);
+        theGcgTabSpec.setGcgTabListener(this);
+        aDeleteDisposition.setGcgTabSpec(theGcgTabSpec);
 		GcgWidgetZoomableHeading theHeadingWidget = (GcgWidgetZoomableHeading) aDeleteDisposition.getDispositionLayout().findViewById(R.id.disposition__heading);
 		theHeadingWidget.setOnClickListener(new OnClickListener() {
 			
@@ -651,6 +652,7 @@ public abstract class HeadlineNodeDeleteDialog  extends FmsCancelOkDialog {
 		protected RadioButton choiceOrphanButton;
 		protected RadioButton choiceMoveButton;
 		protected LinearLayout dispositionLayout;
+        protected GcgTabSpec gcgTabSpec;
 		protected FmmHeadlineNodeWidgetSpinner targetGreatGrandparentWidgetSpinner;
 		protected FmmHeadlineNodeWidgetSpinner targetGrandparentWidgetSpinner;
 		protected FmmHeadlineNodeWidgetSpinner targetParentWidgetSpinner;
@@ -660,8 +662,8 @@ public abstract class HeadlineNodeDeleteDialog  extends FmsCancelOkDialog {
 		protected boolean isLinked = false;
 		protected boolean canOrphan = true;
         protected boolean alwaysDelete = false;
-		
-		public DeleteDisposition() {
+
+        public DeleteDisposition() {
 			this.targetHeadlineNodeException = getFmmHeadlineNode();
 		}
 		public boolean canOrphan() {
@@ -825,6 +827,38 @@ public abstract class HeadlineNodeDeleteDialog  extends FmsCancelOkDialog {
         public void setAlwaysDelete(boolean alwaysDelete) {
             this.alwaysDelete = alwaysDelete;
         }
+
+        public GcgTabSpec getGcgTabSpec() {
+            return this.gcgTabSpec;
+        }
+
+        public void setGcgTabSpec(GcgTabSpec gcgTabSpec) {
+            this.gcgTabSpec = gcgTabSpec;
+        }
+
+        public boolean isPink() {
+            return this.gcgTabSpec == null || !this.gcgTabSpec.isHasBeenViewed();
+        }
+    }
+
+    @Override
+    public void manageButtonState() {
+        if (this.buttonOk == null) {  // when initializeDialogBodyLate()
+            return;
+        }
+        boolean isEnabled = true;
+        if (this.dispositionTabCount != 0) {
+            if (this.primaryChildDeleteDisposition.getCount() > 0) {
+                isEnabled &= !this.primaryChildDeleteDisposition.isPink();
+            }
+            if (this.secondaryChildDeleteDisposition.getCount() > 0) {
+                isEnabled &= !this.secondaryChildDeleteDisposition.isPink();
+            }
+            if (this.primaryLinkDeleteDisposition.getCount() > 0) {
+                isEnabled &= !this.primaryLinkDeleteDisposition.isPink();
+            }
+        }
+        this.buttonOk.setVisibility(isEnabled ? View.VISIBLE : View.INVISIBLE);
     }
 
 }
