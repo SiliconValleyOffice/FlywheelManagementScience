@@ -414,8 +414,6 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
             orphanProject(aLaunchHeadlineNode, aParentHeadlineNode);
         } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__MOVE_PROJECT)) {
             moveProject(aLaunchHeadlineNode, aParentHeadlineNode);
-
-
         } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__CREATE_STRATEGIC_ASSET)) {
             createFmmHeadlineNode(
                     FmmNodeDefinition.STRATEGIC_ASSET,
@@ -437,9 +435,6 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
             orphanStrategicAsset(aLaunchHeadlineNode, aParentHeadlineNode);
         } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__DEMOTE_STRATEGIC_ASSET)) {
             demoteStrategicAsset(aLaunchHeadlineNode);
-
-
-
 		} else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__CREATE_PROJECT_ASSET)) {
 			createFmmHeadlineNode(
                     FmmNodeDefinition.PROJECT_ASSET,

@@ -154,8 +154,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     		R.string.fmm_node_definition__bookshelf__definition,
     		R.drawable.fmm_noun__bookshelf__gray,
     		0,
-    		R.drawable.gcg__unspecified_glyph,
-    		R.drawable.gcg__unspecified_glyph,
+            R.drawable.fms_activity__bookshelf,
+            R.drawable.fms_dialog__bookshelf,
     		new HashMap<FmmNodeGlyphType, Integer>(),
     		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // tiny drawables
     		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // small drawables
@@ -289,8 +289,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     		R.string.fmm_node_definition__discussion_topic__definition,
     		R.drawable.fmm_noun__discussion_topic__gray,
     		0,
-    		R.drawable.gcg__unspecified_glyph,
-    		R.drawable.gcg__unspecified_glyph,
+            R.drawable.fms_activity__discussion_topic,
+            R.drawable.fms_dialog__discussion_topic,
     		new HashMap<FmmNodeGlyphType, Integer>(),
     		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // tiny drawables
     		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // small drawables
@@ -754,8 +754,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     		R.string.fmm_node_definition__notebook__definition,
     		R.drawable.fmm_noun__notebook__gray,
     		0,
-    		R.drawable.gcg__unspecified_glyph,
-    		R.drawable.gcg__unspecified_glyph,
+            R.drawable.fms_activity__notebook,
+            R.drawable.fms_dialog__notebook,
     		new HashMap<FmmNodeGlyphType, Integer>(),
     		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // tiny drawables
     		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // small drawables

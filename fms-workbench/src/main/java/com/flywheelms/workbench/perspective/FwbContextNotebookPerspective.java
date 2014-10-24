@@ -61,6 +61,7 @@ import com.flywheelms.library.fmm.node.impl.governable.Bookshelf;
 import com.flywheelms.library.fmm.node.impl.governable.Notebook;
 import com.flywheelms.library.fms.helper.FmsHelpIndex;
 import com.flywheelms.library.fms.popup_menu.FmmPopupBuilder;
+import com.flywheelms.library.fms.preferences.GuiPreferencesBundle;
 import com.flywheelms.library.fms.tree_view_flipper.tree_view.FmsPerspectiveFlipperTreeView;
 import com.flywheelms.library.fms.treeview.FmsTreeNodeStateBundle;
 import com.flywheelms.library.fms.treeview.FmsTreeViewMediatorMemoryResident;
@@ -125,7 +126,8 @@ public class FwbContextNotebookPerspective extends FmsPerspectiveFlipperTreeView
             Collection<Notebook> theNotebookCollection =
                     FmmDatabaseMediator.getActiveMediator().getNotebookList(theBookshelf);
             GcgTreeNodeInfo theBookshelfTreeNodeInfo = theTreeBuilder.addTopNode(
-                    theBookshelf, theNotebookCollection.size() > 0, FmmPerspective.NOTEBOOK);
+                    theBookshelf, false, FmmPerspective.NOTEBOOK);
+//                    theBookshelf, theNotebookCollection.size() > 0, FmmPerspective.NOTEBOOK);
 
 
 //        for(Portfolio thePortfolio : theBookshelfCollection) {
@@ -175,4 +177,44 @@ public class FwbContextNotebookPerspective extends FmsPerspectiveFlipperTreeView
     }
 
     protected void initWorkStatusMenu() { /* N/A */ }
+
+    @Override
+    public boolean startButtonEnabled() {
+        return true;
+    }
+
+    @Override
+    protected int getStartButtonBackgroundResourceId() {
+        return R.drawable.fms__button_state_list__start__bookshelf;
+    }
+
+    @Override
+    protected void initializeStartButtonListener() {
+        this.startButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View aView) {
+                ((FmsTreeViewAdapter) FwbContextNotebookPerspective.this.getGcgTreeViewAdapter()).createBookshelf();
+            }
+        });
+    }
+
+    @Override
+    public String getPreferencesBundleNameShowMenu() {
+        return GuiPreferencesBundle.FWB__CONTEXT__NOTEBOOK__SHOW.getKey();
+    }
+
+    @Override
+    public String getPreferencesBundleNameGovernanceMenu() {
+        return GuiPreferencesBundle.FWB__CONTEXT__NOTEBOOK__GOVERNANCE.getKey();
+    }
+
+    @Override
+    public String getPreferencesBundleNameWorkStatusMenu() {
+        return GuiPreferencesBundle.FWB__CONTEXT__NOTEBOOK__WORK_STATUS.getKey();
+    }
+
+    @Override
+    public String getPreferencesBundleNameTeamMenu() {
+        return GuiPreferencesBundle.FWB__CONTEXT__NOTEBOOK__TEAM.getKey();
+    }
 }

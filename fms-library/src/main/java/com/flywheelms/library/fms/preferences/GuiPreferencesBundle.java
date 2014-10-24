@@ -49,13 +49,13 @@ import java.util.Arrays;
 public enum GuiPreferencesBundle {
 
 	//  DO NOT CHANGE these bundle key values.  User preferences will be lost !!!
-	FWB__CONTEXT__ANALYSIS__GOVERNANCE ("com.flywheelms.fwb.context.analysis.governance", new GuiPreferenceAttribute[] {
+	FWB__CONTEXT__NOTEBOOK__GOVERNANCE("com.flywheelms.fwb.context.notebook.governance", new GuiPreferenceAttribute[] {
 	}),
-	FWB__CONTEXT__ANALYSIS__SHOW ("com.flywheelms.fwb.context.analysis.show", new GuiPreferenceAttribute[] {
+	FWB__CONTEXT__NOTEBOOK__SHOW("com.flywheelms.fwb.context.notebook.show", new GuiPreferenceAttribute[] {
 	}),
-	FWB__CONTEXT__ANALYSIS__TEAM ("com.flywheelms.fwb.context.analysis.team", new GuiPreferenceAttribute[] {
+	FWB__CONTEXT__NOTEBOOK__TEAM("com.flywheelms.fwb.context.notebook.team", new GuiPreferenceAttribute[] {
 	}),
-	FWB__CONTEXT__ANALYSIS__WORK_STATUS ("com.flywheelms.fwb.context.analysis.work_status", new GuiPreferenceAttribute[] {
+	FWB__CONTEXT__NOTEBOOK__WORK_STATUS("com.flywheelms.fwb.context.notebook.work_status", new GuiPreferenceAttribute[] {
 	}),
 	FWB__CONTEXT__SERVICE_DELIVERY__GOVERNANCE ("com.flywheelms.fwb.context.service_delivery.governance", new GuiPreferenceAttribute[] {
 	}),

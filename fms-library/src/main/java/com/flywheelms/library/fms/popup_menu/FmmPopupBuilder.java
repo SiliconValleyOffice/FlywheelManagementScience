@@ -67,7 +67,10 @@ public class FmmPopupBuilder {
 	public static final String menu_item__EDIT_DISCUSSION_TOPICS = "Edit Discussion Topics...";
 	public static final String menu_item__DELETE_DISCUSSION_TOPIC = "Delete Discussion Topic...";
 	public static final String menu_item__MOVE_DISCUSSION_TOPIC = "Move Discussion Topic...";
-	public static final String menu_item__REMOVE_DISCUSSION_TOPIC = "Remove Discussion Topic...";
+	public static final String menu_item__ORPHAN_DISCUSSION_TOPIC = "Remove Discussion Topic...";
+	public static final String menu_item__REFERENCE_HEADLINE_NODE = "Reference Headline Node...";
+	public static final String menu_item__DEREFERENCE_HEADLINE_NODE = "Dereference Headline Node...";
+	public static final String menu_item__MOVE_HEADLINE_NODE_REFERENCE = "Move Headline Node Reference...";
 	public static final String menu_item__CREATE_FISCAL_YEAR = "Create Fiscal Year...";
 	public static final String menu_item__DELETE_FISCAL_YEAR = "Delete Fiscal Year...";
 	public static final String menu_item__CREATE_ALL_FLYWHEEL_CADENCES = "Create all Cadences...";
@@ -179,6 +182,12 @@ public class FmmPopupBuilder {
             return createWorkPlanMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, bCanMove, bCanOrphan, bCanSequenceDown, bCanSequenceUp, aLaunchNodeSequence, aLaunchNodeChildCount);
         case WORK_TASK:
             return createWorkTaskPopupMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, bCanMove, bCanOrphan, bCanSequenceDown, bCanSequenceUp, aLaunchNodeSequence, aLaunchNodeChildCount);
+        case BOOKSHELF:
+            return createBookshelfPopupMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, aLaunchNodeChildCount);
+        case NOTEBOOK:
+            return createNotebookPopupMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, bCanMove, bCanOrphan, bCanSequenceDown, bCanSequenceUp, aLaunchNodeSequence, aLaunchNodeChildCount);
+        case DISCUSSION_TOPIC:
+            return createDiscussionTopicPopupMenu(aNodePopupListener, aLaunchTreeNodeInfo, theLaunchHeadlineNode, theParentHeadlineNode, aView, bCanDelete, bCanMove, bCanOrphan, bCanSequenceDown, bCanSequenceUp, aLaunchNodeSequence, aLaunchNodeChildCount);
 		default:
 			return null;
 		}
@@ -293,6 +302,31 @@ public class FmmPopupBuilder {
         return thePopupMenu;
     }
 
+    private static PopupMenu createBookshelfPopupMenu(
+            FmmHeadlineNodePopupListener aNodePopupListener,
+            GcgTreeNodeInfo aLaunchTreeNodeInfo,
+            FmmHeadlineNode aLaunchHeadlineNode,
+            FmmHeadlineNode aParentHeadlineNode,
+            View aView,
+            boolean bCanDelete,
+            int aLaunchNodeChildCount ) {
+        FmmHeadlineNodePopupMenu thePopupMenu = new FmmHeadlineNodePopupMenu(
+                aNodePopupListener, aView, aLaunchHeadlineNode, aParentHeadlineNode, aLaunchTreeNodeInfo, aLaunchNodeChildCount );
+        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_BOOKSHELF);
+        if(bCanDelete) {
+            thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__DELETE_BOOKSHELF);
+        }
+        startNewGroup(thePopupMenu);
+        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_HEADLINE);
+        startNewGroup(thePopupMenu);
+        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_DISCUSSION_TOPIC);
+        if(aLaunchNodeChildCount > 0) {
+            thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_DISCUSSION_TOPICS);
+        }
+        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__ADOPT_ORPHAN_DISCUSSION_TOPIC);
+        return thePopupMenu;
+    }
+
 	private static PopupMenu createProjectPopupMenu(
 			FmmHeadlineNodePopupListener aNodePopupListener,
 			GcgTreeNodeInfo aLaunchTreeNodeInfo,
@@ -329,6 +363,102 @@ public class FmmPopupBuilder {
 		thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__ADOPT_ORPHAN_WORK_ASSET);
 		return thePopupMenu;
 	}
+
+    private static PopupMenu createNotebookPopupMenu(
+            FmmHeadlineNodePopupListener aNodePopupListener,
+            GcgTreeNodeInfo aLaunchTreeNodeInfo,
+            FmmHeadlineNode aLaunchHeadlineNode,
+            FmmHeadlineNode aParentHeadlineNode,
+            View aView,
+            boolean bCanDelete,
+            boolean bCanMove,
+            boolean bCanOrphan,
+            boolean bCanSequenceUp,
+            boolean bCanSequenceDown,
+            int aLaunchNodeSequence,
+            int aLaunchNodeChildCount ) {
+        FmmHeadlineNodePopupMenu thePopupMenu = new FmmHeadlineNodePopupMenu(
+                aNodePopupListener, aView, aLaunchHeadlineNode, aParentHeadlineNode, aLaunchTreeNodeInfo, aLaunchNodeSequence, aLaunchNodeChildCount );
+        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_NOTEBOOK);
+        if(bCanDelete) {
+            thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__DELETE_NOTEBOOK);
+        }
+        if(bCanMove) {
+            thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__MOVE_NOTEBOOK);
+        }
+        if(bCanOrphan) {
+            thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__ORPHAN_NOTEBOOK);
+        }
+        startNewGroup(thePopupMenu);
+        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_HEADLINE);
+        startNewGroup(thePopupMenu);
+        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_DISCUSSION_TOPIC);
+        if(aLaunchNodeChildCount > 0) {
+            thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_DISCUSSION_TOPICS);
+        }
+        startNewGroup(thePopupMenu);
+        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__ADOPT_ORPHAN_DISCUSSION_TOPIC);
+        return thePopupMenu;
+    }
+
+    private static PopupMenu createDiscussionTopicPopupMenu(
+            FmmHeadlineNodePopupListener aNodePopupListener,
+            GcgTreeNodeInfo aLaunchTreeNodeInfo,
+            FmmHeadlineNode aLaunchHeadlineNode,
+            FmmHeadlineNode aParentHeadlineNode,
+            View aView,
+            boolean bCanDelete,
+            boolean bCanMove,
+            boolean bCanOrphan,
+            boolean bCanSequenceUp,
+            boolean bCanSequenceDown,
+            int aLaunchNodeSequence,
+            int aLaunchNodeChildCount ) {
+        FmmHeadlineNodePopupMenu thePopupMenu = new FmmHeadlineNodePopupMenu(
+                aNodePopupListener, aView, aLaunchHeadlineNode, aParentHeadlineNode, aLaunchTreeNodeInfo, aLaunchNodeSequence, aLaunchNodeChildCount );
+        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_DISCUSSION_TOPIC);
+        if(bCanDelete) {
+            thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__DELETE_DISCUSSION_TOPIC);
+        }
+        if(bCanMove) {
+            thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__MOVE_DISCUSSION_TOPIC);
+        }
+        if(bCanOrphan) {
+            thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__ORPHAN_DISCUSSION_TOPIC);
+        }
+        startNewGroup(thePopupMenu);
+        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_HEADLINE);
+        startNewGroup(thePopupMenu);
+        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__REFERENCE_HEADLINE_NODE);
+        return thePopupMenu;
+    }
+
+    private static PopupMenu createHeadlineNodePopupMenu(
+            FmmHeadlineNodePopupListener aNodePopupListener,
+            GcgTreeNodeInfo aLaunchTreeNodeInfo,
+            FmmHeadlineNode aLaunchHeadlineNode,
+            FmmHeadlineNode aParentHeadlineNode,
+            View aView,
+            boolean bCanDelete,
+            boolean bCanMove,
+            boolean bCanOrphan,
+            boolean bCanSequenceUp,
+            boolean bCanSequenceDown,
+            int aLaunchNodeSequence,
+            int aLaunchNodeChildCount ) {
+        FmmHeadlineNodePopupMenu thePopupMenu = new FmmHeadlineNodePopupMenu(
+                aNodePopupListener, aView, aLaunchHeadlineNode, aParentHeadlineNode, aLaunchTreeNodeInfo, aLaunchNodeSequence, aLaunchNodeChildCount );
+        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__REFERENCE_HEADLINE_NODE);
+        if(bCanDelete) {
+            thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__DEREFERENCE_HEADLINE_NODE);
+        }
+        if(bCanMove) {
+            thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__MOVE_HEADLINE_NODE_REFERENCE);
+        }
+        startNewGroup(thePopupMenu);
+        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_HEADLINE);
+        return thePopupMenu;
+    }
 
 	private static PopupMenu createProjectAssetPopupMenu(
 			FmmHeadlineNodePopupListener aNodePopupListener,
