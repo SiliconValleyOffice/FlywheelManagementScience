@@ -370,7 +370,49 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
             int aLaunchHeadlineNodeSequence,
 			int aLaunchHeadlineNodeChildCount ) {
 		setRowBackground(aView, R.drawable.gcg__background_state_list__tree_row);
-		if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__CREATE_FISCAL_YEAR)) {
+
+
+        if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__CREATE_BOOKSHELF)) {
+            createBookshelf();
+//        } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__DELETE_BOOKSHELF)) {
+//            deleteBookshelf(aLaunchHeadlineNode);
+
+
+        } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__CREATE_NOTEBOOK)) {
+            createFmmHeadlineNode(
+                    FmmNodeDefinition.NOTEBOOK,
+                    aLaunchHeadlineNode,
+                    aParentHeadlineNode,
+                    aLaunchHeadlineNodeSequence,
+                    aLaunchHeadlineNodeChildCount);
+        } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__EDIT_NOTEBOOKS)) {
+            editFmmHeadlineNodeChildren(aLaunchTreeNodeInfo, FmmNodeDefinition.NOTEBOOK);
+//        } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__DELETE_NOTEBOOK)) {
+//            deleteNotebook(aLaunchHeadlineNode);
+//        } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__MOVE_NOTEBOOK)) {
+//            moveNotebook(aLaunchHeadlineNode);
+//        } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__ORPHAN_NOTEBOOK)) {
+//            orphanNotebook(aLaunchHeadlineNode);
+
+
+        } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__CREATE_DISCUSSION_TOPIC)) {
+            createFmmHeadlineNode(
+                    FmmNodeDefinition.DISCUSSION_TOPIC,
+                    aLaunchHeadlineNode,
+                    aParentHeadlineNode,
+                    aLaunchHeadlineNodeSequence,
+                    aLaunchHeadlineNodeChildCount);
+        } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__EDIT_DISCUSSION_TOPICS)) {
+            editFmmHeadlineNodeChildren(aLaunchTreeNodeInfo, FmmNodeDefinition.DISCUSSION_TOPIC);
+//        } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__DELETE_DISCUSSION_TOPIC)) {
+//            deletediscussionTopic(aLaunchHeadlineNode);
+//        } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__MOVE_DISCUSSION_TOPIC)) {
+//            movediscussionTopic(aLaunchHeadlineNode);
+//        } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__ORPHAN_DISCUSSION_TOPIC)) {
+//            orphandiscussionTopic(aLaunchHeadlineNode);
+
+
+        } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__CREATE_FISCAL_YEAR)) {
 			createFiscalYear();
 		} else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__DELETE_FISCAL_YEAR)) {
 			deleteFiscalYear(aLaunchHeadlineNode);

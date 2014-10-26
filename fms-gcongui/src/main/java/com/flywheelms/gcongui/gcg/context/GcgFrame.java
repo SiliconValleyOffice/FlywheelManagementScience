@@ -185,4 +185,9 @@ public class GcgFrame implements GcgGuiable {
     public int getDictionaryDefinitionResourceId() {
         return this.dictionaryDefinitionResourceId;
     }
+
+    @Override
+    public String toString() {
+        return getName();
+    }
 }

@@ -116,9 +116,11 @@ import com.flywheelms.library.fmm.node.impl.event.PdfPublication;
 import com.flywheelms.library.fmm.node.impl.governable.Bookshelf;
 import com.flywheelms.library.fmm.node.impl.governable.Cadence;
 import com.flywheelms.library.fmm.node.impl.governable.CommunityMember;
+import com.flywheelms.library.fmm.node.impl.governable.DiscussionTopic;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
 import com.flywheelms.library.fmm.node.impl.governable.FlywheelTeam;
 import com.flywheelms.library.fmm.node.impl.governable.FmsOrganization;
+import com.flywheelms.library.fmm.node.impl.governable.Notebook;
 import com.flywheelms.library.fmm.node.impl.governable.Portfolio;
 import com.flywheelms.library.fmm.node.impl.governable.Project;
 import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
@@ -1003,19 +1005,56 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	}
 
 
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////  Node - BOOKSHELF  ////////////////////////////////////////////////////////////////////////////////
 
     @SuppressWarnings("resource")
     @Override
-    public ArrayList<Bookshelf> dbListBookshelf(FmsOrganization anOrganization, Bookshelf aBookshelfException) {
+    public ArrayList<Bookshelf> dbListBookshelf(String anOrganizationId, String aBookshelfExceptionId) {
         String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.BOOKSHELF.getTableName() +
-                " WHERE " + BookshelfMetaData.column_ORGANIZATION_ID + " = '" + anOrganization.getNodeIdString() + "'";
-        if(aBookshelfException != null) {
-            theRawQuery += " AND " + IdNodeMetaData.column_ID + " != '" + aBookshelfException.getNodeIdString() + "'";
+                " WHERE " + BookshelfMetaData.column_ORGANIZATION_ID + " = '" + anOrganizationId + "'";
+        if(aBookshelfExceptionId != null) {
+            theRawQuery += " AND " + IdNodeMetaData.column_ID + " != '" + aBookshelfExceptionId + "'";
         }
         theRawQuery += " ORDER BY LOWER(" + HeadlineNodeMetaData.column_HEADLINE + ") ASC";
         Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
         return BookshelfDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
+    }
+
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////  Node - NOTEBOOK  ////////////////////////////////////////////////////////////////////////////////
+
+    @SuppressWarnings("resource")
+    @Override
+    public ArrayList<Notebook> dbListNotebook(String aBookshelfId, String aNotebookExceptionId) {
+//        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.NOTEBOOK.getTableName() +
+//                " WHERE " + NotebookMetaData.column_BOOKSHELF_ID + " = '" + aBookshelfId + "'";
+//        if(aNotebookExceptionId != null) {
+//            theRawQuery += " AND " + IdNodeMetaData.column_ID + " != '" + aNotebookExceptionId + "'";
+//        }
+//        theRawQuery += " ORDER BY " + HeadlineNodeMetaData.column_HEADLINE + " ASC";
+//        Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
+//        return NotebookDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
+        return null;
+    }
+
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////  Node - DISCUSSION TOPIC  ////////////////////////////////////////////////////////////////////////////
+
+    @SuppressWarnings("resource")
+    @Override
+    public ArrayList<DiscussionTopic> dbListDiscussionTopic(String aNotebookId, String aDiscussionTopicExceptionId) {
+//        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.DISCUSSION_TOPIC.getTableName() +
+//                " WHERE " + DiscussionTopicMetaData.column_NOTEBOOK_ID + " = '" + aNotebookId + "'";
+//        if(aDiscussionTopicExceptionId != null) {
+//            theRawQuery += " AND " + IdNodeMetaData.column_ID + " != '" + aDiscussionTopicExceptionId + "'";
+//        }
+//        theRawQuery += " ORDER BY " + CompletableNodeMetaData.column_SEQUENCE + " ASC";
+//        Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
+//        return DiscussionTopicDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
+        return null;
     }
 
 

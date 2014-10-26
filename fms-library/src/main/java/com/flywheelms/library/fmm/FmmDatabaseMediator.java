@@ -668,12 +668,12 @@ public class FmmDatabaseMediator {
 		FmmNodeDefinition theFmmNodeDefinition = FmmNodeDefinition.getEntryForNodeIdString(aNodeIdString);
 		switch(theFmmNodeDefinition) {
 		case BOOKSHELF:
-			//				return getBookshelf(anFmmId);
+            return getBookshelf(aNodeIdString);
 		case COMMUNITY_MEMBER:
 			return getCommunityMember(aNodeIdString);
 		case DISCUSSION_TOPIC:
-			//				return getDiscussionTopic(anFmmId);
-		case FACILITATION_ISSUE:
+//            return getDiscussionTopic(aNodeIdString);
+        case FACILITATION_ISSUE:
 			//				return getFacilitationIssue(anFmmId);
 		case FISCAL_YEAR:
 			return getFiscalYear(aNodeIdString);
@@ -839,12 +839,12 @@ public class FmmDatabaseMediator {
     }
 
     public Bookshelf createBookshelf(String aHeadline) {
-        Bookshelf thePortfoliBookshelf = new Bookshelf(
-                new NodeId(FmmNodeDefinition.PORTFOLIO),
+        Bookshelf theBookshelf = new Bookshelf(
+                new NodeId(FmmNodeDefinition.BOOKSHELF),
                 aHeadline,
                 FmmDatabaseMediator.getActiveMediator().getFmmOwner() );
-        return FmmDatabaseMediator.getActiveMediator().newBookshelf(thePortfoliBookshelf, true) ?
-                thePortfoliBookshelf : null;
+        return FmmDatabaseMediator.getActiveMediator().newBookshelf(theBookshelf, true) ?
+                theBookshelf : null;
     }
 
     public boolean newBookshelf(Bookshelf aBookshelf, boolean bAtomicTransaction) {
@@ -858,6 +858,39 @@ public class FmmDatabaseMediator {
             endTransaction(isSuccess);
         }
         return isSuccess;
+    }
+
+    public void saveBookshelf(Bookshelf aBookshelf, boolean bAtomicTransaction) {
+        if(existsBookshelf(aBookshelf.getNodeIdString())) {
+            updateBookshelf(aBookshelf, bAtomicTransaction);
+        } else {
+            newBookshelf(aBookshelf, bAtomicTransaction);
+        }
+    }
+
+    public boolean existsBookshelf(String aNodeIdString) {
+        return getBookshelf(aNodeIdString) != null;
+    }
+
+    public boolean updateBookshelf(Bookshelf aBookshelf, boolean bAtomicTransaction) {
+        updateHeadlineNode(aBookshelf);
+        return this.persistenceTechnologyDelegate.dbUpdateBookshelf(aBookshelf, bAtomicTransaction);
+    }
+
+    public Bookshelf getBookshelf(String aNodeIdString) {
+        return this.persistenceTechnologyDelegate.dbRetrieveBookshelf(aNodeIdString);
+    }
+
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////  Node - NOTEBOOK  ////////////////////////////////////////////////////////////////////////////////////
+
+    public ArrayList<Notebook> getNotebookList(Bookshelf aBookshelf) {
+        return getNotebookList(aBookshelf, null);
+    }
+
+    public ArrayList<Notebook> getNotebookList(Bookshelf aBookshelf, Notebook aNotebookException) {
+        return this.persistenceTechnologyDelegate.dbListNotebook(aBookshelf, aNotebookException);
     }
 
 
@@ -3143,12 +3176,4 @@ public class FmmDatabaseMediator {
 		}
 		return isSuccess;
 	}
-
-
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //////  Node - NOTEBOOK  ////////////////////////////////////////////////////////////////////////////////////
-
-    public ArrayList<Notebook> getNotebookList(Bookshelf bookshelf) {
-        return null;
-    }
 }

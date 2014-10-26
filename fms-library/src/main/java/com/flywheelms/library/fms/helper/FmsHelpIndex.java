@@ -58,6 +58,9 @@ public class FmsHelpIndex {
 	public static final String WORK_PACKAGE_ACTIVITY = "http://code.google.com/p/flywheel-management-science/wiki/UserDocWorkPackage";
 	public static final String WORK_TASK_ACTIVITY = "http://code.google.com/p/flywheel-management-science/wiki/UserDocWorkTask";
 	public static final String WORK_PLAN_ACTIVITY = "http://code.google.com/p/flywheel-management-science/wiki/UserDocWorkPlan";
+	public static final String BOOKSHELF_ACTIVITY = "http://code.google.com/p/flywheel-management-science/wiki/UserDocBookshelf";
+	public static final String NOTEBOOK_ACTIVITY = "http://code.google.com/p/flywheel-management-science/wiki/UserDocNotebook";
+	public static final String DISCUSSION_TOPIC_ACTIVITY = "http://code.google.com/p/flywheel-management-science/wiki/UserDocDiscussionTopic";
 
 	public static final String COMMUNITY_MEMBER_PICKER = "http://code.google.com/p/flywheel-management-science/wiki/UserDocCommunityMemberPicker";
 	

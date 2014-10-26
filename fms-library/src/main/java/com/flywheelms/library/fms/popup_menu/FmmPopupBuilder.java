@@ -82,6 +82,7 @@ public class FmmPopupBuilder {
 	public static final String menu_item__DELETE_NOTEBOOK = "Delete Notebook...";
 	public static final String menu_item__MOVE_NOTEBOOK = "Move Notebook...";
 	public static final String menu_item__ORPHAN_NOTEBOOK = "Orphan Notebook...";
+	public static final String menu_item__EDIT_NOTEBOOKS = "Edit Notebooks...";
 	public static final String menu_item__CREATE_PORTFOLIO = "Create Portfolio...";
 	public static final String menu_item__DELETE_PORTFOLIO = "Delete Portfolio...";
 	public static final String menu_item__ADOPT_ORPHAN_PROJECT = "Adopt orphan Project...";
@@ -319,11 +320,11 @@ public class FmmPopupBuilder {
         startNewGroup(thePopupMenu);
         thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_HEADLINE);
         startNewGroup(thePopupMenu);
-        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_DISCUSSION_TOPIC);
+        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_NOTEBOOK);
         if(aLaunchNodeChildCount > 0) {
-            thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_DISCUSSION_TOPICS);
+            thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__EDIT_NOTEBOOKS);
         }
-        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__ADOPT_ORPHAN_DISCUSSION_TOPIC);
+        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__ADOPT_ORPHAN_NOTEBOOK);
         return thePopupMenu;
     }
 

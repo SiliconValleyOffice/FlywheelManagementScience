@@ -43,6 +43,7 @@
 package com.flywheelms.library.fmm.node.impl.governable;
 
 import com.flywheelms.gcongui.deckangl.enumerator.DecKanGlDecoratorCanvasLocation;
+import com.flywheelms.gcongui.deckangl.enumerator.DecKanGlNounStateColor;
 import com.flywheelms.gcongui.deckangl.interfaces.DecKanGlDecorator;
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
@@ -243,6 +244,10 @@ public class Bookshelf extends FmmGovernableNodeImpl {
 
     public void setPrimaryParentId(String aNodeIdString) {
         setOrganizationId(aNodeIdString);
+    }
+
+    public DecKanGlNounStateColor getDecKanGlNounStateColor() {
+        return DecKanGlNounStateColor.GRAY;
     }
 
 }

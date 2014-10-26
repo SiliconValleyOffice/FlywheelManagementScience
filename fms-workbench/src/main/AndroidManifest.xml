@@ -180,6 +180,14 @@
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
        		android:configChanges="keyboardHidden|keyboard"
             android:screenOrientation="sensorLandscape" />
+
+        <activity
+            android:name="com.flywheelms.library.fms.activity.BookshelfEditorActivity"
+            android:label="@string/editor_activity__bookshelf"
+            android:icon="@drawable/fms_activity__bookshelf"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
+            android:configChanges="keyboardHidden|keyboard"
+            android:screenOrientation="sensorLandscape" />
         
     </application>
 

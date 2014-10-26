@@ -44,7 +44,9 @@
 package com.flywheelms.library.fmm.persistence;
 
 import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
+import com.flywheelms.library.fmm.database.sqlite.dao.BookshelfDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.FmmNodeDaoSqLite;
+import com.flywheelms.library.fmm.database.sqlite.dao.PortfolioDaoSqLite;
 import com.flywheelms.library.fmm.interfaces.WorkAsset;
 import com.flywheelms.library.fmm.node.impl.commitment.StrategicCommitment;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
@@ -54,9 +56,11 @@ import com.flywheelms.library.fmm.node.impl.event.PdfPublication;
 import com.flywheelms.library.fmm.node.impl.governable.Bookshelf;
 import com.flywheelms.library.fmm.node.impl.governable.Cadence;
 import com.flywheelms.library.fmm.node.impl.governable.CommunityMember;
+import com.flywheelms.library.fmm.node.impl.governable.DiscussionTopic;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
 import com.flywheelms.library.fmm.node.impl.governable.FlywheelTeam;
 import com.flywheelms.library.fmm.node.impl.governable.FmsOrganization;
+import com.flywheelms.library.fmm.node.impl.governable.Notebook;
 import com.flywheelms.library.fmm.node.impl.governable.Portfolio;
 import com.flywheelms.library.fmm.node.impl.governable.Project;
 import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
@@ -217,7 +221,51 @@ public abstract class PersistenceTechnologyDelegate {
         return dbListBookshelf(anOrganization, null);
     }
 
-    public abstract ArrayList<Bookshelf> dbListBookshelf(FmsOrganization anOrganization, Bookshelf aBookshelfException);
+    public ArrayList<Bookshelf> dbListBookshelf(FmsOrganization anOrganization, Bookshelf aBookshelfException) {
+        return dbListBookshelf(anOrganization.getNodeIdString(), aBookshelfException == null ? null : aBookshelfException.getNodeIdString());
+    }
+    
+    public abstract ArrayList<Bookshelf> dbListBookshelf(String anOrganizationId, String aBookshelfExceptionId);
+
+    public boolean dbUpdateBookshelf(Bookshelf aBookshelf, boolean bAtomicTransaction) {
+        return updateSimpleIdTable(aBookshelf, PortfolioDaoSqLite.getInstance(), bAtomicTransaction);
+    }
+
+    public boolean dbDeleteBookshelf(Bookshelf aBookshelf, boolean bAtomicTransaction) {
+        return deleteRowFromSimpleIdTable(aBookshelf.getNodeIdString(), FmmNodeDefinition.BOOKSHELF, bAtomicTransaction);
+    }
+
+    public Bookshelf dbRetrieveBookshelf(String aNodeIdString) {
+        return (Bookshelf) retrieveFmmNodeFromSimpleIdTable(aNodeIdString, BookshelfDaoSqLite.getInstance());
+    }
+
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////  Node - NOTEBOOK  ////////////////////////////////////////////////////////////////////////////////
+
+    public ArrayList<Notebook> dbListNotebook(Bookshelf aBookshelf) {
+        return dbListNotebook(aBookshelf, null);
+    }
+
+    public ArrayList<Notebook> dbListNotebook(Bookshelf aBookshelf, Notebook aNotebookException) {
+        return dbListNotebook(aBookshelf.getNodeIdString(), aNotebookException == null ? null : aNotebookException.getNodeIdString());
+    }
+
+    public abstract ArrayList<Notebook> dbListNotebook(String aBookshelfId, String aNotebookExceptionId);
+
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////  Node - DISCUSSION TOPIC  ////////////////////////////////////////////////////////////////////////////
+
+    public ArrayList<DiscussionTopic> dbListDiscussionTopic(Notebook aNotebook) {
+        return dbListDiscussionTopic(aNotebook, null);
+    }
+
+    public ArrayList<DiscussionTopic> dbListDiscussionTopic(Notebook aNotebook, DiscussionTopic aDiscussionTopicException) {
+        return dbListDiscussionTopic(aNotebook.getNodeIdString(), aDiscussionTopicException == null ? null : aDiscussionTopicException.getNodeIdString());
+    }
+
+    public abstract ArrayList<DiscussionTopic> dbListDiscussionTopic(String aNotebookId, String aDiscussionTopicExceptionId);
 
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
