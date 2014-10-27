@@ -84,7 +84,6 @@ import com.flywheelms.library.fmm.database.sqlite.dao.WorkPlanDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.WorkTaskDaoSqLite;
 import com.flywheelms.library.fmm.helper.FmmOpenHelper;
 import com.flywheelms.library.fmm.interfaces.WorkAsset;
-import com.flywheelms.library.fmm.meta_data.BookshelfLinkToNotebookMetaData;
 import com.flywheelms.library.fmm.meta_data.CadenceMetaData;
 import com.flywheelms.library.fmm.meta_data.CadenceWorkPackageCommitmentMetaData;
 import com.flywheelms.library.fmm.meta_data.CommunityMemberMetaData;
@@ -97,7 +96,6 @@ import com.flywheelms.library.fmm.meta_data.HeadlineNodeMetaData;
 import com.flywheelms.library.fmm.meta_data.IdNodeMetaData;
 import com.flywheelms.library.fmm.meta_data.NodeFragFseDocumentMetaData;
 import com.flywheelms.library.fmm.meta_data.NodeFragMetaData;
-import com.flywheelms.library.fmm.meta_data.NotebookMetaData;
 import com.flywheelms.library.fmm.meta_data.OrganizationCommunityMemberMetaData;
 import com.flywheelms.library.fmm.meta_data.PdfPublicationMetaData;
 import com.flywheelms.library.fmm.meta_data.PortfolioMetaData;
@@ -122,7 +120,6 @@ import com.flywheelms.library.fmm.node.impl.governable.DiscussionTopic;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
 import com.flywheelms.library.fmm.node.impl.governable.FlywheelTeam;
 import com.flywheelms.library.fmm.node.impl.governable.FmsOrganization;
-import com.flywheelms.library.fmm.node.impl.governable.Notebook;
 import com.flywheelms.library.fmm.node.impl.governable.Portfolio;
 import com.flywheelms.library.fmm.node.impl.governable.Project;
 import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
@@ -430,14 +427,6 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 //		return theBoolean;
 //	}
 
-    @Override
-    @SuppressWarnings({ "rawtypes", "unchecked" })
-    public <T extends FmmNodeDaoSqLite, V extends FmmNode> boolean updateSimpleIdTable(
-            V anFmmNode, boolean bAtomicTransaction) {
-        return updateSimpleIdTable(anFmmNode, (T) this.getDao(anFmmNode.getFmmNodeDefinition()), bAtomicTransaction);
-    }
-
-    @Override
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public <T extends FmmNodeDaoSqLite, V extends FmmNode> boolean updateSimpleIdTable(
 			V anFmmNode, T aDaoInstance, boolean bAtomicTransaction) {
@@ -1001,40 +990,6 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////  Node - NOTEBOOK  ////////////////////////////////////////////////////////////////////////////////
-
-    @SuppressWarnings("resource")
-    @Override
-    public ArrayList<Notebook> dbListNotebook(String aBookshelfId, String aNotebookExceptionId) {
-        Cursor theCursor = getSqLiteDatabase().rawQuery(getInnerJoinQueryWithAndSpecSorted(
-                FmmNodeDefinition.NOTEBOOK.getTableName(),
-                IdNodeMetaData.column_ID,
-                FmmNodeDefinition.BOOKSHELF_LINK_TO_NOTEBOOK.getTableName(),
-                BookshelfLinkToNotebookMetaData.column_NOTEBOOK_ID,
-                FmmNodeDefinition.BOOKSHELF_LINK_TO_NOTEBOOK.getTableName() + "." + BookshelfLinkToNotebookMetaData.column_BOOKSHELF_ID + " = '" + aBookshelfId + "'",
-                " LOWER(" + FmmNodeDefinition.NOTEBOOK.getTableName() + "." + NotebookMetaData.column_HEADLINE + ")" ),
-            null );
-        return NotebookDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
-    }
-    
-    @SuppressWarnings("resource")
-    @Override
-    public <V extends FmmNode> ArrayList<V> dbListSimpleIdTableFromLink(
-            FmmNodeDefinition aLeftTableDefinition,
-            String aLeftColumnName,
-            FmmNodeDefinition aRightTableDefinition,
-            String aRightColumnName,
-            String anAndSpec,
-            String anOrderBySpec ) {
-        Cursor theCursor = getSqLiteDatabase().rawQuery(getInnerJoinQueryWithAndSpecSorted(
-                        aLeftTableDefinition,
-                        aLeftColumnName,
-                        aRightTableDefinition,
-                        aRightColumnName,
-                        anAndSpec,
-                        anOrderBySpec ),
-                null );
-        return getDao(aLeftTableDefinition).getObjectListFromCursor(theCursor);
-    }
 
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -3467,6 +3422,8 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
     //////////  GENERIC METHODS  ////////////
     /////////////////////////////////////////
 
+    //  LIST
+
     @SuppressWarnings("resource")
     @Override
     public <V extends FmmNode> ArrayList<V> dbListSimpleIdTable(
@@ -3483,6 +3440,48 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
         theRawQuery += " ORDER BY " + anOrderBySpec + " ASC";
         Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
         return getDao(aNodeDefinition).getObjectListFromCursor(theCursor);
+    }
+
+    @SuppressWarnings("resource")
+    @Override
+    public <V extends FmmNode> ArrayList<V> dbListSimpleIdTableFromLink(
+            FmmNodeDefinition aLeftTableDefinition,
+            String aLeftColumnName,
+            String aLefgColumnExceptionValue,
+            FmmNodeDefinition aRightTableDefinition,
+            String aRightColumnName,
+            String anAndSpec,
+            String anOrderBySpec ) {
+        Cursor theCursor = getSqLiteDatabase().rawQuery(getInnerJoinQueryWithAndSpecSorted(
+                        aLeftTableDefinition,
+                        aLeftColumnName,
+                        aLefgColumnExceptionValue,
+                        aRightTableDefinition,
+                        aRightColumnName,
+                        anAndSpec,
+                        anOrderBySpec ),
+                null );
+        return getDao(aLeftTableDefinition).getObjectListFromCursor(theCursor);
+    }
+
+    // UPDATE
+
+    @Override
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+    public <V extends FmmNode> boolean updateSimpleIdTable(
+            V anFmmNode, boolean bAtomicTransaction) {
+        FmmNodeDaoSqLite theDaoInstance = getDao(anFmmNode.getFmmNodeDefinition());
+        if(bAtomicTransaction) {
+            startTransaction();
+        }
+        anFmmNode.setRowTimestamp(GcgDateHelper.getCurrentDateTime());
+        this.contentValues = theDaoInstance.buildUpdateContentValues(anFmmNode);
+        boolean theBoolean = getSqLiteDatabase().update(anFmmNode.getFmmNodeDefinition().getTableName(), this.contentValues,
+                IdNodeMetaData.column_ID + " = '" + anFmmNode.getNodeIdString() + "'", null) > 0;
+        if(bAtomicTransaction) {
+            endTransaction(theBoolean);
+        }
+        return theBoolean;
     }
 	
 }

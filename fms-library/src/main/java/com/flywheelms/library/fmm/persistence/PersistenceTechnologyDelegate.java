@@ -47,8 +47,6 @@ import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
 import com.flywheelms.library.fmm.database.dao.FmmNodeDao;
 import com.flywheelms.library.fmm.database.sqlite.dao.BookshelfDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.FmmNodeDaoSqLite;
-import com.flywheelms.library.fmm.database.sqlite.dao.NotebookDaoSqLite;
-import com.flywheelms.library.fmm.database.sqlite.dao.PortfolioDaoSqLite;
 import com.flywheelms.library.fmm.interfaces.WorkAsset;
 import com.flywheelms.library.fmm.node.impl.commitment.StrategicCommitment;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
@@ -220,7 +218,7 @@ public abstract class PersistenceTechnologyDelegate {
     //////  Node - BOOKSHELF  ////////////////////////////////////////////////////////////////////////////////
 
     public boolean dbUpdateBookshelf(Bookshelf aBookshelf, boolean bAtomicTransaction) {
-        return updateSimpleIdTable(aBookshelf, PortfolioDaoSqLite.getInstance(), bAtomicTransaction);
+        return updateSimpleIdTable(aBookshelf, bAtomicTransaction);
     }
 
     public boolean dbDeleteBookshelf(Bookshelf aBookshelf, boolean bAtomicTransaction) {
@@ -235,19 +233,6 @@ public abstract class PersistenceTechnologyDelegate {
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////  Node - NOTEBOOK  ////////////////////////////////////////////////////////////////////////////////
 
-    public ArrayList<Notebook> dbListNotebook(Bookshelf aBookshelf) {
-        return dbListNotebook(aBookshelf, null);
-    }
-
-    public ArrayList<Notebook> dbListNotebook(Bookshelf aBookshelf, Notebook aNotebookException) {
-        return dbListNotebook(aBookshelf.getNodeIdString(), aNotebookException == null ? null : aNotebookException.getNodeIdString());
-    }
-
-    public abstract ArrayList<Notebook> dbListNotebook(String aBookshelfId, String aNotebookExceptionId);
-
-    public Notebook dbRetrieveNotebook(String aNodeIdString) {
-        return (Notebook) retrieveFmmNodeFromSimpleIdTable(aNodeIdString, NotebookDaoSqLite.getInstance());
-    }
 
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -930,10 +915,6 @@ public abstract class PersistenceTechnologyDelegate {
 
     public abstract <T extends FmmNodeDaoSqLite, V extends FmmNode> boolean insertSimpleIdTable(V anFmmNode, T aDaoInstance, boolean bAtomicTransaction);
 
-    public abstract <T extends FmmNodeDaoSqLite, V extends FmmNode> boolean updateSimpleIdTable(V anFmmNode, boolean bAtomicTransaction);
-
-    public abstract <T extends FmmNodeDaoSqLite, V extends FmmNode> boolean updateSimpleIdTable(V anFmmNode, T aDaoInstance, boolean bAtomicTransaction);
-
     public abstract  <T extends FmmNodeDaoSqLite> FmmNode retrieveFmmNodeFromSimpleIdTable(String anId, T aDaoInstance);
 
     public abstract boolean deleteRowFromSimpleIdTable(String aNodeIdString, FmmNodeDefinition anFmmNodeDefinition, boolean bAtomicTransaction);
@@ -958,24 +939,37 @@ public abstract class PersistenceTechnologyDelegate {
     public abstract <V extends FmmNode> ArrayList<V> dbListSimpleIdTableFromLink(
             FmmNodeDefinition aLeftTableDefinition,
             String aLeftColumnName,
+            String aLefgColumnExceptionValue,
             FmmNodeDefinition aRightTableDefinition,
             String aRightColumnName,
             String anAndSpec,
             String anOrderBySpec );
 
-    // Generate SQL
+    // UPDATE
+
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+    public abstract <V extends FmmNode> boolean updateSimpleIdTable(V anFmmNode, boolean bAtomicTransaction);
+
+    // GENERATE SQL
 
     public String getInnerJoinQueryWithAndSpecSorted(
             FmmNodeDefinition aLeftTableDefinition,
             String aLeftColumnName,
+            String aLeftColumnExceptionValue,
             FmmNodeDefinition aRightTableDefinition,
             String aRightColumnName,
             String aAndSpec,
             String anOrderBySpec )  {
-        return "SELECT DISTINCT " + aLeftTableDefinition.getTableName() + ".* FROM " + aLeftTableDefinition.getTableName() +
+        StringBuffer theQuery = new StringBuffer();
+        theQuery.append(
+                "SELECT DISTINCT " + aLeftTableDefinition.getTableName() + ".* FROM " + aLeftTableDefinition.getTableName() +
                 " INNER JOIN " + aRightTableDefinition.getTableName() +
                 " ON " + aLeftTableDefinition.getTableName() + "." + aLeftColumnName + " = " + aRightTableDefinition.getTableName() + "." + aRightColumnName +
-                " AND " + aAndSpec +
-                " ORDER BY " + anOrderBySpec + " ASC;";
+                " AND " + aAndSpec );
+        if(aLeftColumnExceptionValue != null) {
+            theQuery.append(" AND " + aLeftTableDefinition.getTableName() + "." + aLeftColumnName + " != '" + aLeftColumnExceptionValue + "'");
+        }
+        theQuery.append(" ORDER BY " + anOrderBySpec + " ASC;");
+        return theQuery.toString();
     }
 }

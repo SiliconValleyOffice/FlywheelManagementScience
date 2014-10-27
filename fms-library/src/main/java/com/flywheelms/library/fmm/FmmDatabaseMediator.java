@@ -51,6 +51,7 @@ import com.flywheelms.library.fmm.database.sqlite.dao.NotebookDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.StrategicAssetDaoSqLite;
 import com.flywheelms.library.fmm.helper.FmmHelper;
 import com.flywheelms.library.fmm.interfaces.WorkAsset;
+import com.flywheelms.library.fmm.meta_data.BookshelfLinkToNotebookMetaData;
 import com.flywheelms.library.fmm.meta_data.BookshelfMetaData;
 import com.flywheelms.library.fmm.meta_data.CadenceMetaData;
 import com.flywheelms.library.fmm.meta_data.CommunityMemberMetaData;
@@ -71,6 +72,7 @@ import com.flywheelms.library.fmm.meta_data.NodeFragGovernanceMetaData;
 import com.flywheelms.library.fmm.meta_data.NodeFragMetaData;
 import com.flywheelms.library.fmm.meta_data.NodeFragTribKnQualityMetaData;
 import com.flywheelms.library.fmm.meta_data.NodeFragWorkTaskBudgetMetaData;
+import com.flywheelms.library.fmm.meta_data.NotebookMetaData;
 import com.flywheelms.library.fmm.meta_data.PdfPublicationMetaData;
 import com.flywheelms.library.fmm.meta_data.ProjectAssetMetaData;
 import com.flywheelms.library.fmm.meta_data.ProjectMetaData;
@@ -907,13 +909,39 @@ public class FmmDatabaseMediator {
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////  Node - NOTEBOOK  ////////////////////////////////////////////////////////////////////////////////////
 
-    public ArrayList<Notebook> getNotebookList(Bookshelf aBookshelf) {
-        return getNotebookList(aBookshelf, null);
+
+    public ArrayList<Notebook> listNotebook(Bookshelf aBookshelf) {
+        return listNotebook(aBookshelf, null);
     }
 
-    public ArrayList<Notebook> getNotebookList(Bookshelf aBookshelf, Notebook aNotebookException) {
-        return this.persistenceTechnologyDelegate.dbListNotebook(aBookshelf, aNotebookException);
+    public ArrayList<Notebook> listNotebook(Bookshelf aBookshelf, Notebook aNotebookException) {
+        return listNotebook(aBookshelf.getNodeIdString(), aNotebookException == null ? null : aNotebookException.getNodeIdString());
     }
+
+    public ArrayList<Notebook> listNotebook(String aBookshelfId, String aNotebookExceptionId) {
+        return this.persistenceTechnologyDelegate.dbListSimpleIdTableFromLink(
+                FmmNodeDefinition.NOTEBOOK,
+                IdNodeMetaData.column_ID,
+                aNotebookExceptionId,
+                FmmNodeDefinition.BOOKSHELF_LINK_TO_NOTEBOOK,
+                BookshelfLinkToNotebookMetaData.column_NOTEBOOK_ID,
+                FmmNodeDefinition.BOOKSHELF_LINK_TO_NOTEBOOK.getTableName() + "." + BookshelfLinkToNotebookMetaData.column_BOOKSHELF_ID + " = '" + aBookshelfId + "'",
+                " LOWER(" + FmmNodeDefinition.NOTEBOOK.getTableName() + "." + NotebookMetaData.column_HEADLINE + ")");
+    }
+    
+    
+    
+    
+    
+    
+
+//    public ArrayList<Notebook> getNotebookList(Bookshelf aBookshelf) {
+//        return getNotebookList(aBookshelf, null);
+//    }
+//
+//    public ArrayList<Notebook> getNotebookList(Bookshelf aBookshelf, Notebook aNotebookException) {
+//        return this.persistenceTechnologyDelegate.dbListNotebook(aBookshelf, aNotebookException);
+//    }
 
     private Notebook newNotebookForBookshelf(
             String aHeadline,
@@ -1536,7 +1564,7 @@ public class FmmDatabaseMediator {
 
     public boolean updateStrategicAsset(StrategicAsset aStrategicAsset, boolean bAtomicTransaction) {
         updateHeadlineNode(aStrategicAsset);
-        return this.persistenceTechnologyDelegate.updateSimpleIdTable(aStrategicAsset, StrategicAssetDaoSqLite.getInstance(), bAtomicTransaction);
+        return this.persistenceTechnologyDelegate.updateSimpleIdTable(aStrategicAsset, bAtomicTransaction);
     }
 
     public boolean moveAllStrategicAssetsIntoStrategicMilestone(
