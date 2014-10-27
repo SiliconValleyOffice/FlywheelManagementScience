@@ -116,7 +116,6 @@ import com.flywheelms.library.fmm.node.impl.enumerator.GovernanceTarget;
 import com.flywheelms.library.fmm.node.impl.event.PdfPublication;
 import com.flywheelms.library.fmm.node.impl.governable.Cadence;
 import com.flywheelms.library.fmm.node.impl.governable.CommunityMember;
-import com.flywheelms.library.fmm.node.impl.governable.DiscussionTopic;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
 import com.flywheelms.library.fmm.node.impl.governable.FlywheelTeam;
 import com.flywheelms.library.fmm.node.impl.governable.FmsOrganization;
@@ -350,14 +349,6 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	private <T extends FmmNodeDaoSqLite, V extends FmmNode> ArrayList<V> retrieveAllFmmNodesFromTable(T aDaoInstance) {
 		Cursor theCursor = getSqLiteDatabase().rawQuery("SELECT * FROM " + aDaoInstance.getFmmNodeDefinition().getTableName(), null);
 		return aDaoInstance.getObjectListFromCursor(theCursor);
-	}
-
-    @Override
-	@SuppressWarnings({"resource",  "rawtypes" })
-	public <T extends FmmNodeDaoSqLite> FmmNode retrieveFmmNodeFromSimpleIdTable(String atId, T aDaoInstance) {
-		Cursor theCursor = getSqLiteDatabase().rawQuery("SELECT * FROM " + aDaoInstance.getFmmNodeDefinition().getTableName() +
-				" WHERE " + IdNodeMetaData.column_ID + " = '" + atId + "'", null);
-		return aDaoInstance.getSingleObjectFromCursor(theCursor);
 	}
 	
 	@SuppressWarnings({"resource",  "rawtypes" })
@@ -897,7 +888,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
 	@Override
 	public CommunityMember dbRetrieveCommunityMember(String aNodeIdString) {
-		return (CommunityMember) retrieveFmmNodeFromSimpleIdTable(aNodeIdString, CommunityMemberDaoSqLite.getInstance());
+		return (CommunityMember) retrieveFmmNodeFromSimpleIdTable(aNodeIdString, FmmNodeDefinition.COMMUNITY_MEMBER);
 	}
 	
 	@Override
@@ -967,7 +958,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
 	@Override
 	public CompletionNodeTrash dbRetrieveCompletionNodeTrash(String aNodeIdString) {
-		return (CompletionNodeTrash) retrieveFmmNodeFromSimpleIdTable(aNodeIdString, CompletionNodeTrashDaoSqLite.getInstance());
+		return (CompletionNodeTrash) retrieveFmmNodeFromSimpleIdTable(aNodeIdString, FmmNodeDefinition.COMPLETION_NODE_TRASH);
 	}
 
 	@Override
@@ -994,20 +985,6 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////  Node - DISCUSSION TOPIC  ////////////////////////////////////////////////////////////////////////////
-
-    @SuppressWarnings("resource")
-    @Override
-    public ArrayList<DiscussionTopic> dbListDiscussionTopic(String aNotebookId, String aDiscussionTopicExceptionId) {
-//        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.DISCUSSION_TOPIC.getTableName() +
-//                " WHERE " + DiscussionTopicMetaData.column_NOTEBOOK_ID + " = '" + aNotebookId + "'";
-//        if(aDiscussionTopicExceptionId != null) {
-//            theRawQuery += " AND " + IdNodeMetaData.column_ID + " != '" + aDiscussionTopicExceptionId + "'";
-//        }
-//        theRawQuery += " ORDER BY " + CompletableNodeMetaData.column_SEQUENCE + " ASC";
-//        Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
-//        return DiscussionTopicDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
-        return null;
-    }
 
 
     //////  Node - PORTFOLIO  ////////////////////////////////////////////////////////////////////////////////
@@ -1131,7 +1108,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
     @Override
     public Portfolio dbRetrievePortfolio(String aNodeIdString) {
-        return (Portfolio) retrieveFmmNodeFromSimpleIdTable(aNodeIdString, PortfolioDaoSqLite.getInstance());
+        return (Portfolio) retrieveFmmNodeFromSimpleIdTable(aNodeIdString, FmmNodeDefinition.PORTFOLIO);
     }
 
 
@@ -1391,7 +1368,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
 	@Override
 	public FiscalYear dbRetrieveFiscalYear(String aNodeIdString) {
-		return (FiscalYear) retrieveFmmNodeFromSimpleIdTable(aNodeIdString, FiscalYearDaoSqLite.getInstance());
+		return (FiscalYear) retrieveFmmNodeFromSimpleIdTable(aNodeIdString, FmmNodeDefinition.FISCAL_YEAR);
 	}
 	
 	@Override
@@ -1431,7 +1408,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
     @Override
     public FiscalYearHolidayBreak dbRetrieveFiscalYearHolidayBreak(String aNodeIdString) {
-        return (FiscalYearHolidayBreak) retrieveFmmNodeFromSimpleIdTable(aNodeIdString, FiscalYearHolidayBreakDaoSqLite.getInstance());
+        return (FiscalYearHolidayBreak) retrieveFmmNodeFromSimpleIdTable(aNodeIdString, FmmNodeDefinition.FISCAL_YEAR_HOLIDAY_BREAK);
     }
 
     @Override
@@ -1478,7 +1455,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
     @Override
     public Cadence dbRetrieveCadence(String aNodeIdString) {
-        return (Cadence) retrieveFmmNodeFromSimpleIdTable(aNodeIdString, CadenceDaoSqLite.getInstance());
+        return (Cadence) retrieveFmmNodeFromSimpleIdTable(aNodeIdString, FmmNodeDefinition.CADENCE);
     }
 
     @Override
@@ -1530,7 +1507,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
     @Override
     public WorkPlan dbRetrieveWorkPlan(String aNodeIdString) {
-        return (WorkPlan) retrieveFmmNodeFromSimpleIdTable(aNodeIdString, WorkPlanDaoSqLite.getInstance());
+        return (WorkPlan) retrieveFmmNodeFromSimpleIdTable(aNodeIdString, FmmNodeDefinition.WORK_PLAN);
     }
 
     @Override
@@ -1594,7 +1571,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
 	@Override
 	public FlywheelTeam dbRetrieveFlywheelTeam(String aNodeIdString) {
-		return (FlywheelTeam) retrieveFmmNodeFromSimpleIdTable(aNodeIdString, FlywheelTeamDaoSqLite.getInstance());
+		return (FlywheelTeam) retrieveFmmNodeFromSimpleIdTable(aNodeIdString, FmmNodeDefinition.FLYWHEEL_TEAM);
 	}
 
 	@Override
@@ -1623,7 +1600,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
 	@Override
 	public NodeFragWorkTaskBudget dbRetrieveNodeFragWorkTaskBudget(String aNodeIdString) {
-		return (NodeFragWorkTaskBudget) retrieveFmmNodeFromSimpleIdTable(aNodeIdString, NodeFragWorkTaskBudgetDaoSqLite.getInstance());
+		return (NodeFragWorkTaskBudget) retrieveFmmNodeFromSimpleIdTable(aNodeIdString, FmmNodeDefinition.NODE_FRAG__WORK_TASK_BUDGET);
 	}
 
 	@Override
@@ -1661,7 +1638,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
 	@Override
 	public NodeFragGovernance dbRetrieveNodeFragGovernance(String aNodeIdString) {
-		return (NodeFragGovernance) retrieveFmmNodeFromSimpleIdTable(aNodeIdString, NodeFragGovernanceDaoSqLite.getInstance());
+		return (NodeFragGovernance) retrieveFmmNodeFromSimpleIdTable(aNodeIdString, FmmNodeDefinition.NODE_FRAG__GOVERNANCE);
 	}
 
 	@Override
@@ -1700,7 +1677,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
 	@Override
 	public FmsOrganization dbRetrieveFmsOrganization(String aNodeIdString) {
-		return (FmsOrganization) retrieveFmmNodeFromSimpleIdTable(aNodeIdString, FmsOrganizationDaoSqLite.getInstance());
+		return (FmsOrganization) retrieveFmmNodeFromSimpleIdTable(aNodeIdString, FmmNodeDefinition.FMS_ORGANIZATION);
 	}
 
 	@Override
@@ -1810,7 +1787,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
 	@Override
 	public Project dbRetrieveProject(String aNodeIdString) {
-		return (Project) retrieveFmmNodeFromSimpleIdTable(aNodeIdString, ProjectDaoSqLite.getInstance());
+		return (Project) retrieveFmmNodeFromSimpleIdTable(aNodeIdString, FmmNodeDefinition.PROJECT);
 	}
 	
 	@Override
@@ -2003,7 +1980,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
 	@Override
 	public ProjectAsset dbRetrieveProjectAsset(String aNodeIdString) {
-		return (ProjectAsset) retrieveFmmNodeFromSimpleIdTable(aNodeIdString, ProjectAssetDaoSqLite.getInstance());
+		return (ProjectAsset) retrieveFmmNodeFromSimpleIdTable(aNodeIdString, FmmNodeDefinition.PROJECT_ASSET);
 	}
 	
 	@Override
@@ -2290,7 +2267,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
 	@Override
 	public StrategicCommitment dbRetrieveStrategicCommitment(String aNodeIdString) {
-		return (StrategicCommitment) retrieveFmmNodeFromSimpleIdTable(aNodeIdString, StrategicCommitmentDaoSqLite.getInstance());
+		return (StrategicCommitment) retrieveFmmNodeFromSimpleIdTable(aNodeIdString, FmmNodeDefinition.STRATEGIC_COMMITMENT);
 	}
 
 	@SuppressWarnings("resource")
@@ -2425,7 +2402,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
 	@Override
 	public StrategicMilestone dbRetrieveStrategicMilestone(String aNodeIdString) {
-		return (StrategicMilestone) retrieveFmmNodeFromSimpleIdTable(aNodeIdString, StrategicMilestoneDaoSqLite.getInstance());
+		return (StrategicMilestone) retrieveFmmNodeFromSimpleIdTable(aNodeIdString, FmmNodeDefinition.STRATEGIC_MILESTONE);
 	}
 	
 	@Override
@@ -2728,7 +2705,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
 	@Override
 	public WorkPackage dbRetrieveWorkPackage(String aNodeIdString) {
-		return (WorkPackage) retrieveFmmNodeFromSimpleIdTable(aNodeIdString, WorkPackageDaoSqLite.getInstance());
+		return (WorkPackage) retrieveFmmNodeFromSimpleIdTable(aNodeIdString, FmmNodeDefinition.WORK_PACKAGE);
 	}
 	
 	@Override
@@ -2877,7 +2854,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
 	@Override
 	public NodeFragFseDocument dbRetrieveNodeFragFseDocument(String aNodeIdString) {
-		return (NodeFragFseDocument) retrieveFmmNodeFromSimpleIdTable(aNodeIdString, NodeFragFseDocumentDaoSqLite.getInstance());
+		return (NodeFragFseDocument) retrieveFmmNodeFromSimpleIdTable(aNodeIdString, FmmNodeDefinition.NODE_FRAG__FSE_DOCUMENT);
 	}
 
 	@SuppressWarnings("resource")
@@ -2950,7 +2927,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
 	@Override
 	public PdfPublication dbRetrievePdfPublication(String aNodeIdString) {
-		return (PdfPublication) retrieveFmmNodeFromSimpleIdTable(aNodeIdString, PdfPublicationDaoSqLite.getInstance());
+		return (PdfPublication) retrieveFmmNodeFromSimpleIdTable(aNodeIdString, FmmNodeDefinition.PDF_PUBLICATION);
 	}
 
 	@Override
@@ -2978,7 +2955,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
 	@Override
 	public OrganizationCommunityMember dbRetrieveOrganizationCommunityMember(String aNodeIdString) {
-		return (OrganizationCommunityMember) retrieveFmmNodeFromSimpleIdTable(aNodeIdString, OrganizationCommunityMemberDaoSqLite.getInstance());
+		return (OrganizationCommunityMember) retrieveFmmNodeFromSimpleIdTable(aNodeIdString, FmmNodeDefinition.ORGANIZATION_COMMUNITY_MEMBER);
 	}
 
 	@Override
@@ -3013,7 +2990,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
 	@Override
 	public FragLock dbRetrieveFragLock(String aNodeIdString) {
-		return (FragLock) retrieveFmmNodeFromSimpleIdTable(aNodeIdString, FragLockDaoSqLite.getInstance());
+		return (FragLock) retrieveFmmNodeFromSimpleIdTable(aNodeIdString, FmmNodeDefinition.FRAG_LOCK);
 	}
 
 	@Override
@@ -3052,7 +3029,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
 	@Override
 	public NodeFragAuditBlock dbRetrieveNodeFragAuditBlock(String aNodeIdString) {
-		return (NodeFragAuditBlock) retrieveFmmNodeFromSimpleIdTable(aNodeIdString, NodeFragAuditBlockDaoSqLite.getInstance());
+		return (NodeFragAuditBlock) retrieveFmmNodeFromSimpleIdTable(aNodeIdString, FmmNodeDefinition.NODE_FRAG__AUDIT_BLOCK);
 	}
 
 	@Override
@@ -3090,7 +3067,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
 	@Override
 	public NodeFragCompletion dbRetrieveNodeFragCompletion(String aNodeIdString) {
-		return (NodeFragCompletion) retrieveFmmNodeFromSimpleIdTable(aNodeIdString, NodeFragCompletionDaoSqLite.getInstance());
+		return (NodeFragCompletion) retrieveFmmNodeFromSimpleIdTable(aNodeIdString, FmmNodeDefinition.NODE_FRAG__COMPLETION);
 	}
 
 	@Override
@@ -3168,7 +3145,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
 	@Override
 	public FmmConfiguration dbRetrieveFmmConfiguration(String aNodeIdString) {
-		return (FmmConfiguration) retrieveFmmNodeFromSimpleIdTable(aNodeIdString, FmmConfigurationDaoSqLite.getInstance());
+		return (FmmConfiguration) retrieveFmmNodeFromSimpleIdTable(aNodeIdString, FmmNodeDefinition.FMM_CONFIGURATION);
 	}
 
 	@Override
@@ -3253,7 +3230,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
 	@Override
 	public WorkTask dbRetrieveWorkTask(String aNodeIdString) {
-		return (WorkTask) retrieveFmmNodeFromSimpleIdTable(aNodeIdString, WorkTaskDaoSqLite.getInstance());
+		return (WorkTask) retrieveFmmNodeFromSimpleIdTable(aNodeIdString, FmmNodeDefinition.WORK_TASK);
 	}
 
 	@Override
@@ -3422,7 +3399,16 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
     //////////  GENERIC METHODS  ////////////
     /////////////////////////////////////////
 
-    //  LIST
+    //  RETRIEVE
+
+    @Override
+    @SuppressWarnings({"resource",  "rawtypes" })
+    public FmmNode retrieveFmmNodeFromSimpleIdTable(String atId, FmmNodeDefinition anFmmNodeDefinition) {
+        FmmNodeDaoSqLite theDao = getDao(anFmmNodeDefinition);
+        Cursor theCursor = getSqLiteDatabase().rawQuery("SELECT * FROM " + anFmmNodeDefinition.getTableName() +
+                " WHERE " + IdNodeMetaData.column_ID + " = '" + atId + "'", null);
+        return theDao.getSingleObjectFromCursor(theCursor);
+    }
 
     @SuppressWarnings("resource")
     @Override

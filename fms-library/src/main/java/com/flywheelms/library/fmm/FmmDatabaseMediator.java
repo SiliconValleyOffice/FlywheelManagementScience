@@ -675,7 +675,7 @@ public class FmmDatabaseMediator {
 		FmmNodeDefinition theFmmNodeDefinition = FmmNodeDefinition.getEntryForNodeIdString(aNodeIdString);
 		switch(theFmmNodeDefinition) {
 		case BOOKSHELF:
-            return getBookshelf(aNodeIdString);
+            return retrieveBookshelf(aNodeIdString);
 		case COMMUNITY_MEMBER:
 			return getCommunityMember(aNodeIdString);
 		case DISCUSSION_TOPIC:
@@ -855,13 +855,6 @@ public class FmmDatabaseMediator {
                 "LOWER(" + HeadlineNodeMetaData.column_HEADLINE + ")" );
     }
 
-
-
-
-
-
-
-
     public Bookshelf createBookshelf(String aHeadline) {
         Bookshelf theBookshelf = new Bookshelf(
                 new NodeId(FmmNodeDefinition.BOOKSHELF),
@@ -893,16 +886,20 @@ public class FmmDatabaseMediator {
     }
 
     public boolean existsBookshelf(String aNodeIdString) {
-        return getBookshelf(aNodeIdString) != null;
+        return retrieveBookshelf(aNodeIdString) != null;
     }
 
     public boolean updateBookshelf(Bookshelf aBookshelf, boolean bAtomicTransaction) {
         updateHeadlineNode(aBookshelf);
-        return this.persistenceTechnologyDelegate.dbUpdateBookshelf(aBookshelf, bAtomicTransaction);
+        return this.persistenceTechnologyDelegate.updateSimpleIdTable(aBookshelf, bAtomicTransaction);
     }
 
-    public Bookshelf getBookshelf(String aNodeIdString) {
-        return this.persistenceTechnologyDelegate.dbRetrieveBookshelf(aNodeIdString);
+    public Bookshelf retrieveBookshelf(String aNodeIdString) {
+        return (Bookshelf) this.persistenceTechnologyDelegate.retrieveFmmNodeFromSimpleIdTable(aNodeIdString, FmmNodeDefinition.BOOKSHELF);
+    }
+
+    public boolean dbDeleteBookshelf(Bookshelf aBookshelf, boolean bAtomicTransaction) {
+        return this.persistenceTechnologyDelegate.deleteRowFromSimpleIdTable(aBookshelf.getNodeIdString(), FmmNodeDefinition.BOOKSHELF, bAtomicTransaction);
     }
 
 
@@ -992,7 +989,7 @@ public class FmmDatabaseMediator {
     }
 
     public ArrayList<DiscussionTopic> getDiscussionTopicList(Notebook anNotebook, DiscussionTopic aDiscussionTopicException) {
-        return this.persistenceTechnologyDelegate.dbListDiscussionTopic(anNotebook, aDiscussionTopicException);
+        return null;
     }
 
     public boolean newDiscussionTopic(DiscussionTopic aDiscussionTopic, boolean bAtomicTransaction) {
@@ -1624,7 +1621,7 @@ public class FmmDatabaseMediator {
     }
 
     public StrategicAsset retrieveStrategicAsset(String aNodeIdString) {
-        return (StrategicAsset) this.persistenceTechnologyDelegate.retrieveFmmNodeFromSimpleIdTable(aNodeIdString, StrategicAssetDaoSqLite.getInstance());
+        return (StrategicAsset) this.persistenceTechnologyDelegate.retrieveFmmNodeFromSimpleIdTable(aNodeIdString, FmmNodeDefinition.STRATEGIC_ASSET);
     }
 
     public boolean demoteStrategicAssetToProjectAsset(

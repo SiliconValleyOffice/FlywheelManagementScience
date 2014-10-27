@@ -152,7 +152,7 @@ public class Notebook extends FmmGovernableNodeImpl {
 
     public Bookshelf getBookshelf() {
         if(this.bookshelf == null && this.bookshelfId != null) {
-            this.bookshelf = FmmDatabaseMediator.getActiveMediator().getBookshelf(this.bookshelfId);
+            this.bookshelf = FmmDatabaseMediator.getActiveMediator().retrieveBookshelf(this.bookshelfId);
         }
         return this.bookshelf;
     }
