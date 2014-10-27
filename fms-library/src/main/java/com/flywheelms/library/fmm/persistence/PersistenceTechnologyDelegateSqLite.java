@@ -200,6 +200,10 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
         return this.daoMap.get(anFmmNodeDefinition);
     }
 
+    public FmmNodeDaoSqLite getDao(FmmNode anFmmNode) {
+        return this.daoMap.get(anFmmNode.getFmmNodeDefinition());
+    }
+
 
     @Override
 	public <T extends FmmConfiguration> void setActiveDatabase(T anFmmConfiguration) {
@@ -370,12 +374,13 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public <T extends FmmNodeDaoSqLite, V extends FmmNode> boolean insertSimpleIdTable(V anFmmNode, T aDaoInstance, boolean bAtomicTransaction) {
+	public <V extends FmmNode> boolean insertSimpleIdTable(V anFmmNode, boolean bAtomicTransaction) {
 		if(bAtomicTransaction) {
 			startTransaction();
 		}
-		this.contentValues = aDaoInstance.buildContentValues(anFmmNode);
-		boolean theBoolean = getSqLiteDatabase().insert(aDaoInstance.getFmmNodeDefinition().getTableName(), null, this.contentValues) > 0;
+        FmmNodeDaoSqLite theDao = getDao(anFmmNode);
+		this.contentValues = theDao.buildContentValues(anFmmNode);
+		boolean theBoolean = getSqLiteDatabase().insert(anFmmNode.getFmmNodeDefinition().getTableName(), null, this.contentValues) > 0;
     	if(bAtomicTransaction) {
     		endTransaction(theBoolean);
     	}
@@ -417,22 +422,6 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 //    	}
 //		return theBoolean;
 //	}
-
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public <T extends FmmNodeDaoSqLite, V extends FmmNode> boolean updateSimpleIdTable(
-			V anFmmNode, T aDaoInstance, boolean bAtomicTransaction) {
-		if(bAtomicTransaction) {
-			startTransaction();
-		}
-		anFmmNode.setRowTimestamp(GcgDateHelper.getCurrentDateTime());
-		this.contentValues = aDaoInstance.buildUpdateContentValues(anFmmNode);
-		boolean theBoolean = getSqLiteDatabase().update(aDaoInstance.getFmmNodeDefinition().getTableName(), this.contentValues,
-    			IdNodeMetaData.column_ID + " = '" + anFmmNode.getNodeIdString() + "'", null) > 0;
-    	if(bAtomicTransaction) {
-    		endTransaction(theBoolean);
-    	}
-		return theBoolean;
-	}
 
 	private String getStringValue(FmmNodeDefinition anFmmNodeDefinition, String aSourceColumnName, String aWhereSpec) {
 		String theString = null;
@@ -894,13 +883,13 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	@Override
 	public boolean dbInsertCommunityMember(CommunityMember aCommunityMember, boolean bAtomicTransaction) {
     	return insertSimpleIdTable(
-    			aCommunityMember, CommunityMemberDaoSqLite.getInstance(), bAtomicTransaction);
+    			aCommunityMember, bAtomicTransaction);
 	}
 
 	@Override
 	public boolean dbUpdateCommunityMember(CommunityMember aCommunityMember, boolean bAtomicTransaction) {
     	return updateSimpleIdTable(
-    			aCommunityMember, CommunityMemberDaoSqLite.getInstance(), bAtomicTransaction);
+    			aCommunityMember, bAtomicTransaction);
 	}
 
 	@Override
@@ -964,7 +953,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	@Override
 	public boolean dbInsertCompletionNodeTrash(CompletionNodeTrash aCompletionNodeTrash, boolean bAtomicTransaction) {
     	return insertSimpleIdTable(
-    			aCompletionNodeTrash, CompletionNodeTrashDaoSqLite.getInstance(), bAtomicTransaction);
+    			aCompletionNodeTrash, bAtomicTransaction);
 	}
 
 	@Override
@@ -1005,7 +994,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
     @Override
     public boolean dbInsertPortfolio(Portfolio aPortfolio, boolean bAtomicTransaction) {
         return insertSimpleIdTable(
-                aPortfolio, PortfolioDaoSqLite.getInstance(), bAtomicTransaction);
+                aPortfolio, bAtomicTransaction);
     }
 
     @Override
@@ -1079,7 +1068,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
     @Override
     public boolean dbUpdatePortfolio(Portfolio aPortfolio, boolean bAtomicTransaction) {
-        return updateSimpleIdTable(aPortfolio, PortfolioDaoSqLite.getInstance(), bAtomicTransaction);
+        return updateSimpleIdTable(aPortfolio, bAtomicTransaction);
     }
 
     @Override
@@ -1374,13 +1363,13 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	@Override
 	public boolean dbInsertFiscalYear(FiscalYear aFiscalYear, boolean bAtomicTransaction) {
     	return insertSimpleIdTable(
-    			aFiscalYear, FiscalYearDaoSqLite.getInstance(), bAtomicTransaction);
+    			aFiscalYear, bAtomicTransaction);
 	}
 	
 	@Override
 	public boolean dbUpdateFiscalYear(FiscalYear aFiscalYear, boolean bAtomicTransaction) {
     	return updateSimpleIdTable(
-    			aFiscalYear, FiscalYearDaoSqLite.getInstance(), bAtomicTransaction);
+    			aFiscalYear, bAtomicTransaction);
 	}
 
 	@Override
@@ -1414,13 +1403,13 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
     @Override
     public boolean dbInsertFiscalYearHolidayBreak(FiscalYearHolidayBreak aFiscalYearHolidayBreak, boolean bAtomicTransaction) {
         return insertSimpleIdTable(
-                aFiscalYearHolidayBreak, FiscalYearHolidayBreakDaoSqLite.getInstance(), bAtomicTransaction);
+                aFiscalYearHolidayBreak, bAtomicTransaction);
     }
 
     @Override
     public boolean dbUpdateFiscalYearHolidayBreak(FiscalYearHolidayBreak aFiscalYearHolidayBreak, boolean bAtomicTransaction) {
         return updateSimpleIdTable(
-                aFiscalYearHolidayBreak, FiscalYearHolidayBreakDaoSqLite.getInstance(), bAtomicTransaction);
+                aFiscalYearHolidayBreak, bAtomicTransaction);
     }
 
     @Override
@@ -1461,13 +1450,13 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
     @Override
     public boolean dbInsertCadence(Cadence aCadence, boolean bAtomicTransaction) {
         return insertSimpleIdTable(
-                aCadence, CadenceDaoSqLite.getInstance(), bAtomicTransaction);
+                aCadence, bAtomicTransaction);
     }
 
     @Override
     public boolean dbUpdateCadence(Cadence aCadence, boolean bAtomicTransaction) {
         return updateSimpleIdTable(
-                aCadence, CadenceDaoSqLite.getInstance(), bAtomicTransaction);
+                aCadence, bAtomicTransaction);
     }
 
     @Override
@@ -1513,13 +1502,13 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
     @Override
     public boolean dbInsertWorkPlan(WorkPlan aWorkPlan, boolean bAtomicTransaction) {
         return insertSimpleIdTable(
-                aWorkPlan, WorkPlanDaoSqLite.getInstance(), bAtomicTransaction);
+                aWorkPlan, bAtomicTransaction);
     }
 
     @Override
     public boolean dbUpdateWorkPlan(WorkPlan aWorkPlan, boolean bAtomicTransaction) {
         return updateSimpleIdTable(
-                aWorkPlan, WorkPlanDaoSqLite.getInstance(), bAtomicTransaction);
+                aWorkPlan, bAtomicTransaction);
     }
 
     @Override
@@ -1576,12 +1565,12 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
 	@Override
 	public boolean dbInsertFlywheelTeam(FlywheelTeam aFlywheelTeam, boolean bAtomicTransaction) {
-    	return insertSimpleIdTable(aFlywheelTeam, FlywheelTeamDaoSqLite.getInstance(), bAtomicTransaction);
+    	return insertSimpleIdTable(aFlywheelTeam, bAtomicTransaction);
 	}
 
 	@Override
 	public boolean dbUpdateFlywheelTeam(FlywheelTeam aFlywheelTeam, boolean bAtomicTransaction) {
-    	return updateSimpleIdTable(aFlywheelTeam, FlywheelTeamDaoSqLite.getInstance(), bAtomicTransaction);
+    	return updateSimpleIdTable(aFlywheelTeam, bAtomicTransaction);
 	}
 
 	@Override
@@ -1610,12 +1599,12 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	
 	@Override
 	public boolean dbInsertNodeFragWorkTaskBudget(NodeFragWorkTaskBudget aNodeFragWorkTaskBudget, boolean bAtomicTransaction) {
-    	return insertSimpleIdTable(aNodeFragWorkTaskBudget, NodeFragWorkTaskBudgetDaoSqLite.getInstance(), bAtomicTransaction);
+    	return insertSimpleIdTable(aNodeFragWorkTaskBudget, bAtomicTransaction);
 	}
 
 	@Override
 	public boolean dbUpdateNodeFragWorkTaskBudget(NodeFragWorkTaskBudget aNodeFragWorkTaskBudget, boolean bAtomicTransaction) {
-    	return updateSimpleIdTable(aNodeFragWorkTaskBudget, NodeFragWorkTaskBudgetDaoSqLite.getInstance(), bAtomicTransaction);
+    	return updateSimpleIdTable(aNodeFragWorkTaskBudget, bAtomicTransaction);
 	}
 
 	@Override
@@ -1649,7 +1638,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	@Override
 	public boolean dbInsertNodeFragGovernance(NodeFragGovernance aNodeFragGovernance, boolean bAtomicTransaction) {
     	return insertSimpleIdTable(
-    			aNodeFragGovernance, NodeFragGovernanceDaoSqLite.getInstance(), bAtomicTransaction);
+    			aNodeFragGovernance, bAtomicTransaction);
 	}
 
 	@Override
@@ -1683,13 +1672,13 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	@Override
 	public boolean dbInsertFmsOrganization(FmsOrganization anFmsOrganization, boolean bAtomicTransaction) {
     	return insertSimpleIdTable(
-    			anFmsOrganization, FmsOrganizationDaoSqLite.getInstance(), bAtomicTransaction);
+    			anFmsOrganization, bAtomicTransaction);
 	}
 
 	@Override
 	public boolean dbUpdateFmsOrganization(FmsOrganization anFmsOrganization, boolean bAtomicTransaction) {
     	return updateSimpleIdTable(
-    			anFmsOrganization, FmsOrganizationDaoSqLite.getInstance(), bAtomicTransaction);
+    			anFmsOrganization, bAtomicTransaction);
 	}
 
 	@Override
@@ -1792,12 +1781,12 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	
 	@Override
 	public boolean dbInsertProject(Project aProject, boolean bAtomicTransaction) {
-    	return insertSimpleIdTable(aProject, ProjectDaoSqLite.getInstance(), bAtomicTransaction);
+    	return insertSimpleIdTable(aProject, bAtomicTransaction);
 	}
 
 	@Override
 	public boolean dbUpdateProject(Project aProject, boolean bAtomicTransaction) {
-    	return updateSimpleIdTable(aProject, ProjectDaoSqLite.getInstance(), bAtomicTransaction);
+    	return updateSimpleIdTable(aProject, bAtomicTransaction);
 	}
 
     public boolean dbOrphanSingleProjectFromPortfolio(String aProjectNodeIdString, String aPortfolioNodeIdString, boolean bAtomicTransaction) {
@@ -1985,12 +1974,12 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	
 	@Override
 	public boolean dbInsertProjectAsset(ProjectAsset aProjectAsset, boolean bAtomicTransaction) {
-    	return insertSimpleIdTable(aProjectAsset, ProjectAssetDaoSqLite.getInstance(), bAtomicTransaction);
+    	return insertSimpleIdTable(aProjectAsset, bAtomicTransaction);
 	}
 	
 	@Override
 	public boolean dbUpdateProjectAsset(ProjectAsset aProjectAsset, boolean bAtomicTransaction) {
-    	return updateSimpleIdTable(aProjectAsset, ProjectAssetDaoSqLite.getInstance(), bAtomicTransaction);
+    	return updateSimpleIdTable(aProjectAsset, bAtomicTransaction);
 	}
 
 	@Override
@@ -2290,13 +2279,13 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	@Override
 	public boolean dbInsertStrategicCommitment(StrategicCommitment aStrategicCommitment, boolean bAtomicTransaction) {
     	return insertSimpleIdTable(
-    			aStrategicCommitment, StrategicCommitmentDaoSqLite.getInstance(), bAtomicTransaction);
+    			aStrategicCommitment, bAtomicTransaction);
 	}
 
 	@Override
 	public boolean dbUpdateStrategicCommitment(StrategicCommitment aStrategicCommitment, boolean bAtomicTransaction) {
     	return updateSimpleIdTable(
-                aStrategicCommitment, StrategicCommitmentDaoSqLite.getInstance(), bAtomicTransaction);
+                aStrategicCommitment, bAtomicTransaction);
 	}
 
 	@Override
@@ -2407,12 +2396,12 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	
 	@Override
 	public boolean dbInsertStrategicMilestone(StrategicMilestone aStrategicMilestone, boolean bAtomicTransaction) {
-    	return insertSimpleIdTable(aStrategicMilestone, StrategicMilestoneDaoSqLite.getInstance(), bAtomicTransaction);
+    	return insertSimpleIdTable(aStrategicMilestone, bAtomicTransaction);
 	}
 	
 	@Override
 	public boolean dbUpdateStrategicMilestone(StrategicMilestone aStrategicMilestone, boolean bAtomicTransaction) {
-    	return updateSimpleIdTable(aStrategicMilestone, StrategicMilestoneDaoSqLite.getInstance(), bAtomicTransaction);
+    	return updateSimpleIdTable(aStrategicMilestone, bAtomicTransaction);
 	}
 
 	@Override
@@ -2710,12 +2699,12 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	
 	@Override
 	public boolean dbInsertWorkPackage(WorkPackage aWorkPackage, boolean bAtomicTransaction) {
-    	return insertSimpleIdTable(aWorkPackage, WorkPackageDaoSqLite.getInstance(), bAtomicTransaction);
+    	return insertSimpleIdTable(aWorkPackage, bAtomicTransaction);
 	}
 
 	@Override
 	public boolean dbUpdateWorkPackage(WorkPackage aWorkPackage, boolean bAtomicTransaction) {
-    	return updateSimpleIdTable(aWorkPackage, WorkPackageDaoSqLite.getInstance(), bAtomicTransaction);
+    	return updateSimpleIdTable(aWorkPackage, bAtomicTransaction);
 	}
 
 	@Override
@@ -2872,12 +2861,12 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	
 	@Override
 	public boolean dbInsertNodeFragFseDocument(NodeFragFseDocument aNodeFragFseDocument, boolean bAtomicTransaction) {
-    	return insertSimpleIdTable(aNodeFragFseDocument, NodeFragFseDocumentDaoSqLite.getInstance(), bAtomicTransaction);
+    	return insertSimpleIdTable(aNodeFragFseDocument, bAtomicTransaction);
 	}
 
 	@Override
 	public boolean dbUpdateNodeFragFseDocument(NodeFragFseDocument aNodeFragFseDocument, boolean bAtomicTransaction) {
-    	return updateSimpleIdTable(aNodeFragFseDocument, NodeFragFseDocumentDaoSqLite.getInstance(), bAtomicTransaction);
+    	return updateSimpleIdTable(aNodeFragFseDocument, bAtomicTransaction);
 	}
 
 	@Override
@@ -2932,12 +2921,12 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
 	@Override
 	public boolean dbInsertPdfPublication(PdfPublication aPdfPublication, boolean bAtomicTransaction) {
-    	return insertSimpleIdTable(aPdfPublication, PdfPublicationDaoSqLite.getInstance(), bAtomicTransaction);
+    	return insertSimpleIdTable(aPdfPublication, bAtomicTransaction);
 	}
 
 	@Override
 	public boolean dbUpdatePdfPublication(PdfPublication aPdfPublication, boolean bAtomicTransaction) {
-    	return updateSimpleIdTable(aPdfPublication, PdfPublicationDaoSqLite.getInstance(), bAtomicTransaction);
+    	return updateSimpleIdTable(aPdfPublication, bAtomicTransaction);
 	}
 
 	@Override
@@ -3006,12 +2995,12 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	
 	@Override
 	public boolean dbInsertFragLock(FragLock aFragLock, boolean bAtomicTransaction) {
-    	return insertSimpleIdTable(aFragLock, FragLockDaoSqLite.getInstance(), bAtomicTransaction);
+    	return insertSimpleIdTable(aFragLock, bAtomicTransaction);
 	}
 
 	@Override
 	public boolean dbUpdateFragLock(FragLock aFragLock, boolean bAtomicTransaction) {
-    	return updateSimpleIdTable(aFragLock, FragLockDaoSqLite.getInstance(), bAtomicTransaction);
+    	return updateSimpleIdTable(aFragLock, bAtomicTransaction);
 	}
 
 	@Override
@@ -3039,12 +3028,12 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
 	@Override
 	public boolean dbInsertNodeFragAuditBlock(NodeFragAuditBlock aNodeFragAuditBlock, boolean bAtomicTransaction) {
-    	return insertSimpleIdTable(aNodeFragAuditBlock, NodeFragAuditBlockDaoSqLite.getInstance(), bAtomicTransaction);
+    	return insertSimpleIdTable(aNodeFragAuditBlock, bAtomicTransaction);
 	}
 
 	@Override
 	public boolean dbUpdateNodeFragAuditBlock(NodeFragAuditBlock aNodeFragAuditBlock, boolean bAtomicTransaction) {
-    	return updateSimpleIdTable(aNodeFragAuditBlock, NodeFragAuditBlockDaoSqLite.getInstance(), bAtomicTransaction);
+    	return updateSimpleIdTable(aNodeFragAuditBlock, bAtomicTransaction);
 	}
 
 	@Override
@@ -3077,12 +3066,12 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	
 	@Override
 	public boolean dbInsertNodeFragCompletion(NodeFragCompletion aNodeFragCompletion, boolean bAtomicTransaction) {
-    	return insertSimpleIdTable(aNodeFragCompletion, NodeFragCompletionDaoSqLite.getInstance(), bAtomicTransaction);
+    	return insertSimpleIdTable(aNodeFragCompletion, bAtomicTransaction);
 	}
 
 	@Override
 	public boolean dbUpdateNodeFragCompletion(NodeFragCompletion aNodeFragCompletion, boolean bAtomicTransaction) {
-    	return updateSimpleIdTable(aNodeFragCompletion, NodeFragCompletionDaoSqLite.getInstance(), bAtomicTransaction);
+    	return updateSimpleIdTable(aNodeFragCompletion, bAtomicTransaction);
 	}
 
 	@Override
@@ -3117,12 +3106,12 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	
 	@Override
 	public boolean dbInsertNodeFragTribKnQuality(NodeFragTribKnQuality aNodeFragTribKnQuality, boolean bAtomicTransaction) {
-    	return insertSimpleIdTable(aNodeFragTribKnQuality, NodeFragTribKnQualityDaoSqLite.getInstance(), bAtomicTransaction);
+    	return insertSimpleIdTable(aNodeFragTribKnQuality, bAtomicTransaction);
 	}
 
 	@Override
 	public boolean dbUpdateNodeFragTribKnQuality(NodeFragTribKnQuality aNodeFragTribKnQuality, boolean bAtomicTransaction) {
-    	return updateSimpleIdTable(aNodeFragTribKnQuality, NodeFragTribKnQualityDaoSqLite.getInstance(), bAtomicTransaction);
+    	return updateSimpleIdTable(aNodeFragTribKnQuality, bAtomicTransaction);
 	}
 
 	@Override
@@ -3150,12 +3139,12 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
 	@Override
 	public boolean dbInsertFmmConfiguration(FmmConfiguration anFmmConfiguration, boolean bAtomicTransaction) {
-    	return insertSimpleIdTable(anFmmConfiguration, FmmConfigurationDaoSqLite.getInstance(), bAtomicTransaction);
+    	return insertSimpleIdTable(anFmmConfiguration, bAtomicTransaction);
 	}
 
 	@Override
 	public boolean dbUpdateFmmConfiguration(FmmConfiguration anFmmConfiguration, boolean bAtomicTransaction) {
-    	return updateSimpleIdTable(anFmmConfiguration, FmmConfigurationDaoSqLite.getInstance(), bAtomicTransaction);
+    	return updateSimpleIdTable(anFmmConfiguration, bAtomicTransaction);
 	}
 
 	@Override
@@ -3235,7 +3224,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
 	@Override
 	public boolean dbInsertWorkTask(WorkTask aWorkTask, boolean bAtomicTransaction) {
-    	return insertSimpleIdTable(aWorkTask, WorkTaskDaoSqLite.getInstance(), bAtomicTransaction);
+    	return insertSimpleIdTable(aWorkTask, bAtomicTransaction);
 	}
 
 	@Override
@@ -3245,7 +3234,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
 	@Override
 	public boolean dbUpdateWorkTask(WorkTask aWorkTask, boolean bAtomicTransaction) {
-    	return updateSimpleIdTable(aWorkTask, WorkTaskDaoSqLite.getInstance(), bAtomicTransaction);
+    	return updateSimpleIdTable(aWorkTask, bAtomicTransaction);
 	}
 
     // TODO - RESEQUENCE BOTH Source and Destination

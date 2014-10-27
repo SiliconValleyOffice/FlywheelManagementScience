@@ -886,8 +886,6 @@ public abstract class PersistenceTechnologyDelegate {
     //////////  GENERIC METHODS  ////////////
     /////////////////////////////////////////
 
-    public abstract <T extends FmmNodeDaoSqLite, V extends FmmNode> boolean insertSimpleIdTable(V anFmmNode, T aDaoInstance, boolean bAtomicTransaction);
-
     public abstract boolean deleteRowFromSimpleIdTable(String aNodeIdString, FmmNodeDefinition anFmmNodeDefinition, boolean bAtomicTransaction);
 
     public abstract int getLinkTableNodeSequence(FmmNodeDefinition aLinkTableFmmNodeDefinition, String aParentIdColumnName, String aParentNodeId, String aChildIdColumnName, String aPeerNodeId);
@@ -918,7 +916,9 @@ public abstract class PersistenceTechnologyDelegate {
             String anAndSpec,
             String anOrderBySpec );
 
-    // UPDATE
+    // INSERT & UPDATE
+
+    public abstract <V extends FmmNode> boolean insertSimpleIdTable(V anFmmNode, boolean bAtomicTransaction);
 
     @SuppressWarnings({ "rawtypes", "unchecked" })
     public abstract <V extends FmmNode> boolean updateSimpleIdTable(V anFmmNode, boolean bAtomicTransaction);

@@ -93,16 +93,16 @@ public class Notebook extends FmmGovernableNodeImpl {
                 anExistingNodeIdString));
     }
 
-    public Notebook(NodeId aNodeId, String aHeadline, String anBookshelfNodeIdString) {
+    public Notebook(NodeId aNodeId, String aHeadline, String aBookshelfId) {
         super(aNodeId);
         setHeadline(aHeadline);
-        setBookshelfId(anBookshelfNodeIdString);
+        setBookshelfId(aBookshelfId);
     }
 
-    public Notebook(NodeId aNodeId, String aHeadline, Bookshelf anBookshelf) {
+    public Notebook(NodeId aNodeId, String aHeadline, Bookshelf aBookshelf) {
         super(aNodeId);
         setHeadline(aHeadline);
-        setBookshelf(anBookshelf);
+        setBookshelf(aBookshelf);
     }
 
     public Notebook(JSONObject aJsonObject) {
