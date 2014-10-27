@@ -44,8 +44,10 @@
 package com.flywheelms.library.fmm.persistence;
 
 import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
+import com.flywheelms.library.fmm.database.dao.FmmNodeDao;
 import com.flywheelms.library.fmm.database.sqlite.dao.BookshelfDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.FmmNodeDaoSqLite;
+import com.flywheelms.library.fmm.database.sqlite.dao.NotebookDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.PortfolioDaoSqLite;
 import com.flywheelms.library.fmm.interfaces.WorkAsset;
 import com.flywheelms.library.fmm.node.impl.commitment.StrategicCommitment;
@@ -217,16 +219,6 @@ public abstract class PersistenceTechnologyDelegate {
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////  Node - BOOKSHELF  ////////////////////////////////////////////////////////////////////////////////
 
-    public ArrayList<Bookshelf> dbListBookshelf(FmsOrganization anOrganization) {
-        return dbListBookshelf(anOrganization, null);
-    }
-
-    public ArrayList<Bookshelf> dbListBookshelf(FmsOrganization anOrganization, Bookshelf aBookshelfException) {
-        return dbListBookshelf(anOrganization.getNodeIdString(), aBookshelfException == null ? null : aBookshelfException.getNodeIdString());
-    }
-    
-    public abstract ArrayList<Bookshelf> dbListBookshelf(String anOrganizationId, String aBookshelfExceptionId);
-
     public boolean dbUpdateBookshelf(Bookshelf aBookshelf, boolean bAtomicTransaction) {
         return updateSimpleIdTable(aBookshelf, PortfolioDaoSqLite.getInstance(), bAtomicTransaction);
     }
@@ -252,6 +244,10 @@ public abstract class PersistenceTechnologyDelegate {
     }
 
     public abstract ArrayList<Notebook> dbListNotebook(String aBookshelfId, String aNotebookExceptionId);
+
+    public Notebook dbRetrieveNotebook(String aNodeIdString) {
+        return (Notebook) retrieveFmmNodeFromSimpleIdTable(aNodeIdString, NotebookDaoSqLite.getInstance());
+    }
 
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -938,9 +934,48 @@ public abstract class PersistenceTechnologyDelegate {
 
     public abstract <T extends FmmNodeDaoSqLite, V extends FmmNode> boolean updateSimpleIdTable(V anFmmNode, T aDaoInstance, boolean bAtomicTransaction);
 
-    public abstract  <T extends FmmNodeDaoSqLite> FmmNode retrieveFmmNodeFromSimpleIdTable(String atId, T aDaoInstance);
+    public abstract  <T extends FmmNodeDaoSqLite> FmmNode retrieveFmmNodeFromSimpleIdTable(String anId, T aDaoInstance);
 
     public abstract boolean deleteRowFromSimpleIdTable(String aNodeIdString, FmmNodeDefinition anFmmNodeDefinition, boolean bAtomicTransaction);
 
     public abstract int getLinkTableNodeSequence(FmmNodeDefinition aLinkTableFmmNodeDefinition, String aParentIdColumnName, String aParentNodeId, String aChildIdColumnName, String aPeerNodeId);
+
+    ////////////////////////////  FmmNodeDefinition aNodeDefinition  /////////////////////////////////////////////////
+
+
+
+    public abstract FmmNodeDao getDao(FmmNodeDefinition anFmmNodeDefinition);
+
+    // LIST
+
+    public abstract <V extends FmmNode> ArrayList<V> dbListSimpleIdTable(
+            FmmNodeDefinition aNodeDefinition,
+            String aWhereColumnName,
+            String aWhereColumnValue,
+            String anExceptionId,
+            String anOrderBySpec );
+
+    public abstract <V extends FmmNode> ArrayList<V> dbListSimpleIdTableFromLink(
+            FmmNodeDefinition aLeftTableDefinition,
+            String aLeftColumnName,
+            FmmNodeDefinition aRightTableDefinition,
+            String aRightColumnName,
+            String anAndSpec,
+            String anOrderBySpec );
+
+    // Generate SQL
+
+    public String getInnerJoinQueryWithAndSpecSorted(
+            FmmNodeDefinition aLeftTableDefinition,
+            String aLeftColumnName,
+            FmmNodeDefinition aRightTableDefinition,
+            String aRightColumnName,
+            String aAndSpec,
+            String anOrderBySpec )  {
+        return "SELECT DISTINCT " + aLeftTableDefinition.getTableName() + ".* FROM " + aLeftTableDefinition.getTableName() +
+                " INNER JOIN " + aRightTableDefinition.getTableName() +
+                " ON " + aLeftTableDefinition.getTableName() + "." + aLeftColumnName + " = " + aRightTableDefinition.getTableName() + "." + aRightColumnName +
+                " AND " + aAndSpec +
+                " ORDER BY " + anOrderBySpec + " ASC;";
+    }
 }

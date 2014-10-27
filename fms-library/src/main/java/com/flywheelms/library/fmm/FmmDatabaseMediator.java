@@ -51,6 +51,7 @@ import com.flywheelms.library.fmm.database.sqlite.dao.NotebookDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.StrategicAssetDaoSqLite;
 import com.flywheelms.library.fmm.helper.FmmHelper;
 import com.flywheelms.library.fmm.interfaces.WorkAsset;
+import com.flywheelms.library.fmm.meta_data.BookshelfMetaData;
 import com.flywheelms.library.fmm.meta_data.CadenceMetaData;
 import com.flywheelms.library.fmm.meta_data.CommunityMemberMetaData;
 import com.flywheelms.library.fmm.meta_data.CompletableNodeMetaData;
@@ -454,7 +455,7 @@ public class FmmDatabaseMediator {
 			break;
 		case FISCAL_YEAR:  // handled by newFmmRootNode()
 			break;
-		case FLYWHEEL_CADENCE:
+		case CADENCE:
             // only created in a "batch" from the wizard
 			break;
 		case NOTEBOOK:
@@ -681,7 +682,7 @@ public class FmmDatabaseMediator {
 			//				return getFacilitationIssue(anFmmId);
 		case FISCAL_YEAR:
 			return getFiscalYear(aNodeIdString);
-		case FLYWHEEL_CADENCE:
+		case CADENCE:
             return retrieveCadence(aNodeIdString);
 		case NOTEBOOK:
 			//				return getNotebook(anFmmId);
@@ -834,13 +835,30 @@ public class FmmDatabaseMediator {
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////  Node - BOOKSHELF  ////////////////////////////////////////////////////////////////////////////////
 
-    public ArrayList<Bookshelf> getBookshelfList(FmsOrganization anOrganization) {
-        return getBookshelfList(anOrganization, null);
+
+    public ArrayList<Bookshelf> listBookshelf(FmsOrganization anOrganization) {
+        return listBookshelf(anOrganization, null);
     }
 
-    public ArrayList<Bookshelf> getBookshelfList(FmsOrganization anOrganization, Bookshelf aBookshelfException) {
-        return this.persistenceTechnologyDelegate.dbListBookshelf(anOrganization, aBookshelfException);
+    public ArrayList<Bookshelf> listBookshelf(FmsOrganization anOrganization, Bookshelf aBookshelfException) {
+        return listBookshelf(anOrganization.getNodeIdString(), aBookshelfException == null ? null : aBookshelfException.getNodeIdString());
     }
+
+    public ArrayList<Bookshelf> listBookshelf(String anOrganizationId, String aBookshelfExceptionId) {
+        return this.persistenceTechnologyDelegate.dbListSimpleIdTable(
+                FmmNodeDefinition.BOOKSHELF,
+                BookshelfMetaData.column_ORGANIZATION_ID,
+                anOrganizationId,
+                aBookshelfExceptionId,
+                "LOWER(" + HeadlineNodeMetaData.column_HEADLINE + ")" );
+    }
+
+
+
+
+
+
+
 
     public Bookshelf createBookshelf(String aHeadline) {
         Bookshelf theBookshelf = new Bookshelf(

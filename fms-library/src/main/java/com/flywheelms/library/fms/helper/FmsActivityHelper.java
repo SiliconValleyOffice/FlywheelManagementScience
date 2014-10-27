@@ -273,7 +273,7 @@ public class FmsActivityHelper extends GcgActivityHelper {
         Intent theIntent = new Intent(aParentActivity, CreateAllCadenceForYearWizard.class);
         theIntent.putExtra(bundle_key__FMM_NODE__ID_STRING, aFiscalYearId);
         theIntent.putExtra(bundle_key__GCG__APPLICATION_CONTEXT, aParentActivity.getChildGcgApplicationContext().getSerialized());
-        aParentActivity.startActivityForResult(theIntent, FmmNodeDefinition.FLYWHEEL_CADENCE.getNodeEditorActivityRequestCode());
+        aParentActivity.startActivityForResult(theIntent, FmmNodeDefinition.CADENCE.getNodeEditorActivityRequestCode());
     }
 
     public static void startHeadlineNodeEditorActivityForChildren(GcgActivity aParentActivity, FmmHeadlineNode aHeadlineNode, FmmNodeDefinition aChildNodeDefinition) {

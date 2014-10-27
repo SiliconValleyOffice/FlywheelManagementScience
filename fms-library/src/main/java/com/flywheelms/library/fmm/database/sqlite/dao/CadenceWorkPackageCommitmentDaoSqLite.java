@@ -64,7 +64,7 @@ public class CadenceWorkPackageCommitmentDaoSqLite extends CommitmentNodeDaoSqLi
 	
 	@Override
 	public FmmNodeDefinition getFmmNodeDefinition() {
-		return FmmNodeDefinition.FLYWHEEL_WORK_PACKAGE_COMMITMENT;
+		return FmmNodeDefinition.CADENCE_WORK_PACKAGE_COMMITMENT;
 	}
 
 	@Override

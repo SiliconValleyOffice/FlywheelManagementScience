@@ -41,34 +41,34 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="app: com.flywheelms.workbench" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c0b3b16b-24dc-4ad0-83f8-e1821de85d20" name="Default" comment="incremental - create and edit Bookshelf">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/database/sqlite/dao/BookshelfLinkToNotebookDaoSqLite.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/meta_data/DiscussionTopicMetaData.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/database/sqlite/dao/NotebookDaoSqLite.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/meta_data/NotebookLinkToDiscussionTopicMetaData.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-workbench/src/main/assets/database/template/EmptyFmm.db" afterPath="$PROJECT_DIR$/fms-workbench/src/main/assets/database/template/EmptyFmm.db" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/design/database/fmm.mwb.bak" afterPath="$PROJECT_DIR$/design/database/fmm.mwb.bak" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/design/database/fmm.mwb" afterPath="$PROJECT_DIR$/design/database/fmm.mwb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-ldpi/fmm_noun__notebook__gray.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-ldpi/fmm_noun__notebook__gray.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-nodpi/fmm_noun__notebook__gray__tiny.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-nodpi/fmm_noun__notebook__gray__tiny.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-workbench/src/main/assets/database/ddl/sqlite/BookshelfLinkToNotebook.ddl" afterPath="$PROJECT_DIR$/fms-workbench/src/main/assets/database/ddl/sqlite/BookshelfLinkToNotebook.ddl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/link/BookshelfLinkToNotebook.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/link/BookshelfLinkToNotebook.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/meta_data/BookshelfLinkToNotebookMetaData.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/meta_data/BookshelfLinkToNotebookMetaData.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-workbench/src/main/assets/database/ddl/sqlite/DiscussionTopicLinkToNodeFragAuditBlock.ddl" afterPath="$PROJECT_DIR$/fms-workbench/src/main/assets/database/ddl/sqlite/DiscussionTopicLinkToNodeFragAuditBlock.ddl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/commitment/FmmCommitmentNodeImpl.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/commitment/FmmCommitmentNodeImpl.java" />
+    <list default="true" id="c0b3b16b-24dc-4ad0-83f8-e1821de85d20" name="Default" comment="incremental - create Notebook">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-ldpi/fmm_noun__flywheel_cadence__gray.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-ldpi/fmm_noun__cadence__gray.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/fms_activity__flywheel_cadence.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/fms_activity__cadence.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/fms_dialog__flywheel_cadence.png" afterPath="$PROJECT_DIR$/fms-library/src/main/res/drawable-mdpi/fms_dialog__cadence.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-workbench/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/fms-workbench/src/main/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/governable/Cadence.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/governable/Cadence.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/CadenceCreateForYearDialog.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/CadenceCreateForYearDialog.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/database/sqlite/dao/CadenceDaoSqLite.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/database/sqlite/dao/CadenceDaoSqLite.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/activity/CadenceEditorActivity.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/activity/CadenceEditorActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/CadencePreviewDialog.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/dialog/CadencePreviewDialog.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/database/sqlite/dao/CadenceWorkPackageCommitmentDaoSqLite.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/database/sqlite/dao/CadenceWorkPackageCommitmentDaoSqLite.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/governable/FiscalYear.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/governable/FiscalYear.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/FmmDatabaseMediator.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/FmmDatabaseMediator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/interfaces/FmmLinkNode.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/interfaces/FmmLinkNode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/link/FmmLinkNodeImpl.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/link/FmmLinkNodeImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/enumerator/FmmNodeDefinition.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/enumerator/FmmNodeDefinition.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/activity/FmmNodeEditorActivity.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/activity/FmmNodeEditorActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/context/FmmPerspective.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/context/FmmPerspective.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/popup_menu/FmmPopupBuilder.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/popup_menu/FmmPopupBuilder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/helper/FmsActivityHelper.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/helper/FmsActivityHelper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/treeview/filter/FmsTreeViewAdapter.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/treeview/filter/FmsTreeViewAdapter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-workbench/src/main/java/com/flywheelms/workbench/perspective/FwbContextNotebookPerspective.java" afterPath="$PROJECT_DIR$/fms-workbench/src/main/java/com/flywheelms/workbench/perspective/FwbContextNotebookPerspective.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/database/sqlite/dao/LinkNodeDaoSqLite.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/database/sqlite/dao/LinkNodeDaoSqLite.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/governable/Notebook.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/governable/Notebook.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-workbench/src/main/assets/database/ddl/sqlite/NotebookLinkToDiscussionTopic.ddl" afterPath="$PROJECT_DIR$/fms-workbench/src/main/assets/database/ddl/sqlite/NotebookLinkToDiscussionTopic.ddl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/database/sqlite/dao/OrganizationCommunityMemberDaoSqLite.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/database/sqlite/dao/OrganizationCommunityMemberDaoSqLite.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/enumerator/GovernanceTarget.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/enumerator/GovernanceTarget.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/enumerator/LockConfig.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/enumerator/LockConfig.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/enumerator/LockType.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/enumerator/LockType.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/persistence/PersistenceTechnologyDelegate.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/persistence/PersistenceTechnologyDelegate.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/persistence/PersistenceTechnologyDelegateSqLite.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/persistence/PersistenceTechnologyDelegateSqLite.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/governable/Project.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/governable/Project.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/commitment/StrategicCommitment.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/commitment/StrategicCommitment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/database/sqlite/dao/StrategicCommitmentDaoSqLite.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/database/sqlite/dao/StrategicCommitmentDaoSqLite.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/governable/WorkPackage.java" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/governable/WorkPackage.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/values/fmm__dictionary__strings.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/values/fmm__dictionary__strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="flywheelms-hd.iws" />
@@ -91,7 +91,73 @@
     <favorites_list name="flywheelms-hd" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="PersistenceTechnologyDelegateSqLite.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/persistence/PersistenceTechnologyDelegateSqLite.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.232143" vertical-offset="6374" max-vertical-offset="52290">
+              <caret line="437" column="54" selection-start-line="437" selection-start-column="54" selection-end-line="437" selection-end-column="54" />
+              <folding>
+                <element signature="e#0#168902#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#9968#10005#0" expanded="true" />
+                <element signature="e#10056#10057#0" expanded="true" />
+                <element signature="e#10097#10098#0" expanded="true" />
+                <element signature="e#14491#14492#0" expanded="true" />
+                <element signature="e#14558#14559#0" expanded="true" />
+                <element signature="e#15263#15264#0" expanded="true" />
+                <element signature="e#15308#15309#0" expanded="true" />
+                <element signature="e#15670#15678#0" expanded="true" />
+                <element signature="e#16269#16277#0" expanded="true" />
+                <element signature="e#16909#16917#0" expanded="true" />
+                <element signature="e#17679#17687#0" expanded="true" />
+                <element signature="e#19267#19325#0" expanded="true" />
+                <element signature="e#19648#19693#0" expanded="true" />
+                <element signature="e#20062#20107#0" expanded="true" />
+                <element signature="e#21180#21226#0" expanded="true" />
+                <element signature="e#23365#23411#0" expanded="true" />
+                <element signature="e#23695#23741#0" expanded="true" />
+                <element signature="method#getStringValue#0;class#PersistenceTechnologyDelegateSqLite#0" expanded="false" />
+                <element signature="e#157199#157228#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FmmDatabaseMediator.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/FmmDatabaseMediator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.703252" vertical-offset="10409" max-vertical-offset="47220">
+              <caret line="861" column="0" selection-start-line="861" selection-start-column="0" selection-end-line="861" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FwbContextNotebookPerspective.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fms-workbench/src/main/java/com/flywheelms/workbench/perspective/FwbContextNotebookPerspective.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="516" max-vertical-offset="2280">
+              <caret line="120" column="52" selection-start-line="120" selection-start-column="52" selection-end-line="120" selection-end-column="52" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PersistenceTechnologyDelegate.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/persistence/PersistenceTechnologyDelegate.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="3160" max-vertical-offset="14805">
+              <caret line="224" column="26" selection-start-line="224" selection-start-column="26" selection-end-line="224" selection-end-column="26" />
+              <folding>
+                <element signature="e#0#51565#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -2756,7 +2822,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/helper/GcgActivityHelper.java" />
         <option value="$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/activity/GcgActivity.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/wizard/CreateAllCadenceForYearWizardStepFlipper.java" />
         <option value="$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/viewflipper/GcgViewFlipperTreeView.java" />
@@ -2781,7 +2846,6 @@
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/meta_data/NotebookMetaData.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/helper/FmsHelpIndex.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/activity/BookshelfEditorActivity.java" />
-        <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/persistence/PersistenceTechnologyDelegate.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/governable/Bookshelf.java" />
         <option value="$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/context/GcgFrame.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/res/values/fms__strings.xml" />
@@ -2790,14 +2854,12 @@
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/meta_data/BookshelfLinkToNotebookMetaData.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/meta_data/NotebookLinkToDiscussionTopicMetaData.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/database/sqlite/dao/NotebookDaoSqLite.java" />
-        <option value="$PROJECT_DIR$/fms-workbench/src/main/java/com/flywheelms/workbench/perspective/FwbContextNotebookPerspective.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/governable/Notebook.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/database/sqlite/dao/StrategicCommitmentDaoSqLiteDaoSqLite.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/commitment/StrategicCommitment.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/database/sqlite/dao/StrategicCommitmentDaoSqLite.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/database/sqlite/dao/BookshelfLinkToNotebookDaoSqLite.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/link/BookshelfLinkToNotebook.java" />
-        <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/FmmDatabaseMediator.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/database/sqlite/dao/LinkNodeDaoSqLite.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/interfaces/FmmLinkNode.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/commitment/FmmCommitmentNodeImpl.java" />
@@ -2805,8 +2867,12 @@
         <option value="$PROJECT_DIR$/fms-workbench/src/main/assets/database/ddl/sqlite/NotebookLinkToDiscussionTopic.ddl" />
         <option value="$PROJECT_DIR$/fms-workbench/src/main/assets/database/ddl/sqlite/BookshelfLinkToNotebook.ddl" />
         <option value="$PROJECT_DIR$/fms-workbench/src/main/assets/database/ddl/sqlite/DiscussionTopicLinkToNodeFragAuditBlock.ddl" />
-        <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/persistence/PersistenceTechnologyDelegateSqLite.java" />
+        <option value="$PROJECT_DIR$/fms-library/src/main/res/values/fmm__dictionary__strings.xml" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/enumerator/FmmNodeDefinition.java" />
+        <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/persistence/PersistenceTechnologyDelegateSqLite.java" />
+        <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/persistence/PersistenceTechnologyDelegate.java" />
+        <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/FmmDatabaseMediator.java" />
+        <option value="$PROJECT_DIR$/fms-workbench/src/main/java/com/flywheelms/workbench/perspective/FwbContextNotebookPerspective.java" />
       </list>
     </option>
   </component>
@@ -4170,14 +4236,18 @@
       <created>1414354561991</created>
       <updated>1414354561996</updated>
     </task>
-    <option name="localTasksCounter" value="257" />
+    <task id="LOCAL-00257" summary="incremental - create Notebook">
+      <created>1414380007931</created>
+      <updated>1414380007931</updated>
+    </task>
+    <option name="localTasksCounter" value="258" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32943678" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943678" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.272051" sideWeight="0.49919137" order="9" side_tool="false" content_ui="tabs" />
@@ -4190,7 +4260,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32624868" sideWeight="0.49865228" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943678" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32987747" sideWeight="0.4989953" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37513283" sideWeight="0.49865228" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37513283" sideWeight="0.49865228" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37525988" sideWeight="0.5013477" order="13" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24765582" sideWeight="0.4829932" order="0" side_tool="false" content_ui="combo" />
@@ -4254,7 +4324,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="new feature - StrategicMilestoneAdoptOrphanProjectAssetDialog" />
     <MESSAGE value="new feature - move StrategicAsset to StrategicMilestone" />
     <MESSAGE value="database tweaks" />
     <MESSAGE value="refactor metaphors - rename FlywheelCadence --&gt; Cadence" />
@@ -4279,7 +4348,8 @@
     <MESSAGE value="misc resource cleanup" />
     <MESSAGE value="incremental - Notebook perspective" />
     <MESSAGE value="incremental - create and edit Bookshelf" />
-    <option name="LAST_COMMIT_MESSAGE" value="incremental - create and edit Bookshelf" />
+    <MESSAGE value="incremental - create Notebook" />
+    <option name="LAST_COMMIT_MESSAGE" value="incremental - create Notebook" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -4403,6 +4473,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="900">
           <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -4590,8 +4661,8 @@
         <state vertical-scroll-proportion="0.32085562" vertical-offset="735" max-vertical-offset="1515">
           <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
           <folding>
-            <element signature="e#0#4242#0" expanded="true" />
-            <element signature="imports" expanded="true" />
+            <element signature="e#0#4142#0" expanded="false" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -4628,30 +4699,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fms-workbench/src/main/java/com/flywheelms/workbench/perspective/FwbContextNotebookPerspective.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44701988" vertical-offset="525" max-vertical-offset="2280">
-          <caret line="127" column="70" selection-start-line="127" selection-start-column="70" selection-end-line="127" selection-end-column="70" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/FmmDatabaseMediator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6345178" vertical-offset="10920" max-vertical-offset="46965">
-          <caret line="897" column="55" selection-start-line="897" selection-start-column="55" selection-end-line="897" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/persistence/PersistenceTechnologyDelegate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5076142" vertical-offset="2235" max-vertical-offset="13020">
-          <caret line="253" column="40" selection-start-line="253" selection-start-column="40" selection-end-line="253" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/sdk/sources/android-19/android/database/sqlite/SQLiteDatabase.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33260393" vertical-offset="17636" max-vertical-offset="32070">
@@ -4668,22 +4715,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/persistence/PersistenceTechnologyDelegateSqLite.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="13025" max-vertical-offset="49875">
-          <caret line="1045" column="0" selection-start-line="1045" selection-start-column="0" selection-end-line="1045" selection-end-column="0" />
-          <folding>
-            <element signature="e#20731#20789#0" expanded="true" />
-            <element signature="e#21112#21157#0" expanded="true" />
-            <element signature="e#21526#21571#0" expanded="true" />
-            <element signature="e#22644#22690#0" expanded="true" />
-            <element signature="e#24829#24875#0" expanded="true" />
-            <element signature="e#25190#25236#0" expanded="true" />
-            <element signature="e#158676#158705#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fms-workbench/build/generated/source/r/debug/com/flywheelms/workbench/R.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.34887737" vertical-offset="18488" max-vertical-offset="78615">
@@ -4692,14 +4723,221 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/res/values/fmm__dictionary__strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.37942666" vertical-offset="0" max-vertical-offset="2550">
+          <caret line="15" column="76" selection-start-line="15" selection-start-column="76" selection-end-line="15" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/node/impl/enumerator/FmmNodeDefinition.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3339416" vertical-offset="19962" max-vertical-offset="35040">
-          <caret line="1469" column="0" selection-start-line="1469" selection-start-column="0" selection-end-line="1469" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.48019803" vertical-offset="594" max-vertical-offset="35010">
+          <caret line="183" column="62" selection-start-line="183" selection-start-column="62" selection-end-line="183" selection-end-column="62" />
           <folding>
-            <element signature="e#132510#132511#0" expanded="true" />
-            <element signature="e#132554#132555#0" expanded="true" />
+            <element signature="e#7975#8037#0" expanded="true" />
+            <element signature="e#8045#8107#0" expanded="true" />
+            <element signature="e#8688#8733#0" expanded="true" />
+            <element signature="e#8741#8792#0" expanded="true" />
+            <element signature="e#9425#9487#0" expanded="true" />
+            <element signature="e#9495#9557#0" expanded="true" />
+            <element signature="e#10153#10196#0" expanded="true" />
+            <element signature="e#10210#10259#0" expanded="true" />
+            <element signature="e#10961#11015#0" expanded="true" />
+            <element signature="e#11029#11083#0" expanded="true" />
+            <element signature="e#11737#11789#0" expanded="true" />
+            <element signature="e#11797#11855#0" expanded="true" />
+            <element signature="e#12578#12665#0" expanded="true" />
+            <element signature="e#12673#12760#0" expanded="true" />
+            <element signature="e#13421#13507#0" expanded="true" />
+            <element signature="e#13515#13601#0" expanded="true" />
+            <element signature="e#14210#14269#0" expanded="true" />
+            <element signature="e#14277#14336#0" expanded="true" />
+            <element signature="e#14945#15004#0" expanded="true" />
+            <element signature="e#15012#15071#0" expanded="true" />
+            <element signature="e#15689#15751#0" expanded="true" />
+            <element signature="e#15759#15821#0" expanded="true" />
+            <element signature="e#16424#16481#0" expanded="true" />
+            <element signature="e#16489#16546#0" expanded="true" />
+            <element signature="e#17134#17186#0" expanded="true" />
+            <element signature="e#17194#17252#0" expanded="true" />
+            <element signature="e#17942#18024#0" expanded="true" />
+            <element signature="e#18032#18114#0" expanded="true" />
+            <element signature="e#18714#18768#0" expanded="true" />
+            <element signature="e#18776#18836#0" expanded="true" />
+            <element signature="e#19480#19552#0" expanded="true" />
+            <element signature="e#19560#19632#0" expanded="true" />
+            <element signature="e#20218#20265#0" expanded="true" />
+            <element signature="e#20273#20326#0" expanded="true" />
+            <element signature="e#20969#21030#0" expanded="true" />
+            <element signature="e#21044#21105#0" expanded="true" />
+            <element signature="e#21804#21853#0" expanded="true" />
+            <element signature="e#21861#21916#0" expanded="true" />
+            <element signature="e#22543#22609#0" expanded="true" />
+            <element signature="e#22617#22683#0" expanded="true" />
+            <element signature="e#23299#23352#0" expanded="true" />
+            <element signature="e#23360#23413#0" expanded="true" />
+            <element signature="e#24008#24053#0" expanded="true" />
+            <element signature="e#24061#24106#0" expanded="true" />
+            <element signature="e#24695#24743#0" expanded="true" />
+            <element signature="e#24751#24799#0" expanded="true" />
+            <element signature="e#25383#25432#0" expanded="true" />
+            <element signature="e#25440#25489#0" expanded="true" />
+            <element signature="e#26095#26129#0" expanded="true" />
+            <element signature="e#26137#26171#0" expanded="true" />
+            <element signature="e#26795#26834#0" expanded="true" />
+            <element signature="e#26842#26881#0" expanded="true" />
+            <element signature="e#27475#27526#0" expanded="true" />
+            <element signature="e#27534#27591#0" expanded="true" />
+            <element signature="e#28224#28292#0" expanded="true" />
+            <element signature="e#28300#28368#0" expanded="true" />
+            <element signature="e#28989#29054#0" expanded="true" />
+            <element signature="e#29062#29127#0" expanded="true" />
+            <element signature="e#29721#29772#0" expanded="true" />
+            <element signature="e#29780#29831#0" expanded="true" />
+            <element signature="e#30442#30501#0" expanded="true" />
+            <element signature="e#30509#30568#0" expanded="true" />
+            <element signature="e#31181#31234#0" expanded="true" />
+            <element signature="e#31242#31295#0" expanded="true" />
+            <element signature="e#31895#31943#0" expanded="true" />
+            <element signature="e#31951#31999#0" expanded="true" />
+            <element signature="e#32585#32632#0" expanded="true" />
+            <element signature="e#32640#32687#0" expanded="true" />
+            <element signature="e#33269#33314#0" expanded="true" />
+            <element signature="e#33322#33367#0" expanded="true" />
+            <element signature="e#33972#34030#0" expanded="true" />
+            <element signature="e#34038#34096#0" expanded="true" />
+            <element signature="e#34693#34750#0" expanded="true" />
+            <element signature="e#34758#34815#0" expanded="true" />
+            <element signature="e#35414#35473#0" expanded="true" />
+            <element signature="e#35487#35546#0" expanded="true" />
+            <element signature="e#36144#36201#0" expanded="true" />
+            <element signature="e#36209#36266#0" expanded="true" />
+            <element signature="e#36869#36930#0" expanded="true" />
+            <element signature="e#36938#36999#0" expanded="true" />
+            <element signature="e#37623#37686#0" expanded="true" />
+            <element signature="e#37694#37757#0" expanded="true" />
+            <element signature="e#38342#38386#0" expanded="true" />
+            <element signature="e#38394#38444#0" expanded="true" />
+            <element signature="e#39089#39158#0" expanded="true" />
+            <element signature="e#39166#39235#0" expanded="true" />
+            <element signature="e#39831#39879#0" expanded="true" />
+            <element signature="e#39887#39941#0" expanded="true" />
+            <element signature="e#40561#40626#0" expanded="true" />
+            <element signature="e#40634#40699#0" expanded="true" />
+            <element signature="e#41322#41388#0" expanded="true" />
+            <element signature="e#41396#41462#0" expanded="true" />
+            <element signature="e#42073#42133#0" expanded="true" />
+            <element signature="e#42141#42201#0" expanded="true" />
+            <element signature="e#42817#42879#0" expanded="true" />
+            <element signature="e#42887#42949#0" expanded="true" />
+            <element signature="e#43543#43586#0" expanded="true" />
+            <element signature="e#43594#43637#0" expanded="true" />
+            <element signature="e#44224#44269#0" expanded="true" />
+            <element signature="e#44277#44328#0" expanded="true" />
+            <element signature="e#44926#44969#0" expanded="true" />
+            <element signature="e#44977#45026#0" expanded="true" />
+            <element signature="e#45617#45666#0" expanded="true" />
+            <element signature="e#45674#45729#0" expanded="true" />
+            <element signature="e#46431#46494#0" expanded="true" />
+            <element signature="e#46502#46565#0" expanded="true" />
+            <element signature="e#47159#47211#0" expanded="true" />
+            <element signature="e#47219#47277#0" expanded="true" />
+            <element signature="e#47894#47950#0" expanded="true" />
+            <element signature="e#47958#48020#0" expanded="true" />
+            <element signature="e#48635#48686#0" expanded="true" />
+            <element signature="e#48694#48751#0" expanded="true" />
+            <element signature="e#49390#49459#0" expanded="true" />
+            <element signature="e#49467#49536#0" expanded="true" />
+            <element signature="e#50150#50212#0" expanded="true" />
+            <element signature="e#50220#50282#0" expanded="true" />
+            <element signature="e#50918#50969#0" expanded="true" />
+            <element signature="e#50983#51040#0" expanded="true" />
+            <element signature="e#51729#51785#0" expanded="true" />
+            <element signature="e#51793#51849#0" expanded="true" />
+            <element signature="e#52449#52504#0" expanded="true" />
+            <element signature="e#52512#52573#0" expanded="true" />
+            <element signature="e#53186#53235#0" expanded="true" />
+            <element signature="e#53243#53298#0" expanded="true" />
+            <element signature="e#53927#53993#0" expanded="true" />
+            <element signature="e#54001#54067#0" expanded="true" />
+            <element signature="e#54671#54725#0" expanded="true" />
+            <element signature="e#54733#54787#0" expanded="true" />
+            <element signature="e#55370#55420#0" expanded="true" />
+            <element signature="e#55425#55475#0" expanded="true" />
+            <element signature="e#56072#56134#0" expanded="true" />
+            <element signature="e#56139#56201#0" expanded="true" />
+            <element signature="e#56823#56896#0" expanded="true" />
+            <element signature="e#56901#56974#0" expanded="true" />
+            <element signature="e#57570#57616#0" expanded="true" />
+            <element signature="e#57630#57682#0" expanded="true" />
+            <element signature="e#58343#58391#0" expanded="true" />
+            <element signature="e#58399#58453#0" expanded="true" />
+            <element signature="e#59114#59159#0" expanded="true" />
+            <element signature="e#59167#59218#0" expanded="true" />
+            <element signature="e#59807#59852#0" expanded="true" />
+            <element signature="e#59860#59911#0" expanded="true" />
+            <element signature="e#60521#60577#0" expanded="true" />
+            <element signature="e#60585#60641#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/persistence/PersistenceTechnologyDelegateSqLite.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.232143" vertical-offset="6374" max-vertical-offset="52290">
+          <caret line="437" column="54" selection-start-line="437" selection-start-column="54" selection-end-line="437" selection-end-column="54" />
+          <folding>
+            <element signature="e#0#168902#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#9968#10005#0" expanded="true" />
+            <element signature="e#10056#10057#0" expanded="true" />
+            <element signature="e#10097#10098#0" expanded="true" />
+            <element signature="e#14491#14492#0" expanded="true" />
+            <element signature="e#14558#14559#0" expanded="true" />
+            <element signature="e#15263#15264#0" expanded="true" />
+            <element signature="e#15308#15309#0" expanded="true" />
+            <element signature="e#15670#15678#0" expanded="true" />
+            <element signature="e#16269#16277#0" expanded="true" />
+            <element signature="e#16909#16917#0" expanded="true" />
+            <element signature="e#17679#17687#0" expanded="true" />
+            <element signature="e#19267#19325#0" expanded="true" />
+            <element signature="e#19648#19693#0" expanded="true" />
+            <element signature="e#20062#20107#0" expanded="true" />
+            <element signature="e#21180#21226#0" expanded="true" />
+            <element signature="e#23365#23411#0" expanded="true" />
+            <element signature="e#23695#23741#0" expanded="true" />
+            <element signature="method#getStringValue#0;class#PersistenceTechnologyDelegateSqLite#0" expanded="false" />
+            <element signature="e#157199#157228#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/persistence/PersistenceTechnologyDelegate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3160" max-vertical-offset="14805">
+          <caret line="224" column="26" selection-start-line="224" selection-start-column="26" selection-end-line="224" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#51565#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-workbench/src/main/java/com/flywheelms/workbench/perspective/FwbContextNotebookPerspective.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="516" max-vertical-offset="2280">
+          <caret line="120" column="52" selection-start-line="120" selection-start-column="52" selection-end-line="120" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fmm/FmmDatabaseMediator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.703252" vertical-offset="10409" max-vertical-offset="47220">
+          <caret line="861" column="0" selection-start-line="861" selection-start-column="0" selection-end-line="861" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

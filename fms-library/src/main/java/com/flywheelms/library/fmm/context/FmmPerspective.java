@@ -348,7 +348,7 @@ public class FmmPerspective extends GcgPerspective {
                     false,
                     new ArrayList<FmmNodeDefinition>(Arrays.asList(
                         FmmNodeDefinition.FISCAL_YEAR,
-                        FmmNodeDefinition.FLYWHEEL_CADENCE,
+                        FmmNodeDefinition.CADENCE,
                         FmmNodeDefinition.SERVICE_REQUEST_TRIAGE_LOG,
                         FmmNodeDefinition.SERVICE_OFFERING,
                         FmmNodeDefinition.SERVICE_REQUEST)
@@ -480,7 +480,7 @@ public class FmmPerspective extends GcgPerspective {
                     false,
                     new ArrayList<FmmNodeDefinition>(Arrays.asList(
                         FmmNodeDefinition.FISCAL_YEAR,
-                        FmmNodeDefinition.FLYWHEEL_CADENCE,
+                        FmmNodeDefinition.CADENCE,
                         FmmNodeDefinition.WORK_PLAN,
                         FmmNodeDefinition.WORK_PACKAGE)
 

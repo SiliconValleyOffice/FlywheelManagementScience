@@ -54,7 +54,7 @@ import org.json.JSONObject;
 public class CadenceEditorActivity extends FmmNodeEditorActivity {
 
 	public CadenceEditorActivity() {
-		super(FmmNodeDefinition.FLYWHEEL_CADENCE, FmsHelpIndex.FLYWHEEL_CADENCE_ACTIVITY);
+		super(FmmNodeDefinition.CADENCE, FmsHelpIndex.FLYWHEEL_CADENCE_ACTIVITY);
 	}
 
 	@Override

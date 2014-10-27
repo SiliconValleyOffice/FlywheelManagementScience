@@ -124,39 +124,39 @@ public enum LockConfig implements FmmEnumNode {
 			LockType.TACTICAL_MILESTONES,
 			true, true, false, true ),
 	FLYWHEEL_COMMITMENT_NODE (
-			FmmNodeDefinition.FLYWHEEL_WORK_PACKAGE_COMMITMENT,
+			FmmNodeDefinition.CADENCE_WORK_PACKAGE_COMMITMENT,
 			LockType.NODE,
 			true, true, false, true ),
 	FLYWHEEL_COMMITMENT_STORY (
-			FmmNodeDefinition.FLYWHEEL_WORK_PACKAGE_COMMITMENT,
+			FmmNodeDefinition.CADENCE_WORK_PACKAGE_COMMITMENT,
 			LockType.STORY,
 			true, true, false, true ),
 	FLYWHEEL_COMMITMENT_NOTES (
-			FmmNodeDefinition.FLYWHEEL_WORK_PACKAGE_COMMITMENT,
+			FmmNodeDefinition.CADENCE_WORK_PACKAGE_COMMITMENT,
 			LockType.NOTES,
 			true, true, false, true ),
 	FLYWHEEL_CADENCE_NODE (
-			FmmNodeDefinition.FLYWHEEL_CADENCE,
+			FmmNodeDefinition.CADENCE,
 			LockType.NODE,
 			true, true, false, true ),
 	FLYWHEEL_CADENCE_STORY (
-			FmmNodeDefinition.FLYWHEEL_CADENCE,
+			FmmNodeDefinition.CADENCE,
 			LockType.STORY,
 			true, true, false, true ),
 	FLYWHEEL_CADENCE_NOTES (
-			FmmNodeDefinition.FLYWHEEL_CADENCE,
+			FmmNodeDefinition.CADENCE,
 			LockType.NOTES,
 			true, true, false, true ),
 	FLYWHEEL_CADENCE_WORK_PLANS (
-			FmmNodeDefinition.FLYWHEEL_CADENCE,
+			FmmNodeDefinition.CADENCE,
 			LockType.WORK_PLANS,
 			true, true, false, true ),
 	FLYWHEEL_CADENCE_WORK_PACKAGES (
-			FmmNodeDefinition.FLYWHEEL_CADENCE,
+			FmmNodeDefinition.CADENCE,
 			LockType.WORK_PACKAGES,
 			true, true, false, true ),
 	FLYWHEEL_CADENCE_SERVICE_REQUESTS (
-			FmmNodeDefinition.FLYWHEEL_CADENCE,
+			FmmNodeDefinition.CADENCE,
 			LockType.SERVICE_REQUESTS,
 			true, true, false, true ),
 	FLYWHEEL_TEAM_NODE (

@@ -221,7 +221,7 @@ public class FiscalYear extends FmmCompletableNodeImpl implements Comparable<Fis
 	protected void initializeNodeCompletionSummaryMap() {
 		super.initializeNodeCompletionSummaryMap();
         initializeNodeCompletionSummaryMap(FmmPerspective.STRATEGIC_PLANNING, FmmNodeDefinition.STRATEGIC_MILESTONE);
-        initializeNodeCompletionSummaryMap(FmmPerspective.WORK_PLANNING, FmmNodeDefinition.FLYWHEEL_CADENCE);
+        initializeNodeCompletionSummaryMap(FmmPerspective.WORK_PLANNING, FmmNodeDefinition.CADENCE);
 	}
 
 	@Override
@@ -370,7 +370,7 @@ public class FiscalYear extends FmmCompletableNodeImpl implements Comparable<Fis
             case STRATEGIC_MILESTONE:
                 theList = FmmDatabaseMediator.getActiveMediator().getStrategicMilestoneList(this);
                 break;
-            case FLYWHEEL_CADENCE:
+            case CADENCE:
                 theList = FmmDatabaseMediator.getActiveMediator().getCadenceList(this);
                 break;
         }

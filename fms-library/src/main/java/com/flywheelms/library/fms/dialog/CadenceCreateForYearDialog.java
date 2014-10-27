@@ -77,7 +77,7 @@ public class CadenceCreateForYearDialog extends FmsCancelOkDialog {
             GcgActivity aLibraryActivity,
             FmsTreeViewAdapter aTreeViewAdapter,
             FiscalYear aFiscalYear ) {
-        super(aLibraryActivity, FmmNodeDefinition.FLYWHEEL_CADENCE);
+        super(aLibraryActivity, FmmNodeDefinition.CADENCE);
         this.treeViewAdapter = aTreeViewAdapter;
         this.fiscalYear = aFiscalYear;
         this.fmsDialogExtension.parentHeadlineNode = aFiscalYear;

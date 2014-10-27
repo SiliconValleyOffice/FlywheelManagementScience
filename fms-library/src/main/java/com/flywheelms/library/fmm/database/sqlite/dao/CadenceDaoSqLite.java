@@ -67,7 +67,7 @@ public class CadenceDaoSqLite extends CompletableNodeDaoSqLite<Cadence> {
 
     @Override
     public FmmNodeDefinition getFmmNodeDefinition() {
-        return FmmNodeDefinition.FLYWHEEL_CADENCE;
+        return FmmNodeDefinition.CADENCE;
     }
 
     @Override

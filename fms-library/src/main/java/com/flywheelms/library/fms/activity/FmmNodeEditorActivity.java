@@ -473,7 +473,7 @@ public abstract class FmmNodeEditorActivity extends FmsHorizontalNodeNavigatorAc
 	@Override
 	protected boolean headlineEditingEnabled() {
 		return this.fmmNodeDefinition != FmmNodeDefinition.FISCAL_YEAR &&
-                this.fmmNodeDefinition != FmmNodeDefinition.FLYWHEEL_CADENCE &&
+                this.fmmNodeDefinition != FmmNodeDefinition.CADENCE &&
                 this.fmmNodeDefinition != FmmNodeDefinition.WORK_PLAN;
 	}
 	
@@ -484,7 +484,7 @@ public abstract class FmmNodeEditorActivity extends FmsHorizontalNodeNavigatorAc
 
     protected boolean headlineNodeCreationEnabled() {
         // TODO - need to add logic for locking
-        return this.fmmNodeDefinition != FmmNodeDefinition.FLYWHEEL_CADENCE &&
+        return this.fmmNodeDefinition != FmmNodeDefinition.CADENCE &&
                 this.fmmNodeDefinition != FmmNodeDefinition.WORK_PLAN;
     }
 

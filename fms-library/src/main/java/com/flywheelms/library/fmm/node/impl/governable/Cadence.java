@@ -80,7 +80,7 @@ public class Cadence extends FmmCompletableNodeImpl {
 	}
 
     public Cadence(String aFiscalYearId, Date aScheduledStartDate, Date aScheduledEndDate) {
-        this(new NodeId(FmmNodeDefinition.FLYWHEEL_CADENCE), aFiscalYearId);
+        this(new NodeId(FmmNodeDefinition.CADENCE), aFiscalYearId);
     }
 
     public Cadence(String aNodeIdString, String aFiscalYearId) {
@@ -89,7 +89,7 @@ public class Cadence extends FmmCompletableNodeImpl {
     }
 
     public Cadence(FiscalYear aFiscalYear) {
-        super(new NodeId(FmmNodeDefinition.FLYWHEEL_CADENCE));
+        super(new NodeId(FmmNodeDefinition.CADENCE));
         setFiscalYear(aFiscalYear);
     }
 

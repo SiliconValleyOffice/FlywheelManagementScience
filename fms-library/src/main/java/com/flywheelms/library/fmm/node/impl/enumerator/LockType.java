@@ -63,7 +63,7 @@ public enum LockType implements FmmEnumNode {
 	PROJECT_ASSETS (R.string.lock_type__project_assets, R.string.lock_type__project_assets__description, R.drawable.fmm_noun__project_asset__gray, false, false),
 	SERVICE_REQUESTS (R.string.lock_type__service_requests, R.string.lock_type__service_requests__description, R.drawable.fmm_noun__service_request__gray, true, false),
 	STRATEGIC_MILESTONES (R.string.lock_type__strategic_milestones, R.string.lock_type__strategic_milestones__description, R.drawable.fmm_noun__strategic_milestone__gray, false, false),
-	TACTICAL_MILESTONES (R.string.lock_type__flywheel_cadences, R.string.lock_type__flywheel_cadences__description, R.drawable.fmm_noun__flywheel_cadence__gray, false, false),
+	TACTICAL_MILESTONES (R.string.lock_type__flywheel_cadences, R.string.lock_type__flywheel_cadences__description, R.drawable.fmm_noun__cadence__gray, false, false),
 	WORK_PACKAGES (R.string.lock_type__work_packages, R.string.lock_type__work_packages__description, R.drawable.fmm_noun__work_package__gray, false, false),
 	WORK_PLANS (R.string.lock_type__work_plans, R.string.lock_type__work_plans__description, R.drawable.fmm_noun__work_plan__gray, false, false),
 	WORK_TASKS (R.string.lock_type__work_tasks, R.string.lock_type__work_tasks__description, R.drawable.fmm_noun__work_task__gray, true, false);

@@ -121,7 +121,7 @@ public class FwbContextNotebookPerspective extends FmsPerspectiveFlipperTreeView
         GcgTreeViewMediator theGcgTreeViewMediator =
                 new FmsTreeViewMediatorMemoryResident(new NotebookTreeFilter(this));
         final FmsTreeBuilder theTreeBuilder = new FmsTreeBuilder(theGcgTreeViewMediator);
-        Collection<Bookshelf> theBookshelfCollection = FmmDatabaseMediator.getActiveMediator().getBookshelfList(
+        Collection<Bookshelf> theBookshelfCollection = FmmDatabaseMediator.getActiveMediator().listBookshelf(
                 FmmDatabaseMediator.getActiveMediator().getFmmOwner());
         for (Bookshelf theBookshelf : theBookshelfCollection) {
             Collection<Notebook> theNotebookCollection =

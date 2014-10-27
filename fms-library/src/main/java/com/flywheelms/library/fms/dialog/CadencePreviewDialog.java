@@ -59,7 +59,7 @@ public class CadencePreviewDialog extends GcgCancelDialog {
 
     @Override
     protected int getDialogTitleIconResourceId() {
-        return FmmNodeDefinition.FLYWHEEL_CADENCE.getDialogDrawableResourceId();
+        return FmmNodeDefinition.CADENCE.getDialogDrawableResourceId();
     }
 
     @Override
