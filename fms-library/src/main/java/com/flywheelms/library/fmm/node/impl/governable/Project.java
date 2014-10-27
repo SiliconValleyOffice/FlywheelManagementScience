@@ -122,7 +122,7 @@ public class Project extends FmmCompletableNodeImpl {
     public Portfolio getPortfolio() {
         if(this.portfolio == null && this.portfolioNodeIdString != null) {
             this.portfolio =
-                    FmmDatabaseMediator.getActiveMediator().getPortfolio(this.portfolioNodeIdString);
+                    FmmDatabaseMediator.getActiveMediator().retrievePortfolio(this.portfolioNodeIdString);
         }
         return this.portfolio;
     }

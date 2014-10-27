@@ -46,6 +46,8 @@ import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
 import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
 import com.flywheelms.library.fca.FlywheelCommunityAuthentication;
 import com.flywheelms.library.fmm.database.sqlite.dao.BookshelfDaoSqLite;
+import com.flywheelms.library.fmm.database.sqlite.dao.BookshelfLinkToNotebookDaoSqLite;
+import com.flywheelms.library.fmm.database.sqlite.dao.NotebookDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.StrategicAssetDaoSqLite;
 import com.flywheelms.library.fmm.helper.FmmHelper;
 import com.flywheelms.library.fmm.interfaces.WorkAsset;
@@ -88,6 +90,7 @@ import com.flywheelms.library.fmm.node.impl.event.PdfPublication;
 import com.flywheelms.library.fmm.node.impl.governable.Bookshelf;
 import com.flywheelms.library.fmm.node.impl.governable.Cadence;
 import com.flywheelms.library.fmm.node.impl.governable.CommunityMember;
+import com.flywheelms.library.fmm.node.impl.governable.DiscussionTopic;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
 import com.flywheelms.library.fmm.node.impl.governable.FlywheelTeam;
 import com.flywheelms.library.fmm.node.impl.governable.FmsOrganization;
@@ -102,6 +105,7 @@ import com.flywheelms.library.fmm.node.impl.governable.WorkPlan;
 import com.flywheelms.library.fmm.node.impl.governable.WorkTask;
 import com.flywheelms.library.fmm.node.impl.headline.FiscalYearHolidayBreak;
 import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
+import com.flywheelms.library.fmm.node.impl.link.BookshelfLinkToNotebook;
 import com.flywheelms.library.fmm.node.impl.link.OrganizationCommunityMember;
 import com.flywheelms.library.fmm.node.impl.nodefrag.CompletionNodeTrash;
 import com.flywheelms.library.fmm.node.impl.nodefrag.FragLock;
@@ -454,7 +458,7 @@ public class FmmDatabaseMediator {
             // only created in a "batch" from the wizard
 			break;
 		case NOTEBOOK:
-			break;
+            theHeadlineNode = newNotebookForBookshelf(aHeadline, aParentNode, aPeerNode, bSequenceAtEnd);
 		case PORTFOLIO:  // handled by newFmmRootNode()
 			break;
 		case PROJECT:
@@ -672,7 +676,7 @@ public class FmmDatabaseMediator {
 		case COMMUNITY_MEMBER:
 			return getCommunityMember(aNodeIdString);
 		case DISCUSSION_TOPIC:
-//            return getDiscussionTopic(aNodeIdString);
+//            return retrieveDiscussionTopic(aNodeIdString);
         case FACILITATION_ISSUE:
 			//				return getFacilitationIssue(anFmmId);
 		case FISCAL_YEAR:
@@ -682,7 +686,7 @@ public class FmmDatabaseMediator {
 		case NOTEBOOK:
 			//				return getNotebook(anFmmId);
 		case PORTFOLIO:
-            return getPortfolio(aNodeIdString);
+            return retrievePortfolio(aNodeIdString);
 		case PROJECT:
             return getProject(aNodeIdString);
 		case PROJECT_ASSET:
@@ -893,6 +897,95 @@ public class FmmDatabaseMediator {
         return this.persistenceTechnologyDelegate.dbListNotebook(aBookshelf, aNotebookException);
     }
 
+    private Notebook newNotebookForBookshelf(
+            String aHeadline,
+            FmmHeadlineNode aParentNode,
+            FmmHeadlineNode aPeerNode,
+            boolean bSequenceAtEnd ) {
+        startTransaction();
+        Notebook theNewNotebook = new Notebook();
+        theNewNotebook.setHeadline(aHeadline);
+        boolean isSuccess = newNotebook(theNewNotebook, true);
+        isSuccess &= newBookshelfLinkToNotebook(aParentNode.getNodeIdString(), theNewNotebook.getNodeIdString());
+        isSuccess &= newNodeFragTribKnQuality(theNewNotebook) != null;
+        endTransaction(isSuccess);
+        return isSuccess ? theNewNotebook : null;
+    }
+
+    private boolean newBookshelfLinkToNotebook(String aBookshelfId, String aNotebookId) {
+        BookshelfLinkToNotebook theLink = new BookshelfLinkToNotebook(aBookshelfId, aNotebookId);
+        return this.persistenceTechnologyDelegate.insertSimpleIdTable(
+                theLink, BookshelfLinkToNotebookDaoSqLite.getInstance(), false);
+    }
+
+    public boolean newNotebook(Notebook aNotebook, boolean bAtomicTransaction) {
+        if(bAtomicTransaction) {
+            startTransaction();
+        }
+        boolean isSuccess = this.persistenceTechnologyDelegate.insertSimpleIdTable(
+                aNotebook, NotebookDaoSqLite.getInstance(), bAtomicTransaction);
+        isSuccess &= newNodeFragTribKnQuality(aNotebook) != null;
+        if(bAtomicTransaction) {
+            endTransaction(isSuccess);
+        }
+        return isSuccess;
+    }
+
+    public boolean updateNotebook(Notebook aNotebook, boolean bAtomicTransaction) {
+//        updateHeadlineNode(aNotebook);
+//        return this.persistenceTechnologyDelegate.dbUpdateNotebook(aNotebook, bAtomicTransaction);
+        return false;
+    }
+
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////  Node - DISCUSSION TOPIC  ////////////////////////////////////////////////////////////////////////////
+
+    public ArrayList<DiscussionTopic> getDiscussionTopicList(Notebook anNotebook) {
+        return getDiscussionTopicList(anNotebook, null);
+    }
+
+    public ArrayList<DiscussionTopic> getDiscussionTopicList(Notebook anNotebook, DiscussionTopic aDiscussionTopicException) {
+        return this.persistenceTechnologyDelegate.dbListDiscussionTopic(anNotebook, aDiscussionTopicException);
+    }
+
+    public boolean newDiscussionTopic(DiscussionTopic aDiscussionTopic, boolean bAtomicTransaction) {
+//        if(bAtomicTransaction) {
+//            startTransaction();
+//        }
+//        boolean isSuccess = this.persistenceTechnologyDelegate.insertSimpleIdTable(
+//                aDiscussionTopic, DiscussionTopicDaoSqLite.getInstance(), bAtomicTransaction);
+//        isSuccess &= newNodeFragTribKnQuality(aDiscussionTopic) != null;
+//        if(bAtomicTransaction) {
+//            endTransaction(isSuccess);
+//        }
+//        return isSuccess;
+        return false;
+    }
+
+    public void saveDiscussionTopic(DiscussionTopic aDiscussionTopic, boolean bAtomicTransaction) {
+        if(existsDiscussionTopic(aDiscussionTopic.getNodeIdString())) {
+            updateDiscussionTopic(aDiscussionTopic, bAtomicTransaction);
+        } else {
+            newDiscussionTopic(aDiscussionTopic, bAtomicTransaction);
+        }
+    }
+
+    public boolean existsDiscussionTopic(String aNodeIdString) {
+        return retrieveDiscussionTopic(aNodeIdString) != null;
+    }
+
+    public boolean updateDiscussionTopic(DiscussionTopic aDiscussionTopic, boolean bAtomicTransaction) {
+//        updateHeadlineNode(aDiscussionTopic);
+//        return this.persistenceTechnologyDelegate.dbUpdateDiscussionTopic(aDiscussionTopic, bAtomicTransaction);
+        return false;
+    }
+
+    public DiscussionTopic retrieveDiscussionTopic(String aNodeIdString) {
+//        return (DiscussionTopic) this.persistenceTechnologyDelegate.retrieveFmmNodeFromSimpleIdTable(aNodeIdString, DiscussionTopicDaoSqLite.getInstance());
+        return null;
+    }
+
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//////  Node - PORTFOLIO  ////////////////////////////////////////////////////////////////////////////////
@@ -947,7 +1040,7 @@ public class FmmDatabaseMediator {
         return isSuccess;
     }
 
-    public Portfolio getPortfolio(String aNodeIdString) {
+    public Portfolio retrievePortfolio(String aNodeIdString) {
         return this.persistenceTechnologyDelegate.dbRetrievePortfolio(aNodeIdString);
     }
 
@@ -960,7 +1053,7 @@ public class FmmDatabaseMediator {
     }
 
     public boolean existsPortfolio(String aNodeIdString) {
-        return getPortfolio(aNodeIdString) != null;
+        return retrievePortfolio(aNodeIdString) != null;
     }
 
     public boolean updatePortfolio(Portfolio aPortfolio, boolean bAtomicTransaction) {

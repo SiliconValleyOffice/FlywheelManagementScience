@@ -1,4 +1,4 @@
-/* @(#)StrategicCommitmentDaoSqLite.java
+/* @(#)NotebookDaoSqLite.java
  ** 
  ** Copyright (C) 2012 by Steven D. Stamps
  **
@@ -43,48 +43,59 @@
 
 package com.flywheelms.library.fmm.database.sqlite.dao;
 
+import android.content.ContentValues;
 import android.database.Cursor;
 
 import com.flywheelms.library.fmm.meta_data.IdNodeMetaData;
-import com.flywheelms.library.fmm.meta_data.StrategicCommitmentMetaData;
-import com.flywheelms.library.fmm.node.impl.commitment.StrategicCommitment;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
+import com.flywheelms.library.fmm.node.impl.governable.Notebook;
 
-public class StrategicCommitmentDaoSqLite extends CommitmentNodeDaoSqLite<StrategicCommitment> {
+import java.util.HashMap;
 
-	private static StrategicCommitmentDaoSqLite singleton;
+public class NotebookDaoSqLite extends HeadlineNodeDaoSqLite<Notebook> {
 
-	public static StrategicCommitmentDaoSqLite getInstance() {
-		if(StrategicCommitmentDaoSqLite.singleton == null) {
-			StrategicCommitmentDaoSqLite.singleton = new StrategicCommitmentDaoSqLite();
+	private static NotebookDaoSqLite singleton;
+
+	public static NotebookDaoSqLite getInstance() {
+		if(NotebookDaoSqLite.singleton == null) {
+			NotebookDaoSqLite.singleton = new NotebookDaoSqLite();
 		}
-		return StrategicCommitmentDaoSqLite.singleton;
+		return NotebookDaoSqLite.singleton;
 	}
 	
 	@Override
 	public FmmNodeDefinition getFmmNodeDefinition() {
-		return FmmNodeDefinition.STRATEGIC_COMMITMENT;
+		return FmmNodeDefinition.NOTEBOOK;
 	}
 
 	@Override
-	protected String getParentIdColumnName() {
-		return StrategicCommitmentMetaData.column_STRATEGIC_MILESTONE_ID;
+	protected void buildColumnIndexMap(Cursor aCursor) {
+		super.buildColumnIndexMap(aCursor);
 	}
 
 	@Override
-	protected String getChildIdColumnName() {
-		return StrategicCommitmentMetaData.column_STRATEGIC_ASSET_ID;
+	protected void getColumnValues(HashMap<String, Integer> aHashMap, Cursor aCursor, Notebook aNotebook) {
+		super.getColumnValues(aHashMap, aCursor, aNotebook);
 	}
 
 	@Override
-	protected StrategicCommitment getNextObjectFromCursor(Cursor aCursor) {
-		StrategicCommitment theStrategicCommitment = null;
-		theStrategicCommitment = new StrategicCommitment(
-                aCursor.getString(this.columnIndexMap.get(IdNodeMetaData.column_ID)),
-                aCursor.getString(this.columnIndexMap.get(StrategicCommitmentMetaData.column_STRATEGIC_MILESTONE_ID)),
-                aCursor.getString(this.columnIndexMap.get(StrategicCommitmentMetaData.column_STRATEGIC_ASSET_ID)) );
-		getColumnValues(this.columnIndexMap, aCursor, theStrategicCommitment);
-		return theStrategicCommitment;
+	public ContentValues buildContentValues(Notebook aNotebook) {
+		ContentValues theContentValues = super.buildContentValues(aNotebook);
+		return theContentValues;
+	}
+
+	@Override
+	public ContentValues buildUpdateContentValues(Notebook aNotebook) {
+		return buildContentValues(aNotebook);
+	}
+
+	@Override
+	protected Notebook getNextObjectFromCursor(Cursor aCursor) {
+		Notebook theNotebook = null;
+		theNotebook = new Notebook(
+				aCursor.getString(this.columnIndexMap.get(IdNodeMetaData.column_ID)) );
+		getColumnValues(this.columnIndexMap, aCursor, theNotebook);
+		return theNotebook;
 	}
 
 }

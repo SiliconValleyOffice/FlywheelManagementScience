@@ -1,4 +1,4 @@
-/* @(#)StrategicCommitmentMetaData.java
+/* @(#)PortfolioMetaData.java
 ** 
 ** Copyright (C) 2012 by Steven D. Stamps
 **
@@ -43,9 +43,8 @@
 
 package com.flywheelms.library.fmm.meta_data;
 
-public class BookshelfLinkToNotebookMetaData extends CommitmentNodeMetaData {
+public class DiscussionTopicMetaData extends HeadlineNodeMetaData {
 
-	public static final String column_BOOKSHELF_ID = "Bookshelf__id";
-	public static final String column_NOTEBOOK_ID = "Notebook__id";
+	public static void init() { return; }
 
 }

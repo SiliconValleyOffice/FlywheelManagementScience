@@ -54,14 +54,21 @@ public abstract class FmmLinkNodeImpl extends FmmNodeImpl implements FmmLinkNode
 	
 	private String parentNodeIdString;
 	private String childNodeIdString;
-	private String fmmMapIndex;
+//	private String fmmMapIndex;
 	
-	public FmmLinkNodeImpl(Class<? extends FmmLinkNodeImpl> aLinkNodeClass , String aParentNodeIdString, String aChildNodeIdString) {
-		super(new NodeId(aLinkNodeClass));
+	public FmmLinkNodeImpl(NodeId aNodeId , String aParentNodeIdString, String aChildNodeIdString) {
+		super(aNodeId);
 		this.parentNodeIdString = aParentNodeIdString;
 		this.childNodeIdString = aChildNodeIdString;
-		this.fmmMapIndex = buildFmmMapIndex();
+//		this.fmmMapIndex = buildFmmMapIndex();
 	}
+
+    public FmmLinkNodeImpl(Class<? extends FmmLinkNodeImpl> aLinkNodeClass , String aParentNodeIdString, String aChildNodeIdString) {
+        super(new NodeId(aLinkNodeClass));
+        this.parentNodeIdString = aParentNodeIdString;
+        this.childNodeIdString = aChildNodeIdString;
+//        this.fmmMapIndex = buildFmmMapIndex();
+    }
 	
 	@Override
 	public String getLinkedByNodeId() {
@@ -83,7 +90,7 @@ public abstract class FmmLinkNodeImpl extends FmmNodeImpl implements FmmLinkNode
 	@Override
 	public void setParentNodeIdString(String aNodeIdString) {
 		this.parentNodeIdString = aNodeIdString;
-		this.fmmMapIndex = buildFmmMapIndex();
+//		this.fmmMapIndex = buildFmmMapIndex();
 	}
 
 	@Override
@@ -96,29 +103,24 @@ public abstract class FmmLinkNodeImpl extends FmmNodeImpl implements FmmLinkNode
 		this.childNodeIdString = aNodeIdString;
 	}
 
-	@Override
-	public String buildFmmMapIndex() {
-		return this.parentNodeIdString + "-" + this.childNodeIdString;
-	}
+//	@Override
+//	public String buildFmmMapIndex() {
+//		return this.parentNodeIdString + "-" + this.childNodeIdString;
+//	}
 
-	@Override
-	public String getFmmMapIndex() {
-		return this.fmmMapIndex;
-	}
-
-	public static String getFmmMapIndex(String aParentNodeIdString, String aChildNodeIdString) {
-		return aParentNodeIdString + "-" + aChildNodeIdString;
-	}
+//	@Override
+//	public String getFmmMapIndex() {
+//		return this.fmmMapIndex;
+//	}
+//
+//	public static String getFmmMapIndex(String aParentNodeIdString, String aChildNodeIdString) {
+//		return aParentNodeIdString + "-" + aChildNodeIdString;
+//	}
 
 	@Override
 	public abstract Class<? extends FmmNode> getParentClass();
 
 	@Override
 	public abstract Class<? extends FmmNode> getChildClass();
-	
-	@Override
-	public String getNodeIdString() {
-		return this.parentNodeIdString + "-" + this.childNodeIdString;
-	}
 
 }

@@ -68,6 +68,7 @@ import com.flywheelms.library.fmm.database.sqlite.dao.NodeFragFseDocumentDaoSqLi
 import com.flywheelms.library.fmm.database.sqlite.dao.NodeFragGovernanceDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.NodeFragTribKnQualityDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.NodeFragWorkTaskBudgetDaoSqLite;
+import com.flywheelms.library.fmm.database.sqlite.dao.NotebookDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.OrganizationCommunityMemberDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.PdfPublicationDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.PortfolioDaoSqLite;
@@ -82,6 +83,7 @@ import com.flywheelms.library.fmm.database.sqlite.dao.WorkPlanDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.WorkTaskDaoSqLite;
 import com.flywheelms.library.fmm.helper.FmmOpenHelper;
 import com.flywheelms.library.fmm.interfaces.WorkAsset;
+import com.flywheelms.library.fmm.meta_data.BookshelfLinkToNotebookMetaData;
 import com.flywheelms.library.fmm.meta_data.BookshelfMetaData;
 import com.flywheelms.library.fmm.meta_data.CadenceMetaData;
 import com.flywheelms.library.fmm.meta_data.CadenceWorkPackageCommitmentMetaData;
@@ -95,6 +97,7 @@ import com.flywheelms.library.fmm.meta_data.HeadlineNodeMetaData;
 import com.flywheelms.library.fmm.meta_data.IdNodeMetaData;
 import com.flywheelms.library.fmm.meta_data.NodeFragFseDocumentMetaData;
 import com.flywheelms.library.fmm.meta_data.NodeFragMetaData;
+import com.flywheelms.library.fmm.meta_data.NotebookMetaData;
 import com.flywheelms.library.fmm.meta_data.OrganizationCommunityMemberMetaData;
 import com.flywheelms.library.fmm.meta_data.PdfPublicationMetaData;
 import com.flywheelms.library.fmm.meta_data.PortfolioMetaData;
@@ -350,7 +353,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 				" ORDER BY " + anOrderByColumnSpec + " ASC;";
 	}
 
-	private static String getInnerJoinQueryWithAndSpecSorted(
+	public static String getInnerJoinQueryWithAndSpecSorted(
 			String aLeftTableName, String aLeftColumnName, String aRightTableName, String aRightColumnName, String aAndSpec, String anOrderBySpec) {
 		return "SELECT DISTINCT " + aLeftTableName + ".* FROM " + aLeftTableName +
 				" INNER JOIN " + aRightTableName +
@@ -1028,15 +1031,15 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
     @SuppressWarnings("resource")
     @Override
     public ArrayList<Notebook> dbListNotebook(String aBookshelfId, String aNotebookExceptionId) {
-//        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.NOTEBOOK.getTableName() +
-//                " WHERE " + NotebookMetaData.column_BOOKSHELF_ID + " = '" + aBookshelfId + "'";
-//        if(aNotebookExceptionId != null) {
-//            theRawQuery += " AND " + IdNodeMetaData.column_ID + " != '" + aNotebookExceptionId + "'";
-//        }
-//        theRawQuery += " ORDER BY " + HeadlineNodeMetaData.column_HEADLINE + " ASC";
-//        Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
-//        return NotebookDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
-        return null;
+        Cursor theCursor = getSqLiteDatabase().rawQuery(getInnerJoinQueryWithAndSpecSorted(
+                FmmNodeDefinition.NOTEBOOK.getTableName(),
+                IdNodeMetaData.column_ID,
+                FmmNodeDefinition.BOOKSHELF_LINK_TO_NOTEBOOK.getTableName(),
+                BookshelfLinkToNotebookMetaData.column_NOTEBOOK_ID,
+                FmmNodeDefinition.BOOKSHELF_LINK_TO_NOTEBOOK.getTableName() + "." + BookshelfLinkToNotebookMetaData.column_BOOKSHELF_ID + " = '" + aBookshelfId + "'",
+                " LOWER(" + FmmNodeDefinition.NOTEBOOK.getTableName() + "." + NotebookMetaData.column_HEADLINE + ")" ),
+            null );
+        return NotebookDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
     }
 
 

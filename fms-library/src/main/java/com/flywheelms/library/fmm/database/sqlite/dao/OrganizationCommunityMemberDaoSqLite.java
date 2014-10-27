@@ -72,12 +72,12 @@ public class OrganizationCommunityMemberDaoSqLite extends LinkNodeDaoSqLite<Orga
 	}
 	
 	@Override
-	protected String getParentColumnName() {
+	protected String getParentIdColumnName() {
 		return OrganizationCommunityMemberMetaData.column_ORGANIZATION_ID;
 	}
 	
 	@Override
-	protected String getChildColumnName() {
+	protected String getChildIdColumnName() {
 		return OrganizationCommunityMemberMetaData.column_COMMUNITY_MEMBER_ID;
 	}
 

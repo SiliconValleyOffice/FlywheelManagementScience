@@ -58,7 +58,7 @@ public abstract class FmmCommitmentNodeImpl extends FmmHistoryNodeImpl implement
 	
 	protected String parentNodeIdString;
 	protected String childNodeIdString;
-	private String fmmMapIndex;
+//	private String fmmMapIndex;
 	private String completionCommitmentTypeCode;
 	private CompletionCommitmentType completionCommitmentType;
 	private int sequence;
@@ -78,11 +78,15 @@ public abstract class FmmCommitmentNodeImpl extends FmmHistoryNodeImpl implement
 	private CommunityMember canceledBy;
 	private Date canceledTimestamp;
 
-	public FmmCommitmentNodeImpl(Class<? extends FmmCommitmentNodeImpl> aLinkNodeClass , String aParentNodeIdString, String aChildNodeIdString) {
-		super(new NodeId(aLinkNodeClass));
-		this.parentNodeIdString = aParentNodeIdString;
-		this.childNodeIdString = aChildNodeIdString;
-		this.fmmMapIndex = buildFmmMapIndex();
+    public FmmCommitmentNodeImpl(NodeId aNodeId, String aParentNodeIdString, String aChildNodeIdString) {
+        super(aNodeId);
+        this.parentNodeIdString = aParentNodeIdString;
+        this.childNodeIdString = aChildNodeIdString;
+//        this.fmmMapIndex = buildFmmMapIndex();
+    }
+
+	public FmmCommitmentNodeImpl(Class<? extends FmmCommitmentNodeImpl> aLinkNodeClass, String aParentNodeIdString, String aChildNodeIdString) {
+		this(new NodeId(aLinkNodeClass), aParentNodeIdString, aChildNodeIdString);
 	}
 	
 	@Override
@@ -350,15 +354,15 @@ public abstract class FmmCommitmentNodeImpl extends FmmHistoryNodeImpl implement
 		this.canceledTimestamp = canceledTimestamp;
 	}
 
-	@Override
-	public String buildFmmMapIndex() {
-		return getParentNodeIdString() + "-" + getChildNodeIdString();
-	}
-
-	@Override
-	public String getFmmMapIndex() {
-		return this.fmmMapIndex;
-	}
+//	@Override
+//	public String buildFmmMapIndex() {
+//		return getParentNodeIdString() + "-" + getChildNodeIdString();
+//	}
+//
+//	@Override
+//	public String getFmmMapIndex() {
+//		return this.fmmMapIndex;
+//	}
 
 	@Override
 	public String getLinkedByNodeId() {

@@ -43,17 +43,23 @@
 
 package com.flywheelms.library.fmm.node.impl.link;
 
+import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.governable.Bookshelf;
 import com.flywheelms.library.fmm.node.impl.governable.Notebook;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmNode;
 
-public class BookshelfLinkToNotebook extends FmmSequencedLinkNodeImpl {
+public class BookshelfLinkToNotebook extends FmmLinkNodeImpl {
 
-	public BookshelfLinkToNotebook(String aParentNodeIdString, String aChildNodeIdString) {
-		super(
-				BookshelfLinkToNotebook.class,
-				aParentNodeIdString,
-				aChildNodeIdString );
+    public BookshelfLinkToNotebook(String anExistingNodeIdString, String aBookshelfId, String aNotebookId) {
+        super(NodeId.hydrate(
+                        BookshelfLinkToNotebook.class,
+                        anExistingNodeIdString),
+                aBookshelfId,
+                aNotebookId );
+    }
+
+	public BookshelfLinkToNotebook(String aBookshelfId, String aNotebookId) {
+		super(BookshelfLinkToNotebook.class, aBookshelfId, aNotebookId);
 	}
 
 	@Override
@@ -65,5 +71,21 @@ public class BookshelfLinkToNotebook extends FmmSequencedLinkNodeImpl {
 	public Class<? extends FmmNode> getChildClass() {
 		return Notebook.class;
 	}
+    
+    public void setBookshelfId(String aBookshelfId) {
+        setParentNodeIdString(aBookshelfId);
+    }
+    
+    public String getBookshelfId() {
+        return getParentNodeIdString();
+    }
+    
+    public void setNotebookId(String aNotebookId) {
+        setChildNodeIdString(aNotebookId);
+    }
+    
+    public String getNotebookId() {
+        return getChildNodeIdString();
+    }
 
 }

@@ -44,6 +44,7 @@
 package com.flywheelms.library.fmm.node.impl.commitment;
 
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
 import com.flywheelms.library.fmm.node.impl.governable.StrategicMilestone;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmNode;
@@ -55,10 +56,18 @@ public class StrategicCommitment extends FmmCommitmentNodeImpl implements Compar
 	private StrategicMilestone strategicMilestone;
 	private ProjectAsset projectAsset;
 
-	public StrategicCommitment(String aStrategicMilestoneNodeIdString, String aProjectAssetNodeIdString) {
-		super(StrategicCommitment.class, aStrategicMilestoneNodeIdString, aProjectAssetNodeIdString);
-		this.parentNodeIdString = aStrategicMilestoneNodeIdString;
-		this.childNodeIdString = aProjectAssetNodeIdString;
+    public StrategicCommitment(String anExistingNodeIdString, String aStrategicMilestoneId, String aProjectAssetId) {
+        super(NodeId.hydrate(
+                StrategicCommitment.class,
+                anExistingNodeIdString),
+                aStrategicMilestoneId,
+                aProjectAssetId );
+    }
+
+	public StrategicCommitment(String aStrategicMilestoneId, String aProjectAssetId) {
+		super(StrategicCommitment.class, aStrategicMilestoneId, aProjectAssetId);
+		this.parentNodeIdString = aStrategicMilestoneId;
+		this.childNodeIdString = aProjectAssetId;
 	}
 
 	public String getStrategicMilestoneNodeId() {

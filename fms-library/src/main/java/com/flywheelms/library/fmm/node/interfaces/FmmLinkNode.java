@@ -59,9 +59,9 @@ public interface FmmLinkNode {
 	
 	void setChildNodeIdString(String aNodeIdString);
 	
-	String getFmmMapIndex();
+//	String getFmmMapIndex();
 	
-	String buildFmmMapIndex();
+//	String buildFmmMapIndex();
 
 	Class<? extends FmmNode> getParentClass();
 	

@@ -43,9 +43,9 @@
 
 package com.flywheelms.library.fmm.meta_data;
 
-public class BookshelfLinkToNotebookMetaData extends CommitmentNodeMetaData {
+public class NotebookLinkToDiscussionTopicMetaData extends CommitmentNodeMetaData {
 
-	public static final String column_BOOKSHELF_ID = "Bookshelf__id";
-	public static final String column_NOTEBOOK_ID = "Notebook__id";
+    public static final String column_NOTEBOOK_ID = "Notebook__id";
+    public static final String column_DISCUSSION_TOPIC_ID = "DiscussionTopic__id";
 
 }

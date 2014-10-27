@@ -46,49 +46,43 @@ package com.flywheelms.library.fmm.database.sqlite.dao;
 import android.content.ContentValues;
 import android.database.Cursor;
 
-import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
-import com.flywheelms.library.fmm.meta_data.LinkNodeMetaData;
 import com.flywheelms.library.fmm.node.impl.link.FmmLinkNodeImpl;
 
 import java.util.HashMap;
 
-public abstract class LinkNodeDaoSqLite<T extends FmmLinkNodeImpl>  extends FmmNodeDaoSqLite<T> {
+public abstract class LinkNodeDaoSqLite<T extends FmmLinkNodeImpl>  extends IdNodeDaoSqLite<T> {
 	
-	protected abstract String getParentColumnName();
+	protected abstract String getParentIdColumnName();
 	
-	protected abstract String getChildColumnName();
+	protected abstract String getChildIdColumnName();
 	
 	@Override
 	protected void buildColumnIndexMap(Cursor aCursor) {
-		this.columnIndexMap.clear();
-		putColumnIndexMapEntry(this.columnIndexMap, aCursor, getParentColumnName());
-		putColumnIndexMapEntry(this.columnIndexMap, aCursor, getChildColumnName());
-		putColumnIndexMapEntry(this.columnIndexMap, aCursor, LinkNodeMetaData.column_ROW_TIMESTAMP);
+		super.buildColumnIndexMap(aCursor);
+		putColumnIndexMapEntry(this.columnIndexMap, aCursor, getParentIdColumnName());
+		putColumnIndexMapEntry(this.columnIndexMap, aCursor, getChildIdColumnName());
 	}
 	
 	@Override
 	protected void getColumnValues(HashMap<String, Integer> aHashMap, Cursor aCursor, T anFmmNode) {
-		anFmmNode.setParentNodeIdString(aCursor.getString(aHashMap.get(getParentColumnName())));
-		anFmmNode.setChildNodeIdString(aCursor.getString(aHashMap.get(getChildColumnName())));
-		anFmmNode.setRowTimestamp(
-				GcgDateHelper.getDateFromFormattedUtcLong(aCursor.getLong(aHashMap.get(LinkNodeMetaData.column_ROW_TIMESTAMP))) );
+        super.getColumnValues(aHashMap, aCursor, anFmmNode);
+		anFmmNode.setParentNodeIdString(aCursor.getString(aHashMap.get(getParentIdColumnName())));
+		anFmmNode.setChildNodeIdString(aCursor.getString(aHashMap.get(getChildIdColumnName())));
 	}
 
 	@Override
 	public ContentValues buildContentValues(T anFmmNode) {
-		ContentValues theContentValues = new ContentValues();
-		theContentValues.put(getParentColumnName(), anFmmNode.getParentNodeIdString());
-		theContentValues.put(getChildColumnName(), anFmmNode.getChildNodeIdString());
-		theContentValues.put(LinkNodeMetaData.column_ROW_TIMESTAMP, GcgDateHelper.getFormattedUtcLong(GcgDateHelper.getCurrentDateTime()));
+		ContentValues theContentValues = super.buildContentValues(anFmmNode);
+		theContentValues.put(getParentIdColumnName(), anFmmNode.getParentNodeIdString());
+		theContentValues.put(getChildIdColumnName(), anFmmNode.getChildNodeIdString());
 		return theContentValues;
 	}
 
 	@Override
 	public ContentValues buildUpdateContentValues(T anFmmNode) {
-		ContentValues theContentValues = new ContentValues();
-		theContentValues.put(getParentColumnName(), anFmmNode.getParentNodeIdString());
-		theContentValues.put(getChildColumnName(), anFmmNode.getChildNodeIdString());
-		theContentValues.put(LinkNodeMetaData.column_ROW_TIMESTAMP, GcgDateHelper.getFormattedUtcLong(GcgDateHelper.getCurrentDateTime()));
+		ContentValues theContentValues = super.buildUpdateContentValues(anFmmNode);
+		theContentValues.put(getParentIdColumnName(), anFmmNode.getParentNodeIdString());
+		theContentValues.put(getChildIdColumnName(), anFmmNode.getChildNodeIdString());
 		return theContentValues;
 	}
 

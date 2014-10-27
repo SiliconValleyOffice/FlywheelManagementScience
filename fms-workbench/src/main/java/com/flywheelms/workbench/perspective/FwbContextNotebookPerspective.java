@@ -58,6 +58,7 @@ import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fmm.node.impl.governable.Bookshelf;
+import com.flywheelms.library.fmm.node.impl.governable.DiscussionTopic;
 import com.flywheelms.library.fmm.node.impl.governable.Notebook;
 import com.flywheelms.library.fms.helper.FmsHelpIndex;
 import com.flywheelms.library.fms.popup_menu.FmmPopupBuilder;
@@ -126,8 +127,16 @@ public class FwbContextNotebookPerspective extends FmsPerspectiveFlipperTreeView
             Collection<Notebook> theNotebookCollection =
                     FmmDatabaseMediator.getActiveMediator().getNotebookList(theBookshelf);
             GcgTreeNodeInfo theBookshelfTreeNodeInfo = theTreeBuilder.addTopNode(
-                    theBookshelf, false, FmmPerspective.NOTEBOOK);
-//                    theBookshelf, theNotebookCollection.size() > 0, FmmPerspective.NOTEBOOK);
+                    theBookshelf, theNotebookCollection.size() > 0, FmmPerspective.NOTEBOOK);
+
+
+            for (Notebook theNotebook : theNotebookCollection) {
+                Collection<DiscussionTopic> theDiscussionTopicCollection =
+                        FmmDatabaseMediator.getActiveMediator().getDiscussionTopicList(theNotebook);
+                GcgTreeNodeInfo theNotebookTreeNodeInfo = theTreeBuilder.addChildNode(
+                        theNotebook, false, theBookshelfTreeNodeInfo, FmmPerspective.NOTEBOOK);
+//                        theNotebook, theDiscussionTopicCollection.size() > 0, theBookshelfTreeNodeInfo, FmmPerspective.NOTEBOOK);
+            }
 
 
 //        for(Portfolio thePortfolio : theBookshelfCollection) {

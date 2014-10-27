@@ -1,4 +1,4 @@
-/* @(#)StrategicCommitmentDaoSqLite.java
+/* @(#)BookshelfLinkToNotebookDaoSqLite.java
  ** 
  ** Copyright (C) 2012 by Steven D. Stamps
  **
@@ -45,46 +45,48 @@ package com.flywheelms.library.fmm.database.sqlite.dao;
 
 import android.database.Cursor;
 
+import com.flywheelms.library.fmm.meta_data.BookshelfLinkToNotebookMetaData;
 import com.flywheelms.library.fmm.meta_data.IdNodeMetaData;
-import com.flywheelms.library.fmm.meta_data.StrategicCommitmentMetaData;
 import com.flywheelms.library.fmm.node.impl.commitment.StrategicCommitment;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
+import com.flywheelms.library.fmm.node.impl.link.BookshelfLinkToNotebook;
 
-public class StrategicCommitmentDaoSqLite extends CommitmentNodeDaoSqLite<StrategicCommitment> {
+public class BookshelfLinkToNotebookDaoSqLite extends LinkNodeDaoSqLite<BookshelfLinkToNotebook> {
 
-	private static StrategicCommitmentDaoSqLite singleton;
+	private static BookshelfLinkToNotebookDaoSqLite singleton;
 
-	public static StrategicCommitmentDaoSqLite getInstance() {
-		if(StrategicCommitmentDaoSqLite.singleton == null) {
-			StrategicCommitmentDaoSqLite.singleton = new StrategicCommitmentDaoSqLite();
+	public static BookshelfLinkToNotebookDaoSqLite getInstance() {
+		if(BookshelfLinkToNotebookDaoSqLite.singleton == null) {
+			BookshelfLinkToNotebookDaoSqLite.singleton = new BookshelfLinkToNotebookDaoSqLite();
 		}
-		return StrategicCommitmentDaoSqLite.singleton;
+		return BookshelfLinkToNotebookDaoSqLite.singleton;
 	}
 	
 	@Override
 	public FmmNodeDefinition getFmmNodeDefinition() {
-		return FmmNodeDefinition.STRATEGIC_COMMITMENT;
+		return FmmNodeDefinition.BOOKSHELF_LINK_TO_NOTEBOOK;
 	}
 
 	@Override
 	protected String getParentIdColumnName() {
-		return StrategicCommitmentMetaData.column_STRATEGIC_MILESTONE_ID;
+		return BookshelfLinkToNotebookMetaData.column_BOOKSHELF_ID;
 	}
 
 	@Override
 	protected String getChildIdColumnName() {
-		return StrategicCommitmentMetaData.column_STRATEGIC_ASSET_ID;
+		return BookshelfLinkToNotebookMetaData.column_NOTEBOOK_ID;
 	}
 
 	@Override
-	protected StrategicCommitment getNextObjectFromCursor(Cursor aCursor) {
-		StrategicCommitment theStrategicCommitment = null;
-		theStrategicCommitment = new StrategicCommitment(
+	protected BookshelfLinkToNotebook getNextObjectFromCursor(Cursor aCursor) {
+		BookshelfLinkToNotebook theBookshelfLinkToNotebook = null;
+        StrategicCommitment theStrategicCommitment = null;
+		theBookshelfLinkToNotebook = new BookshelfLinkToNotebook(
                 aCursor.getString(this.columnIndexMap.get(IdNodeMetaData.column_ID)),
-                aCursor.getString(this.columnIndexMap.get(StrategicCommitmentMetaData.column_STRATEGIC_MILESTONE_ID)),
-                aCursor.getString(this.columnIndexMap.get(StrategicCommitmentMetaData.column_STRATEGIC_ASSET_ID)) );
-		getColumnValues(this.columnIndexMap, aCursor, theStrategicCommitment);
-		return theStrategicCommitment;
+				aCursor.getString(this.columnIndexMap.get(BookshelfLinkToNotebookMetaData.column_BOOKSHELF_ID)),
+				aCursor.getString(this.columnIndexMap.get(BookshelfLinkToNotebookMetaData.column_NOTEBOOK_ID)) );
+		getColumnValues(this.columnIndexMap, aCursor, theBookshelfLinkToNotebook);
+		return theBookshelfLinkToNotebook;
 	}
 
 }
