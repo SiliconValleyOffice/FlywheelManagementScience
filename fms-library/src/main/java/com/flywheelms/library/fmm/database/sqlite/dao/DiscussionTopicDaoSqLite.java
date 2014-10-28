@@ -47,31 +47,31 @@ import android.database.Cursor;
 
 import com.flywheelms.library.fmm.meta_data.IdNodeMetaData;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
-import com.flywheelms.library.fmm.node.impl.governable.Notebook;
+import com.flywheelms.library.fmm.node.impl.governable.DiscussionTopic;
 
-public class NotebookDaoSqLite extends HeadlineNodeDaoSqLite<Notebook> {
+public class DiscussionTopicDaoSqLite extends HeadlineNodeDaoSqLite<DiscussionTopic> {
 
-	private static NotebookDaoSqLite singleton;
+	private static DiscussionTopicDaoSqLite singleton;
 
-	public static NotebookDaoSqLite getInstance() {
-		if(NotebookDaoSqLite.singleton == null) {
-			NotebookDaoSqLite.singleton = new NotebookDaoSqLite();
+	public static DiscussionTopicDaoSqLite getInstance() {
+		if(DiscussionTopicDaoSqLite.singleton == null) {
+			DiscussionTopicDaoSqLite.singleton = new DiscussionTopicDaoSqLite();
 		}
-		return NotebookDaoSqLite.singleton;
+		return DiscussionTopicDaoSqLite.singleton;
 	}
 	
 	@Override
 	public FmmNodeDefinition getFmmNodeDefinition() {
-		return FmmNodeDefinition.NOTEBOOK;
+		return FmmNodeDefinition.DISCUSSION_TOPIC;
 	}
 
 	@Override
-	protected Notebook getNextObjectFromCursor(Cursor aCursor) {
-		Notebook theNotebook = null;
-		theNotebook = new Notebook(
+	protected DiscussionTopic getNextObjectFromCursor(Cursor aCursor) {
+		DiscussionTopic theDiscussionTopic = null;
+		theDiscussionTopic = new DiscussionTopic(
 				aCursor.getString(this.columnIndexMap.get(IdNodeMetaData.column_ID)) );
-		getColumnValues(this.columnIndexMap, aCursor, theNotebook);
-		return theNotebook;
+		getColumnValues(this.columnIndexMap, aCursor, theDiscussionTopic);
+		return theDiscussionTopic;
 	}
 
 }

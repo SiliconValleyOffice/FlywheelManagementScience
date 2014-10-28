@@ -43,6 +43,7 @@
 
 package com.flywheelms.library.fmm.node.impl.link;
 
+import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.interfaces.FmmSequencedNode;
 
@@ -53,9 +54,20 @@ public abstract class FmmSequencedLinkNodeImpl extends FmmLinkNodeImpl implement
 	public FmmSequencedLinkNodeImpl(
 			Class<? extends FmmSequencedLinkNodeImpl> aSequencedLinkNodeClass,
 			String aParentNodeIdString,
-			String aChildNodeIdString ) {
+			String aChildNodeIdString,
+            int aSequence ) {
 		super(aSequencedLinkNodeClass, aParentNodeIdString, aChildNodeIdString);
+        this.sequence = aSequence;
 	}
+
+    public FmmSequencedLinkNodeImpl(
+            NodeId aNodeId,
+            String aParentNodeIdString,
+            String aChildNodeIdString,
+            int aSequence ) {
+        super(aNodeId, aParentNodeIdString, aChildNodeIdString);
+        this.sequence = aSequence;
+    }
 
 	@Override
 	public void setSequence(int aSequence) {

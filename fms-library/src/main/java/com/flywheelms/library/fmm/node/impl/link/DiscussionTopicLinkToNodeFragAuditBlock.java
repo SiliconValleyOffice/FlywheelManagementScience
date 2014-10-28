@@ -43,6 +43,8 @@
 
 package com.flywheelms.library.fmm.node.impl.link;
 
+import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.governable.DiscussionTopic;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragAuditBlock;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmNode;
@@ -52,22 +54,85 @@ import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmNode;
  */
 public class DiscussionTopicLinkToNodeFragAuditBlock extends FmmSequencedLinkNodeImpl {
 
-	public DiscussionTopicLinkToNodeFragAuditBlock(
-			String aParentNodeIdString, String aChildNodeIdString ) {
-		super(
-				DiscussionTopicLinkToNodeFragAuditBlock.class,
-				aParentNodeIdString,
-				aChildNodeIdString );
-	}
+    private DiscussionTopic discussionTopic;
+    private NodeFragAuditBlock nodeFragAuditBlock;
 
-	@Override
-	public Class<? extends FmmNode> getParentClass() {
-		return DiscussionTopic.class;
-	}
+    public DiscussionTopicLinkToNodeFragAuditBlock(
+            String aParentNodeId,
+            String aChildNodeId,
+            int aSequence ) {
+        super(
+                NotebookLinkToDiscussionTopic.class,
+                aParentNodeId,
+                aChildNodeId,
+                aSequence );
+    }
 
-	@Override
-	public Class<? extends FmmNode> getChildClass() {
-		return NodeFragAuditBlock.class;
-	}
-	
+    public DiscussionTopicLinkToNodeFragAuditBlock(
+            String anExistingNodeIdString,
+            String aParentNodeId,
+            String aChildNodeId,
+            int aSequence ) {
+        super(   NodeId.hydrate(
+                        NotebookLinkToDiscussionTopic.class,
+                        anExistingNodeIdString),
+                aParentNodeId,
+                aChildNodeId,
+                aSequence );
+    }
+
+    @Override
+    public Class<? extends FmmNode> getParentClass() {
+        return DiscussionTopic.class;
+    }
+
+    @Override
+    public Class<? extends FmmNode> getChildClass() {
+        return NodeFragAuditBlock.class;
+    }
+
+    public String getDiscussionTopicNodeId() {
+        return getParentNodeIdString();
+    }
+
+    public DiscussionTopic getDiscussionTopic() {
+        if(this.discussionTopic == null && getParentNodeIdString() != null) {
+            this.discussionTopic =
+                    FmmDatabaseMediator.getActiveMediator().retrieveDiscussionTopic(getParentNodeIdString());
+        }
+        return this.discussionTopic;
+    }
+
+    public void setDiscussionTopicNodeId(String aDiscussionTopicNodeId) {
+        setParentNodeIdString(aDiscussionTopicNodeId);
+        this.discussionTopic = null;
+    }
+
+    public void setDiscussionTopic(DiscussionTopic aDiscussionTopic) {
+        this.discussionTopic = aDiscussionTopic;
+        setParentNodeIdString(aDiscussionTopic.getNodeIdString());
+    }
+
+    public String getNodeFragAuditBlockNodeId() {
+        return getChildNodeIdString();
+    }
+
+    public NodeFragAuditBlock getNodeFragAuditBlock() {
+        if(this.nodeFragAuditBlock == null && getChildNodeIdString() != null) {
+            this.nodeFragAuditBlock =
+                    FmmDatabaseMediator.getActiveMediator().retrieveNodeFragAuditBlock(getChildNodeIdString());
+        }
+        return this.nodeFragAuditBlock;
+    }
+
+    public void setNodeFragAuditBlockNodeId(String aNodeFragAuditBlockNodeId) {
+        setChildNodeIdString(aNodeFragAuditBlockNodeId);
+        this.nodeFragAuditBlock = null;
+    }
+
+    public void setNodeFragAuditBlock(NodeFragAuditBlock aNodeFragAuditBlock) {
+        this.nodeFragAuditBlock = aNodeFragAuditBlock;
+        setChildNodeIdString(aNodeFragAuditBlock.getNodeIdString());
+    }
+
 }

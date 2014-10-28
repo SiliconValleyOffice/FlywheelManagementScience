@@ -43,9 +43,9 @@
 
 package com.flywheelms.library.fmm.meta_data;
 
-public class NotebookLinkToDiscussionTopicMetaData extends SequencedLinkNodeMetaData {
+public class DiscussionTopicLinkToNodeFragAuditBlockMetaData extends SequencedLinkNodeMetaData {
 
     public static final String column_NOTEBOOK_ID = "Notebook__id";
-    public static final String column_DISCUSSION_TOPIC_ID = "DiscussionTopic__id";
+    public static final String column_NODE_FRAG_AUDIT_BLOCK_ID = "NodeFragAuditBlock__id";
 
 }

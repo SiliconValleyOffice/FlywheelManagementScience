@@ -715,7 +715,7 @@ public abstract class FseParagraphView extends LinearLayout
 
 	@Override
 	public boolean isLocked() {
-//		return getNodeFragAuditBlock().isLocked();
+//		return retrieveNodeFragAuditBlock().isLocked();
 		return this.isLocked;
 	}
 	

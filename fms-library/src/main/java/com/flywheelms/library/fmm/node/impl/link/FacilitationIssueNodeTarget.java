@@ -50,11 +50,12 @@ import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmNode;
 public class FacilitationIssueNodeTarget extends FmmSequencedLinkNodeImpl {
 
 	public FacilitationIssueNodeTarget(
-			String aParentNodeIdString, String aChildNodeIdString ) {
+			String aParentNodeIdString, String aChildNodeIdString, int aSequence ) {
 		super(
 				FacilitationIssueNodeTarget.class,
 				aParentNodeIdString,
-				aChildNodeIdString );
+				aChildNodeIdString,
+                aSequence );
 	}
 
 	@Override

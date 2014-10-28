@@ -61,7 +61,7 @@ import com.flywheelms.library.fmm.deckangl.FmsDecoratorWorkTeam;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
-import com.flywheelms.library.fmm.node.impl.link.DiscussionTopicLinkToNodeFragAuditBlock;
+import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragAuditBlock;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.util.JsonHelper;
 
@@ -77,9 +77,8 @@ public class DiscussionTopic extends FmmGovernableNodeImpl {
 
 	private static final long serialVersionUID = 4484750862419032893L;
     public static final String SERIALIZATION_FORMAT_VERSION = "0.1";
-    private String notebookId;
-    private Notebook notebook;
-    private ArrayList<DiscussionTopicLinkToNodeFragAuditBlock> discussionTopicLinkToNodeFragAuditBlockList;
+    private ArrayList<Notebook> notebookList;
+    private ArrayList<NodeFragAuditBlock> nodeFragAuditBlockList;
 
 
     public DiscussionTopic() {
@@ -92,16 +91,9 @@ public class DiscussionTopic extends FmmGovernableNodeImpl {
                 anExistingNodeIdString));
     }
 
-    public DiscussionTopic(NodeId aNodeId, String aHeadline, String aNotebookId) {
+    public DiscussionTopic(NodeId aNodeId, String aHeadline) {
         super(aNodeId);
         setHeadline(aHeadline);
-        setNotebookId(aNotebookId);
-    }
-
-    public DiscussionTopic(NodeId aNodeId, String aHeadline, Notebook aNotebook) {
-        super(aNodeId);
-        setHeadline(aHeadline);
-        setNotebook(aNotebook);
     }
 
     public DiscussionTopic(JSONObject aJsonObject) {
@@ -125,19 +117,34 @@ public class DiscussionTopic extends FmmGovernableNodeImpl {
         return theJsonObject;
     }
 
-    public JSONArray getDiscussionTopicLinkToNodeFragAuditBlockIdJsonArray() {
+    public JSONArray getNotebookIdJsonArray() {
         JSONArray theJsonArray = new JSONArray();
-        for(DiscussionTopicLinkToNodeFragAuditBlock theLink : getDiscussionTopicLinkToNodeFragAuditBlockList()) {
-            theJsonArray.put(theLink.getNodeIdString());
+        for(Notebook theNotebook : getNotebookList()) {
+            theJsonArray.put(theNotebook.getNodeIdString());
         }
         return theJsonArray;
     }
 
-    public ArrayList<DiscussionTopicLinkToNodeFragAuditBlock> getDiscussionTopicLinkToNodeFragAuditBlockList() {
-        if(this.discussionTopicLinkToNodeFragAuditBlockList == null) {
-            this.discussionTopicLinkToNodeFragAuditBlockList = FmmDatabaseMediator.getActiveMediator().getDiscussionTopicLinkToNodeFragAuditBlockList(this);
+    public JSONArray getNodeFragAuditBlockIdJsonArray() {
+        JSONArray theJsonArray = new JSONArray();
+        for(NodeFragAuditBlock theNodeFragAuditBlock : getNodeFragAuditBlockList()) {
+            theJsonArray.put(theNodeFragAuditBlock.getNodeIdString());
         }
-        return this.discussionTopicLinkToNodeFragAuditBlockList;
+        return theJsonArray;
+    }
+
+    public ArrayList<Notebook> getNotebookList() {
+        if(this.notebookList == null) {
+            this.notebookList = FmmDatabaseMediator.getActiveMediator().listNotebook(this);
+        }
+        return this.notebookList;
+    }
+
+    public ArrayList<NodeFragAuditBlock> getNodeFragAuditBlockList() {
+        if(this.nodeFragAuditBlockList == null) {
+            this.nodeFragAuditBlockList = FmmDatabaseMediator.getActiveMediator().listNodeFragAuditBlock(this);
+        }
+        return this.nodeFragAuditBlockList;
     }
 
     @Override
@@ -145,37 +152,10 @@ public class DiscussionTopic extends FmmGovernableNodeImpl {
         return new DiscussionTopic(getJsonObject());
     }
 
-    public String getNotebookId() {
-        return this.notebookId;
-    }
-
-    public void setNotebookId(String anNotebookNodeId) {
-        this.notebookId = anNotebookNodeId;
-        if(this.notebook != null && ! this.notebook.getNodeIdString().equals(anNotebookNodeId)) {
-            this.notebook = null;
-        }
-    }
-
-    public Notebook getNotebook() {
-        if(this.notebook == null && this.notebookId != null) {
-            this.notebook = FmmDatabaseMediator.getActiveMediator().retrieveNotebook(this.notebookId);
-        }
-        return this.notebook;
-    }
-
-    public void setNotebook(Notebook anNotebook) {
-        this.notebook = anNotebook;
-        this.notebookId = anNotebook.getNodeIdString();
-    }
-
     @Override
     public ArrayList<? extends FmmHeadlineNode> getChildList(FmmNodeDefinition aChildNodeDefinition) {
         ArrayList<? extends FmmHeadlineNodeImpl> theList = null;
         return theList;
-    }
-
-    public void setPrimaryParentId(String aNodeIdString) {
-        setNotebookId(aNodeIdString);
     }
 
     /////////////////////////////////////////////////////////////////////////

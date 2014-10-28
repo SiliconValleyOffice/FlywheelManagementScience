@@ -1,4 +1,4 @@
-/* @(#)NotebookDaoSqLite.java
+/* @(#)NotebookLinkToDiscussionTopicDaoSqLite.java
  ** 
  ** Copyright (C) 2012 by Steven D. Stamps
  **
@@ -46,32 +46,46 @@ package com.flywheelms.library.fmm.database.sqlite.dao;
 import android.database.Cursor;
 
 import com.flywheelms.library.fmm.meta_data.IdNodeMetaData;
+import com.flywheelms.library.fmm.meta_data.NotebookLinkToDiscussionTopicMetaData;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
-import com.flywheelms.library.fmm.node.impl.governable.Notebook;
+import com.flywheelms.library.fmm.node.impl.link.NotebookLinkToDiscussionTopic;
 
-public class NotebookDaoSqLite extends HeadlineNodeDaoSqLite<Notebook> {
+public class NotebookLinkToDiscussionTopicDaoSqLite extends SequencedLinkNodeDaoSqLite<NotebookLinkToDiscussionTopic> {
 
-	private static NotebookDaoSqLite singleton;
+	private static NotebookLinkToDiscussionTopicDaoSqLite singleton;
 
-	public static NotebookDaoSqLite getInstance() {
-		if(NotebookDaoSqLite.singleton == null) {
-			NotebookDaoSqLite.singleton = new NotebookDaoSqLite();
+	public static NotebookLinkToDiscussionTopicDaoSqLite getInstance() {
+		if(NotebookLinkToDiscussionTopicDaoSqLite.singleton == null) {
+			NotebookLinkToDiscussionTopicDaoSqLite.singleton = new NotebookLinkToDiscussionTopicDaoSqLite();
 		}
-		return NotebookDaoSqLite.singleton;
+		return NotebookLinkToDiscussionTopicDaoSqLite.singleton;
 	}
 	
 	@Override
 	public FmmNodeDefinition getFmmNodeDefinition() {
-		return FmmNodeDefinition.NOTEBOOK;
+		return FmmNodeDefinition.NOTEBOOK_LINK_TO_DISCUSSION_TOPIC;
 	}
 
 	@Override
-	protected Notebook getNextObjectFromCursor(Cursor aCursor) {
-		Notebook theNotebook = null;
-		theNotebook = new Notebook(
-				aCursor.getString(this.columnIndexMap.get(IdNodeMetaData.column_ID)) );
-		getColumnValues(this.columnIndexMap, aCursor, theNotebook);
-		return theNotebook;
+	protected String getParentIdColumnName() {
+		return NotebookLinkToDiscussionTopicMetaData.column_NOTEBOOK_ID;
+	}
+
+	@Override
+	protected String getChildIdColumnName() {
+		return NotebookLinkToDiscussionTopicMetaData.column_DISCUSSION_TOPIC_ID;
+	}
+
+	@Override
+	protected NotebookLinkToDiscussionTopic getNextObjectFromCursor(Cursor aCursor) {
+		NotebookLinkToDiscussionTopic theNotebookLinkToDiscussionTopic = null;
+		theNotebookLinkToDiscussionTopic = new NotebookLinkToDiscussionTopic(
+                aCursor.getString(this.columnIndexMap.get(IdNodeMetaData.column_ID)),
+                aCursor.getString(this.columnIndexMap.get(NotebookLinkToDiscussionTopicMetaData.column_NOTEBOOK_ID)),
+                aCursor.getString(this.columnIndexMap.get(NotebookLinkToDiscussionTopicMetaData.column_DISCUSSION_TOPIC_ID)),
+                aCursor.getInt(this.columnIndexMap.get(NotebookLinkToDiscussionTopicMetaData.column_SEQUENCE)) );
+		getColumnValues(this.columnIndexMap, aCursor, theNotebookLinkToDiscussionTopic);
+		return theNotebookLinkToDiscussionTopic;
 	}
 
 }

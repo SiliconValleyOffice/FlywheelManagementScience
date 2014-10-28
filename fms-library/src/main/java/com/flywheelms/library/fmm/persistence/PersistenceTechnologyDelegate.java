@@ -701,8 +701,6 @@ public abstract class PersistenceTechnologyDelegate {
 
 		public abstract StrategicCommitment dbRetrieveStrategicCommitmentForProjectAsset(String aProjectAssetId);
 
-		public abstract boolean dbInsertStrategicCommitment(StrategicCommitment aStrategicCommitment, boolean bAtomicTransaction);
-
 		public abstract boolean dbUpdateStrategicCommitment(StrategicCommitment aStrategicCommitment, boolean bAtomicTransaction);
 
 		public abstract boolean dbDeleteStrategicCommitment(StrategicCommitment aStrategicCommitment, boolean bAtomicTransaction);

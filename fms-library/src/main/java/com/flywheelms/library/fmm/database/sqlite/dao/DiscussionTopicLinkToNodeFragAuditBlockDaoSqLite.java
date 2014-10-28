@@ -1,4 +1,4 @@
-/* @(#)NotebookDaoSqLite.java
+/* @(#)DiscussionTopicLinkToNodeFragAuditBlockDaoSqLite.java
  ** 
  ** Copyright (C) 2012 by Steven D. Stamps
  **
@@ -45,33 +45,47 @@ package com.flywheelms.library.fmm.database.sqlite.dao;
 
 import android.database.Cursor;
 
+import com.flywheelms.library.fmm.meta_data.DiscussionTopicLinkToNodeFragAuditBlockMetaData;
 import com.flywheelms.library.fmm.meta_data.IdNodeMetaData;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
-import com.flywheelms.library.fmm.node.impl.governable.Notebook;
+import com.flywheelms.library.fmm.node.impl.link.DiscussionTopicLinkToNodeFragAuditBlock;
 
-public class NotebookDaoSqLite extends HeadlineNodeDaoSqLite<Notebook> {
+public class DiscussionTopicLinkToNodeFragAuditBlockDaoSqLite extends SequencedLinkNodeDaoSqLite<DiscussionTopicLinkToNodeFragAuditBlock> {
 
-	private static NotebookDaoSqLite singleton;
+	private static DiscussionTopicLinkToNodeFragAuditBlockDaoSqLite singleton;
 
-	public static NotebookDaoSqLite getInstance() {
-		if(NotebookDaoSqLite.singleton == null) {
-			NotebookDaoSqLite.singleton = new NotebookDaoSqLite();
+	public static DiscussionTopicLinkToNodeFragAuditBlockDaoSqLite getInstance() {
+		if(DiscussionTopicLinkToNodeFragAuditBlockDaoSqLite.singleton == null) {
+			DiscussionTopicLinkToNodeFragAuditBlockDaoSqLite.singleton = new DiscussionTopicLinkToNodeFragAuditBlockDaoSqLite();
 		}
-		return NotebookDaoSqLite.singleton;
+		return DiscussionTopicLinkToNodeFragAuditBlockDaoSqLite.singleton;
 	}
 	
 	@Override
 	public FmmNodeDefinition getFmmNodeDefinition() {
-		return FmmNodeDefinition.NOTEBOOK;
+		return FmmNodeDefinition.DISCUSSION_TOPIC_LINK_TO_NODE_FRAG_AUDIT_BLOCK;
 	}
 
 	@Override
-	protected Notebook getNextObjectFromCursor(Cursor aCursor) {
-		Notebook theNotebook = null;
-		theNotebook = new Notebook(
-				aCursor.getString(this.columnIndexMap.get(IdNodeMetaData.column_ID)) );
-		getColumnValues(this.columnIndexMap, aCursor, theNotebook);
-		return theNotebook;
+	protected String getParentIdColumnName() {
+		return DiscussionTopicLinkToNodeFragAuditBlockMetaData.column_NOTEBOOK_ID;
+	}
+
+	@Override
+	protected String getChildIdColumnName() {
+		return DiscussionTopicLinkToNodeFragAuditBlockMetaData.column_NODE_FRAG_AUDIT_BLOCK_ID;
+	}
+
+	@Override
+	protected DiscussionTopicLinkToNodeFragAuditBlock getNextObjectFromCursor(Cursor aCursor) {
+		DiscussionTopicLinkToNodeFragAuditBlock theDiscussionTopicLinkToNodeFragAuditBlock = null;
+		theDiscussionTopicLinkToNodeFragAuditBlock = new DiscussionTopicLinkToNodeFragAuditBlock(
+                aCursor.getString(this.columnIndexMap.get(IdNodeMetaData.column_ID)),
+                aCursor.getString(this.columnIndexMap.get(DiscussionTopicLinkToNodeFragAuditBlockMetaData.column_NOTEBOOK_ID)),
+                aCursor.getString(this.columnIndexMap.get(DiscussionTopicLinkToNodeFragAuditBlockMetaData.column_NODE_FRAG_AUDIT_BLOCK_ID)),
+                aCursor.getInt(this.columnIndexMap.get(DiscussionTopicLinkToNodeFragAuditBlockMetaData.column_SEQUENCE)) );
+		getColumnValues(this.columnIndexMap, aCursor, theDiscussionTopicLinkToNodeFragAuditBlock);
+		return theDiscussionTopicLinkToNodeFragAuditBlock;
 	}
 
 }

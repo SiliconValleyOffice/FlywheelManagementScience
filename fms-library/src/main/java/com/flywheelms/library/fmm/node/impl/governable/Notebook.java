@@ -79,8 +79,7 @@ public class Notebook extends FmmGovernableNodeImpl {
 
     private static final long serialVersionUID = -4572739802256638560L;
     public static final String SERIALIZATION_FORMAT_VERSION = "0.1";
-    private String bookshelfId;
-    private Bookshelf bookshelf;
+    private ArrayList<Bookshelf> bookshelfList;
     private ArrayList<DiscussionTopic> discussionTopicList;
 
     public Notebook() {
@@ -93,16 +92,9 @@ public class Notebook extends FmmGovernableNodeImpl {
                 anExistingNodeIdString));
     }
 
-    public Notebook(NodeId aNodeId, String aHeadline, String aBookshelfId) {
+    public Notebook(NodeId aNodeId, String aHeadline) {
         super(aNodeId);
         setHeadline(aHeadline);
-        setBookshelfId(aBookshelfId);
-    }
-
-    public Notebook(NodeId aNodeId, String aHeadline, Bookshelf aBookshelf) {
-        super(aNodeId);
-        setHeadline(aHeadline);
-        setBookshelf(aBookshelf);
     }
 
     public Notebook(JSONObject aJsonObject) {
@@ -139,36 +131,24 @@ public class Notebook extends FmmGovernableNodeImpl {
         return new Notebook(getJsonObject());
     }
 
-    public String getBookshelfId() {
-        return this.bookshelfId;
+    public Collection<Bookshelf> getBookshelfCollection() {
+        return getBookshelfList();
     }
 
-    public void setBookshelfId(String anBookshelfNodeId) {
-        this.bookshelfId = anBookshelfNodeId;
-        if(this.bookshelf != null && ! this.bookshelf.getNodeIdString().equals(anBookshelfNodeId)) {
-            this.bookshelf = null;
+    public ArrayList<Bookshelf> getBookshelfList() {
+        if(this.bookshelfList == null) {
+            this.bookshelfList = FmmDatabaseMediator.getActiveMediator().listBookshelf(this);
         }
+        return this.bookshelfList;
     }
 
-    public Bookshelf getBookshelf() {
-        if(this.bookshelf == null && this.bookshelfId != null) {
-            this.bookshelf = FmmDatabaseMediator.getActiveMediator().retrieveBookshelf(this.bookshelfId);
-        }
-        return this.bookshelf;
-    }
-
-    public void setBookshelf(Bookshelf anBookshelf) {
-        this.bookshelf = anBookshelf;
-        this.bookshelfId = anBookshelf.getNodeIdString();
-    }
-
-    public Collection<DiscussionTopic> getNotebookCollection() {
+    public Collection<DiscussionTopic> getDiscussionTopicCollection() {
         return getDiscussionTopicList();
     }
 
     public ArrayList<DiscussionTopic> getDiscussionTopicList() {
         if(this.discussionTopicList == null) {
-            this.discussionTopicList = FmmDatabaseMediator.getActiveMediator().getDiscussionTopicList(this);
+            this.discussionTopicList = FmmDatabaseMediator.getActiveMediator().listDiscussionTopic(this);
         }
         return this.discussionTopicList;
     }
@@ -236,14 +216,10 @@ public class Notebook extends FmmGovernableNodeImpl {
         ArrayList<? extends FmmHeadlineNodeImpl> theList = null;
         switch(aChildNodeDefinition) {
             case DISCUSSION_TOPIC:
-                theList = FmmDatabaseMediator.getActiveMediator().getDiscussionTopicList(this);
+                theList = FmmDatabaseMediator.getActiveMediator().listDiscussionTopic(this);
                 break;
         }
         return theList;
-    }
-
-    public void setPrimaryParentId(String aNodeIdString) {
-        setBookshelfId(aNodeIdString);
     }
 
 }

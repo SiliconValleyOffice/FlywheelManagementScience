@@ -56,6 +56,8 @@ import com.flywheelms.library.fmm.database.sqlite.dao.CadenceWorkPackageCommitme
 import com.flywheelms.library.fmm.database.sqlite.dao.CommunityMemberDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.CommunityMemberOrganizationGovernanceAuthorityDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.CompletionNodeTrashDaoSqLite;
+import com.flywheelms.library.fmm.database.sqlite.dao.DiscussionTopicDaoSqLite;
+import com.flywheelms.library.fmm.database.sqlite.dao.DiscussionTopicLinkToNodeFragAuditBlockDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.FiscalYearDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.FiscalYearHolidayBreakDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.FlywheelTeamDaoSqLite;
@@ -70,6 +72,7 @@ import com.flywheelms.library.fmm.database.sqlite.dao.NodeFragGovernanceDaoSqLit
 import com.flywheelms.library.fmm.database.sqlite.dao.NodeFragTribKnQualityDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.NodeFragWorkTaskBudgetDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.NotebookDaoSqLite;
+import com.flywheelms.library.fmm.database.sqlite.dao.NotebookLinkToDiscussionTopicDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.OrganizationCommunityMemberDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.PdfPublicationDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.PortfolioDaoSqLite;
@@ -169,6 +172,8 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
             this.daoMap.put(FmmNodeDefinition.COMMUNITY_MEMBER, CommunityMemberDaoSqLite.getInstance());
             this.daoMap.put(FmmNodeDefinition.COMMUNITY_MEMBER_ORGANIZATION_GOVERNANCE_AUTHORITY, CommunityMemberOrganizationGovernanceAuthorityDaoSqLite.getInstance());
             this.daoMap.put(FmmNodeDefinition.COMPLETION_NODE_TRASH, CompletionNodeTrashDaoSqLite.getInstance());
+            this.daoMap.put(FmmNodeDefinition.DISCUSSION_TOPIC, DiscussionTopicDaoSqLite.getInstance());
+            this.daoMap.put(FmmNodeDefinition.DISCUSSION_TOPIC_LINK_TO_NODE_FRAG_AUDIT_BLOCK, DiscussionTopicLinkToNodeFragAuditBlockDaoSqLite.getInstance());
             this.daoMap.put(FmmNodeDefinition.FISCAL_YEAR, FiscalYearDaoSqLite.getInstance());
             this.daoMap.put(FmmNodeDefinition.FISCAL_YEAR_HOLIDAY_BREAK, FiscalYearHolidayBreakDaoSqLite.getInstance());
             this.daoMap.put(FmmNodeDefinition.FLYWHEEL_TEAM, FlywheelTeamDaoSqLite.getInstance());
@@ -182,6 +187,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
             this.daoMap.put(FmmNodeDefinition.NODE_FRAG__TRIBKN_QUALITY, NodeFragTribKnQualityDaoSqLite.getInstance());
             this.daoMap.put(FmmNodeDefinition.NODE_FRAG__WORK_TASK_BUDGET, NodeFragWorkTaskBudgetDaoSqLite.getInstance());
             this.daoMap.put(FmmNodeDefinition.NOTEBOOK, NotebookDaoSqLite.getInstance());
+            this.daoMap.put(FmmNodeDefinition.NOTEBOOK_LINK_TO_DISCUSSION_TOPIC, NotebookLinkToDiscussionTopicDaoSqLite.getInstance());
             this.daoMap.put(FmmNodeDefinition.ORGANIZATION_COMMUNITY_MEMBER, OrganizationCommunityMemberDaoSqLite.getInstance());
             this.daoMap.put(FmmNodeDefinition.PORTFOLIO, PortfolioDaoSqLite.getInstance());
             this.daoMap.put(FmmNodeDefinition.PDF_PUBLICATION, PdfPublicationDaoSqLite.getInstance());
@@ -2274,12 +2280,6 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 		Cursor theCursor = getSqLiteDatabase().rawQuery("SELECT * FROM " + FmmNodeDefinition.STRATEGIC_COMMITMENT.getTableName() +
 				" WHERE " + StrategicCommitmentMetaData.column_STRATEGIC_ASSET_ID + " = '" + aProjectAssetId + "'", null);
 		return StrategicCommitmentDaoSqLite.getInstance().getSingleObjectFromCursor(theCursor);
-	}
-	
-	@Override
-	public boolean dbInsertStrategicCommitment(StrategicCommitment aStrategicCommitment, boolean bAtomicTransaction) {
-    	return insertSimpleIdTable(
-    			aStrategicCommitment, bAtomicTransaction);
 	}
 
 	@Override

@@ -43,20 +43,40 @@
 
 package com.flywheelms.library.fmm.node.impl.link;
 
+import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.governable.DiscussionTopic;
 import com.flywheelms.library.fmm.node.impl.governable.Notebook;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmNode;
 
 public class NotebookLinkToDiscussionTopic extends FmmSequencedLinkNodeImpl {
+    
+    private Notebook notebook;
+    private DiscussionTopic discussionTopic;
 
 	public NotebookLinkToDiscussionTopic(
 			String aParentNodeId,
-			String aChildNodeId ) {
+			String aChildNodeId,
+            int aSequence ) {
 		super(
 				NotebookLinkToDiscussionTopic.class,
 				aParentNodeId,
-				aChildNodeId );
+				aChildNodeId,
+                aSequence );
 	}
+
+    public NotebookLinkToDiscussionTopic(
+            String anExistingNodeIdString,
+            String aParentNodeId,
+            String aChildNodeId,
+            int aSequence ) {
+        super(   NodeId.hydrate(
+                        NotebookLinkToDiscussionTopic.class,
+                        anExistingNodeIdString),
+                aParentNodeId,
+                aChildNodeId,
+                aSequence );
+    }
 
 	@Override
 	public Class<? extends FmmNode> getParentClass() {
@@ -67,5 +87,49 @@ public class NotebookLinkToDiscussionTopic extends FmmSequencedLinkNodeImpl {
 	public Class<? extends FmmNode> getChildClass() {
 		return DiscussionTopic.class;
 	}
+
+    public String getNotebookNodeId() {
+        return getParentNodeIdString();
+    }
+
+    public Notebook getNotebook() {
+        if(this.notebook == null && getParentNodeIdString() != null) {
+            this.notebook =
+                    FmmDatabaseMediator.getActiveMediator().retrieveNotebook(getParentNodeIdString());
+        }
+        return this.notebook;
+    }
+
+    public void setNotebookNodeId(String aNotebookNodeId) {
+        setParentNodeIdString(aNotebookNodeId);
+        this.notebook = null;
+    }
+
+    public void setNotebook(Notebook aNotebook) {
+        this.notebook = aNotebook;
+        setParentNodeIdString(aNotebook.getNodeIdString());
+    }
+
+    public String getDiscussionTopicNodeId() {
+        return getChildNodeIdString();
+    }
+
+    public DiscussionTopic getDiscussionTopic() {
+        if(this.discussionTopic == null && getChildNodeIdString() != null) {
+            this.discussionTopic =
+                    FmmDatabaseMediator.getActiveMediator().retrieveDiscussionTopic(getChildNodeIdString());
+        }
+        return this.discussionTopic;
+    }
+
+    public void setDiscussionTopicNodeId(String aDiscussionTopicNodeId) {
+        setChildNodeIdString(aDiscussionTopicNodeId);
+        this.discussionTopic = null;
+    }
+
+    public void setDiscussionTopic(DiscussionTopic aDiscussionTopic) {
+        this.discussionTopic = aDiscussionTopic;
+        setChildNodeIdString(aDiscussionTopic.getNodeIdString());
+    }
 	
 }

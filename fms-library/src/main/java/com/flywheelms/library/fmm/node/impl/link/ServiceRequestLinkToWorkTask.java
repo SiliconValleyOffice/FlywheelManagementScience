@@ -51,11 +51,13 @@ public class ServiceRequestLinkToWorkTask extends FmmSequencedLinkNodeImpl {
 
 	public ServiceRequestLinkToWorkTask(
 			String aParentNodeId,
-			String aChildNodeId ) {
+			String aChildNodeId,
+            int aSequence ) {
 		super(
 				ServiceRequestLinkToWorkTask.class,
 				aParentNodeId,
-				aChildNodeId );
+				aChildNodeId,
+                aSequence );
 	}
 
 	@Override

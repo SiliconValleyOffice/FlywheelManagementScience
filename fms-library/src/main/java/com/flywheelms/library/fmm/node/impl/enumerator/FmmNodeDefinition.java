@@ -762,7 +762,7 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // medium drawables
     		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // large drawables
     		10041 ),
-    NOTEBOOK_LINK_TO_FACILITATION_ISSUE (
+    NOTEBOOK_LINK_TO_DISCUSSION_TOPIC(
     		NotebookLinkToDiscussionTopic.class,
     		"NLD",
     		R.string.fmm_node_definition__notebook_link_to_discussion_topic__term,
