@@ -50,7 +50,7 @@ import android.graphics.BitmapFactory.Options;
 import android.graphics.drawable.BitmapDrawable;
 import android.util.Log;
 
-import com.flywheelms.library.fmm.helper.FmmHelper;
+import com.flywheelms.gcongui.gcg.GcgApplication;
 import com.itextpdf.text.Image;
 import com.itextpdf.text.pdf.codec.PngImage;
 
@@ -84,7 +84,7 @@ public abstract class ImageCacheUtil {
 	}
 
 	protected static Image getImage(int drawableResourceId) {
-		return getImage(BitmapFactory.decodeResource(FmmHelper.getContext().getResources(), drawableResourceId, bitmapDecodeOptions));
+		return getImage(BitmapFactory.decodeResource(GcgApplication.getAppResources(), drawableResourceId, bitmapDecodeOptions));
 	}
 
 	protected static Image getImageScaledToFit(int resourceId, float w, float h) {

@@ -144,7 +144,7 @@
     <string name="fmm_perspective_definition__service_delivery">Service Delivery</string>
     <string name="fmm_perspective_definition__strategic_planning">Strategic Planning</string>
     <string name="fmm_perspective_definition__strategy_teams">Strategy Teams</string>
-    <string name="fmm_perspective_definition__story">Story is the 1st of 4 sections of a Flywheel Story Editor&#8482; (FSE) document.  Each FMM (Flywheel Management Model) node can have a Story, and most should.\n\nA Story captures the \'who\', \'what\' and \'why\' of an FMM node.  At a minimum, it should include what you (and the rest of the room) were thinking at the time you created the FMM node, supplementing the Headline of the node.\n\nThe story should always be of sufficient quality and completeness to share with the Sponsor or Customer in an ad-hoc meeting or during a chance hallway conversation.  It should always be the basis for answering questions from sponsors, customers or other stakeholders such as:\n
+    <string name="fmm_perspective_definition__story">Story is the 1st of 4 sections of a Flywheel Story Editor&#8482; (FSE) document.  Each FMM (Flywheel Management Model) headline node can have a Story, and most should.\n\nA Story captures the \'who\', \'what\' and \'why\' of an FMM node.  At a minimum, it should include what you (and the rest of the room) were thinking at the time you created the FMM node, supplementing the Headline of the node.\n\nThe story should always be of sufficient quality and completeness to share with the Sponsor or Customer in an ad-hoc meeting or during a chance hallway conversation.  It should always be the basis for answering questions from sponsors, customers or other stakeholders such as:\n
 &#8226; What is this FMM node?\n
 &#8226; Why should we care?\n
 &#8226; What other people/stakeholders should care?\n
@@ -160,5 +160,42 @@
     <string name="fmm_perspective_definition__withdrawn_commitments">Withdrawn Commitments</string>
     <string name="fmm_perspective_definition__work_breakdown">Work Breakdown</string>
     <string name="fmm_perspective_definition__work_planning">Work Planning</string>
+
+    <string name="governance_role__definition__sponsor">Many types of management nodes may have a sponsor.\n\nManagement nodes without a Sponsor have no political support within the organization. When a node has no Sponsor, the Facilitator\'s ability to meet completion commitments is greatly diminished.\n\nOrganizational Politics:\n
+&#8226; negotiate with other sponsors for sequence\n
+&#8226; negotiate with other sponsors for resources\n
+&#8226; assist the Facilitator when he needs help resolving issues outside the team\n
+&#8226; Help manage the Customer\n\nProvide Resources:\n
+&#8226; time\n
+&#8226; facilities\n
+&#8226; equipment\n
+&#8226; staff\n
+&#8226; other resources\n\nContribute to Team Health:\n
+&#8226; assist the Facilitator when he needs help resolving issues inside the team\n
+&#8226; celebrate team successes</string>
+    <string name="governance_role__definition__customer">Many types of management nodes may have a customer.  Work is not complete until accepted by the Customer.\n\nCustomer defines the \'what\', but (usually) not the \'how\'.\n\nResponsibilities include:\n
+&#8226; represent their peers/constituents/department\n
+&#8226; fully participate in daily standups\n
+&#8226; always available to the team for questions and/or review\n
+&#8226; provide domain knowledge, or obtain it from their peers/constituents/department\n
+&#8226; work with facilitator to clearly define when we are done (acceptance criteria)\n
+&#8226; review and formally accept the completed work\n
+&#8226; collaborate with the facilitator and other assigned team members\n
+&#8226; collaborate with the sponsor</string>
+    <string name="governance_role__definition__facilitator">All management nodes should have a Facilitator.  Responsible for negotiating and meeting completion commitments.  May do the actual work themselves, or delegate and manage other team members.\n\nFacilitate Outward:\n
+&#8226; manage relationship with the sponsor\n
+&#8226; work with the sponsor to manage issues outside the team\n
+&#8226; manage relationship with the customer\n
+&#8226; represent the team in external meetings\n
+&#8226; manage commitments\n
+&#8226; obtain resources\n
+&#8226; remove obstacles\n\nFacilitate Inward:\n
+&#8226; daily standup meetings\n
+&#8226; resolve issues inside the team\n
+&#8226; leadership development\n
+&#8226; team culture and cohesiveness\n
+&#8226; coach and mentor team members\n
+&#8226; celebrate team successes\n</string>
+    <string name="governance_role__definition__administrator">Only a few types of management nodes may have an Administrator, which is rarely assigned.  They can be helpful to the rest of the governance team on very large management nodes such as a Project.</string>
 
 </resources>

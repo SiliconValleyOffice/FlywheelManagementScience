@@ -43,9 +43,9 @@ package com.flywheelms.library.fmm.node.impl.enumerator;
 
 import android.graphics.drawable.Drawable;
 
+import com.flywheelms.gcongui.gcg.GcgApplication;
 import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.helper.FmmHelper;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.FmmNodeImpl;
 import com.flywheelms.library.fmm.node.interfaces.FmmEnumNode;
@@ -53,12 +53,12 @@ import com.flywheelms.library.fmm.node.interfaces.FmmEnumNode;
 import java.util.Date;
 import java.util.HashMap;
 
-public enum GovernanceRole implements FmmEnumNode {
+public enum GovernanceRole implements FmmEnumNode, GcgGuiable {
 	
-	SPONSOR (R.string.governance_role__sponsor, R.string.governance_role__sponsor__description, R.drawable.governance_role__sponsor),
-	FACILITATOR (R.string.governance_role__facilitator, R.string.governance_role__facilitator__description, R.drawable.governance_role__facilitator),
-	CUSTOMER (R.string.governance_role__customer, R.string.governance_role__customer__description, R.drawable.governance_role__customer),
-	ADMINISTRATOR (R.string.governance_role__administrator, R.string.governance_role__administrator__description, R.drawable.governance_role__administrator);
+	SPONSOR (R.string.governance_role__sponsor, R.string.governance_role__sponsor__description, R.string.governance_role__definition__sponsor, R.drawable.governance_role__sponsor),
+	FACILITATOR (R.string.governance_role__facilitator, R.string.governance_role__facilitator__description, R.string.governance_role__definition__facilitator, R.drawable.governance_role__facilitator),
+	CUSTOMER (R.string.governance_role__customer, R.string.governance_role__customer__description, R.string.governance_role__definition__customer, R.drawable.governance_role__customer),
+	ADMINISTRATOR (R.string.governance_role__administrator, R.string.governance_role__administrator__description, R.string.governance_role__definition__administrator, R.drawable.governance_role__administrator);
 	
 	public static final String name_COLUMN_1 = "governance_role";
 	public static final String name_COLUMN_2 = "description";
@@ -69,8 +69,8 @@ public enum GovernanceRole implements FmmEnumNode {
 			GovernanceRole.nameMap.put(theGovernanceRole.getName(), theGovernanceRole);
 		}
 	}
-	
-	public static GovernanceRole getObjectForName(String aName) {
+
+    public static GovernanceRole getObjectForName(String aName) {
 		return GovernanceRole.nameMap.get(aName);
 	}
 
@@ -108,16 +108,20 @@ public enum GovernanceRole implements FmmEnumNode {
 	private String name;
 	private int descriptionStringResourceId;
 	private String description;
+    private int dictionaryDefinitionResourceId;
+    private String dictionaryDefinitionText;
 	private int drawableResourceId;
 	private Drawable drawable;
 	
-	private GovernanceRole(int aNameStringResourceId, int aDescriptionStringResourceId, int aDrawableResourceId) {
+	private GovernanceRole(int aNameStringResourceId, int aDescriptionStringResourceId, int aDictionaryDefinitionResourceId, int aDrawableResourceId) {
 		this.nameStringResourceId = aNameStringResourceId;
-		this.name = FmmHelper.getContext().getResources().getString(this.nameStringResourceId);
+		this.name = GcgApplication.getAppResources().getString(this.nameStringResourceId);
 		this.descriptionStringResourceId = aDescriptionStringResourceId;
-		this.description = FmmHelper.getContext().getResources().getString(this.descriptionStringResourceId);
+		this.description = GcgApplication.getAppResources().getString(this.descriptionStringResourceId);
+        this.dictionaryDefinitionResourceId = aDictionaryDefinitionResourceId;
+        this.dictionaryDefinitionText = GcgApplication.getAppResources().getString(this.dictionaryDefinitionResourceId);
 		this.drawableResourceId = aDrawableResourceId;
-		this.drawable = FmmHelper.getContext().getResources().getDrawable(this.drawableResourceId);
+		this.drawable = GcgApplication.getAppResources().getDrawable(this.drawableResourceId);
 		this.nodeId = new NodeId(
 				FmmNodeDefinition.getEntryForClass(GovernanceRole.class),
 				getName() );
@@ -217,4 +221,7 @@ public enum GovernanceRole implements FmmEnumNode {
 	@Override
 	public Date updateRowTimestamp() { return null; }
 
+    public String getDictionaryDefinitionText() {
+        return this.dictionaryDefinitionText;
+    }
 }

@@ -45,7 +45,7 @@ package com.flywheelms.library.fms.pdf;
 
 import android.util.Log;
 
-import com.flywheelms.library.fmm.helper.FmmHelper;
+import com.flywheelms.gcongui.gcg.GcgApplication;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
@@ -84,7 +84,7 @@ public final class PdfUtil {
 	}
 
 	public static String getResource(int resourceId) {
-		return FmmHelper.getContext().getResources().getString(resourceId);
+		return GcgApplication.getAppResources().getString(resourceId);
 	}
 
 	public static Paragraph newParagraph(String text, Font font) {

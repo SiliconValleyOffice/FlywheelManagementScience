@@ -8,14 +8,14 @@
     <com.flywheelms.gcongui.gcg.container.GcgContainerTabbedLayout
         android:id="@+id/tabbed_layout"
         android:layout_width="match_parent"
-        android:layout_height="300dp" >
+        android:layout_height="330dp" >
 
     </com.flywheelms.gcongui.gcg.container.GcgContainerTabbedLayout>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="15dp"
         android:gravity="center_horizontal"
         android:text="@string/fmm_node_definition__imprecise_language"
         android:textColor="@color/x11__Gray"

@@ -46,9 +46,9 @@ package com.flywheelms.library.fmm.node.impl.enumerator;
 import android.graphics.drawable.Drawable;
 
 import com.flywheelms.gcongui.deckangl.enumerator.DecKanGlNounStateColor;
+import com.flywheelms.gcongui.gcg.GcgApplication;
 import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.helper.FmmHelper;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.FmmNodeImpl;
 import com.flywheelms.library.fmm.node.interfaces.FmmEnumNode;
@@ -139,10 +139,10 @@ public enum CompletableWorkStatus implements FmmEnumNode {
 		this.nodeGlyphType = anFmmNodeGlyphType;
 		this.workStateColor = aWorkStateColor;
 		this.nameStringResourceId = aNameStringResourceId;
-		this.name = FmmHelper.getContext().getResources().getString(this.nameStringResourceId);
+		this.name = GcgApplication.getAppResources().getString(this.nameStringResourceId);
 		this.descriptionStringResourceId = aDescriptionStringResourceId;
-		this.description = FmmHelper.getContext().getResources().getString(this.descriptionStringResourceId);
-		this.drawable = FmmHelper.getContext().getResources().getDrawable(this.workStateColor.getDrawableResourceId());
+		this.description = GcgApplication.getAppResources().getString(this.descriptionStringResourceId);
+		this.drawable = GcgApplication.getAppResources().getDrawable(this.workStateColor.getDrawableResourceId());
 		this.nodeId = new NodeId(
 				FmmNodeDefinition.getEntryForClass(CompletableWorkStatus.class),
 				getWorkStatusCode() );

@@ -1,4 +1,4 @@
-/* @(#)FmmRawHelper.java
+/* @(#)GovernanceRoleWidgetSpinner.java
 ** 
 ** Copyright (C) 2012 by Steven D. Stamps
 **
@@ -41,36 +41,49 @@
 ** <http://www.gnu.org/licenses/gpl-3.0.html>.
 */
 
-package com.flywheelms.library.fmm.helper;
+package com.flywheelms.library.fms.widget.spinner;
 
-import com.flywheelms.gcongui.gcg.GcgApplication;
+import android.content.Context;
+import android.util.AttributeSet;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
+import com.flywheelms.gcongui.gcg.widget.GcgWidgetSpinner;
+import com.flywheelms.library.fmm.node.impl.enumerator.GovernanceRole;
 
-public class FmmRawHelper {
+import java.util.ArrayList;
+import java.util.Arrays;
 
-	public static String getStringForRawResource(int aRawResourceId) {
-	    InputStream thInputStream = GcgApplication.getAppResources().openRawResource(aRawResourceId);
-	    BufferedReader theBufferedReader = new BufferedReader(new InputStreamReader(thInputStream));
-	    StringBuilder theStringBuilder = new StringBuilder();
-	    try {
-	        String theLine;
-	        while ((theLine = theBufferedReader.readLine()) != null) {
-	        	theStringBuilder.append(theLine);
-	        }
-		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {
-	        try {
-				theBufferedReader.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-	    }
-	   return theStringBuilder.toString(); 
+public class GovernanceRoleWidgetSpinner extends GcgWidgetSpinner {
+
+    private ArrayList<GcgGuiable> governanceRoleList;
+
+	public GovernanceRoleWidgetSpinner(Context aContext, AttributeSet anAttributeSet) {
+		super(aContext, anAttributeSet);
+	}
+
+	@Override
+	protected String getLabelText() {
+		return "Governance Role";
+	}
+
+	@Override
+	protected ArrayList<GcgGuiable> updateGuiableList() {
+        return getGovernanceRoleList();
+	}
+
+    public ArrayList<GcgGuiable> getGovernanceRoleList() {
+        if(this.governanceRoleList == null) {
+            this.governanceRoleList = new ArrayList<GcgGuiable>(Arrays.asList(GovernanceRole.values()));
+        }
+        return this.governanceRoleList;
+    }
+
+	public GovernanceRole getGovernanceRole() {
+		return (GovernanceRole) this.spinner.getSelectedItem();
+	}
+
+	public void setGovernanceRole(GovernanceRole aGovernanceRole) {
+		this.spinner.setSelection(this.governanceRoleList.indexOf(aGovernanceRole));
 	}
 
 }

@@ -60,12 +60,15 @@ import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fms.widget.spinner.FmmFrameWidgetSpinner;
 import com.flywheelms.library.fms.widget.spinner.FmmNounWidgetSpinner;
 import com.flywheelms.library.fms.widget.spinner.FmmPerspectiveWidgetSpinner;
+import com.flywheelms.library.fms.widget.spinner.GovernanceRoleWidgetSpinner;
 
 public class FmsDictionaryDialog extends GcgCancelDialog {
 
     private FmmNodeDefinition initialFmmNodeDefinition;
     private FmmNounWidgetSpinner nounDefinitionWidgetSpinner;
     private GcgWidgetTextViewSummaryBox nounDefinitionText;
+    private GovernanceRoleWidgetSpinner governanceRoleWidgetSpinner;
+    private GcgWidgetTextViewSummaryBox governanceRoleDefinitionText;
     private GcgFrame initialFmmFrame;
     private FmmFrameWidgetSpinner frameDefinitionWidgetSpinner;
     private GcgWidgetTextViewSummaryBox frameDefinitionText;
@@ -84,7 +87,37 @@ public class FmsDictionaryDialog extends GcgCancelDialog {
         initializeNounTab();
         initializePerspectiveTab();
         initializeFrameTab();
-        this.tabbedLayout.setCurrentTab(0);
+        initializeGovernanceTab();
+        if(this.initialFmmNodeDefinition != null) {
+            this.tabbedLayout.setCurrentTab(0);
+        } else {
+            this.tabbedLayout.setCurrentTab(2);
+        }
+    }
+
+    protected int getDialogTitleIconResourceId() {
+        return R.drawable.fms__dictionary;
+    }
+
+    @Override
+    protected int getDialogTitleStringResourceId() {
+        return R.string.flywheel_ms__dictionary;
+    }
+
+    @Override
+    protected int getDialogBodyLayoutResourceId() {
+        return R.layout.flywheel_ms__dictionary__dialog;
+    }
+
+    @Override
+    protected int getDialogWidth() {
+        return 1000;
+    }
+
+    protected  void initializeDialogBody() {
+        super.initializeDialogBody();
+        this.tabbedLayout = (GcgContainerTabbedLayout) this.dialogBodyView.findViewById(R.id.tabbed_layout);
+        this.tabbedLayout.setup();
     }
 
     private void adjustInitialValues() {
@@ -95,9 +128,24 @@ public class FmsDictionaryDialog extends GcgCancelDialog {
         }
     }
 
-    @Override
-    protected int getDialogWidth() {
-        return 950;
+    private void initializeGovernanceTab() {
+        LinearLayout theLinearLayout = (LinearLayout) this.gcgActivity.getLayoutInflater().inflate(R.layout.flywheel_ms__governance_dictionary__tab, this.tabbedLayout, false);
+        this.governanceRoleDefinitionText = (GcgWidgetTextViewSummaryBox) theLinearLayout.findViewById(R.id.governance_role__definition);
+        this.governanceRoleWidgetSpinner = (GovernanceRoleWidgetSpinner) theLinearLayout.findViewById(R.id.governance_role__spinner);
+        this.governanceRoleWidgetSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View aView, int i, long l) {
+                FmsDictionaryDialog.this.governanceRoleDefinitionText.setText(
+                        FmsDictionaryDialog.this.governanceRoleWidgetSpinner.getGovernanceRole().getDictionaryDefinitionText());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+        GcgTabSpec theGcgTabSpec = new GcgTabSpec(theLinearLayout, R.drawable.governance__32, R.string.fmm_perspective__governance, false);
+        this.tabbedLayout.addTab(theGcgTabSpec);
     }
 
     private void initializeNounTab() {
@@ -173,25 +221,5 @@ public class FmsDictionaryDialog extends GcgCancelDialog {
         }
         GcgTabSpec theGcgTabSpec = new GcgTabSpec(theLinearLayout, R.drawable.gcg__frame__32, R.string.gcg__frame, false);
         this.tabbedLayout.addTab(theGcgTabSpec);
-    }
-
-    protected int getDialogTitleIconResourceId() {
-        return R.drawable.fms__dictionary;
-    }
-
-    @Override
-    protected int getDialogTitleStringResourceId() {
-        return R.string.flywheel_ms__dictionary;
-    }
-
-    @Override
-    protected int getDialogBodyLayoutResourceId() {
-        return R.layout.flywheel_ms__dictionary__dialog;
-    }
-
-    protected  void initializeDialogBody() {
-        super.initializeDialogBody();
-        this.tabbedLayout = (GcgContainerTabbedLayout) this.dialogBodyView.findViewById(R.id.tabbed_layout);
-        this.tabbedLayout.setup();
     }
 }

@@ -44,9 +44,9 @@ package com.flywheelms.library.fmm.node.impl.enumerator;
 
 import android.graphics.drawable.Drawable;
 
+import com.flywheelms.gcongui.gcg.GcgApplication;
 import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.helper.FmmHelper;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.FmmNodeImpl;
 import com.flywheelms.library.fmm.node.interfaces.FmmEnumNode;
@@ -109,11 +109,11 @@ public enum TeamMemberStatus implements FmmEnumNode {
 	
 	TeamMemberStatus(int aNameStringResourceId, int aDescriptionStringResourceId, int aDrawableResourceId) {
 		this.nameStringResourceId = aNameStringResourceId;
-		this.name = FmmHelper.getContext().getResources().getString(this.nameStringResourceId);
+		this.name = GcgApplication.getAppResources().getString(this.nameStringResourceId);
 		this.descriptionStringResourceId = aDescriptionStringResourceId;
-		this.description = FmmHelper.getContext().getResources().getString(this.descriptionStringResourceId);
+		this.description = GcgApplication.getAppResources().getString(this.descriptionStringResourceId);
 		this.drawableResourceId = aDrawableResourceId;
-		this.drawable = FmmHelper.getContext().getResources().getDrawable(this.drawableResourceId);
+		this.drawable = GcgApplication.getAppResources().getDrawable(this.drawableResourceId);
 		this.nodeId = new NodeId(
 				FmmNodeDefinition.getEntryForClass(TeamMemberStatus.class),
 				getName() );
