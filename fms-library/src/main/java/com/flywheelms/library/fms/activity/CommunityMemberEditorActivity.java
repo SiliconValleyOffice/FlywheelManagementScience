@@ -79,7 +79,7 @@ public class CommunityMemberEditorActivity extends FmmNodeEditorActivity {
 	@Override
 	public void saveAllDataModifications() {
 		super.saveAllDataModifications();
-		FmmDatabaseMediator.getActiveMediator().saveCommunityMember((CommunityMember) getDisplayedFmmHeadlineNode(), true);
+		FmmDatabaseMediator.getActiveMediator().updateCommunityMember((CommunityMember) getDisplayedFmmHeadlineNode(), true);
 	}
 
 }

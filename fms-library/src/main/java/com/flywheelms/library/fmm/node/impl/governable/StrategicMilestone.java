@@ -68,7 +68,7 @@ import com.flywheelms.library.fmm.meta_data.SequencedLinkNodeMetaData;
 import com.flywheelms.library.fmm.meta_data.StrategicMilestoneMetaData;
 import com.flywheelms.library.fmm.node.FmmHeadlineNodeShallow;
 import com.flywheelms.library.fmm.node.NodeId;
-import com.flywheelms.library.fmm.node.impl.completable.FmmCompletableNodeImpl;
+import com.flywheelms.library.fmm.node.impl.completable.FmmCompletionNodeImpl;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
@@ -84,7 +84,7 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 
-public class StrategicMilestone extends FmmCompletableNodeImpl implements Comparable<StrategicMilestone>{
+public class StrategicMilestone extends FmmCompletionNodeImpl implements Comparable<StrategicMilestone>{
 	
 	private static final long serialVersionUID = 1550533600687519183L;
 	private String fiscalYearNodeIdString;

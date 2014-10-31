@@ -53,7 +53,7 @@ import com.flywheelms.library.fmm.meta_data.WorkPackageMetaData;
 import com.flywheelms.library.fmm.node.FmmHeadlineNodeShallow;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.commitment.CadenceWorkPackageCommitment;
-import com.flywheelms.library.fmm.node.impl.completable.FmmCompletableNodeImpl;
+import com.flywheelms.library.fmm.node.impl.completable.FmmCompletionNodeImpl;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
@@ -67,7 +67,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class WorkPackage extends FmmCompletableNodeImpl implements Comparable<WorkPackage> {
+public class WorkPackage extends FmmCompletionNodeImpl implements Comparable<WorkPackage> {
 
 	private static final long serialVersionUID = -297745950602591732L;
 	private String workAssetNodeIdString;

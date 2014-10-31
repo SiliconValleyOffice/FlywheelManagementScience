@@ -301,7 +301,7 @@ public class FseDocumentTransaction implements FmmNode, GcgSerialization {
 	
 	public CommunityMember getCommunityMember() {
 		if(this.communityMember == null) {
-			this.communityMember = FmmDatabaseMediator.getActiveMediator().getCommunityMember(this.communityMemberNodeIdString);
+			this.communityMember = FmmDatabaseMediator.getActiveMediator().retrieveCommunityMember(this.communityMemberNodeIdString);
 		}
 		return this.communityMember;
 	}

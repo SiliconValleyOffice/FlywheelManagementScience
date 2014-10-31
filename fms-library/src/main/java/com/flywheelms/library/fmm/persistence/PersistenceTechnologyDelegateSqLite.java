@@ -55,7 +55,6 @@ import com.flywheelms.library.fmm.database.sqlite.dao.CadenceDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.CadenceWorkPackageCommitmentDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.CommunityMemberDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.CommunityMemberOrganizationGovernanceAuthorityDaoSqLite;
-import com.flywheelms.library.fmm.database.sqlite.dao.CompletionNodeTrashDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.DiscussionTopicDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.DiscussionTopicLinkToNodeFragAuditBlockDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.FiscalYearDaoSqLite;
@@ -65,6 +64,7 @@ import com.flywheelms.library.fmm.database.sqlite.dao.FmmConfigurationDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.FmmNodeDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.FmsOrganizationDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.FragLockDaoSqLite;
+import com.flywheelms.library.fmm.database.sqlite.dao.HeadlineNodeTrashDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.NodeFragAuditBlockDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.NodeFragCompletionDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.NodeFragFseDocumentDaoSqLite;
@@ -101,7 +101,6 @@ import com.flywheelms.library.fmm.meta_data.NodeFragFseDocumentMetaData;
 import com.flywheelms.library.fmm.meta_data.NodeFragMetaData;
 import com.flywheelms.library.fmm.meta_data.OrganizationCommunityMemberMetaData;
 import com.flywheelms.library.fmm.meta_data.PdfPublicationMetaData;
-import com.flywheelms.library.fmm.meta_data.PortfolioMetaData;
 import com.flywheelms.library.fmm.meta_data.ProjectAssetMetaData;
 import com.flywheelms.library.fmm.meta_data.ProjectMetaData;
 import com.flywheelms.library.fmm.meta_data.SequencedLinkNodeMetaData;
@@ -132,14 +131,15 @@ import com.flywheelms.library.fmm.node.impl.governable.WorkPlan;
 import com.flywheelms.library.fmm.node.impl.governable.WorkTask;
 import com.flywheelms.library.fmm.node.impl.headline.FiscalYearHolidayBreak;
 import com.flywheelms.library.fmm.node.impl.link.OrganizationCommunityMember;
-import com.flywheelms.library.fmm.node.impl.nodefrag.CompletionNodeTrash;
 import com.flywheelms.library.fmm.node.impl.nodefrag.FragLock;
+import com.flywheelms.library.fmm.node.impl.nodefrag.HeadlineNodeTrash;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragAuditBlock;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragCompletion;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragFseDocument;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragGovernance;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragTribKnQuality;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragWorkTaskBudget;
+import com.flywheelms.library.fmm.node.interfaces.FmmNodeFrag;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmNode;
 import com.flywheelms.library.fmm.repository.FmmConfiguration;
@@ -151,6 +151,8 @@ import java.util.HashMap;
 
 public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDelegate {
 
+    private static final String sort_spec__HEADLINE = " LOWER (" + HeadlineNodeMetaData.column_HEADLINE + ") ASC";
+    private static final String sort_spec__SEQUENCE = CompletableNodeMetaData.column_SEQUENCE + " ASC";
 	private SQLiteDatabase sqLiteDatabase;
 	private ContentValues contentValues = new ContentValues();
     private HashMap<FmmNodeDefinition, FmmNodeDaoSqLite> daoMap = new HashMap<FmmNodeDefinition, FmmNodeDaoSqLite>();
@@ -171,7 +173,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
             this.daoMap.put(FmmNodeDefinition.CADENCE_WORK_PACKAGE_COMMITMENT, CadenceWorkPackageCommitmentDaoSqLite.getInstance());
             this.daoMap.put(FmmNodeDefinition.COMMUNITY_MEMBER, CommunityMemberDaoSqLite.getInstance());
             this.daoMap.put(FmmNodeDefinition.COMMUNITY_MEMBER_ORGANIZATION_GOVERNANCE_AUTHORITY, CommunityMemberOrganizationGovernanceAuthorityDaoSqLite.getInstance());
-            this.daoMap.put(FmmNodeDefinition.COMPLETION_NODE_TRASH, CompletionNodeTrashDaoSqLite.getInstance());
+            this.daoMap.put(FmmNodeDefinition.HEADLINE_NODE_TRASH, HeadlineNodeTrashDaoSqLite.getInstance());
             this.daoMap.put(FmmNodeDefinition.DISCUSSION_TOPIC, DiscussionTopicDaoSqLite.getInstance());
             this.daoMap.put(FmmNodeDefinition.DISCUSSION_TOPIC_LINK_TO_NODE_FRAG_AUDIT_BLOCK, DiscussionTopicLinkToNodeFragAuditBlockDaoSqLite.getInstance());
             this.daoMap.put(FmmNodeDefinition.FISCAL_YEAR, FiscalYearDaoSqLite.getInstance());
@@ -210,7 +212,6 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
         return this.daoMap.get(anFmmNode.getFmmNodeDefinition());
     }
 
-
     @Override
 	public <T extends FmmConfiguration> void setActiveDatabase(T anFmmConfiguration) {
 		if(this.sqLiteDatabase != null) {
@@ -237,20 +238,6 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 			this.sqLiteDatabase.close();
 		}
 	}
-
-	public Date getRowTimestamp(String aClassName, String aNodeIdString) {
-		Cursor theCursor = getSqLiteDatabase().rawQuery(
-				"SELECT " + IdNodeMetaData.column_ROW_TIMESTAMP + " FROM " + aClassName +
-				"WHERE " + IdNodeMetaData.column_ID + " = " + aNodeIdString,
-				null );
-		Date theDate = null;
-		if(theCursor.getCount() > 0) {
-			long theLong = theCursor.getLong(theCursor.getColumnIndex(IdNodeMetaData.column_ROW_TIMESTAMP));
-			theDate = GcgDateHelper.getDateFromFormattedUtcLong(theLong);
-		}
-		theCursor.close();
-		return theDate;
-	}
 	
 	@Override
 	public void startTransaction() {
@@ -264,9 +251,39 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 		}
 		getSqLiteDatabase().endTransaction();
 	}
+
+
+    ////////////////////////////////////////////////////
+    ////////  RETRIEVE DATA - PUBLIC - start  //////////
+
+    public Date getRowTimestamp(String aClassName, String aNodeIdString) {
+        Cursor theCursor = getSqLiteDatabase().rawQuery(
+                "SELECT " + IdNodeMetaData.column_ROW_TIMESTAMP + " FROM " + aClassName +
+                        "WHERE " + IdNodeMetaData.column_ID + " = " + aNodeIdString,
+                null );
+        Date theDate = null;
+        if(theCursor.getCount() > 0) {
+            long theLong = theCursor.getLong(theCursor.getColumnIndex(IdNodeMetaData.column_ROW_TIMESTAMP));
+            theDate = GcgDateHelper.getDateFromFormattedUtcLong(theLong);
+        }
+        theCursor.close();
+        return theDate;
+    }
+
+    private String getStringValue(FmmNodeDefinition anFmmNodeDefinition, String aSourceColumnName, String aWhereSpec) {
+        String theString = null;
+        Cursor theCursor = getSqLiteDatabase().rawQuery(
+                "SELECT " + aSourceColumnName + " FROM " + anFmmNodeDefinition.getTableName() +
+                        " WHERE " + aWhereSpec, null );
+        if(theCursor.moveToFirst()) {
+            theString = theCursor.getString(0);
+        }
+        theCursor.close();
+        return theString;
+    }
 	
 	@Override
-	public ArrayList<String> dbGetRowIdList(FmmNodeDefinition anFmmNodeDefinition, String aColumnName, String aColumnValue) {
+	public ArrayList<String> getFmmNodeIdList(FmmNodeDefinition anFmmNodeDefinition, String aColumnName, String aColumnValue) {
 		ArrayList<String> theRowIdList = new ArrayList<String>();
 		Cursor theCursor = getSqLiteDatabase().rawQuery(
 				"SELECT " + IdNodeMetaData.column_ID + " FROM " + anFmmNodeDefinition.getTableName() +
@@ -283,7 +300,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	}
 	
 	@Override
-	public ArrayList<String> dbGetRowIdList(FmmNodeDefinition anFmmNodeDefinition, String aWhereClause) {
+	public ArrayList<String> getFmmNodeIdList(FmmNodeDefinition anFmmNodeDefinition, String aWhereClause) {
 		ArrayList<String> theRowIdList = new ArrayList<String>();
 		Cursor theCursor = getSqLiteDatabase().rawQuery(
 				"SELECT " + IdNodeMetaData.column_ID + " FROM " + anFmmNodeDefinition.getTableName() +
@@ -300,13 +317,12 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	}
 	
 	@Override
-	public ArrayList<String> dbGetRowIdListSorted(FmmNodeDefinition anFmmNodeDefinition, String aColumnName, String aColumnValue, String aSortColumnName, boolean bAscending) {
+	public ArrayList<String> dbGetRowIdListSorted(FmmNodeDefinition anFmmNodeDefinition, String aWhereColumnValue, String aWhereSortColumnName, String anOrderBySpec) {
 		ArrayList<String> theRowIdList = new ArrayList<String>();
-		String theAscendingClause = bAscending ? " ASC " : " DESC ";
 		Cursor theCursor = getSqLiteDatabase().rawQuery(
 				"SELECT " + IdNodeMetaData.column_ID + " FROM " + anFmmNodeDefinition.getTableName() +
-				" WHERE " + aColumnName + " = '" + aColumnValue + "'" +
-				" ORDER BY " + aSortColumnName + theAscendingClause, null );
+				" WHERE " + aWhereColumnValue + " = '" + aWhereColumnValue + "'" +
+				" ORDER BY " + anOrderBySpec, null );
 		if(theCursor.getCount() == 0) {
 			theCursor.close();
 			return theRowIdList;
@@ -319,13 +335,12 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	}
 	
 	@Override
-	public ArrayList<String> dbGetRowIdListSorted(FmmNodeDefinition anFmmNodeDefinition, String aWhereClause, String aSortColumnName, boolean bAscending) {
+	public ArrayList<String> dbGetRowIdListSorted(FmmNodeDefinition anFmmNodeDefinition, String aWhereClause, String anOrderBySpec) {
 		ArrayList<String> theRowIdList = new ArrayList<String>();
-		String theAscendingClause = bAscending ? " ASC " : " DESC ";
 		Cursor theCursor = getSqLiteDatabase().rawQuery(
 				"SELECT " + IdNodeMetaData.column_ID + " FROM " + anFmmNodeDefinition.getTableName() +
 				" WHERE " + aWhereClause +
-				" ORDER BY " + aSortColumnName + theAscendingClause, null );
+				" ORDER BY " + anOrderBySpec, null );
 		if(theCursor.getCount() == 0) {
 			theCursor.close();
 			return theRowIdList;
@@ -337,13 +352,20 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 		return theRowIdList;
 	}
 
+    ////////  RETRIEVE DATA - PUBLIC - end  ////////////
+    ////////////////////////////////////////////////////
+
+
+    /////////////////////////////////////////////////////
+    //////// GENERATE SQL - PRIVATE - start  ////////////
+
 	private static String getInnerJoinQueryOnLeftKeySorted(
-			String aLeftTableName, String aLeftColumnName, String aRightTableName, String aRightColumnName, String aColumnValue, String anOrderByColumnSpec) {
+			String aLeftTableName, String aLeftColumnName, String aRightTableName, String aRightColumnName, String aColumnValue, String anOrderBySpec) {
 		return "SELECT DISTINCT " + aLeftTableName + ".* FROM " + aLeftTableName +
 				" INNER JOIN " + aRightTableName +
 				" ON " + aLeftTableName + "." + aLeftColumnName + " = " + aRightTableName + "." + aRightColumnName +
 				" AND " + aLeftTableName + "." + aLeftColumnName + " = '" + aColumnValue + "'" +
-				" ORDER BY " + anOrderByColumnSpec + " ASC;";
+				" ORDER BY " + anOrderBySpec;
 	}
 
 	public static String getInnerJoinQueryWithAndSpecSorted(
@@ -352,275 +374,91 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 				" INNER JOIN " + aRightTableName +
 				" ON " + aLeftTableName + "." + aLeftColumnName + " = " + aRightTableName + "." + aRightColumnName +
 				" AND " + aAndSpec +
-				" ORDER BY " + anOrderBySpec + " ASC;";
+				" ORDER BY " + anOrderBySpec;
 	}
 
-	@SuppressWarnings({"resource",  "rawtypes", "unchecked" })
-	private <T extends FmmNodeDaoSqLite, V extends FmmNode> ArrayList<V> retrieveAllFmmNodesFromTable(T aDaoInstance) {
-		Cursor theCursor = getSqLiteDatabase().rawQuery("SELECT * FROM " + aDaoInstance.getFmmNodeDefinition().getTableName(), null);
-		return aDaoInstance.getObjectListFromCursor(theCursor);
-	}
-	
-	@SuppressWarnings({"resource",  "rawtypes" })
-	private <T extends FmmNodeDaoSqLite> FmmNode retrieveFmmmNodeFromTableForParent(String aParentId, T aDaoInstance) {
-		Cursor theCursor = getSqLiteDatabase().rawQuery("SELECT * FROM " + aDaoInstance.getFmmNodeDefinition().getTableName() +
-				" WHERE " + NodeFragMetaData.column_PARENT_ID + " = '" + aParentId + "'", null);
-		return aDaoInstance.getSingleObjectFromCursor(theCursor);
-	}
-	
-	private Cursor retrieveAllRowsFromTableForColumnValue(FmmNodeDefinition anFmmNodeDefinition, String aColumnName, String aColumnValue ) {
-		return getSqLiteDatabase().rawQuery("SELECT * FROM " + anFmmNodeDefinition.getTableName() +
-				" WHERE " + aColumnName + " = '" + aColumnValue + "'", null);
-	}
-	
-	private Cursor retrieveAllRowsFromTableForColumnValueSorted(FmmNodeDefinition anFmmNodeDefinition, String aColumnName, String aColumnValue, String aSortColumnName ) {
-		return getSqLiteDatabase().rawQuery("SELECT * FROM " + anFmmNodeDefinition.getTableName() +
-				" WHERE " + aColumnName + " = '" + aColumnValue + "'" +
-				" ORDER BY " + aSortColumnName + " ASC ", null);
-	}
+    //////// GENERATE SQL - PRIVATE - end  //////////////
+    /////////////////////////////////////////////////////
 
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public <V extends FmmNode> boolean insertSimpleIdTable(V anFmmNode, boolean bAtomicTransaction) {
-		if(bAtomicTransaction) {
-			startTransaction();
-		}
-        FmmNodeDaoSqLite theDao = getDao(anFmmNode);
-		this.contentValues = theDao.buildContentValues(anFmmNode);
-		boolean theBoolean = getSqLiteDatabase().insert(anFmmNode.getFmmNodeDefinition().getTableName(), null, this.contentValues) > 0;
-    	if(bAtomicTransaction) {
-    		endTransaction(theBoolean);
-    	}
-    	return theBoolean;
-	}
 
-	@Override
-	public boolean dbUpdateHeadlineNodeHeadline(FmmHeadlineNode aHeadlineNode, boolean bAtomicTransaction) {
-		boolean isSuccess = true;
-		if(bAtomicTransaction) {
-			startTransaction();
-		}
-		getSqLiteDatabase().execSQL(
-				"UPDATE " + aHeadlineNode.getFmmNodeDefinition().getTableName() +
-				" SET " + HeadlineNodeMetaData.column_HEADLINE + " = '" + aHeadlineNode.getHeadline() + "' " +
-				" WHERE " + IdNodeMetaData.column_ID + " = '" + aHeadlineNode.getNodeIdString() + "'");
-		getSqLiteDatabase().execSQL(
-				"UPDATE " + FmmNodeDefinition.NODE_FRAG__AUDIT_BLOCK.getTableName() +
-				" SET " + HeadlineNodeMetaData.column_HEADLINE + " = '" + aHeadlineNode.getHeadline() + "' " +
-				" WHERE " + NodeFragMetaData.column_PARENT_ID + " = '" + aHeadlineNode.getNodeIdString() + "'");
-    	if(bAtomicTransaction) {
-    		endTransaction(isSuccess);
-    	}
-		return isSuccess;
-	}
+    /////////////////////////////////////////////////////
+    //////// LINK TABLES - start  ///////////////////////
 
-//	@SuppressWarnings({ "rawtypes", "unchecked" })
-//	private <T extends FmmNodeDaoSqLite, V extends FmmNode> boolean dbUpdateHeadlineNodeHeadline(
-//			V anFmmNode, T aDaoInstance, boolean bAtomicTransaction) {
-//		if(bAtomicTransaction) {
-//			startTransaction();
-//		}
-//		anFmmNode.setRowTimestamp(FmmDateHelper.getCurrentDateTime());
-//		this.contentValues = aDaoInstance.buildUpdateContentValues(anFmmNode);
-//		boolean theBoolean = getSqLiteDatabase().update(aDaoInstance.getFmmNodeDefinition().getTableName(), this.contentValues,
-//    			IdNodeMetaData.column_ID + " = '" + anFmmNode.getNodeIdString() + "'", null) > 0;
-//    	if(bAtomicTransaction) {
-//    		endTransaction(theBoolean);
-//    	}
-//		return theBoolean;
-//	}
-
-	private String getStringValue(FmmNodeDefinition anFmmNodeDefinition, String aSourceColumnName, String aWhereSpec) {
-		String theString = null;
-		Cursor theCursor = getSqLiteDatabase().rawQuery(
-				"SELECT " + aSourceColumnName + " FROM " + anFmmNodeDefinition.getTableName() +
-				" WHERE " + aWhereSpec, null );
-		if(theCursor.moveToFirst()) {
-			theString = theCursor.getString(0);
-		}
-		theCursor.close();
-		return theString;
-	}
-
-    @Override
-	public boolean deleteRowFromSimpleIdTable(String aNodeIdString, FmmNodeDefinition anFmmNodeDefinition, boolean bAtomicTransaction) {
-		if(bAtomicTransaction) {
-			startTransaction();
-		}
-    	boolean theBoolean = getSqLiteDatabase().delete(anFmmNodeDefinition.getTableName(), IdNodeMetaData.column_ID + " = '" + aNodeIdString  + "'", null) > 0;
-    	if(bAtomicTransaction) {
-    		endTransaction(theBoolean);
-    	}
-    	return theBoolean;
-	}
-
-    private boolean deleteAllRowFromSimpleIdTable(String aWhereClause, FmmNodeDefinition anFmmNodeDefinition, boolean bAtomicTransaction) {
-		if(bAtomicTransaction) {
-			startTransaction();
-		}
-    	boolean theBoolean = getSqLiteDatabase().delete(anFmmNodeDefinition.getTableName(), aWhereClause, null) > 0;
-    	if(bAtomicTransaction) {
-    		endTransaction(theBoolean);
-    	}
-    	return theBoolean;
-	}
-
-	private boolean deleteRows(String aColumnValue, String aColumnName, FmmNodeDefinition anFmmNodeDefinition, boolean bAtomicTransaction) {
-		if(bAtomicTransaction) {
-			startTransaction();
-		}
-    	boolean theBoolean = getSqLiteDatabase().delete(anFmmNodeDefinition.getTableName(), aColumnName + " = '" + aColumnValue  + "'", null) > 0;
-    	if(bAtomicTransaction) {
-    		endTransaction(theBoolean);
-    	}
-    	return theBoolean;
-	}
-	
-	private boolean updateRows(String aTableName, String anUpdateColumnName, String  anUpdateColumnValue, String aWhereClause, boolean bAtomicTransaction) {
-		if(bAtomicTransaction) {
-			startTransaction();
-		}
-		boolean theBoolean = true;
-		getSqLiteDatabase().execSQL(
-				"UPDATE " + aTableName +
-				" SET "+ anUpdateColumnName + " = '" + anUpdateColumnValue + "'" +
-				" WHERE " + aWhereClause );
-		if(bAtomicTransaction) {
-			endTransaction(theBoolean);
-		}
-		return theBoolean;
-	}
-	
-	private boolean updateRowsWithNull(String aTableName, String anUpdateColumnName, String aWhereClause, boolean bAtomicTransaction) {
-		if(bAtomicTransaction) {
-			startTransaction();
-		}
-		boolean theBoolean = true;
-		getSqLiteDatabase().execSQL(
-				"UPDATE " + aTableName +
-				" SET "+ anUpdateColumnName + " = NULL " +
-				" WHERE " + aWhereClause );
-		if(bAtomicTransaction) {
-			endTransaction(theBoolean);
-		}
-		return theBoolean;
-	}
-
-    private boolean orphanSequenceRows(String aTableName, String anUpdateColumnName, String aWhereClause, boolean bAtomicTransaction) {
+    private boolean deleteAllParentRowsFromSequencedLinkTable(
+            FmmNodeDefinition anFmmNodeDefinition,
+            String aParentColumnName,
+            String aParentId,
+            boolean bAtomicTransaction) {
         if(bAtomicTransaction) {
             startTransaction();
         }
-        boolean theBoolean = true;
-        getSqLiteDatabase().execSQL(
-                "UPDATE " + aTableName +
-                        " SET "+ anUpdateColumnName + " = NULL " +
-                        " , " + CompletableNodeMetaData.column_SEQUENCE + " = '0'" +
-                        " WHERE " + aWhereClause );
+        boolean theBoolean = getSqLiteDatabase().delete(
+                anFmmNodeDefinition.getTableName(),
+                aParentColumnName + " = '" + aParentId  + "'", null) > 0;
         if(bAtomicTransaction) {
             endTransaction(theBoolean);
         }
         return theBoolean;
     }
-	
-	private boolean deleteAllParentRowsFromSequencedLinkTable(
-			FmmNodeDefinition anFmmNodeDefinition,
-			String aParentColumnName,
-			String aParentId,
-			boolean bAtomicTransaction) {
-		if(bAtomicTransaction) {
-			startTransaction();
-		}
-    	boolean theBoolean = getSqLiteDatabase().delete(
-    			anFmmNodeDefinition.getTableName(),
-    			aParentColumnName + " = '" + aParentId  + "'", null) > 0;
-    	if(bAtomicTransaction) {
-    		endTransaction(theBoolean);
-    	}
-    	return theBoolean;
-	}
-	
-	private boolean deleteAllChildRowsFromSequencedLinkTable(
-			FmmNodeDefinition anFmmNodeDefinition,
-			String aParentColumnName,
-			String aChildColumnName,
-			String aChildId,
-			boolean bAtomicTransaction) {
-		if(bAtomicTransaction) {
-			startTransaction();
-		}
-		Cursor theCursor = getSqLiteDatabase().rawQuery(
-				"SELECT " + aParentColumnName + " FROM " + anFmmNodeDefinition.getTableName() +
-				" WHERE " + aChildColumnName + " = '" + aChildId + "'", null );
-		if(theCursor.getCount() == 0) {
-			theCursor.close();
-			return true;
-		}
-		String theParentId;
-		while(theCursor.moveToNext()) {
-			theParentId = theCursor.getString(0);
-			deleteRowFromSequencedLinkTable(
-					anFmmNodeDefinition,
-					aParentColumnName,
-					theParentId,
-					aChildColumnName,
-					aChildId,
-					bAtomicTransaction);
-		}
-		theCursor.close();
-    	if(bAtomicTransaction) {
-    		endTransaction(true);
-    	}
-    	return true;
-	}
-	
-	private boolean deleteRowFromSequencedLinkTable(
-			FmmNodeDefinition anFmmNodeDefinition,
-			String aParentColumnName,
-			String aParentId,
-			String aChildColumnName,
-			String aChildId,
-			boolean bAtomicTransaction) {
-		if(bAtomicTransaction) {
-			startTransaction();
-		}
-    	boolean theBoolean = getSqLiteDatabase().delete(
-    			anFmmNodeDefinition.getTableName(),
-    			aParentColumnName + " = '" + aParentId  + "' AND " + aChildColumnName + " = '" + aChildId + "'", null) > 0;
-    	if(theBoolean) {
-    		reSequenceRows(
-    				anFmmNodeDefinition.getTableName(),
-    				aParentColumnName,
-    				aParentId );
-    	}
-    	if(bAtomicTransaction) {
-    		endTransaction(theBoolean);
-    	}
-    	return theBoolean;
-	}
-	
-	private boolean deleteRowFromTableForParent(String aParentId, FmmNodeDefinition anFmmNodeDefinition, boolean bAtomicTransaction) {
-		if(bAtomicTransaction) {
-			startTransaction();
-		}
-		boolean theBoolean = getSqLiteDatabase().delete(anFmmNodeDefinition.getTableName(), NodeFragMetaData.column_PARENT_ID + " = '" + aParentId  + "'", null) > 0;
-    	if(bAtomicTransaction) {
-    		endTransaction(theBoolean);
-    	}
-    	return theBoolean;
-	}
 
-	@Override
-	public boolean dbDeleteRowsWithValue(FmmNodeDefinition anFmmNodeDefinition, String aColumnName, String aValue, boolean bAtomicTransaction) {
-		if(bAtomicTransaction) {
-			startTransaction();
-		}
-		boolean theBoolean = getSqLiteDatabase().delete(anFmmNodeDefinition.getTableName(), aColumnName + " = '" + aValue  + "'", null) > 0;
-    	if(bAtomicTransaction) {
-    		endTransaction(theBoolean);
-    	}
-    	return theBoolean;
-	}
-	
-	/////////  LINK NODES  ////////////
+    private boolean deleteAllChildRowsFromSequencedLinkTable(
+            FmmNodeDefinition anFmmNodeDefinition,
+            String aParentColumnName,
+            String aChildColumnName,
+            String aChildId,
+            boolean bAtomicTransaction) {
+        if(bAtomicTransaction) {
+            startTransaction();
+        }
+        Cursor theCursor = getSqLiteDatabase().rawQuery(
+                "SELECT " + aParentColumnName + " FROM " + anFmmNodeDefinition.getTableName() +
+                        " WHERE " + aChildColumnName + " = '" + aChildId + "'", null );
+        if(theCursor.getCount() == 0) {
+            theCursor.close();
+            return true;
+        }
+        String theParentId;
+        while(theCursor.moveToNext()) {
+            theParentId = theCursor.getString(0);
+            deleteRowFromSequencedLinkTable(
+                    anFmmNodeDefinition,
+                    aParentColumnName,
+                    theParentId,
+                    aChildColumnName,
+                    aChildId,
+                    bAtomicTransaction);
+        }
+        theCursor.close();
+        if(bAtomicTransaction) {
+            endTransaction(true);
+        }
+        return true;
+    }
+
+    private boolean deleteRowFromSequencedLinkTable(
+            FmmNodeDefinition anFmmNodeDefinition,
+            String aParentColumnName,
+            String aParentId,
+            String aChildColumnName,
+            String aChildId,
+            boolean bAtomicTransaction) {
+        if(bAtomicTransaction) {
+            startTransaction();
+        }
+        boolean theBoolean = getSqLiteDatabase().delete(
+                anFmmNodeDefinition.getTableName(),
+                aParentColumnName + " = '" + aParentId  + "' AND " + aChildColumnName + " = '" + aChildId + "'", null) > 0;
+        if(theBoolean) {
+            reSequenceRows(
+                    anFmmNodeDefinition.getTableName(),
+                    aParentColumnName,
+                    aParentId );
+        }
+        if(bAtomicTransaction) {
+            endTransaction(theBoolean);
+        }
+        return theBoolean;
+    }
 
     @Override
     public int getLinkTableNodeSequence(
@@ -754,9 +592,30 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 				aMoveNodeColumnName + " = '" + aMoveNodeId + "'", null);
 		return theRowCount == 1;
 	}
-	
-	/////////  SEQUENCE  ////////////
 
+    /////////////////////////////////////////////////////
+    //////// LINK TABLES - end // ///////////////////////
+
+
+    /////////////////////////////////////////////////////
+    //////// SEQUENCE TABLES - start  ///////////////////
+
+    private boolean orphanSequenceRows(String aTableName, String anUpdateColumnName, String aWhereClause, boolean bAtomicTransaction) {
+        if(bAtomicTransaction) {
+            startTransaction();
+        }
+        boolean theBoolean = true;
+        getSqLiteDatabase().execSQL(
+                "UPDATE " + aTableName +
+                        " SET "+ anUpdateColumnName + " = NULL " +
+                        " , " + CompletableNodeMetaData.column_SEQUENCE + " = '0'" +
+                        " WHERE " + aWhereClause );
+        if(bAtomicTransaction) {
+            endTransaction(theBoolean);
+        }
+        return theBoolean;
+    }
+	
 	@Override
 	public void dbSwapSequence(FmmHeadlineNode aParentNode, FmmHeadlineNode aTargetNode, FmmHeadlineNode aPeerNode) {
 		if(aTargetNode.getFmmNodeDefinition().isPrimarySequenceNode(aParentNode.getFmmNodeDefinition())) {
@@ -856,6 +715,292 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 				" WHERE " + aTargetNode.getFmmNodeDefinition().getClassName() + "__id = '" + aTargetNode.getNodeIdString() + "'" );
 	}
 
+    //////// SEQUENCE TABLES - end  /////////////////////
+    /////////////////////////////////////////////////////
+
+
+    /////////////////////////////////////////////////////////
+    //////////  PRIVATE Cursor METHODS  - start  ////////////
+
+    private Cursor retrieveAllRowsFromTableForColumnValue(FmmNodeDefinition anFmmNodeDefinition, String aWhereColumnName, String aWhereColumnValue ) {
+        return getSqLiteDatabase().rawQuery("SELECT * FROM " + anFmmNodeDefinition.getTableName() +
+                " WHERE " + aWhereColumnName + " = '" + aWhereColumnValue + "'", null);
+    }
+
+    private Cursor retrieveAllRowsFromTableForColumnValueSorted(FmmNodeDefinition anFmmNodeDefinition, String aColumnName, String aColumnValue, String aSortColumnName ) {
+        return getSqLiteDatabase().rawQuery("SELECT * FROM " + anFmmNodeDefinition.getTableName() +
+                " WHERE " + aColumnName + " = '" + aColumnValue + "'" +
+                " ORDER BY " + aSortColumnName + " ASC ", null);
+    }
+
+    //////////  PRIVATE Cursor METHODS  - end  ////////////
+    /////////////////////////////////////////////////////////
+
+
+    /////////////////////////////////////////////////////////
+    //////////  PUBLIC GENERIC METHODS  - start  ////////////
+
+    //  EXISTS and COUNT
+
+    @Override
+    @SuppressWarnings({"resource",  "rawtypes" })
+    public boolean existsSimpleIdTable(FmmNodeDefinition anFmmNodeDefinition, String aNodeIdString) {
+        Cursor theCursor = getSqLiteDatabase().rawQuery("SELECT * FROM " + anFmmNodeDefinition.getTableName() +
+                " WHERE " + IdNodeMetaData.column_ID + " = '" + aNodeIdString + "'", null);
+        return theCursor.getCount() > 0;
+    }
+
+    // RETRIEVE
+
+    @Override
+    @SuppressWarnings({"resource",  "rawtypes" })
+    public <T extends FmmNode> T retrieveFmmNodeFromSimpleIdTable(FmmNodeDefinition anFmmNodeDefinition, String aNodeIdString) {
+        Cursor theCursor = getSqLiteDatabase().rawQuery("SELECT * FROM " + anFmmNodeDefinition.getTableName() +
+                " WHERE " + IdNodeMetaData.column_ID + " = '" + aNodeIdString + "'", null);
+        return (T) getDao(anFmmNodeDefinition).getSingleObjectFromCursor(theCursor);
+    }
+
+    @Override
+    @SuppressWarnings({"resource",  "rawtypes" })
+    public <T extends FmmNode> T retrieveFmmNodeFromSimpleIdTable(FmmNodeDefinition anFmmNodeDefinition, String aColumnName, String aColumnValue) {
+        Cursor theCursor = getSqLiteDatabase().rawQuery("SELECT * FROM " + anFmmNodeDefinition.getTableName() +
+                " WHERE " + aColumnName + " = '" + aColumnValue + "'", null);
+        return (T) getDao(anFmmNodeDefinition).getSingleObjectFromCursor(theCursor);
+    }
+
+    @SuppressWarnings("resource")
+    @Override
+    public <T extends FmmNode> ArrayList<T> listSimpleIdTable(
+            FmmNodeDefinition aNodeDefinition,
+            String aWhereColumnName,
+            String aWhereColumnValue,
+            String anExceptionId,
+            String anOrderBySpec) {
+        String theRawQuery = "SELECT * FROM " + aNodeDefinition.getTableName();
+        if(aWhereColumnName != null) {
+            theRawQuery += " WHERE " + aWhereColumnName + " = '" + aWhereColumnValue + "' ";
+        }
+        if(anExceptionId != null) {
+            theRawQuery += " AND " + IdNodeMetaData.column_ID + " != '" + anExceptionId + "' ";
+        }
+        if(anOrderBySpec != null) {
+            theRawQuery += " ORDER BY " + anOrderBySpec;
+        }
+        Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
+        return getDao(aNodeDefinition).getObjectListFromCursor(theCursor);
+    }
+
+    @SuppressWarnings("resource")
+    @Override
+    public <V extends FmmNode> ArrayList<V> listSimpleIdLeftTableFromLink(
+            FmmNodeDefinition aLeftTableDefinition,
+            String aLeftColumnName,
+            String aLefgColumnExceptionValue,
+            FmmNodeDefinition aRightTableDefinition,
+            String aRightColumnName,
+            String anAndSpec,
+            String anOrderBySpec) {
+        Cursor theCursor = getSqLiteDatabase().rawQuery(getInnerJoinQueryWithAndSpecSorted(
+                        aLeftTableDefinition,
+                        aLeftColumnName,
+                        aLefgColumnExceptionValue,
+                        aRightTableDefinition,
+                        aRightColumnName,
+                        anAndSpec,
+                        anOrderBySpec ),
+                null );
+        return getDao(aLeftTableDefinition).getObjectListFromCursor(theCursor);
+    }
+
+    @SuppressWarnings({"resource",  "rawtypes" })
+    public <T extends FmmNode> T retrieveFmmNodeFromTableForParent(FmmNodeDefinition anFmmNodeDefinition, String aParentId) {
+        Cursor theCursor = getSqLiteDatabase().rawQuery("SELECT * FROM " + anFmmNodeDefinition.getTableName() +
+                " WHERE " + NodeFragMetaData.column_PARENT_ID + " = '" + aParentId + "'", null);
+        return (T) getDao(anFmmNodeDefinition).getSingleObjectFromCursor(theCursor);
+    }
+
+    // INSERT
+
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+    public boolean insertSimpleIdTable(FmmNode anFmmNode, boolean bAtomicTransaction) {
+        if(bAtomicTransaction) {
+            startTransaction();
+        }
+        anFmmNode.setRowTimestamp(GcgDateHelper.getCurrentDateTime());
+        FmmNodeDaoSqLite theDao = getDao(anFmmNode);
+        this.contentValues = theDao.buildContentValues(anFmmNode);
+        boolean theBoolean = getSqLiteDatabase().insert(anFmmNode.getFmmNodeDefinition().getTableName(), null, this.contentValues) > 0;
+        if(bAtomicTransaction) {
+            endTransaction(theBoolean);
+        }
+        return theBoolean;
+    }
+
+    // UPDATE
+
+    @Override
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+    public <V extends FmmNode> boolean updateSimpleIdTable(V anFmmNode, boolean bAtomicTransaction) {
+        FmmNodeDaoSqLite theDaoInstance = getDao(anFmmNode.getFmmNodeDefinition());
+        if(bAtomicTransaction) {
+            startTransaction();
+        }
+        anFmmNode.setRowTimestamp(GcgDateHelper.getCurrentDateTime());
+        this.contentValues = theDaoInstance.buildUpdateContentValues(anFmmNode);
+        boolean theBoolean = getSqLiteDatabase().update(anFmmNode.getFmmNodeDefinition().getTableName(), this.contentValues,
+                IdNodeMetaData.column_ID + " = '" + anFmmNode.getNodeIdString() + "'", null) > 0;
+        if(bAtomicTransaction) {
+            endTransaction(theBoolean);
+        }
+        return theBoolean;
+    }
+
+    @Override
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+    public boolean fractalUpdateNodeHeadline(FmmHeadlineNode anFmmHeadlineNode) {
+        startTransaction();
+        anFmmHeadlineNode.setRowTimestamp(GcgDateHelper.getCurrentDateTime());
+        this.contentValues.clear();
+        this.contentValues.put(IdNodeMetaData.column_ROW_TIMESTAMP, GcgDateHelper.getFormattedUtcLong(anFmmHeadlineNode.getRowTimestamp()));
+        this.contentValues.put(HeadlineNodeMetaData.column_HEADLINE, anFmmHeadlineNode.getHeadline());
+        boolean isSuccess = getSqLiteDatabase().update(anFmmHeadlineNode.getFmmNodeDefinition().getTableName(), this.contentValues,
+                IdNodeMetaData.column_ID + " = '" + anFmmHeadlineNode.getNodeIdString() + "'", null) > 0;
+        anFmmHeadlineNode.getNodeFragAuditBlock().setRowTimestamp(anFmmHeadlineNode.getRowTimestamp());
+        anFmmHeadlineNode.getNodeFragAuditBlock().setSearchableHeadline(anFmmHeadlineNode.getHeadline());
+        isSuccess &= updateSimpleIdTable(anFmmHeadlineNode.getNodeFragAuditBlock(), false);
+        endTransaction(isSuccess);
+        return isSuccess;
+    }
+
+    private boolean updateRows(String aTableName, String anUpdateColumnName, String  anUpdateColumnValue, String aWhereClause, boolean bAtomicTransaction) {
+        if(bAtomicTransaction) {
+            startTransaction();
+        }
+        boolean theBoolean = true;
+        getSqLiteDatabase().execSQL(
+                "UPDATE " + aTableName +
+                        " SET "+ anUpdateColumnName + " = '" + anUpdateColumnValue + "'" +
+                        " WHERE " + aWhereClause );
+        if(bAtomicTransaction) {
+            endTransaction(theBoolean);
+        }
+        return theBoolean;
+    }
+
+    private boolean updateRowsWithNull(String aTableName, String anUpdateColumnName, String aWhereClause, boolean bAtomicTransaction) {
+        if(bAtomicTransaction) {
+            startTransaction();
+        }
+        boolean theBoolean = true;
+        getSqLiteDatabase().execSQL(
+                "UPDATE " + aTableName +
+                        " SET "+ anUpdateColumnName + " = NULL " +
+                        " WHERE " + aWhereClause );
+        if(bAtomicTransaction) {
+            endTransaction(theBoolean);
+        }
+        return theBoolean;
+    }
+
+    // DELETE
+
+    @Override
+    public boolean deleteRowFromSimpleIdTable(FmmNodeDefinition anFmmNodeDefinition, String aNodeIdString, boolean bAtomicTransaction) {
+        if(bAtomicTransaction) {
+            startTransaction();
+        }
+        boolean theBoolean = getSqLiteDatabase().delete(anFmmNodeDefinition.getTableName(), IdNodeMetaData.column_ID + " = '" + aNodeIdString  + "'", null) > 0;
+        if(bAtomicTransaction) {
+            endTransaction(theBoolean);
+        }
+        return theBoolean;
+    }
+
+    @Override
+    public boolean deleteRowFromSimpleIdTable(FmmNodeDefinition anFmmNodeDefinition, String aWhereColumnName, String aWhereColumnValue, boolean bAtomicTransaction) {
+        if(bAtomicTransaction) {
+            startTransaction();
+        }
+        boolean theBoolean = getSqLiteDatabase().delete(anFmmNodeDefinition.getTableName(), aWhereColumnName + " = '" + aWhereColumnValue  + "'", null) > 0;
+        if(bAtomicTransaction) {
+            endTransaction(theBoolean);
+        }
+        return theBoolean;
+    }
+
+    private boolean deleteAllRowFromSimpleIdTable(FmmNodeDefinition anFmmNodeDefinition, String aWhereClause, boolean bAtomicTransaction) {
+        if(bAtomicTransaction) {
+            startTransaction();
+        }
+        boolean theBoolean = getSqLiteDatabase().delete(anFmmNodeDefinition.getTableName(), aWhereClause, null) > 0;
+        if(bAtomicTransaction) {
+            endTransaction(theBoolean);
+        }
+        return theBoolean;
+    }
+
+    private boolean deleteRows(FmmNodeDefinition anFmmNodeDefinition, String aColumnValue, String aColumnName, boolean bAtomicTransaction) {
+        if(bAtomicTransaction) {
+            startTransaction();
+        }
+        boolean theBoolean = getSqLiteDatabase().delete(anFmmNodeDefinition.getTableName(), aColumnName + " = '" + aColumnValue  + "'", null) > 0;
+        if(bAtomicTransaction) {
+            endTransaction(theBoolean);
+        }
+        return theBoolean;
+    }
+    public boolean deleteRowFromTableForParent(String aParentId, FmmNodeDefinition anFmmNodeDefinition, boolean bAtomicTransaction) {
+        if(bAtomicTransaction) {
+            startTransaction();
+        }
+        boolean theBoolean = getSqLiteDatabase().delete(anFmmNodeDefinition.getTableName(), NodeFragMetaData.column_PARENT_ID + " = '" + aParentId  + "'", null) > 0;
+        if(bAtomicTransaction) {
+            endTransaction(theBoolean);
+        }
+        return theBoolean;
+    }
+
+    @Override
+    public boolean dbDeleteRowsWithValue(FmmNodeDefinition anFmmNodeDefinition, String aColumnName, String aValue, boolean bAtomicTransaction) {
+        if(bAtomicTransaction) {
+            startTransaction();
+        }
+        boolean theBoolean = getSqLiteDatabase().delete(anFmmNodeDefinition.getTableName(), aColumnName + " = '" + aValue  + "'", null) > 0;
+        if(bAtomicTransaction) {
+            endTransaction(theBoolean);
+        }
+        return theBoolean;
+    }
+
+    //////////  PUBLIC GENERIC METHODS  - end  //////////////
+    /////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -889,13 +1034,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	@Override
 	public boolean dbInsertCommunityMember(CommunityMember aCommunityMember, boolean bAtomicTransaction) {
     	return insertSimpleIdTable(
-    			aCommunityMember, bAtomicTransaction);
-	}
-
-	@Override
-	public boolean dbUpdateCommunityMember(CommunityMember aCommunityMember, boolean bAtomicTransaction) {
-    	return updateSimpleIdTable(
-    			aCommunityMember, bAtomicTransaction);
+                aCommunityMember, bAtomicTransaction);
 	}
 
 	@Override
@@ -947,26 +1086,26 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	//////  Node - COMPLETION NODE TRASH  /////////////////////////////////////////////////////////////////////////////////////
 
 	@Override
-	public Collection<CompletionNodeTrash> dbRetrieveCompletionNodeTrashList() {
-		return retrieveAllFmmNodesFromTable(CompletionNodeTrashDaoSqLite.getInstance());
+	public Collection<HeadlineNodeTrash> dbRetrieveCompletionNodeTrashList() {
+		return retrieveAllFmmNodesFromTable(HeadlineNodeTrashDaoSqLite.getInstance());
 	}
 
 	@Override
-	public CompletionNodeTrash dbRetrieveCompletionNodeTrash(String aNodeIdString) {
-		return (CompletionNodeTrash) retrieveFmmNodeFromSimpleIdTable(aNodeIdString, FmmNodeDefinition.COMPLETION_NODE_TRASH);
+	public HeadlineNodeTrash dbRetrieveCompletionNodeTrash(String aNodeIdString) {
+		return (HeadlineNodeTrash) retrieveFmmNodeFromSimpleIdTable(aNodeIdString, FmmNodeDefinition.HEADLINE_NODE_TRASH);
 	}
 
 	@Override
-	public boolean dbInsertCompletionNodeTrash(CompletionNodeTrash aCompletionNodeTrash, boolean bAtomicTransaction) {
+	public boolean dbInsertCompletionNodeTrash(HeadlineNodeTrash aHeadlineNodeTrash, boolean bAtomicTransaction) {
     	return insertSimpleIdTable(
-    			aCompletionNodeTrash, bAtomicTransaction);
+                aHeadlineNodeTrash, bAtomicTransaction);
 	}
 
 	@Override
 	public boolean dbDeleteCompletionNodeTrash(
-			CompletionNodeTrash aCompletionNodeTrash,
+			HeadlineNodeTrash aHeadlineNodeTrash,
 			boolean bAtomicTransaction) {
-    	return deleteRowFromSimpleIdTable(aCompletionNodeTrash.getNodeIdString(), FmmNodeDefinition.COMPLETION_NODE_TRASH, bAtomicTransaction);
+    	return deleteRowFromSimpleIdTable(aHeadlineNodeTrash.getNodeIdString(), FmmNodeDefinition.HEADLINE_NODE_TRASH, bAtomicTransaction);
 	}
 
 
@@ -983,25 +1122,6 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
 
     //////  Node - PORTFOLIO  ////////////////////////////////////////////////////////////////////////////////
-
-    @SuppressWarnings("resource")
-    @Override
-    public ArrayList<Portfolio> dbListPortfolio(FmsOrganization anOrganization, Portfolio aPortfolioException) {
-        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.PORTFOLIO.getTableName() +
-                " WHERE " + PortfolioMetaData.column_ORGANIZATION_ID + " = '" + anOrganization.getNodeIdString() + "'";
-        if(aPortfolioException != null) {
-            theRawQuery += " AND " + IdNodeMetaData.column_ID + " != '" + aPortfolioException.getNodeIdString() + "'";
-        }
-        theRawQuery += " ORDER BY LOWER(" + HeadlineNodeMetaData.column_HEADLINE + ") ASC";
-        Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
-        return PortfolioDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
-    }
-
-    @Override
-    public boolean dbInsertPortfolio(Portfolio aPortfolio, boolean bAtomicTransaction) {
-        return insertSimpleIdTable(
-                aPortfolio, bAtomicTransaction);
-    }
 
     @Override
     public int dbCountPortfolioForProjectMoveTarget(FmsOrganization anFmsOrganization, Portfolio aPortfolioException) {
@@ -1600,7 +1720,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
 	@Override
 	public NodeFragWorkTaskBudget dbRetrieveNodeFragWorkTaskBudgetForParent(String aParentId) {
-		return (NodeFragWorkTaskBudget) retrieveFmmmNodeFromTableForParent(aParentId, NodeFragWorkTaskBudgetDaoSqLite.getInstance());
+		return (NodeFragWorkTaskBudget) retrieveFmmNodeFromTableForParent(aParentId, NodeFragWorkTaskBudgetDaoSqLite.getInstance());
 	}
 	
 	@Override
@@ -1638,7 +1758,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
 	@Override
 	public NodeFragGovernance dbRetrieveNodeFragGovernanceForParent(String aParentId) {
-		return (NodeFragGovernance) retrieveFmmmNodeFromTableForParent(aParentId, NodeFragGovernanceDaoSqLite.getInstance());
+		return (NodeFragGovernance) retrieveFmmNodeFromTableForParent(aParentId, NodeFragGovernanceDaoSqLite.getInstance());
 	}
 	
 	@Override
@@ -1827,18 +1947,6 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	public boolean dbDeleteProject(Project aProject, boolean bAtomicTransaction) {
     	return deleteRowFromSimpleIdTable(aProject.getNodeIdString(), FmmNodeDefinition.PROJECT, bAtomicTransaction);
 	}
-
-    public boolean dbDeleteProjectsForPortfolio(String aPortfolioId, boolean bAtomicTransaction) {
-        if(bAtomicTransaction) {
-            startTransaction();
-        }
-        int theRowCount = getSqLiteDatabase().delete(FmmNodeDefinition.PROJECT.getTableName(),
-                ProjectMetaData.column_PORTFOLIO_ID + " = '" + aPortfolioId + "'", null);
-        if(bAtomicTransaction) {
-            endTransaction(theRowCount > 0);
-        }
-        return theRowCount > 0;
-    }
 
 
     ////  Node - WORK ASSET  ////////////////////////////////////////////////////////////////////////////////
@@ -2856,7 +2964,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
 	@Override
 	public NodeFragFseDocument dbRetrieveNodeFragFseDocumentForParent(String aParentId) {
-		return (NodeFragFseDocument) retrieveFmmmNodeFromTableForParent(aParentId, NodeFragFseDocumentDaoSqLite.getInstance());
+		return (NodeFragFseDocument) retrieveFmmNodeFromTableForParent(aParentId, NodeFragFseDocumentDaoSqLite.getInstance());
 	}
 	
 	@Override
@@ -2984,7 +3092,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
 	@Override
 	public FragLock dbRetrieveFragLockForParent(String aParentId) {
-		return (FragLock) retrieveFmmmNodeFromTableForParent(aParentId, FragLockDaoSqLite.getInstance());
+		return (FragLock) retrieveFmmNodeFromTableForParent(aParentId, FragLockDaoSqLite.getInstance());
 	}
 
 	@Override
@@ -3009,6 +3117,14 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	}
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//////  Node - NODE FRAG - GENERIC  //////////////////////////////////////////////////////////////////////////
+
+    public FmmNodeFrag dbRetrieveFmmNodeFragForParent(String aParentId, FmmNodeDefinition anFmmNodeDefinition) {
+        return (FmmNodeFrag) retrieveFmmNodeFromSimpleIdTable(anFmmNodeDefinition.getPrimaryParentIdColumnName(), aParentId, anFmmNodeDefinition);
+    }
+
+
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//////  Node - NODE FRAG AUDIT BLOCK  ///////////////////////////////////////////////////////////////////////////
 
 	@Override
@@ -3023,7 +3139,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
 	@Override
 	public NodeFragAuditBlock dbRetrieveNodeFragAuditBlockForParent(String aParentId) {
-		return (NodeFragAuditBlock) retrieveFmmmNodeFromTableForParent(aParentId, NodeFragAuditBlockDaoSqLite.getInstance());
+		return (NodeFragAuditBlock) retrieveFmmNodeFromTableForParent(aParentId, NodeFragAuditBlockDaoSqLite.getInstance());
 	}
 
 	@Override
@@ -3061,7 +3177,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
 	@Override
 	public NodeFragCompletion dbRetrieveNodeFragCompletionForParent(String aParentId) {
-		return (NodeFragCompletion) retrieveFmmmNodeFromTableForParent(aParentId, NodeFragCompletionDaoSqLite.getInstance());
+		return (NodeFragCompletion) retrieveFmmNodeFromTableForParent(aParentId, NodeFragCompletionDaoSqLite.getInstance());
 	}
 	
 	@Override
@@ -3101,7 +3217,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
 	@Override
 	public NodeFragTribKnQuality dbRetrieveNodeFragTribKnQualityForParent(String aParentId) {
-		return (NodeFragTribKnQuality) retrieveFmmmNodeFromTableForParent(aParentId, NodeFragTribKnQualityDaoSqLite.getInstance());
+		return (NodeFragTribKnQuality) retrieveFmmNodeFromTableForParent(aParentId, NodeFragTribKnQualityDaoSqLite.getInstance());
 	}
 	
 	@Override
@@ -3382,81 +3498,6 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 //        Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
 //        return CadenceDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
         return new ArrayList<Cadence>();
-    }
-
-    /////////////////////////////////////////
-    //////////  GENERIC METHODS  ////////////
-    /////////////////////////////////////////
-
-    //  RETRIEVE
-
-    @Override
-    @SuppressWarnings({"resource",  "rawtypes" })
-    public FmmNode retrieveFmmNodeFromSimpleIdTable(String atId, FmmNodeDefinition anFmmNodeDefinition) {
-        FmmNodeDaoSqLite theDao = getDao(anFmmNodeDefinition);
-        Cursor theCursor = getSqLiteDatabase().rawQuery("SELECT * FROM " + anFmmNodeDefinition.getTableName() +
-                " WHERE " + IdNodeMetaData.column_ID + " = '" + atId + "'", null);
-        return theDao.getSingleObjectFromCursor(theCursor);
-    }
-
-    @SuppressWarnings("resource")
-    @Override
-    public <V extends FmmNode> ArrayList<V> dbListSimpleIdTable(
-            FmmNodeDefinition aNodeDefinition,
-            String aWhereColumnName,
-            String aWhereColumnValue,
-            String anExceptionId,
-            String anOrderBySpec ) {
-        String theRawQuery = "SELECT * FROM " + aNodeDefinition.getTableName() +
-                " WHERE " + aWhereColumnName + " = '" + aWhereColumnValue + "'";
-        if(anExceptionId != null) {
-            theRawQuery += " AND " + IdNodeMetaData.column_ID + " != '" + anExceptionId + "'";
-        }
-        theRawQuery += " ORDER BY " + anOrderBySpec + " ASC";
-        Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
-        return getDao(aNodeDefinition).getObjectListFromCursor(theCursor);
-    }
-
-    @SuppressWarnings("resource")
-    @Override
-    public <V extends FmmNode> ArrayList<V> dbListSimpleIdTableFromLink(
-            FmmNodeDefinition aLeftTableDefinition,
-            String aLeftColumnName,
-            String aLefgColumnExceptionValue,
-            FmmNodeDefinition aRightTableDefinition,
-            String aRightColumnName,
-            String anAndSpec,
-            String anOrderBySpec ) {
-        Cursor theCursor = getSqLiteDatabase().rawQuery(getInnerJoinQueryWithAndSpecSorted(
-                        aLeftTableDefinition,
-                        aLeftColumnName,
-                        aLefgColumnExceptionValue,
-                        aRightTableDefinition,
-                        aRightColumnName,
-                        anAndSpec,
-                        anOrderBySpec ),
-                null );
-        return getDao(aLeftTableDefinition).getObjectListFromCursor(theCursor);
-    }
-
-    // UPDATE
-
-    @Override
-    @SuppressWarnings({ "rawtypes", "unchecked" })
-    public <V extends FmmNode> boolean updateSimpleIdTable(
-            V anFmmNode, boolean bAtomicTransaction) {
-        FmmNodeDaoSqLite theDaoInstance = getDao(anFmmNode.getFmmNodeDefinition());
-        if(bAtomicTransaction) {
-            startTransaction();
-        }
-        anFmmNode.setRowTimestamp(GcgDateHelper.getCurrentDateTime());
-        this.contentValues = theDaoInstance.buildUpdateContentValues(anFmmNode);
-        boolean theBoolean = getSqLiteDatabase().update(anFmmNode.getFmmNodeDefinition().getTableName(), this.contentValues,
-                IdNodeMetaData.column_ID + " = '" + anFmmNode.getNodeIdString() + "'", null) > 0;
-        if(bAtomicTransaction) {
-            endTransaction(theBoolean);
-        }
-        return theBoolean;
     }
 	
 }

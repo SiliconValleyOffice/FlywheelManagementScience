@@ -51,7 +51,7 @@ import com.flywheelms.library.fmm.enumerator.FmmHoliday;
 import com.flywheelms.library.fmm.meta_data.SequencedLinkNodeMetaData;
 import com.flywheelms.library.fmm.meta_data.WorkPlanMetaData;
 import com.flywheelms.library.fmm.node.NodeId;
-import com.flywheelms.library.fmm.node.impl.completable.FmmCompletableNodeImpl;
+import com.flywheelms.library.fmm.node.impl.completable.FmmCompletionNodeImpl;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
@@ -65,7 +65,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
-public class WorkPlan extends FmmCompletableNodeImpl {
+public class WorkPlan extends FmmCompletionNodeImpl {
 
 	private static final long serialVersionUID = -5268115673220940748L;
     private String flywheelCadenceId;

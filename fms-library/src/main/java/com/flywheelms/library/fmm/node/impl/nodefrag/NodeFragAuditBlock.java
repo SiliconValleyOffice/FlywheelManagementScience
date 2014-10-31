@@ -189,7 +189,7 @@ public class NodeFragAuditBlock extends FmmNodeFragLockableImpl {
 
 	public CommunityMember getCreatedByCommunityMember() {
 		if(this.createdByCommunityMember == null && this.createdByNodeIdString != null && this.createdByNodeIdString.length() > 0) {
-			this.createdByCommunityMember = FmmDatabaseMediator.getActiveMediator().getCommunityMember(this.createdByNodeIdString);
+			this.createdByCommunityMember = FmmDatabaseMediator.getActiveMediator().retrieveCommunityMember(this.createdByNodeIdString);
 		}
 		return this.createdByCommunityMember;
 	}
@@ -220,7 +220,7 @@ public class NodeFragAuditBlock extends FmmNodeFragLockableImpl {
 
 	public CommunityMember getLastUpdatedByCommunityMember() {
 		if(this.lastUpdatedByCommunityMember == null && this.lastUpdatedByNodeIdString != null && this.lastUpdatedByNodeIdString.length() > 0) {
-			this.lastUpdatedByCommunityMember = FmmDatabaseMediator.getActiveMediator().getCommunityMember(this.lastUpdatedByNodeIdString);
+			this.lastUpdatedByCommunityMember = FmmDatabaseMediator.getActiveMediator().retrieveCommunityMember(this.lastUpdatedByNodeIdString);
 		}
 		if(this.lastUpdatedByCommunityMember == null) {
 			setLastUpdatedBy(CommunityMember.getNullValue());

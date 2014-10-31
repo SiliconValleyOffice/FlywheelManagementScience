@@ -101,8 +101,8 @@ import com.flywheelms.library.fmm.node.impl.link.OrganizationGovernanceTarget;
 import com.flywheelms.library.fmm.node.impl.link.OrganizationLockConfig;
 import com.flywheelms.library.fmm.node.impl.link.ServiceRequestLinkToWorkTask;
 import com.flywheelms.library.fmm.node.impl.link.StrategicTeamCommunityMember;
-import com.flywheelms.library.fmm.node.impl.nodefrag.CompletionNodeTrash;
 import com.flywheelms.library.fmm.node.impl.nodefrag.FragLock;
+import com.flywheelms.library.fmm.node.impl.nodefrag.HeadlineNodeTrash;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragAuditBlock;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragCompletion;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragFseDocument;
@@ -200,7 +200,7 @@ public class FmmDatabaseBuilderSqLite implements FmmDatabaseBuilder {
 		createTable(aSqLiteDatabase, NodeFragTribKnQuality.class);
 		createTable(aSqLiteDatabase, NodeFragAuditBlock.class);
 		createTable(aSqLiteDatabase, NodeFragGovernance.class);
-		createTable(aSqLiteDatabase, CompletionNodeTrash.class);
+		createTable(aSqLiteDatabase, HeadlineNodeTrash.class);
 		createTable(aSqLiteDatabase, NodeFragFseDocument.class);
 		createTable(aSqLiteDatabase, NodeFragWorkTaskBudget.class);
 	}

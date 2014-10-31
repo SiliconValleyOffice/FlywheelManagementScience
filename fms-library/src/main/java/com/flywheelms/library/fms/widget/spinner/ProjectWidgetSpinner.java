@@ -76,7 +76,7 @@ public class ProjectWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 	@Override
 	protected ArrayList<GcgGuiable> getPrimaryParentGuiableList() {
 		return new ArrayList<GcgGuiable>(
-			FmmDatabaseMediator.getActiveMediator().getProjectList(this.portfolio, this.projectException) );
+			FmmDatabaseMediator.getActiveMediator().retrieveProjectList(this.portfolio, this.projectException) );
 	}
 	
 	@Override
@@ -86,8 +86,8 @@ public class ProjectWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 			theGuiableList = new ArrayList<GcgGuiable>(); 
 		} else {	
 			theGuiableList = new ArrayList<GcgGuiable>(
-				FmmDatabaseMediator.getActiveMediator().listProjectsForProjectAssetMoveTarget(
-						this.portfolio, this.projectException));
+				FmmDatabaseMediator.getActiveMediator().retrieveProjectsForProjectAssetMoveTarget(
+                        this.portfolio, this.projectException));
 		}
 		return theGuiableList;
 	}
@@ -98,7 +98,7 @@ public class ProjectWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
         if(this.portfolio == null) {
             theGuiableList = new ArrayList<GcgGuiable>();
         } else {
-            theGuiableList = new ArrayList<GcgGuiable>(FmmDatabaseMediator.getActiveMediator().listProjectsForWorkTaskMoveTarget(
+            theGuiableList = new ArrayList<GcgGuiable>(FmmDatabaseMediator.getActiveMediator().retrieveProjectsForWorkTaskMoveTarget(
                     this.portfolio, this.workPackageException));
         }
         return theGuiableList;
@@ -110,8 +110,8 @@ public class ProjectWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 		if(this.portfolio == null) {
 			theGuiableList = new ArrayList<GcgGuiable>(); 
 		} else {	
-			theGuiableList = new ArrayList<GcgGuiable>(FmmDatabaseMediator.getActiveMediator().listProjectsForWorkPackageMoveTarget(
-					this.portfolio, this.workAssetException));
+			theGuiableList = new ArrayList<GcgGuiable>(FmmDatabaseMediator.getActiveMediator().retrieveProjectsForWorkPackageMoveTarget(
+                    this.portfolio, this.workAssetException));
 		}
 		return theGuiableList;
 	}
@@ -119,7 +119,7 @@ public class ProjectWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
     @Override
     protected ArrayList<? extends GcgGuiable> getOrphanNodesPrimaryParentGuiableList() {
         ArrayList<GcgGuiable> theGuiableList =
-                new ArrayList<GcgGuiable>(FmmDatabaseMediator.getActiveMediator().listProjectOrphansFromPortfolio());
+                new ArrayList<GcgGuiable>(FmmDatabaseMediator.getActiveMediator().retrieveProjectOrphansFromPortfolio());
         return theGuiableList;
     }
 

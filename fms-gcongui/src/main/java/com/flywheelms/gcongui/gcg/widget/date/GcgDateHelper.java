@@ -58,6 +58,9 @@ import java.util.GregorianCalendar;
 import java.util.Locale;
 import java.util.TimeZone;
 
+// TODO - implement time zone logic to "normalize" the long values being stored/retrieved from the database
+//        convert to UTC first ??
+
 @SuppressLint("SimpleDateFormat")
 public class GcgDateHelper {
 
@@ -219,7 +222,7 @@ public class GcgDateHelper {
 	}
 	
 	public static Date getCurrentDateTime() {
-		return new Date(System.currentTimeMillis());
+		return new Date();
 	}
 
     private static ArrayList<GcgGuiable> GUIABLE_MONTH_LIST;

@@ -81,6 +81,8 @@ import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.FmmHistoryNodeImpl;
 import com.flywheelms.library.fmm.node.impl.enumerator.CompletableWorkStatus;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
+import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragAuditBlock;
+import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragFseDocument;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragTribKnQuality;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmTreeNodeTargetObject;
@@ -99,6 +101,9 @@ public abstract class FmmHeadlineNodeImpl extends FmmHistoryNodeImpl
 	
 	private static final long serialVersionUID = 1L;
 	private transient DecKanGlGlyph decKanGlGlyph;
+    private transient NodeFragAuditBlock nodeFragAuditBlock;
+    private transient NodeFragFseDocument nodeFragFseDocument;
+    private transient NodeFragTribKnQuality nodeFragTribKnQuality;
 	private HashMap<DecKanGlDecoratorCanvasLocation, DecKanGlDecorator> decKanGlDecoratorMap;
 	protected String headline = "";
 	protected HashMap<FmmPerspective, NodeCompletionSummary> nodeCompletionSummaryMap;
@@ -182,7 +187,7 @@ public abstract class FmmHeadlineNodeImpl extends FmmHistoryNodeImpl
 	
 	@Override
 	public FseDocument getFseDocument() {
-		return FmmDatabaseMediator.getActiveMediator().getFseDocumentForParentOrCreate(getNodeIdString());
+		return FmmDatabaseMediator.getActiveMediator().getFseDocumentForParent(getNodeIdString());
 	}
 	
 	@Override
@@ -240,7 +245,7 @@ public abstract class FmmHeadlineNodeImpl extends FmmHistoryNodeImpl
 	@Override
 	public HashMap<DecKanGlDecoratorCanvasLocation, DecKanGlDecorator> getDecKanGlDecoratorMap() {
 		if(this.decKanGlDecoratorMap == null) {
-			this.decKanGlDecoratorMap = FmmDatabaseMediator.getActiveMediator().getNodeFragTribKnQualityOrCreate(this).getDecoratorMap();
+			this.decKanGlDecoratorMap = FmmDatabaseMediator.getActiveMediator().getNodeFragTribKnQuality(this).getDecoratorMap();
 		}
 		return this.decKanGlDecoratorMap;
 	}
@@ -529,11 +534,6 @@ public abstract class FmmHeadlineNodeImpl extends FmmHistoryNodeImpl
 	}
 
 	@Override
-	public NodeFragTribKnQuality getNodeFragTribKnQuality() {
-		return FmmDatabaseMediator.getActiveMediator().getNodeFragTribKnQualityForParent(getNodeIdString());
-	}
-
-	@Override
 	public boolean canDelete(FmmHeadlineNode aContextHeadlineNode) {
 		return true;
 	}
@@ -616,6 +616,50 @@ public abstract class FmmHeadlineNodeImpl extends FmmHistoryNodeImpl
             theList.add(theHeadlineNode.getFmmHeadlineNodeShallow());
         }
         return theList;
+    }
+
+
+//    private transient NodeFragAuditBlock nodeFragAuditBlock;
+//    private transient NodeFragFseDocument nodeFragFseDocument;
+//    private transient NodeFragTribKnQuality nodeFragTribKnQuality;
+
+    public void setNodeFragAuditBlock(NodeFragAuditBlock aNodeFragAuditBlock) {
+        this.nodeFragAuditBlock = aNodeFragAuditBlock;
+    }
+
+    public NodeFragAuditBlock getNodeFragAuditBlock() {
+        if(this.nodeFragAuditBlock == null) {
+            this.nodeFragAuditBlock = FmmDatabaseMediator.getActiveMediator().getNodeFragAuditBlockForParent(getNodeIdString());
+        }
+        return this.nodeFragAuditBlock;
+    }
+
+    public void setNodeFragFseDocument(NodeFragFseDocument aNodeFragFseDocument) {
+        this.nodeFragFseDocument = aNodeFragFseDocument;
+    }
+
+    public NodeFragFseDocument getNodeFragFseDocument() {
+        if(this.nodeFragFseDocument == null) {
+            this.nodeFragFseDocument = FmmDatabaseMediator.getActiveMediator().getNodeFragFseDocumentForParent(getNodeIdString());
+        }
+        return this.nodeFragFseDocument;
+    }
+
+    public void setNodeFragTribKnQuality(NodeFragTribKnQuality aNodeFragTribKnQuality) {
+        this.nodeFragTribKnQuality = aNodeFragTribKnQuality;
+    }
+
+    public NodeFragTribKnQuality getNodeFragTribKnQuality() {
+        if(this.nodeFragTribKnQuality == null) {
+            this.nodeFragTribKnQuality = FmmDatabaseMediator.getActiveMediator().getNodeFragTribKnQualityForParent(getNodeIdString());
+        }
+        return this.nodeFragTribKnQuality;
+    }
+
+    public String getSerializedNodeForTrash() {
+        // some headline nodes will want to serialize a little deeper, such as
+        // StrategicMilestone wanting to include its StrategicCommitment
+        return getSerialized();
     }
 
 }

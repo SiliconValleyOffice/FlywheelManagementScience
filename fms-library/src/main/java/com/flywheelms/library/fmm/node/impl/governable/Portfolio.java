@@ -63,7 +63,7 @@ import com.flywheelms.library.fmm.deckangl.FmsDecoratorWorkTeam;
 import com.flywheelms.library.fmm.meta_data.PortfolioMetaData;
 import com.flywheelms.library.fmm.node.FmmHeadlineNodeShallow;
 import com.flywheelms.library.fmm.node.NodeId;
-import com.flywheelms.library.fmm.node.impl.completable.FmmCompletableNodeImpl;
+import com.flywheelms.library.fmm.node.impl.completable.FmmCompletionNodeImpl;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
@@ -78,7 +78,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 
-public class Portfolio extends FmmCompletableNodeImpl {
+public class Portfolio extends FmmCompletionNodeImpl {
 
 	private static final long serialVersionUID = -3817417558434998773L;
     public static final String SERIALIZATION_FORMAT_VERSION = "0.1";
@@ -174,7 +174,7 @@ public class Portfolio extends FmmCompletableNodeImpl {
 
     public ArrayList<Project> getProjectList() {
         if(this.projectList == null) {
-            this.projectList = FmmDatabaseMediator.getActiveMediator().getProjectList(this);
+            this.projectList = FmmDatabaseMediator.getActiveMediator().retrieveProjectList(this);
         }
         return this.projectList;
     }
@@ -271,7 +271,7 @@ public class Portfolio extends FmmCompletableNodeImpl {
         ArrayList<? extends FmmHeadlineNodeImpl> theList = null;
         switch(aChildNodeDefinition) {
             case PROJECT:
-                theList = FmmDatabaseMediator.getActiveMediator().getProjectList(this);
+                theList = FmmDatabaseMediator.getActiveMediator().retrieveProjectList(this);
                 break;
         }
         return theList;

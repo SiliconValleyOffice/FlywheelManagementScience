@@ -52,6 +52,8 @@ public interface FmmGovernableNode extends FmmHeadlineNode {
 
 	GovernanceTeamMember getGovernanceTeamMember(GovernanceRole aGovernanceRole);
 	
-	NodeFragGovernance getNodeFragGovernance(); 
+	NodeFragGovernance getNodeFragGovernance();
+
+    void setNodeFragGovernance(NodeFragGovernance aNodeFragGovernance);
 
 }

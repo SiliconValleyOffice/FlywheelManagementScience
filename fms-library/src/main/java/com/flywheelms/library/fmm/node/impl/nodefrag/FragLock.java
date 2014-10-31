@@ -179,7 +179,7 @@ public class FragLock extends FmmNodeFragImpl implements FmmNodeLocking {
 			if(this.lockedByNodeIdString == null || this.lockedByNodeIdString.length() == 0) {
 				setLockedBy(CommunityMember.getNullValue());
 			} else {
-				setLockedBy(FmmDatabaseMediator.getActiveMediator().getCommunityMember(this.lockedByNodeIdString));
+				setLockedBy(FmmDatabaseMediator.getActiveMediator().retrieveCommunityMember(this.lockedByNodeIdString));
 			}
 		}
 		return this.lockedByCommunityMember;
@@ -214,7 +214,7 @@ public class FragLock extends FmmNodeFragImpl implements FmmNodeLocking {
 	@Override
 	public CommunityMember getUnlockedByCommunityMember() {
 		if(this.unlockedByCommunityMember == null) {
-			this.unlockedByCommunityMember = FmmDatabaseMediator.getActiveMediator().getCommunityMember(this.unlockedByNodeIdString);
+			this.unlockedByCommunityMember = FmmDatabaseMediator.getActiveMediator().retrieveCommunityMember(this.unlockedByNodeIdString);
 		}
 		return this.unlockedByCommunityMember;
 	}

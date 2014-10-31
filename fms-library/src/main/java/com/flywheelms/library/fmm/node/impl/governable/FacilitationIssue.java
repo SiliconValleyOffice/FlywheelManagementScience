@@ -44,9 +44,9 @@
 package com.flywheelms.library.fmm.node.impl.governable;
 
 import com.flywheelms.library.fmm.node.NodeId;
-import com.flywheelms.library.fmm.node.impl.completable.FmmCompletableNodeImpl;
+import com.flywheelms.library.fmm.node.impl.completable.FmmCompletionNodeImpl;
 
-public class FacilitationIssue extends FmmCompletableNodeImpl {
+public class FacilitationIssue extends FmmCompletionNodeImpl {
 
 	private static final long serialVersionUID = -3186313706901024069L;
 

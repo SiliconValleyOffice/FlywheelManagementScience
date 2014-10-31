@@ -72,7 +72,7 @@ public abstract class FmmGovernableNodeImpl extends FmmHeadlineNodeImpl implemen
 		super(aClass, aJsonObject);
 		try {
 			if(aJsonObject.has(HeadlineNodeMetaData.node_frag_GOVERNANCE)) {
-				setGovernance(aJsonObject.getJSONObject(HeadlineNodeMetaData.node_frag_GOVERNANCE));
+				setNodeFragGovernance(aJsonObject.getJSONObject(HeadlineNodeMetaData.node_frag_GOVERNANCE));
 			}
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
@@ -83,7 +83,7 @@ public abstract class FmmGovernableNodeImpl extends FmmHeadlineNodeImpl implemen
 	@Override
 	public NodeFragGovernance getNodeFragGovernance() {
 		if(this.nodeFragGovernance == null) {
-			this.nodeFragGovernance = FmmDatabaseMediator.getActiveMediator().getNodeFragGovernanceForParentOrCreate(getNodeIdString());
+			this.nodeFragGovernance = FmmDatabaseMediator.getActiveMediator().getNodeFragGovernanceForParent(getNodeIdString());
 		}
 		return this.nodeFragGovernance;
 	}
@@ -110,9 +110,13 @@ public abstract class FmmGovernableNodeImpl extends FmmHeadlineNodeImpl implemen
 		return FmsDecoratorFacilitator.FACILITATOR_QUALITY_NOT_ENABLED;
 	}
 
-	public void setGovernance(JSONObject aJsonObject) {
+	public void setNodeFragGovernance(JSONObject aJsonObject) {
 		this.nodeFragGovernance = new NodeFragGovernance(aJsonObject);
 	}
+
+    public void setNodeFragGovernance(NodeFragGovernance aNodeFragGovernance) {
+        this.nodeFragGovernance = aNodeFragGovernance;
+    }
 
 	@Override
 	public JSONObject getJsonObject() {

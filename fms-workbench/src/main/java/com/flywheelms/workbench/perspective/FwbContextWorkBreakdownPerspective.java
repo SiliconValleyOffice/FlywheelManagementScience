@@ -123,11 +123,11 @@ public class FwbContextWorkBreakdownPerspective extends FmsPerspectiveFlipperTre
         GcgTreeViewMediator theGcgTreeViewMediator =
                 new FmsTreeViewMediatorMemoryResident(new WorkBreakdownTreeFilter(this));
         final FmsTreeBuilder theTreeBuilder = new FmsTreeBuilder(theGcgTreeViewMediator);
-        Collection<Portfolio> thePortfolioCollection = FmmDatabaseMediator.getActiveMediator().getPortfolioList(
-                FmmDatabaseMediator.getActiveMediator().getFmmOwner() );
+        Collection<Portfolio> thePortfolioCollection = FmmDatabaseMediator.getActiveMediator().retrievePortfolioList(
+                FmmDatabaseMediator.getActiveMediator().getFmmOwner());
         for(Portfolio thePortfolio : thePortfolioCollection) {
             Collection<Project> theProjectCollection =
-                    FmmDatabaseMediator.getActiveMediator().getProjectList(thePortfolio);
+                    FmmDatabaseMediator.getActiveMediator().retrieveProjectList(thePortfolio);
             GcgTreeNodeInfo thePortfolioTreeNodeInfo = theTreeBuilder.addTopNode(
                     thePortfolio, theProjectCollection.size()>0, FmmPerspective.WORK_BREAKDOWN );
             for(Project theProject : theProjectCollection) {

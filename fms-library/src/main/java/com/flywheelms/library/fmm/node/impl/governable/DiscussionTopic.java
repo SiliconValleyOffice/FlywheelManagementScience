@@ -59,6 +59,7 @@ import com.flywheelms.library.fmm.deckangl.FmsDecoratorStrategicCommitment;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorWorkTaskBudget;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorWorkTeam;
 import com.flywheelms.library.fmm.node.NodeId;
+import com.flywheelms.library.fmm.node.impl.completable.FmmCompletionNodeImpl;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragAuditBlock;
@@ -73,7 +74,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 
-public class DiscussionTopic extends FmmGovernableNodeImpl {
+public class DiscussionTopic extends FmmCompletionNodeImpl {
 
 	private static final long serialVersionUID = 4484750862419032893L;
     public static final String SERIALIZATION_FORMAT_VERSION = "0.1";
@@ -135,7 +136,7 @@ public class DiscussionTopic extends FmmGovernableNodeImpl {
 
     public ArrayList<Notebook> getNotebookList() {
         if(this.notebookList == null) {
-            this.notebookList = FmmDatabaseMediator.getActiveMediator().listNotebook(this);
+            this.notebookList = FmmDatabaseMediator.getActiveMediator().retrieveNotebookList(this);
         }
         return this.notebookList;
     }
@@ -203,4 +204,8 @@ public class DiscussionTopic extends FmmGovernableNodeImpl {
         return theDecKanGlDecoratorMap;
     }
 
+    @Override
+    public void setPrimaryParentId(String aNodeIdString) {
+        // TODO
+    }
 }

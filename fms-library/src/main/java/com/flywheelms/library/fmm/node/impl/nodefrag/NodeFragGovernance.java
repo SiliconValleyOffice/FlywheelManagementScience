@@ -54,6 +54,7 @@ import com.flywheelms.library.fmm.node.impl.enumerator.GovernanceRole;
 import com.flywheelms.library.fmm.node.impl.enumerator.GovernanceSatisfaction;
 import com.flywheelms.library.fmm.node.impl.enumerator.GovernanceTarget;
 import com.flywheelms.library.fmm.node.impl.governable.CommunityMember;
+import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmGovernableNode;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmNode;
 import com.flywheelms.library.util.JsonHelper;
 
@@ -71,8 +72,8 @@ public class NodeFragGovernance extends FmmNodeFragLockableImpl {
 	private GovernanceTarget governanceTarget;
 	private Hashtable<GovernanceRole, GovernanceTeamMember> governanceTeam = new Hashtable<GovernanceRole, GovernanceTeamMember>();
 	
-	public NodeFragGovernance(String aParentNodeIdString) {
-		super(NodeFragGovernance.class, aParentNodeIdString);
+	public NodeFragGovernance(FmmGovernableNode anFmmGovernableNode) {
+        super(NodeFragGovernance.class, anFmmGovernableNode.getNodeIdString());
 	}
 	
 	public NodeFragGovernance(Class<? extends FmmNode> aClass) {

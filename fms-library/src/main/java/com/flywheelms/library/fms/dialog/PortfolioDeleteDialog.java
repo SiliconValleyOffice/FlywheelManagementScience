@@ -74,7 +74,7 @@ public class PortfolioDeleteDialog extends HeadlineNodeDeleteDialog {
 
     @Override
 	protected ArrayList<? extends FmmHeadlineNode> getPrimaryChildHeadlineNodeList() {
-		return FmmDatabaseMediator.getActiveMediator().getProjectList((Portfolio) getFmmHeadlineNode());
+		return FmmDatabaseMediator.getActiveMediator().retrieveProjectList((Portfolio) getFmmHeadlineNode());
 	}
 	
 	@Override

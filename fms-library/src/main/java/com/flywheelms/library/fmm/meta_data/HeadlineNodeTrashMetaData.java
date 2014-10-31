@@ -43,19 +43,19 @@
 
 package com.flywheelms.library.fmm.meta_data;
 
-public class CompletionNodeTrashMetaData extends NodeFragMetaData {
+public class HeadlineNodeTrashMetaData extends NodeFragMetaData {
 	
-	public static final String key__COMPLETION_NODE_TRASH = "CompletionNodeTrash";
+	public static final String key__HEADLINE_NODE_TRASH = "HeadlineNodeTrash";
 	
 	public static final String column_SEARCHABLE_HEADLINE = "headline";
 	public static final String column_DELETED_BY = "deleted_by";
 	public static final String column_DELETED_TIMESTAMP = "deleted_timestamp";
 	public static final String column_PARENT_ABBREVIATED_NODE_ID = "parent_abbreviated_node_id";
-	public static final String column_SERIALIZED_AUDIT_BLOCK = "serialized_audit_block";
-	public static final String column_SERIALIZED_COMPLETION = "serialized_completion";
-	public static final String column_SERIALIZED_FSE_DOCUMENT = "serialized_fse_document";
-	public static final String column_SERIALIZED_GOVERNANCE = "serialized_governance";
-	public static final String column_SERIALIZED_COMPLETION_NODE = "serialized_completion_node";
+    public static final String column_SERIALIZED_HEADLINE_NODE = "serialized_headline_node";
+    public static final String column_SERIALIZED_AUDIT_BLOCK = "serialized_audit_block";
+    public static final String column_SERIALIZED_COMPLETION = "serialized_completion";
+    public static final String column_SERIALIZED_FSE_DOCUMENT = "serialized_fse_document";
+    public static final String column_SERIALIZED_GOVERNANCE = "serialized_governance";
 	public static final String column_SERIALIZED_TRIBKN_QUALITY = "serialized_tribkn_quality";
 	public static final String column_SERIALIZED_WORK_TASK_BUDGET = "serialized_work_task_budget";
 

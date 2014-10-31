@@ -68,6 +68,7 @@ import com.flywheelms.library.fmm.interfaces.FmmHistory;
 import com.flywheelms.library.fmm.node.FmmHeadlineNodeShallow;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
+import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragFseDocument;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragTribKnQuality;
 import com.flywheelms.library.fse.model.FseDocument;
 
@@ -77,6 +78,8 @@ import java.util.HashMap;
 public interface FmmHeadlineNode extends FmmNode, FmmNodeAudit, FmmHistory {
 	
 	FmmHeadlineNodeShallow getFmmHeadlineNodeShallow();
+
+    String getSerializedNodeForTrash();
 	
 	String getHeadline();
 	
@@ -161,4 +164,8 @@ public interface FmmHeadlineNode extends FmmNode, FmmNodeAudit, FmmHistory {
     ArrayList<? extends FmmHeadlineNode> getChildList(FmmNodeDefinition aChildNodeDefinition);
 
     ArrayList<FmmHeadlineNodeShallow> getChildListShallow(FmmNodeDefinition aChildNodeDefinition);
+
+    void setNodeFragTribKnQuality(NodeFragTribKnQuality aNodeFragTribKnQuality);
+
+    void setNodeFragFseDocument(NodeFragFseDocument aNodeFragFseDocument);
 }

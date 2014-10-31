@@ -168,7 +168,7 @@ public class Bookshelf extends FmmGovernableNodeImpl {
 
     public ArrayList<Notebook> getNotebookList() {
         if(this.notebookList == null) {
-            this.notebookList = FmmDatabaseMediator.getActiveMediator().listNotebook(this);
+            this.notebookList = FmmDatabaseMediator.getActiveMediator().retrieveNotebookList(this);
         }
         return this.notebookList;
     }
@@ -236,7 +236,7 @@ public class Bookshelf extends FmmGovernableNodeImpl {
         ArrayList<? extends FmmHeadlineNodeImpl> theList = null;
         switch(aChildNodeDefinition) {
             case NOTEBOOK:
-                theList = FmmDatabaseMediator.getActiveMediator().listNotebook(this);
+                theList = FmmDatabaseMediator.getActiveMediator().retrieveNotebookList(this);
                 break;
         }
         return theList;

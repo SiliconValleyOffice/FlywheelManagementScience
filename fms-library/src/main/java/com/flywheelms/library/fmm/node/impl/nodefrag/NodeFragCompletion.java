@@ -48,6 +48,7 @@ import com.flywheelms.library.fmm.meta_data.NodeFragCompletionMetaData;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.enumerator.CompletableWorkStatus;
 import com.flywheelms.library.fmm.node.impl.governable.CommunityMember;
+import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmGovernableNode;
 import com.flywheelms.library.util.JsonHelper;
 
 import org.json.JSONException;
@@ -78,9 +79,9 @@ public class NodeFragCompletion extends FmmNodeFragImpl implements Serializable 
 	private CommunityMember completionConfirmedByCommunityMember;
 	private Date completionConfirmedTimestamp;
 
-	public NodeFragCompletion(String aParentNodeIdString) {
-		super(NodeFragCompletion.class, aParentNodeIdString);
-	}
+    public NodeFragCompletion(FmmGovernableNode anFmmGovernableNode) {
+        super(NodeFragCompletion.class, anFmmGovernableNode.getNodeIdString());
+    }
 
 	// rehydrate from database
 	public NodeFragCompletion(String aNodeIdString, String aParentNodeIdString) {
@@ -172,7 +173,7 @@ public class NodeFragCompletion extends FmmNodeFragImpl implements Serializable 
 	public CommunityMember getYellowByCommunityMember() {
 		if(this.yellowByCommunityMember == null) {
 			if(this.yellowByNodeIdString != null &&  ! this.yellowByNodeIdString.equals("")) {
-				this.yellowByCommunityMember = FmmDatabaseMediator.getActiveMediator().getCommunityMember(this.yellowByNodeIdString);
+				this.yellowByCommunityMember = FmmDatabaseMediator.getActiveMediator().retrieveCommunityMember(this.yellowByNodeIdString);
 
 			} else {
 				this.yellowByCommunityMember = CommunityMember.getNullValue();
@@ -209,7 +210,7 @@ public class NodeFragCompletion extends FmmNodeFragImpl implements Serializable 
 	public CommunityMember getOrangeByCommunityMember() {
 		if(this.orangeByCommunityMember == null) {
 			if(this.orangeByNodeIdString != null &&  ! this.orangeByNodeIdString.equals("")) {
-				this.orangeByCommunityMember = FmmDatabaseMediator.getActiveMediator().getCommunityMember(this.orangeByNodeIdString);
+				this.orangeByCommunityMember = FmmDatabaseMediator.getActiveMediator().retrieveCommunityMember(this.orangeByNodeIdString);
 
 			} else {
 				this.orangeByCommunityMember = CommunityMember.getNullValue();
@@ -246,7 +247,7 @@ public class NodeFragCompletion extends FmmNodeFragImpl implements Serializable 
 	public CommunityMember getPinkByCommunityMember() {
 		if(this.pinkByCommunityMember == null) {
 			if(this.pinkByNodeIdString != null &&  ! this.pinkByNodeIdString.equals("")) {
-				this.pinkByCommunityMember = FmmDatabaseMediator.getActiveMediator().getCommunityMember(this.pinkByNodeIdString);
+				this.pinkByCommunityMember = FmmDatabaseMediator.getActiveMediator().retrieveCommunityMember(this.pinkByNodeIdString);
 
 			} else {
 				this.pinkByCommunityMember = CommunityMember.getNullValue();
@@ -283,7 +284,7 @@ public class NodeFragCompletion extends FmmNodeFragImpl implements Serializable 
 	public CommunityMember getGreenByCommunityMember() {
 		if(this.greenByCommunityMember == null) {
 			if(this.greenByNodeIdString != null &&  ! this.greenByNodeIdString.equals("")) {
-				this.greenByCommunityMember = FmmDatabaseMediator.getActiveMediator().getCommunityMember(this.greenByNodeIdString);
+				this.greenByCommunityMember = FmmDatabaseMediator.getActiveMediator().retrieveCommunityMember(this.greenByNodeIdString);
 
 			} else {
 				this.greenByCommunityMember = CommunityMember.getNullValue();
@@ -320,7 +321,7 @@ public class NodeFragCompletion extends FmmNodeFragImpl implements Serializable 
 	public CommunityMember getCompletionConfirmedByCommunityMember() {
 		if(this.completionConfirmedByCommunityMember == null) {
 			if(this.completionConfirmedByNodeIdString != null &&  ! this.completionConfirmedByNodeIdString.equals("")) {
-				this.completionConfirmedByCommunityMember = FmmDatabaseMediator.getActiveMediator().getCommunityMember(this.completionConfirmedByNodeIdString);
+				this.completionConfirmedByCommunityMember = FmmDatabaseMediator.getActiveMediator().retrieveCommunityMember(this.completionConfirmedByNodeIdString);
 
 			} else {
 				this.completionConfirmedByCommunityMember = CommunityMember.getNullValue();

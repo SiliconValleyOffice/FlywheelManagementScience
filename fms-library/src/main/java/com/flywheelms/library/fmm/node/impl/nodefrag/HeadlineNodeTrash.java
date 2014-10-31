@@ -1,4 +1,4 @@
-/* @(#)CompletionNodeTrash.java
+/* @(#)HeadlineNodeTrash.java
 ** 
 ** Copyright (C) 2012 by Steven D. Stamps
 **
@@ -49,10 +49,12 @@ import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.governable.CommunityMember;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmCompletionNode;
+import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmGovernableNode;
+import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 
 import java.util.Date;
 
-public class CompletionNodeTrash extends FmmNodeFragImpl {
+public class HeadlineNodeTrash extends FmmNodeFragImpl {
 	
 	private String searchableHeadline = "";
 	private String parentAbbreviatedNodeIdString;
@@ -62,30 +64,57 @@ public class CompletionNodeTrash extends FmmNodeFragImpl {
 	private String serializedCompletion;
 	private String serializedFseDocument;
 	private String serializedGovernance;
-	private String serializedCompletionNode;
+	private String serializedHeadlineNode;
 	private String serializedTribKnQuality;
 	private String serializedWorkTaskBudget;
-	private String serializedStrategicCommitment;
-	private String serializedTacticalCommitment;
-	
-	public CompletionNodeTrash(FmmCompletionNode aCompletionNode) {
-		super(CompletionNodeTrash.class, aCompletionNode.getNodeIdString());
-		this.searchableHeadline = aCompletionNode.getHeadline();
-		this.parentAbbreviatedNodeIdString = aCompletionNode.getAbbreviatedNodeIdString();
+
+	public HeadlineNodeTrash(FmmHeadlineNode anFmmHeadlineNode) {
+		super(HeadlineNodeTrash.class, anFmmHeadlineNode.getNodeIdString());
+		this.searchableHeadline = anFmmHeadlineNode.getHeadline();
+		this.parentAbbreviatedNodeIdString = anFmmHeadlineNode.getAbbreviatedNodeIdString();
 		this.deletedByNodeIdString = FlywheelCommunityAuthentication.getInstance().getCommunityMember().getNodeIdString();
 		this.deletedTimestamp = GcgDateHelper.getCurrentDateTime();
-		this.serializedAuditBlock = aCompletionNode.getNodeFragAuditBlock().getSerialized();
-		this.serializedCompletion = aCompletionNode.getNodeFragCompletion().getSerialized();
-		this.serializedFseDocument = aCompletionNode.getFseDocument().getSerialized();
-		this.serializedGovernance = aCompletionNode.getNodeFragGovernance().getSerialized();
-		this.serializedCompletionNode = aCompletionNode.getSerialized();
-		this.serializedTribKnQuality = aCompletionNode.getNodeFragTribKnQuality().getSerialized();
-		this.serializedWorkTaskBudget = aCompletionNode.getNodeFragWorkTaskBudget().getSerialized();
-		// commitments do not always apply
+        this.serializedHeadlineNode = anFmmHeadlineNode.getSerializedNodeForTrash();
+        this.serializedAuditBlock = anFmmHeadlineNode.getNodeFragAuditBlock().getSerialized();
+        this.serializedCompletion = "";
+        this.serializedFseDocument = anFmmHeadlineNode.getFseDocument().getSerialized();
+        this.serializedGovernance = "";
+		this.serializedTribKnQuality = anFmmHeadlineNode.getNodeFragTribKnQuality().getSerialized();
+		this.serializedWorkTaskBudget = "";
 	}
 
+    public HeadlineNodeTrash(FmmGovernableNode anFmmGovernableNode) {
+        super(HeadlineNodeTrash.class, anFmmGovernableNode.getNodeIdString());
+        this.searchableHeadline = anFmmGovernableNode.getHeadline();
+        this.parentAbbreviatedNodeIdString = anFmmGovernableNode.getAbbreviatedNodeIdString();
+        this.deletedByNodeIdString = FlywheelCommunityAuthentication.getInstance().getCommunityMember().getNodeIdString();
+        this.deletedTimestamp = GcgDateHelper.getCurrentDateTime();
+        this.serializedHeadlineNode = anFmmGovernableNode.getSerializedNodeForTrash();
+        this.serializedAuditBlock = anFmmGovernableNode.getNodeFragAuditBlock().getSerialized();
+        this.serializedCompletion = "";
+        this.serializedFseDocument = anFmmGovernableNode.getFseDocument().getSerialized();
+        this.serializedGovernance = anFmmGovernableNode.getNodeFragGovernance().getSerialized();
+        this.serializedTribKnQuality = anFmmGovernableNode.getNodeFragTribKnQuality().getSerialized();
+        this.serializedWorkTaskBudget = "";
+    }
+
+    public HeadlineNodeTrash(FmmCompletionNode anFmmCompletionNode) {
+        super(HeadlineNodeTrash.class, anFmmCompletionNode.getNodeIdString());
+        this.searchableHeadline = anFmmCompletionNode.getHeadline();
+        this.parentAbbreviatedNodeIdString = anFmmCompletionNode.getAbbreviatedNodeIdString();
+        this.deletedByNodeIdString = FlywheelCommunityAuthentication.getInstance().getCommunityMember().getNodeIdString();
+        this.deletedTimestamp = GcgDateHelper.getCurrentDateTime();
+        this.serializedHeadlineNode = anFmmCompletionNode.getSerializedNodeForTrash();
+        this.serializedAuditBlock = anFmmCompletionNode.getNodeFragAuditBlock().getSerialized();
+        this.serializedCompletion = anFmmCompletionNode.getNodeFragCompletion().getSerialized();
+        this.serializedFseDocument = anFmmCompletionNode.getFseDocument().getSerialized();
+        this.serializedGovernance = anFmmCompletionNode.getNodeFragGovernance().getSerialized();
+        this.serializedTribKnQuality = anFmmCompletionNode.getNodeFragTribKnQuality().getSerialized();
+        this.serializedWorkTaskBudget = anFmmCompletionNode.getNodeFragWorkTaskBudget().getSerialized();
+    }
+
 	// rehydrate from database
-	public CompletionNodeTrash(String aNodeIdString, String aParentNodeIdString) {
+	public HeadlineNodeTrash(String aNodeIdString, String aParentNodeIdString) {
 		super(NodeId.hydrate(NodeFragAuditBlock.class, aNodeIdString), aParentNodeIdString);
 	}
 
@@ -117,7 +146,7 @@ public class CompletionNodeTrash extends FmmNodeFragImpl {
 	}
 
 	public CommunityMember getDeletedByCommunityMember() {
-		return FmmDatabaseMediator.getActiveMediator().getCommunityMember(this.deletedByNodeIdString);
+		return FmmDatabaseMediator.getActiveMediator().retrieveCommunityMember(this.deletedByNodeIdString);
 	}
 
 	public void setDeletedBy(CommunityMember aCommunityMember) {
@@ -130,14 +159,6 @@ public class CompletionNodeTrash extends FmmNodeFragImpl {
 
 	public void setDeletedTimestamp(Date aTimestamp) {
 		this.deletedTimestamp = aTimestamp;
-	}
-
-	public String getCreatedByNodeIdString() {
-		return this.deletedByNodeIdString;
-	}
-
-	public void setCreatedByNodeIdString(String deletedByNodeIdString) {
-		this.deletedByNodeIdString = deletedByNodeIdString;
 	}
 
 	public String getSerializedAuditBlock() {
@@ -172,12 +193,12 @@ public class CompletionNodeTrash extends FmmNodeFragImpl {
 		this.serializedGovernance = serializedGovernance;
 	}
 
-	public String getSerializedCompletionNode() {
-		return this.serializedCompletionNode;
+	public String getSerializedHeadlineNode() {
+		return this.serializedHeadlineNode;
 	}
 
-	public void setSerializedCompletionNode(String aSerializedCompletionNode) {
-		this.serializedCompletionNode = aSerializedCompletionNode;
+	public void setSerializedHeadlineNode(String aSerializedHeadlineNode) {
+		this.serializedHeadlineNode = aSerializedHeadlineNode;
 	}
 
 	public String getSerializedTribKnQuality() {
@@ -194,23 +215,6 @@ public class CompletionNodeTrash extends FmmNodeFragImpl {
 
 	public void setSerializedWorkTaskBudget(String serializedWorkTaskBudget) {
 		this.serializedWorkTaskBudget = serializedWorkTaskBudget;
-	}
-
-	public String getSerializedStrategicCommitment() {
-		return this.serializedStrategicCommitment;
-	}
-
-	public void setSerializedStrategicCommitment(
-			String serializedStrategicCommitment) {
-		this.serializedStrategicCommitment = serializedStrategicCommitment;
-	}
-
-	public String getSerializedTacticalCommitment() {
-		return this.serializedTacticalCommitment;
-	}
-
-	public void setSerializedTacticalCommitment(String serializedTacticalCommitment) {
-		this.serializedTacticalCommitment = serializedTacticalCommitment;
 	}
 
 }

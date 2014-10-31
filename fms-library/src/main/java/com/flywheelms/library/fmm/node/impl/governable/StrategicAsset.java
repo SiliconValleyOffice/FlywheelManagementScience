@@ -70,7 +70,7 @@ import com.flywheelms.library.fmm.meta_data.StrategicAssetMetaData;
 import com.flywheelms.library.fmm.node.FmmHeadlineNodeShallow;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.commitment.StrategicCommitment;
-import com.flywheelms.library.fmm.node.impl.completable.FmmCompletableNodeImpl;
+import com.flywheelms.library.fmm.node.impl.completable.FmmCompletionNodeImpl;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
 import com.flywheelms.library.fmm.node.interfaces.FmmSequencedNode;
@@ -86,7 +86,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 
-public class StrategicAsset extends FmmCompletableNodeImpl implements Comparable<StrategicAsset>, WorkAsset {
+public class StrategicAsset extends FmmCompletionNodeImpl implements Comparable<StrategicAsset>, WorkAsset {
 
 	private static final long serialVersionUID = -3645381005646011918L;
 	private String projectNodeIdString;

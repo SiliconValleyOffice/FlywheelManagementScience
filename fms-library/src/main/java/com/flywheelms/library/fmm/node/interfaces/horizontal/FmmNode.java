@@ -84,5 +84,4 @@ public interface FmmNode extends GcgGuiable{
 	FmmNodeImpl getClone();
 	
 	Date updateRowTimestamp();
-	
 }

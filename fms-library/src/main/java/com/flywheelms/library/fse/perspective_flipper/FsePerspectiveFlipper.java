@@ -657,7 +657,7 @@ public class FsePerspectiveFlipper extends FmsPerspectiveFlipper implements GcgS
 	}
 	
 	public void setDisplayedFseDocumentForParentNode(String aNodeIdString) {
-		setDisplayedFseDocument(FmmDatabaseMediator.getActiveMediator().getFseDocumentForParentOrCreate(aNodeIdString));
+		setDisplayedFseDocument(FmmDatabaseMediator.getActiveMediator().getFseDocumentForParent(aNodeIdString));
 	}
 
 	public void revertFseDocumentToTransaction(boolean bRevertStory, boolean bRevertNotes) {
@@ -693,7 +693,7 @@ public class FsePerspectiveFlipper extends FmsPerspectiveFlipper implements GcgS
 	@Override
 	public void viewData() {
 		if(isStaleData()) {
-			this.displayedFseDocument = FmmDatabaseMediator.getActiveMediator().getFseDocumentForParentOrCreate(getParentNodeIdString());
+			this.displayedFseDocument = FmmDatabaseMediator.getActiveMediator().getFseDocumentForParent(getParentNodeIdString());
 			setTargetNodeIdString(this.displayedFseDocument.getNodeFragNodeIdString());
 		}
 		viewDocument(this.displayedFseDocument);

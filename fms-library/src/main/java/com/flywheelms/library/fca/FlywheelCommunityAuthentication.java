@@ -131,7 +131,7 @@ public class FlywheelCommunityAuthentication {
 		// get the CommunityyMember from the database mediator,
 		// else get it from the FSE document
 		// else "redact" the name from the document  ??
-		theCommunityMember = FmmDatabaseMediator.getActiveMediator().getCommunityMember(aNodeIdString);
+		theCommunityMember = FmmDatabaseMediator.getActiveMediator().retrieveCommunityMember(aNodeIdString);
 //		if(theCommunityMember == null) {
 //			theCommunityMember = new CommunityMember(aNodeIdString);
 //			theCommunityMember.setGivenName("Redacted");

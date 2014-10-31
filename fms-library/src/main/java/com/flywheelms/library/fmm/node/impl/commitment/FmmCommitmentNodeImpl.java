@@ -168,7 +168,7 @@ public abstract class FmmCommitmentNodeImpl extends FmmHistoryNodeImpl implement
 	@Override
 	public CommunityMember getSuggestedBy() {
 		if(this.suggestedBy == null && this.suggestedByNodeIdString != null) {
-			this.suggestedBy = FmmDatabaseMediator.getActiveMediator().getCommunityMember(this.suggestedByNodeIdString);
+			this.suggestedBy = FmmDatabaseMediator.getActiveMediator().retrieveCommunityMember(this.suggestedByNodeIdString);
 		}
 		return this.suggestedBy;
 	}
@@ -208,7 +208,7 @@ public abstract class FmmCommitmentNodeImpl extends FmmHistoryNodeImpl implement
 	@Override
 	public CommunityMember getProposedBy() {
 		if(this.proposedBy == null && this.proposedByNodeIdString != null) {
-			this.proposedBy = FmmDatabaseMediator.getActiveMediator().getCommunityMember(this.proposedByNodeIdString);
+			this.proposedBy = FmmDatabaseMediator.getActiveMediator().retrieveCommunityMember(this.proposedByNodeIdString);
 		}
 		return this.proposedBy;
 	}
@@ -248,7 +248,7 @@ public abstract class FmmCommitmentNodeImpl extends FmmHistoryNodeImpl implement
 	@Override
 	public CommunityMember getConfirmedBy() {
 		if(this.confirmedBy == null && this.confirmedByNodeId != null) {
-			this.confirmedBy = FmmDatabaseMediator.getActiveMediator().getCommunityMember(this.confirmedByNodeId);
+			this.confirmedBy = FmmDatabaseMediator.getActiveMediator().retrieveCommunityMember(this.confirmedByNodeId);
 		}
 		return this.confirmedBy;
 	}
@@ -288,7 +288,7 @@ public abstract class FmmCommitmentNodeImpl extends FmmHistoryNodeImpl implement
 	@Override
 	public CommunityMember getDeclinedBy() {
 		if(this.declinedBy == null && this.decinedByNodeId != null) {
-			this.declinedBy = FmmDatabaseMediator.getActiveMediator().getCommunityMember(this.decinedByNodeId);
+			this.declinedBy = FmmDatabaseMediator.getActiveMediator().retrieveCommunityMember(this.decinedByNodeId);
 		}
 		return this.declinedBy;
 	}
@@ -322,7 +322,7 @@ public abstract class FmmCommitmentNodeImpl extends FmmHistoryNodeImpl implement
 	@Override
 	public CommunityMember getCanceledBy() {
 		if(this.canceledBy == null && this.canceledByNodeId != null) {
-			this.canceledBy = FmmDatabaseMediator.getActiveMediator().getCommunityMember(this.canceledByNodeId);
+			this.canceledBy = FmmDatabaseMediator.getActiveMediator().retrieveCommunityMember(this.canceledByNodeId);
 		}
 		return this.canceledBy;
 	}

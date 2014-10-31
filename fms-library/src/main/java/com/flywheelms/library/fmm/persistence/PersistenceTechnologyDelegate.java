@@ -45,7 +45,6 @@ package com.flywheelms.library.fmm.persistence;
 
 import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
 import com.flywheelms.library.fmm.database.dao.FmmNodeDao;
-import com.flywheelms.library.fmm.database.sqlite.dao.FmmNodeDaoSqLite;
 import com.flywheelms.library.fmm.interfaces.WorkAsset;
 import com.flywheelms.library.fmm.node.impl.commitment.StrategicCommitment;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
@@ -67,14 +66,15 @@ import com.flywheelms.library.fmm.node.impl.governable.WorkPlan;
 import com.flywheelms.library.fmm.node.impl.governable.WorkTask;
 import com.flywheelms.library.fmm.node.impl.headline.FiscalYearHolidayBreak;
 import com.flywheelms.library.fmm.node.impl.link.OrganizationCommunityMember;
-import com.flywheelms.library.fmm.node.impl.nodefrag.CompletionNodeTrash;
 import com.flywheelms.library.fmm.node.impl.nodefrag.FragLock;
+import com.flywheelms.library.fmm.node.impl.nodefrag.HeadlineNodeTrash;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragAuditBlock;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragCompletion;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragFseDocument;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragGovernance;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragTribKnQuality;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragWorkTaskBudget;
+import com.flywheelms.library.fmm.node.interfaces.FmmNodeFrag;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmNode;
 import com.flywheelms.library.fmm.repository.FmmConfiguration;
@@ -107,16 +107,14 @@ public abstract class PersistenceTechnologyDelegate {
 
 	public abstract boolean dbDeleteRowsWithValue(FmmNodeDefinition anFmmNodeDefinition, String aColumnName, String aValue, boolean bAtomicTransaction);
 	
-	public abstract ArrayList<String> dbGetRowIdList(FmmNodeDefinition anFmmNodeDefinition, String aColumnName, String aColumnValue);
+	public abstract ArrayList<String> getFmmNodeIdList(FmmNodeDefinition anFmmNodeDefinition, String aColumnName, String aColumnValue);
 	
-	public abstract ArrayList<String> dbGetRowIdList(FmmNodeDefinition anFmmNodeDefinition, String aWhereClause);
+	public abstract ArrayList<String> getFmmNodeIdList(FmmNodeDefinition anFmmNodeDefinition, String aWhereClause);
 	
 	public abstract ArrayList<String> dbGetRowIdListSorted(FmmNodeDefinition anFmmNodeDefinition, String aColumnName, String aColumnValue, String aSortColumnName, boolean bAscending);
 	
 	public abstract ArrayList<String> dbGetRowIdListSorted(FmmNodeDefinition anFmmNodeDefinition, String aWhereClause, String aSortColumnName, boolean bAscending);
 
-	public abstract boolean dbUpdateHeadlineNodeHeadline(FmmHeadlineNode aHeadlineNode, boolean bAtomicTransaction);
-	
 	////////////    Sequencing    ///////////////
 
 	public abstract int dbGetLastSequence(
@@ -187,7 +185,7 @@ public abstract class PersistenceTechnologyDelegate {
 	
 	public abstract boolean dbInsertCommunityMember(CommunityMember aCommunityMember, boolean bAtomicTransaction);
 
-	public abstract boolean dbUpdateCommunityMember(CommunityMember aCommunityMember, boolean bAtomicTransaction);
+//	public abstract boolean dbUpdateCommunityMember(CommunityMember aCommunityMember, boolean bAtomicTransaction);
 
 	public abstract boolean dbDeleteCommunityMember(CommunityMember aCommunityMember, boolean bAtomicTransaction);
 	
@@ -201,13 +199,13 @@ public abstract class PersistenceTechnologyDelegate {
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//////  Node - COMPLETION NODE TRASH  ///////////////////////////////////////////////////////////////////////////////////
 
-	public abstract Collection<CompletionNodeTrash> dbRetrieveCompletionNodeTrashList();
+	public abstract Collection<HeadlineNodeTrash> dbRetrieveCompletionNodeTrashList();
 
-	public abstract CompletionNodeTrash dbRetrieveCompletionNodeTrash(String aNodeIdString);
+	public abstract HeadlineNodeTrash dbRetrieveCompletionNodeTrash(String aNodeIdString);
 
-	public abstract boolean dbInsertCompletionNodeTrash(CompletionNodeTrash aCompletionNodeTrash, boolean bAtomicTransaction);
+	public abstract boolean dbInsertCompletionNodeTrash(HeadlineNodeTrash aHeadlineNodeTrash, boolean bAtomicTransaction);
 
-	public abstract boolean dbDeleteCompletionNodeTrash(CompletionNodeTrash aCompletionNodeTrash, boolean bAtomicTransaction);
+	public abstract boolean dbDeleteCompletionNodeTrash(HeadlineNodeTrash aHeadlineNodeTrash, boolean bAtomicTransaction);
 
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -372,6 +370,13 @@ public abstract class PersistenceTechnologyDelegate {
 	public abstract boolean dbUpdateFragLock(FragLock aFragLock, boolean bAtomicTransaction);
 
 	public abstract boolean dbDeleteFragLock(FragLock aFragLock, boolean bAtomicTransaction);
+
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////  Node - NODE FRAG - GENERIC  /////////////////////////////////////////////////////////////////////////
+
+
+    public abstract FmmNodeFrag dbRetrieveFmmNodeFragForParent(String aParentId, FmmNodeDefinition anFmmNodeDefinition);
 
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -809,7 +814,7 @@ public abstract class PersistenceTechnologyDelegate {
 
         public abstract ArrayList<WorkTask> dbListWorkTasksForWorkPackage(String aWorkPackageId, String aWorkTaskExceptionId);
 
-        public abstract ArrayList<WorkTask> dbListWorkTasksForWorkPlan(String aWorkPlanId, String aWorkTaskExceptionId);
+        public abstract ArrayList<WorkTask> dbListWorkTasksForWorkPlan(String aWorkPlaNodeIdString, String aWorkTaskExceptionId);
 
 		public abstract WorkTask dbRetrieveWorkTask(String aNodeIdString);
 
@@ -884,7 +889,9 @@ public abstract class PersistenceTechnologyDelegate {
     //////////  GENERIC METHODS  ////////////
     /////////////////////////////////////////
 
-    public abstract boolean deleteRowFromSimpleIdTable(String aNodeIdString, FmmNodeDefinition anFmmNodeDefinition, boolean bAtomicTransaction);
+    public abstract boolean deleteRowFromSimpleIdTable(FmmNodeDefinition anFmmNodeDefinition, String aNodeIdString, boolean bAtomicTransaction);
+
+    public abstract boolean deleteRowFromSimpleIdTable(FmmNodeDefinition anFmmNodeDefinition, String aWhereColumnName, String aWhereColumnValue, boolean bAtomicTransaction);
 
     public abstract int getLinkTableNodeSequence(FmmNodeDefinition aLinkTableFmmNodeDefinition, String aParentIdColumnName, String aParentNodeId, String aChildIdColumnName, String aPeerNodeId);
 
@@ -896,30 +903,38 @@ public abstract class PersistenceTechnologyDelegate {
 
     // RETRIEVE
 
-    public abstract  <T extends FmmNodeDaoSqLite> FmmNode retrieveFmmNodeFromSimpleIdTable(String anId, FmmNodeDefinition anFmmNodeDefinition);
+    public abstract boolean existsSimpleIdTable(FmmNodeDefinition anFmmNodeDefinition, String aNodeIdString);
 
-    public abstract <V extends FmmNode> ArrayList<V> dbListSimpleIdTable(
+    public abstract <T extends FmmNode> T retrieveFmmNodeFromSimpleIdTable(FmmNodeDefinition anFmmNodeDefinition, String aNodeIdString);
+
+    public abstract <T extends FmmNode> T retrieveFmmNodeFromSimpleIdTable(FmmNodeDefinition anFmmNodeDefinition, String aColumnName, String aColumnValue);
+
+    public abstract <T extends FmmNode> T retrieveFmmNodeFromTableForParent(FmmNodeDefinition anFmmNodeDefinition, String aParentId);
+
+    public abstract <T extends FmmNode> ArrayList<T> listSimpleIdTable(
             FmmNodeDefinition aNodeDefinition,
             String aWhereColumnName,
             String aWhereColumnValue,
             String anExceptionId,
-            String anOrderBySpec );
+            String anOrderBySpec);
 
-    public abstract <V extends FmmNode> ArrayList<V> dbListSimpleIdTableFromLink(
+    public abstract <T extends FmmNode> ArrayList<T> listSimpleIdLeftTableFromLink(
             FmmNodeDefinition aLeftTableDefinition,
             String aLeftColumnName,
             String aLefgColumnExceptionValue,
             FmmNodeDefinition aRightTableDefinition,
             String aRightColumnName,
             String anAndSpec,
-            String anOrderBySpec );
+            String anOrderBySpec);
 
     // INSERT & UPDATE
 
-    public abstract <V extends FmmNode> boolean insertSimpleIdTable(V anFmmNode, boolean bAtomicTransaction);
+    public abstract boolean insertSimpleIdTable(FmmNode anFmmNode, boolean bAtomicTransaction);
 
     @SuppressWarnings({ "rawtypes", "unchecked" })
     public abstract <V extends FmmNode> boolean updateSimpleIdTable(V anFmmNode, boolean bAtomicTransaction);
+
+    public abstract boolean fractalUpdateNodeHeadline(FmmHeadlineNode anFmmHeadlineNode);
 
     // GENERATE SQL
 
@@ -940,7 +955,9 @@ public abstract class PersistenceTechnologyDelegate {
         if(aLeftColumnExceptionValue != null) {
             theQuery.append(" AND " + aLeftTableDefinition.getTableName() + "." + aLeftColumnName + " != '" + aLeftColumnExceptionValue + "'");
         }
-        theQuery.append(" ORDER BY " + anOrderBySpec + " ASC;");
+        if(anOrderBySpec != null) {
+            theQuery.append(" ORDER BY " + anOrderBySpec);
+        }
         return theQuery.toString();
     }
 }

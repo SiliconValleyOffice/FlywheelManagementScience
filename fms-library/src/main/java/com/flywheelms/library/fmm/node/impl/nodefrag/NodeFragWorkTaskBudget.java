@@ -47,6 +47,7 @@ import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
 import com.flywheelms.library.fmm.meta_data.NodeFragWorkTaskBudgetMetaData;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.governable.CommunityMember;
+import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmCompletionNode;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmNodeWorkTaskBudget;
 import com.flywheelms.library.util.JsonHelper;
 
@@ -78,6 +79,10 @@ public class NodeFragWorkTaskBudget extends FmmNodeFragLockableImpl
 	private float workBreakdownAverageHoursPerTask = 0.0f;
 	private int taskCountAfterCompletion;
 	private float averageHoursPerTaskAfterCompletion = 0.0f;
+
+    public NodeFragWorkTaskBudget(FmmCompletionNode anFmmCompletionNode) {
+        super(NodeFragWorkTaskBudget.class, anFmmCompletionNode.getNodeIdString());
+    }
 
 	public NodeFragWorkTaskBudget(String aParentNodeIdString) {
 		super(NodeFragWorkTaskBudget.class, aParentNodeIdString);

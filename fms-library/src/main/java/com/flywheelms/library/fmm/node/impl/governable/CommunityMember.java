@@ -74,13 +74,13 @@ public class CommunityMember extends FmmGovernableNodeImpl implements FmmSupport
 
 	public static CommunityMember getNullValue() {
 		if(CommunityMember.NULL_COMMUNITY_MEMBER == null) {
-			CommunityMember.NULL_COMMUNITY_MEMBER = FmmDatabaseMediator.getActiveMediator().getCommunityMember(null_COMMUNITY_MEMBER_NODE_ID_STRING);
+			CommunityMember.NULL_COMMUNITY_MEMBER = FmmDatabaseMediator.getActiveMediator().retrieveCommunityMember(null_COMMUNITY_MEMBER_NODE_ID_STRING);
 			if(CommunityMember.NULL_COMMUNITY_MEMBER == null) {
 				CommunityMember.NULL_COMMUNITY_MEMBER = new CommunityMember(null_COMMUNITY_MEMBER_NODE_ID_STRING);
 				CommunityMember.NULL_COMMUNITY_MEMBER.setFamilyName("");
 				CommunityMember.NULL_COMMUNITY_MEMBER.setGivenName("");
 				CommunityMember.NULL_COMMUNITY_MEMBER.setHeadline("");
-				FmmDatabaseMediator.getActiveMediator().newCommunityMember(CommunityMember.NULL_COMMUNITY_MEMBER, true);
+				FmmDatabaseMediator.getActiveMediator().insertCommunityMember(CommunityMember.NULL_COMMUNITY_MEMBER, true);
 			}
 		}
 		return CommunityMember.NULL_COMMUNITY_MEMBER;
@@ -131,7 +131,7 @@ public class CommunityMember extends FmmGovernableNodeImpl implements FmmSupport
 	}
 	
 	public static CommunityMember getCommunityMember(Intent anIntent) {
-		return FmmDatabaseMediator.getActiveMediator().getCommunityMember(NodeId.getNodeIdString(anIntent));
+		return FmmDatabaseMediator.getActiveMediator().retrieveCommunityMember(NodeId.getNodeIdString(anIntent));
 	}
 
 	public String getCommunityMemberStatusCode() {

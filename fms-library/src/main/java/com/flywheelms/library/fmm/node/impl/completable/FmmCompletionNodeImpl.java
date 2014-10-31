@@ -1,4 +1,4 @@
-/* @(#)FmmCompletableNodeImpl.java
+/* @(#)FmmCompletionNodeImpl.java
 ** 
 ** Copyright (C) 2012 by Steven D. Stamps
 **
@@ -64,7 +64,7 @@ import org.json.JSONObject;
 
 import java.util.Date;
 
-public abstract class FmmCompletableNodeImpl extends FmmGovernableNodeImpl 
+public abstract class FmmCompletionNodeImpl extends FmmGovernableNodeImpl
 		implements FmmCompletionNode, FmmNodeInfo {
 	
 	private static final long serialVersionUID = 7670030679294983810L;
@@ -72,15 +72,15 @@ public abstract class FmmCompletableNodeImpl extends FmmGovernableNodeImpl
 	private NodeFragWorkTaskBudget nodeFragWorkTaskBudget;
 	private NodeFragCompletion nodeFragCompletion;
 
-	public FmmCompletableNodeImpl(NodeId aNodeId) {
+	public FmmCompletionNodeImpl(NodeId aNodeId) {
 		super(aNodeId);
 	}
 
-	public FmmCompletableNodeImpl(Class<? extends FmmCompletableNodeImpl> aCompletableClass, String anExistingNodeIdString) {
+	public FmmCompletionNodeImpl(Class<? extends FmmCompletionNodeImpl> aCompletableClass, String anExistingNodeIdString) {
 		super(NodeId.hydrate(aCompletableClass, anExistingNodeIdString));
 	}
 	
-	public FmmCompletableNodeImpl(Class<? extends FmmCompletableNodeImpl> aClass, JSONObject aJsonObject) {
+	public FmmCompletionNodeImpl(Class<? extends FmmCompletionNodeImpl> aClass, JSONObject aJsonObject) {
 		super(aClass, aJsonObject);
 	}
 
@@ -354,7 +354,7 @@ public abstract class FmmCompletableNodeImpl extends FmmGovernableNodeImpl
 	@Override
 	public NodeFragWorkTaskBudget getNodeFragWorkTaskBudget() {
 		if(this.nodeFragWorkTaskBudget == null) {
-			this.nodeFragWorkTaskBudget = FmmDatabaseMediator.getActiveMediator().getNodeFragWorkTaskBudgetForParentOrCreate(getNodeIdString());
+			this.nodeFragWorkTaskBudget = FmmDatabaseMediator.getActiveMediator().getNodeFragWorkTaskBudgetForParent(getNodeIdString());
 		}
 		return this.nodeFragWorkTaskBudget;
 	}
@@ -367,7 +367,7 @@ public abstract class FmmCompletableNodeImpl extends FmmGovernableNodeImpl
 	@Override
 	public NodeFragCompletion getNodeFragCompletion() {
 		if(this.nodeFragCompletion == null) {
-			this.nodeFragCompletion = FmmDatabaseMediator.getActiveMediator().getNodeFragCompletionForParentOrCreate(getNodeIdString());
+			this.nodeFragCompletion = FmmDatabaseMediator.getActiveMediator().getNodeFragCompletionForParent(getNodeIdString());
 		}
 		return this.nodeFragCompletion;
 	}

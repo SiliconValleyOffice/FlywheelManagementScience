@@ -61,6 +61,7 @@ import com.flywheelms.library.fmm.deckangl.FmsDecoratorWorkTaskBudget;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorWorkTeam;
 import com.flywheelms.library.fmm.node.FmmHeadlineNodeShallow;
 import com.flywheelms.library.fmm.node.NodeId;
+import com.flywheelms.library.fmm.node.impl.completable.FmmCompletionNodeImpl;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
@@ -75,7 +76,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 
-public class Notebook extends FmmGovernableNodeImpl {
+public class Notebook extends FmmCompletionNodeImpl {
 
     private static final long serialVersionUID = -4572739802256638560L;
     public static final String SERIALIZATION_FORMAT_VERSION = "0.1";
@@ -137,7 +138,7 @@ public class Notebook extends FmmGovernableNodeImpl {
 
     public ArrayList<Bookshelf> getBookshelfList() {
         if(this.bookshelfList == null) {
-            this.bookshelfList = FmmDatabaseMediator.getActiveMediator().listBookshelf(this);
+            this.bookshelfList = FmmDatabaseMediator.getActiveMediator().retrieveBookshelfList(this);
         }
         return this.bookshelfList;
     }
@@ -148,7 +149,7 @@ public class Notebook extends FmmGovernableNodeImpl {
 
     public ArrayList<DiscussionTopic> getDiscussionTopicList() {
         if(this.discussionTopicList == null) {
-            this.discussionTopicList = FmmDatabaseMediator.getActiveMediator().listDiscussionTopic(this);
+            this.discussionTopicList = FmmDatabaseMediator.getActiveMediator().retrieveDiscussionTopicList(this);
         }
         return this.discussionTopicList;
     }
@@ -216,10 +217,14 @@ public class Notebook extends FmmGovernableNodeImpl {
         ArrayList<? extends FmmHeadlineNodeImpl> theList = null;
         switch(aChildNodeDefinition) {
             case DISCUSSION_TOPIC:
-                theList = FmmDatabaseMediator.getActiveMediator().listDiscussionTopic(this);
+                theList = FmmDatabaseMediator.getActiveMediator().retrieveDiscussionTopicList(this);
                 break;
         }
         return theList;
     }
 
+    @Override
+    public void setPrimaryParentId(String aNodeIdString) {
+
+    }
 }

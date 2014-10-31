@@ -101,8 +101,8 @@ import com.flywheelms.library.fmm.node.impl.link.OrganizationGovernanceTarget;
 import com.flywheelms.library.fmm.node.impl.link.OrganizationLockConfig;
 import com.flywheelms.library.fmm.node.impl.link.ServiceRequestLinkToWorkTask;
 import com.flywheelms.library.fmm.node.impl.link.StrategicTeamCommunityMember;
-import com.flywheelms.library.fmm.node.impl.nodefrag.CompletionNodeTrash;
 import com.flywheelms.library.fmm.node.impl.nodefrag.FragLock;
+import com.flywheelms.library.fmm.node.impl.nodefrag.HeadlineNodeTrash;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragAuditBlock;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragCompletion;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragFseDocument;
@@ -296,21 +296,6 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // medium drawables
     		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // large drawables
     		10009 ),
-    COMPLETION_NODE_TRASH (
-    		CompletionNodeTrash.class,
-    		"CNT",
-    		R.string.fmm_node_definition__completion_node_trash__term,
-    		R.string.fmm_node_definition__completion_node_trash__term,
-    		R.drawable.gcg__trash,
-    		0,
-    		R.drawable.gcg__unspecified_glyph,
-    		R.drawable.gcg__unspecified_glyph,
-    		new HashMap<FmmNodeGlyphType, Integer>(),
-    		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // tiny drawables
-    		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // small drawables
-    		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // medium drawables
-    		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // large drawables
-    		10010 ),
     DISCUSSION_TOPIC (
     		DiscussionTopic.class,
     		"DTC",
@@ -611,6 +596,21 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // medium drawables
     		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // large drawables
     		10031 ),
+    HEADLINE_NODE_TRASH(
+            HeadlineNodeTrash.class,
+            "HNT",
+            R.string.fmm_node_definition__headline_node_trash__term,
+            R.string.fmm_node_definition__headline_node_trash__term,
+            R.drawable.gcg__trash,
+            0,
+            R.drawable.gcg__unspecified_glyph,
+            R.drawable.gcg__unspecified_glyph,
+            new HashMap<FmmNodeGlyphType, Integer>(),
+            new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // tiny drawables
+            new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // small drawables
+            new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // medium drawables
+            new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // large drawables
+            10010 ),
     ISSUE_STATUS (
     		FacilitationIssueStatus.class,
     		"IST",

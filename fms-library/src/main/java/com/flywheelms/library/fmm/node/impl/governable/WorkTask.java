@@ -50,7 +50,7 @@ import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.meta_data.WorkTaskMetaData;
 import com.flywheelms.library.fmm.node.FmmHeadlineNodeShallow;
 import com.flywheelms.library.fmm.node.NodeId;
-import com.flywheelms.library.fmm.node.impl.completable.FmmCompletableNodeImpl;
+import com.flywheelms.library.fmm.node.impl.completable.FmmCompletionNodeImpl;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
@@ -62,7 +62,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class WorkTask extends FmmCompletableNodeImpl {
+public class WorkTask extends FmmCompletionNodeImpl {
 
 	private static final long serialVersionUID = -85408705838458405L;
 	

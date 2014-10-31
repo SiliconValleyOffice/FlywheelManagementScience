@@ -80,7 +80,7 @@ public class CommunityMemberWidgetListView extends FmsWidgetListView <CommunityM
 
 	@Override
 	protected void refreshObjectAfterEditorResult(Intent anIntent, CommunityMember anObject) {
-		FmmDatabaseMediator.getActiveMediator().getCommunityMember(anObject.getNodeIdString());
+		FmmDatabaseMediator.getActiveMediator().retrieveCommunityMember(anObject.getNodeIdString());
 	}
 
 	@Override

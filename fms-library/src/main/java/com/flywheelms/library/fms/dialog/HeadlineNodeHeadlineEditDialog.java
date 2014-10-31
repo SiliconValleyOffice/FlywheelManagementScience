@@ -165,7 +165,7 @@ public class HeadlineNodeHeadlineEditDialog extends FmsCancelOkFdkDialog {
 
 	private void updateHeadlineNode() {
 		getFmmHeadlineNode().setHeadline(this.newHeadlineWidget.getText().toString());
-		if(FmmDatabaseMediator.getActiveMediator().updateHeadlineNodeHeadline(getFmmHeadlineNode())) {
+		if(FmmDatabaseMediator.getActiveMediator().fractalUpdateNodeHeadline(getFmmHeadlineNode())) {
 			if(getFmsTreeViewAdapter() != null) {
 				getFmsTreeViewAdapter().updateHeadlineNodeHeadline(getFmmHeadlineNode());
 			} else {
