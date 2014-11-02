@@ -132,7 +132,7 @@ public class FwbContextWorkBreakdownPerspective extends FmsPerspectiveFlipperTre
                     thePortfolio, theProjectCollection.size()>0, FmmPerspective.WORK_BREAKDOWN );
             for(Project theProject : theProjectCollection) {
                 Collection<WorkAsset> theWorkAssetCollection =
-                        FmmDatabaseMediator.getActiveMediator().listWorkAssets(theProject);
+                        FmmDatabaseMediator.getActiveMediator().retrieveWorkAssetList(theProject);
                 GcgTreeNodeInfo theProjectTreeNodeInfo = theTreeBuilder.addChildNode(
                         theProject, theWorkAssetCollection.size()>0, thePortfolioTreeNodeInfo, FmmPerspective.WORK_BREAKDOWN);
                 for(WorkAsset theWorkAsset : theWorkAssetCollection) {

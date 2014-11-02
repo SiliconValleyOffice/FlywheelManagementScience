@@ -52,6 +52,8 @@ public interface FmmNodeAudit extends FmmNodeLocking {
 	
 	NodeFragAuditBlock getNodeFragAuditBlock();
 
+    NodeFragAuditBlock getUpdatedNodeFragAuditBlock();
+
 	void setNodeFragAuditBlock(NodeFragAuditBlock auditBlock);
 	
 	////  Created  ////

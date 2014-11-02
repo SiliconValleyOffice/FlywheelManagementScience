@@ -77,7 +77,7 @@ public class WorkPlanEditorActivity extends FmmNodeEditorActivity {
 	@Override
 	public void saveAllDataModifications() {
 		super.saveAllDataModifications();
-		FmmDatabaseMediator.getActiveMediator().saveWorkPlan((WorkPlan) getDisplayedFmmHeadlineNode(), true);
+		FmmDatabaseMediator.getActiveMediator().updateWorkPlan((WorkPlan) getDisplayedFmmHeadlineNode(), true);
 	}
 
 }

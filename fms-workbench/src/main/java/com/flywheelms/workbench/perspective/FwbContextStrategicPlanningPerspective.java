@@ -121,8 +121,8 @@ public class FwbContextStrategicPlanningPerspective extends FmsPerspectiveFlippe
 		GcgTreeViewMediator theGcgTreeViewMediator =
 				new FmsTreeViewMediatorMemoryResident(new StrategicPlanningTreeFilter(this));
 		final FmsTreeBuilder theTreeBuilder = new FmsTreeBuilder(theGcgTreeViewMediator);
-		Collection<FiscalYear> theFiscalYearCollection = FmmDatabaseMediator.getActiveMediator().getFiscalYearList(
-				FmmDatabaseMediator.getActiveMediator().getFmmOwner() );
+		Collection<FiscalYear> theFiscalYearCollection = FmmDatabaseMediator.getActiveMediator().retrieveFiscalYearList(
+                FmmDatabaseMediator.getActiveMediator().getFmmOwner());
 		for(FiscalYear theFiscalYear : theFiscalYearCollection) {
 			Collection<StrategicMilestone> theStrategicMilestoneCollection =
 					FmmDatabaseMediator.getActiveMediator().getStrategicMilestoneList(theFiscalYear);
@@ -130,7 +130,7 @@ public class FwbContextStrategicPlanningPerspective extends FmsPerspectiveFlippe
 					theFiscalYear, theStrategicMilestoneCollection.size()>0, FmmPerspective.STRATEGIC_PLANNING );
 			for(StrategicMilestone theStrategicMilestone : theStrategicMilestoneCollection) {
 				Collection<StrategicAsset> theStrategicAssetCollection =
-						FmmDatabaseMediator.getActiveMediator().listStrategicAssets(theStrategicMilestone);
+						FmmDatabaseMediator.getActiveMediator().retrieveStrategicAssetList(theStrategicMilestone);
 				GcgTreeNodeInfo theStrategicMilestoneTreeNodeInfo = theTreeBuilder.addChildNode(
 						theStrategicMilestone, theStrategicAssetCollection.size()>0, theFiscalYearTreeNodeInfo, FmmPerspective.STRATEGIC_PLANNING);
 				for(StrategicAsset theStrategicAsset : theStrategicAssetCollection) {

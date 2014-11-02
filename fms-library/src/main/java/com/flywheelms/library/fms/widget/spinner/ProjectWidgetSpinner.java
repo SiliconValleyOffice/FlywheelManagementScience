@@ -86,7 +86,7 @@ public class ProjectWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 			theGuiableList = new ArrayList<GcgGuiable>(); 
 		} else {	
 			theGuiableList = new ArrayList<GcgGuiable>(
-				FmmDatabaseMediator.getActiveMediator().retrieveProjectsForProjectAssetMoveTarget(
+				FmmDatabaseMediator.getActiveMediator().retrieveProjectListForProjectAssetMoveTarget(
                         this.portfolio, this.projectException));
 		}
 		return theGuiableList;
@@ -98,7 +98,7 @@ public class ProjectWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
         if(this.portfolio == null) {
             theGuiableList = new ArrayList<GcgGuiable>();
         } else {
-            theGuiableList = new ArrayList<GcgGuiable>(FmmDatabaseMediator.getActiveMediator().retrieveProjectsForWorkTaskMoveTarget(
+            theGuiableList = new ArrayList<GcgGuiable>(FmmDatabaseMediator.getActiveMediator().retrieveProjectListForWorkTaskMoveTarget(
                     this.portfolio, this.workPackageException));
         }
         return theGuiableList;
@@ -110,7 +110,7 @@ public class ProjectWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 		if(this.portfolio == null) {
 			theGuiableList = new ArrayList<GcgGuiable>(); 
 		} else {	
-			theGuiableList = new ArrayList<GcgGuiable>(FmmDatabaseMediator.getActiveMediator().retrieveProjectsForWorkPackageMoveTarget(
+			theGuiableList = new ArrayList<GcgGuiable>(FmmDatabaseMediator.getActiveMediator().retrieveProjectListForWorkPackageMoveTarget(
                     this.portfolio, this.workAssetException));
 		}
 		return theGuiableList;
@@ -119,7 +119,7 @@ public class ProjectWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
     @Override
     protected ArrayList<? extends GcgGuiable> getOrphanNodesPrimaryParentGuiableList() {
         ArrayList<GcgGuiable> theGuiableList =
-                new ArrayList<GcgGuiable>(FmmDatabaseMediator.getActiveMediator().retrieveProjectOrphansFromPortfolio());
+                new ArrayList<GcgGuiable>(FmmDatabaseMediator.getActiveMediator().retrieveProjectOrphanListFromPortfolio());
         return theGuiableList;
     }
 

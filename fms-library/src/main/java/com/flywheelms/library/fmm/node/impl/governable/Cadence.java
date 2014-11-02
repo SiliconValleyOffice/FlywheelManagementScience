@@ -184,7 +184,7 @@ public class Cadence extends FmmCompletionNodeImpl {
     public FiscalYear getFiscalYear() {
         if(this.fiscalYear == null && this.fiscalYearId != null) {
             this.fiscalYear =
-                    FmmDatabaseMediator.getActiveMediator().getFiscalYear(this.fiscalYearId);
+                    FmmDatabaseMediator.getActiveMediator().retrieveFiscalYear(this.fiscalYearId);
         }
         return this.fiscalYear;
     }
@@ -285,13 +285,13 @@ public class Cadence extends FmmCompletionNodeImpl {
     }
 
     private Collection<WorkPlan> getWorkPlanCollection() {
-        return FmmDatabaseMediator.getActiveMediator().getWorkPlanList(this);
+        return FmmDatabaseMediator.getActiveMediator().retrieveWorkPlanList(this);
     }
 
     public ArrayList<WorkPlan> getWorkPlanList() {
         if(this.workPlanList == null) {
             this.workPlanList = new ArrayList<WorkPlan>(
-                    FmmDatabaseMediator.getActiveMediator().getWorkPlanListForCadence(this.getNodeIdString()) );
+                    FmmDatabaseMediator.getActiveMediator().retrieveWorkPlanListForCadence(this.getNodeIdString()) );
         }
         return this.workPlanList;
     }
@@ -316,7 +316,7 @@ public class Cadence extends FmmCompletionNodeImpl {
         ArrayList<? extends FmmHeadlineNodeImpl> theList = null;
         switch(aChildNodeDefinition) {
             case WORK_PLAN:
-                theList = FmmDatabaseMediator.getActiveMediator().getWorkPlanList(this);
+                theList = FmmDatabaseMediator.getActiveMediator().retrieveWorkPlanList(this);
                 break;
             case WORK_PACKAGE:
                 theList = FmmDatabaseMediator.getActiveMediator().listWorkPackage(this);

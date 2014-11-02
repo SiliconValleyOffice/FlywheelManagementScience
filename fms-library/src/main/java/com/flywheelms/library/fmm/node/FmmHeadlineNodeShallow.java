@@ -76,6 +76,7 @@ import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.governable.CommunityMember;
 import com.flywheelms.library.fmm.node.impl.nodefrag.FmmHistoryEvent.HistoryEventData;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragAuditBlock;
+import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragFseDocument;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragTribKnQuality;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.fse.model.FseDocument;
@@ -196,7 +197,7 @@ public class FmmHeadlineNodeShallow implements FmmHeadlineNode {
 	
 	public FmmHeadlineNode getFmmHeadlineNode() {
 		if(this.fmmHeadlineNode == null) {
-			this.fmmHeadlineNode = FmmDatabaseMediator.getActiveMediator().getHeadlineNode(this.nodeIdString);
+			this.fmmHeadlineNode = FmmDatabaseMediator.getActiveMediator().retrievetHeadlineNode(this.nodeIdString);
 		}
 		return this.fmmHeadlineNode;
 	}
@@ -339,10 +340,20 @@ public class FmmHeadlineNodeShallow implements FmmHeadlineNode {
 		return this;
 	}
 
-	@Override
+    @Override
+    public String getSerializedNodeForTrash() {
+        return null;
+    }
+
+    @Override
 	public NodeFragAuditBlock getNodeFragAuditBlock() {
 		return getFmmHeadlineNode().getNodeFragAuditBlock();
 	}
+
+    @Override
+    public NodeFragAuditBlock getUpdatedNodeFragAuditBlock() {
+        return getFmmHeadlineNode().getUpdatedNodeFragAuditBlock();
+    }
 
 	@Override
 	public void setNodeFragAuditBlock(NodeFragAuditBlock anAuditBlock) {
@@ -729,6 +740,16 @@ public class FmmHeadlineNodeShallow implements FmmHeadlineNode {
     @Override
     public ArrayList<FmmHeadlineNodeShallow> getChildListShallow(FmmNodeDefinition aChildNodeDefinition) {
         return getFmmHeadlineNode().getChildListShallow(aChildNodeDefinition);
+    }
+
+    @Override
+    public void setNodeFragTribKnQuality(NodeFragTribKnQuality aNodeFragTribKnQuality) {
+
+    }
+
+    @Override
+    public void setNodeFragFseDocument(NodeFragFseDocument aNodeFragFseDocument) {
+
     }
 
 }

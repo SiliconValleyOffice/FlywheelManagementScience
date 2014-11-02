@@ -126,8 +126,8 @@ public class StrategicMilestone extends FmmCompletionNodeImpl implements Compara
 		this.projectAssetList = new ArrayList<ProjectAsset>();
 		for(int i=0; i < aJsonArray.length(); ++i) {
 			try {
-				this.projectAssetList.add(FmmDatabaseMediator.getActiveMediator().getProjectAsset(
-						aJsonArray.getString(i) ));
+				this.projectAssetList.add(FmmDatabaseMediator.getActiveMediator().retrieveProjectAsset(
+                        aJsonArray.getString(i)));
 			} catch (JSONException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -174,7 +174,7 @@ public class StrategicMilestone extends FmmCompletionNodeImpl implements Compara
 	public FiscalYear getFiscalYear() {
 			if(this.fiscalYear == null && this.fiscalYearNodeIdString != null) {
 				this.fiscalYear =
-						FmmDatabaseMediator.getActiveMediator().getFiscalYear(this.fiscalYearNodeIdString);
+						FmmDatabaseMediator.getActiveMediator().retrieveFiscalYear(this.fiscalYearNodeIdString);
 			}
 			return this.fiscalYear;
 		}
@@ -218,13 +218,13 @@ public class StrategicMilestone extends FmmCompletionNodeImpl implements Compara
 	}
 
 	private Collection<ProjectAsset> getProjectAssetCollection() {
-		return FmmDatabaseMediator.getActiveMediator().listProjectAsset(this);
+		return FmmDatabaseMediator.getActiveMediator().retrieveProjectAssetList(this);
 	}
 
 	public ArrayList<ProjectAsset> getProjectAssetList() {
 		if(this.projectAssetList == null) {
 			this.projectAssetList = new ArrayList<ProjectAsset>(
-					FmmDatabaseMediator.getActiveMediator().listProjectAssetForStrategicMilestone(this.getNodeIdString()) );
+					FmmDatabaseMediator.getActiveMediator().retrieveProjectAssetList(this) );
 		}
 		return this.projectAssetList;
 	}
@@ -379,7 +379,7 @@ public class StrategicMilestone extends FmmCompletionNodeImpl implements Compara
         ArrayList<? extends FmmHeadlineNodeImpl> theList = null;
         switch(aChildNodeDefinition) {
             case STRATEGIC_ASSET:
-                theList = FmmDatabaseMediator.getActiveMediator().listStrategicAssets(this);
+                theList = FmmDatabaseMediator.getActiveMediator().retrieveStrategicAssetList(this);
                 break;
         }
         return theList;

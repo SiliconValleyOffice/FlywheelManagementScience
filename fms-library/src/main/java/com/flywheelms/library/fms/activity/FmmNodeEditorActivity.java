@@ -545,6 +545,6 @@ public abstract class FmmNodeEditorActivity extends FmsHorizontalNodeNavigatorAc
     }
 
     public FmmHeadlineNode getNavigationParentHeadlineNode() {
-        return FmmDatabaseMediator.getActiveMediator().getHeadlineNode(this.navigationParentNodeIdString);
+        return FmmDatabaseMediator.getActiveMediator().retrievetHeadlineNode(this.navigationParentNodeIdString);
     }
 }

@@ -67,7 +67,7 @@ public class FmsPdfHelper {
 
 	public static File generatePdfFile(FmsNodePublishingContentSelectionWizardStepView aContentSelectionStepView, String anFmmNodeIdString, String anAbbreviatedNodeIdString) {
 		try {
-			FmmHeadlineNodeImpl headlineNode = FmmDatabaseMediator.getActiveMediator().getHeadlineNode(anFmmNodeIdString);
+			FmmHeadlineNodeImpl headlineNode = FmmDatabaseMediator.getActiveMediator().retrievetHeadlineNode(anFmmNodeIdString);
 			ByteArrayOutputStream theDocumentStream = new HeadlineNodePublication(headlineNode, aContentSelectionStepView).buildPdf();
 			theDocumentStream.close();
 			return FmsFileHelper.writeFileToDownloadsDirectory(anAbbreviatedNodeIdString + ".pdf", theDocumentStream);

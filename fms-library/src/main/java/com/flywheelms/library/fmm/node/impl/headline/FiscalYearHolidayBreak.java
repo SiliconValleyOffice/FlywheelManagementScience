@@ -133,7 +133,7 @@ public class FiscalYearHolidayBreak extends FmmHeadlineNodeImpl {
     public FiscalYear getFiscalYear() {
         if(this.fiscalYear == null && this.fiscalYearId != null) {
             this.fiscalYear =
-                    FmmDatabaseMediator.getActiveMediator().getFiscalYear(this.fiscalYearId);
+                    FmmDatabaseMediator.getActiveMediator().retrieveFiscalYear(this.fiscalYearId);
         }
         return this.fiscalYear;
     }

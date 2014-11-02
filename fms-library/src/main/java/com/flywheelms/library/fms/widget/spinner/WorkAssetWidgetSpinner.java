@@ -86,7 +86,7 @@ public class WorkAssetWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 			theGuiableList = new ArrayList<GcgGuiable>(); 
 		} else {	
 			theGuiableList = new ArrayList<GcgGuiable>(
-					FmmDatabaseMediator.getActiveMediator().listWorkAssets(this.project) );
+					FmmDatabaseMediator.getActiveMediator().retrieveWorkAssetList(this.project) );
 		}
 		return theGuiableList;
 	}
@@ -97,7 +97,7 @@ public class WorkAssetWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 		if(this.project == null) {
 			theGuiableList = new ArrayList<GcgGuiable>(); 
 		} else {	
-			theGuiableList = new ArrayList<GcgGuiable>(FmmDatabaseMediator.getActiveMediator().listWorkAssetsForProject(
+			theGuiableList = new ArrayList<GcgGuiable>(FmmDatabaseMediator.getActiveMediator().retrieveWorkAssetListForProject(
                     this.project.getNodeIdString(), this.workAssetException.getNodeIdString()));
 		}
 		return theGuiableList;
@@ -111,7 +111,7 @@ public class WorkAssetWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
     }
 
     protected ArrayList<? extends GcgGuiable> getDefaultGuiableList() {
-        return new ArrayList<GcgGuiable>(FmmDatabaseMediator.getActiveMediator().listProjectAssets());
+        return new ArrayList<GcgGuiable>(FmmDatabaseMediator.getActiveMediator().retrieveProjectAssetList());
     }
 	
 	public void updateSpinnerData(Project aProject) {

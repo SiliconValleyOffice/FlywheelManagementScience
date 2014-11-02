@@ -143,7 +143,7 @@ public class DiscussionTopic extends FmmCompletionNodeImpl {
 
     public ArrayList<NodeFragAuditBlock> getNodeFragAuditBlockList() {
         if(this.nodeFragAuditBlockList == null) {
-            this.nodeFragAuditBlockList = FmmDatabaseMediator.getActiveMediator().listNodeFragAuditBlock(this);
+            this.nodeFragAuditBlockList = FmmDatabaseMediator.getActiveMediator().retrieveNodeFragAuditBlockList(this);
         }
         return this.nodeFragAuditBlockList;
     }

@@ -84,7 +84,7 @@ public class FiscalYearDeleteDialog extends HeadlineNodeDeleteDialog {
 
 	@Override
 	protected ArrayList<? extends FmmHeadlineNode> getSecondaryChildHeadlineNodeList() {
-		return FmmDatabaseMediator.getActiveMediator().getCadenceListForFiscalYear(getFmmHeadlineNode().getNodeIdString());
+		return FmmDatabaseMediator.getActiveMediator().retrieveCadenceListForFiscalYear(getFmmHeadlineNode().getNodeIdString());
 	}
 
     protected boolean alwaysDeleteSecondaryChild() {
@@ -116,7 +116,9 @@ public class FiscalYearDeleteDialog extends HeadlineNodeDeleteDialog {
 
 	@Override
 	protected boolean deleteHeadlineNode() {
-		return FmmDatabaseMediator.getActiveMediator().deleteFiscalYear((FiscalYear) getFmmHeadlineNode(), false);
+        boolean isSuccess = FmmDatabaseMediator.getActiveMediator().deleteAllFiscalYearHolidayBreaks((FiscalYear) getFmmHeadlineNode(), false);
+		isSuccess &= FmmDatabaseMediator.getActiveMediator().deleteFiscalYear((FiscalYear) getFmmHeadlineNode(), false);
+        return isSuccess;
 	}
 
 	@Override

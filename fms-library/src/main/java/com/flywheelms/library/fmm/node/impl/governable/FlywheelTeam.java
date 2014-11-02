@@ -55,6 +55,11 @@ public class FlywheelTeam extends FmmGovernableNodeImpl {
 	public FlywheelTeam(NodeId aNodeId) {
 		super(aNodeId);
 	}
+
+    public FlywheelTeam(NodeId aNodeId, String aHeadline, FmsOrganization anFmsOrganization) {
+        super(aNodeId, aHeadline);
+        setOrganization(anFmsOrganization);
+    }
 	
 	public FlywheelTeam(String aExistingNodeIdString) {
 		super(NodeId.hydrate(

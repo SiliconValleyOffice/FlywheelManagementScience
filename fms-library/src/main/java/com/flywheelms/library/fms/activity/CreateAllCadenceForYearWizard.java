@@ -72,7 +72,7 @@ public class CreateAllCadenceForYearWizard extends GcgWizardActivity {
 	@Override
 	protected void processExtras() {
 		super.processExtras();
-        this.fiscalYear = FmmDatabaseMediator.getActiveMediator().getFiscalYear(getIntent().getExtras().getString(FmsActivityHelper.bundle_key__FMM_NODE__ID_STRING));
+        this.fiscalYear = FmmDatabaseMediator.getActiveMediator().retrieveFiscalYear(getIntent().getExtras().getString(FmsActivityHelper.bundle_key__FMM_NODE__ID_STRING));
 	}
 
 	@Override

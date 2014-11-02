@@ -173,7 +173,7 @@ public class FmsOrganization extends FmmGovernableNodeImpl {
 
     public ArrayList<FiscalYearHolidayBreak> getHolidayBreakList(String aFiscalYearId) {
         if(this.holidayBreakList == null) {
-            this.holidayBreakList = FmmDatabaseMediator.getActiveMediator().getFiscalYearHolidayBreakList(aFiscalYearId);
+            this.holidayBreakList = FmmDatabaseMediator.getActiveMediator().retrieveFiscalYearHolidayBreakListForFiscalYear(aFiscalYearId);
         }
         return this.holidayBreakList;
     }

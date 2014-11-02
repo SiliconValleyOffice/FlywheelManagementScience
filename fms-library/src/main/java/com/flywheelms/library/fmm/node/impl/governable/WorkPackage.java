@@ -160,7 +160,7 @@ public class WorkPackage extends FmmCompletionNodeImpl implements Comparable<Wor
 	}
 	
 	public ProjectAsset getProjectAsset() {
-		return FmmDatabaseMediator.getActiveMediator().getProjectAsset(this.workAssetNodeIdString);
+		return FmmDatabaseMediator.getActiveMediator().retrieveProjectAsset(this.workAssetNodeIdString);
 	}
 
 	public boolean isWorkTaskMoveTarget() {

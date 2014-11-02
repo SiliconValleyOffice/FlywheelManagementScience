@@ -101,6 +101,10 @@ public class StrategicAsset extends FmmCompletionNodeImpl implements Comparable<
 		super(new NodeId(FmmNodeDefinition.STRATEGIC_ASSET.getNodeTypeCode()));
 	}
 
+    public StrategicAsset(NodeId aNodeId, String aHeadline) {
+        super(aNodeId, aHeadline);
+    }
+
 	public StrategicAsset(JSONObject aJsonObject) {
 		super(StrategicAsset.class, aJsonObject);
 		try {
@@ -160,7 +164,7 @@ public class StrategicAsset extends FmmCompletionNodeImpl implements Comparable<
 
 	public Project getProject() {
 		if(this.project == null) {
-			this.project = FmmDatabaseMediator.getActiveMediator().getProject(getNodeIdString());
+			this.project = FmmDatabaseMediator.getActiveMediator().retrieveProject(getNodeIdString());
 		}
 		return this.project;
 	}

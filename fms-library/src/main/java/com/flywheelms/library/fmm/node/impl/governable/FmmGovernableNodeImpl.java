@@ -67,6 +67,10 @@ public abstract class FmmGovernableNodeImpl extends FmmHeadlineNodeImpl implemen
 	public FmmGovernableNodeImpl(NodeId aNodeId) {
 		super(aNodeId);
 	}
+
+    public FmmGovernableNodeImpl(NodeId aNodeId, String aHeadline) {
+        super(aNodeId, aHeadline);
+    }
 	
 	public FmmGovernableNodeImpl(Class<? extends FmmGovernableNodeImpl> aClass, JSONObject aJsonObject) {
 		super(aClass, aJsonObject);

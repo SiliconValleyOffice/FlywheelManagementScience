@@ -71,10 +71,10 @@ public class Project extends FmmCompletionNodeImpl {
     private ArrayList<ProjectAsset> projectAssetList;
     private int projectAssetBudget = 0;
 
-    public Project(NodeId aNodeId, String aHeadline, String aPortfolioNodeIdString) {
+    public Project(NodeId aNodeId, String aHeadline, Portfolio aPortfolio) {
         super(aNodeId);
         setHeadline(aHeadline);
-        setPortfolioNodeIdString(aPortfolioNodeIdString);
+        setPortfolio(aPortfolio);
     }
 
 	public Project(NodeId aNodeId) {
@@ -145,7 +145,7 @@ public class Project extends FmmCompletionNodeImpl {
 
     public ArrayList<ProjectAsset> getProjectAssetList() {
         if(this.projectAssetList == null) {
-            this.projectAssetList = FmmDatabaseMediator.getActiveMediator().listProjectAssetsForProject(this.getNodeIdString());
+            this.projectAssetList = FmmDatabaseMediator.getActiveMediator().retrieveProjectAssetList(this);
         }
         return this.projectAssetList;
     }
@@ -202,13 +202,13 @@ public class Project extends FmmCompletionNodeImpl {
         ArrayList<? extends FmmHeadlineNode> theList = null;
         switch(aChildNodeDefinition) {
             case PROJECT_ASSET:
-                theList = FmmDatabaseMediator.getActiveMediator().listProjectAssets(this);
+                theList = FmmDatabaseMediator.getActiveMediator().retrieveProjectAssetList(this);
                 break;
             case WORK_ASSET:
-                theList = FmmDatabaseMediator.getActiveMediator().listWorkAssets(this);
+                theList = FmmDatabaseMediator.getActiveMediator().retrieveWorkAssetList(this);
                 break;
             case STRATEGIC_ASSET:
-                theList = FmmDatabaseMediator.getActiveMediator().listStrategicAssets(this);
+                theList = FmmDatabaseMediator.getActiveMediator().retrieveStrategicAssetList(this);
                 break;
         }
         return theList;

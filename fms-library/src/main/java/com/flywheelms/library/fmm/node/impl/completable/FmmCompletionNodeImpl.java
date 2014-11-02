@@ -76,6 +76,10 @@ public abstract class FmmCompletionNodeImpl extends FmmGovernableNodeImpl
 		super(aNodeId);
 	}
 
+    public FmmCompletionNodeImpl(NodeId aNodeId, String aHeadline) {
+        super(aNodeId, aHeadline);
+    }
+
 	public FmmCompletionNodeImpl(Class<? extends FmmCompletionNodeImpl> aCompletableClass, String anExistingNodeIdString) {
 		super(NodeId.hydrate(aCompletableClass, anExistingNodeIdString));
 	}

@@ -121,16 +121,16 @@ public class FwbContextWorkPlanningPerspective extends FmsPerspectiveFlipperTree
         GcgTreeViewMediator theGcgTreeViewMediator =
                 new FmsTreeViewMediatorMemoryResident(new StrategicPlanningTreeFilter(this));
         final FmsTreeBuilder theTreeBuilder = new FmsTreeBuilder(theGcgTreeViewMediator);
-        Collection<FiscalYear> theFiscalYearCollection = FmmDatabaseMediator.getActiveMediator().getFiscalYearList(
-                FmmDatabaseMediator.getActiveMediator().getFmmOwner() );
+        Collection<FiscalYear> theFiscalYearCollection = FmmDatabaseMediator.getActiveMediator().retrieveFiscalYearList(
+                FmmDatabaseMediator.getActiveMediator().getFmmOwner());
         for(FiscalYear theFiscalYear : theFiscalYearCollection) {
             Collection<Cadence> theCadenceCollection =
-                    FmmDatabaseMediator.getActiveMediator().getCadenceList(theFiscalYear);
+                    FmmDatabaseMediator.getActiveMediator().retrieveCadenceList(theFiscalYear);
             GcgTreeNodeInfo theFiscalYearTreeNodeInfo = theTreeBuilder.addTopNode(
                     theFiscalYear, theCadenceCollection.size()>0, FmmPerspective.WORK_PLANNING );
             for(Cadence theCadence : theCadenceCollection) {
                 Collection<WorkPlan> theWorkPlanCollection =
-                        FmmDatabaseMediator.getActiveMediator().getWorkPlanList(theCadence);
+                        FmmDatabaseMediator.getActiveMediator().retrieveWorkPlanList(theCadence);
                 GcgTreeNodeInfo theCadenceTreeNodeInfo = theTreeBuilder.addChildNode(
                         theCadence, theWorkPlanCollection.size()>0, theFiscalYearTreeNodeInfo, FmmPerspective.WORK_PLANNING);
                 for(WorkPlan theWorkPlan : theWorkPlanCollection) {

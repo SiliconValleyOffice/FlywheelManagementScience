@@ -112,7 +112,7 @@ public class PortfolioWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 
     @Override
     protected ArrayList<? extends GcgGuiable> getPrimaryParentPrimaryChildPrimaryChildMoveTargetGuiableList() { // WorkAsset move target
-        return FmmDatabaseMediator.getActiveMediator().retrievePortfolioForWorkAssetMoveTarget(
+        return FmmDatabaseMediator.getActiveMediator().retrievePortfolioListForWorkAssetMoveTarget(
                 FmmDatabaseMediator.getActiveMediator().getFmmOwner(), this.projectException);
     }
 
@@ -126,7 +126,7 @@ public class PortfolioWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 
 	@Override
 	protected ArrayList<? extends GcgGuiable> getPrimaryParentPrimaryChildPrimaryChildPrimaryChildMoveTargetGuiableList() { // WorkPackage move target
-		return FmmDatabaseMediator.getActiveMediator().retrievePortfolioForWorkPackageMoveTarget(
+		return FmmDatabaseMediator.getActiveMediator().retrievePortfolioListForWorkPackageMoveTarget(
                 FmmDatabaseMediator.getActiveMediator().getFmmOwner(), this.projectAssetException);
 	}
 
@@ -141,7 +141,7 @@ public class PortfolioWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 
     @Override
     protected ArrayList<? extends GcgGuiable> getPrimaryParentPrimaryChildPrimaryChildPrimaryChildPrimaryChildMoveTargetGuiableList() { // WorkTask move target
-        return FmmDatabaseMediator.getActiveMediator().retrievePortfolioForWorkTaskMoveTarget(
+        return FmmDatabaseMediator.getActiveMediator().retrievePortfolioListForWorkTaskMoveTarget(
                 FmmDatabaseMediator.getActiveMediator().getFmmOwner(), this.workPackageException);
     }
 

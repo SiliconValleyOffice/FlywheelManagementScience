@@ -80,7 +80,7 @@ public abstract class FmsNodeWizardActivity extends FmsWizardActivity {
 
 	public FmmHeadlineNodeImpl getFmmHeadlineNode() {
 		if(this.fmmHeadlineNode == null) {
-			this.fmmHeadlineNode = FmmDatabaseMediator.getActiveMediator().getHeadlineNode(this.fmmNodeIdString);
+			this.fmmHeadlineNode = FmmDatabaseMediator.getActiveMediator().retrievetHeadlineNode(this.fmmNodeIdString);
 		}
 		return this.fmmHeadlineNode;
 	}

@@ -85,7 +85,7 @@ public class ProjectAssetWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 			theGuiableList = new ArrayList<GcgGuiable>(); 
 		} else {	
 			theGuiableList = new ArrayList<GcgGuiable>(
-					FmmDatabaseMediator.getActiveMediator().listProjectAssets(this.project) );
+					FmmDatabaseMediator.getActiveMediator().retrieveProjectAssetList(this.project) );
 		}
 		return theGuiableList;
 	}
@@ -97,7 +97,7 @@ public class ProjectAssetWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 			theGuiableList = new ArrayList<GcgGuiable>(); 
 		} else {	
 			theGuiableList = new ArrayList<GcgGuiable>(
-					FmmDatabaseMediator.getActiveMediator().listProjectAsset(this.strategicMilestone) );
+					FmmDatabaseMediator.getActiveMediator().retrieveProjectAssetList(this.strategicMilestone) );
 		}
 		return theGuiableList;
 	}
@@ -108,8 +108,8 @@ public class ProjectAssetWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 		if(this.project == null) {
 			theGuiableList = new ArrayList<GcgGuiable>(); 
 		} else {	
-			theGuiableList = new ArrayList<GcgGuiable>(FmmDatabaseMediator.getActiveMediator().listProjectAssetsForProject(
-					this.project.getNodeIdString(), this.projectAssetException.getNodeIdString() ));
+			theGuiableList = new ArrayList<GcgGuiable>(FmmDatabaseMediator.getActiveMediator().retrieveProjectAssetList(
+                    this.project, this.projectAssetException));
 		}
 		return theGuiableList;
 	}
@@ -120,8 +120,8 @@ public class ProjectAssetWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
         if(this.project == null) {
             theGuiableList = new ArrayList<GcgGuiable>();
         } else {
-            theGuiableList = new ArrayList<GcgGuiable>(FmmDatabaseMediator.getActiveMediator().listProjectAssetForWorkTaskMoveTarget(
-                    this.project.getNodeIdString(), this.workPackageException.getNodeIdString() ));
+            theGuiableList = new ArrayList<GcgGuiable>(FmmDatabaseMediator.getActiveMediator().retrieveProjectAssetListForWorkTaskMoveTarget(
+                    this.project.getNodeIdString(), this.workPackageException.getNodeIdString()));
         }
         return theGuiableList;
     }
@@ -132,14 +132,14 @@ public class ProjectAssetWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 		if(this.strategicMilestone == null) {
 			theGuiableList = new ArrayList<GcgGuiable>(); 
 		} else {	
-			theGuiableList = new ArrayList<GcgGuiable>(FmmDatabaseMediator.getActiveMediator().listProjectAssetForWorkPackageMoveTarget(
-					this.strategicMilestone, this.projectAssetException));
+			theGuiableList = new ArrayList<GcgGuiable>(FmmDatabaseMediator.getActiveMediator().retrieveProjectAssetListForWorkPackageMoveTarget(
+                    this.strategicMilestone, this.projectAssetException));
 		}
 		return theGuiableList;
 	}
 
     protected ArrayList<? extends GcgGuiable> getDefaultGuiableList() {
-        return new ArrayList<GcgGuiable>(FmmDatabaseMediator.getActiveMediator().listProjectAssets());
+        return new ArrayList<GcgGuiable>(FmmDatabaseMediator.getActiveMediator().retrieveProjectAssetList());
     }
 	
 	@Override
@@ -152,7 +152,7 @@ public class ProjectAssetWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 	@Override
 	protected ArrayList<? extends GcgGuiable> getOrphanNodesSecondaryParentGuiableList() {
 		ArrayList<GcgGuiable> theGuiableList =
-				new ArrayList<GcgGuiable>(FmmDatabaseMediator.getActiveMediator().listProjectAssets());
+				new ArrayList<GcgGuiable>(FmmDatabaseMediator.getActiveMediator().retrieveProjectAssetList());
 		return theGuiableList;
 	}
 	

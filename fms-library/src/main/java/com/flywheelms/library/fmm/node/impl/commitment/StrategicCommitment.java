@@ -99,7 +99,7 @@ public class StrategicCommitment extends FmmCommitmentNodeImpl implements Compar
 	public ProjectAsset getProjectAsset() {
 		if(this.projectAsset == null) {
 			this.projectAsset =
-					FmmDatabaseMediator.getActiveMediator().getProjectAsset(this.childNodeIdString);
+					FmmDatabaseMediator.getActiveMediator().retrieveProjectAsset(this.childNodeIdString);
 		}
 		return this.projectAsset;
 	}

@@ -88,7 +88,7 @@ public class StrategicMilestoneAdoptOrphanProjectAssetDialog extends HeadlineNod
     }
 
     protected boolean adoptOrphanHeadlineNode() {
-        return FmmDatabaseMediator.getActiveMediator().adoptProjectAssetIntoStrategicMilestone(
+        return FmmDatabaseMediator.getActiveMediator().promoteProjectAssetToStrategicAsset(
                 (FmmCompletionNode) this.adoptionCandidateWidgetSpinner.getFmmNode(),
                 this.parentNode,
                 this.parentNode == this.launchNode ? null : this.launchNode,

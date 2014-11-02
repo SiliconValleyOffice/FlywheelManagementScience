@@ -52,7 +52,6 @@ import com.flywheelms.library.fmm.meta_data.NodeFragAuditBlockMetaData;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.governable.CommunityMember;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
-import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmNode;
 import com.flywheelms.library.util.JsonHelper;
 
 import org.json.JSONArray;
@@ -78,20 +77,13 @@ public class NodeFragAuditBlock extends FmmNodeFragLockableImpl {
 	private ArrayList<TableRow> eventTableRowList;  // transient
 	private ArrayList<FmmHistoryEvent> fmmHistoryEventList;  // transient
 
-	// new Audit Block for an FmmHeadlineNode
-	public NodeFragAuditBlock(FmmHeadlineNode aHeadlineNode) {
-		this((FmmNode) aHeadlineNode);
-		setSearchableHeadline(aHeadlineNode.getHeadline());
-	}
-
-	// new Audit Block for an FmmHeadlineNode
-	public NodeFragAuditBlock(FmmNode anFmmNode) {
-		super(NodeFragAuditBlock.class, anFmmNode.getNodeIdString());
-		setCreatedTimestamp(anFmmNode.getRowTimestamp());
+	public NodeFragAuditBlock(FmmHeadlineNode anFmmHeadlineNode) {
+		super(NodeFragAuditBlock.class, anFmmHeadlineNode.getNodeIdString());
+		setCreatedTimestamp(anFmmHeadlineNode.getRowTimestamp());
 		setCreatedBy(FlywheelCommunityAuthentication.getInstance().getFcaUserCredentials().getCommunityMemberNodeIdString());
 		setLastUpdatedBy(FlywheelCommunityAuthentication.getInstance().getFcaUserCredentials().getCommunityMemberNodeIdString());
 		setIsLocked(false);
-		setSearchableHeadline("");
+		setSearchableHeadline(anFmmHeadlineNode.getHeadline());
 		FmmHistoryEvent theHistoryEvent = new FmmHistoryEvent(
 				1,
 				GcgDateHelper.getCurrentDateTime(),

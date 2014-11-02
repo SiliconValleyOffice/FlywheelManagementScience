@@ -72,7 +72,7 @@ public abstract class FmmAuditNodeImpl extends FmmNodeImpl implements FmmNodeAud
 	@Override
 	public NodeFragAuditBlock getNodeFragAuditBlock() {
 		if(this.nodeFragAuditBlock == null) {
-			this.nodeFragAuditBlock = FmmDatabaseMediator.getActiveMediator().getNodeFragAuditBlockForParent(getNodeIdString());
+			this.nodeFragAuditBlock = FmmDatabaseMediator.getActiveMediator().retrieveNodeFragAuditBlockForParent(getNodeIdString());
 		}
 		return this.nodeFragAuditBlock;
 	}

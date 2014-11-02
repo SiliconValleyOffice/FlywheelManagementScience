@@ -100,6 +100,11 @@ public class ProjectAsset extends FmmCompletionNodeImpl implements Comparable<Pr
 	public ProjectAsset() {
 		super(new NodeId(FmmNodeDefinition.PROJECT_ASSET.getNodeTypeCode()));
 	}
+
+    public ProjectAsset(NodeId aNodeId, String aHeadline, Project aProject) {
+        super(aNodeId, aHeadline);
+        setProject(aProject);
+    }
 	
 	public ProjectAsset(JSONObject aJsonObject) {
 		super(ProjectAsset.class, aJsonObject);
@@ -160,7 +165,7 @@ public class ProjectAsset extends FmmCompletionNodeImpl implements Comparable<Pr
 
 	public Project getProject() {
 		if(this.project == null) {
-			this.project = FmmDatabaseMediator.getActiveMediator().getProject(getNodeIdString());
+			this.project = FmmDatabaseMediator.getActiveMediator().retrieveProject(getNodeIdString());
 		}
 		return this.project;
 	}
@@ -332,7 +337,7 @@ public class ProjectAsset extends FmmCompletionNodeImpl implements Comparable<Pr
 	}
 	
 	public static ProjectAsset getFmmConfiguration(Intent anIntent) {
-		return FmmDatabaseMediator.getActiveMediator().getProjectAsset(NodeId.getNodeIdString(anIntent));
+		return FmmDatabaseMediator.getActiveMediator().retrieveProjectAsset(NodeId.getNodeIdString(anIntent));
 	}
 
 	@Override

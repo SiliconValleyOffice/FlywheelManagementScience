@@ -274,7 +274,7 @@ public class FiscalYear extends FmmCompletionNodeImpl implements Comparable<Fisc
 
     public ArrayList<Cadence> getCadenceList() {
         if(this.flywheelCadenceList == null) {
-            this.flywheelCadenceList = FmmDatabaseMediator.getActiveMediator().getCadenceListForFiscalYear(getNodeIdString());
+            this.flywheelCadenceList = FmmDatabaseMediator.getActiveMediator().retrieveCadenceListForFiscalYear(getNodeIdString());
         }
         return this.flywheelCadenceList;
     }
@@ -371,7 +371,7 @@ public class FiscalYear extends FmmCompletionNodeImpl implements Comparable<Fisc
                 theList = FmmDatabaseMediator.getActiveMediator().getStrategicMilestoneList(this);
                 break;
             case CADENCE:
-                theList = FmmDatabaseMediator.getActiveMediator().getCadenceList(this);
+                theList = FmmDatabaseMediator.getActiveMediator().retrieveCadenceList(this);
                 break;
         }
         return theList;

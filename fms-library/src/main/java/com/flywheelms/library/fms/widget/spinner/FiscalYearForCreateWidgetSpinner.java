@@ -63,7 +63,7 @@ public class FiscalYearForCreateWidgetSpinner extends FiscalYearWidgetSpinner {
 
 	@Override
 	protected ArrayList<? extends GcgGuiable> getDefaultGuiableList() {
-		Collection<FiscalYear> theFiscalYearCollection = FmmDatabaseMediator.getActiveMediator().getFiscalYearList(FmmDatabaseMediator.getActiveMediator().getFmmOwner());
+		Collection<FiscalYear> theFiscalYearCollection = FmmDatabaseMediator.getActiveMediator().retrieveFiscalYearList(FmmDatabaseMediator.getActiveMediator().getFmmOwner());
 		ArrayList<String> theExistingYears = new ArrayList<String>();
 		for(FiscalYear theFiscalYear : theFiscalYearCollection) {
 			theExistingYears.add(theFiscalYear.getYearString());
