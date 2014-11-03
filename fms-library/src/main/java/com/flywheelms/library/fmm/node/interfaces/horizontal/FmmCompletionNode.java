@@ -54,12 +54,16 @@ import java.util.Date;
 public interface FmmCompletionNode extends FmmGovernableNode, FmmSequencedNode {
 	
 	NodeFragWorkTaskBudget getNodeFragWorkTaskBudget();
+
+    NodeFragWorkTaskBudget getUpdatedNodeFragWorkTaskBudget();
 	
 	void setNodeFragWorkTaskBudget(NodeFragWorkTaskBudget aNodeFragWorkTaskBudget);
 	
 	NodeFragCompletion getNodeFragCompletion();
 	
 	void setNodeFragCompletion(NodeFragCompletion aNodeFragCompletion);
+
+    NodeFragCompletion getUpdatedNodeFragCompletion();
 	
 	boolean getAutocompletable();
 	
@@ -150,7 +154,4 @@ public interface FmmCompletionNode extends FmmGovernableNode, FmmSequencedNode {
 	void setCompletionConfirmedTimestamp(Date aTimestamp);
 
     void setPrimaryParentId(String aNodeIdString);
-
-//	int getSecondarySequence();
-	
 }

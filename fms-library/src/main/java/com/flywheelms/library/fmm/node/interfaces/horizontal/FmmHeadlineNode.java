@@ -144,8 +144,14 @@ public interface FmmHeadlineNode extends FmmNode, FmmNodeAudit, FmmHistory {
 	FmsDecoratorCompletion getDecoratorCompletion();
 	
 	void replaceWithNew(NodeId aNodeId, String aHeadline);
+
+    void setNodeFragFseDocument(NodeFragFseDocument aNodeFragFseDocument);
 	
 	NodeFragTribKnQuality getNodeFragTribKnQuality();
+
+    void setNodeFragTribKnQuality(NodeFragTribKnQuality aNodeFragTribKnQuality);
+
+    NodeFragTribKnQuality getUpdatedNodeFragTribKnQuality();
 
 	String getSponsorName();
 
@@ -164,8 +170,4 @@ public interface FmmHeadlineNode extends FmmNode, FmmNodeAudit, FmmHistory {
     ArrayList<? extends FmmHeadlineNode> getChildList(FmmNodeDefinition aChildNodeDefinition);
 
     ArrayList<FmmHeadlineNodeShallow> getChildListShallow(FmmNodeDefinition aChildNodeDefinition);
-
-    void setNodeFragTribKnQuality(NodeFragTribKnQuality aNodeFragTribKnQuality);
-
-    void setNodeFragFseDocument(NodeFragFseDocument aNodeFragFseDocument);
 }

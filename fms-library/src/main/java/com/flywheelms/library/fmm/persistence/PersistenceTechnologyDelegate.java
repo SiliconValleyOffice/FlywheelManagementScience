@@ -905,6 +905,8 @@ public abstract class PersistenceTechnologyDelegate {
 
     public abstract boolean existsSimpleIdTable(FmmNodeDefinition anFmmNodeDefinition, String aNodeIdString);
 
+    public abstract boolean existsSimpleIdTable(FmmNodeDefinition anFmmNodeDefinition, String aWhereColumnName, String aWhereColumnValue);
+
     public abstract <T extends FmmNode> T retrieveFmmNodeFromSimpleIdTable(FmmNodeDefinition anFmmNodeDefinition, String aNodeIdString);
 
     public abstract <T extends FmmNode> T retrieveFmmNodeFromSimpleIdTable(FmmNodeDefinition anFmmNodeDefinition, String aColumnName, String aColumnValue);

@@ -67,14 +67,28 @@ public class WorkTask extends FmmCompletionNodeImpl {
 	private static final long serialVersionUID = -85408705838458405L;
 	
 	private String workPackageNodeIdString;
+    private WorkPackage workPackage;
 	// WorkPackage sequence is the sequence in the super class
 	private String workPlanNodeIdString;
+    private WorkPlan workPlan;
 	private int workPlanSequence;
 	private int budgetedPersonHours;
 	private int actualPersonHours;
 
     public WorkTask() {
         super(new NodeId(FmmNodeDefinition.WORK_TASK.getNodeTypeCode()));
+    }
+
+    public WorkTask(NodeId aNodeId, String aHeadline, WorkPackage aWorkPackage) {
+        super(aNodeId);
+        setHeadline(aHeadline);
+        setWorkPackage(aWorkPackage);
+    }
+
+    public WorkTask(NodeId aNodeId, String aHeadline, WorkPlan aWorkPlan) {
+        super(aNodeId);
+        setHeadline(aHeadline);
+        setWorkPlan(aWorkPlan);
     }
 
 	public WorkTask(NodeId aNodeId) {
@@ -117,21 +131,53 @@ public class WorkTask extends FmmCompletionNodeImpl {
 		return FmmDatabaseMediator.getActiveMediator().retrieveWorkTask(NodeId.getNodeIdString(anIntent));
 	}
 
-	public String getWorkPackageNodeIdString() {
-		return this.workPackageNodeIdString;
-	}
+    public String getWorkPackageNodeIdString() {
+        return this.workPackageNodeIdString;
+    }
 
-	public void setWorkPackageNodeIdString(String aWorkPackageNodeIdString) {
-		this.workPackageNodeIdString = aWorkPackageNodeIdString;
-	}
+    public WorkPackage getWorkPackage() {
+        if(this.workPackage == null && this.workPackageNodeIdString != null) {
+            this.workPackage =
+                    FmmDatabaseMediator.getActiveMediator().retrieveWorkPackage(this.workPackageNodeIdString);
+        }
+        return this.workPackage;
+    }
 
-	public String getWorkPlanNodeIdString() {
-		return this.workPlanNodeIdString;
-	}
+    public void setWorkPackageNodeIdString(String aNodeIdString) {
+        this.workPackageNodeIdString = aNodeIdString;
+        if(this.workPackage != null && !this.workPackage.getNodeIdString().equals(aNodeIdString)) {
+            this.workPackage = null;
+        }
+    }
 
-	public void setWorkPlanNodeIdString(String aWorkPlanNodeIdString) {
-		this.workPlanNodeIdString = aWorkPlanNodeIdString;
-	}
+    public void setWorkPackage(WorkPackage aWorkPackage) {
+        this.workPackage = aWorkPackage;
+        this.workPackageNodeIdString = aWorkPackage.getNodeId().getNodeIdString();
+    }
+
+    public String getWorkPlanNodeIdString() {
+        return this.workPlanNodeIdString;
+    }
+
+    public WorkPlan getWorkPlan() {
+        if(this.workPlan == null && this.workPlanNodeIdString != null) {
+            this.workPlan =
+                    FmmDatabaseMediator.getActiveMediator().retrieveWorkPlan(this.workPlanNodeIdString);
+        }
+        return this.workPlan;
+    }
+
+    public void setWorkPlanNodeIdString(String aNodeIdString) {
+        this.workPlanNodeIdString = aNodeIdString;
+        if(this.workPlan != null && !this.workPlan.getNodeIdString().equals(aNodeIdString)) {
+            this.workPlan = null;
+        }
+    }
+
+    public void setWorkPlan(WorkPlan aWorkPlan) {
+        this.workPlan = aWorkPlan;
+        this.workPlanNodeIdString = aWorkPlan.getNodeId().getNodeIdString();
+    }
 
 	public int getWorkPlanSequence() {
 		return this.workPlanSequence;
@@ -162,10 +208,10 @@ public class WorkTask extends FmmCompletionNodeImpl {
         ArrayList<WorkTask> theList;
         switch(aParentHeadlineNode.getFmmNodeDefinition()) {
             case WORK_PACKAGE:
-                theList = FmmDatabaseMediator.getActiveMediator().listWorkTasksForWorkPackage(aParentHeadlineNode.getNodeIdString());
+                theList = FmmDatabaseMediator.getActiveMediator().retrieveWorkTaskListForWorkPackage(aParentHeadlineNode.getNodeIdString(), null);
                 break;
             case WORK_PLAN:
-                theList = FmmDatabaseMediator.getActiveMediator().listWorkTasksForWorkPlan(aParentHeadlineNode.getNodeIdString());
+                theList = FmmDatabaseMediator.getActiveMediator().retrieveWorkTaskListForWorkPlan(aParentHeadlineNode.getNodeIdString(), null);
                 break;
             default:
                 theList = new ArrayList<WorkTask>();

@@ -750,6 +750,14 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
         return theCursor.getCount() > 0;
     }
 
+    @Override
+    @SuppressWarnings({"resource",  "rawtypes" })
+    public boolean existsSimpleIdTable(FmmNodeDefinition anFmmNodeDefinition, String aWhereColumnName, String aWhereColumnValue) {
+        Cursor theCursor = getSqLiteDatabase().rawQuery("SELECT * FROM " + anFmmNodeDefinition.getTableName() +
+                " WHERE " + aWhereColumnName + " = '" + aWhereColumnValue + "'", null);
+        return theCursor.getCount() > 0;
+    }
+
     // RETRIEVE
 
     @Override

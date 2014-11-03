@@ -173,7 +173,7 @@ public class WorkPackage extends FmmCompletionNodeImpl implements Comparable<Wor
 
     public ArrayList<WorkTask> getWorkTaskList() {
         if(this.workTaskList == null) {
-            this.workTaskList = FmmDatabaseMediator.getActiveMediator().listWorkTasksForWorkPackage(getNodeIdString());
+            this.workTaskList = FmmDatabaseMediator.getActiveMediator().retrieveWorkTaskListForWorkPackage(getNodeIdString());
         }
         return this.workTaskList;
     }
@@ -239,7 +239,7 @@ public class WorkPackage extends FmmCompletionNodeImpl implements Comparable<Wor
         ArrayList<? extends FmmHeadlineNodeImpl> theList = null;
         switch(aChildNodeDefinition) {
             case WORK_TASK:
-                theList = FmmDatabaseMediator.getActiveMediator().listWorkTasks(this);
+                theList = FmmDatabaseMediator.getActiveMediator().retrieveWorkTaskList(this);
                 break;
         }
         return theList;

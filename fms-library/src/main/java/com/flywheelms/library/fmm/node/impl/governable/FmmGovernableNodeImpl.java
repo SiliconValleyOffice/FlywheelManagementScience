@@ -87,7 +87,7 @@ public abstract class FmmGovernableNodeImpl extends FmmHeadlineNodeImpl implemen
 	@Override
 	public NodeFragGovernance getNodeFragGovernance() {
 		if(this.nodeFragGovernance == null) {
-			this.nodeFragGovernance = FmmDatabaseMediator.getActiveMediator().getNodeFragGovernanceForParent(getNodeIdString());
+			this.nodeFragGovernance = FmmDatabaseMediator.getActiveMediator().retrieveNodeFragGovernance(this);
 		}
 		return this.nodeFragGovernance;
 	}
@@ -120,6 +120,12 @@ public abstract class FmmGovernableNodeImpl extends FmmHeadlineNodeImpl implemen
 
     public void setNodeFragGovernance(NodeFragGovernance aNodeFragGovernance) {
         this.nodeFragGovernance = aNodeFragGovernance;
+    }
+
+    public NodeFragGovernance getUpdatedNodeFragGovernance() {
+        NodeFragGovernance theNodeFragGovernance = getNodeFragGovernance();
+        // TODO - update attributes
+        return theNodeFragGovernance;
     }
 
 	@Override

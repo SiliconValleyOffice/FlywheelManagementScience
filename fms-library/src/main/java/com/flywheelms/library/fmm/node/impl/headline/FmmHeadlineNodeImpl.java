@@ -258,7 +258,7 @@ public abstract class FmmHeadlineNodeImpl extends FmmHistoryNodeImpl
     @Override
     public HashMap<DecKanGlDecoratorCanvasLocation, DecKanGlDecorator> getDecKanGlDecoratorMap() {
         if (this.decKanGlDecoratorMap == null) {
-            this.decKanGlDecoratorMap = FmmDatabaseMediator.getActiveMediator().getNodeFragTribKnQuality(this).getDecoratorMap();
+            this.decKanGlDecoratorMap = FmmDatabaseMediator.getActiveMediator().retrieveNodeFragTribKnQuality(this).getDecoratorMap();
         }
         return this.decKanGlDecoratorMap;
     }
@@ -650,7 +650,7 @@ public abstract class FmmHeadlineNodeImpl extends FmmHistoryNodeImpl
     @Override
     public NodeFragAuditBlock getNodeFragAuditBlock() {
         if (this.nodeFragAuditBlock == null) {
-            this.nodeFragAuditBlock = FmmDatabaseMediator.getActiveMediator().retrieveNodeFragAuditBlockForParent(getNodeIdString());
+            this.nodeFragAuditBlock = FmmDatabaseMediator.getActiveMediator().retrieveNodeFragAuditBlock(this);
         }
         return this.nodeFragAuditBlock;
     }
@@ -671,7 +671,7 @@ public abstract class FmmHeadlineNodeImpl extends FmmHistoryNodeImpl
 
     public NodeFragFseDocument getNodeFragFseDocument() {
         if(this.nodeFragFseDocument == null) {
-            this.nodeFragFseDocument = FmmDatabaseMediator.getActiveMediator().getNodeFragFseDocumentForParent(getNodeIdString());
+            this.nodeFragFseDocument = FmmDatabaseMediator.getActiveMediator().retrieveNodeFragFseDocument(this);
         }
         return this.nodeFragFseDocument;
     }
@@ -684,9 +684,15 @@ public abstract class FmmHeadlineNodeImpl extends FmmHistoryNodeImpl
     @Override
     public NodeFragTribKnQuality getNodeFragTribKnQuality() {
         if(this.nodeFragTribKnQuality == null) {
-            this.nodeFragTribKnQuality = FmmDatabaseMediator.getActiveMediator().getNodeFragTribKnQualityForParent(getNodeIdString());
+            this.nodeFragTribKnQuality = FmmDatabaseMediator.getActiveMediator().retrieveNodeFragTribKnQuality(this);
         }
         return this.nodeFragTribKnQuality;
+    }
+
+    public NodeFragTribKnQuality getUpdatedNodeFragTribKnQuality() {
+        NodeFragTribKnQuality theNodeFragTribKnQuality = getNodeFragTribKnQuality();
+        // TODO - update attributes
+        return theNodeFragTribKnQuality;
     }
 
     @Override

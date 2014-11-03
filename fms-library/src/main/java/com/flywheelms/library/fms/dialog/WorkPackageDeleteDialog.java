@@ -84,7 +84,7 @@ public class WorkPackageDeleteDialog extends HeadlineNodeDeleteDialog {
 
 	@Override
 	protected ArrayList<? extends FmmHeadlineNode> getPrimaryChildHeadlineNodeList() {
-		return FmmDatabaseMediator.getActiveMediator().listWorkTasksForWorkPackage(getFmmHeadlineNode().getNodeIdString());
+		return FmmDatabaseMediator.getActiveMediator().retrieveWorkTaskListForWorkPackage(getFmmHeadlineNode().getNodeIdString());
 	}
 
     @Override

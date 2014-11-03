@@ -148,7 +148,7 @@ public class NodeFragFseDocument extends FmmNodeFragLockableImpl {
 	
 	public FseDocument getFseDocument() {
 		if(this.fseDocument == null) {
-			this.fseDocument = new FseDocument(this.serializedDocument);
+            this.fseDocument = new FseDocument(this.serializedDocument);
 		}
 		return this.fseDocument;
 	}

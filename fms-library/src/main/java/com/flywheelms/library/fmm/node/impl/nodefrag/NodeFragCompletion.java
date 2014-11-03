@@ -48,7 +48,7 @@ import com.flywheelms.library.fmm.meta_data.NodeFragCompletionMetaData;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.enumerator.CompletableWorkStatus;
 import com.flywheelms.library.fmm.node.impl.governable.CommunityMember;
-import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmGovernableNode;
+import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmCompletionNode;
 import com.flywheelms.library.util.JsonHelper;
 
 import org.json.JSONException;
@@ -79,8 +79,8 @@ public class NodeFragCompletion extends FmmNodeFragImpl implements Serializable 
 	private CommunityMember completionConfirmedByCommunityMember;
 	private Date completionConfirmedTimestamp;
 
-    public NodeFragCompletion(FmmGovernableNode anFmmGovernableNode) {
-        super(NodeFragCompletion.class, anFmmGovernableNode.getNodeIdString());
+    public NodeFragCompletion(FmmCompletionNode anFmmCompletionNode) {
+        super(NodeFragCompletion.class, anFmmCompletionNode.getNodeIdString());
     }
 
 	// rehydrate from database

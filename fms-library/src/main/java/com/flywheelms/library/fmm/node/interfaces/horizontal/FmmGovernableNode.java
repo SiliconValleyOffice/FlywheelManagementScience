@@ -56,4 +56,5 @@ public interface FmmGovernableNode extends FmmHeadlineNode {
 
     void setNodeFragGovernance(NodeFragGovernance aNodeFragGovernance);
 
+    NodeFragGovernance getUpdatedNodeFragGovernance();
 }

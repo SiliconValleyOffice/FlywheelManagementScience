@@ -267,13 +267,13 @@ public class WorkPlan extends FmmCompletionNodeImpl {
     }
 
     private Collection<WorkTask> getWorkTaskCollection() {
-        return FmmDatabaseMediator.getActiveMediator().listWorkTasks(this);
+        return FmmDatabaseMediator.getActiveMediator().retrieveWorkTaskList(this);
     }
 
     public ArrayList<WorkTask> getWorkTaskList() {
         if(this.workTaskList == null) {
             this.workTaskList = new ArrayList<WorkTask>(
-                    FmmDatabaseMediator.getActiveMediator().listWorkTasksForWorkPlan(this.getNodeIdString()) );
+                    FmmDatabaseMediator.getActiveMediator().retrieveWorkTaskListForWorkPlan(this.getNodeIdString()) );
         }
         return this.workTaskList;
     }
@@ -298,7 +298,7 @@ public class WorkPlan extends FmmCompletionNodeImpl {
         ArrayList<? extends FmmHeadlineNodeImpl> theList = null;
         switch(aChildNodeDefinition) {
             case WORK_TASK:
-                theList = FmmDatabaseMediator.getActiveMediator().listWorkTasks(this);
+                theList = FmmDatabaseMediator.getActiveMediator().retrieveWorkTaskList(this);
                 break;
         }
         return theList;

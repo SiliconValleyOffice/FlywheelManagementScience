@@ -78,7 +78,7 @@ public class WorkTaskWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 			theGuiableList = new ArrayList<GcgGuiable>(); 
 		} else {	
 			theGuiableList = new ArrayList<GcgGuiable>(
-					FmmDatabaseMediator.getActiveMediator().listWorkTasks(this.workPackage, this.workTaskException) );
+					FmmDatabaseMediator.getActiveMediator().retrieveWorkTaskList(this.workPackage, this.workTaskException) );
 		}
 		return theGuiableList;
 	}
@@ -101,7 +101,7 @@ public class WorkTaskWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 			theGuiableList = new ArrayList<GcgGuiable>(); 
 		} else {	
 			theGuiableList = new ArrayList<GcgGuiable>(
-					FmmDatabaseMediator.getActiveMediator().listWorkTasks(this.workPlan, this.workTaskException) );
+					FmmDatabaseMediator.getActiveMediator().retrieveWorkTaskList(this.workPlan, this.workTaskException) );
 		}
 		return theGuiableList;
 	}

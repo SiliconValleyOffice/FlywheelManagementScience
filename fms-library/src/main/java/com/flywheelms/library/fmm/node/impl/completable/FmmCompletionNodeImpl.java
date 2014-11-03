@@ -119,6 +119,10 @@ public abstract class FmmCompletionNodeImpl extends FmmGovernableNodeImpl
 		this.sequence = aSequence;
 	}
 
+    public void setWorkPackageSequence(int aSequence) {
+        setSequence(aSequence);
+    }
+
 	@Override
 	public int getSequence(FmmNodeDefinition anFmmNodeDefinition) {
 		return this.sequence;
@@ -358,10 +362,17 @@ public abstract class FmmCompletionNodeImpl extends FmmGovernableNodeImpl
 	@Override
 	public NodeFragWorkTaskBudget getNodeFragWorkTaskBudget() {
 		if(this.nodeFragWorkTaskBudget == null) {
-			this.nodeFragWorkTaskBudget = FmmDatabaseMediator.getActiveMediator().getNodeFragWorkTaskBudgetForParent(getNodeIdString());
+			this.nodeFragWorkTaskBudget = FmmDatabaseMediator.getActiveMediator().retrieveNodeFragWorkTaskBudget(this);
 		}
 		return this.nodeFragWorkTaskBudget;
 	}
+
+    @Override
+    public NodeFragWorkTaskBudget getUpdatedNodeFragWorkTaskBudget() {
+        NodeFragWorkTaskBudget theNodeFragWorkTaskBudget = getNodeFragWorkTaskBudget();
+        // TODO - update attributes
+        return theNodeFragWorkTaskBudget;
+    }
 	
 	@Override
 	public void setNodeFragWorkTaskBudget(NodeFragWorkTaskBudget aNodeFragWorkTaskBudget) {
@@ -371,7 +382,7 @@ public abstract class FmmCompletionNodeImpl extends FmmGovernableNodeImpl
 	@Override
 	public NodeFragCompletion getNodeFragCompletion() {
 		if(this.nodeFragCompletion == null) {
-			this.nodeFragCompletion = FmmDatabaseMediator.getActiveMediator().getNodeFragCompletionForParent(getNodeIdString());
+			this.nodeFragCompletion = FmmDatabaseMediator.getActiveMediator().retrieveNodeFragCompletion(this);
 		}
 		return this.nodeFragCompletion;
 	}
@@ -380,6 +391,12 @@ public abstract class FmmCompletionNodeImpl extends FmmGovernableNodeImpl
 	public void setNodeFragCompletion(NodeFragCompletion aNodeFragCompletion) {
 		this.nodeFragCompletion = aNodeFragCompletion;
 	}
+
+    public NodeFragCompletion getUpdatedNodeFragCompletion() {
+        NodeFragCompletion theNodeFragCompletion = getNodeFragCompletion();
+        // TODO update the Node Frag
+        return theNodeFragCompletion;
+    }
 	
 	@Override
 	public int getDataDrawableResourceId() {
