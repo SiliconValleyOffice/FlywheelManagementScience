@@ -183,7 +183,7 @@ public class FiscalYear extends FmmCompletionNodeImpl implements Comparable<Fisc
 	
 	public FmsOrganization getOrganization() {
 		if(this.organization == null && this.organizationNodeIdString != null) {
-			this.organization = FmmDatabaseMediator.getActiveMediator().getFmsOrganization(this.organizationNodeIdString);
+			this.organization = FmmDatabaseMediator.getActiveMediator().retrieveFmsOrganization(this.organizationNodeIdString);
 		}
 		return this.organization;
 	}
@@ -253,7 +253,7 @@ public class FiscalYear extends FmmCompletionNodeImpl implements Comparable<Fisc
 
 	public ArrayList<StrategicMilestone> getStrategicMilestoneList() {
 		if(this.strategicMilestoneList == null) {
-			this.strategicMilestoneList = FmmDatabaseMediator.getActiveMediator().getStrategicMilestoneListForFiscalYear(getNodeIdString());
+			this.strategicMilestoneList = FmmDatabaseMediator.getActiveMediator().retrieveStrategicMilestoneList(this);
 		}
 		return this.strategicMilestoneList;
 	}
@@ -368,7 +368,7 @@ public class FiscalYear extends FmmCompletionNodeImpl implements Comparable<Fisc
         ArrayList<? extends FmmHeadlineNodeImpl> theList = null;
         switch(aChildNodeDefinition) {
             case STRATEGIC_MILESTONE:
-                theList = FmmDatabaseMediator.getActiveMediator().getStrategicMilestoneList(this);
+                theList = FmmDatabaseMediator.getActiveMediator().retrieveStrategicMilestoneList(this);
                 break;
             case CADENCE:
                 theList = FmmDatabaseMediator.getActiveMediator().retrieveCadenceList(this);

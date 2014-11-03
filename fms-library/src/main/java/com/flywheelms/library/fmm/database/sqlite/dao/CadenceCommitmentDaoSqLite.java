@@ -1,4 +1,4 @@
-/* @(#)CadenceWorkPackageCommitmentMetaData.java
+/* @(#)CadenceCommitmentDaoSqLite.java
 ** 
 ** Copyright (C) 2012 by Steven D. Stamps
 **
@@ -41,11 +41,58 @@
 ** <http://www.gnu.org/licenses/gpl-3.0.html>.
 */
 
-package com.flywheelms.library.fmm.meta_data;
+package com.flywheelms.library.fmm.database.sqlite.dao;
 
-public class CadenceWorkPackageCommitmentMetaData extends CommitmentNodeMetaData {
+import android.database.Cursor;
+
+import com.flywheelms.library.fmm.meta_data.CadenceCommitmentMetaData;
+import com.flywheelms.library.fmm.node.impl.commitment.CadenceCommitment;
+import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
+
+import java.util.HashMap;
+
+public class CadenceCommitmentDaoSqLite extends CommitmentNodeDaoSqLite<CadenceCommitment> {
+
+	private static CadenceCommitmentDaoSqLite singleton;
+
+	public static CadenceCommitmentDaoSqLite getInstance() {
+		if(CadenceCommitmentDaoSqLite.singleton == null) {
+			CadenceCommitmentDaoSqLite.singleton = new CadenceCommitmentDaoSqLite();
+		}
+		return CadenceCommitmentDaoSqLite.singleton;
+	}
 	
-	public static final String column_FLYWHEEL_CADENCE_ID = "Cadence__id";
-	public static final String column_WORK_PACKAGE_ID = "WorkPackage__id";
-	
+	@Override
+	public FmmNodeDefinition getFmmNodeDefinition() {
+		return FmmNodeDefinition.CADENCE_COMMITMENT;
+	}
+
+	@Override
+	protected String getParentIdColumnName() {
+		return CadenceCommitmentMetaData.column_CADENCE_ID;
+	}
+
+	@Override
+	protected String getChildIdColumnName() {
+		return CadenceCommitmentMetaData.column_WORK_PACKAGE_ID;
+	}
+
+	@Override
+	protected void getColumnValues(HashMap<String, Integer> aHashMap,
+			Cursor aCursor, CadenceCommitment aCommitmentNode) {
+		super.getColumnValues(aHashMap, aCursor, aCommitmentNode);
+		aCommitmentNode.setCadenceNodeId(aCursor.getString(aHashMap.get(CadenceCommitmentMetaData.column_CADENCE_ID)));
+		aCommitmentNode.setWorkPackageNodeId(aCursor.getString(aHashMap.get(CadenceCommitmentMetaData.column_WORK_PACKAGE_ID)));
+	}
+
+	@Override
+	protected CadenceCommitment getNextObjectFromCursor(Cursor aCursor) {
+		CadenceCommitment theCadenceWorkPackageCommitment = null;
+		theCadenceWorkPackageCommitment = new CadenceCommitment(
+				aCursor.getString(this.columnIndexMap.get(CadenceCommitmentMetaData.column_CADENCE_ID)),
+				aCursor.getString(this.columnIndexMap.get(CadenceCommitmentMetaData.column_WORK_PACKAGE_ID)));
+		getColumnValues(this.columnIndexMap, aCursor, theCadenceWorkPackageCommitment);
+		return theCadenceWorkPackageCommitment;
+	}
+
 }

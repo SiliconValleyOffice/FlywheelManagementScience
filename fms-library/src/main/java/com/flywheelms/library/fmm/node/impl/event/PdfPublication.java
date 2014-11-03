@@ -55,7 +55,8 @@ public class PdfPublication extends FmmNodeImpl {
 
 	public static final String SERIALIZATION_FORMAT_VERSION = "0.1";
 	private String communityMemberNodeIdString;
-	private String targetNodeIdString;
+	private String headlineNodeIdString;
+	private String headlineNodeTypeCode;
 	private String contentsSummary;
 	private String destinationSummary1;
 	private String destinationSummary2;
@@ -67,7 +68,7 @@ public class PdfPublication extends FmmNodeImpl {
 	public PdfPublication(NodeId aNodeId, String aCommunityMemberNodeIdString, String aTargetNodeIdString) {
 		super(aNodeId);
 		this.communityMemberNodeIdString = aCommunityMemberNodeIdString;
-		this.targetNodeIdString = aTargetNodeIdString;
+		this.headlineNodeIdString = aTargetNodeIdString;
 	}
 	
 	public PdfPublication(JSONObject aJsonObject) {
@@ -75,6 +76,7 @@ public class PdfPublication extends FmmNodeImpl {
 		try {
 			validateSerializationFormatVersion(aJsonObject.getString(JsonHelper.key__SERIALIZATION_FORMAT_VERSION));
 			setContentsSummary(aJsonObject.getString(PdfPublicationMetaData.column_CONTENT_SUMMARY));
+			setHeadlineNodeTypeCode(aJsonObject.getString(PdfPublicationMetaData.column_HEADLINE_NODE_TYPE_CODE));
 			setDestinationSummary1(aJsonObject.getString(PdfPublicationMetaData.column_DESTINATION_SUMMARY_1));
 			setDestinationSummary2(aJsonObject.getString(PdfPublicationMetaData.column_DESTINATION_SUMMARY_2));
 		} catch (JSONException e) {
@@ -89,7 +91,8 @@ public class PdfPublication extends FmmNodeImpl {
 		try {
 			theJsonObject.put(JsonHelper.key__SERIALIZATION_FORMAT_VERSION, SERIALIZATION_FORMAT_VERSION);
 			theJsonObject.put(PdfPublicationMetaData.column_COMMUNITY_MEMBER_ID, getCommunityMemberNodeIdString());
-			theJsonObject.put(PdfPublicationMetaData.column_TARGET_NODE_ID, getTargetNodeIdString());
+			theJsonObject.put(PdfPublicationMetaData.column_HEADLINE_NODE_ID, getHeadlineNodeIdString());
+			theJsonObject.put(PdfPublicationMetaData.column_HEADLINE_NODE_TYPE_CODE, getHeadlineNodeTypeCode());
 			theJsonObject.put(PdfPublicationMetaData.column_CONTENT_SUMMARY, getContentsSummary());
 			theJsonObject.put(PdfPublicationMetaData.column_DESTINATION_SUMMARY_1, getDestinationSummary1());
 			theJsonObject.put(PdfPublicationMetaData.column_DESTINATION_SUMMARY_2, getDestinationSummary2());
@@ -127,8 +130,18 @@ public class PdfPublication extends FmmNodeImpl {
 		return this.communityMemberNodeIdString;
 	}
 
-	public String getTargetNodeIdString() {
-		return this.targetNodeIdString;
+	public String getHeadlineNodeIdString() {
+		return this.headlineNodeIdString;
 	}
 
+    public String getHeadlineNodeTypeCode() {
+        if(this.headlineNodeTypeCode == null && this.headlineNodeIdString != null) {
+            this.headlineNodeTypeCode = NodeId.getNodeTypeCodeFromNodeIdString(this.headlineNodeIdString);
+        }
+        return headlineNodeTypeCode;
+    }
+
+    public void setHeadlineNodeTypeCode(String aHeadlineNodeTypeCode) {
+        this.headlineNodeTypeCode = aHeadlineNodeTypeCode;
+    }
 }

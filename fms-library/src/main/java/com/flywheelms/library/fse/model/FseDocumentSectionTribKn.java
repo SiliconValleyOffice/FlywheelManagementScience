@@ -88,7 +88,7 @@ public class FseDocumentSectionTribKn extends FseDocumentSection {
 			this.nodeFragGovernance = new NodeFragGovernance(
 					aJsonObject.getJSONObject(NodeFragGovernanceMetaData.key__NODE_FRAG__GOVERNANCE));
 //			this.fmmConfiguration =
-//				FmmConfigurationSerialization.getFmmConfiguration(aJsonObject.getJSONObject(FmmConfigurationSerialization.key__FMM_CONFIGURATION));
+//				FmmConfigurationSerialization.retrieveFmmConfiguration(aJsonObject.getJSONObject(FmmConfigurationSerialization.key__FMM_CONFIGURATION));
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -145,7 +145,7 @@ public class FseDocumentSectionTribKn extends FseDocumentSection {
 		return false;
 	}
 
-//	public FmmConfiguration getFmmConfiguration() {
+//	public FmmConfiguration retrieveFmmConfiguration() {
 //		return this.fmmConfiguration;
 //	}
 //

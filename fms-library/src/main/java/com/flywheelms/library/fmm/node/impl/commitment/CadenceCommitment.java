@@ -1,4 +1,4 @@
-/* @(#)CadenceWorkPackageCommitment.java
+/* @(#)CadenceCommitment.java
 ** 
 ** Copyright (C) 2012 by Steven D. Stamps
 **
@@ -50,14 +50,20 @@ import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmNode;
 
 import java.util.Date;
 
-public class CadenceWorkPackageCommitment extends FmmCommitmentNodeImpl {
+public class CadenceCommitment extends FmmCommitmentNodeImpl {
 
-	private Cadence flywheelCadence;
+	private Cadence cadence;
 	private WorkPackage workPackage;
 
-	public CadenceWorkPackageCommitment(String aCadenceNodeIdString, String aWorkPackageNodeIdString) {
-		super(CadenceWorkPackageCommitment.class, aCadenceNodeIdString, aWorkPackageNodeIdString);
+	public CadenceCommitment(String aCadenceNodeIdString, String aWorkPackageNodeIdString) {
+		super(CadenceCommitment.class, aCadenceNodeIdString, aWorkPackageNodeIdString);
 	}
+
+    public CadenceCommitment(Cadence aCadence, WorkPackage aWorkPackage) {
+        super(CadenceCommitment.class, aCadence.getNodeIdString(), aWorkPackage.getNodeIdString());
+        setCadence(aCadence);
+        setWorkPackage(aWorkPackage);
+    }
 
 	public String getCadenceNodeId() {
 		return this.parentNodeIdString;
@@ -73,11 +79,11 @@ public class CadenceWorkPackageCommitment extends FmmCommitmentNodeImpl {
 
 	public void setCadenceNodeId(String aCadenceNodeId) {
 		this.parentNodeIdString = aCadenceNodeId;
-		this.flywheelCadence = null;
+		this.cadence = null;
 	}
 
 	public void setCadence(Cadence aCadence) {
-		this.flywheelCadence = aCadence;
+		this.cadence = aCadence;
 		this.parentNodeIdString = aCadence.getNodeIdString();
 	}
 
@@ -104,7 +110,7 @@ public class CadenceWorkPackageCommitment extends FmmCommitmentNodeImpl {
 	}
 
 	public Cadence getCadence() {
-		return this.flywheelCadence;
+		return this.cadence;
 	}
 
 	@Override

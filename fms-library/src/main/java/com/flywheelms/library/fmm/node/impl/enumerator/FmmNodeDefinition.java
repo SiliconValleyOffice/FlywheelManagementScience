@@ -61,8 +61,8 @@ import com.flywheelms.library.fmm.meta_data.WorkPackageMetaData;
 import com.flywheelms.library.fmm.meta_data.WorkPlanMetaData;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.FmmNodeImpl;
+import com.flywheelms.library.fmm.node.impl.commitment.CadenceCommitment;
 import com.flywheelms.library.fmm.node.impl.commitment.CadenceServiceDeliveryCommitment;
-import com.flywheelms.library.fmm.node.impl.commitment.CadenceWorkPackageCommitment;
 import com.flywheelms.library.fmm.node.impl.commitment.StrategicCommitment;
 import com.flywheelms.library.fmm.node.impl.commitment.WorkTaskAssignment;
 import com.flywheelms.library.fmm.node.impl.event.PdfPublication;
@@ -191,9 +191,9 @@ public enum FmmNodeDefinition implements FmmEnumNode {
             new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // medium drawables
             new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // large drawables
             10016 ),
-    CADENCE_WORK_PACKAGE_COMMITMENT(
-            CadenceWorkPackageCommitment.class,
-            "CWC",
+    CADENCE_COMMITMENT(
+            CadenceCommitment.class,
+            "CDC",
             R.string.fmm_node_definition__cadence_commitment__term,
             R.string.fmm_node_definition__cadence_commitment__term,
             R.drawable.commitment__none,
@@ -1370,7 +1370,7 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 	
 	private static final ArrayList<String> COMMITMENT__NODE_LIST = new ArrayList<String>();
 	static {
-		COMMITMENT__NODE_LIST.add(FmmNodeDefinition.CADENCE_WORK_PACKAGE_COMMITMENT.getNodeTypeCode());
+		COMMITMENT__NODE_LIST.add(FmmNodeDefinition.CADENCE_COMMITMENT.getNodeTypeCode());
 		COMMITMENT__NODE_LIST.add(FmmNodeDefinition.STRATEGIC_COMMITMENT.getNodeTypeCode());
 		COMMITMENT__NODE_LIST.add(FmmNodeDefinition.WORK_TASK_ASSIGNMENT.getNodeTypeCode());
 	}
@@ -2125,7 +2125,7 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 		WORK_PACKAGE.setPrimaryParentNodeDefinition(FmmNodeDefinition.PROJECT_ASSET);
         WORK_PACKAGE.setPrimaryParentIdColumnName(WorkPackageMetaData.column_WORK_ASSET_ID);
 		WORK_PACKAGE.setSecondaryParentNodeDefinition(FmmNodeDefinition.CADENCE);
-		WORK_PACKAGE.setSecondaryLinkNodeDefinition(FmmNodeDefinition.CADENCE_WORK_PACKAGE_COMMITMENT);
+		WORK_PACKAGE.setSecondaryLinkNodeDefinition(FmmNodeDefinition.CADENCE_COMMITMENT);
 		WORK_PACKAGE.setPrimaryChildNodeDefinition(FmmNodeDefinition.WORK_TASK);
 		WORK_PLAN.setPrimaryParentNodeDefinition(FmmNodeDefinition.CADENCE);
         WORK_PLAN.setPrimaryParentIdColumnName(WorkPlanMetaData.column_CADENCE_ID);

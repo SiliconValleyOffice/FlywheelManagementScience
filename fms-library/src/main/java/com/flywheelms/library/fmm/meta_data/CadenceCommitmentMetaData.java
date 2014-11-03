@@ -1,4 +1,4 @@
-/* @(#)PdfPublicationMetaData.java
+/* @(#)CadenceCommitmentMetaData.java
 ** 
 ** Copyright (C) 2012 by Steven D. Stamps
 **
@@ -43,15 +43,9 @@
 
 package com.flywheelms.library.fmm.meta_data;
 
-public class PdfPublicationMetaData extends IdNodeMetaData {
-
-	public static final String column_COMMUNITY_MEMBER_ID = "CommunityMember__id";
-	public static final String column_HEADLINE_NODE_ID = "headline_node__id";
-	public static final String column_HEADLINE_NODE_TYPE_CODE = "headline_node_type_code__id";
-	public static final String column_CONTENT_SUMMARY = "content_summary";
-	public static final String column_DESTINATION_SUMMARY_1 = "destination_summary_1";
-	public static final String column_DESTINATION_SUMMARY_2 = "destination_summary_2";
+public class CadenceCommitmentMetaData extends CommitmentNodeMetaData {
 	
-	public static void init() { return; }
+	public static final String column_CADENCE_ID = "Cadence__id";
+	public static final String column_WORK_PACKAGE_ID = "WorkPackage__id";
 	
 }

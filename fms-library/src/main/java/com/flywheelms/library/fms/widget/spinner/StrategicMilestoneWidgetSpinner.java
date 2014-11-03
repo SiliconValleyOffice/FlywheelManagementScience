@@ -74,8 +74,8 @@ public class StrategicMilestoneWidgetSpinner extends FmmHeadlineNodeWidgetSpinne
 	@Override
 	protected ArrayList<GcgGuiable> getPrimaryParentGuiableList() {
 		ArrayList<GcgGuiable> theGuiableList = new ArrayList<GcgGuiable>(
-			FmmDatabaseMediator.getActiveMediator().getStrategicMilestoneList(
-					this.fiscalYear, this.strategicMilestoneException) );
+			FmmDatabaseMediator.getActiveMediator().retrieveStrategicMilestoneList(
+                    this.fiscalYear, this.strategicMilestoneException) );
 		return theGuiableList;
 	}
 	
@@ -86,8 +86,8 @@ public class StrategicMilestoneWidgetSpinner extends FmmHeadlineNodeWidgetSpinne
 			theGuiableList = new ArrayList<GcgGuiable>(); 
 		} else {	
 			theGuiableList = new ArrayList<GcgGuiable>(
-				FmmDatabaseMediator.getActiveMediator().listStrategicMilestoneForProjectAssetMoveTarget(
-						this.fiscalYear, this.strategicMilestoneException));
+				FmmDatabaseMediator.getActiveMediator().retrieveStrategicMilestoneListForProjectAssetMoveTarget(
+                        this.fiscalYear, this.strategicMilestoneException));
 		}
 		return theGuiableList;
 	}
@@ -98,8 +98,8 @@ public class StrategicMilestoneWidgetSpinner extends FmmHeadlineNodeWidgetSpinne
 		if(this.fiscalYear == null) {
 			theGuiableList = new ArrayList<GcgGuiable>(); 
 		} else {	
-			theGuiableList = new ArrayList<GcgGuiable>(FmmDatabaseMediator.getActiveMediator().listStrategicMilestoneForWorkPackageMoveTarget(
-					this.fiscalYear, this.projectAssetException));
+			theGuiableList = new ArrayList<GcgGuiable>(FmmDatabaseMediator.getActiveMediator().retrieveStrategicMilestoneListForWorkPackageMoveTarget(
+                    this.fiscalYear, this.projectAssetException));
 		}
 		return theGuiableList;
 	}

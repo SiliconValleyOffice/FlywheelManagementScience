@@ -79,7 +79,7 @@ public class StrategicMilestoneEditorActivity extends FmmNodeEditorActivity {
 	@Override
 	public void saveAllDataModifications() {
 		super.saveAllDataModifications();
-		FmmDatabaseMediator.getActiveMediator().saveStrategicMilestone((StrategicMilestone) getDisplayedFmmHeadlineNode(), true);
+		FmmDatabaseMediator.getActiveMediator().updateStrategicMilestone((StrategicMilestone) getDisplayedFmmHeadlineNode(), true);
 	}
 
 }

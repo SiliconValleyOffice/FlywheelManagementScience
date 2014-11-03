@@ -46,6 +46,7 @@ package com.flywheelms.library.fmm.node.impl.commitment;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
+import com.flywheelms.library.fmm.node.impl.governable.StrategicAsset;
 import com.flywheelms.library.fmm.node.impl.governable.StrategicMilestone;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmNode;
 
@@ -54,7 +55,7 @@ import java.util.Date;
 public class StrategicCommitment extends FmmCommitmentNodeImpl implements Comparable<StrategicCommitment> {
 	
 	private StrategicMilestone strategicMilestone;
-	private ProjectAsset projectAsset;
+	private StrategicAsset strategicAsset;
 
     public StrategicCommitment(String anExistingNodeIdString, String aStrategicMilestoneId, String aProjectAssetId) {
         super(NodeId.hydrate(
@@ -64,10 +65,10 @@ public class StrategicCommitment extends FmmCommitmentNodeImpl implements Compar
                 aProjectAssetId );
     }
 
-	public StrategicCommitment(String aStrategicMilestoneId, String aProjectAssetId) {
-		super(StrategicCommitment.class, aStrategicMilestoneId, aProjectAssetId);
-		this.parentNodeIdString = aStrategicMilestoneId;
-		this.childNodeIdString = aProjectAssetId;
+	public StrategicCommitment(StrategicMilestone aStrategicMilestone, StrategicAsset aStrategicAsset) {
+		super(StrategicCommitment.class, aStrategicMilestone.getNodeIdString(), aStrategicAsset.getNodeIdString());
+		setStrategicMilestone(aStrategicMilestone);
+		setStrategicAsset(aStrategicAsset);
 	}
 
 	public String getStrategicMilestoneNodeId() {
@@ -96,22 +97,22 @@ public class StrategicCommitment extends FmmCommitmentNodeImpl implements Compar
 		return this.childNodeIdString;
 	}
 	
-	public ProjectAsset getProjectAsset() {
-		if(this.projectAsset == null) {
-			this.projectAsset =
-					FmmDatabaseMediator.getActiveMediator().retrieveProjectAsset(this.childNodeIdString);
+	public StrategicAsset getStrategicAsset() {
+		if(this.strategicAsset == null) {
+			this.strategicAsset =
+					FmmDatabaseMediator.getActiveMediator().retrieveStrategicAsset(this.childNodeIdString);
 		}
-		return this.projectAsset;
+		return this.strategicAsset;
 	}
 
 	public void setProjectAssetNodeId(String aProjectAssetNodeId) {
 		this.childNodeIdString = aProjectAssetNodeId;
-		this.projectAsset = null;
+		this.strategicAsset = null;
 	}
 
-	public void setProjectAsset(ProjectAsset aProjectAsset) {
-		this.projectAsset = aProjectAsset;
-		this.childNodeIdString = aProjectAsset.getNodeIdString();
+	public void setStrategicAsset(StrategicAsset aStrategicAsset) {
+		this.strategicAsset = aStrategicAsset;
+		this.childNodeIdString = aStrategicAsset.getNodeIdString();
 	}
 
 	@Override
@@ -141,5 +142,4 @@ public class StrategicCommitment extends FmmCommitmentNodeImpl implements Compar
 	public Class<? extends FmmNode> getChildClass() {
 		return ProjectAsset.class;
 	}
-
 }

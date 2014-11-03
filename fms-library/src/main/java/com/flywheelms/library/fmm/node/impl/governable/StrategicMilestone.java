@@ -95,10 +95,10 @@ public class StrategicMilestone extends FmmCompletionNodeImpl implements Compara
 	private ArrayList<ProjectAsset> projectAssetList;
 	
 	// create a new Strategic Milestone
-	public StrategicMilestone(NodeId aNodeId, String aHeadline, String aFiscalYearNodeIdString) {
+	public StrategicMilestone(NodeId aNodeId, String aHeadline, FiscalYear aFiscalYear) {
 		super(aNodeId);
 		setHeadline(aHeadline);
-		setFiscalYearId(aFiscalYearNodeIdString);
+		setFiscalYear(aFiscalYear);
 	}
 
 	public StrategicMilestone(String aNodeIdString, String aFiscalYearNodeId) {

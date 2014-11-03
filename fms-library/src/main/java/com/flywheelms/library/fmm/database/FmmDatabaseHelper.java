@@ -134,7 +134,7 @@ public class FmmDatabaseHelper {
 //	public static void createDatabase(SQLiteDatabase aDatabase) {
 //		FmmDatabaseBuilderSqLite.createDatabase(aDatabase);
 //		DatabaseRowLoaderSqLite.insertRows(aDatabase, "Demo-1");
-//		FmmDatabaseMediator.getActiveMediator().newFmmConfiguration(FmmDatabaseMediator.getActiveMediator().getFmmConfiguration(), true);
+//		FmmDatabaseMediator.getActiveMediator().newFmmConfiguration(FmmDatabaseMediator.getActiveMediator().retrieveFmmConfiguration(), true);
 //	}
 	
 	// TODO

@@ -51,8 +51,8 @@ import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
 import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
 import com.flywheelms.library.fmm.database.sqlite.dao.BookshelfDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.BookshelfLinkToNotebookDaoSqLite;
+import com.flywheelms.library.fmm.database.sqlite.dao.CadenceCommitmentDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.CadenceDaoSqLite;
-import com.flywheelms.library.fmm.database.sqlite.dao.CadenceWorkPackageCommitmentDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.CommunityMemberDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.CommunityMemberOrganizationGovernanceAuthorityDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.DiscussionTopicDaoSqLite;
@@ -87,8 +87,8 @@ import com.flywheelms.library.fmm.database.sqlite.dao.WorkPlanDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.WorkTaskDaoSqLite;
 import com.flywheelms.library.fmm.helper.FmmOpenHelper;
 import com.flywheelms.library.fmm.interfaces.WorkAsset;
+import com.flywheelms.library.fmm.meta_data.CadenceCommitmentMetaData;
 import com.flywheelms.library.fmm.meta_data.CadenceMetaData;
-import com.flywheelms.library.fmm.meta_data.CadenceWorkPackageCommitmentMetaData;
 import com.flywheelms.library.fmm.meta_data.CommunityMemberMetaData;
 import com.flywheelms.library.fmm.meta_data.CommunityMemberOrganizationGovernanceAuthorityMetaData;
 import com.flywheelms.library.fmm.meta_data.CompletableNodeMetaData;
@@ -170,7 +170,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
             this.daoMap.put(FmmNodeDefinition.BOOKSHELF, BookshelfDaoSqLite.getInstance());
             this.daoMap.put(FmmNodeDefinition.BOOKSHELF_LINK_TO_NOTEBOOK, BookshelfLinkToNotebookDaoSqLite.getInstance());
             this.daoMap.put(FmmNodeDefinition.CADENCE, CadenceDaoSqLite.getInstance());
-            this.daoMap.put(FmmNodeDefinition.CADENCE_WORK_PACKAGE_COMMITMENT, CadenceWorkPackageCommitmentDaoSqLite.getInstance());
+            this.daoMap.put(FmmNodeDefinition.CADENCE_COMMITMENT, CadenceCommitmentDaoSqLite.getInstance());
             this.daoMap.put(FmmNodeDefinition.COMMUNITY_MEMBER, CommunityMemberDaoSqLite.getInstance());
             this.daoMap.put(FmmNodeDefinition.COMMUNITY_MEMBER_ORGANIZATION_GOVERNANCE_AUTHORITY, CommunityMemberOrganizationGovernanceAuthorityDaoSqLite.getInstance());
             this.daoMap.put(FmmNodeDefinition.HEADLINE_NODE_TRASH, HeadlineNodeTrashDaoSqLite.getInstance());
@@ -778,7 +778,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
     @SuppressWarnings("resource")
     @Override
-    public <T extends FmmNode> ArrayList<T> listSimpleIdTable(
+    public <T extends FmmNode> ArrayList<T> retrieveFmmNodeListFromSimpleIdTable(
             FmmNodeDefinition aNodeDefinition,
             String aWhereColumnName,
             String aWhereColumnValue,
@@ -797,10 +797,30 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
         Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
         return getDao(aNodeDefinition).getObjectListFromCursor(theCursor);
     }
+    @SuppressWarnings("resource")
+    @Override
+    public <T extends FmmNode> ArrayList<T> retrieveFmmNodeListFromSimpleIdTable(
+            FmmNodeDefinition aNodeDefinition,
+            String aWhereClause,
+            String anExceptionId,
+            String anOrderBySpec) {
+        String theRawQuery = "SELECT * FROM " + aNodeDefinition.getTableName();
+        if(aWhereClause != null) {
+            theRawQuery += " WHERE " + aWhereClause;
+        }
+        if(anExceptionId != null) {
+            theRawQuery += " AND " + IdNodeMetaData.column_ID + " != '" + anExceptionId + "' ";
+        }
+        if(anOrderBySpec != null) {
+            theRawQuery += " ORDER BY " + anOrderBySpec;
+        }
+        Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
+        return getDao(aNodeDefinition).getObjectListFromCursor(theCursor);
+    }
 
     @SuppressWarnings("resource")
     @Override
-    public <V extends FmmNode> ArrayList<V> listSimpleIdLeftTableFromLink(
+    public <V extends FmmNode> ArrayList<V> retrieveFmmNodeListFromSimpleIdLeftTableFromLink(
             FmmNodeDefinition aLeftTableDefinition,
             String aLeftColumnName,
             String aLefgColumnExceptionValue,
@@ -2776,7 +2796,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
 	@Override
 	public ArrayList<WorkPackage> dbListWorkPackageForCadence(String aCadenceId) {
-//				FmmNodeDefinition.CADENCE_WORK_PACKAGE_COMMITMENT
+//				FmmNodeDefinition.CADENCE_COMMITMENT
 		return null;
 	}
 
@@ -2793,17 +2813,17 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 				theRawQuery += " ORDER BY " + CompletableNodeMetaData.column_SEQUENCE + " ASC";
 				theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
 		} else {
-			String theAndClause = FmmNodeDefinition.CADENCE_WORK_PACKAGE_COMMITMENT.getTableName() + "." + CadenceWorkPackageCommitmentMetaData.column_FLYWHEEL_CADENCE_ID + " = '" + aParentNodeId + "'";
+			String theAndClause = FmmNodeDefinition.CADENCE_COMMITMENT.getTableName() + "." + CadenceCommitmentMetaData.column_CADENCE_ID + " = '" + aParentNodeId + "'";
 			if(aWorkPackageExceptionId != null) {
-				theAndClause += " AND " + FmmNodeDefinition.CADENCE_WORK_PACKAGE_COMMITMENT.getTableName() + "." + CadenceWorkPackageCommitmentMetaData.column_WORK_PACKAGE_ID + " != '" + aWorkPackageExceptionId + "'";
+				theAndClause += " AND " + FmmNodeDefinition.CADENCE_COMMITMENT.getTableName() + "." + CadenceCommitmentMetaData.column_WORK_PACKAGE_ID + " != '" + aWorkPackageExceptionId + "'";
 			}
 			theCursor = getSqLiteDatabase().rawQuery(getInnerJoinQueryWithAndSpecSorted(
 					FmmNodeDefinition.WORK_PACKAGE.getTableName(),
 					IdNodeMetaData.column_ID,
-					FmmNodeDefinition.CADENCE_WORK_PACKAGE_COMMITMENT.getTableName(),
-					CadenceWorkPackageCommitmentMetaData.column_WORK_PACKAGE_ID,
+					FmmNodeDefinition.CADENCE_COMMITMENT.getTableName(),
+					CadenceCommitmentMetaData.column_WORK_PACKAGE_ID,
 					theAndClause,
-					FmmNodeDefinition.CADENCE_WORK_PACKAGE_COMMITMENT.getTableName() + "." + SequencedLinkNodeMetaData.column_SEQUENCE), null);
+					FmmNodeDefinition.CADENCE_COMMITMENT.getTableName() + "." + SequencedLinkNodeMetaData.column_SEQUENCE), null);
 		}
 		return WorkPackageDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
 	}
@@ -3017,7 +3037,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	@Override
 	public ArrayList<PdfPublication> dbRetrievePdfPublicationLisForTargetNode(String aTargetId) {
 		Cursor theCursor = getSqLiteDatabase().rawQuery("SELECT * FROM " + FmmNodeDefinition.PDF_PUBLICATION.getTableName() +
-				"WHERE " + PdfPublicationMetaData.column_TARGET_NODE_ID + " = '" + aTargetId + "';", null);
+				"WHERE " + PdfPublicationMetaData.column_HEADLINE_NODE_ID + " = '" + aTargetId + "';", null);
 		return PdfPublicationDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
 	}
 
@@ -3025,7 +3045,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	@Override
 	public ArrayList<PdfPublication> dbRetrievePdfPublicationLisForTargetNodeAndCommunityMember(String aTargetId, String aCommunityMemberId) {
 		Cursor theCursor = getSqLiteDatabase().rawQuery("SELECT * FROM " + FmmNodeDefinition.PDF_PUBLICATION.getTableName() +
-				"WHERE " + PdfPublicationMetaData.column_TARGET_NODE_ID + " = '" + aTargetId +
+				"WHERE " + PdfPublicationMetaData.column_HEADLINE_NODE_ID + " = '" + aTargetId +
 				"' AND " + PdfPublicationMetaData.column_COMMUNITY_MEMBER_ID + " = '" + aCommunityMemberId + "';", null);
 		return PdfPublicationDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
 	}

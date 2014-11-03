@@ -319,7 +319,7 @@ public class Cadence extends FmmCompletionNodeImpl {
                 theList = FmmDatabaseMediator.getActiveMediator().retrieveWorkPlanList(this);
                 break;
             case WORK_PACKAGE:
-                theList = FmmDatabaseMediator.getActiveMediator().listWorkPackage(this);
+                theList = FmmDatabaseMediator.getActiveMediator().retrieveWorkPackageList(this);
                 break;
         }
         return theList;

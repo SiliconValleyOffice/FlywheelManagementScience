@@ -913,14 +913,20 @@ public abstract class PersistenceTechnologyDelegate {
 
     public abstract <T extends FmmNode> T retrieveFmmNodeFromTableForParent(FmmNodeDefinition anFmmNodeDefinition, String aParentId);
 
-    public abstract <T extends FmmNode> ArrayList<T> listSimpleIdTable(
+    public abstract <T extends FmmNode> ArrayList<T> retrieveFmmNodeListFromSimpleIdTable(
             FmmNodeDefinition aNodeDefinition,
             String aWhereColumnName,
             String aWhereColumnValue,
             String anExceptionId,
             String anOrderBySpec);
 
-    public abstract <T extends FmmNode> ArrayList<T> listSimpleIdLeftTableFromLink(
+    public abstract <T extends FmmNode> ArrayList<T> retrieveFmmNodeListFromSimpleIdTable(
+            FmmNodeDefinition aNodeDefinition,
+            String aWhereClause,
+            String anExceptionId,
+            String anOrderBySpec);
+
+    public abstract <T extends FmmNode> ArrayList<T> retrieveFmmNodeListFromSimpleIdLeftTableFromLink(
             FmmNodeDefinition aLeftTableDefinition,
             String aLeftColumnName,
             String aLefgColumnExceptionValue,

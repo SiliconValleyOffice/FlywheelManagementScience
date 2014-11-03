@@ -94,7 +94,7 @@ public enum GovernanceTarget implements FmmEnumNode {
 			GovernanceParticipationType.REQUIRED,
 			false),
 	FLYWHEEL_COMMITMENT (
-			FmmNodeDefinition.CADENCE_WORK_PACKAGE_COMMITMENT,
+			FmmNodeDefinition.CADENCE_COMMITMENT,
 			GovernanceParticipationType.REQUIRED,
 			GovernanceParticipationType.REQUIRED,
 			GovernanceParticipationType.NONE,

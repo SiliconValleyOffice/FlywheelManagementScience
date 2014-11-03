@@ -124,15 +124,15 @@ public enum LockConfig implements FmmEnumNode {
 			LockType.TACTICAL_MILESTONES,
 			true, true, false, true ),
 	FLYWHEEL_COMMITMENT_NODE (
-			FmmNodeDefinition.CADENCE_WORK_PACKAGE_COMMITMENT,
+			FmmNodeDefinition.CADENCE_COMMITMENT,
 			LockType.NODE,
 			true, true, false, true ),
 	FLYWHEEL_COMMITMENT_STORY (
-			FmmNodeDefinition.CADENCE_WORK_PACKAGE_COMMITMENT,
+			FmmNodeDefinition.CADENCE_COMMITMENT,
 			LockType.STORY,
 			true, true, false, true ),
 	FLYWHEEL_COMMITMENT_NOTES (
-			FmmNodeDefinition.CADENCE_WORK_PACKAGE_COMMITMENT,
+			FmmNodeDefinition.CADENCE_COMMITMENT,
 			LockType.NOTES,
 			true, true, false, true ),
 	FLYWHEEL_CADENCE_NODE (

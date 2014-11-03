@@ -152,7 +152,7 @@ public class Bookshelf extends FmmGovernableNodeImpl {
 
     public FmsOrganization getOrganization() {
         if(this.organization == null && this.organizationNodeIdString != null) {
-            this.organization = FmmDatabaseMediator.getActiveMediator().getFmsOrganization(this.organizationNodeIdString);
+            this.organization = FmmDatabaseMediator.getActiveMediator().retrieveFmsOrganization(this.organizationNodeIdString);
         }
         return this.organization;
     }

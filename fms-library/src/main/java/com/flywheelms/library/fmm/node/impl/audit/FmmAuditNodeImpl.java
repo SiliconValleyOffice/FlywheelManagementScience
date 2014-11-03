@@ -81,6 +81,13 @@ public abstract class FmmAuditNodeImpl extends FmmNodeImpl implements FmmNodeAud
 	public void setNodeFragAuditBlock(NodeFragAuditBlock anAuditBlock) {
 		this.nodeFragAuditBlock = anAuditBlock;
 	}
+
+    @Override
+    public NodeFragAuditBlock getUpdatedNodeFragAuditBlock() {
+        NodeFragAuditBlock theNodeFragAuditBlock = getNodeFragAuditBlock();
+        // only needs to be implemented in FmmHeadlineNodeImpl
+        return theNodeFragAuditBlock;
+    }
 	
 	//  Created  //
 	

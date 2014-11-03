@@ -156,7 +156,7 @@ public class FmsOrganization extends FmmGovernableNodeImpl {
 	}
 	
 	public static FmsOrganization getFmmConfiguration(Intent anIntent) {
-		return FmmDatabaseMediator.getActiveMediator().getFmsOrganization(NodeId.getNodeIdString(anIntent));
+		return FmmDatabaseMediator.getActiveMediator().retrieveFmsOrganization(NodeId.getNodeIdString(anIntent));
 	}
 
     public int getFirstMonthOfFiscalYear() {

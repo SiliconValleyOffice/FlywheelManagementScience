@@ -120,7 +120,7 @@ public class FmmConfigurationWidgetListView extends FmsWidgetListView <FmmConfig
 
 	@Override
 	protected void refreshObjectAfterEditorResult(Intent anIntent, FmmConfiguration anObject) {
-		FmmDatabaseMediator.getActiveMediator().getFmmConfiguration(anObject.getNodeIdString());
+		FmmDatabaseMediator.getActiveMediator().retrieveFmmConfiguration(anObject.getNodeIdString());
 	}
 
 	@Override

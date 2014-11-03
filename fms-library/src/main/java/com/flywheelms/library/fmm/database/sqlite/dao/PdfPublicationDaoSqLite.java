@@ -72,7 +72,8 @@ public class PdfPublicationDaoSqLite extends IdNodeDaoSqLite<PdfPublication> {
 	protected void buildColumnIndexMap(Cursor aCursor) {
 		super.buildColumnIndexMap(aCursor);
 		putColumnIndexMapEntry(this.columnIndexMap, aCursor, PdfPublicationMetaData.column_COMMUNITY_MEMBER_ID);
-		putColumnIndexMapEntry(this.columnIndexMap, aCursor, PdfPublicationMetaData.column_TARGET_NODE_ID);
+		putColumnIndexMapEntry(this.columnIndexMap, aCursor, PdfPublicationMetaData.column_HEADLINE_NODE_ID);
+		putColumnIndexMapEntry(this.columnIndexMap, aCursor, PdfPublicationMetaData.column_HEADLINE_NODE_TYPE_CODE);
 		putColumnIndexMapEntry(this.columnIndexMap, aCursor, PdfPublicationMetaData.column_CONTENT_SUMMARY);
 		putColumnIndexMapEntry(this.columnIndexMap, aCursor, PdfPublicationMetaData.column_DESTINATION_SUMMARY_1);
 		putColumnIndexMapEntry(this.columnIndexMap, aCursor, PdfPublicationMetaData.column_DESTINATION_SUMMARY_2);
@@ -81,6 +82,7 @@ public class PdfPublicationDaoSqLite extends IdNodeDaoSqLite<PdfPublication> {
 	@Override
 	protected void getColumnValues(HashMap<String, Integer> aHashMap, Cursor aCursor, PdfPublication aPdfPublication) {
 		super.getColumnValues(aHashMap, aCursor, aPdfPublication);
+		aPdfPublication.setHeadlineNodeTypeCode(aCursor.getString(aHashMap.get(PdfPublicationMetaData.column_HEADLINE_NODE_TYPE_CODE)));
 		aPdfPublication.setContentsSummary(aCursor.getString(aHashMap.get(PdfPublicationMetaData.column_CONTENT_SUMMARY)));
 		aPdfPublication.setDestinationSummary1(aCursor.getString(aHashMap.get(PdfPublicationMetaData.column_DESTINATION_SUMMARY_1)));
 		aPdfPublication.setDestinationSummary2(aCursor.getString(aHashMap.get(PdfPublicationMetaData.column_DESTINATION_SUMMARY_2)));
@@ -92,7 +94,7 @@ public class PdfPublicationDaoSqLite extends IdNodeDaoSqLite<PdfPublication> {
 		thePdfPublication = new PdfPublication(
 				aCursor.getString(this.columnIndexMap.get(IdNodeMetaData.column_ID)),
 				aCursor.getString(this.columnIndexMap.get(PdfPublicationMetaData.column_COMMUNITY_MEMBER_ID)),
-				aCursor.getString(this.columnIndexMap.get(PdfPublicationMetaData.column_TARGET_NODE_ID)) );
+				aCursor.getString(this.columnIndexMap.get(PdfPublicationMetaData.column_HEADLINE_NODE_ID)) );
 		getColumnValues(this.columnIndexMap, aCursor, thePdfPublication);
 		return thePdfPublication;
 	}

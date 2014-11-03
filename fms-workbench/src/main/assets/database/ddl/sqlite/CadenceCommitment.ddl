@@ -1,4 +1,4 @@
-CREATE TABLE `CadenceWorkPackageCommitment` (
+CREATE TABLE `CadenceCommitment` (
   `_id` CHAR(40) NOT NULL,
   `row_timestamp` BIGINT(14) NOT NULL DEFAULT 0,
   `Cadence__id` CHAR(40) NOT NULL,
@@ -37,3 +37,4 @@ CREATE TABLE `CadenceWorkPackageCommitment` (
   CONSTRAINT `fk_Commitment_WorkPackage`
     FOREIGN KEY (`WorkPackage__id`)
     REFERENCES `WorkPackage` (`_id`) );
+    

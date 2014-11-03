@@ -157,7 +157,7 @@ public class StrategicAsset extends FmmCompletionNodeImpl implements Comparable<
 	}
 
 	public StrategicCommitment getStrategicCommitment() {
-		return FmmDatabaseMediator.getActiveMediator().getStrategicCommitmentForProjectAsset(getNodeIdString());
+		return FmmDatabaseMediator.getActiveMediator().retrieveStrategicCommitmentForStrategicAsset(getNodeIdString());
 	}
 
 	////////////////////////////////////////////////
@@ -262,7 +262,7 @@ public class StrategicAsset extends FmmCompletionNodeImpl implements Comparable<
 
 	public ArrayList<WorkPackage> getWorkPackageList() {
 		if(this.workPackageList == null) {
-			this.workPackageList = FmmDatabaseMediator.getActiveMediator().listWorkPackageForProjectAsset(getNodeIdString());
+			this.workPackageList = FmmDatabaseMediator.getActiveMediator().retrieveWorkPackageListForWorkAsset(getNodeIdString());
 		}
 		return this.workPackageList;
 	}
@@ -342,7 +342,7 @@ public class StrategicAsset extends FmmCompletionNodeImpl implements Comparable<
 	@Override
 	public int getSequence(FmmNodeDefinition anFmmNodeDefinition) {
 		FmmSequencedNode theSequencedNode = anFmmNodeDefinition == FmmNodeDefinition.STRATEGIC_MILESTONE ?
-				FmmDatabaseMediator.getActiveMediator().getStrategicCommitmentForProjectAsset(getNodeIdString()) :
+				FmmDatabaseMediator.getActiveMediator().retrieveStrategicCommitmentForStrategicAsset(getNodeIdString()) :
 				this;  // within Project
 		return theSequencedNode.getSequence();
 	}
@@ -374,7 +374,7 @@ public class StrategicAsset extends FmmCompletionNodeImpl implements Comparable<
         ArrayList<? extends FmmHeadlineNodeImpl> theList = null;
         switch(aChildNodeDefinition) {
             case WORK_PACKAGE:
-                theList = FmmDatabaseMediator.getActiveMediator().listWorkPackage(this);
+                theList = FmmDatabaseMediator.getActiveMediator().retrieveWorkPackageList(this);
                 break;
         }
         return theList;

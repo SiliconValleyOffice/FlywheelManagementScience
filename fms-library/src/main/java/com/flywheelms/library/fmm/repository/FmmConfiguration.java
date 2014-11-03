@@ -226,7 +226,7 @@ public abstract class FmmConfiguration extends FmmGovernableNodeImpl {
 	}
 	
 	public static FmmConfiguration getFmmConfiguration(Intent anIntent) {
-		return FmmDatabaseMediator.getActiveMediator().getFmmConfiguration(NodeId.getNodeIdString(anIntent));
+		return FmmDatabaseMediator.getActiveMediator().retrieveFmmConfiguration(NodeId.getNodeIdString(anIntent));
 	}
 	
 	@Override
