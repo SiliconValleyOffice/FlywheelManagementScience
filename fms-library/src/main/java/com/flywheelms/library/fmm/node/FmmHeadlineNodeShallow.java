@@ -647,7 +647,12 @@ public class FmmHeadlineNodeShallow implements FmmHeadlineNode {
 		return getFmmHeadlineNode().updateRowTimestamp();
 	}
 
-	@Override
+    @Override
+    public void updateNodeFragAuditBlock() {
+
+    }
+
+    @Override
 	public NodeFragTribKnQuality getNodeFragTribKnQuality() {
 		return getFmmHeadlineNode().getNodeFragTribKnQuality();
 	}
@@ -748,8 +753,23 @@ public class FmmHeadlineNodeShallow implements FmmHeadlineNode {
     }
 
     @Override
+    public NodeFragTribKnQuality getUpdatedNodeFragTribKnQuality() {
+        return null;
+    }
+
+    @Override
     public void setNodeFragFseDocument(NodeFragFseDocument aNodeFragFseDocument) {
 
+    }
+
+    @Override
+    public NodeFragFseDocument getNodeFragFseDocument() {
+        return null;
+    }
+
+    @Override
+    public NodeFragFseDocument getUpdatedNodeFragFseDocument() {
+        return null;
     }
 
 }

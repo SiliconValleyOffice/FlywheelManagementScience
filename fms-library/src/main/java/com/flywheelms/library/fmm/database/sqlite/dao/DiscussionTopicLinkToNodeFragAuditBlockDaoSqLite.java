@@ -68,7 +68,7 @@ public class DiscussionTopicLinkToNodeFragAuditBlockDaoSqLite extends SequencedL
 
 	@Override
 	protected String getParentIdColumnName() {
-		return DiscussionTopicLinkToNodeFragAuditBlockMetaData.column_NOTEBOOK_ID;
+		return DiscussionTopicLinkToNodeFragAuditBlockMetaData.column_DISCUSSION_TOPIC_ID;
 	}
 
 	@Override
@@ -81,7 +81,7 @@ public class DiscussionTopicLinkToNodeFragAuditBlockDaoSqLite extends SequencedL
 		DiscussionTopicLinkToNodeFragAuditBlock theDiscussionTopicLinkToNodeFragAuditBlock = null;
 		theDiscussionTopicLinkToNodeFragAuditBlock = new DiscussionTopicLinkToNodeFragAuditBlock(
                 aCursor.getString(this.columnIndexMap.get(IdNodeMetaData.column_ID)),
-                aCursor.getString(this.columnIndexMap.get(DiscussionTopicLinkToNodeFragAuditBlockMetaData.column_NOTEBOOK_ID)),
+                aCursor.getString(this.columnIndexMap.get(DiscussionTopicLinkToNodeFragAuditBlockMetaData.column_DISCUSSION_TOPIC_ID)),
                 aCursor.getString(this.columnIndexMap.get(DiscussionTopicLinkToNodeFragAuditBlockMetaData.column_NODE_FRAG_AUDIT_BLOCK_ID)),
                 aCursor.getInt(this.columnIndexMap.get(DiscussionTopicLinkToNodeFragAuditBlockMetaData.column_SEQUENCE)) );
 		getColumnValues(this.columnIndexMap, aCursor, theDiscussionTopicLinkToNodeFragAuditBlock);

@@ -375,7 +375,7 @@ public abstract class PersistenceTechnologyDelegate {
 
     public abstract FmmNodeDao getDao(FmmNodeDefinition anFmmNodeDefinition);
 
-    // RETRIEVE
+    // EXISTS & RETRIEVE
 
     public abstract boolean existsSimpleIdTable(FmmNodeDefinition anFmmNodeDefinition, String aNodeIdString);
 
@@ -386,6 +386,8 @@ public abstract class PersistenceTechnologyDelegate {
     public abstract <T extends FmmNode> T retrieveFmmNodeFromSimpleIdTable(FmmNodeDefinition anFmmNodeDefinition, String aColumnName, String aColumnValue);
 
     public abstract <T extends FmmNode> T retrieveFmmNodeFromTableForParent(FmmNodeDefinition anFmmNodeDefinition, String aParentId);
+
+    public abstract ArrayList<FmmHeadlineNode> retrieveFmmHeadlineNodeListFromSimpleIdTable(FmmNodeDefinition anFmmNodeDefinition);
 
     public abstract <T extends FmmNode> ArrayList<T> retrieveFmmNodeListFromSimpleIdTable(
             FmmNodeDefinition aNodeDefinition,

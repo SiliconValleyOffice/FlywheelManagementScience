@@ -175,7 +175,7 @@ public class FsePerspectiveFlipper extends FmsPerspectiveFlipper implements GcgS
 		updateHistory(theTimestamp, theDocumentTransactionType, "");
 		updateAuditBlock(theTimestamp, theDocumentTransactionType);
 		updateCollaboratorSummary();
-		FmmDatabaseMediator.getActiveMediator().updateFseDocument(generateFseDocument(), true);
+		FmmDatabaseMediator.getActiveMediator().updateFseDocument(getFmmHeadelineNode(), generateFseDocument(), true);
 		postPersistenceProcessing();
 		setDisplayedFseDocument(generateFseDocument());
 		setAsNewBaseline();
@@ -315,7 +315,12 @@ public class FsePerspectiveFlipper extends FmsPerspectiveFlipper implements GcgS
 		return this.collaboratorsSectionPerspective.getDocumentSectionCollaborators().getAuditBlock();
 	}
 
-	@Override
+    @Override
+    public NodeFragAuditBlock getUpdatedNodeFragAuditBlock() {
+        return getFmmHeadelineNode().getUpdatedNodeFragAuditBlock();
+    }
+
+    @Override
 	public void setNodeFragAuditBlock(NodeFragAuditBlock anAuditBlock) {
 		this.collaboratorsSectionPerspective.getDocumentSectionCollaborators().setAuditBlock(anAuditBlock);
 	}
@@ -685,7 +690,7 @@ public class FsePerspectiveFlipper extends FmsPerspectiveFlipper implements GcgS
 		updateHistory(theTimestamp, theTransactionType, theComment);
 		updateAuditBlock(theTimestamp, theTransactionType);
 		updateCollaboratorSummary();
-		FmmDatabaseMediator.getActiveMediator().updateFseDocument(generateFseDocument(), true);
+		FmmDatabaseMediator.getActiveMediator().updateFseDocument(getFmmHeadelineNode(), generateFseDocument(), true);
 		getHistorySectionPerspective().refresh();
 		getCollaboratorsSectionPerspective().invalidate();
 	}

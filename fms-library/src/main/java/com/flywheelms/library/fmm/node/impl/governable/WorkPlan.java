@@ -273,7 +273,7 @@ public class WorkPlan extends FmmCompletionNodeImpl {
     public ArrayList<WorkTask> getWorkTaskList() {
         if(this.workTaskList == null) {
             this.workTaskList = new ArrayList<WorkTask>(
-                    FmmDatabaseMediator.getActiveMediator().retrieveWorkTaskListForWorkPlan(this.getNodeIdString()) );
+                    FmmDatabaseMediator.getActiveMediator().retrieveWorkTaskList(this) );
         }
         return this.workTaskList;
     }

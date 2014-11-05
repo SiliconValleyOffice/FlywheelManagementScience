@@ -72,7 +72,7 @@ public class ProjectAssetDeleteDialog extends HeadlineNodeDeleteDialog {
 
 	@Override
 	protected ArrayList<? extends FmmHeadlineNode> getPrimaryChildHeadlineNodeList() {
-		return FmmDatabaseMediator.getActiveMediator().retrieveWorkPackageListForWorkAsset(getFmmHeadlineNode().getNodeIdString());
+		return FmmDatabaseMediator.getActiveMediator().retrieveWorkPackageList(getProjectAsset());
 	}
 
 	@Override
@@ -138,4 +138,7 @@ public class ProjectAssetDeleteDialog extends HeadlineNodeDeleteDialog {
                 false);
 	}
 
+    public ProjectAsset getProjectAsset() {
+        return (ProjectAsset) getFmmHeadlineNode();
+    }
 }

@@ -48,6 +48,7 @@ import android.widget.LinearLayout;
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.interfaces.WorkAsset;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
 import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
 import com.flywheelms.library.fmm.node.impl.governable.StrategicAsset;
@@ -73,7 +74,7 @@ public class StrategicAssetDeleteDialog extends HeadlineNodeDeleteDialog {
 
 	@Override
 	protected ArrayList<? extends FmmHeadlineNode> getPrimaryChildHeadlineNodeList() {
-		return FmmDatabaseMediator.getActiveMediator().retrieveWorkPackageListForWorkAsset(getFmmHeadlineNode().getNodeIdString());
+		return FmmDatabaseMediator.getActiveMediator().retrieveWorkPackageList(getWorkAsset());
 	}
 
 	@Override
@@ -139,4 +140,7 @@ public class StrategicAssetDeleteDialog extends HeadlineNodeDeleteDialog {
                 false);
 	}
 
+    public WorkAsset getWorkAsset() {
+        return (WorkAsset) getFmmHeadlineNode();
+    }
 }

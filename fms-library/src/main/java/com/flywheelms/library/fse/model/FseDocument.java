@@ -490,7 +490,12 @@ public class FseDocument extends FmmNodeFragImpl implements FmmNodeAudit, Clonea
 		return getDocumentSectionCollaborators().getAuditBlock();
 	}
 
-	@Override
+    @Override
+    public NodeFragAuditBlock getUpdatedNodeFragAuditBlock() {
+        return null;
+    }
+
+    @Override
 	public void setNodeFragAuditBlock(NodeFragAuditBlock anAuditBlock) {
 		getDocumentSectionCollaborators().setAuditBlock(anAuditBlock);
 	}

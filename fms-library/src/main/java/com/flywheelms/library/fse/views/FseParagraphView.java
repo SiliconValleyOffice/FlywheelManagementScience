@@ -1208,4 +1208,9 @@ public abstract class FseParagraphView extends LinearLayout
 		return this.isHistory;
 	}
 
+    @Override
+    public NodeFragAuditBlock getUpdatedNodeFragAuditBlock() {
+        return null;
+    }
+
 }

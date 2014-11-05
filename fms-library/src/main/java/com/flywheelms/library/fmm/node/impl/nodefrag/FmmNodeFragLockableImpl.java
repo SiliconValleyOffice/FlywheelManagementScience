@@ -94,7 +94,7 @@ public class FmmNodeFragLockableImpl extends FmmNodeFragImpl implements FmmNodeL
 
 	public FragLock getFragLock() {
 		if(this.fragLock == null) {
-			this.fragLock = FmmDatabaseMediator.getActiveMediator().retrieveFragLockForParent(getNodeIdString(), getParentNodeIdString());
+			this.fragLock = FmmDatabaseMediator.getActiveMediator().retrieveFragLockForParent(getParentNodeIdString());
 		}
 		return this.fragLock;
 	}

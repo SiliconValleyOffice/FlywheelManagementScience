@@ -104,5 +104,4 @@ public class FseParagraphViewWithTextContent extends FseParagraphView {
 	public String toString() {
 		return getParagraphId() + " : " + getStyle().getName() + " : " + getTextContents();
 	}
-
 }

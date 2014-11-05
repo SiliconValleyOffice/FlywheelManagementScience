@@ -262,6 +262,10 @@ public class FmmDatabaseMediator {
 
     //-->>> RETRIEVE
 
+    public ArrayList<FmmHeadlineNode> retrieveFmmHeadlineNodeList(FmmNodeDefinition anFmmNodeDefinition) {
+        return this.persistenceTechnologyDelegate.retrieveFmmHeadlineNodeListFromSimpleIdTable(anFmmNodeDefinition);
+    }
+
     public boolean existsSimpleIdTable(FmmNodeDefinition anFmmNodeDefinition, String aNodeIdString) {
         return this.persistenceTechnologyDelegate.existsSimpleIdTable(anFmmNodeDefinition, aNodeIdString);
     }
@@ -437,11 +441,11 @@ public class FmmDatabaseMediator {
     ///////////////////////////////////////////
     /////////  SEQUENCE  //////////////////////
 
-	private void swapSequence(FmmHeadlineNode aTargetNode, FmmHeadlineNode aPeerNode, FmmHeadlineNode aParentNode) {
+	public void swapSequence(FmmHeadlineNode aTargetNode, FmmHeadlineNode aPeerNode, FmmHeadlineNode aParentNode) {
 		this.persistenceTechnologyDelegate.dbSwapSequence(aParentNode, aTargetNode, aPeerNode);
 	}
 
-	private void sequenceFirst(FmmHeadlineNode aTargetNode, FmmHeadlineNode aParentNode) {
+	public void sequenceFirst(FmmHeadlineNode aTargetNode, FmmHeadlineNode aParentNode) {
 		if(aTargetNode.getFmmNodeDefinition().isPrimarySequenceNode(aParentNode.getFmmNodeDefinition())) {
 			this.persistenceTechnologyDelegate.incrementSequence(
                     aTargetNode.getFmmNodeDefinition().getTableName(),
@@ -460,7 +464,7 @@ public class FmmDatabaseMediator {
 		}
 	}
 
-	private void sequenceLast(FmmHeadlineNode aTargetNode, FmmHeadlineNode aParentNode) {
+	public void sequenceLast(FmmHeadlineNode aTargetNode, FmmHeadlineNode aParentNode) {
 		if(aTargetNode.getFmmNodeDefinition().isPrimarySequenceNode(aParentNode.getFmmNodeDefinition())) {
 			this.persistenceTechnologyDelegate.resequenceOnRemove(
                     aTargetNode.getFmmNodeDefinition().getTableName(),

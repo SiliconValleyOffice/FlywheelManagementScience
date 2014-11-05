@@ -263,7 +263,7 @@ public class ProjectAsset extends FmmCompletionNodeImpl implements Comparable<Pr
 
 	public ArrayList<WorkPackage> getWorkPackageList() {
 		if(this.workPackageList == null) {
-			this.workPackageList = FmmDatabaseMediator.getActiveMediator().retrieveWorkPackageListForWorkAsset(getNodeIdString());
+			this.workPackageList = FmmDatabaseMediator.getActiveMediator().retrieveWorkPackageList(this);
 		}
 		return this.workPackageList;
 	}

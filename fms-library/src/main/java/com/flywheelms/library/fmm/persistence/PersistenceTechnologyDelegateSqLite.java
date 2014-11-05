@@ -725,15 +725,21 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
         return (T) getDao(anFmmNodeDefinition).getSingleObjectFromCursor(theCursor);
     }
 
+    public ArrayList<FmmHeadlineNode> retrieveFmmHeadlineNodeListFromSimpleIdTable(FmmNodeDefinition anFmmNodeDefinition) {
+        String theRawQuery = "SELECT * FROM " + anFmmNodeDefinition.getTableName();
+        Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
+        return getDao(anFmmNodeDefinition).getObjectListFromCursor(theCursor);
+    }
+
     @SuppressWarnings("resource")
     @Override
     public <T extends FmmNode> ArrayList<T> retrieveFmmNodeListFromSimpleIdTable(
-            FmmNodeDefinition aNodeDefinition,
+            FmmNodeDefinition anFmmNodeDefinition,
             String aWhereColumnName,
             String aWhereColumnValue,
             String anExceptionId,
             String aSortSpec) {
-        String theRawQuery = "SELECT * FROM " + aNodeDefinition.getTableName();
+        String theRawQuery = "SELECT * FROM " + anFmmNodeDefinition.getTableName();
         if(aWhereColumnName != null) {
             theRawQuery += " WHERE " + aWhereColumnName + " = '" + aWhereColumnValue + "' ";
         }
@@ -744,16 +750,16 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
             theRawQuery += " ORDER BY " + aSortSpec;
         }
         Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
-        return getDao(aNodeDefinition).getObjectListFromCursor(theCursor);
+        return getDao(anFmmNodeDefinition).getObjectListFromCursor(theCursor);
     }
     @SuppressWarnings("resource")
     @Override
     public <T extends FmmNode> ArrayList<T> retrieveFmmNodeListFromSimpleIdTable(
-            FmmNodeDefinition aNodeDefinition,
+            FmmNodeDefinition anFmmNodeDefinition,
             String aWhereClause,
             String anExceptionId,
             String aSortSpec) {
-        String theRawQuery = "SELECT * FROM " + aNodeDefinition.getTableName();
+        String theRawQuery = "SELECT * FROM " + anFmmNodeDefinition.getTableName();
         if(aWhereClause != null) {
             theRawQuery += " WHERE " + aWhereClause;
         }
@@ -764,7 +770,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
             theRawQuery += " ORDER BY " + aSortSpec;
         }
         Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
-        return getDao(aNodeDefinition).getObjectListFromCursor(theCursor);
+        return getDao(anFmmNodeDefinition).getObjectListFromCursor(theCursor);
     }
 
     @SuppressWarnings("resource")

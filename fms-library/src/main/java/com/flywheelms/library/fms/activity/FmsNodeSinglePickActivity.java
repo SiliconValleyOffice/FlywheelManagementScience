@@ -108,7 +108,7 @@ public abstract class FmsNodeSinglePickActivity extends FmsFdkActivity {
 	protected void onCreate(Bundle aSavedInstanceState) {
 		super.onCreate(aSavedInstanceState);
 		initializeListView();
-		this.initialHeadlineNodeList = new ArrayList<FmmHeadlineNode>(FmmDatabaseMediator.getActiveMediator().getHeadlineNodeList(this.nodeDictionaryEntry.getNodeTypeCode()));
+		this.initialHeadlineNodeList = new ArrayList<FmmHeadlineNode>(FmmDatabaseMediator.getActiveMediator().retrieveFmmHeadlineNodeList(this.nodeDictionaryEntry));
 		applyNodeIdExclusionList();
 		this.searchResultsNodeList = new ArrayList<FmmHeadlineNode>(this.initialHeadlineNodeList);
 		this.listViewArrayAdapter = new ArrayAdapter<FmmHeadlineNode>(this, android.R.layout.simple_list_item_1, this.searchResultsNodeList);

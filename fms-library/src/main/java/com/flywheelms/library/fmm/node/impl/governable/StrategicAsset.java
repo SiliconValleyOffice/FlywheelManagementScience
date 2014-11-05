@@ -262,7 +262,7 @@ public class StrategicAsset extends FmmCompletionNodeImpl implements Comparable<
 
 	public ArrayList<WorkPackage> getWorkPackageList() {
 		if(this.workPackageList == null) {
-			this.workPackageList = FmmDatabaseMediator.getActiveMediator().retrieveWorkPackageListForWorkAsset(getNodeIdString());
+			this.workPackageList = FmmDatabaseMediator.getActiveMediator().retrieveWorkPackageList(this);
 		}
 		return this.workPackageList;
 	}
