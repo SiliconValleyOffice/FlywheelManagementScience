@@ -146,6 +146,10 @@ public class NodeFragWorkTaskBudget extends FmmNodeFragLockableImpl
 		return theJsonObject;
 	}
 
+    public NodeFragWorkTaskBudget getClone() {
+        return new NodeFragWorkTaskBudget(getJsonObject());
+    }
+
 	public int getEstimatedTotalTaskCount() {
 		return this.estimatedTotalTaskCount;
 	}

@@ -51,6 +51,7 @@ import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.meta_data.NodeFragAuditBlockMetaData;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.governable.CommunityMember;
+import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.util.JsonHelper;
 
@@ -314,4 +315,8 @@ public class NodeFragAuditBlock extends FmmNodeFragLockableImpl {
 		return super.updateRowTimestamp();
 	}
 
+    public void update(FmmHeadlineNodeImpl anFmmHeadlineNode) {
+        this.setRowTimestamp(anFmmHeadlineNode.getRowTimestamp());
+        // TODO - set other attributes
+    }
 }

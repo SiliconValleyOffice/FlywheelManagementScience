@@ -78,7 +78,7 @@ public class StrategicAssetEditorActivity extends FmmNodeEditorActivity {
 	@Override
 	public void saveAllDataModifications() {
 		super.saveAllDataModifications();
-		FmmDatabaseMediator.getActiveMediator().saveStrategicAsset((StrategicAsset) getDisplayedFmmHeadlineNode(), true);
+		FmmDatabaseMediator.getActiveMediator().updateStrategicAsset((StrategicAsset) getDisplayedFmmHeadlineNode(), true);
 	}
 
 }

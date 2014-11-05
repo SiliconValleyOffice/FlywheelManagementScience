@@ -76,7 +76,7 @@ public class CadenceEditorActivity extends FmmNodeEditorActivity {
 	@Override
 	public void saveAllDataModifications() {
 		super.saveAllDataModifications();
-		FmmDatabaseMediator.getActiveMediator().saveCadence((Cadence) getDisplayedFmmHeadlineNode(), true);
+		FmmDatabaseMediator.getActiveMediator().updateCadence((Cadence) getDisplayedFmmHeadlineNode(), true);
 	}
 
 }

@@ -78,7 +78,7 @@ public class BookshelfEditorActivity extends FmmNodeEditorActivity {
 	@Override
 	public void saveAllDataModifications() {
 		super.saveAllDataModifications();
-		FmmDatabaseMediator.getActiveMediator().saveBookshelf((Bookshelf) getDisplayedFmmHeadlineNode(), true);
+		FmmDatabaseMediator.getActiveMediator().updateBookshelf((Bookshelf) getDisplayedFmmHeadlineNode(), true);
 	}
 
 }

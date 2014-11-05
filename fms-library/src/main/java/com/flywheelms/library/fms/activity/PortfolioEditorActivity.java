@@ -78,7 +78,7 @@ public class PortfolioEditorActivity extends FmmNodeEditorActivity {
 	@Override
 	public void saveAllDataModifications() {
 		super.saveAllDataModifications();
-		FmmDatabaseMediator.getActiveMediator().savePortfolio((Portfolio) getDisplayedFmmHeadlineNode(), true);
+		FmmDatabaseMediator.getActiveMediator().updatePortfolio((Portfolio) getDisplayedFmmHeadlineNode(), true);
 	}
 
 }

@@ -73,6 +73,7 @@ import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragTribKnQuality;
 import com.flywheelms.library.fse.model.FseDocument;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 
 public interface FmmHeadlineNode extends FmmNode, FmmNodeAudit, FmmHistory {
@@ -145,7 +146,15 @@ public interface FmmHeadlineNode extends FmmNode, FmmNodeAudit, FmmHistory {
 	
 	void replaceWithNew(NodeId aNodeId, String aHeadline);
 
+    Date updateRowTimestamp();
+
+    void updateNodeFragAuditBlock();
+
     void setNodeFragFseDocument(NodeFragFseDocument aNodeFragFseDocument);
+
+    NodeFragFseDocument getNodeFragFseDocument();
+
+    NodeFragFseDocument getUpdatedNodeFragFseDocument();
 	
 	NodeFragTribKnQuality getNodeFragTribKnQuality();
 

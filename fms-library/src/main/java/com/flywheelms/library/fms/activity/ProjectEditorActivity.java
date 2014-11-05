@@ -78,7 +78,7 @@ public class ProjectEditorActivity extends FmmNodeEditorActivity {
 	@Override
 	public void saveAllDataModifications() {
 		super.saveAllDataModifications();
-		FmmDatabaseMediator.getActiveMediator().saveProject((Project) getDisplayedFmmHeadlineNode(), true);
+		FmmDatabaseMediator.getActiveMediator().updateProject((Project) getDisplayedFmmHeadlineNode(), true);
 	}
 
 }

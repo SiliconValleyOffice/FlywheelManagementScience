@@ -128,6 +128,17 @@ public abstract class FmmHeadlineNodeImpl extends FmmHistoryNodeImpl
         }
     }
 
+    @Override
+    public NodeFragAuditBlock getUpdatedNodeFragAuditBlock() {
+        updateNodeFragAuditBlock();
+        return getNodeFragAuditBlock();
+    }
+
+    @Override
+    public void updateNodeFragAuditBlock() {
+        getNodeFragAuditBlock().update(this);
+    }
+
     protected void initializeNodeCompletionSummaryMap() {
         this.nodeCompletionSummaryMap = new HashMap<FmmPerspective, NodeCompletionSummary>();
     }
@@ -656,15 +667,6 @@ public abstract class FmmHeadlineNodeImpl extends FmmHistoryNodeImpl
     }
 
     @Override
-    public NodeFragAuditBlock getUpdatedNodeFragAuditBlock() {
-        NodeFragAuditBlock theAuditBlock = getNodeFragAuditBlock();
-        theAuditBlock.setSearchableHeadline(getHeadline());
-        theAuditBlock.setRowTimestamp(getRowTimestamp());
-        theAuditBlock.setIsLocked(isLocked());
-        return theAuditBlock;
-    }
-
-    @Override
     public void setNodeFragFseDocument(NodeFragFseDocument aNodeFragFseDocument) {
         this.nodeFragFseDocument = aNodeFragFseDocument;
     }
@@ -674,6 +676,14 @@ public abstract class FmmHeadlineNodeImpl extends FmmHistoryNodeImpl
             this.nodeFragFseDocument = FmmDatabaseMediator.getActiveMediator().retrieveNodeFragFseDocument(this);
         }
         return this.nodeFragFseDocument;
+    }
+
+    public NodeFragFseDocument getUpdatedNodeFragFseDocument() {
+        NodeFragFseDocument theNodeFragFseDocument = getNodeFragFseDocument();
+        if(theNodeFragFseDocument.unsavedChanges()) {
+            theNodeFragFseDocument.setRowTimestamp(getRowTimestamp());
+        }
+        return theNodeFragFseDocument;
     }
 
     @Override

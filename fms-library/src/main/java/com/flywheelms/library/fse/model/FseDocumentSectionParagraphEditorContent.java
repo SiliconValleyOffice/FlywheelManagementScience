@@ -204,7 +204,7 @@ public abstract class FseDocumentSectionParagraphEditorContent extends FseDocume
 		this.sequenceModificationState = FseSequenceModificationState.UNCHANGED;
 		this.numberingModificationState = FseNumberingModificationState.UNCHANGED;
 //		for(FseParagraph theFseParagraph: this.paragraphList.values()) {
-//			theFseParagraph.resetModificationState();
+//			theFseParagraph.resetDocumentModificationState();
 //		}
 		String thePreviousParagraphNodeId = "";
 		for(FseParagraph theFseParagraph : this.paragraphList.values()) {

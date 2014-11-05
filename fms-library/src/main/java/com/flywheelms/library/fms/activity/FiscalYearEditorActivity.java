@@ -78,7 +78,7 @@ public class FiscalYearEditorActivity extends FmmNodeEditorActivity {
 	@Override
 	public void saveAllDataModifications() {
 		super.saveAllDataModifications();
-		FmmDatabaseMediator.getActiveMediator().saveFiscalYear((FiscalYear) getDisplayedFmmHeadlineNode(), true);
+		FmmDatabaseMediator.getActiveMediator().updateFiscalYear((FiscalYear) getDisplayedFmmHeadlineNode(), true);
 	}
 
 }

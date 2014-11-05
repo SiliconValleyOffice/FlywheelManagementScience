@@ -248,6 +248,10 @@ public class NodeFragTribKnQuality extends FmmNodeFragImpl implements FmmNodeQua
 		return theDecKanGlDecoratorMap;
 	}
 
+    public NodeFragTribKnQuality getClone() {
+        return new NodeFragTribKnQuality(getJsonObject());
+    }
+
 	public FmsDecoratorGovernance getGovernanceQuality() {
 		return this.governanceQuality;
 	}
@@ -438,8 +442,8 @@ public class NodeFragTribKnQuality extends FmmNodeFragImpl implements FmmNodeQua
 	}
 
 	public void setCompletionQuality(FmsDecoratorCompletion completionQuality) {
-		this.completionQuality = completionQuality;
-	}
+        this.completionQuality = completionQuality;
+    }
 
 	public Date getCompletionQualityTimestamp() {
 		return this.completionQualityTimestamp;

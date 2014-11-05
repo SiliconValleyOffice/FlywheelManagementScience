@@ -59,6 +59,7 @@ public class NodeFragFseDocument extends FmmNodeFragLockableImpl {
 	private FseDocumentTransactionType documentTransactionType;
 	private String serializedDocument;
 	private FseDocument fseDocument;
+    private boolean documentModified = false;
 
 	public NodeFragFseDocument(String aParentNodeIdString, String aDocumentTransactionTypeString, String aSerializedDocument) {
 		super(NodeFragFseDocument.class, aParentNodeIdString);
@@ -100,6 +101,10 @@ public class NodeFragFseDocument extends FmmNodeFragLockableImpl {
 		this(new FseDocument(aHeadlineNode.getNodeIdString(), false));
 	}
 
+    public NodeFragFseDocument getClone() {
+        return new NodeFragFseDocument(getJsonObject());
+    }
+
 	public String getDocumentTransactionTypeString() {
 		return this.documentTransactionTypeString;
 	}
@@ -126,11 +131,16 @@ public class NodeFragFseDocument extends FmmNodeFragLockableImpl {
 		this.documentId = null;
 	}
 
-	public void resetModificationState() {
+	public void resetDocumentModificationState() {
 		FseDocument theFseDocument = getFseDocument();
 		theFseDocument.resetModificationState();
 		this.serializedDocument = theFseDocument.getSerialized();
+        this.documentModified = false;
 	}
+
+    public void resetNodeFragState() {
+
+    }
 	
 	@Override
 	public JSONObject getJsonObject() {
@@ -154,6 +164,9 @@ public class NodeFragFseDocument extends FmmNodeFragLockableImpl {
 	}
 
 	public void setFseDocument(FseDocument anFseDocument) {
+        if(this.serializedDocument == null) {
+            this.documentModified = true;
+        }
 		this.fseDocument = anFseDocument;
 		this.serializedDocument = anFseDocument.getSerialized();
 		this.documentId = anFseDocument.getNodeIdString();
@@ -179,4 +192,16 @@ public class NodeFragFseDocument extends FmmNodeFragLockableImpl {
 		this.documentId = aDocumentId;
 	}
 
+    public boolean unsavedChanges() {
+        // TODO - refactor Node Editor to collaborate with NodeFragFseDocument
+        return true;
+    }
+
+    public boolean isDocumentModified() {
+        return documentModified;
+    }
+
+    public void setDocumentModified(boolean bDocumentModified) {
+        this.documentModified = bDocumentModified;
+    }
 }
