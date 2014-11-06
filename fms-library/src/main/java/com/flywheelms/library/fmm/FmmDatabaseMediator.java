@@ -1073,7 +1073,7 @@ public class FmmDatabaseMediator {
                 FmmNodeDefinition.ORGANIZATION_COMMUNITY_MEMBER,
                 OrganizationCommunityMemberMetaData.column_ORGANIZATION_ID,
                 anOrganization.getNodeIdString(),
-                sort_spec__HEADLINE);
+                sort_spec__HEADLINE );  // "headline" is unique to both tables
 	}
 
 	public boolean insertCommunityMember(CommunityMember aCommunityMember, boolean bAtomicTransaction) {
@@ -1159,7 +1159,7 @@ public class FmmDatabaseMediator {
                 FmmNodeDefinition.BOOKSHELF_LINK_TO_NOTEBOOK,
                 BookshelfLinkToNotebookMetaData.column_NOTEBOOK_ID,
                 aNotebookId,
-                sort_spec__HEADLINE);
+                sort_spec__HEADLINE );  // "headline" is unique to both tables
     }
 
     public Bookshelf createBookshelf(String aHeadline) {
@@ -1228,7 +1228,7 @@ public class FmmDatabaseMediator {
                 BookshelfLinkToNotebookMetaData.column_NOTEBOOK_ID,
                 FmmNodeDefinition.BOOKSHELF_LINK_TO_NOTEBOOK.getTableName() + "." + BookshelfLinkToNotebookMetaData.column_BOOKSHELF_ID,
                 aBookshelfId,
-                sort_spec__HEADLINE);
+                sort_spec__HEADLINE );  // "headline" is unique to both tables
     }
 
     public ArrayList<Notebook> retrieveNotebookList(DiscussionTopic aDiscussionTopic) {
@@ -1246,7 +1246,7 @@ public class FmmDatabaseMediator {
                 FmmNodeDefinition.NOTEBOOK_LINK_TO_DISCUSSION_TOPIC,
                 NotebookLinkToDiscussionTopicMetaData.column_DISCUSSION_TOPIC_ID,
                 aDiscussionTopicId,
-                sort_spec__HEADLINE);
+                sort_spec__HEADLINE );  // "headline" is unique to both tables
     }
     
     private Notebook createNotebookForBookshelf(
@@ -1378,7 +1378,7 @@ public class FmmDatabaseMediator {
                 NotebookLinkToDiscussionTopicMetaData.column_DISCUSSION_TOPIC_ID,
                 FmmNodeDefinition.NOTEBOOK_LINK_TO_DISCUSSION_TOPIC.getTableName() + "." + NotebookLinkToDiscussionTopicMetaData.column_NOTEBOOK_ID,
                 aNotebookId,
-                sort_spec__SEQUENCE);
+                FmmNodeDefinition.NOTEBOOK_LINK_TO_DISCUSSION_TOPIC.getTableName() + "." + NotebookLinkToDiscussionTopicMetaData.column_SEQUENCE + " ASC");
     }
 
     public ArrayList<DiscussionTopic> retrieveDiscussionTopicListForHeadlineNode(String aHeadlineNodeId, String aDiscussionTopicExceptionId) {
@@ -1967,7 +1967,7 @@ public class FmmDatabaseMediator {
                 StrategicCommitmentMetaData.column_STRATEGIC_ASSET_ID,
                 FmmNodeDefinition.STRATEGIC_COMMITMENT.getTableName() + "." + StrategicCommitmentMetaData.column_STRATEGIC_MILESTONE_ID,
                 aStrategicMilestoneId,
-                sort_spec__SEQUENCE);
+                FmmNodeDefinition.STRATEGIC_COMMITMENT.getTableName() + "." + StrategicCommitmentMetaData.column_SEQUENCE + " ASC");
     }
 
     private StrategicAsset createStrategicAssetForStrategicMilestone(
@@ -1998,7 +1998,15 @@ public class FmmDatabaseMediator {
     }
 
     public boolean deleteStrategicAsset(StrategicAsset aStrategicAsset, boolean bAtomicTransaction) {
-        return fractalDeleteFmmCompletionNode(aStrategicAsset, bAtomicTransaction);
+        if(bAtomicTransaction) {
+            startTransaction();
+        }
+        boolean isSuccess = deleteSimpleIdTableRow(FmmNodeDefinition.STRATEGIC_COMMITMENT, StrategicCommitmentMetaData.column_STRATEGIC_ASSET_ID, aStrategicAsset.getNodeIdString(), false);
+        isSuccess &= fractalDeleteFmmCompletionNode(aStrategicAsset, bAtomicTransaction);
+        if(bAtomicTransaction) {
+            endTransaction(isSuccess);
+        }
+        return isSuccess;
     }
 
     // MOVE
@@ -2561,7 +2569,7 @@ public class FmmDatabaseMediator {
                 DiscussionTopicLinkToNodeFragAuditBlockMetaData.column_NODE_FRAG_AUDIT_BLOCK_ID,
                 FmmNodeDefinition.DISCUSSION_TOPIC_LINK_TO_NODE_FRAG_AUDIT_BLOCK.getTableName() + "." + DiscussionTopicLinkToNodeFragAuditBlockMetaData.column_DISCUSSION_TOPIC_ID,
                 aDiscussionTopic.getNodeIdString(),
-                sort_spec__SEQUENCE);
+                FmmNodeDefinition.DISCUSSION_TOPIC_LINK_TO_NODE_FRAG_AUDIT_BLOCK.getTableName() + "." + DiscussionTopicLinkToNodeFragAuditBlockMetaData.column_SEQUENCE + " ASC");
     }
 
     private boolean createNodeFragAuditBlock(FmmHeadlineNode anFmmHeadlineNode) {
@@ -3367,7 +3375,7 @@ public class FmmDatabaseMediator {
                 CadenceCommitmentMetaData.column_WORK_PACKAGE_ID,
                 FmmNodeDefinition.CADENCE_COMMITMENT.getTableName() + "." + CadenceCommitmentMetaData.column_CADENCE_ID,
                 aCadenceId,
-                sort_spec__SEQUENCE);
+                FmmNodeDefinition.CADENCE_COMMITMENT.getTableName() + "." + CadenceCommitmentMetaData.column_SEQUENCE + " ASC");
 	}
 
     private WorkPackage createWorkPackageForParent(
