@@ -238,4 +238,21 @@ public abstract class FmmConfiguration extends FmmGovernableNodeImpl {
 		return theDbFileName.substring(0, theDbFileName.length() - 3);
 	}
 
+    public static FmmConfiguration rehydrate(String aSerializedFmmConfiguration) {
+        FmmConfiguration theFmmConfiguration = null;
+        FmmAccessScope theFmmAccessScope = null;
+        JSONObject theJSONObject = null;
+        try {
+            theJSONObject = new JSONObject(aSerializedFmmConfiguration);
+            theFmmAccessScope = FmmAccessScope.getObjectForName(theJSONObject.getString(attribute__ACCESS_SCOPE));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        if(theFmmAccessScope == FmmAccessScope.TEAM) {
+            theFmmConfiguration = new FmmConfigurationTeam(theJSONObject);
+        } else if(theFmmAccessScope == FmmAccessScope.PRIVATE) {
+            theFmmConfiguration = new FmmConfigurationPrivate(theJSONObject);
+        }
+        return theFmmConfiguration;
+    }
 }

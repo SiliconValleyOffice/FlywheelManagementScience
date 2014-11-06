@@ -49,7 +49,6 @@ import com.flywheelms.library.fmm.enumerator.FmmLockStatus;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.audit.FmmAuditNodeImpl;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
-import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragAuditBlock;
 import com.flywheelms.library.fse.enumerator.FseContentModificationState;
 import com.flywheelms.library.fse.enumerator.FseLockModificationState;
 import com.flywheelms.library.fse.enumerator.FseNumberingModificationState;
@@ -96,11 +95,11 @@ public class FseParagraph extends FmmAuditNodeImpl {
 
 	// intermediate constructor,
 	public FseParagraph(String aParagraphId, FseParagraphStyle anFseParagraphStyle, FseParagraphNumberingStyle aNumberingStyle, String anInitialTextString) {
-		this(aParagraphId, anFseParagraphStyle, aNumberingStyle, anInitialTextString, new NodeFragAuditBlock(aParagraphId));
+		this(aParagraphId, anFseParagraphStyle, aNumberingStyle, anInitialTextString, new FseAuditBlock(aParagraphId));
 	}
 
 	// main constructor, only called directly to generate an FseParagraph from an FseParagraphView (without coupling)	
-	public FseParagraph(String aParagraphId, FseParagraphStyle anFseParagraphStyle, FseParagraphNumberingStyle aNumberingStyle, String anInitialTextString, NodeFragAuditBlock anAuditBlock) {
+	public FseParagraph(String aParagraphId, FseParagraphStyle anFseParagraphStyle, FseParagraphNumberingStyle aNumberingStyle, String anInitialTextString, FseAuditBlock anAuditBlock) {
 		super(NodeId.hydrate(FseParagraph.class, aParagraphId));
 		this.style = anFseParagraphStyle;
 		this.numberingStyle = aNumberingStyle;
@@ -126,7 +125,7 @@ public class FseParagraph extends FmmAuditNodeImpl {
 			this.sequenceModificationState = FseSequenceModificationState.getObjectForName(aJsonObject.getString(FseDocumentSerialization.key__PARAGRAPH_SEQUENCE_MODIFICATION_STATE));
 			this.numberingModificationState = FseNumberingModificationState.getObjectForName(aJsonObject.getString(FseDocumentSerialization.key__PARAGRAPH_NUMBERING_MODIFICATION_STATE));
 			this.textContent = aJsonObject.getString(FseDocumentSerialization.key__PARAGRAPH_TEXT_CONTENT);
-			setNodeFragAuditBlock(new NodeFragAuditBlock(aJsonObject.getJSONObject(FseDocumentSerialization.key__DOCUMENT_SECTION__COLLABORATORS)));
+			setNodeFragAuditBlock(new FseAuditBlock(aJsonObject.getJSONObject(FseDocumentSerialization.key__DOCUMENT_SECTION__COLLABORATORS)));
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -331,5 +330,10 @@ public class FseParagraph extends FmmAuditNodeImpl {
 	public boolean isPeerBreak(FseParagraph aParagraph) {
 		return this.style.isPeerBreak(aParagraph.getStyle());
 	}
+
+    @Override
+    public FseAuditBlock getNodeFragAuditBlock() {
+        return (FseAuditBlock) this.nodeFragAuditBlock;
+    }
 	
 }

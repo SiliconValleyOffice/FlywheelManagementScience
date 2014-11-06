@@ -70,6 +70,12 @@ public class FragLock extends FmmNodeFragImpl implements FmmNodeLocking {
 	private CommunityMember unlockedByCommunityMember;
 	private Date unlockedTimestamp = GcgDateHelper.NULL_DATE;
 
+    public FragLock(FmmNodeFragLockableImpl anFmmNodeFragLockableImpl) {
+        super(FragLock.class, anFmmNodeFragLockableImpl.getNodeIdString());
+        this.grandparentNodeIdString = anFmmNodeFragLockableImpl.getParentNodeIdString();
+        this.grandparentNodeTypeCode = anFmmNodeFragLockableImpl.getParentNodeTypeCode();
+    }
+
 	// a new FragLock
 	public FragLock(String aParentNodeIdString, String aGrandparentNodeIdString) {
 		super(FragLock.class, aParentNodeIdString);

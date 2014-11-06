@@ -110,7 +110,10 @@ public class WorkbenchActivity extends FmsActivity implements FmsDecKanGlNavigat
 	protected void onCreate(Bundle aSavedInstanceState) {
 		if(aSavedInstanceState != null) {
 			this.mustSelectDataSource = aSavedInstanceState.getBoolean(FmsActivityHelper.bundle_key__MUST_SELECT_DATA_SOURCE);
-		}
+            if(aSavedInstanceState.containsKey(FmsActivityHelper.bundle_key__FMM_CONFIGURATION)) {
+                FmmDatabaseMediator.setActiveFmmConfiguration(FmmConfiguration.rehydrate(aSavedInstanceState.getString(FmsActivityHelper.bundle_key__FMM_CONFIGURATION)));
+            }
+        }
 		if(this.mustSelectDataSource) {
 			selectDataSource();
 		}
@@ -121,6 +124,9 @@ public class WorkbenchActivity extends FmsActivity implements FmsDecKanGlNavigat
 	public void onSaveInstanceState(Bundle theBundle) {
 		super.onSaveInstanceState(theBundle);
 		theBundle.putBoolean(FmsActivityHelper.bundle_key__MUST_SELECT_DATA_SOURCE, this.mustSelectDataSource);
+        if(FmmDatabaseMediator.getActiveFmmConfiguration() != null) {
+            theBundle.putString(FmsActivityHelper.bundle_key__FMM_CONFIGURATION, FmmDatabaseMediator.getActiveFmmConfiguration().getSerialized());
+        }
         if(this.closeFmm) {
             closeFmm();
         }
@@ -136,7 +142,7 @@ public class WorkbenchActivity extends FmsActivity implements FmsDecKanGlNavigat
 	@Override
 	protected void initializeGcgApplicationContext() {
 		setGcgApplicationContext(new GcgApplicationContext(
-				R.drawable.fmm_noun__fmm_configuration, FmmDatabaseMediator.getActiveMediator().getFmmConfiguration().getHeadline() ));
+				R.drawable.fmm_noun__fmm_configuration, FmmDatabaseMediator.getActiveMediator().getActiveFmmConfiguration().getHeadline() ));
 	}
 
 	@Override
@@ -228,7 +234,7 @@ public class WorkbenchActivity extends FmsActivity implements FmsDecKanGlNavigat
 
 	@Override
 	protected String getBreadcrumbTargetNodeIdString() {
-		return FmmDatabaseMediator.getActiveMediator().getFmmConfiguration().getNodeIdString();
+		return FmmDatabaseMediator.getActiveMediator().getActiveFmmConfiguration().getNodeIdString();
 	}
 
 	@Override

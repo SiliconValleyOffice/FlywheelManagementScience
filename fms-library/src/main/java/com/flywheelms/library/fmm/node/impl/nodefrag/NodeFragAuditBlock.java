@@ -103,7 +103,7 @@ public class NodeFragAuditBlock extends FmmNodeFragLockableImpl {
 		setIsLocked(false);
 	}
 
-	// a new Audit Block
+	// a new Document Audit Block
 	public NodeFragAuditBlock(String aParentNodeIdString, String aHeadline, Date aTimestamp) {
 		super(NodeFragAuditBlock.class, aParentNodeIdString);
 		setSearchableHeadline(aHeadline);

@@ -1,4 +1,4 @@
-/* @(#)FmsTreeNodeStateBundle.java
+/* @(#)FseAuditBlock.java
 **
 ** Copyright (C) 2012 by Steven D. Stamps
 **
@@ -41,34 +41,42 @@
 ** <http://www.gnu.org/licenses/gpl-3.0.html>.
 */
 
-package com.flywheelms.library.fms.treeview;
+package com.flywheelms.library.fse.model;
 
-import com.flywheelms.gcongui.gcg.treeview.node.GcgTreeNodeStateBundle;
-import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.node.impl.nodefrag.FragLock;
+import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragAuditBlock;
 
-public class FmsTreeNodeStateBundle extends GcgTreeNodeStateBundle {
+import org.json.JSONObject;
 
-    public static final GcgTreeNodeStateBundle FWB__CONTEXT__NOTEBOOK = new FmsTreeNodeStateBundle("com.flywheelms.workbench.context.notebook");
-    public static final GcgTreeNodeStateBundle FWB__CONTEXT__SERVICE_DELIVERY = new FmsTreeNodeStateBundle("com.flywheelms.workbench.context.service_delivery");
-    public static final GcgTreeNodeStateBundle FWB__CONTEXT__STRATEGIC_PLANNING = new FmsTreeNodeStateBundle("com.flywheelms.workbench.context.strategic_planning");
-    public static final GcgTreeNodeStateBundle FWB__CONTEXT__WORK_BREAKDOWN = new FmsTreeNodeStateBundle("com.flywheelms.workbench.context.work_breakdown");
-    public static final GcgTreeNodeStateBundle FWB__CONTEXT__WORK_PLANNING = new FmsTreeNodeStateBundle("com.flywheelms.workbench.context.work_planning");
+import java.util.Date;
 
-    static {
-        GcgTreeNodeStateBundle.VALUES.add(FWB__CONTEXT__NOTEBOOK);
-        GcgTreeNodeStateBundle.VALUES.add(FWB__CONTEXT__SERVICE_DELIVERY);
-        GcgTreeNodeStateBundle.VALUES.add(FWB__CONTEXT__STRATEGIC_PLANNING);
-        GcgTreeNodeStateBundle.VALUES.add(FWB__CONTEXT__WORK_BREAKDOWN);
-        GcgTreeNodeStateBundle.VALUES.add(FWB__CONTEXT__WORK_PLANNING);
+public class FseAuditBlock extends NodeFragAuditBlock {
+
+    // a new Paragraph Audit Block
+    public FseAuditBlock(String aParentNodeIdString) {
+        super(aParentNodeIdString);
     }
 
-    public static void init() { }
-
-    private FmsTreeNodeStateBundle(String aKey) {
-        super(aKey);
+    // a new Document Audit Block
+    public FseAuditBlock(String aParentId, String aHeadline, Date aTimestamp) {
+        super(aParentId, aHeadline, aTimestamp);
     }
 
-    public String getKey() {
-        return this.key + FmmDatabaseMediator.getActiveMediator().getActiveFmmConfiguration().getFileName();
+    public FseAuditBlock(JSONObject aJsonObject) {
+        super(aJsonObject);
+    }
+
+    public FragLock getFragLock() {
+        FragLock theFragLock = super.getFragLock();
+        if(theFragLock == null) {
+            theFragLock = new FragLock(this);
+            setFragLock(theFragLock);
+        }
+        return theFragLock;
+    }
+
+    @Override
+    public FseAuditBlock getClone() {
+        return new FseAuditBlock(getJsonObject());
     }
 }

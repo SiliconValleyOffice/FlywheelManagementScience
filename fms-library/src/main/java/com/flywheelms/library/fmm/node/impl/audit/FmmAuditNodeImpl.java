@@ -59,7 +59,7 @@ import java.util.Date;
 
 public abstract class FmmAuditNodeImpl extends FmmNodeImpl implements FmmNodeAudit {
 	
-	private NodeFragAuditBlock nodeFragAuditBlock; 
+	protected NodeFragAuditBlock nodeFragAuditBlock;
 
 	public FmmAuditNodeImpl(NodeId aNodeId) {
 		super(aNodeId);

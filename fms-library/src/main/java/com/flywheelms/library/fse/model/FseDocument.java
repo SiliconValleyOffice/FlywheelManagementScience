@@ -174,7 +174,7 @@ public class FseDocument extends FmmNodeFragImpl implements FmmNodeAudit, Clonea
 		this.forExport = true;
 		this.initialDocumentSectionType = FseDocumentSectionType.NOTES;
 		this.documentSections.put(FseDocumentSectionType.TRIBKN, new FseDocumentSectionTribKn(aHeadline, aDecKanGlGlyph, aNodeFragGovernance));
-		this.documentSections.put(FseDocumentSectionType.COMMUNITY, new FseDocumentSectionCollaborators(new NodeFragAuditBlock(getDocumentId(), "", GcgDateHelper.getCurrentDateTime()), new FseCollaboratorSummary()));
+		this.documentSections.put(FseDocumentSectionType.COMMUNITY, new FseDocumentSectionCollaborators(new FseAuditBlock(getDocumentId(), "", GcgDateHelper.getCurrentDateTime()), new FseCollaboratorSummary()));
 		this.documentSections.put(FseDocumentSectionType.HISTORY, new FseDocumentSectionHistory());
 		this.documentSections.put(FseDocumentSectionType.NOTES, new FseDocumentSectionNotes());
 		this.documentSections.put(FseDocumentSectionType.STORY, new FseDocumentSectionStory());
@@ -195,7 +195,7 @@ public class FseDocument extends FmmNodeFragImpl implements FmmNodeAudit, Clonea
 		this.forExport = bIsForExportPublishing;
 		this.initialDocumentSectionType = FseDocumentSectionType.STORY;
 		Class<? extends FmmNode> theParentClass = FmmNodeDefinition.getEntryForNodeIdString(aParentNodeIdString).getNodeClass();
-		this.documentSections.put(FseDocumentSectionType.COMMUNITY, new FseDocumentSectionCollaborators(new NodeFragAuditBlock(getDocumentId(), "", GcgDateHelper.getCurrentDateTime()), new FseCollaboratorSummary()));
+		this.documentSections.put(FseDocumentSectionType.COMMUNITY, new FseDocumentSectionCollaborators(new FseAuditBlock(getDocumentId(), "", GcgDateHelper.getCurrentDateTime()), new FseCollaboratorSummary()));
 		this.documentSections.put(FseDocumentSectionType.HISTORY, new FseDocumentSectionHistory());
 		this.documentSections.put(FseDocumentSectionType.NOTES, new FseDocumentSectionNotes());
 		this.documentSections.put(FseDocumentSectionType.STORY, new FseDocumentSectionStory());
@@ -487,7 +487,7 @@ public class FseDocument extends FmmNodeFragImpl implements FmmNodeAudit, Clonea
 	
 	@Override
 	public NodeFragAuditBlock getNodeFragAuditBlock() {
-		return getDocumentSectionCollaborators().getAuditBlock();
+		return getDocumentSectionCollaborators().getFseParagraphAuditBlock();
 	}
 
     @Override
@@ -496,8 +496,10 @@ public class FseDocument extends FmmNodeFragImpl implements FmmNodeAudit, Clonea
     }
 
     @Override
-	public void setNodeFragAuditBlock(NodeFragAuditBlock anAuditBlock) {
-		getDocumentSectionCollaborators().setAuditBlock(anAuditBlock);
+    public void setNodeFragAuditBlock(NodeFragAuditBlock auditBlock) {  /*  N/A  */  }
+
+    public void setNodeFragAuditBlock(FseAuditBlock anAuditBlock) {
+		getDocumentSectionCollaborators().setFseParagraphAuditBlock(anAuditBlock);
 	}
 	
 	//  Created  //

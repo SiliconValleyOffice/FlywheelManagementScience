@@ -66,6 +66,7 @@ import com.flywheelms.library.fms.activity.FmmNodeEditorActivity;
 import com.flywheelms.library.fms.perspective_flipper.perspective.FmsPerspectiveFlipper;
 import com.flywheelms.library.fse.FseDocumentSectionType;
 import com.flywheelms.library.fse.enumerator.FseContentModificationState;
+import com.flywheelms.library.fse.model.FseAuditBlock;
 import com.flywheelms.library.fse.model.FseCollaboratorSummary;
 import com.flywheelms.library.fse.model.FseDocument;
 import com.flywheelms.library.fse.model.FseDocumentSectionParagraphAudit;
@@ -312,7 +313,7 @@ public class FsePerspectiveFlipper extends FmsPerspectiveFlipper implements GcgS
 
 	@Override
 	public NodeFragAuditBlock getNodeFragAuditBlock() {
-		return this.collaboratorsSectionPerspective.getDocumentSectionCollaborators().getAuditBlock();
+		return this.collaboratorsSectionPerspective.getDocumentSectionCollaborators().getFseParagraphAuditBlock();
 	}
 
     @Override
@@ -321,8 +322,10 @@ public class FsePerspectiveFlipper extends FmsPerspectiveFlipper implements GcgS
     }
 
     @Override
-	public void setNodeFragAuditBlock(NodeFragAuditBlock anAuditBlock) {
-		this.collaboratorsSectionPerspective.getDocumentSectionCollaborators().setAuditBlock(anAuditBlock);
+    public void setNodeFragAuditBlock(NodeFragAuditBlock auditBlock) {  /*  N/A  */  }
+
+	public void setNodeFragAuditBlock(FseAuditBlock anAuditBlock) {
+		this.collaboratorsSectionPerspective.getDocumentSectionCollaborators().setFseParagraphAuditBlock(anAuditBlock);
 	}
 
 	//Created  //

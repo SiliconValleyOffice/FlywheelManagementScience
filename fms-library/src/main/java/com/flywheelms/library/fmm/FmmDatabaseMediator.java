@@ -44,7 +44,6 @@ package com.flywheelms.library.fmm;
 
 import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
 import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
-import com.flywheelms.library.fmm.helper.FmmHelper;
 import com.flywheelms.library.fmm.interfaces.WorkAsset;
 import com.flywheelms.library.fmm.meta_data.BookshelfLinkToNotebookMetaData;
 import com.flywheelms.library.fmm.meta_data.BookshelfMetaData;
@@ -112,6 +111,7 @@ import com.flywheelms.library.fmm.node.impl.link.BookshelfLinkToNotebook;
 import com.flywheelms.library.fmm.node.impl.link.DiscussionTopicLinkToNodeFragAuditBlock;
 import com.flywheelms.library.fmm.node.impl.link.NotebookLinkToDiscussionTopic;
 import com.flywheelms.library.fmm.node.impl.link.OrganizationCommunityMember;
+import com.flywheelms.library.fmm.node.impl.nodefrag.FmmNodeFragLockableImpl;
 import com.flywheelms.library.fmm.node.impl.nodefrag.FragLock;
 import com.flywheelms.library.fmm.node.impl.nodefrag.HeadlineNodeTrash;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragAuditBlock;
@@ -152,10 +152,12 @@ public class FmmDatabaseMediator {
     public static final String sort_spec__SEARCHABLE_HEADLINE = " LOWER (" + NodeFragAuditBlockMetaData.column_SEARCHABLE_HEADLINE + ") ASC";
     public static final String sort_spec__SEQUENCE = CompletableNodeMetaData.column_SEQUENCE + " ASC";
     public static final String sort_spec__ROW_TIMESTAMP = IdNodeMetaData.column_ROW_TIMESTAMP + " ASC";
+    public static final String sort_spec__SCHEDULED_END_DATE = CadenceMetaData.column_SCHEDULED_END_DATE + " ASC";
 	private static HashMap<String, FmmDatabaseMediator> fmmDatabaseMediatorMap = new HashMap<String, FmmDatabaseMediator>();  // mediator for each database server
 	private static FmmDatabaseMediator activeFmmDatabaseMediator;
 	protected static FmmConfiguration requestedFmmConfiguration;  // for creating a new database
 	private PersistenceTechnologyDelegate persistenceTechnologyDelegate;
+	protected static FmmConfiguration activeFmmConfiguration;
 	protected FmmConfiguration fmmConfiguration;
 	private FmsOrganization fmmOwner;
 	private Date fmmTimestamp = GcgDateHelper.getCurrentDateTime();
@@ -163,10 +165,10 @@ public class FmmDatabaseMediator {
 
 	protected FmmDatabaseMediator(FmmConfiguration anFmmConfiguration) {
 		initMetaData();
-		FmmDatabaseMediator.requestedFmmConfiguration = this.fmmConfiguration = anFmmConfiguration;
-		this.persistenceTechnologyDelegate = this.fmmConfiguration.getPersistenceTechnologyDelegate();
-		this.persistenceTechnologyDelegate.setActiveDatabase(this.fmmConfiguration);
-		synchronizeFmmConfigurationRowWithConfigFile(this.fmmConfiguration);
+		FmmDatabaseMediator.requestedFmmConfiguration = FmmDatabaseMediator.activeFmmConfiguration = this.fmmConfiguration = anFmmConfiguration;
+		this.persistenceTechnologyDelegate = this.activeFmmConfiguration.getPersistenceTechnologyDelegate();
+		this.persistenceTechnologyDelegate.setActiveDatabase(this.activeFmmConfiguration);
+		synchronizeFmmConfigurationRowWithConfigFile(this.activeFmmConfiguration);
 		this.fmmOwner = this.persistenceTechnologyDelegate.getFmmOwner();
 	}
 
@@ -175,7 +177,7 @@ public class FmmDatabaseMediator {
     }
 
     public void reOpenDatabase() {
-		this.persistenceTechnologyDelegate.setActiveDatabase(this.fmmConfiguration);
+		this.persistenceTechnologyDelegate.setActiveDatabase(this.activeFmmConfiguration);
 	}
 
     // to solve an earlier development problem with timely initialization of static data.  May not be needed.
@@ -850,7 +852,8 @@ public class FmmDatabaseMediator {
             startTransaction();
         }
         this.headlineNodeTrash = new HeadlineNodeTrash(aHeadlineNode);
-		boolean isSuccess = deleteNodeFragAuditBlock(aHeadlineNode, false);
+		boolean isSuccess = deleteAllFragLocks(aHeadlineNode);
+        isSuccess &= deleteNodeFragAuditBlock(aHeadlineNode, false);
 		isSuccess &= deleteNodeFragFseDocument(aHeadlineNode, false);
 		isSuccess &= deleteNodeFragTribKnQuality(aHeadlineNode, false);
         if(bAtomicTransaction) {
@@ -863,7 +866,7 @@ public class FmmDatabaseMediator {
 		return isSuccess;
 	}
 
-	private boolean fractalDeleteFmmGovernableNode(FmmGovernableNode aGovernableNode, boolean bAtomicTransaction) {
+    private boolean fractalDeleteFmmGovernableNode(FmmGovernableNode aGovernableNode, boolean bAtomicTransaction) {
         if(bAtomicTransaction) {
             startTransaction();
         }
@@ -879,7 +882,7 @@ public class FmmDatabaseMediator {
         return isSuccess;
 	}
 
-	private boolean fractalDeleteFmmCompletableNode(FmmCompletionNode aCompletionNode, boolean bAtomicTransaction) {
+	private boolean fractalDeleteFmmCompletionNode(FmmCompletionNode aCompletionNode, boolean bAtomicTransaction) {
         if(bAtomicTransaction) {
             startTransaction();
         }
@@ -978,7 +981,8 @@ public class FmmDatabaseMediator {
 
 	public static FmmDatabaseMediator getActiveMediator() {
 		if(FmmDatabaseMediator.activeFmmDatabaseMediator == null) {
-			setActiveMediator(FmmHelper.getLocalFmmConfiguration());
+			setActiveMediator(getActiveFmmConfiguration());
+//			setActiveMediator(FmmHelper.getLocalFmmConfiguration());
 		}
 		return FmmDatabaseMediator.activeFmmDatabaseMediator;
 	}
@@ -1007,9 +1011,13 @@ public class FmmDatabaseMediator {
 		return anFmsOrganization.getNodeIdString().equals(this.fmmOwner.getNodeIdString());
 	}
 
-	public FmmConfiguration getFmmConfiguration() {
-		return this.fmmConfiguration;
+	public static FmmConfiguration getActiveFmmConfiguration() {
+		return FmmDatabaseMediator.activeFmmConfiguration;
 	}
+
+    public static void setActiveFmmConfiguration(FmmConfiguration anFmmConfiguration) {
+        FmmDatabaseMediator.activeFmmConfiguration = anFmmConfiguration;
+    }
 
 	public Date getFmmTimestamp() {
 		return this.fmmTimestamp;
@@ -1257,11 +1265,11 @@ public class FmmDatabaseMediator {
     }
 
     public boolean deleteNotebook(Notebook aNotebook, boolean bAtomicTransaction) {
-        return fractalDeleteFmmCompletableNode(aNotebook, bAtomicTransaction);
+        return fractalDeleteFmmCompletionNode(aNotebook, bAtomicTransaction);
     }
 
     public boolean deleteNotebookListForBookshelf(String aBookshelfId, boolean bAtomicTransaction) {
-        ArrayList<String> theNotebookIdList = getFmmNodeIdList(FmmNodeDefinition.NOTEBOOK, BookshelfLinkToNotebookMetaData.column_BOOKSHELF_ID, aBookshelfId);
+        ArrayList<String> theNotebookIdList = getFmmNodeIdList(FmmNodeDefinition.NOTEBOOK, BookshelfLinkToNotebookMetaData.column_BOOKSHELF_ID, aBookshelfId, null);
         if(theNotebookIdList.size() < 1) {
             return true;
         }
@@ -1274,7 +1282,7 @@ public class FmmDatabaseMediator {
             boolean hasOtherReferences = false;  //TODO - only if not referenced by another Bookshelf
             if(! hasOtherReferences) {
                 theNotebook = retrieveFmmNodeFromSimpleIdTable(FmmNodeDefinition.NOTEBOOK, theNotebookId);
-                isSuccess &= fractalDeleteFmmCompletableNode(theNotebook, false);
+                isSuccess &= fractalDeleteFmmCompletionNode(theNotebook, false);
             }
         }
         if(bAtomicTransaction) {
@@ -1402,11 +1410,11 @@ public class FmmDatabaseMediator {
     }
 
     public boolean deleteDiscussionTopic(DiscussionTopic aDiscussionTopic, boolean bAtomicTransaction) {
-        return fractalDeleteFmmCompletableNode(aDiscussionTopic, bAtomicTransaction);
+        return fractalDeleteFmmCompletionNode(aDiscussionTopic, bAtomicTransaction);
     }
 
     public boolean deleteDiscussionTopicsForNotebook(String aNotebookId, boolean bAtomicTransaction) {
-        ArrayList<String> theDiscussionTopicIdList = getFmmNodeIdList(FmmNodeDefinition.DISCUSSION_TOPIC, NotebookLinkToDiscussionTopicMetaData.column_NOTEBOOK_ID, aNotebookId);
+        ArrayList<String> theDiscussionTopicIdList = getFmmNodeIdList(FmmNodeDefinition.DISCUSSION_TOPIC, NotebookLinkToDiscussionTopicMetaData.column_NOTEBOOK_ID, aNotebookId, null);
         if(theDiscussionTopicIdList.size() < 1) {
             return true;
         }
@@ -1419,7 +1427,7 @@ public class FmmDatabaseMediator {
             boolean hasOtherReferences = false;  //TODO - only if not referenced by another Notebook
             if(! hasOtherReferences) {
                 theDiscussionTopic = retrieveFmmNodeFromSimpleIdTable(FmmNodeDefinition.DISCUSSION_TOPIC, theDiscussionTopicId);
-                isSuccess &= fractalDeleteFmmCompletableNode(theDiscussionTopic, false);
+                isSuccess &= fractalDeleteFmmCompletionNode(theDiscussionTopic, false);
             }
         }
         if(bAtomicTransaction) {
@@ -1542,34 +1550,34 @@ public class FmmDatabaseMediator {
     }
 
     public boolean deletePortfolio(Portfolio aPortfolio, boolean bAtomicTransaction) {
-        return fractalDeleteFmmCompletableNode(aPortfolio, bAtomicTransaction);
+        return fractalDeleteFmmCompletionNode(aPortfolio, bAtomicTransaction);
     }
 
     // MOVE
 
     // TODO - create generalized routine
     public int countPortfolioForProjectMoveTarget(FmsOrganization anFmsOrganization, Portfolio aPortfolioException) {
-        return this.persistenceTechnologyDelegate.countPortfolioForProjectMoveTarget(anFmsOrganization, aPortfolioException);
+        return getPersistenceTechnologyDelegate().countPortfolioForProjectMoveTarget(anFmsOrganization, aPortfolioException);
     }
 
     // TODO - create generalized routine
     public ArrayList<? extends GcgGuiable> retrievePortfolioListForProjectMoveTarget(FmsOrganization anFmsOrganization, Portfolio aPortfolioException) {
-        return this.persistenceTechnologyDelegate.retrievePortfolioListForProjectMoveTarget(anFmsOrganization, aPortfolioException);
+        return getPersistenceTechnologyDelegate().retrievePortfolioListForProjectMoveTarget(anFmsOrganization, aPortfolioException);
     }
 
     // TODO - create generalized routine
     public ArrayList<? extends GcgGuiable> retrievePortfolioListForWorkAssetMoveTarget(FmsOrganization anFmsOrganization, Project aProjectException) {
-        return this.persistenceTechnologyDelegate.retrievePortfolioListForWorkAssetMoveTarget(anFmsOrganization, aProjectException);
+        return getPersistenceTechnologyDelegate().retrievePortfolioListForWorkAssetMoveTarget(anFmsOrganization, aProjectException);
     }
 
     // TODO - create generalized routine
     public ArrayList<? extends GcgGuiable> retrievePortfolioListForWorkPackageMoveTarget(FmsOrganization anFmsOrganization, WorkAsset aWorkAssetException) {
-        return this.persistenceTechnologyDelegate.retrievePortfolioListForWorkPackageMoveTarget(anFmsOrganization, aWorkAssetException);
+        return getPersistenceTechnologyDelegate().retrievePortfolioListForWorkPackageMoveTarget(anFmsOrganization, aWorkAssetException);
     }
 
     // TODO - create generalized routine
     public ArrayList<? extends GcgGuiable> retrievePortfolioListForWorkTaskMoveTarget(FmsOrganization anFmsOrganization, WorkPackage aWorkPackageException) {
-        return this.persistenceTechnologyDelegate.retrievePortfolioListForWorkTaskMoveTarget(anFmsOrganization, aWorkPackageException);
+        return getPersistenceTechnologyDelegate().retrievePortfolioListForWorkTaskMoveTarget(anFmsOrganization, aWorkPackageException);
     }
 
 
@@ -1619,11 +1627,11 @@ public class FmmDatabaseMediator {
     }
 
     public boolean deleteProject(Project aProject, boolean bAtomicTransaction) {
-        return fractalDeleteFmmCompletableNode(aProject, bAtomicTransaction);
+        return fractalDeleteFmmCompletionNode(aProject, bAtomicTransaction);
     }
 
     public boolean deleteProjectsForPortfolio(String aPortfolioId, boolean bAtomicTransaction) {
-        ArrayList<String> theProjectIdList = getFmmNodeIdList(FmmNodeDefinition.PROJECT, ProjectMetaData.column_PORTFOLIO_ID, aPortfolioId);
+        ArrayList<String> theProjectIdList = getFmmNodeIdList(FmmNodeDefinition.PROJECT, ProjectMetaData.column_PORTFOLIO_ID, aPortfolioId, null);
         if(theProjectIdList.size() < 1) {
             return true;
         }
@@ -1634,7 +1642,7 @@ public class FmmDatabaseMediator {
         Project theProject;
         for(String theNodeIdString : theProjectIdList) {
             theProject = retrieveFmmNodeFromSimpleIdTable(FmmNodeDefinition.PROJECT, theNodeIdString);
-            isSuccess &= fractalDeleteFmmCompletableNode(theProject, false);
+            isSuccess &= fractalDeleteFmmCompletionNode(theProject, false);
         }
         if(bAtomicTransaction) {
             endTransaction(isSuccess);
@@ -1646,45 +1654,45 @@ public class FmmDatabaseMediator {
 
     // TODO - create generalized routine
     public int countProjectsForProjectAssetMoveTarget(Portfolio aPortfolio, Project aProjectException) {
-        return this.persistenceTechnologyDelegate.countProjectsForProjectAssetMoveTarget(aPortfolio, aProjectException);
+        return getPersistenceTechnologyDelegate().countProjectsForProjectAssetMoveTarget(aPortfolio, aProjectException);
     }
 
     // TODO - create generalized routine
     public ArrayList<Project> retrieveProjectListForProjectAssetMoveTarget(Portfolio aPortfolio, Project aProjectException) {
-        return this.persistenceTechnologyDelegate.retrieveProjectListForProjectAssetMoveTarget(aPortfolio, aProjectException);
+        return getPersistenceTechnologyDelegate().retrieveProjectListForProjectAssetMoveTarget(aPortfolio, aProjectException);
     }
 
     // TODO - create generalized routine
     public ArrayList<Project> retrieveProjectListForWorkPackageMoveTarget(Portfolio aPortfolio, WorkAsset aWorkAssetException) {
-        return this.persistenceTechnologyDelegate.retrieveProjectListForWorkPackageMoveTarget(aPortfolio, aWorkAssetException);
+        return getPersistenceTechnologyDelegate().retrieveProjectListForWorkPackageMoveTarget(aPortfolio, aWorkAssetException);
     }
 
     // TODO - create generalized routine
     public ArrayList<Project> retrieveProjectListForWorkTaskMoveTarget(Portfolio aPortfolio, WorkPackage aWorkPackageException) {
-        return this.persistenceTechnologyDelegate.retrieveProjectListForWorkTaskMoveTarget(aPortfolio, aWorkPackageException);
+        return getPersistenceTechnologyDelegate().retrieveProjectListForWorkTaskMoveTarget(aPortfolio, aWorkPackageException);
     }
 
     // TODO - generalize this routine
     public boolean moveSingleProjectIntoPortfolio(String aProjectId, String aPortfolioId, boolean bAtomicTransaction) {
-        return this.persistenceTechnologyDelegate.moveSingleProjectIntoPortfolio(aProjectId, aPortfolioId, bAtomicTransaction);
+        return getPersistenceTechnologyDelegate().moveSingleProjectIntoPortfolio(aProjectId, aPortfolioId, bAtomicTransaction);
     }
 
     // TODO - create generalized routine
     public boolean moveAllProjectsIntoPortfolio(String aCurrentPortfolioId, String aTargetPortfolioId, boolean bAtomicTransaction) {
-        return this.persistenceTechnologyDelegate.moveAllProjectsIntoPortfolio(aCurrentPortfolioId, aTargetPortfolioId, bAtomicTransaction);
+        return getPersistenceTechnologyDelegate().moveAllProjectsIntoPortfolio(aCurrentPortfolioId, aTargetPortfolioId, bAtomicTransaction);
     }
 
     // ORPHANS
 
     // TODO - create generalized routine
     public ArrayList<Project> retrieveProjectOrphanListFromPortfolio() {
-        return this.persistenceTechnologyDelegate.retrieveProjectOrphanListFromPortfolio();
+        return getPersistenceTechnologyDelegate().retrieveProjectOrphanListFromPortfolio();
     }
 
     // TODO - create generalized routine
     public boolean adoptOrphanProjectIntoPortfolio(
             String aProjectId, String aPortfolioId, boolean bSequenceAtEnd, boolean bAtomicTransaction) {
-        return this.persistenceTechnologyDelegate.adoptOrphanProjectIntoPortfolio(
+        return getPersistenceTechnologyDelegate().adoptOrphanProjectIntoPortfolio(
                 aProjectId,
                 aPortfolioId,
                 bSequenceAtEnd,
@@ -1693,12 +1701,12 @@ public class FmmDatabaseMediator {
 
     // TODO - generalize this routine
     public boolean orphanSingleProjectFromPortfolio(String aProjectNodeIdString, String aPortfolioNodeIdString, boolean bAtomicTransaction) {
-        return this.persistenceTechnologyDelegate.orphanSingleProjectFromPortfolio(aProjectNodeIdString, aPortfolioNodeIdString, bAtomicTransaction);
+        return getPersistenceTechnologyDelegate().orphanSingleProjectFromPortfolio(aProjectNodeIdString, aPortfolioNodeIdString, bAtomicTransaction);
     }
 
     // TODO - generalize this routine
     public boolean orphanAllProjectsFromPortfolio(String aPortfolioId, boolean bAtomicTransaction) {
-        return this.persistenceTechnologyDelegate.orphanAllProjectsFromPortfolio(aPortfolioId, bAtomicTransaction);
+        return getPersistenceTechnologyDelegate().orphanAllProjectsFromPortfolio(aPortfolioId, bAtomicTransaction);
     }
 
 
@@ -1762,7 +1770,7 @@ public class FmmDatabaseMediator {
     public ArrayList<ProjectAsset> retrieveProjectAssetList(StrategicMilestone aStrategicMilestone, ProjectAsset aProjectAssetException) {
         return retrieveFmmNodeListFromLinkTable(
                 FmmNodeDefinition.PROJECT_ASSET,
-                aProjectAssetException.getNodeIdString(),
+                aProjectAssetException == null ? null : aProjectAssetException.getNodeIdString(),
                 FmmNodeDefinition.STRATEGIC_COMMITMENT,
                 StrategicCommitmentMetaData.column_STRATEGIC_MILESTONE_ID,
                 aStrategicMilestone.getNodeIdString(),
@@ -1802,20 +1810,21 @@ public class FmmDatabaseMediator {
     }
 
     public boolean deleteProjectAsset(ProjectAsset aProjectAsset, boolean bAtomicTransaction) {
-        return fractalDeleteFmmCompletableNode(aProjectAsset, bAtomicTransaction);
+        return fractalDeleteFmmCompletionNode(aProjectAsset, bAtomicTransaction);
     }
 
     // MOVE
 
     // TODO - create generalized routine
     public ArrayList<ProjectAsset> retrieveProjectAssetListForWorkPackageMoveTarget(StrategicMilestone aStrategicMilestone, ProjectAsset aProjectAssetException) {
-        return this.persistenceTechnologyDelegate.retrieveStrategicAssetListForWorkPackageMoveTarget(
-                aStrategicMilestone.getNodeIdString(), aProjectAssetException.getNodeIdString());
+        return getPersistenceTechnologyDelegate().retrieveStrategicAssetListForWorkPackageMoveTarget(
+                aStrategicMilestone.getNodeIdString(),
+                aProjectAssetException == null ? null : aProjectAssetException.getNodeIdString());
     }
 
     // TODO - create generalized routine
     public ArrayList<ProjectAsset> retrieveProjectAssetListForWorkTaskMoveTarget(String aProjectId, String aWorkPackageException) {
-        return this.persistenceTechnologyDelegate.retrieveWorkAssetListForWorkTaskMoveTarget(
+        return getPersistenceTechnologyDelegate().retrieveWorkAssetListForWorkTaskMoveTarget(
                 aProjectId, aWorkPackageException);
     }
 
@@ -1825,7 +1834,7 @@ public class FmmDatabaseMediator {
             String aDestinationProjectId,
             boolean bSequenceAtEnd,
             boolean bAtomicTransaction) {
-        return this.persistenceTechnologyDelegate.moveAllProjectAssetsIntoProject(
+        return getPersistenceTechnologyDelegate().moveAllProjectAssetsIntoProject(
                 aSourceStrateticMilestoneId,
                 aDestinationProjectId,
                 bSequenceAtEnd,
@@ -1839,7 +1848,7 @@ public class FmmDatabaseMediator {
             String aDestinationProjectId,
             boolean bSequenceAtEnd,
             boolean bAtomicTransaction) {
-        return this.persistenceTechnologyDelegate.moveSingleProjectAssetIntoProject(
+        return getPersistenceTechnologyDelegate().moveSingleProjectAssetIntoProject(
                 aProjectAssetId,
                 anOriginalProjectId,
                 aDestinationProjectId,
@@ -1849,44 +1858,44 @@ public class FmmDatabaseMediator {
 
     // TODO - create generalized routine
     public int getMoveTargetWorkPackageCount(ProjectAsset aProjectAsset, WorkPackage aWorkPackageException) {
-        return this.persistenceTechnologyDelegate.dbGetMoveTargetWorkPackageCount(aProjectAsset, aWorkPackageException);
+        return getPersistenceTechnologyDelegate().dbGetMoveTargetWorkPackageCount(aProjectAsset, aWorkPackageException);
     }
 
     // ORPHANS
 
     // TODO - create generalized routine
     public boolean orphanAllProjectAssetsFromStrategicMilestone(String aStrategicMilestoneId, boolean bAtomicTransaction) {
-        return this.persistenceTechnologyDelegate.orphanAllProjectAssetsFromStrategicMilestone(aStrategicMilestoneId, bAtomicTransaction);
+        return getPersistenceTechnologyDelegate().orphanAllProjectAssetsFromStrategicMilestone(aStrategicMilestoneId, bAtomicTransaction);
     }
 
     // TODO - create generalized routine
     public boolean orphanAllProjectAssetsFromProject(String aProjectId, boolean bAtomicTransaction) {
-        return this.persistenceTechnologyDelegate.orphanAllProjectAssetsFromProject(aProjectId, bAtomicTransaction);
+        return getPersistenceTechnologyDelegate().orphanAllProjectAssetsFromProject(aProjectId, bAtomicTransaction);
     }
 
     // TODO - create generalized routine
     public boolean orphanSingleProjectAssetFromStrategicMilestone(String aProjectAssetId, String aStrategicMilestoneId, boolean bAtomicTransaction) {
-        return this.persistenceTechnologyDelegate.orphanSingleProjectAssetFromStrategicMilestone(aProjectAssetId, aStrategicMilestoneId, bAtomicTransaction);
+        return getPersistenceTechnologyDelegate().orphanSingleProjectAssetFromStrategicMilestone(aProjectAssetId, aStrategicMilestoneId, bAtomicTransaction);
     }
 
     // TODO - create generalized routine
     public boolean orphanSingleProjectAssetFromProject(String aProjectAssetId, String aProjectId, boolean bAtomicTransaction) {
-        return this.persistenceTechnologyDelegate.orphanSingleProjectAssetFromProject(aProjectAssetId, aProjectId, bAtomicTransaction);
+        return getPersistenceTechnologyDelegate().orphanSingleProjectAssetFromProject(aProjectAssetId, aProjectId, bAtomicTransaction);
     }
 
     // TODO - create generalized routine
     public boolean orphanSingleStrategicAssetFromProject(String aStrategicAssetId, String aProjectId, boolean bAtomicTransaction) {
-        return this.persistenceTechnologyDelegate.orphanSingleStrategicAssetFromProject(aStrategicAssetId, aProjectId, bAtomicTransaction);
+        return getPersistenceTechnologyDelegate().orphanSingleStrategicAssetFromProject(aStrategicAssetId, aProjectId, bAtomicTransaction);
     }
 
     // TODO - create generalized routine
     public ArrayList<ProjectAsset> listProjectAssetOrphansFromProject() {
-        return this.persistenceTechnologyDelegate.retrieveWorkAssetOrphanListFromProject();
+        return getPersistenceTechnologyDelegate().retrieveWorkAssetOrphanListFromProject();
     }
 
     // TODO - create generalized routine
     public ArrayList<StrategicAsset> listStrategicAssetOrphansFromProject() {
-        return this.persistenceTechnologyDelegate.retrieveStrategicAssetOrphanListFromProject();
+        return getPersistenceTechnologyDelegate().retrieveStrategicAssetOrphanListFromProject();
     }
 
     // DEMOTE / PROMOTE
@@ -1910,7 +1919,8 @@ public class FmmDatabaseMediator {
     }
 
     public ArrayList<StrategicAsset> retrieveStrategicAssetList(Project aProject, StrategicAsset aStrategicAssetException) {
-        return retrieveStrategicAssetListForProject(aProject.getNodeIdString(), aStrategicAssetException.getNodeIdString());
+        return retrieveStrategicAssetListForProject(aProject.getNodeIdString(),
+                aStrategicAssetException == null ? null : aStrategicAssetException.getNodeIdString());
     }
 
     public ArrayList<StrategicAsset> retrieveStrategicAssetListForProject(String aProjectId, String aStrategicAssetExceptionId) {
@@ -1927,7 +1937,8 @@ public class FmmDatabaseMediator {
     }
 
     public ArrayList<StrategicAsset> retrieveStrategicAssetList(StrategicMilestone aStrategicMilestone, StrategicAsset aStrategicAssetException) {
-        return retrieveStrategicAssetListForStrategicMilestone(aStrategicMilestone.getNodeIdString(), aStrategicAssetException.getNodeIdString());
+        return retrieveStrategicAssetListForStrategicMilestone(aStrategicMilestone.getNodeIdString(),
+                aStrategicAssetException == null ? null : aStrategicAssetException.getNodeIdString());
     }
 
     public ArrayList<StrategicAsset> retrieveStrategicAssetListForStrategicMilestone(String aStrategicMilestoneId, String aStrategicAssetExceptionId) {
@@ -1969,7 +1980,7 @@ public class FmmDatabaseMediator {
     }
 
     public boolean deleteStrategicAsset(StrategicAsset aStrategicAsset, boolean bAtomicTransaction) {
-        return fractalDeleteFmmCompletableNode(aStrategicAsset, bAtomicTransaction);
+        return fractalDeleteFmmCompletionNode(aStrategicAsset, bAtomicTransaction);
     }
 
     // MOVE
@@ -1979,7 +1990,7 @@ public class FmmDatabaseMediator {
             String aDestinationStrategicMilestoneId,
             boolean bSequenceAtEnd,
             boolean bAtomicTransaction) {
-        return this.persistenceTechnologyDelegate.moveAllStrategicAssetsIntoStrategicMilestone(
+        return getPersistenceTechnologyDelegate().moveAllStrategicAssetsIntoStrategicMilestone(
                 aSourceStrateticMilestoneId,
                 aDestinationStrategicMilestoneId,
                 bSequenceAtEnd,
@@ -1992,7 +2003,7 @@ public class FmmDatabaseMediator {
             String aDestinationStrategicMilestoneId,
             boolean bSequenceAtEnd,
             boolean bAtomicTransaction) {
-        return this.persistenceTechnologyDelegate.moveSingleStrategicAssetIntoStrategicMilestone(
+        return getPersistenceTechnologyDelegate().moveSingleStrategicAssetIntoStrategicMilestone(
                 aStrategicAssetId,
                 anOriginalStrategicMilestonetId,
                 aDestinationStrategicMilestoneId,
@@ -2006,7 +2017,7 @@ public class FmmDatabaseMediator {
             String aDestinationProjectId,
             boolean bSequenceAtEnd,
             boolean bAtomicTransaction) {
-        return this.persistenceTechnologyDelegate.moveSingleStrategicAssetIntoProject(
+        return getPersistenceTechnologyDelegate().moveSingleStrategicAssetIntoProject(
                 aStrategicAssetId,
                 anOriginalProjectId,
                 aDestinationProjectId,
@@ -2062,11 +2073,11 @@ public class FmmDatabaseMediator {
     }
 
     public boolean insertFiscalYear(FiscalYear aFiscalYear, boolean bAtomicTransaction) {
-        return fractalInsertFmmGovernableNode(aFiscalYear, bAtomicTransaction);
+        return fractalInsertFmmCompletionNode(aFiscalYear, bAtomicTransaction);
     }
 
     public boolean updateFiscalYear(FiscalYear aFiscalYear, boolean bAtomicTransaction) {
-        return fractalUpdateFmmGovernableNode(aFiscalYear, bAtomicTransaction);
+        return fractalUpdateFmmCompletionNode(aFiscalYear, bAtomicTransaction);
     }
 
     public boolean existsFiscalYear(String aFiscalYearId) {
@@ -2074,49 +2085,57 @@ public class FmmDatabaseMediator {
     }
 
     public boolean deleteFiscalYear(FiscalYear aFiscalYear, boolean bAtomicTransaction) {
-        return fractalDeleteFmmGovernableNode(aFiscalYear, bAtomicTransaction);
+        if(bAtomicTransaction) {
+            startTransaction();
+        }
+        boolean isSuccess = deleteAllFiscalYearHolidayBreaks(aFiscalYear, false);
+        isSuccess &= fractalDeleteFmmCompletionNode(aFiscalYear, bAtomicTransaction);
+        if(bAtomicTransaction) {
+            endTransaction(isSuccess);
+        }
+        return isSuccess;
     }
 
     // MOVE
 
     // TODO - create generalized routine
 	public int countFiscalYearForStrategicMilestoneMoveTarget(FmsOrganization anFmsOrganization, FiscalYear aFiscalYearTargetException) {
-		return this.persistenceTechnologyDelegate.countFiscalYearForStrategicMilestoneMoveTarget(anFmsOrganization, aFiscalYearTargetException);
+		return getPersistenceTechnologyDelegate().countFiscalYearForStrategicMilestoneMoveTarget(anFmsOrganization, aFiscalYearTargetException);
 	}
 
     // TODO - create generalized routine
     public ArrayList<FiscalYear> retrieveFiscalYearListForStrategicMilestoneMoveTarget(FmsOrganization anFmsOrganization, FiscalYear aFiscalYearException) {
-        return this.persistenceTechnologyDelegate.retrieveFiscalYearListForStrategicMilestoneMoveTarget(anFmsOrganization, aFiscalYearException);
+        return getPersistenceTechnologyDelegate().retrieveFiscalYearListForStrategicMilestoneMoveTarget(anFmsOrganization, aFiscalYearException);
     }
 
     // TODO - create generalized routine
 	public int countFiscalYearForProjectAssetMoveTarget(FmsOrganization anFmsOrganization, StrategicMilestone aStrategicMilestonException) {
-		return this.persistenceTechnologyDelegate.countFiscalYearForProjectAssetMoveTarget(anFmsOrganization, aStrategicMilestonException);
+		return getPersistenceTechnologyDelegate().countFiscalYearForProjectAssetMoveTarget(anFmsOrganization, aStrategicMilestonException);
 	}
 
     // TODO - create generalized routine
 	public ArrayList<FiscalYear> retrieveFiscalYearListForProjectAssetMoveTarget(FmsOrganization anFmsOrganization, StrategicMilestone aStrategicMilestonException) {
-		return this.persistenceTechnologyDelegate.retrieveFiscalYearForProjectAssetMoveTarget(anFmsOrganization, aStrategicMilestonException);
+		return getPersistenceTechnologyDelegate().retrieveFiscalYearForProjectAssetMoveTarget(anFmsOrganization, aStrategicMilestonException);
 	}
 
     // TODO - create generalized routine
 	public int countFiscalYearForWorkPackageMoveTarget(FmsOrganization anFmsOrganization, ProjectAsset aProjectAssetException) {
-		return this.persistenceTechnologyDelegate.countFiscalYearForWorkPackageMoveTarget(anFmsOrganization, aProjectAssetException);
+		return getPersistenceTechnologyDelegate().countFiscalYearForWorkPackageMoveTarget(anFmsOrganization, aProjectAssetException);
 	}
 
     // TODO - create generalized routine
 	public ArrayList<FiscalYear> retrieveFiscalYearListForWorkPackageMoveTarget(FmsOrganization anFmsOrganization, ProjectAsset aProjectAssetException) {
-		return this.persistenceTechnologyDelegate.retrieveFiscalYearListForWorkPackageMoveTarget(anFmsOrganization, aProjectAssetException);
+		return getPersistenceTechnologyDelegate().retrieveFiscalYearListForWorkPackageMoveTarget(anFmsOrganization, aProjectAssetException);
 	}
 
     // TODO - create generalized routine
 	public int countFiscalYearForCadenceMoveTarget(FmsOrganization anFmsOrganization, FiscalYear aFiscalYearTargetException) {
-		return this.persistenceTechnologyDelegate.countFiscalYearForCadenceMoveTarget(anFmsOrganization, aFiscalYearTargetException);
+		return getPersistenceTechnologyDelegate().countFiscalYearForCadenceMoveTarget(anFmsOrganization, aFiscalYearTargetException);
 	}
 
     // TODO - create generalized routine
 	public ArrayList<FiscalYear> retrieveFiscalYearListForCadenceMoveTarget(FmsOrganization anFmsOrganization, FiscalYear aFiscalYearTargetException) {
-		return this.persistenceTechnologyDelegate.retrieveFiscalYearListForCadenceMoveTarget(anFmsOrganization, aFiscalYearTargetException);
+		return getPersistenceTechnologyDelegate().retrieveFiscalYearListForCadenceMoveTarget(anFmsOrganization, aFiscalYearTargetException);
 	}
 
 
@@ -2136,7 +2155,7 @@ public class FmmDatabaseMediator {
             FmmNodeDefinition.CADENCE,
             CadenceMetaData.column_FISCAL_YEAR_ID,
             aFiscalYearId,
-            sort_spec__SEQUENCE);
+            sort_spec__SCHEDULED_END_DATE);
     }
     
     // created in a batch mode for entire year
@@ -2172,7 +2191,7 @@ public class FmmDatabaseMediator {
     }
 
     public boolean deleteCadence(Cadence aCadence, boolean bAtomicTransaction) {
-        return fractalDeleteFmmCompletableNode(aCadence, bAtomicTransaction);
+        return fractalDeleteFmmCompletionNode(aCadence, bAtomicTransaction);
     }
 
     public boolean deleteAllCadences(FiscalYear aFiscalYear, boolean bAtomicTransaction) {
@@ -2180,7 +2199,7 @@ public class FmmDatabaseMediator {
     }
 
     public boolean deleteAllCadencesForFiscalYear(String aFiscalYearId, boolean bAtomicTransaction) {
-        ArrayList<String> theCadenceIdList = getFmmNodeIdList(FmmNodeDefinition.CADENCE, CadenceMetaData.column_FISCAL_YEAR_ID, aFiscalYearId);
+        ArrayList<String> theCadenceIdList = getFmmNodeIdList(FmmNodeDefinition.CADENCE, CadenceMetaData.column_FISCAL_YEAR_ID, aFiscalYearId, null);
         if(theCadenceIdList.size() < 1) {
             return true;
         }
@@ -2311,11 +2330,11 @@ public class FmmDatabaseMediator {
     }
 
     public boolean deleteWorkPlan(WorkPlan aWorkPlan, boolean bAtomicTransaction) {
-        return fractalDeleteFmmCompletableNode(aWorkPlan, bAtomicTransaction);
+        return fractalDeleteFmmCompletionNode(aWorkPlan, bAtomicTransaction);
     }
 
     public boolean deleteAllWorkPlans(Cadence aCadence, boolean bAtomicTransaction) {
-        ArrayList<String> theWorkPlanIdList = getFmmNodeIdList(FmmNodeDefinition.WORK_PLAN, WorkPlanMetaData.column_CADENCE_ID, aCadence.getNodeIdString());
+        ArrayList<String> theWorkPlanIdList = getFmmNodeIdList(FmmNodeDefinition.WORK_PLAN, WorkPlanMetaData.column_CADENCE_ID, aCadence.getNodeIdString(), null);
         if(theWorkPlanIdList.size() < 1) {
             return true;
         }
@@ -2387,7 +2406,7 @@ public class FmmDatabaseMediator {
     }
 
     public boolean deleteAllFiscalYearHolidayBreaks(FiscalYear aFiscalYear, boolean bAtomicTransaction) {
-        ArrayList<String> theFiscalYearHolidayBreakIdList = getFmmNodeIdList(FmmNodeDefinition.FISCAL_YEAR_HOLIDAY_BREAK, FiscalYearHolidayBreakMetaData.column_FISCAL_YEAR_ID, aFiscalYear.getNodeIdString());
+        ArrayList<String> theFiscalYearHolidayBreakIdList = getFmmNodeIdList(FmmNodeDefinition.FISCAL_YEAR_HOLIDAY_BREAK, FiscalYearHolidayBreakMetaData.column_FISCAL_YEAR_ID, aFiscalYear.getNodeIdString(), null);
         if(theFiscalYearHolidayBreakIdList.size() < 1) {
             return true;
         }
@@ -2472,6 +2491,11 @@ public class FmmDatabaseMediator {
         return retrieveFmmNodeFromSimpleIdTable(FmmNodeDefinition.FRAG_LOCK, FragLockMetaData.column_GRANDPARENT_ID, aGrandparentId);
 	}
 
+    private boolean createFragLock(FmmNodeFragLockableImpl anFmmNodeFragLockableImpl) {
+        FragLock theFragLock = new FragLock(anFmmNodeFragLockableImpl);
+        return insertFragLock(theFragLock, false);  // always part of a transaction
+    }
+
 	public boolean insertFragLock(FragLock aFragLock, boolean bAtomicTransaction) {
 		return insertSimpleIdTableRow(aFragLock, bAtomicTransaction);
 	}
@@ -2486,7 +2510,11 @@ public class FmmDatabaseMediator {
 
 	public boolean deleteFragLock(FragLock aFragLock, boolean bAtomicTransaction) {
 		return deleteSimpleIdTableRow(aFragLock, bAtomicTransaction);
-	}	
+	}
+
+    private boolean deleteAllFragLocks(FmmHeadlineNode aHeadlineNode) {
+        return deleteSimpleIdTableRow(FmmNodeDefinition.FRAG_LOCK, FragLockMetaData.column_GRANDPARENT_ID, aHeadlineNode.getNodeIdString(), false);
+    }
 
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -2519,9 +2547,9 @@ public class FmmDatabaseMediator {
     }
 
     private boolean createNodeFragAuditBlock(FmmHeadlineNode anFmmHeadlineNode) {
-        boolean isSuccess = false;
         NodeFragAuditBlock theNodeFragAuditBlock = new NodeFragAuditBlock(anFmmHeadlineNode);
-        isSuccess = insertNodeFragAuditBlock(theNodeFragAuditBlock, false);  // always part of a transaction
+        boolean isSuccess = insertNodeFragAuditBlock(theNodeFragAuditBlock, false);  // always part of a transaction
+        isSuccess &= createFragLock(theNodeFragAuditBlock);
         if(isSuccess) {
             anFmmHeadlineNode.setNodeFragAuditBlock(theNodeFragAuditBlock);
         }
@@ -2561,9 +2589,8 @@ public class FmmDatabaseMediator {
     }
 
     private boolean createNodeFragCompletion(FmmCompletionNode anFmmCompletionNode) {
-        boolean isSuccess = false;
         NodeFragCompletion theNodeFragCompletion = new NodeFragCompletion(anFmmCompletionNode);
-        isSuccess = insertNodeFragCompletion(theNodeFragCompletion, false);  // always part of a transaction
+        boolean isSuccess = insertNodeFragCompletion(theNodeFragCompletion, false);  // always part of a transaction
         if(isSuccess) {
             anFmmCompletionNode.setNodeFragCompletion(theNodeFragCompletion);
         }
@@ -2607,9 +2634,9 @@ public class FmmDatabaseMediator {
     }
 
     private boolean createNodeFragFseDocument(FmmHeadlineNode anFmmHeadlineNode) {
-        boolean isSuccess = false;
         NodeFragFseDocument theNodeFragFseDocument = new NodeFragFseDocument(anFmmHeadlineNode);
-        isSuccess = insertNodeFragFseDocument(theNodeFragFseDocument, false);  // always part of a transaction
+        boolean isSuccess = insertNodeFragFseDocument(theNodeFragFseDocument, false);  // always part of a transaction
+        isSuccess &= createFragLock(theNodeFragFseDocument);
         if(isSuccess) {
             anFmmHeadlineNode.setNodeFragFseDocument(theNodeFragFseDocument);
         }
@@ -2708,9 +2735,9 @@ public class FmmDatabaseMediator {
 	}
 
     private boolean createNodeFragGovernance(FmmGovernableNode anFmmGovernableNode) {
-        boolean isSuccess = false;
         NodeFragGovernance theNodeFragGovernance = new NodeFragGovernance(anFmmGovernableNode);
-        isSuccess = insertNodeFragGovernance(theNodeFragGovernance, false);  // always part of a transaction
+        boolean isSuccess = insertNodeFragGovernance(theNodeFragGovernance, false);  // always part of a transaction
+        isSuccess &= createFragLock(theNodeFragGovernance);
         if(isSuccess) {
             anFmmGovernableNode.setNodeFragGovernance(theNodeFragGovernance);
         }
@@ -2754,9 +2781,8 @@ public class FmmDatabaseMediator {
 	}
 
     private boolean createNodeFragTribKnQuality(FmmHeadlineNode anFmmHeadlineNode) {
-        boolean isSuccess = false;
         NodeFragTribKnQuality theNodeFragTribKnQuality = new NodeFragTribKnQuality(anFmmHeadlineNode);
-        isSuccess = insertNodeFragTribKnQuality(theNodeFragTribKnQuality, false);  // always part of a transaction
+        boolean isSuccess = insertNodeFragTribKnQuality(theNodeFragTribKnQuality, false);  // always part of a transaction
         if(isSuccess) {
             anFmmHeadlineNode.setNodeFragTribKnQuality(theNodeFragTribKnQuality);
         }
@@ -2800,9 +2826,9 @@ public class FmmDatabaseMediator {
     }
 
     private boolean createNodeFragWorkTaskBudget(FmmCompletionNode anFmmCompletionNode) {
-        boolean isSuccess = false;
         NodeFragWorkTaskBudget theNodeFragWorkTaskBudget = new NodeFragWorkTaskBudget(anFmmCompletionNode);
-        isSuccess = insertNodeFragWorkTaskBudget(theNodeFragWorkTaskBudget, false);  // always part of a transaction
+        boolean isSuccess = insertNodeFragWorkTaskBudget(theNodeFragWorkTaskBudget, false);  // always part of a transaction
+        isSuccess &= createFragLock(theNodeFragWorkTaskBudget);
         if(isSuccess) {
             anFmmCompletionNode.setNodeFragWorkTaskBudget(theNodeFragWorkTaskBudget);
         }
@@ -2932,14 +2958,14 @@ public class FmmDatabaseMediator {
     }
 
 	public boolean deleteWorkTask(WorkTask aWorkTask, boolean bAtomicTransaction) {
-		return fractalDeleteFmmCompletableNode(aWorkTask, bAtomicTransaction);
+		return fractalDeleteFmmCompletionNode(aWorkTask, bAtomicTransaction);
 	}
 
     // MOVE
 
     // TODO - create generalized routine
     public boolean moveAllWorkTasksIntoWorkPackage(String aSourceWorkPackageId, String aDestinationWorkPackageId, boolean bSequenceAtEnd, boolean bAtomicTransaction) {
-        return this.persistenceTechnologyDelegate.moveAllWorkTasksIntoWorkPackage(
+        return getPersistenceTechnologyDelegate().moveAllWorkTasksIntoWorkPackage(
                 aSourceWorkPackageId,
                 aDestinationWorkPackageId,
                 bSequenceAtEnd,
@@ -2950,27 +2976,27 @@ public class FmmDatabaseMediator {
 
     // TODO - create generalized routine
     public ArrayList<WorkTask> listWorkTaskOrphansFromWorkPackage() {
-        return this.persistenceTechnologyDelegate.retrieveWorkTaskOrphanListFromWorkPackage();
+        return getPersistenceTechnologyDelegate().retrieveWorkTaskOrphanListFromWorkPackage();
     }
 
     // TODO - create generalized routine
     public ArrayList<WorkTask> listWorkTaskOrphansFromWorkPlan() {
-        return this.persistenceTechnologyDelegate.retrieveWorkTaskOrphanListFromWorkPlan();
+        return getPersistenceTechnologyDelegate().retrieveWorkTaskOrphanListFromWorkPlan();
     }
 
     // TODO - create generalized routine
     public boolean orphanAllWorkTasksFromWorkPackage(String aWorkPackageId, boolean bAtomicTransaction) {
-        return this.persistenceTechnologyDelegate.orphanAllWorkTasksFromWorkPackage(aWorkPackageId, bAtomicTransaction);
+        return getPersistenceTechnologyDelegate().orphanAllWorkTasksFromWorkPackage(aWorkPackageId, bAtomicTransaction);
     }
 
     // TODO - create generalized routine
     public boolean orphanSingleWorkTaskFromWorkPackage(String aWorkTaskId, String aWorkPackageId, boolean bAtomicTransaction) {
-        return this.persistenceTechnologyDelegate.orphanSingleWorkTaskFromWorkPackage(aWorkTaskId, aWorkPackageId, bAtomicTransaction);
+        return getPersistenceTechnologyDelegate().orphanSingleWorkTaskFromWorkPackage(aWorkTaskId, aWorkPackageId, bAtomicTransaction);
     }
 
     // TODO - create generalized routine
     public boolean adoptOrphanWorkTaskIntoWorkPackage(String aWorkTaskId, String aWorkPackageId, boolean bSequenceAtEnd, boolean bAtomicTransaction) {
-        return this.persistenceTechnologyDelegate.adoptOrphanWorkTaskIntoWorkPackage(
+        return getPersistenceTechnologyDelegate().adoptOrphanWorkTaskIntoWorkPackage(
                 aWorkTaskId,
                 aWorkPackageId,
                 bSequenceAtEnd,
@@ -3175,7 +3201,7 @@ public class FmmDatabaseMediator {
     }
 
     public ArrayList<StrategicMilestone> retrieveStrategicMilestoneList(FiscalYear aFiscalYear, StrategicMilestone aStrategicMilestoneException) {
-        return retrieveStrategicMilestoneListForFiscalYear(aFiscalYear.getNodeIdString(), aStrategicMilestoneException.getNodeIdString());
+        return retrieveStrategicMilestoneListForFiscalYear(aFiscalYear.getNodeIdString(), aStrategicMilestoneException == null ? null :aStrategicMilestoneException.getNodeIdString());
     }
 
 	public ArrayList<StrategicMilestone> retrieveStrategicMilestoneListForFiscalYear(String aFiscalYearId, String aStrategicMilestoneExceptionId) {
@@ -3227,30 +3253,30 @@ public class FmmDatabaseMediator {
 	}
 
 	public boolean deleteStrategicMilestone(StrategicMilestone aStrategicMilestone, boolean bAtomicTransaction) {
-		return fractalDeleteFmmCompletableNode(aStrategicMilestone, bAtomicTransaction);
+		return fractalDeleteFmmCompletionNode(aStrategicMilestone, bAtomicTransaction);
 	}
 
     // MOVE
 
     // TODO - create generalized routine
     public int countStrategicMilestoneForProjectAssetMoveTarget(FiscalYear aFiscalYear, StrategicMilestone aStrategicMilestonException) {
-        return this.persistenceTechnologyDelegate.countStrategicMilestoneForProjectAssetMoveTarget(aFiscalYear, aStrategicMilestonException);
+        return getPersistenceTechnologyDelegate().countStrategicMilestoneForProjectAssetMoveTarget(aFiscalYear, aStrategicMilestonException);
     }
 
     // TODO - create generalized routine
     public ArrayList<StrategicMilestone> retrieveStrategicMilestoneListForProjectAssetMoveTarget(FiscalYear aFiscalYear, StrategicMilestone aStrategicMilestonException) {
-        return this.persistenceTechnologyDelegate.retrieveStrategicMilestoneListForProjectAssetMoveTarget(aFiscalYear, aStrategicMilestonException);
+        return getPersistenceTechnologyDelegate().retrieveStrategicMilestoneListForProjectAssetMoveTarget(aFiscalYear, aStrategicMilestonException);
     }
 
     // TODO - create generalized routine
     public int countStrategicMilestoneForWorkPackageMoveTarget(FiscalYear aFiscalYear, ProjectAsset aProjectAssetException) {
-        return this.persistenceTechnologyDelegate.countStrategicMilestoneForWorkPackageMoveTarget(aFiscalYear, aProjectAssetException);
+        return getPersistenceTechnologyDelegate().countStrategicMilestoneForWorkPackageMoveTarget(aFiscalYear, aProjectAssetException);
     }
 
     // TODO - create generalized routine
     public ArrayList<StrategicMilestone> retrieveStrategicMilestoneListForWorkPackageMoveTarget(
             FiscalYear aFiscalYear, ProjectAsset aProjectAssetException) {
-        return this.persistenceTechnologyDelegate.retrieveStrategicMilestoneListForWorkPackageMoveTarget(aFiscalYear, aProjectAssetException);
+        return getPersistenceTechnologyDelegate().retrieveStrategicMilestoneListForWorkPackageMoveTarget(aFiscalYear, aProjectAssetException);
     }
 
     // TODO - create generalized routine
@@ -3259,7 +3285,7 @@ public class FmmDatabaseMediator {
             String aDestinationFiscalYearId,
             boolean bSequenceAtEnd,
             boolean bAtomicTransaction) {
-		int theDbRowCount = this.persistenceTechnologyDelegate.moveAllStrategicMilestonesIntoFiscalYear(
+		int theDbRowCount = getPersistenceTechnologyDelegate().moveAllStrategicMilestonesIntoFiscalYear(
                 aCurrentFiscalYearId,
                 aDestinationFiscalYearId,
                 bSequenceAtEnd,
@@ -3274,7 +3300,7 @@ public class FmmDatabaseMediator {
             String aDestinationFiscalYearId,
             boolean bSequenceAtEnd,
             boolean bAtomicTransaction) {
-		return this.persistenceTechnologyDelegate.moveSingleStrategicMilestoneIntoFiscalYear(
+		return getPersistenceTechnologyDelegate().moveSingleStrategicMilestoneIntoFiscalYear(
                 aStrategicMilestoneId,
                 anOriginalFiscalYearId,
                 aDestinationFiscalYearId,
@@ -3312,7 +3338,7 @@ public class FmmDatabaseMediator {
     }
 
     public ArrayList<WorkPackage> retrieveWorkPackageList(Cadence aCadence, WorkPackage aWorkPackageException) {
-        return retrieveWorkPackageListForCadence(aCadence.getNodeIdString(), aWorkPackageException.getNodeIdString());
+        return retrieveWorkPackageListForCadence(aCadence.getNodeIdString(), aWorkPackageException == null ? null : aWorkPackageException.getNodeIdString());
     }
 
 	public ArrayList<WorkPackage> retrieveWorkPackageListForCadence(String aCadenceId, String aWorkPackageExceptionId) {
@@ -3385,7 +3411,7 @@ public class FmmDatabaseMediator {
         if(bAtomicTransaction) {
             startTransaction();
         }
-        boolean isSuccess = fractalDeleteFmmCompletableNode(aWorkPackage, bAtomicTransaction);
+        boolean isSuccess = fractalDeleteFmmCompletionNode(aWorkPackage, bAtomicTransaction);
         if(bAtomicTransaction) {
             endTransaction(isSuccess);
         }
@@ -3395,13 +3421,13 @@ public class FmmDatabaseMediator {
     // MOVE
 
 	public ArrayList<WorkPackage> retrieveWorkPackageForWorkTaskMoveTarget(ProjectAsset aProjectAsset, WorkPackage aWorkPackageException) {
-		return this.persistenceTechnologyDelegate.retrieveWorkPackageListForWorkTaskMoveTarget(
-                aProjectAsset.getNodeIdString(), aWorkPackageException.getNodeIdString(), true);
+		return getPersistenceTechnologyDelegate().retrieveWorkPackageListForWorkTaskMoveTarget(
+                aProjectAsset.getNodeIdString(), aWorkPackageException == null ? null : aWorkPackageException.getNodeIdString(), true);
 	}
 
 	public ArrayList<WorkPackage> retrieveWorkPackageForWorkTaskMoveTarget(Cadence aCadence, WorkPackage aWorkPackageException) {
-		return this.persistenceTechnologyDelegate.retrieveWorkPackageListForWorkTaskMoveTarget(
-                aCadence.getNodeIdString(), aWorkPackageException.getNodeIdString(), true);
+		return getPersistenceTechnologyDelegate().retrieveWorkPackageListForWorkTaskMoveTarget(
+                aCadence.getNodeIdString(), aWorkPackageException == null ? null : aWorkPackageException.getNodeIdString(), true);
 	}
 
     public boolean moveAllWorkPackagesIntoProjectAsset(
@@ -3409,7 +3435,7 @@ public class FmmDatabaseMediator {
             String aDestinationProjectAssetId,
             boolean bSequenceAtEnd,
             boolean bAtomicTransaction) {
-        return this.persistenceTechnologyDelegate.moveAllWorkPackagesIntoProjectAsset(
+        return getPersistenceTechnologyDelegate().moveAllWorkPackagesIntoProjectAsset(
                 aSourceProjectAssetId,
                 aDestinationProjectAssetId,
                 bSequenceAtEnd,
@@ -3422,7 +3448,7 @@ public class FmmDatabaseMediator {
             String aDestinationProjectAssetId,
             boolean bSequenceAtEnd,
             boolean bAtomicTransaction) {
-        return this.persistenceTechnologyDelegate.moveSingleWorkPackageIntoProjectAsset(
+        return getPersistenceTechnologyDelegate().moveSingleWorkPackageIntoProjectAsset(
                 aWorkPackageId,
                 anOriginalProjectAssetId,
                 aDestinationProjectAssetId,
@@ -3433,11 +3459,11 @@ public class FmmDatabaseMediator {
     // ORPHANS
 
 	public ArrayList<WorkPackage> retrieveWorkPackageOrphansFromProjectAsset() {
-		return this.persistenceTechnologyDelegate.retrieveWorkPackageOrphanListFromProjectAsset();
+		return getPersistenceTechnologyDelegate().retrieveWorkPackageOrphanListFromProjectAsset();
 	}
 
 	public ArrayList<WorkPackage> retrieveWorkPackageOrphansFromCadence() {
-		return this.persistenceTechnologyDelegate.retrieveWorkPackageOrphanListFromCadence();
+		return getPersistenceTechnologyDelegate().retrieveWorkPackageOrphanListFromCadence();
 	}
 
 	public boolean adoptOrphanWorkPackageIntoProjectAsset(
@@ -3445,7 +3471,7 @@ public class FmmDatabaseMediator {
 			String aProjectAssetId,
 			boolean bSequenceAtEnd,
 			boolean bAtomicTransaction ) {
-		return this.persistenceTechnologyDelegate.adoptOrphanWorkPackageIntoProjectAsset(
+		return getPersistenceTechnologyDelegate().adoptOrphanWorkPackageIntoProjectAsset(
                 aWorkPackageId,
                 aProjectAssetId,
                 bSequenceAtEnd,
@@ -3456,7 +3482,7 @@ public class FmmDatabaseMediator {
         if(bAtomicTransaction) {
             startTransaction();
         }
-        boolean isSuccess = this.persistenceTechnologyDelegate.orphanSingleWorkPackageFromProjectAsset(aWorkPackageId, aProjectAssetId, bAtomicTransaction);
+        boolean isSuccess = getPersistenceTechnologyDelegate().orphanSingleWorkPackageFromProjectAsset(aWorkPackageId, aProjectAssetId, bAtomicTransaction);
         if(bAtomicTransaction) {
             endTransaction(isSuccess);
         }
@@ -3467,7 +3493,7 @@ public class FmmDatabaseMediator {
         if(bAtomicTransaction) {
             startTransaction();
         }
-        boolean isSuccess = this.persistenceTechnologyDelegate.orphanAllWorkPackagesFromCadence(aCadenceId, bAtomicTransaction);
+        boolean isSuccess = getPersistenceTechnologyDelegate().orphanAllWorkPackagesFromCadence(aCadenceId, bAtomicTransaction);
         if(bAtomicTransaction) {
             endTransaction(isSuccess);
         }
@@ -3478,7 +3504,7 @@ public class FmmDatabaseMediator {
         if(bAtomicTransaction) {
             startTransaction();
         }
-        boolean isSuccess = this.persistenceTechnologyDelegate.orphanSingleWorkPackageFromCadence(aWorkPackageId, aCadenceId, bAtomicTransaction);
+        boolean isSuccess = getPersistenceTechnologyDelegate().orphanSingleWorkPackageFromCadence(aWorkPackageId, aCadenceId, bAtomicTransaction);
         if(bAtomicTransaction) {
             endTransaction(isSuccess);
         }
@@ -3489,7 +3515,7 @@ public class FmmDatabaseMediator {
         if(bAtomicTransaction) {
             startTransaction();
         }
-        boolean isSuccess = this.persistenceTechnologyDelegate.orphanAllWorkPackagesFromProjectAsset(aProjectAssetId, bAtomicTransaction);
+        boolean isSuccess = getPersistenceTechnologyDelegate().orphanAllWorkPackagesFromProjectAsset(aProjectAssetId, bAtomicTransaction);
         if(bAtomicTransaction) {
             endTransaction(isSuccess);
         }
@@ -3501,6 +3527,6 @@ public class FmmDatabaseMediator {
     ////////////  COMMUNITY MEMBER ORGANIZATION GOVERNANCE AUTHORITY  ///////////////////
 
 	public ArrayList<CommunityMember> getGovernanceCandidates(FmsOrganization anFmsOrganization, GovernanceTarget aGovernanceTarget, GovernanceRole aGovernanceRole) {
-		return this.persistenceTechnologyDelegate.getGovernanceCandidates(anFmsOrganization, aGovernanceTarget, aGovernanceRole);
+		return getPersistenceTechnologyDelegate().getGovernanceCandidates(anFmsOrganization, aGovernanceTarget, aGovernanceRole);
 	}
 }

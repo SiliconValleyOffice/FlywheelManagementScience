@@ -243,13 +243,13 @@ public class FseHistoryBrowserPerspectiveFlipper extends FsePerspectiveFlipper {
 
 	@Override
 	public void setIsLocked(boolean aBoolean) {
-//		getAuditBlock().setIsLocked(isLocked);
+//		getFseParagraphAuditBlock().setIsLocked(isLocked);
 		return;
 	}
 
 	@Override
 	public boolean isLocked() {
-//		return getAuditBlock().isLocked();
+//		return getFseParagraphAuditBlock().isLocked();
 		return false;
 	}
 	

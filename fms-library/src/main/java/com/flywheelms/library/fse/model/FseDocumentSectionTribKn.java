@@ -59,7 +59,7 @@ public class FseDocumentSectionTribKn extends FseDocumentSection {
 	String headline;
 	DecKanGlGlyph decKanGlGlyph;
 	NodeFragGovernance nodeFragGovernance;
-//	FmmConfiguration fmmConfiguration;
+//	FmmConfiguration activeFmmConfiguration;
 
 	public FseDocumentSectionTribKn() {
 		super(FseDocumentSectionType.TRIBKN);
@@ -74,7 +74,7 @@ public class FseDocumentSectionTribKn extends FseDocumentSection {
 		this.headline = aHeadline;
 		this.decKanGlGlyph = aDecKanGlGlyph;
 		this.nodeFragGovernance = aNodeFragGovernance;
-//		this.fmmConfiguration = anFmmConfiguration;
+//		this.activeFmmConfiguration = anFmmConfiguration;
 	}
 	
 	// de-serialize a document section
@@ -87,7 +87,7 @@ public class FseDocumentSectionTribKn extends FseDocumentSection {
 							FmmDecKanGlDictionary.getInstance() );
 			this.nodeFragGovernance = new NodeFragGovernance(
 					aJsonObject.getJSONObject(NodeFragGovernanceMetaData.key__NODE_FRAG__GOVERNANCE));
-//			this.fmmConfiguration =
+//			this.activeFmmConfiguration =
 //				FmmConfigurationSerialization.retrieveFmmConfiguration(aJsonObject.getJSONObject(FmmConfigurationSerialization.key__FMM_CONFIGURATION));
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
@@ -146,11 +146,11 @@ public class FseDocumentSectionTribKn extends FseDocumentSection {
 	}
 
 //	public FmmConfiguration retrieveFmmConfiguration() {
-//		return this.fmmConfiguration;
+//		return this.activeFmmConfiguration;
 //	}
 //
-//	public void setFmmConfiguration(FmmConfiguration fmmConfiguration) {
-//		this.fmmConfiguration = fmmConfiguration;
+//	public void setFmmConfiguration(FmmConfiguration activeFmmConfiguration) {
+//		this.activeFmmConfiguration = activeFmmConfiguration;
 //	}
 
 }

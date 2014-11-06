@@ -61,6 +61,7 @@ public class GcgActivityHelper {
     public static final String bundle_key__LIST_ACTION_LABEL = "ListActionLabel";
     public static final String bundle_key__MUST_SELECT_DATA_SOURCE = "MustSelectDataSource";
     public static final String bundle_key__GCG__APPLICATION_CONTEXT = "GcgApplicationContext";
+    public static final String bundle_key__FMM_CONFIGURATION = "FmmConfiguration";
     public static final String bundle_key__RESTORE_GUI_STATE = "RestoreGuiState";
     public static final String bundle_key__DATA_REFRESH__ALL = "DataRefreshAll";
     public static final String bundle_key__DATA_REFRESH__NOTICE_LIST = "DataRefreshNoticeList";

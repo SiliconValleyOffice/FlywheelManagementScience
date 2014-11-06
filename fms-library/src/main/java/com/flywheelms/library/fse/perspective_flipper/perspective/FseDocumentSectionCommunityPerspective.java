@@ -52,11 +52,11 @@ import android.widget.LinearLayout;
 import com.flywheelms.gcongui.gcg.interfaces.GcgPerspective;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.context.FmmPerspective;
-import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragAuditBlock;
 import com.flywheelms.library.fms.helper.FmsHelpIndex;
 import com.flywheelms.library.fms.listeners.FmsNodeActivityGenericKeyListener;
 import com.flywheelms.library.fms.view.FmsAuditBlockView;
 import com.flywheelms.library.fse.FseDocumentSectionType;
+import com.flywheelms.library.fse.model.FseAuditBlock;
 import com.flywheelms.library.fse.model.FseCollaboratorSummary;
 import com.flywheelms.library.fse.model.FseDocumentSection;
 import com.flywheelms.library.fse.model.FseDocumentSectionCollaborators;
@@ -162,8 +162,8 @@ public class FseDocumentSectionCommunityPerspective extends FseDocumentSectionPe
 		this.documentSectionCollaborators = documentSectionParticipation;
 	}
 
-	private NodeFragAuditBlock getAuditBlock() {
-		return this.documentSectionCollaborators.getAuditBlock();
+	private FseAuditBlock getAuditBlock() {
+		return this.documentSectionCollaborators.getFseParagraphAuditBlock();
 	}
 
 	@Override
@@ -190,7 +190,7 @@ public class FseDocumentSectionCommunityPerspective extends FseDocumentSectionPe
 	public
 	void viewDocumentSection(FseDocumentSection aDocumentSection) {
 		this.documentSectionCollaborators = (FseDocumentSectionCollaborators) aDocumentSection;
-		this.auditBlockView.viewAuditBlock(this.documentSectionCollaborators.getAuditBlock());
+		this.auditBlockView.viewAuditBlock(this.documentSectionCollaborators.getFseParagraphAuditBlock());
 		this.collaboratorSummaryView.viewCollaboratorSummary(this.documentSectionCollaborators.getCollaboratorSummary());
 	}
 

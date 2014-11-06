@@ -116,9 +116,7 @@ public class FiscalYearDeleteDialog extends HeadlineNodeDeleteDialog {
 
 	@Override
 	protected boolean deleteHeadlineNode() {
-        boolean isSuccess = FmmDatabaseMediator.getActiveMediator().deleteAllFiscalYearHolidayBreaks((FiscalYear) getFmmHeadlineNode(), false);
-		isSuccess &= FmmDatabaseMediator.getActiveMediator().deleteFiscalYear((FiscalYear) getFmmHeadlineNode(), false);
-        return isSuccess;
+		return FmmDatabaseMediator.getActiveMediator().deleteFiscalYear(getFiscalYear(), true);
 	}
 
 	@Override

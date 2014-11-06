@@ -67,6 +67,7 @@ import com.flywheelms.library.fse.enumerator.FseSequenceModificationState;
 import com.flywheelms.library.fse.enumerator.FseStyleModificationState;
 import com.flywheelms.library.fse.history.FseParagraphHistoryDialog;
 import com.flywheelms.library.fse.interfaces.FseParagraphContentView;
+import com.flywheelms.library.fse.model.FseAuditBlock;
 import com.flywheelms.library.fse.model.FseParagraph;
 import com.flywheelms.library.fse.model.FseTemplateParagraph;
 import com.flywheelms.library.fse.perspective_flipper.FsePerspectiveFlipper;
@@ -109,7 +110,7 @@ public abstract class FseParagraphView extends LinearLayout
 	protected String initialTextContent = "";  // TODO - should this be pushed down to FseParagraphViewWithTextContent ???
 	protected boolean initiallyLocked;
 	protected boolean isLocked;
-	private NodeFragAuditBlock auditBlock;
+	private FseAuditBlock fseAuditBlock;
 	private FseContentModificationState contentModificationState;
 	private ImageView contentModificationStateImageView;
 	private FseLockModificationState lockModificationState;
@@ -151,7 +152,7 @@ public abstract class FseParagraphView extends LinearLayout
 			this.numberingModificationState = FseNumberingModificationState.getObjectForName(aJsonObject.getString(FseDocumentSerialization.key__PARAGRAPH_NUMBERING_MODIFICATION_STATE));
 			this.getContentTextView().setText(aJsonObject.getString(FseDocumentSerialization.key__PARAGRAPH_TEXT_CONTENT));
 			this.initialTextContent = aJsonObject.getString(FseDocumentSerialization.key__PARAGRAPH_INITIAL_TEXT_CONTENT);
-			setNodeFragAuditBlock(new NodeFragAuditBlock(aJsonObject.getJSONObject(FseDocumentSerialization.key__PARAGRAPH_NODE_FRAG_AUDIT_BLOCK)));
+			setNodeFragAuditBlock(new FseAuditBlock(aJsonObject.getJSONObject(FseDocumentSerialization.key__PARAGRAPH_NODE_FRAG_AUDIT_BLOCK)));
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -213,7 +214,7 @@ public abstract class FseParagraphView extends LinearLayout
 			FseNumberingModificationState.UNCHANGED,
 			FseStyleModificationState.UNCHANGED,
 			false,
-			new NodeFragAuditBlock(theParagraphId) );
+			new FseAuditBlock(theParagraphId) );
 		this.newParagraph = true;
 	}
 
@@ -241,7 +242,7 @@ public abstract class FseParagraphView extends LinearLayout
 			FseNumberingModificationState.UNCHANGED,
 			FseStyleModificationState.UNCHANGED,
 			false,
-			new NodeFragAuditBlock(this.getDocumentView().getDocumentId()) );
+			new FseAuditBlock(this.getDocumentView().getDocumentId()) );
 	}
 
 	// the "real" constructor
@@ -267,7 +268,7 @@ public abstract class FseParagraphView extends LinearLayout
 			FseNumberingModificationState aNumberingModificationState,
 			FseStyleModificationState aStyleModificationState,
 			boolean bIsHistory,
-			NodeFragAuditBlock anAuditBlock ) {
+			FseAuditBlock anAuditBlock ) {
 		this.paragraphEditor = aParagraphEditorView;
 		this.paragraphId = aParagraphId;
 		this.initialNextParagraphId = anInitialNextParagraphId;
@@ -294,7 +295,7 @@ public abstract class FseParagraphView extends LinearLayout
 		setContentModificationState(aContentModificationState);
 		setNumberingModificationState(aNumberingModificationState);
 		setStyleModificationState(aStyleModificationState);
-		this.auditBlock = anAuditBlock;
+		this.fseAuditBlock = anAuditBlock;
 		this.spinner = (FseParagraphSpinner) getChildAt(child_view__SPINNER);
 		this.spinner.initializeParagraphSpinner(this);
 		initializeContentView();
@@ -522,13 +523,12 @@ public abstract class FseParagraphView extends LinearLayout
 	////  START Audit Block  Wrapper ////
 	
 	@Override
-	public NodeFragAuditBlock getNodeFragAuditBlock() {
-		return this.auditBlock;
+	public FseAuditBlock getNodeFragAuditBlock() {
+		return this.fseAuditBlock;
 	}
 
-	@Override
-	public void setNodeFragAuditBlock(NodeFragAuditBlock anAuditBlock) {
-		this.auditBlock = anAuditBlock;
+	public void setNodeFragAuditBlock(FseAuditBlock anAuditBlock) {
+		this.fseAuditBlock = anAuditBlock;
 	}
 	
 	//  Created  //
@@ -1212,5 +1212,8 @@ public abstract class FseParagraphView extends LinearLayout
     public NodeFragAuditBlock getUpdatedNodeFragAuditBlock() {
         return null;
     }
+
+    @Override
+    public void setNodeFragAuditBlock(NodeFragAuditBlock auditBlock) {  /*  N/A  */  }
 
 }

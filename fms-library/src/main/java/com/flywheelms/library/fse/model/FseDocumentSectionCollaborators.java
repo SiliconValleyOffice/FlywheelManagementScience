@@ -44,7 +44,6 @@
 package com.flywheelms.library.fse.model;
 
 import com.flywheelms.library.fmm.meta_data.NodeFragAuditBlockMetaData;
-import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragAuditBlock;
 import com.flywheelms.library.fse.FseDocumentSectionType;
 import com.flywheelms.library.fse.util.FseDocumentSerialization;
 
@@ -53,24 +52,24 @@ import org.json.JSONObject;
 
 public class FseDocumentSectionCollaborators extends FseDocumentSection {
 	
-	private NodeFragAuditBlock auditBlock;
+	private FseAuditBlock fseParagraphAuditBlock;
 	private FseCollaboratorSummary collaboratorSummary;
 
 	public FseDocumentSectionCollaborators() {
 		super(FseDocumentSectionType.COMMUNITY);
 	}
 
-	public FseDocumentSectionCollaborators(NodeFragAuditBlock anAuditBlock, FseCollaboratorSummary aCommunityMemberParticipationSummary) {
+	public FseDocumentSectionCollaborators(FseAuditBlock anAuditBlock, FseCollaboratorSummary aCommunityMemberParticipationSummary) {
 		super(FseDocumentSectionType.COMMUNITY);
-		this.auditBlock = anAuditBlock;
+		this.fseParagraphAuditBlock = anAuditBlock;
 		this.collaboratorSummary = aCommunityMemberParticipationSummary;
 	}
 
 	public FseDocumentSectionCollaborators(JSONObject aJsonObject) {
 		super(FseDocumentSectionType.COMMUNITY);
 		try {
-			this.auditBlock =
-					new NodeFragAuditBlock(aJsonObject.getJSONObject(NodeFragAuditBlockMetaData.key__NODE_FRAG__AUDIT_BLOCK));
+			this.fseParagraphAuditBlock =
+					new FseAuditBlock(aJsonObject.getJSONObject(NodeFragAuditBlockMetaData.key__NODE_FRAG__AUDIT_BLOCK));
 			this.collaboratorSummary =
 					new FseCollaboratorSummary(aJsonObject.getJSONObject(FseDocumentSerialization.key__COLLABORATOR_SUMMARY));
 		} catch (JSONException e) {
@@ -83,7 +82,7 @@ public class FseDocumentSectionCollaborators extends FseDocumentSection {
 	public JSONObject getJsonObject() {
 		JSONObject theJsonObject = new JSONObject();
 		try {
-			theJsonObject.put(NodeFragAuditBlockMetaData.key__NODE_FRAG__AUDIT_BLOCK, this.auditBlock.getJsonObject());
+			theJsonObject.put(NodeFragAuditBlockMetaData.key__NODE_FRAG__AUDIT_BLOCK, this.fseParagraphAuditBlock.getJsonObject());
 			theJsonObject.put(FseDocumentSerialization.key__COLLABORATOR_SUMMARY, this.collaboratorSummary.getJsonObject());
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
@@ -92,12 +91,12 @@ public class FseDocumentSectionCollaborators extends FseDocumentSection {
 		return theJsonObject;
 	}
 
-	public NodeFragAuditBlock getAuditBlock() {
-		return this.auditBlock;
+	public FseAuditBlock getFseParagraphAuditBlock() {
+		return this.fseParagraphAuditBlock;
 	}
 
-	public void setAuditBlock(NodeFragAuditBlock auditBlock) {
-		this.auditBlock = auditBlock;
+	public void setFseParagraphAuditBlock(FseAuditBlock anFseParagraphAuditBlock) {
+		this.fseParagraphAuditBlock = anFseParagraphAuditBlock;
 	}
 	
 	public FseCollaboratorSummary getCollaboratorSummary() {
