@@ -6,7 +6,7 @@ CREATE TABLE `BookshelfLinkToNotebook` (
   PRIMARY KEY (`_id`),
   CONSTRAINT `fk_Bookshelf_has_Notebook_Bookshelf`
     FOREIGN KEY (`Bookshelf__id`)
-    REFERENCES `Bookshelf` (`_id`)
+    REFERENCES `Bookshelf` (`_id`) ,
   CONSTRAINT `fk_Bookshelf_has_Notebook_Notebook`
     FOREIGN KEY (`Notebook__id`)
     REFERENCES `Notebook` (`_id`) );

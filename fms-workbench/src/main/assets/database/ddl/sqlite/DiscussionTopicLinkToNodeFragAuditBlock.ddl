@@ -7,7 +7,7 @@ CREATE TABLE `DiscussionTopicLinkToNodeFragAuditBlock` (
   PRIMARY KEY (`_id`),
   CONSTRAINT `fk_DiscussionTopicLinkToNodeFragAuditBlock_DiscussionTopic1`
     FOREIGN KEY (`DiscussionTopic__id`)
-    REFERENCES `DiscussionTopic` (`_id`)
+    REFERENCES `DiscussionTopic` (`_id`) ,
   CONSTRAINT `fk_DiscussionTopicLinkToNodeFragAuditBlock_NodeFragAuditBlock1`
     FOREIGN KEY (`NodeFragAuditBlock__id`)
     REFERENCES `NodeFragAuditBlock` (`_id`) );

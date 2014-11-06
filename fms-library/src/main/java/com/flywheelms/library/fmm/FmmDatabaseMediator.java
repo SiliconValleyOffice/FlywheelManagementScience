@@ -347,7 +347,7 @@ public class FmmDatabaseMediator {
                 aLeftColumnExceptionValue,
                 aLinkTableDefinition,
                 aLinkColumnName,
-                aLinkColumnName + " = " + aLinkColumnValue,
+                aLinkColumnName + " = '" + aLinkColumnValue + "'",
                 aSortSpec );
     }
 
@@ -382,7 +382,7 @@ public class FmmDatabaseMediator {
                 aLeftColumnExceptionValue,
                 aLinkTableDefinition,
                 aLinkColumnName,
-                anAndColumnName + " = " + anAndColumnValue,
+                anAndColumnName + " = '" + anAndColumnValue + "'",
                 aSortSpec);
     }
 
@@ -401,7 +401,7 @@ public class FmmDatabaseMediator {
                 aLeftColumnExceptionValue,
                 aLinkTableDefinition,
                 aLinkColumnName,
-                anAndColumnName + " = " + anAndColumnValue,
+                anAndColumnName + " = '" + anAndColumnValue + "'",
                 aSortSpec);
     }
 

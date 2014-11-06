@@ -47,7 +47,7 @@ public class HeadlineNodeTrashMetaData extends NodeFragMetaData {
 	
 	public static final String key__HEADLINE_NODE_TRASH = "HeadlineNodeTrash";
 	
-	public static final String column_SEARCHABLE_HEADLINE = "headline";
+	public static final String column_SEARCHABLE_HEADLINE = "searchable_headline";
 	public static final String column_DELETED_BY = "deleted_by";
 	public static final String column_DELETED_TIMESTAMP = "deleted_timestamp";
 	public static final String column_PARENT_ABBREVIATED_NODE_ID = "parent_abbreviated_node_id";

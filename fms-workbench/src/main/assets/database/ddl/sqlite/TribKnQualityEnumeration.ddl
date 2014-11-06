@@ -6,7 +6,7 @@ CREATE TABLE `TribKnQualityEnumeration` (
   PRIMARY KEY (`quality_enumeration`) ,
   CONSTRAINT `fk_NodeQualityDecorator_NodeQualityShortDescription`
     FOREIGN KEY (`tribkn_quality_normalized_description`)
-    REFERENCES `FmmTribKnQualityNormalizedDescription` (`tribkn_quality_normalized_description`)
+    REFERENCES `FmmTribKnQualityNormalizedDescription` (`tribkn_quality_normalized_description`) ,
   CONSTRAINT `fk_NodeQualityDecorator_TribKnComponent`
     FOREIGN KEY (`tribkn_element` )
     REFERENCES `FmmTribKnElement` (`tribkn_element`) );

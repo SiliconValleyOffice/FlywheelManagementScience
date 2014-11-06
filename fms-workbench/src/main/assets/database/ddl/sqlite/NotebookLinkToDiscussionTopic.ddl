@@ -7,7 +7,7 @@ CREATE TABLE `NotebookLinkToDiscussionTopic` (
   PRIMARY KEY (`_id`),
   CONSTRAINT `fk_Notebook_has_DiscussionTopic_Notebook1`
     FOREIGN KEY (`Notebook__id`)
-    REFERENCES `Notebook` (`_id`)
+    REFERENCES `Notebook` (`_id`) ,
   CONSTRAINT `fk_Notebook_has_DiscussionTopic_DiscussionTopic1`
     FOREIGN KEY (`DiscussionTopic__id`)
     REFERENCES `DiscussionTopic` (`_id`) );
