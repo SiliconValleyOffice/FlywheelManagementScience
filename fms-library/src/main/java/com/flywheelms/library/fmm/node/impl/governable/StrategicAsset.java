@@ -127,6 +127,11 @@ public class StrategicAsset extends FmmCompletionNodeImpl implements Comparable<
 				anExistingNodeIdString ));
 	}
 
+    @Override
+    public FmmNodeDefinition getFmmNodeDefinition() {
+        return FmmNodeDefinition.STRATEGIC_ASSET;
+    }
+
 	public String getFlywheelTeamNodeIdString() {
 		return this.flywheelTeamNodeIdString;
 	}

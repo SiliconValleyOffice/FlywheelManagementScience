@@ -70,7 +70,7 @@ public class StrategicMilestoneDeleteDialog extends HeadlineNodeDeleteDialog {
 
 	@Override
 	protected ArrayList<? extends FmmHeadlineNode> getPrimaryLinkHeadlineNodeList() {
-		return FmmDatabaseMediator.getActiveMediator().retrieveProjectAssetList((StrategicMilestone) getFmmHeadlineNode());
+		return FmmDatabaseMediator.getActiveMediator().retrieveStrategicAssetList((StrategicMilestone) getFmmHeadlineNode());
 	}
 
 	@Override

@@ -128,6 +128,11 @@ public class ProjectAsset extends FmmCompletionNodeImpl implements Comparable<Pr
 				anExistingNodeIdString ));
 	}
 
+    @Override
+    public FmmNodeDefinition getFmmNodeDefinition() {
+        return FmmNodeDefinition.PROJECT_ASSET;
+    }
+
 	public String getFlywheelTeamNodeIdString() {
 		return this.flywheelTeamNodeIdString;
 	}

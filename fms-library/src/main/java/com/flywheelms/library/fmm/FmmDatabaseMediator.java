@@ -1781,19 +1781,19 @@ public class FmmDatabaseMediator {
                 sort_spec__SEQUENCE);
     }
 
-    public ArrayList<ProjectAsset> retrieveProjectAssetList(StrategicMilestone aStrategicMilestone) {
-        return retrieveProjectAssetList(aStrategicMilestone, null);
-    }
+//    public ArrayList<ProjectAsset> retrieveProjectAssetList(StrategicMilestone aStrategicMilestone) {
+//        return retrieveProjectAssetList(aStrategicMilestone, null);
+//    }
 
-    public ArrayList<ProjectAsset> retrieveProjectAssetList(StrategicMilestone aStrategicMilestone, ProjectAsset aProjectAssetException) {
-        return retrieveFmmNodeListFromLinkTable(
-                FmmNodeDefinition.PROJECT_ASSET,
-                aProjectAssetException == null ? null : aProjectAssetException.getNodeIdString(),
-                FmmNodeDefinition.STRATEGIC_COMMITMENT,
-                StrategicCommitmentMetaData.column_STRATEGIC_MILESTONE_ID,
-                aStrategicMilestone.getNodeIdString(),
-                sort_spec__SEQUENCE);
-    }
+//    public ArrayList<ProjectAsset> retrieveProjectAssetList(StrategicMilestone aStrategicMilestone, ProjectAsset aProjectAssetException) {
+//        return retrieveFmmNodeListFromLinkTable(
+//                FmmNodeDefinition.PROJECT_ASSET,
+//                aProjectAssetException == null ? null : aProjectAssetException.getNodeIdString(),
+//                FmmNodeDefinition.STRATEGIC_COMMITMENT,
+//                StrategicCommitmentMetaData.column_STRATEGIC_MILESTONE_ID,
+//                aStrategicMilestone.getNodeIdString(),
+//                sort_spec__SEQUENCE);
+//    }
 
     private ProjectAsset createProjectAssetForProject(
             String aProjectAssetHeadline,

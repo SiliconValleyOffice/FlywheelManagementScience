@@ -646,10 +646,11 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	
 	@Override
 	public int dbGetLinkNodeSequence(FmmHeadlineNode aTargetNode) {
-		Cursor theCursor = getSqLiteDatabase().rawQuery(
-				"SELECT " + SequencedLinkNodeMetaData.column_SEQUENCE +
-				" FROM " + aTargetNode.getFmmNodeDefinition().getSecondaryLinkNodeDefinition().getTableName() +
-				" WHERE " + aTargetNode.getFmmNodeDefinition().getClassName() + "__id = '" + aTargetNode.getNodeIdString() + "'" , null);
+        String theRawQuery =
+                "SELECT " + SequencedLinkNodeMetaData.column_SEQUENCE +
+                        " FROM " + aTargetNode.getFmmNodeDefinition().getSecondaryLinkNodeDefinition().getTableName() +
+                        " WHERE " + aTargetNode.getFmmNodeDefinition().getClassName() + "__id = '" + aTargetNode.getNodeIdString() + "'";
+		Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery , null);
 		theCursor.moveToFirst();
 		int theSequence = theCursor.getInt(theCursor.getColumnIndex(SequencedLinkNodeMetaData.column_SEQUENCE));
 		theCursor.close();
@@ -911,7 +912,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
         return theBoolean;
     }
 
-    private boolean deleteRows(FmmNodeDefinition anFmmNodeDefinition, String aColumnValue, String aColumnName, boolean bAtomicTransaction) {
+    private boolean deleteRows(FmmNodeDefinition anFmmNodeDefinition, String aColumnName, String aColumnValue, boolean bAtomicTransaction) {
         if(bAtomicTransaction) {
             startTransaction();
         }

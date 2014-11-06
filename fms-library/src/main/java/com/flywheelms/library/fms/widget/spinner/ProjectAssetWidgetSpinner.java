@@ -97,7 +97,7 @@ public class ProjectAssetWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 			theGuiableList = new ArrayList<GcgGuiable>(); 
 		} else {	
 			theGuiableList = new ArrayList<GcgGuiable>(
-					FmmDatabaseMediator.getActiveMediator().retrieveProjectAssetList(this.strategicMilestone) );
+					FmmDatabaseMediator.getActiveMediator().retrieveStrategicAssetList(this.strategicMilestone) );
 		}
 		return theGuiableList;
 	}
