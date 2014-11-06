@@ -847,53 +847,59 @@ public class FmmDatabaseMediator {
 
     private HeadlineNodeTrash headlineNodeTrash;
 
-	private boolean fractalDeleteFmmHeadlineNode(FmmHeadlineNode aHeadlineNode, boolean bAtomicTransaction) {
+    private boolean fractalDeleteFmmHeadlineNode(FmmHeadlineNode anFmmHeadlineNode, boolean bAtomicTransaction) {
+        return fractalDeleteFmmHeadlineNode(anFmmHeadlineNode, true, bAtomicTransaction);
+    }
+
+	private boolean fractalDeleteFmmHeadlineNode(FmmHeadlineNode anFmmHeadlineNode, boolean bDeleteHeadlineRow, boolean bAtomicTransaction) {
         if(bAtomicTransaction) {
             startTransaction();
         }
-        this.headlineNodeTrash = new HeadlineNodeTrash(aHeadlineNode);
-		boolean isSuccess = deleteAllFragLocks(aHeadlineNode);
-        isSuccess &= deleteNodeFragAuditBlock(aHeadlineNode, false);
-		isSuccess &= deleteNodeFragFseDocument(aHeadlineNode, false);
-		isSuccess &= deleteNodeFragTribKnQuality(aHeadlineNode, false);
+        this.headlineNodeTrash = new HeadlineNodeTrash(anFmmHeadlineNode);
+		boolean isSuccess = deleteAllFragLocks(anFmmHeadlineNode);
+        isSuccess &= deleteNodeFragAuditBlock(anFmmHeadlineNode, false);
+		isSuccess &= deleteNodeFragFseDocument(anFmmHeadlineNode, false);
+		isSuccess &= deleteNodeFragTribKnQuality(anFmmHeadlineNode, false);
+        if(bDeleteHeadlineRow) {
+            isSuccess &= deleteSimpleIdTableRow(anFmmHeadlineNode, false);  // delete last for referential integrity
+            isSuccess &= insertSimpleIdTableRow(this.headlineNodeTrash, false);
+        }
         if(bAtomicTransaction) {
-            isSuccess &= deleteSimpleIdTableRow(aHeadlineNode, false);  // delete last for referential integrity
-            if(isSuccess) {
-                isSuccess &= insertSimpleIdTableRow(this.headlineNodeTrash, false);
-            }
             endTransaction(isSuccess);
         }
 		return isSuccess;
 	}
 
-    private boolean fractalDeleteFmmGovernableNode(FmmGovernableNode aGovernableNode, boolean bAtomicTransaction) {
+    private boolean fractalDeleteFmmGovernableNode(FmmGovernableNode anFmmGovernableNode, boolean bAtomicTransaction) {
+        return fractalDeleteFmmGovernableNode(anFmmGovernableNode, true, bAtomicTransaction);
+    }
+
+    private boolean fractalDeleteFmmGovernableNode(FmmGovernableNode anFmmGovernableNode, boolean bDeleteHeadlineRow, boolean bAtomicTransaction) {
         if(bAtomicTransaction) {
             startTransaction();
         }
-        boolean isSuccess = fractalDeleteFmmHeadlineNode(aGovernableNode, false);
-		isSuccess &= deleteNodeFragGovernance(aGovernableNode, false);
+        boolean isSuccess = fractalDeleteFmmHeadlineNode(anFmmGovernableNode, false, false);
+		isSuccess &= deleteNodeFragGovernance(anFmmGovernableNode, false);
+        if(bDeleteHeadlineRow) {
+            isSuccess &= deleteSimpleIdTableRow(anFmmGovernableNode, false);  // delete last for referential integrity
+            isSuccess &= insertSimpleIdTableRow(this.headlineNodeTrash, false);
+        }
         if(bAtomicTransaction) {
-            isSuccess &= deleteSimpleIdTableRow(aGovernableNode, false);  // delete last for referential integrity
-            if(isSuccess) {
-                isSuccess &= insertSimpleIdTableRow(this.headlineNodeTrash, false);
-            }
             endTransaction(isSuccess);
         }
         return isSuccess;
 	}
 
-	private boolean fractalDeleteFmmCompletionNode(FmmCompletionNode aCompletionNode, boolean bAtomicTransaction) {
+	private boolean fractalDeleteFmmCompletionNode(FmmCompletionNode anFmmCompletionNode, boolean bAtomicTransaction) {
         if(bAtomicTransaction) {
             startTransaction();
         }
-        boolean isSuccess = fractalDeleteFmmGovernableNode(aCompletionNode, false);
-        isSuccess &= deleteNodeFragCompletion(aCompletionNode, false);
-        isSuccess &= deleteNodeFragWorkTaskBudget(aCompletionNode, false);
+        boolean isSuccess = fractalDeleteFmmGovernableNode(anFmmCompletionNode, false, false);
+        isSuccess &= deleteNodeFragCompletion(anFmmCompletionNode, false);
+        isSuccess &= deleteNodeFragWorkTaskBudget(anFmmCompletionNode, false);
+        isSuccess &= deleteSimpleIdTableRow(anFmmCompletionNode, false);  // delete last for referential integrity
+        isSuccess &= insertSimpleIdTableRow(this.headlineNodeTrash, false);
         if(bAtomicTransaction) {
-            isSuccess &= deleteSimpleIdTableRow(aCompletionNode, false);  // delete last for referential integrity
-            if(isSuccess) {
-                isSuccess &= insertSimpleIdTableRow(this.headlineNodeTrash, false);
-            }
             endTransaction(isSuccess);
         }
         return isSuccess;
