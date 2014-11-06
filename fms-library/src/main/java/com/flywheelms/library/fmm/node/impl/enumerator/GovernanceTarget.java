@@ -226,6 +226,13 @@ public enum GovernanceTarget implements FmmEnumNode {
 			GovernanceParticipationType.NONE,
 			GovernanceParticipationType.NONE,
 			false),
+    WORK_ASSET (
+            FmmNodeDefinition.WORK_ASSET,
+            GovernanceParticipationType.REQUIRED,
+            GovernanceParticipationType.REQUIRED,
+            GovernanceParticipationType.NONE,
+            GovernanceParticipationType.NONE,
+            false),
 	WORK_PACKAGE (
 			FmmNodeDefinition.WORK_PACKAGE,
 			GovernanceParticipationType.OPTIONAL,

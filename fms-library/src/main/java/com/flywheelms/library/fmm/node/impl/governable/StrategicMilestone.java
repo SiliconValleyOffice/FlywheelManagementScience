@@ -92,7 +92,7 @@ public class StrategicMilestone extends FmmCompletionNodeImpl implements Compara
 	private int targetMonthEnd = 0;
 	private Date targetDate = GcgDateHelper.NULL_DATE;
     private boolean targetIsReversePlanning = false;
-	private ArrayList<ProjectAsset> projectAssetList;
+	private ArrayList<StrategicAsset> strategicAssetList;
 	
 	// create a new Strategic Milestone
 	public StrategicMilestone(NodeId aNodeId, String aHeadline, FiscalYear aFiscalYear) {
@@ -115,18 +115,18 @@ public class StrategicMilestone extends FmmCompletionNodeImpl implements Compara
 			setTargetMonthEnd(aJsonObject.getInt(StrategicMilestoneMetaData.column_TARGET_MONTH_END));
 			setTargetDate(aJsonObject.getLong(StrategicMilestoneMetaData.column_TARGET_DATE));
             setTargetIsReversePlanning(aJsonObject.getInt(StrategicMilestoneMetaData.column_TARGET_IS_REVERSE_PLANNING));
-			setProjectAssetList(aJsonObject.getJSONArray(StrategicMilestoneMetaData.child_fractals_PROJECT_ASSET));
+			setStrategicAssetList(aJsonObject.getJSONArray(StrategicMilestoneMetaData.child_fractals_PROJECT_ASSET));
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
-	public void setProjectAssetList(JSONArray aJsonArray) {
-		this.projectAssetList = new ArrayList<ProjectAsset>();
+	public void setStrategicAssetList(JSONArray aJsonArray) {
+		this.strategicAssetList = new ArrayList<StrategicAsset>();
 		for(int i=0; i < aJsonArray.length(); ++i) {
 			try {
-				this.projectAssetList.add(FmmDatabaseMediator.getActiveMediator().retrieveProjectAsset(
+				this.strategicAssetList.add(FmmDatabaseMediator.getActiveMediator().retrieveStrategicAsset(
                         aJsonArray.getString(i)));
 			} catch (JSONException e) {
 				// TODO Auto-generated catch block
@@ -147,17 +147,17 @@ public class StrategicMilestone extends FmmCompletionNodeImpl implements Compara
             theJsonObject.put(StrategicMilestoneMetaData.column_TARGET_MONTH_END, getTargetMonthEnd());
             theJsonObject.put(StrategicMilestoneMetaData.column_TARGET_DATE, getTargetDateFormattedUtcLong());
             theJsonObject.put(StrategicMilestoneMetaData.column_TARGET_IS_REVERSE_PLANNING, targetIsReversePlanningAsInt());
-            theJsonObject.put(StrategicMilestoneMetaData.child_fractals_PROJECT_ASSET, getProjectAssetNodeIdStringJsonArray());
+            theJsonObject.put(StrategicMilestoneMetaData.child_fractals_PROJECT_ASSET, getStrategicAssetNodeIdStringJsonArray());
         } catch (JSONException e) {
             e.printStackTrace();
         }
         return theJsonObject;
     }
 
-    private JSONArray getProjectAssetNodeIdStringJsonArray() {
+    private JSONArray getStrategicAssetNodeIdStringJsonArray() {
         JSONArray theJsonArray = new JSONArray();
-        for(ProjectAsset theProjectAsset : getProjectAssetList()) {
-            theJsonArray.put(theProjectAsset.getNodeIdString());
+        for(StrategicAsset theStrategicAsset : getStrategicAssetList()) {
+            theJsonArray.put(theStrategicAsset.getNodeIdString());
         }
         return theJsonArray;
     }
@@ -200,11 +200,11 @@ public class StrategicMilestone extends FmmCompletionNodeImpl implements Compara
 	@Override
 	public void updateNodeCompletionSummary(FmmPerspective anFmmPerspective, NodeCompletionSummary aNodeSummary) {
         if(anFmmPerspective == FmmPerspective.STRATEGIC_PLANNING) {
-			Collection<ProjectAsset> theProjectAssetCollection = getProjectAssetCollection();
-			if(theProjectAssetCollection.size() > 0) {
+			Collection<StrategicAsset> theStrategicAssetCollection = getStrategicAssetCollection();
+			if(theStrategicAssetCollection.size() > 0) {
 				aNodeSummary.setShowNodeSummary(true);
-				aNodeSummary.setSummaryPrefix("( " + countGreenProjectAssets(theProjectAssetCollection) + " ");
-				aNodeSummary.setSummarySuffix(" of " + theProjectAssetCollection.size() + " )");
+				aNodeSummary.setSummaryPrefix("( " + countGreenStrategicAssets(theStrategicAssetCollection) + " ");
+				aNodeSummary.setSummarySuffix(" of " + theStrategicAssetCollection.size() + " )");
 			} else {
 				aNodeSummary.setShowNodeSummary(false);
 			}
@@ -217,22 +217,22 @@ public class StrategicMilestone extends FmmCompletionNodeImpl implements Compara
 			(getSequence() == anOtherStrategicMilestone.getSequence() ? 0 : 1));
 	}
 
-	private Collection<ProjectAsset> getProjectAssetCollection() {
-		return FmmDatabaseMediator.getActiveMediator().retrieveProjectAssetList(this);
+	private Collection<StrategicAsset> getStrategicAssetCollection() {
+		return FmmDatabaseMediator.getActiveMediator().retrieveStrategicAssetList(this);
 	}
 
-	public ArrayList<ProjectAsset> getProjectAssetList() {
-		if(this.projectAssetList == null) {
-			this.projectAssetList = new ArrayList<ProjectAsset>(
-					FmmDatabaseMediator.getActiveMediator().retrieveProjectAssetList(this) );
+	public ArrayList<StrategicAsset> getStrategicAssetList() {
+		if(this.strategicAssetList == null) {
+			this.strategicAssetList = new ArrayList<StrategicAsset>(
+					FmmDatabaseMediator.getActiveMediator().retrieveStrategicAssetList(this) );
 		}
-		return this.projectAssetList;
+		return this.strategicAssetList;
 	}
 
-	private static int countGreenProjectAssets(Collection<ProjectAsset> aProjectAssetCollection) {
+	private static int countGreenStrategicAssets(Collection<StrategicAsset> aStrategicAssetCollection) {
 		int theGreenCount = 0;
-		for(ProjectAsset theProjectAsset : aProjectAssetCollection) {
-			if(theProjectAsset.isGreen()) {
+		for(StrategicAsset theStrategicAsset : aStrategicAssetCollection) {
+			if(theStrategicAsset.isGreen()) {
 				++theGreenCount;
 			}
 		}

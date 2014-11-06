@@ -898,7 +898,7 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     		10051 ),
     PROJECT_ASSET (
     		ProjectAsset.class,
-    		"PAT",
+    		"WAT",
     		R.string.fmm_node_definition__project_asset__term,
     		R.string.fmm_node_definition__project_asset__definition,
     		R.drawable.fmm_noun__project_asset__gray,
@@ -1004,7 +1004,7 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     		10059 ),
     STRATEGIC_ASSET (
             StrategicAsset.class,
-            "SAT",
+            "WAT",
             R.string.fmm_node_definition__strategic_asset__term,
             R.string.fmm_node_definition__strategic_asset__definition,
             R.drawable.fmm_noun__strategic_asset__gray,

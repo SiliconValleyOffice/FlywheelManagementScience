@@ -729,27 +729,39 @@ public class FmmDatabaseMediator {
     ///////////  FRACTAL INSERT  ////////////////////////////
 
     private boolean fractalInsertFmmHeadlineNode(FmmHeadlineNode anFmmHeadlineNode, boolean bAtomicTransaction) {
+        return fractalInsertFmmHeadlineNode(anFmmHeadlineNode, true, bAtomicTransaction);
+    }
+
+    private boolean fractalInsertFmmHeadlineNode(FmmHeadlineNode anFmmHeadlineNode, boolean bCreateTribKnQuality, boolean bAtomicTransaction) {
         if(bAtomicTransaction) {
             startTransaction();
         }
         boolean isSuccess = insertSimpleIdTableRow(anFmmHeadlineNode, false);
         isSuccess &= createNodeFragAuditBlock(anFmmHeadlineNode);
         isSuccess &= createNodeFragFseDocument(anFmmHeadlineNode);
+        if(bCreateTribKnQuality) {
+            isSuccess &= createNodeFragTribKnQuality(anFmmHeadlineNode);  // needs to be after all other Node Frags are updated
+        }
         if(bAtomicTransaction) {
-            isSuccess &= createNodeFragTribKnQuality(anFmmHeadlineNode);
             endTransaction(isSuccess);
         }
         return isSuccess;
     }
 
     private boolean fractalInsertFmmGovernableNode(FmmGovernableNode anFmmGovernableNode, boolean bAtomicTransaction) {
+        return fractalInsertFmmGovernableNode(anFmmGovernableNode, true, bAtomicTransaction);
+    }
+
+    private boolean fractalInsertFmmGovernableNode(FmmGovernableNode anFmmGovernableNode, boolean bCreateTribKnQuality, boolean bAtomicTransaction) {
         if(bAtomicTransaction) {
             startTransaction();
         }
-        boolean isSuccess = fractalInsertFmmHeadlineNode(anFmmGovernableNode, false);
+        boolean isSuccess = fractalInsertFmmHeadlineNode(anFmmGovernableNode, false, false);
         isSuccess &= createNodeFragGovernance(anFmmGovernableNode);
+        if(bCreateTribKnQuality) {
+            isSuccess &= createNodeFragTribKnQuality(anFmmGovernableNode);  // needs to be after all other Node Frags are updated
+        }
         if(bAtomicTransaction) {
-            isSuccess &= createNodeFragTribKnQuality(anFmmGovernableNode);
             endTransaction(isSuccess);
         }
         return isSuccess;
@@ -759,11 +771,11 @@ public class FmmDatabaseMediator {
         if(bAtomicTransaction) {
             startTransaction();
         }
-        boolean isSuccess = fractalInsertFmmGovernableNode(anFmmCompletionNode, false);
+        boolean isSuccess = fractalInsertFmmGovernableNode(anFmmCompletionNode, false, false);
         isSuccess &= createNodeFragCompletion(anFmmCompletionNode);
         isSuccess &= createNodeFragWorkTaskBudget(anFmmCompletionNode);
+        isSuccess &= createNodeFragTribKnQuality(anFmmCompletionNode);  // needs to be after all other Node Frags are updated
         if(bAtomicTransaction) {
-            isSuccess &= createNodeFragTribKnQuality(anFmmCompletionNode);
             endTransaction(isSuccess);
         }
         return isSuccess;
