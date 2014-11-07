@@ -17,7 +17,7 @@
         android:orientation="vertical"
         android:paddingBottom="10dp"
         gcg:borderStyle="3"
-        gcg:headingText="Adoption Candidate" >
+        gcg:headingText="Strategic Candidate" >
 
         <include layout="@layout/gcg__filter_panel" />
 
@@ -27,6 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             gcg:labelWidth="180"
+            gcg:labelText="Work Asset"
             gcg:zoomable="true"
             gcg:filterId="@string/filter_id__orphan_nodes__secondary_parent" />
 

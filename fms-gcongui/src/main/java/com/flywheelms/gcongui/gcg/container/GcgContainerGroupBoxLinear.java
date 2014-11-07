@@ -57,6 +57,7 @@ import com.flywheelms.gcongui.R;
 public class GcgContainerGroupBoxLinear extends LinearLayout {
 	
 	private String headingText;
+    private TextView headingTextView;
 	private String headingGravity;
 	private int headingTextColorResourceId;
 	private int headingBackgroundResourceId;
@@ -119,18 +120,21 @@ public class GcgContainerGroupBoxLinear extends LinearLayout {
 			setPadding(3, 0, 3, 3);
 			inflate(getContext(), R.layout.gcg__container__group_box__title, this);
 			int theTextViewIndex = getChildCount() - 1;
-			TextView theTextView = (TextView) getChildAt(theTextViewIndex);
-			theTextView.setBackgroundResource(this.headingBackgroundResourceId);
-			theTextView.setText(this.headingText);
-			theTextView.setTextColor(this.headingTextColorResourceId);
+			this.headingTextView = (TextView) getChildAt(theTextViewIndex);
+            this.headingTextView.setBackgroundResource(this.headingBackgroundResourceId);
+            this.headingTextView.setText(this.headingText);
+            this.headingTextView.setTextColor(this.headingTextColorResourceId);
 			if(this.headingGravity != null && this.headingGravity.equals("left")) {
-				theTextView.setGravity(Gravity.LEFT | Gravity.CENTER_VERTICAL);
+                this.headingTextView.setGravity(Gravity.LEFT | Gravity.CENTER_VERTICAL);
 			}
 			removeViewAt(theTextViewIndex);
-			addView(theTextView, 0);
+			addView(this.headingTextView, 0);
 		} else {
 			setPadding(3, 3, 3, 3);
 		}
 	}
 
+    public void setHeadingText(String aHeadingTextString) {
+        this.headingTextView.setText(aHeadingTextString);
+    }
 }

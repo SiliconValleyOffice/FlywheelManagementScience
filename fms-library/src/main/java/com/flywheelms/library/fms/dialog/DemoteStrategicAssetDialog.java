@@ -74,7 +74,7 @@ public class DemoteStrategicAssetDialog extends FmsCancelOkDialog {
 
 	@Override
 	protected int getDialogTitleStringResourceId() {
-		return R.string.strategic_milestone__demote;
+		return R.string.strategic_asset__demote;
 	}
 
 	@Override

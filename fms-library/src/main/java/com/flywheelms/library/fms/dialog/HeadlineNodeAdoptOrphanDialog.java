@@ -228,10 +228,15 @@ public abstract class HeadlineNodeAdoptOrphanDialog extends FmsCancelOkApplyFdkD
 			}
 		});
 		this.filterHeadlineCriteria.setEnabled(false);
-        LinearLayout theAdoptionCandidateGroupBox = (LinearLayout) this.dialogBodyView.findViewById(R.id.group_box__adoption_candidate);
+        GcgContainerGroupBoxLinear theAdoptionCandidateGroupBox = (GcgContainerGroupBoxLinear) this.dialogBodyView.findViewById(R.id.group_box__adoption_candidate);
+        initializeCandidateGroupBoxLabel(theAdoptionCandidateGroupBox);
         initializeOrphanSpinner(theAdoptionCandidateGroupBox);
         this.adoptionCandidateWidgetSpinner.setGcgActivity(this.gcgActivity);
 	}
+
+    protected void initializeCandidateGroupBoxLabel(GcgContainerGroupBoxLinear theAdoptionCandidateGroupBox) {
+
+    }
 
     protected void updateFilterResults() {
 		if(this.unfilteredGcgGuiableList.size() == 0) {

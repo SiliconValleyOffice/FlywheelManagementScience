@@ -55,22 +55,14 @@ import com.flywheelms.library.fms.widget.spinner.WorkTaskWidgetSpinner;
 
 public class WorkPackageAdoptOrphanWorkTaskDialog extends HeadlineNodeAdoptOrphanDialog {
 
-//    public WorkPackageAdoptOrphanWorkTaskDialog(
-//            GcgActivity aLibraryActivity,
-//            GcgTreeViewAdapter aTreeViewAdapter,
-//            FmmHeadlineNode aParentHeadlineNode ) {
-//        super(aLibraryActivity, aTreeViewAdapter, FmmNodeDefinition.WORK_TASK, aParentHeadlineNode);
-//    }
-
     public WorkPackageAdoptOrphanWorkTaskDialog(
             GcgActivity aLibraryActivity,
             GcgTreeViewAdapter aTreeViewAdapter,
-            FmmNodeDefinition anOrphanFmmNodeDefinition,
             FmmHeadlineNode aParentHeadlineNode,
             int aParentNodeChildCount,
             FmmHeadlineNode aLaunchHeadlineNode,
             int aLaunchNodeSequence) {
-        super(aLibraryActivity, aTreeViewAdapter, anOrphanFmmNodeDefinition, aParentHeadlineNode, aParentNodeChildCount, aLaunchHeadlineNode, aLaunchNodeSequence);
+        super(aLibraryActivity, aTreeViewAdapter, FmmNodeDefinition.WORK_TASK, aParentHeadlineNode, aParentNodeChildCount, aLaunchHeadlineNode, aLaunchNodeSequence);
     }
 
     @Override

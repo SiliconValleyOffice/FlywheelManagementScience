@@ -65,12 +65,11 @@ public class ProjectAdoptOrphanStrategicAssetDialog extends HeadlineNodeAdoptOrp
     public ProjectAdoptOrphanStrategicAssetDialog(
             GcgActivity aLibraryActivity,
             GcgTreeViewAdapter aTreeViewAdapter,
-            FmmNodeDefinition anOrphanFmmNodeDefinition,
             FmmHeadlineNode aParentHeadlineNode,
             int aParentNodeChildCount,
             FmmHeadlineNode aLaunchHeadlineNode,
             int aLaunchNodeSequence) {
-        super(aLibraryActivity, aTreeViewAdapter, anOrphanFmmNodeDefinition, aParentHeadlineNode, aParentNodeChildCount, aLaunchHeadlineNode, aLaunchNodeSequence);
+        super(aLibraryActivity, aTreeViewAdapter, FmmNodeDefinition.STRATEGIC_ASSET, aParentHeadlineNode, aParentNodeChildCount, aLaunchHeadlineNode, aLaunchNodeSequence);
     }
 
     @Override

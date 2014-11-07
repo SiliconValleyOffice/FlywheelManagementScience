@@ -58,12 +58,11 @@ public class ProjectAdoptOrphanWorkAssetDialog extends HeadlineNodeAdoptOrphanDi
     public ProjectAdoptOrphanWorkAssetDialog(
             GcgActivity aLibraryActivity,
             GcgTreeViewAdapter aTreeViewAdapter,
-            FmmNodeDefinition anOrphanFmmNodeDefinition,
             FmmHeadlineNode aParentHeadlineNode,
             int aParentNodeChildCount,
             FmmHeadlineNode aLaunchHeadlineNode,
             int aLaunchNodeSequence) {
-        super(aLibraryActivity, aTreeViewAdapter, anOrphanFmmNodeDefinition, aParentHeadlineNode, aParentNodeChildCount, aLaunchHeadlineNode, aLaunchNodeSequence);
+        super(aLibraryActivity, aTreeViewAdapter, FmmNodeDefinition.WORK_ASSET, aParentHeadlineNode, aParentNodeChildCount, aLaunchHeadlineNode, aLaunchNodeSequence);
     }
 
     @Override

@@ -22,9 +22,9 @@
     <string name="fms__orphan">Orphan</string>
     <string name="fms__adopt_orphan">Adopt Orphan</string>
     <string name="fms__adopt_orphan__project">Adopt Orphan Project</string>
-    <string name="fms__adopt_orphan__project_asset">Adopt Orphan Project Asset</string>
+    <string name="fms__adopt_orphan__project_asset">Select Project Asset as Strategic</string>
     <string name="fms__adopt_orphan__work_asset">Adopt Orphan Work Asset</string>
-    <string name="fms__promote__project_asset__to__strategic_asset">Adopt Project Asset as Strategic Asset</string>
+    <string name="fms__promote__work_asset__to__strategic_asset">Select Work Asset as Strategic</string>
     <string name="fms__adopt_orphan__strategic_asset">Adopt Orphan Strategic Asset</string>
     <string name="fms__adopt_orphan__work_package">Adopt Orphan Work Package</string>
     <string name="fms__adopt_orphan__work_task">Adopt Orphan Work Task</string>
@@ -168,9 +168,10 @@
     <string name="project_asset__disposition">Disposition of Project Asset</string>
     <string name="project_asset__disposition__plural">Disposition of Project Assets</string>
 
+    <string name="strategic_asset__demote">No Longer Strategic</string>
+
     <string name="strategic_milestone__delete">Delete the Strategic Milestone</string>
     <string name="strategic_milestone__delete__plural">Delete the Strategic Milestones</string>
-    <string name="strategic_milestone__demote">Demote to Project Asset</string>
     <string name="strategic_milestone__move">Move the Strategic Milestone</string>
     <string name="strategic_milestone__move__plural">Move the Strategic Milestones</string>
     <string name="strategic_milestone__disposition">Disposition of Strategic Milestone</string>

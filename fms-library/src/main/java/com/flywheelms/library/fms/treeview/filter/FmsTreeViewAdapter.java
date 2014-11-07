@@ -670,7 +670,6 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
         getGcgActivity().startDialog(new ProjectAdoptOrphanWorkAssetDialog(
                 getGcgActivity(),
                 this,
-                FmmNodeDefinition.WORK_ASSET,
                 FmsTreeViewAdapter.isPeerLaunch(FmmNodeDefinition.STRATEGIC_ASSET, aLaunchHeadlineNode.getFmmNodeDefinition()) ? aParentHeadlineNode : aLaunchHeadlineNode,
                 FmsTreeViewAdapter.isPeerLaunch(FmmNodeDefinition.STRATEGIC_ASSET, aLaunchHeadlineNode.getFmmNodeDefinition()) ? 0 : aParentNodeChildCount,
                 aLaunchHeadlineNode,
@@ -681,7 +680,6 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
             getGcgActivity().startDialog(new ProjectAdoptOrphanStrategicAssetDialog(
                     getGcgActivity(),
                     this,
-                    FmmNodeDefinition.STRATEGIC_ASSET,
                     FmsTreeViewAdapter.isPeerLaunch(FmmNodeDefinition.PROJECT_ASSET, aLaunchHeadlineNode.getFmmNodeDefinition()) || FmsTreeViewAdapter.isPeerLaunch(FmmNodeDefinition.STRATEGIC_ASSET, aLaunchHeadlineNode.getFmmNodeDefinition()) ?
                             aParentHeadlineNode : aLaunchHeadlineNode,
                     FmsTreeViewAdapter.isPeerLaunch(FmmNodeDefinition.PROJECT_ASSET, aLaunchHeadlineNode.getFmmNodeDefinition()) || FmsTreeViewAdapter.isPeerLaunch(FmmNodeDefinition.STRATEGIC_ASSET, aLaunchHeadlineNode.getFmmNodeDefinition()) ? 0 : aParentNodeChildCount,
@@ -693,7 +691,6 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
         getGcgActivity().startDialog(new StrategicMilestoneAdoptOrphanProjectAssetDialog(
                 getGcgActivity(),
                 this,
-                FmmNodeDefinition.STRATEGIC_MILESTONE,
                 aStrategicMilestone,
                 aChildCount ));
     }
@@ -710,7 +707,6 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
 		getGcgActivity().startDialog(new WorkAssetAdoptOrphanWorkPackageDialog(
                 getGcgActivity(),
                 this,
-                FmmNodeDefinition.WORK_PACKAGE,
                 FmsTreeViewAdapter.isPeerLaunch(FmmNodeDefinition.WORK_PACKAGE, aLaunchHeadlineNode.getFmmNodeDefinition()) ? aParentHeadlineNode : aLaunchHeadlineNode,
                 FmsTreeViewAdapter.isPeerLaunch(FmmNodeDefinition.WORK_PACKAGE, aLaunchHeadlineNode.getFmmNodeDefinition()) ? 0 : aParentNodeChildCount,
                 aLaunchHeadlineNode,
@@ -731,7 +727,6 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
         getGcgActivity().startDialog(new WorkPackageAdoptOrphanWorkTaskDialog(
                 getGcgActivity(),
                 this,
-                FmmNodeDefinition.WORK_TASK,
                 FmsTreeViewAdapter.isPeerLaunch(FmmNodeDefinition.WORK_TASK, aLaunchHeadlineNode.getFmmNodeDefinition()) ? aParentHeadlineNode : aLaunchHeadlineNode,
                 FmsTreeViewAdapter.isPeerLaunch(FmmNodeDefinition.WORK_TASK, aLaunchHeadlineNode.getFmmNodeDefinition()) ? 0 : aParentNodeChildCount,
                 aLaunchHeadlineNode,

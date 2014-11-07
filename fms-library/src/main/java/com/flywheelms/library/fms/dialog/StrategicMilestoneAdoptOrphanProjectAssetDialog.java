@@ -47,6 +47,7 @@ import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
+import com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear;
 import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewAdapter;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
@@ -60,26 +61,24 @@ public class StrategicMilestoneAdoptOrphanProjectAssetDialog extends HeadlineNod
     public StrategicMilestoneAdoptOrphanProjectAssetDialog(
             GcgActivity aLibraryActivity,
             GcgTreeViewAdapter aTreeViewAdapter,
-            FmmNodeDefinition anFmmNodeDefinition,
             FmmHeadlineNode aStrategicMilestone,
             int aChildCount ) {
-        this(aLibraryActivity, aTreeViewAdapter, anFmmNodeDefinition, (FmmCompletionNode) aStrategicMilestone, aChildCount, (FmmCompletionNode) aStrategicMilestone, 0);
+        this(aLibraryActivity, aTreeViewAdapter, (FmmCompletionNode) aStrategicMilestone, aChildCount, (FmmCompletionNode) aStrategicMilestone, 0);
     }
 
     public StrategicMilestoneAdoptOrphanProjectAssetDialog(
             GcgActivity aLibraryActivity,
             GcgTreeViewAdapter aTreeViewAdapter,
-            FmmNodeDefinition anOrphanFmmNodeDefinition,
             FmmCompletionNode aParentHeadlineNode,
             int aParentNodeChildCount,
             FmmCompletionNode aLaunchHeadlineNode,
             int aLaunchNodeSequence) {
-        super(aLibraryActivity, aTreeViewAdapter, anOrphanFmmNodeDefinition, aParentHeadlineNode, aParentNodeChildCount, aLaunchHeadlineNode, aLaunchNodeSequence);
+        super(aLibraryActivity, aTreeViewAdapter, FmmNodeDefinition.STRATEGIC_ASSET, aParentHeadlineNode, aParentNodeChildCount, aLaunchHeadlineNode, aLaunchNodeSequence);
     }
 
     @Override
     protected int getDialogTitleStringResourceId() {
-        return R.string.fms__promote__project_asset__to__strategic_asset;
+        return R.string.fms__promote__work_asset__to__strategic_asset;
     }
 
     protected void initializeOrphanSpinner(LinearLayout anAdoptionCandidateLayout) {
@@ -87,8 +86,12 @@ public class StrategicMilestoneAdoptOrphanProjectAssetDialog extends HeadlineNod
         this.adoptionCandidateWidgetSpinner = (ProjectAssetWidgetSpinner) this.dialogBodyView.findViewById(R.id.adoption_candidate__spinner);
     }
 
+    protected void initializeCandidateGroupBoxLabel(GcgContainerGroupBoxLinear theAdoptionCandidateGroupBox) {
+        theAdoptionCandidateGroupBox.setHeadingText("Strategic Candidate");
+    }
+
     protected boolean adoptOrphanHeadlineNode() {
-        return FmmDatabaseMediator.getActiveMediator().promoteProjectAssetToStrategicAsset(
+        return FmmDatabaseMediator.getActiveMediator().promoteWorkAssetToStrategicAsset(
                 (FmmCompletionNode) this.adoptionCandidateWidgetSpinner.getFmmNode(),
                 this.parentNode,
                 this.parentNode == this.launchNode ? null : this.launchNode,

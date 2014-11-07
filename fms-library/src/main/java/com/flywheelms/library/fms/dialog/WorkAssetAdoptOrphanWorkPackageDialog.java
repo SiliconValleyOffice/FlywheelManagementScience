@@ -65,12 +65,11 @@ public class WorkAssetAdoptOrphanWorkPackageDialog extends HeadlineNodeAdoptOrph
     public WorkAssetAdoptOrphanWorkPackageDialog(
             GcgActivity aLibraryActivity,
             GcgTreeViewAdapter aTreeViewAdapter,
-            FmmNodeDefinition anOrphanFmmNodeDefinition,
             FmmHeadlineNode aParentHeadlineNode,
             int aParentNodeChildCount,
             FmmHeadlineNode aLaunchHeadlineNode,
             int aLaunchNodeSequence) {
-        super(aLibraryActivity, aTreeViewAdapter, anOrphanFmmNodeDefinition, aParentHeadlineNode, aParentNodeChildCount, aLaunchHeadlineNode, aLaunchNodeSequence);
+        super(aLibraryActivity, aTreeViewAdapter, FmmNodeDefinition.WORK_PACKAGE, aParentHeadlineNode, aParentNodeChildCount, aLaunchHeadlineNode, aLaunchNodeSequence);
     }
 
     @Override

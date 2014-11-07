@@ -627,7 +627,7 @@ public class FmmDatabaseMediator {
                         aParentIdColumnName,
                         aParentNodeId,
                         SequencedLinkNodeMetaData.column_SEQUENCE);
-                theNewSequenceNumber += theNewSequenceNumber;
+                theNewSequenceNumber += 1;
             } else {  // first child node of parent
                 theNewSequenceNumber = 1;
                 this.persistenceTechnologyDelegate.incrementSequence(
@@ -1752,6 +1752,14 @@ public class FmmDatabaseMediator {
                 sort_spec__SEQUENCE );
     }
 
+    // DEMOTE / PROMOTE
+
+    public boolean promoteWorkAssetToStrategicAsset(FmmCompletionNode aWorkAsset, FmmCompletionNode aStrategicMilestone, FmmCompletionNode aPeerNode, boolean bSequenceAtEnd) {
+        boolean theResult = createStrategicCommitment(aStrategicMilestone, aPeerNode, bSequenceAtEnd, new StrategicAsset(aWorkAsset.getJsonObject()));
+        ((WorkAsset) aWorkAsset).setStrategic(true);
+        return theResult && updateSimpleIdTableRow(aWorkAsset, true);
+    }
+
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////  Node - PROJECT ASSET  ///////////////////////////////////////////////////////////////////////////////
@@ -1914,14 +1922,6 @@ public class FmmDatabaseMediator {
     // TODO - create generalized routine
     public ArrayList<StrategicAsset> listStrategicAssetOrphansFromProject() {
         return getPersistenceTechnologyDelegate().retrieveStrategicAssetOrphanListFromProject();
-    }
-
-    // DEMOTE / PROMOTE
-
-    public boolean promoteProjectAssetToStrategicAsset(FmmCompletionNode aProjectAsset, FmmCompletionNode aStrategicMilestone, FmmCompletionNode aPeerNode, boolean bSequenceAtEnd) {
-        boolean theResult = createStrategicCommitment(aStrategicMilestone, aPeerNode, bSequenceAtEnd, (WorkAsset) aProjectAsset);
-        ((WorkAsset) aProjectAsset).setStrategic(true);
-        return theResult && updateSimpleIdTableRow(aProjectAsset, true);
     }
 
 
@@ -3182,10 +3182,10 @@ public class FmmDatabaseMediator {
         return retrieveFmmNodeListFromSimpleIdTable(FmmNodeDefinition.STRATEGIC_COMMITMENT, StrategicCommitmentMetaData.column_STRATEGIC_MILESTONE_ID, aStrategicMilestoneId, null);
 	}
 
-    private boolean createStrategicCommitment(FmmHeadlineNode aStrategicMilestone, FmmHeadlineNode aPeerNode, boolean bSequenceAtEnd, WorkAsset aStrategicAsset) {
+    private boolean createStrategicCommitment(FmmHeadlineNode aStrategicMilestone, FmmHeadlineNode aPeerNode, boolean bSequenceAtEnd, StrategicAsset aStrategicAsset) {
         StrategicCommitment theNewStrategicCommitment = new StrategicCommitment(
                 (StrategicMilestone) aStrategicMilestone,
-                (StrategicAsset) aStrategicAsset );
+                aStrategicAsset );
         int theNewSequenceNumber = initializeNewSequenceNumberForLinkTable(
                 FmmNodeDefinition.STRATEGIC_COMMITMENT,
                 StrategicCommitmentMetaData.column_STRATEGIC_MILESTONE_ID,

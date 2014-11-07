@@ -109,7 +109,7 @@ public class FmmPopupBuilder {
     public static final String menu_item__DELETE_STRATEGIC_ASSET = "Delete Strategic Asset...";
     public static final String menu_item__DEMOTE_STRATEGIC_ASSET = "Demote Strategic Asset...";
     public static final String menu_item__MOVE_STRATEGIC_ASSET = "Move Strategic Asset...";
-    public static final String menu_item__PROMOTE_PROJECT_ASSET_TO_STRATEGIC_ASSET = "Adopt Project Asset as strategic...";
+    public static final String menu_item__PROMOTE_PROJECT_ASSET_TO_STRATEGIC_ASSET = "Select Work Asset as Strategic...";
 
 	public static final String menu_item__ADOPT_ORPHAN_WORK_PACKAGE = "Adopt orphan Work Package...";
 	public static final String menu_item__CREATE_WORK_PACKAGE = "Create Work Package...";

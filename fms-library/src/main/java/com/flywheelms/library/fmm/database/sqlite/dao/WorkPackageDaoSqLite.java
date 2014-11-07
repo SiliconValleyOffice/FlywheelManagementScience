@@ -89,7 +89,7 @@ public class WorkPackageDaoSqLite extends CompletableNodeDaoSqLite<WorkPackage> 
 	@Override
 	public ContentValues buildContentValues(WorkPackage aWorkPackage) {
 		ContentValues theContentValues = super.buildContentValues(aWorkPackage);
-		theContentValues.put(WorkPackageMetaData.column_WORK_ASSET_ID, aWorkPackage.getNodeIdString());
+		theContentValues.put(WorkPackageMetaData.column_WORK_ASSET_ID, aWorkPackage.getWorkAssetId());
 		theContentValues.put(CompletableNodeMetaData.column_SEQUENCE, aWorkPackage.getSequence());
 		theContentValues.put(WorkPackageMetaData.column_CADENCE_COMMITMENT_ID, aWorkPackage.getCadenceCommitmentId());
 		return theContentValues;
