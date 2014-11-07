@@ -46,7 +46,6 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.flywheelms.library.fmm.database.FmmDatabaseBuilder;
 import com.flywheelms.library.fmm.helper.FmmAssetsHelper;
-import com.flywheelms.library.fmm.interfaces.WorkAsset;
 import com.flywheelms.library.fmm.node.impl.commitment.CadenceCommitment;
 import com.flywheelms.library.fmm.node.impl.commitment.CadenceServiceDeliveryCommitment;
 import com.flywheelms.library.fmm.node.impl.commitment.StrategicCommitment;
@@ -85,6 +84,7 @@ import com.flywheelms.library.fmm.node.impl.governable.ServiceOfferingSla;
 import com.flywheelms.library.fmm.node.impl.governable.ServiceRequest;
 import com.flywheelms.library.fmm.node.impl.governable.StrategicMilestone;
 import com.flywheelms.library.fmm.node.impl.governable.StrategyTeam;
+import com.flywheelms.library.fmm.node.impl.governable.WorkAsset;
 import com.flywheelms.library.fmm.node.impl.governable.WorkPackage;
 import com.flywheelms.library.fmm.node.impl.governable.WorkPlan;
 import com.flywheelms.library.fmm.node.impl.governable.WorkTask;

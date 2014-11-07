@@ -44,7 +44,6 @@ package com.flywheelms.library.fmm;
 
 import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
 import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
-import com.flywheelms.library.fmm.interfaces.WorkAsset;
 import com.flywheelms.library.fmm.meta_data.BookshelfLinkToNotebookMetaData;
 import com.flywheelms.library.fmm.meta_data.BookshelfMetaData;
 import com.flywheelms.library.fmm.meta_data.CadenceCommitmentMetaData;
@@ -103,6 +102,7 @@ import com.flywheelms.library.fmm.node.impl.governable.Project;
 import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
 import com.flywheelms.library.fmm.node.impl.governable.StrategicAsset;
 import com.flywheelms.library.fmm.node.impl.governable.StrategicMilestone;
+import com.flywheelms.library.fmm.node.impl.governable.WorkAsset;
 import com.flywheelms.library.fmm.node.impl.governable.WorkPackage;
 import com.flywheelms.library.fmm.node.impl.governable.WorkPlan;
 import com.flywheelms.library.fmm.node.impl.governable.WorkTask;
@@ -1752,6 +1752,18 @@ public class FmmDatabaseMediator {
                 sort_spec__SEQUENCE );
     }
 
+    // ORPHANS
+
+    // TODO - create generalized routine
+    public ArrayList<ProjectAsset> listWorkAssetOrphansFromProject() {
+        return getPersistenceTechnologyDelegate().retrieveWorkAssetOrphanListFromProject();
+    }
+
+    // TODO - create generalized routine
+    public ArrayList<WorkAsset> listWorkAssetOrphansFromStrategicMilestone() {
+        return getPersistenceTechnologyDelegate().retrieveWorkAssetOrphanListFromStrategicMilestone();
+    }
+
     // DEMOTE / PROMOTE
 
     public boolean promoteWorkAssetToStrategicAsset(FmmCompletionNode aWorkAsset, FmmCompletionNode aStrategicMilestone, FmmCompletionNode aPeerNode, boolean bSequenceAtEnd) {
@@ -1883,8 +1895,8 @@ public class FmmDatabaseMediator {
     }
 
     // TODO - create generalized routine
-    public int getMoveTargetWorkPackageCount(ProjectAsset aProjectAsset, WorkPackage aWorkPackageException) {
-        return getPersistenceTechnologyDelegate().dbGetMoveTargetWorkPackageCount(aProjectAsset, aWorkPackageException);
+    public int getMoveTargetWorkPackageCount(WorkAsset aWorkAsset, WorkPackage aWorkPackageException) {
+        return getPersistenceTechnologyDelegate().dbGetMoveTargetWorkPackageCount(aWorkAsset, aWorkPackageException);
     }
 
     // ORPHANS
@@ -1907,21 +1919,6 @@ public class FmmDatabaseMediator {
     // TODO - create generalized routine
     public boolean orphanSingleProjectAssetFromProject(String aProjectAssetId, String aProjectId, boolean bAtomicTransaction) {
         return getPersistenceTechnologyDelegate().orphanSingleProjectAssetFromProject(aProjectAssetId, aProjectId, bAtomicTransaction);
-    }
-
-    // TODO - create generalized routine
-    public boolean orphanSingleStrategicAssetFromProject(String aStrategicAssetId, String aProjectId, boolean bAtomicTransaction) {
-        return getPersistenceTechnologyDelegate().orphanSingleStrategicAssetFromProject(aStrategicAssetId, aProjectId, bAtomicTransaction);
-    }
-
-    // TODO - create generalized routine
-    public ArrayList<ProjectAsset> listProjectAssetOrphansFromProject() {
-        return getPersistenceTechnologyDelegate().retrieveWorkAssetOrphanListFromProject();
-    }
-
-    // TODO - create generalized routine
-    public ArrayList<StrategicAsset> listStrategicAssetOrphansFromProject() {
-        return getPersistenceTechnologyDelegate().retrieveStrategicAssetOrphanListFromProject();
     }
 
 
@@ -2066,6 +2063,18 @@ public class FmmDatabaseMediator {
             endTransaction(isSuccess);
         }
         return isSuccess;
+    }
+
+    // ORPHANS
+
+    // TODO - create generalized routine
+    public boolean orphanSingleStrategicAssetFromProject(String aStrategicAssetId, String aProjectId, boolean bAtomicTransaction) {
+        return getPersistenceTechnologyDelegate().orphanSingleStrategicAssetFromProject(aStrategicAssetId, aProjectId, bAtomicTransaction);
+    }
+
+    // TODO - create generalized routine
+    public ArrayList<StrategicAsset> listStrategicAssetOrphansFromProject() {
+        return getPersistenceTechnologyDelegate().retrieveStrategicAssetOrphanListFromProject();
     }
 
 

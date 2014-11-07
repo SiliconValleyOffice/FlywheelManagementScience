@@ -47,11 +47,11 @@ import android.content.ContentValues;
 import android.database.Cursor;
 
 import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
+import com.flywheelms.library.fmm.deckangl.FmsDecoratorCadenceCommitment;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorChildFractals;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorCompletion;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorFacilitationIssue;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorFacilitator;
-import com.flywheelms.library.fmm.deckangl.FmsDecoratorFlywheelCommitment;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorGovernance;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorParentFractals;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorSequence;
@@ -96,8 +96,8 @@ public class NodeFragTribKnQualityDaoSqLite extends NodeFragDaoSqLite<NodeFragTr
 		putColumnIndexMapEntry(this.columnIndexMap, aCursor, NodeFragTribKnQualityMetaData.column_PARENT_FRACTALS_QUALITY_TIMESTAMP);
 		putColumnIndexMapEntry(this.columnIndexMap, aCursor, NodeFragTribKnQualityMetaData.column_CHILD_FRACTALS_QUALITY);
 		putColumnIndexMapEntry(this.columnIndexMap, aCursor, NodeFragTribKnQualityMetaData.column_CHILD_FRACTALS_QUALITY_TIMESTAMP);
-		putColumnIndexMapEntry(this.columnIndexMap, aCursor, NodeFragTribKnQualityMetaData.column_FLYWHEEL_COMMITMENT_QUALITY);
-		putColumnIndexMapEntry(this.columnIndexMap, aCursor, NodeFragTribKnQualityMetaData.column_FLYWHEEL_COMMITMENT_QUALITY_TIMESTAMP);
+		putColumnIndexMapEntry(this.columnIndexMap, aCursor, NodeFragTribKnQualityMetaData.column_CADENCE_COMMITMENT_QUALITY);
+		putColumnIndexMapEntry(this.columnIndexMap, aCursor, NodeFragTribKnQualityMetaData.column_CADENCE_COMMITMENT_QUALITY_TIMESTAMP);
 		putColumnIndexMapEntry(this.columnIndexMap, aCursor, NodeFragTribKnQualityMetaData.column_WORK_TASK_BUDGET_QUALITY);
 		putColumnIndexMapEntry(this.columnIndexMap, aCursor, NodeFragTribKnQualityMetaData.column_WORK_TASK_BUDGET_QUALITY_TIMESTAMP);
 		putColumnIndexMapEntry(this.columnIndexMap, aCursor, NodeFragTribKnQualityMetaData.column_WORK_TEAM_QUALITY);
@@ -124,8 +124,8 @@ public class NodeFragTribKnQualityDaoSqLite extends NodeFragDaoSqLite<NodeFragTr
 		aNodeFragTribKnQuality.setParentFractalsQualityTimestamp(GcgDateHelper.getDateFromIso8601DateString(aCursor.getString(aHashMap.get(NodeFragTribKnQualityMetaData.column_PARENT_FRACTALS_QUALITY_TIMESTAMP))));
 		aNodeFragTribKnQuality.setChildFractalsQuality(FmsDecoratorChildFractals.getObjectForName(aCursor.getString(aHashMap.get(NodeFragTribKnQualityMetaData.column_CHILD_FRACTALS_QUALITY))));
 		aNodeFragTribKnQuality.setChildFractalsQualityTimestamp(GcgDateHelper.getDateFromIso8601DateString(aCursor.getString(aHashMap.get(NodeFragTribKnQualityMetaData.column_CHILD_FRACTALS_QUALITY_TIMESTAMP))));
-		aNodeFragTribKnQuality.setFlywheelCommitmentQuality(FmsDecoratorFlywheelCommitment.getObjectForName(aCursor.getString(aHashMap.get(NodeFragTribKnQualityMetaData.column_FLYWHEEL_COMMITMENT_QUALITY))));
-		aNodeFragTribKnQuality.setFlywheelCommitmentQualityTimestamp(GcgDateHelper.getDateFromIso8601DateString(aCursor.getString(aHashMap.get(NodeFragTribKnQualityMetaData.column_FLYWHEEL_COMMITMENT_QUALITY_TIMESTAMP))));
+		aNodeFragTribKnQuality.setCadenceCommitmentQuality(FmsDecoratorCadenceCommitment.getObjectForName(aCursor.getString(aHashMap.get(NodeFragTribKnQualityMetaData.column_CADENCE_COMMITMENT_QUALITY))));
+		aNodeFragTribKnQuality.setCadenceCommitmentQualityTimestamp(GcgDateHelper.getDateFromIso8601DateString(aCursor.getString(aHashMap.get(NodeFragTribKnQualityMetaData.column_CADENCE_COMMITMENT_QUALITY_TIMESTAMP))));
 		aNodeFragTribKnQuality.setWorkTaskBudgetQuality(FmsDecoratorWorkTaskBudget.getObjectForName(aCursor.getString(aHashMap.get(NodeFragTribKnQualityMetaData.column_WORK_TASK_BUDGET_QUALITY))));
 		aNodeFragTribKnQuality.setWorkTaskBudgetQualityTimestamp(GcgDateHelper.getDateFromIso8601DateString(aCursor.getString(aHashMap.get(NodeFragTribKnQualityMetaData.column_WORK_TASK_BUDGET_QUALITY_TIMESTAMP))));
 		aNodeFragTribKnQuality.setWorkTeamQuality(FmsDecoratorWorkTeam.getObjectForName(aCursor.getString(aHashMap.get(NodeFragTribKnQualityMetaData.column_WORK_TEAM_QUALITY))));
@@ -163,8 +163,8 @@ public class NodeFragTribKnQualityDaoSqLite extends NodeFragDaoSqLite<NodeFragTr
 		GcgDateHelper.setIso8601DateContentValue(theContentValues, NodeFragTribKnQualityMetaData.column_PARENT_FRACTALS_QUALITY_TIMESTAMP, aNodeFragTribKnQuality.getParentFractalsQualityTimestamp());
 		theContentValues.put(NodeFragTribKnQualityMetaData.column_CHILD_FRACTALS_QUALITY, aNodeFragTribKnQuality.getChildFractalsQuality().getName());
 		GcgDateHelper.setIso8601DateContentValue(theContentValues, NodeFragTribKnQualityMetaData.column_CHILD_FRACTALS_QUALITY_TIMESTAMP, aNodeFragTribKnQuality.getChildFractalsQualityTimestamp());
-		theContentValues.put(NodeFragTribKnQualityMetaData.column_FLYWHEEL_COMMITMENT_QUALITY, aNodeFragTribKnQuality.getFlywheelCommitmentQuality().getName());
-		GcgDateHelper.setIso8601DateContentValue(theContentValues, NodeFragTribKnQualityMetaData.column_FLYWHEEL_COMMITMENT_QUALITY_TIMESTAMP, aNodeFragTribKnQuality.getFlywheelCommitmentQualityTimestamp());
+		theContentValues.put(NodeFragTribKnQualityMetaData.column_CADENCE_COMMITMENT_QUALITY, aNodeFragTribKnQuality.getCadenceCommitmentQuality().getName());
+		GcgDateHelper.setIso8601DateContentValue(theContentValues, NodeFragTribKnQualityMetaData.column_CADENCE_COMMITMENT_QUALITY_TIMESTAMP, aNodeFragTribKnQuality.getCadenceCommitmentQualityTimestamp());
 		theContentValues.put(NodeFragTribKnQualityMetaData.column_WORK_TASK_BUDGET_QUALITY, aNodeFragTribKnQuality.getWorkTaskBudgetQuality().getName());
 		GcgDateHelper.setIso8601DateContentValue(theContentValues, NodeFragTribKnQualityMetaData.column_WORK_TASK_BUDGET_QUALITY_TIMESTAMP, aNodeFragTribKnQuality.getWorkTaskBudgetQualityTimestamp());
 		theContentValues.put(NodeFragTribKnQualityMetaData.column_WORK_TEAM_QUALITY, aNodeFragTribKnQuality.getWorkTeamQuality().getName());

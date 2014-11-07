@@ -52,11 +52,11 @@ import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
 import com.flywheelms.gcongui.gcg.widget.date.GcgMonth;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.context.FmmPerspective;
+import com.flywheelms.library.fmm.deckangl.FmsDecoratorCadenceCommitment;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorChildFractals;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorCompletion;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorFacilitationIssue;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorFacilitator;
-import com.flywheelms.library.fmm.deckangl.FmsDecoratorFlywheelCommitment;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorGovernance;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorParentFractals;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorSequence;
@@ -265,8 +265,8 @@ public class StrategicMilestone extends FmmCompletionNodeImpl implements Compara
 				FmsDecoratorStrategicCommitment.PROPOSED_STRATEGIC_COMMITMENT.getDecoratorCanvasLocation(),
 				FmsDecoratorStrategicCommitment.PROPOSED_STRATEGIC_COMMITMENT );
 		theDecKanGlDecoratorMap.put(
-				FmsDecoratorFlywheelCommitment.PROPOSED_FLYWHEEL_COMMITMENT.getDecoratorCanvasLocation(),
-				FmsDecoratorFlywheelCommitment.PROPOSED_FLYWHEEL_COMMITMENT );
+				FmsDecoratorCadenceCommitment.PROPOSED_CADENCE_COMMITMENT.getDecoratorCanvasLocation(),
+				FmsDecoratorCadenceCommitment.PROPOSED_CADENCE_COMMITMENT);
 		theDecKanGlDecoratorMap.put(
 				FmsDecoratorWorkTaskBudget.PROPOSED_TASK_BUDGET.getDecoratorCanvasLocation(),
 				FmsDecoratorWorkTaskBudget.PROPOSED_TASK_BUDGET );

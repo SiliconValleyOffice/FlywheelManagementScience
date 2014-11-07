@@ -47,11 +47,11 @@ import com.flywheelms.gcongui.deckangl.enumerator.DecKanGlNounStateColor;
 import com.flywheelms.gcongui.deckangl.interfaces.DecKanGlDecorator;
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.deckangl.FmsDecoratorCadenceCommitment;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorChildFractals;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorCompletion;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorFacilitationIssue;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorFacilitator;
-import com.flywheelms.library.fmm.deckangl.FmsDecoratorFlywheelCommitment;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorGovernance;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorParentFractals;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorSequence;
@@ -198,8 +198,8 @@ public class Bookshelf extends FmmGovernableNodeImpl {
                 FmsDecoratorStrategicCommitment.PROPOSED_STRATEGIC_COMMITMENT.getDecoratorCanvasLocation(),
                 FmsDecoratorStrategicCommitment.PROPOSED_STRATEGIC_COMMITMENT );
         theDecKanGlDecoratorMap.put(
-                FmsDecoratorFlywheelCommitment.PROPOSED_FLYWHEEL_COMMITMENT.getDecoratorCanvasLocation(),
-                FmsDecoratorFlywheelCommitment.PROPOSED_FLYWHEEL_COMMITMENT );
+                FmsDecoratorCadenceCommitment.PROPOSED_CADENCE_COMMITMENT.getDecoratorCanvasLocation(),
+                FmsDecoratorCadenceCommitment.PROPOSED_CADENCE_COMMITMENT);
         theDecKanGlDecoratorMap.put(
                 FmsDecoratorWorkTaskBudget.CONFIRMED_TASK_BUDGET.getDecoratorCanvasLocation(),
                 FmsDecoratorWorkTaskBudget.CONFIRMED_TASK_BUDGET );

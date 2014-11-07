@@ -91,9 +91,9 @@ import com.flywheelms.library.fms.dialog.ProjectOrphanDialog;
 import com.flywheelms.library.fms.dialog.StrategicAssetDeleteDialog;
 import com.flywheelms.library.fms.dialog.StrategicAssetMoveDialog;
 import com.flywheelms.library.fms.dialog.StrategicAssetOrphanDialog;
-import com.flywheelms.library.fms.dialog.StrategicMilestoneAdoptOrphanProjectAssetDialog;
 import com.flywheelms.library.fms.dialog.StrategicMilestoneDeleteDialog;
 import com.flywheelms.library.fms.dialog.StrategicMilestoneMoveDialog;
+import com.flywheelms.library.fms.dialog.StrategicMilestoneSelectWorkAssetAsStrategicDialog;
 import com.flywheelms.library.fms.dialog.StrategicMilestoneTargetDateEditDialog;
 import com.flywheelms.library.fms.dialog.WorkAssetAdoptOrphanWorkPackageDialog;
 import com.flywheelms.library.fms.dialog.WorkPackageAdoptOrphanWorkTaskDialog;
@@ -688,7 +688,7 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
     }
 
     private void promoteProjectAssetToStrategicAsset(FmmHeadlineNode aStrategicMilestone, int aChildCount) {
-        getGcgActivity().startDialog(new StrategicMilestoneAdoptOrphanProjectAssetDialog(
+        getGcgActivity().startDialog(new StrategicMilestoneSelectWorkAssetAsStrategicDialog(
                 getGcgActivity(),
                 this,
                 aStrategicMilestone,

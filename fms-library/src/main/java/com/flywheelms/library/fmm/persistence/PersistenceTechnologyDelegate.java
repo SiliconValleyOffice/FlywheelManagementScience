@@ -45,7 +45,6 @@ package com.flywheelms.library.fmm.persistence;
 
 import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
 import com.flywheelms.library.fmm.database.dao.FmmNodeDao;
-import com.flywheelms.library.fmm.interfaces.WorkAsset;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.enumerator.GovernanceRole;
 import com.flywheelms.library.fmm.node.impl.enumerator.GovernanceTarget;
@@ -57,6 +56,7 @@ import com.flywheelms.library.fmm.node.impl.governable.Project;
 import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
 import com.flywheelms.library.fmm.node.impl.governable.StrategicAsset;
 import com.flywheelms.library.fmm.node.impl.governable.StrategicMilestone;
+import com.flywheelms.library.fmm.node.impl.governable.WorkAsset;
 import com.flywheelms.library.fmm.node.impl.governable.WorkPackage;
 import com.flywheelms.library.fmm.node.impl.governable.WorkTask;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
@@ -267,7 +267,7 @@ public abstract class PersistenceTechnologyDelegate {
     public abstract boolean orphanSingleProjectAssetFromStrategicMilestone(String aProjectAssetId, String aStrategicMilestoneId, boolean bAtomicTransaction);
 
     // TODO - ????
-    public abstract int dbGetMoveTargetWorkPackageCount(ProjectAsset aProjectAsset, WorkPackage aWorkPackageException);
+    public abstract int dbGetMoveTargetWorkPackageCount(WorkAsset aProjectAsset, WorkPackage aWorkPackageException);
 
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -293,6 +293,12 @@ public abstract class PersistenceTechnologyDelegate {
             String anOriginalFiscalYearId,
             String aDestinationFiscalYearId,
             boolean bSequenceAtEnd, boolean bAtomicTransaction);
+
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////  Node - WORK ASSET  ////////////////////////////////////////////////////////////////////////////////
+
+    public abstract ArrayList<WorkAsset> retrieveWorkAssetOrphanListFromStrategicMilestone();
 
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////

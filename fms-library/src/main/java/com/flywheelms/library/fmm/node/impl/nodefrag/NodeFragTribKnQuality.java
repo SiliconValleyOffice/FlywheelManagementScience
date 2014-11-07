@@ -46,11 +46,11 @@ package com.flywheelms.library.fmm.node.impl.nodefrag;
 import com.flywheelms.gcongui.deckangl.enumerator.DecKanGlDecoratorCanvasLocation;
 import com.flywheelms.gcongui.deckangl.interfaces.DecKanGlDecorator;
 import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
+import com.flywheelms.library.fmm.deckangl.FmsDecoratorCadenceCommitment;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorChildFractals;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorCompletion;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorFacilitationIssue;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorFacilitator;
-import com.flywheelms.library.fmm.deckangl.FmsDecoratorFlywheelCommitment;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorGovernance;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorParentFractals;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorSequence;
@@ -82,8 +82,8 @@ public class NodeFragTribKnQuality extends FmmNodeFragImpl implements FmmNodeQua
 	private Date parentFractalsQualityTimestamp;
 	private FmsDecoratorChildFractals childFractalsQuality;
 	private Date childFractalsQualityTimestamp;
-	private FmsDecoratorFlywheelCommitment flywheelCommitmentQuality;
-	private Date flywheelCommitmentQualityTimestamp;
+	private FmsDecoratorCadenceCommitment cadenceCommitmentQuality;
+	private Date cadenceCommitmentQualityTimestamp;
 	private FmsDecoratorWorkTaskBudget workTaskBudgetQuality;
 	private Date workTaskBudgetQualityTimestamp;
 	private FmsDecoratorWorkTeam workTeamQuality;
@@ -121,8 +121,8 @@ public class NodeFragTribKnQuality extends FmmNodeFragImpl implements FmmNodeQua
 			setParentFractalsQualityTimestamp(JsonHelper.getDate(aJsonObject, NodeFragTribKnQualityMetaData.column_PARENT_FRACTALS_QUALITY_TIMESTAMP));
 			setChildFractalsQuality(FmsDecoratorChildFractals.getObjectForName(aJsonObject.getString(NodeFragTribKnQualityMetaData.column_CHILD_FRACTALS_QUALITY)));
 			setChildFractalsQualityTimestamp(JsonHelper.getDate(aJsonObject, NodeFragTribKnQualityMetaData.column_CHILD_FRACTALS_QUALITY_TIMESTAMP));
-			setFlywheelCommitmentQuality(FmsDecoratorFlywheelCommitment.getObjectForName(aJsonObject.getString(NodeFragTribKnQualityMetaData.column_FLYWHEEL_COMMITMENT_QUALITY)));
-			setFlywheelCommitmentQualityTimestamp(JsonHelper.getDate(aJsonObject, NodeFragTribKnQualityMetaData.column_FLYWHEEL_COMMITMENT_QUALITY_TIMESTAMP));
+			setCadenceCommitmentQuality(FmsDecoratorCadenceCommitment.getObjectForName(aJsonObject.getString(NodeFragTribKnQualityMetaData.column_CADENCE_COMMITMENT_QUALITY)));
+			setCadenceCommitmentQualityTimestamp(JsonHelper.getDate(aJsonObject, NodeFragTribKnQualityMetaData.column_CADENCE_COMMITMENT_QUALITY_TIMESTAMP));
 			setWorkTaskBudgetQuality(FmsDecoratorWorkTaskBudget.getObjectForName(aJsonObject.getString(NodeFragTribKnQualityMetaData.column_WORK_TASK_BUDGET_QUALITY)));
 			setWorkTaskBudgetQualityTimestamp(JsonHelper.getDate(aJsonObject, NodeFragTribKnQualityMetaData.column_WORK_TASK_BUDGET_QUALITY_TIMESTAMP));
 			setWorkTeamQuality(FmsDecoratorWorkTeam.getObjectForName(aJsonObject.getString(NodeFragTribKnQualityMetaData.column_WORK_TEAM_QUALITY)));
@@ -155,8 +155,8 @@ public class NodeFragTribKnQuality extends FmmNodeFragImpl implements FmmNodeQua
 		setParentFractalsQualityTimestamp(theTimestamp);
 		setChildFractalsQuality((FmsDecoratorChildFractals) theDecoratorMap.get(FmsDecoratorChildFractals.getStaticInstance().getDecoratorCanvasLocation()));
 		setChildFractalsQualityTimestamp(theTimestamp);
-		setFlywheelCommitmentQuality((FmsDecoratorFlywheelCommitment) theDecoratorMap.get(FmsDecoratorFlywheelCommitment.getStaticInstance().getDecoratorCanvasLocation()));
-		setFlywheelCommitmentQualityTimestamp(theTimestamp);
+		setCadenceCommitmentQuality((FmsDecoratorCadenceCommitment) theDecoratorMap.get(FmsDecoratorCadenceCommitment.getStaticInstance().getDecoratorCanvasLocation()));
+		setCadenceCommitmentQualityTimestamp(theTimestamp);
 		setWorkTaskBudgetQuality((FmsDecoratorWorkTaskBudget) theDecoratorMap.get(FmsDecoratorWorkTaskBudget.getStaticInstance().getDecoratorCanvasLocation()));
 		setWorkTaskBudgetQualityTimestamp(theTimestamp);
 		setWorkTeamQuality((FmsDecoratorWorkTeam) theDecoratorMap.get(FmsDecoratorWorkTeam.getStaticInstance().getDecoratorCanvasLocation()));
@@ -185,8 +185,8 @@ public class NodeFragTribKnQuality extends FmmNodeFragImpl implements FmmNodeQua
 			JsonHelper.putDate(theJsonObject, NodeFragTribKnQualityMetaData.column_PARENT_FRACTALS_QUALITY_TIMESTAMP, getParentFractalsQualityTimestamp());
 			theJsonObject.put(NodeFragTribKnQualityMetaData.column_CHILD_FRACTALS_QUALITY, getChildFractalsQuality().getName());
 			JsonHelper.putDate(theJsonObject, NodeFragTribKnQualityMetaData.column_CHILD_FRACTALS_QUALITY_TIMESTAMP, getChildFractalsQualityTimestamp());
-			theJsonObject.put(NodeFragTribKnQualityMetaData.column_FLYWHEEL_COMMITMENT_QUALITY, getFlywheelCommitmentQuality().getName());
-			JsonHelper.putDate(theJsonObject, NodeFragTribKnQualityMetaData.column_FLYWHEEL_COMMITMENT_QUALITY_TIMESTAMP, getFlywheelCommitmentQualityTimestamp());
+			theJsonObject.put(NodeFragTribKnQualityMetaData.column_CADENCE_COMMITMENT_QUALITY, getCadenceCommitmentQuality().getName());
+			JsonHelper.putDate(theJsonObject, NodeFragTribKnQualityMetaData.column_CADENCE_COMMITMENT_QUALITY_TIMESTAMP, getCadenceCommitmentQualityTimestamp());
 			theJsonObject.put(NodeFragTribKnQualityMetaData.column_WORK_TASK_BUDGET_QUALITY, getWorkTaskBudgetQuality().getName());
 			JsonHelper.putDate(theJsonObject, NodeFragTribKnQualityMetaData.column_WORK_TASK_BUDGET_QUALITY_TIMESTAMP, getWorkTaskBudgetQualityTimestamp());
 			theJsonObject.put(NodeFragTribKnQualityMetaData.column_WORK_TEAM_QUALITY, getWorkTeamQuality().getName());
@@ -228,8 +228,8 @@ public class NodeFragTribKnQuality extends FmmNodeFragImpl implements FmmNodeQua
 				getStrategicCommitmentQuality().getDecoratorCanvasLocation(),
 				getStrategicCommitmentQuality() );
 		theDecKanGlDecoratorMap.put(
-				getFlywheelCommitmentQuality().getDecoratorCanvasLocation(),
-				getFlywheelCommitmentQuality() );
+				getCadenceCommitmentQuality().getDecoratorCanvasLocation(),
+				getCadenceCommitmentQuality() );
 		theDecKanGlDecoratorMap.put(
 				getWorkTaskBudgetQuality().getDecoratorCanvasLocation(),
 				getWorkTaskBudgetQuality() );
@@ -335,22 +335,21 @@ public class NodeFragTribKnQuality extends FmmNodeFragImpl implements FmmNodeQua
 		this.childFractalsQualityTimestamp = childFractalsQualityTimestamp;
 	}
 
-	public FmsDecoratorFlywheelCommitment getFlywheelCommitmentQuality() {
-		return this.flywheelCommitmentQuality;
+	public FmsDecoratorCadenceCommitment getCadenceCommitmentQuality() {
+		return this.cadenceCommitmentQuality;
 	}
 
-	public void setFlywheelCommitmentQuality(
-			FmsDecoratorFlywheelCommitment flywheelCommitmentQuality) {
-		this.flywheelCommitmentQuality = flywheelCommitmentQuality;
+	public void setCadenceCommitmentQuality(FmsDecoratorCadenceCommitment aCadenceCommitmentQuality) {
+		this.cadenceCommitmentQuality = aCadenceCommitmentQuality;
 	}
 
-	public Date getFlywheelCommitmentQualityTimestamp() {
-		return this.flywheelCommitmentQualityTimestamp;
+	public Date getCadenceCommitmentQualityTimestamp() {
+		return this.cadenceCommitmentQualityTimestamp;
 	}
 
-	public void setFlywheelCommitmentQualityTimestamp(
-			Date flywheelCommitmentQualityTimestamp) {
-		this.flywheelCommitmentQualityTimestamp = flywheelCommitmentQualityTimestamp;
+	public void setCadenceCommitmentQualityTimestamp(
+            Date flywheelCommitmentQualityTimestamp) {
+		this.cadenceCommitmentQualityTimestamp = flywheelCommitmentQualityTimestamp;
 	}
 
 	public FmsDecoratorWorkTaskBudget getWorkTaskBudgetQuality() {

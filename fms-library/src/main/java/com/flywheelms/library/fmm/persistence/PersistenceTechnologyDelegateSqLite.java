@@ -87,7 +87,6 @@ import com.flywheelms.library.fmm.database.sqlite.dao.WorkPackageDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.WorkPlanDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.WorkTaskDaoSqLite;
 import com.flywheelms.library.fmm.helper.FmmOpenHelper;
-import com.flywheelms.library.fmm.interfaces.WorkAsset;
 import com.flywheelms.library.fmm.meta_data.CadenceCommitmentMetaData;
 import com.flywheelms.library.fmm.meta_data.CommunityMemberOrganizationGovernanceAuthorityMetaData;
 import com.flywheelms.library.fmm.meta_data.CompletableNodeMetaData;
@@ -102,6 +101,7 @@ import com.flywheelms.library.fmm.meta_data.SequencedLinkNodeMetaData;
 import com.flywheelms.library.fmm.meta_data.StrategicAssetMetaData;
 import com.flywheelms.library.fmm.meta_data.StrategicCommitmentMetaData;
 import com.flywheelms.library.fmm.meta_data.StrategicMilestoneMetaData;
+import com.flywheelms.library.fmm.meta_data.WorkAssetMetaData;
 import com.flywheelms.library.fmm.meta_data.WorkPackageMetaData;
 import com.flywheelms.library.fmm.meta_data.WorkTaskMetaData;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
@@ -115,6 +115,7 @@ import com.flywheelms.library.fmm.node.impl.governable.Project;
 import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
 import com.flywheelms.library.fmm.node.impl.governable.StrategicAsset;
 import com.flywheelms.library.fmm.node.impl.governable.StrategicMilestone;
+import com.flywheelms.library.fmm.node.impl.governable.WorkAsset;
 import com.flywheelms.library.fmm.node.impl.governable.WorkPackage;
 import com.flywheelms.library.fmm.node.impl.governable.WorkTask;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
@@ -1415,6 +1416,16 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
     @SuppressWarnings("resource")
     @Override
+    public ArrayList<WorkAsset> retrieveWorkAssetOrphanListFromStrategicMilestone() {
+        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.WORK_ASSET.getTableName() +
+                " WHERE " + WorkAssetMetaData.column_IS_STRATEGIC + " = 0";
+        theRawQuery += " ORDER BY " + HeadlineNodeMetaData.column_HEADLINE + " ASC";
+        Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
+        return WorkAssetDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
+    }
+
+    @SuppressWarnings("resource")
+    @Override
     public ArrayList<StrategicAsset> retrieveStrategicAssetOrphanListFromProject() {
         String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.PROJECT_ASSET.getTableName() +
                 " WHERE " + StrategicAssetMetaData.column_PROJECT_ID + " IS NULL" +
@@ -1509,7 +1520,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 	}
 
 	@Override
-	public int dbGetMoveTargetWorkPackageCount(ProjectAsset aProjectAsset, WorkPackage aWorkPackageException) {
+	public int dbGetMoveTargetWorkPackageCount(WorkAsset aProjectAsset, WorkPackage aWorkPackageException) {
 		// TODO Auto-generated method stub
 		return 0;
 	}

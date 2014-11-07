@@ -166,8 +166,8 @@
     <string name="tribkn_quality_metric__facilitation_issue__description">Quality of the associated facilitation issue(s).</string>
     <string name="tribkn_quality_metric__facilitator">Facilitator</string>
     <string name="tribkn_quality_metric__facilitator__description">Quality of the completion facilitation.</string>
-    <string name="tribkn_quality_metric__flywheel_commitment">Flywheel Work Package Commitment</string>
-    <string name="tribkn_quality_metric__flywheel_commitment__description">Quality of the Flywheel Work Package commitments.</string>
+    <string name="tribkn_quality_metric__cadence_commitment">Cadence Commitment</string>
+    <string name="tribkn_quality_metric__cadence_commitment__description">Quality of the Work Package Cadence commitments.</string>
     <string name="tribkn_quality_metric__governance">Governance</string>
     <string name="tribkn_quality_metric__governance__description">Quality of the governance.</string>
     <string name="tribkn_quality_metric__parent_fractals">Parent Fractals</string>
@@ -258,15 +258,15 @@
     <string name="decorator__child_fractals__not_applicable">Not Applicable</string>
     <string name="decorator__child_fractals__not_enabled">Not Enabled</string>
     
-    <string name="decorator__flywheel_commitment__none">No Completion Commitment</string>
-    <string name="decorator__flywheel_commitment__suggested">Suggested Completion Commitment</string>
-    <string name="decorator__flywheel_commitment__proposed">Proposed Completion Commitment</string>
-    <string name="decorator__flywheel_commitment__confirmed">Confirmed Completion Commitment</string>
-    <string name="decorator__flywheel_commitment__future">Future Completion Commitment</string>
-    <string name="decorator__flywheel_commitment__missed">Missed Completion Commitment</string>
-    <string name="decorator__flywheel_commitment__unknown_quality">Unspecified Quality</string>
-    <string name="decorator__flywheel_commitment__not_applicable">Not Applicable</string>
-    <string name="decorator__flywheel_commitment__not_enabled">Not Enabled</string>
+    <string name="decorator__cadence_commitment__none">No Cadence Commitment</string>
+    <string name="decorator__cadence_commitment__suggested">Suggested Cadence Commitment</string>
+    <string name="decorator__cadence_commitment__proposed">Proposed Cadence Commitment</string>
+    <string name="decorator__cadence_commitment__confirmed">Confirmed Cadence Commitment</string>
+    <string name="decorator__cadence_commitment__future">Future Cadence Commitment</string>
+    <string name="decorator__cadence_commitment__missed">Missed Cadence Commitment</string>
+    <string name="decorator__cadence_commitment__unknown_quality">Unspecified Quality</string>
+    <string name="decorator__cadence_commitment__not_applicable">Not Applicable</string>
+    <string name="decorator__cadence_commitment__not_enabled">Not Enabled</string>
     
     <string name="decorator__completion_progress__past_due">Completion Past Due</string>
     <string name="decorator__completion_progress__at_risk">Timely Completion At Risk</string>

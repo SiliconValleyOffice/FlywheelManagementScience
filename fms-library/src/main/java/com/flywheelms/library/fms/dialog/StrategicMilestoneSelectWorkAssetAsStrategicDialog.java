@@ -1,4 +1,4 @@
-/* @(#)StrategicMilestoneAdoptOrphanProjectAssetDialog.java
+/* @(#)StrategicMilestoneSelectWorkAssetAsStrategicDialog.java
 ** 
 ** Copyright (C) 2012 by Steven D. Stamps
 **
@@ -54,19 +54,19 @@ import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmCompletionNode;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
-import com.flywheelms.library.fms.widget.spinner.ProjectAssetWidgetSpinner;
+import com.flywheelms.library.fms.widget.spinner.WorkAssetWidgetSpinner;
 
-public class StrategicMilestoneAdoptOrphanProjectAssetDialog extends HeadlineNodeAdoptOrphanDialog {
+public class StrategicMilestoneSelectWorkAssetAsStrategicDialog extends HeadlineNodeAdoptOrphanDialog {
 
-    public StrategicMilestoneAdoptOrphanProjectAssetDialog(
+    public StrategicMilestoneSelectWorkAssetAsStrategicDialog(
             GcgActivity aLibraryActivity,
             GcgTreeViewAdapter aTreeViewAdapter,
             FmmHeadlineNode aStrategicMilestone,
-            int aChildCount ) {
+            int aChildCount) {
         this(aLibraryActivity, aTreeViewAdapter, (FmmCompletionNode) aStrategicMilestone, aChildCount, (FmmCompletionNode) aStrategicMilestone, 0);
     }
 
-    public StrategicMilestoneAdoptOrphanProjectAssetDialog(
+    public StrategicMilestoneSelectWorkAssetAsStrategicDialog(
             GcgActivity aLibraryActivity,
             GcgTreeViewAdapter aTreeViewAdapter,
             FmmCompletionNode aParentHeadlineNode,
@@ -82,8 +82,8 @@ public class StrategicMilestoneAdoptOrphanProjectAssetDialog extends HeadlineNod
     }
 
     protected void initializeOrphanSpinner(LinearLayout anAdoptionCandidateLayout) {
-        LayoutInflater.from(getContext()).inflate(R.layout.adopt_orphan__project_asset__into__strategic_milestone, anAdoptionCandidateLayout, true);
-        this.adoptionCandidateWidgetSpinner = (ProjectAssetWidgetSpinner) this.dialogBodyView.findViewById(R.id.adoption_candidate__spinner);
+        LayoutInflater.from(getContext()).inflate(R.layout.strategic_milestone__select_work_asset__as_strategic, anAdoptionCandidateLayout, true);
+        this.adoptionCandidateWidgetSpinner = (WorkAssetWidgetSpinner) this.dialogBodyView.findViewById(R.id.adoption_candidate__spinner);
     }
 
     protected void initializeCandidateGroupBoxLabel(GcgContainerGroupBoxLinear theAdoptionCandidateGroupBox) {

@@ -48,11 +48,11 @@ import android.util.AttributeSet;
 
 import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
-import com.flywheelms.library.fmm.interfaces.WorkAsset;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.governable.Project;
 import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
 import com.flywheelms.library.fmm.node.impl.governable.StrategicMilestone;
+import com.flywheelms.library.fmm.node.impl.governable.WorkAsset;
 import com.flywheelms.library.fmm.node.impl.governable.WorkPackage;
 import com.flywheelms.library.fms.widget.FmmHeadlineNodeWidgetSpinner;
 
@@ -106,7 +106,14 @@ public class WorkAssetWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
     @Override
     protected ArrayList<? extends GcgGuiable> getOrphanNodesPrimaryParentGuiableList() {
         ArrayList<GcgGuiable> theGuiableList =
-                new ArrayList<GcgGuiable>(FmmDatabaseMediator.getActiveMediator().listProjectAssetOrphansFromProject());
+                new ArrayList<GcgGuiable>(FmmDatabaseMediator.getActiveMediator().listWorkAssetOrphansFromProject());
+        return theGuiableList;
+    }
+
+    @Override
+    protected ArrayList<? extends GcgGuiable> getOrphanNodesSecondaryParentGuiableList() {
+        ArrayList<GcgGuiable> theGuiableList =
+                new ArrayList<GcgGuiable>(FmmDatabaseMediator.getActiveMediator().listWorkAssetOrphansFromStrategicMilestone());
         return theGuiableList;
     }
 

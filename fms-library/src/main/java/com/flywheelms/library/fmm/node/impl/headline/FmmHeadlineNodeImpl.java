@@ -63,11 +63,11 @@ import com.flywheelms.library.fmm.context.FmmFrame;
 import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fmm.deckangl.FmmDecKanGlDictionary;
 import com.flywheelms.library.fmm.deckangl.FmsDecKanGlNoun;
+import com.flywheelms.library.fmm.deckangl.FmsDecoratorCadenceCommitment;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorChildFractals;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorCompletion;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorFacilitationIssue;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorFacilitator;
-import com.flywheelms.library.fmm.deckangl.FmsDecoratorFlywheelCommitment;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorGovernance;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorParentFractals;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorSequence;
@@ -368,8 +368,8 @@ public abstract class FmmHeadlineNodeImpl extends FmmHistoryNodeImpl
     }
 
     @Override
-    public FmsDecoratorFlywheelCommitment getDecoratorFlywheelCommitment() {
-        return FmsDecoratorFlywheelCommitment.FLYWHEEL_COMMITMENT_QUALITY_NOT_ENABLED;
+    public FmsDecoratorCadenceCommitment getDecoratorFlywheelCommitment() {
+        return FmsDecoratorCadenceCommitment.CADENCE_COMMITMENT_QUALITY_NOT_ENABLED;
     }
 
     @Override

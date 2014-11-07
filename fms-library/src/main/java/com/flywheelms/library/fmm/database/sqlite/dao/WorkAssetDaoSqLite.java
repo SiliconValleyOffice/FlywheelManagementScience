@@ -46,13 +46,13 @@ package com.flywheelms.library.fmm.database.sqlite.dao;
 import android.content.ContentValues;
 import android.database.Cursor;
 
-import com.flywheelms.library.fmm.interfaces.WorkAsset;
 import com.flywheelms.library.fmm.meta_data.CompletableNodeMetaData;
 import com.flywheelms.library.fmm.meta_data.IdNodeMetaData;
 import com.flywheelms.library.fmm.meta_data.ProjectAssetMetaData;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
 import com.flywheelms.library.fmm.node.impl.governable.StrategicAsset;
+import com.flywheelms.library.fmm.node.impl.governable.WorkAsset;
 
 import java.util.HashMap;
 
@@ -108,10 +108,14 @@ public class WorkAssetDaoSqLite extends CompletableNodeDaoSqLite<WorkAsset> {
             StrategicAsset theStrategicAsset = new StrategicAsset(aCursor.getString(this.columnIndexMap.get(IdNodeMetaData.column_ID)) );
             getColumnValues(this.columnIndexMap, aCursor, theStrategicAsset);
             return theStrategicAsset;
-        } else {
+        } else if(aCursor.getString(this.columnIndexMap.get(ProjectAssetMetaData.column_PROJECT_ID)) != null) {
             ProjectAsset theProjectAsset = new ProjectAsset(aCursor.getString(this.columnIndexMap.get(IdNodeMetaData.column_ID)) );
             getColumnValues(this.columnIndexMap, aCursor, theProjectAsset);
             return theProjectAsset;
+        } else {
+            WorkAsset theWorkAsset = new WorkAsset(aCursor.getString(this.columnIndexMap.get(IdNodeMetaData.column_ID)) );
+            getColumnValues(this.columnIndexMap, aCursor, theWorkAsset);
+            return theWorkAsset;
         }
 	}
 }

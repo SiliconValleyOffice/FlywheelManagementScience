@@ -76,11 +76,11 @@ import com.flywheelms.gcongui.gcg.helper.GcgSpinnerHelper;
 import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.deckangl.FmmDecKanGlDictionary;
+import com.flywheelms.library.fmm.deckangl.FmsDecoratorCadenceCommitment;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorChildFractals;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorCompletion;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorFacilitationIssue;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorFacilitator;
-import com.flywheelms.library.fmm.deckangl.FmsDecoratorFlywheelCommitment;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorGovernance;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorParentFractals;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorSequence;
@@ -347,9 +347,9 @@ public class DecKanGlGlyphDictionaryActivity extends Activity implements DecKanG
 				this,
 				R.id.tribkn_quality_metric__flywheel_commitment__label,
 				R.id.tribkn_quality_metric__flywheel_commitment__spinner,
-				FmsDecoratorFlywheelCommitment.getStaticInstance(),
-				FmsDecoratorFlywheelCommitment.values(),
-				FmsDecoratorFlywheelCommitment.NO_FLYWHEEL_COMMITMENT );
+				FmsDecoratorCadenceCommitment.getStaticInstance(),
+				FmsDecoratorCadenceCommitment.values(),
+				FmsDecoratorCadenceCommitment.NO_CADENCE_COMMITMENT);
 		GcgSpinnerHelper.setOnItemSelectedListener(
 				this,
 				R.id.tribkn_quality_metric__flywheel_commitment__spinner,
@@ -475,9 +475,9 @@ public class DecKanGlGlyphDictionaryActivity extends Activity implements DecKanG
 		return (FmsDecoratorStrategicCommitment) theSpinner.getSelectedItem();
 	}
 	
-	private FmsDecoratorFlywheelCommitment getDecoratorFlywheelCommitment() {
+	private FmsDecoratorCadenceCommitment getDecoratorFlywheelCommitment() {
 		Spinner theSpinner = (Spinner) this.findViewById(R.id.tribkn_quality_metric__flywheel_commitment__spinner);
-		return (FmsDecoratorFlywheelCommitment) theSpinner.getSelectedItem();
+		return (FmsDecoratorCadenceCommitment) theSpinner.getSelectedItem();
 	}
 	
 	private FmsDecoratorWorkTaskBudget getDecoratorWorkTaskBudget() {

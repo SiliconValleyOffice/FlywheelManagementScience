@@ -202,12 +202,12 @@ public class FmmDecKanGlDictionary extends DecKanGlDictionary {
 				FmsDecoratorChildFractals.getStaticInstance().getQualityMetricDrawable(),
 				FmsDecoratorChildFractals.getStaticInstance().getDecoratorCanvasLocation(),
 				FmsDecoratorChildFractals.class ));
-		theNounQualityMetricMap.put(FmsDecoratorFlywheelCommitment.getStaticInstance().getQualityMetricName(), new DecKanGlElementNounQualityMetric(
-				FmsDecoratorFlywheelCommitment.getStaticInstance().getQualityMetricName(),
-				FmsDecoratorFlywheelCommitment.getStaticInstance().getQualityMetricDescription(),
-				FmsDecoratorFlywheelCommitment.getStaticInstance().getQualityMetricDrawable(),
-				FmsDecoratorFlywheelCommitment.getStaticInstance().getDecoratorCanvasLocation(),
-				FmsDecoratorFlywheelCommitment.class ));
+		theNounQualityMetricMap.put(FmsDecoratorCadenceCommitment.getStaticInstance().getQualityMetricName(), new DecKanGlElementNounQualityMetric(
+				FmsDecoratorCadenceCommitment.getStaticInstance().getQualityMetricName(),
+				FmsDecoratorCadenceCommitment.getStaticInstance().getQualityMetricDescription(),
+				FmsDecoratorCadenceCommitment.getStaticInstance().getQualityMetricDrawable(),
+				FmsDecoratorCadenceCommitment.getStaticInstance().getDecoratorCanvasLocation(),
+				FmsDecoratorCadenceCommitment.class ));
 		theNounQualityMetricMap.put(FmsDecoratorWorkTeam.getStaticInstance().getQualityMetricName(), new DecKanGlElementNounQualityMetric(
 				FmsDecoratorWorkTeam.getStaticInstance().getQualityMetricName(),
 				FmsDecoratorWorkTeam.getStaticInstance().getQualityMetricDescription(),
