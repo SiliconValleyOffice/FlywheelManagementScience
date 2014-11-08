@@ -91,18 +91,6 @@ public class ProjectAssetWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 	}
 	
 	@Override
-	protected ArrayList<GcgGuiable> getSecondaryParentGuiableList() {
-		ArrayList<GcgGuiable> theGuiableList;
-		if(this.strategicMilestone == null) {
-			theGuiableList = new ArrayList<GcgGuiable>(); 
-		} else {	
-			theGuiableList = new ArrayList<GcgGuiable>(
-					FmmDatabaseMediator.getActiveMediator().retrieveStrategicAssetList(this.strategicMilestone) );
-		}
-		return theGuiableList;
-	}
-	
-	@Override
 	protected ArrayList<GcgGuiable> getPrimaryParentPrimaryChildMoveTargetGuiableList() {
 		ArrayList<GcgGuiable> theGuiableList;
 		if(this.project == null) {
@@ -126,28 +114,9 @@ public class ProjectAssetWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
         return theGuiableList;
     }
 	
-	@Override
-	protected ArrayList<GcgGuiable> getSecondaryParentPrimaryChildMoveTargetGuiableList() {
-		ArrayList<GcgGuiable> theGuiableList;
-		if(this.strategicMilestone == null) {
-			theGuiableList = new ArrayList<GcgGuiable>(); 
-		} else {	
-			theGuiableList = new ArrayList<GcgGuiable>(FmmDatabaseMediator.getActiveMediator().retrieveProjectAssetListForWorkPackageMoveTarget(
-                    this.strategicMilestone, this.projectAssetException));
-		}
-		return theGuiableList;
-	}
-
     protected ArrayList<? extends GcgGuiable> getDefaultGuiableList() {
         return new ArrayList<GcgGuiable>(FmmDatabaseMediator.getActiveMediator().retrieveProjectAssetList());
     }
-	
-	@Override
-	protected ArrayList<? extends GcgGuiable> getOrphanNodesPrimaryParentGuiableList() {
-		ArrayList<GcgGuiable> theGuiableList =
-				new ArrayList<GcgGuiable>(FmmDatabaseMediator.getActiveMediator().listWorkAssetOrphansFromProject());
-		return theGuiableList;
-	}
 	
 	@Override
 	protected ArrayList<? extends GcgGuiable> getOrphanNodesSecondaryParentGuiableList() {

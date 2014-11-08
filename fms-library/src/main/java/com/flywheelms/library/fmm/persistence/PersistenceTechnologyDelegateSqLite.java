@@ -1427,7 +1427,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
     @SuppressWarnings("resource")
     @Override
     public ArrayList<StrategicAsset> retrieveStrategicAssetOrphanListFromProject() {
-        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.PROJECT_ASSET.getTableName() +
+        String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.STRATEGIC_ASSET.getTableName() +
                 " WHERE " + StrategicAssetMetaData.column_PROJECT_ID + " IS NULL" +
                 " AND " + StrategicAssetMetaData.column_IS_STRATEGIC + " = 1";
         theRawQuery += " ORDER BY " + HeadlineNodeMetaData.column_HEADLINE + " ASC";

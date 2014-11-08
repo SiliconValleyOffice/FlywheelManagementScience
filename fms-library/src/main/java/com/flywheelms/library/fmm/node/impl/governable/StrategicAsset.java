@@ -81,29 +81,34 @@ public class StrategicAsset extends WorkAsset {
 
     public StrategicAsset() {
         super(new NodeId(FmmNodeDefinition.STRATEGIC_ASSET));
-    }
-
-    public StrategicAsset(NodeId aNodeId, String aHeadline) {
-        super(aNodeId, aHeadline);
-    }
-
-    public StrategicAsset(NodeId aNodeId, String aHeadline, Project aProject) {
-        super(aNodeId, aHeadline);
-        setProject(aProject);
-    }
-
-    public StrategicAsset(JSONObject aJsonObject) {
-        super(aJsonObject);
+        setStrategic(true);
     }
 
     public StrategicAsset(NodeId aNodeId) {
         super(aNodeId);
+        setStrategic(true);
     }
 
     public StrategicAsset(String anExistingNodeIdString) {
         super(NodeId.hydrate(
                 getNodeClass(),
                 anExistingNodeIdString ));
+        setStrategic(true);
+    }
+
+    public StrategicAsset(NodeId aNodeId, String aHeadline) {
+        super(aNodeId, aHeadline);
+        setStrategic(true);
+    }
+
+    public StrategicAsset(NodeId aNodeId, String aHeadline, Project aProject) {
+        super(aNodeId, aHeadline);
+        setStrategic(true);
+        setProject(aProject);
+    }
+
+    public StrategicAsset(JSONObject aJsonObject) {
+        super(aJsonObject);
     }
 
     @Override

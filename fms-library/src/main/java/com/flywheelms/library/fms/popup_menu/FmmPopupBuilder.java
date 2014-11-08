@@ -486,6 +486,8 @@ public class FmmPopupBuilder {
 		if(bCanOrphan) {
 			thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__ORPHAN_PROJECT_ASSET);
 		}
+        startNewGroup(thePopupMenu);
+        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__ADOPT_ORPHAN_STRATEGIC_ASSET);
         thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__ADOPT_ORPHAN_WORK_ASSET);
         if(bCanSequenceUp || bCanSequenceDown) {
             startNewGroup(thePopupMenu);

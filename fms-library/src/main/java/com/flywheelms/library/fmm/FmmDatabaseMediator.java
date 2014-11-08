@@ -1854,10 +1854,10 @@ public class FmmDatabaseMediator {
     // MOVE
 
     // TODO - create generalized routine
-    public ArrayList<ProjectAsset> retrieveProjectAssetListForWorkPackageMoveTarget(StrategicMilestone aStrategicMilestone, ProjectAsset aProjectAssetException) {
+    public ArrayList<ProjectAsset> retrieveStrategicAssetListForWorkPackageMoveTarget(StrategicMilestone aStrategicMilestone, StrategicAsset aStrategicAssetException) {
         return getPersistenceTechnologyDelegate().retrieveStrategicAssetListForWorkPackageMoveTarget(
                 aStrategicMilestone.getNodeIdString(),
-                aProjectAssetException == null ? null : aProjectAssetException.getNodeIdString());
+                aStrategicAssetException == null ? null : aStrategicAssetException.getNodeIdString());
     }
 
     // TODO - create generalized routine
