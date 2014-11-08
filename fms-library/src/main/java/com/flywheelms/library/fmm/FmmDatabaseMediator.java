@@ -988,7 +988,10 @@ public class FmmDatabaseMediator {
 		if(FmmDatabaseMediator.activeFmmDatabaseMediator != null) {
 			FmmDatabaseMediator.activeFmmDatabaseMediator.closeDatabase();
 		}
-		FmmDatabaseMediator theFmmDatabaseMediator = FmmDatabaseMediator.fmmDatabaseMediatorMap.get(anFmmConfiguration.getHeadline());
+        FmmDatabaseMediator theFmmDatabaseMediator = null;
+        if(FmmDatabaseMediator.fmmDatabaseMediatorMap != null) {
+            theFmmDatabaseMediator = FmmDatabaseMediator.fmmDatabaseMediatorMap.get(anFmmConfiguration.getHeadline());
+        }
 		if(theFmmDatabaseMediator != null) {
 			theFmmDatabaseMediator.getPersistenceTechnologyDelegate().setActiveDatabase(anFmmConfiguration);
 			FmmDatabaseMediator.activeFmmDatabaseMediator = theFmmDatabaseMediator;
