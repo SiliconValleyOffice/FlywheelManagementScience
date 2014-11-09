@@ -870,7 +870,7 @@ public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNo
 		return getGcgPerspective() == null ? "" : getGcgPerspective().getName();
 	}
 
-	protected void setGcgPerspective(GcgPerspective aGcgPerspective) {
+	public void setGcgPerspective(GcgPerspective aGcgPerspective) {
 		this.frameSpinner.setPerspective(aGcgPerspective);
 	}
 

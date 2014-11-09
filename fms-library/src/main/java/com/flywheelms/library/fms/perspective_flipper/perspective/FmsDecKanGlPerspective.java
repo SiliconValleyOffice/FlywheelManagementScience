@@ -103,6 +103,7 @@ public class FmsDecKanGlPerspective extends FmsPerspectiveFlipperView implements
 
     @Override
     public void activityNavigation(GcgFrame aFrame, GcgPerspective aPerspective) {
-
+        getGcgActivity().setGcgFrame(aFrame);
+        getGcgActivity().setGcgPerspective(aPerspective);
     }
 }

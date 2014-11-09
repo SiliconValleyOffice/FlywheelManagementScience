@@ -59,7 +59,7 @@ public abstract class FmsCancelDialog extends GcgCancelDialog {
 	}
 	
 	public FmsCancelDialog(GcgActivity aGcgActivity, FmmHeadlineNode aHeadlineNode) {
-		this(aGcgActivity, "", "", null, aHeadlineNode, null);
+		this(aGcgActivity, "", "", aHeadlineNode.getFmmNodeDefinition(), aHeadlineNode, null);
 	}
 	
 	public FmsCancelDialog(GcgActivity aGcgActivity, FmmNodeDefinition anFmmNodeDefinition) {
