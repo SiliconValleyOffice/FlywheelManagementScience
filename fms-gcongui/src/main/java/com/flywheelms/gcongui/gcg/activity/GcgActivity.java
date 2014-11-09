@@ -859,7 +859,9 @@ public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNo
 	}
 	
 	public void setGcgFrame(GcgFrame aGcgFrame) {
-		this.frameSpinner.setFrame(aGcgFrame);
+        if(this.frameSpinner != null) {
+            this.frameSpinner.setFrame(aGcgFrame);
+        }
 	}
 
 	protected GcgPerspective getGcgPerspective() {
@@ -871,7 +873,9 @@ public abstract class GcgActivity extends Activity implements FdkHost, GcgDoItNo
 	}
 
 	public void setGcgPerspective(GcgPerspective aGcgPerspective) {
-		this.frameSpinner.setPerspective(aGcgPerspective);
+        if(this.frameSpinner != null) {
+            this.frameSpinner.setPerspective(aGcgPerspective);
+        }
 	}
 
 	public String getOrganizationName() {
