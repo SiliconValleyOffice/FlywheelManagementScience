@@ -112,6 +112,7 @@ public class WorkbenchActivity extends FmsActivity implements FmsDecKanGlNavigat
 			this.mustSelectDataSource = aSavedInstanceState.getBoolean(FmsActivityHelper.bundle_key__MUST_SELECT_DATA_SOURCE);
             if(aSavedInstanceState.containsKey(FmsActivityHelper.bundle_key__FMM_CONFIGURATION)) {
                 FmmDatabaseMediator.setActiveFmmConfiguration(FmmConfiguration.rehydrate(aSavedInstanceState.getString(FmsActivityHelper.bundle_key__FMM_CONFIGURATION)));
+                this.mustSelectDataSource = false;
             }
         }
 		if(this.mustSelectDataSource) {
