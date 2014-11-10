@@ -7,13 +7,12 @@
     <string name="fmm_node_definition__administrator">Administrator</string>
     <string name="fmm_node_definition__assignment_commitment_type__term">Assignment Commitment Type</string>
     <string name="fmm_node_definition__bookshelf__term">Bookshelf</string>
-    <string name="fmm_node_definition__bookshelf__definition">
-        Bookshelf is the root node of the Notebook perspective in the Context frame.  It provides a place to store Notebooks.\n\nAnyone can create a bookshelf, usually for their personal use.\n\nBookshelves are automatically sequenced in an alpha sort of the bookshelf headline.\n\nNotebooks on a bookshelf are automatically sequenced in an alpha sort of the notebook headline.\n\nNotebooks on a bookshelf may also appear on other bookshelves, and frequently do.\n\nWhen a bookshelf is deleted, the notebooks which do not appear on any other bookshelf may be moved, orphaned, or deleted.\n\nOrphaned notebooks appear on a special "Orphans" bookshelf, which should be periodically cleaned up by deleting the orphan Notebooks or moving them to another bookshelf where they will be used.</string>
+    <string name="fmm_node_definition__bookshelf__definition">Bookshelf is the root node of the Notebook perspective in the Context frame.  It provides a place to store Notebooks.\n\nAnyone can create a bookshelf, usually for personal use and sometimes for team use.\n\nBookshelves are automatically sequenced in an alpha sort of the bookshelf headline.\n\nNotebooks on a bookshelf are automatically sequenced in an alpha sort of the notebook headline.\n\nNotebooks on a bookshelf may also appear on other bookshelves, and frequently do.\n\nWhen a bookshelf is deleted, the notebooks which do not appear on any other bookshelf may be moved, orphaned, or deleted.\n\nOrphaned notebooks appear on a special "Orphans" bookshelf, which should be periodically cleaned up by deleting the orphan Notebooks or moving them onto another bookshelf where they will be used.</string>
     <string name="fmm_node_definition__bookshelf_link_to_notebook__term">Bookshelf Link To Notebook</string>
     <string name="fmm_node_definition__cadence_commitment__term">Cadence Commitment</string>
     <string name="fmm_node_definition__cadence_commitment__definition">A commitment to complete a Work Package during a Cadence.</string>
     <string name="fmm_node_definition__cadence__term">Cadence</string>
-    <string name="fmm_node_definition__cadence__definition">Cadence</string>
+    <string name="fmm_node_definition__cadence__definition">Cadence is a fixed time box and the largest unit of Work Planning for a Fiscal Year.  All cadences for a Fiscal Year are usually the same duration in weeks (with adjustments for holiday breaks), to establish a steady rhythm of Work Package completion.\n\nAll cadences for a Fiscal Year, and their associated weekly Work Plans, are created at once; usually by the Facilitator of the FMM.\n\nCadences serve 2 purposes; as a container for weekly Work Plans, and a tool for managing completion commitments for Work Packages.</string>
     <string name="fmm_node_definition__customer">Customer</string>
     <string name="fmm_node_definition__community_member__term">Community Member</string>
     <string name="fmm_node_definition__community_member__definition">Community Member</string>
@@ -23,15 +22,14 @@
     <string name="fmm_node_definition__completable_work_status__term">Work Status</string>
     <string name="fmm_node_definition__completion_commitment_type__term">Completion Commitment Type</string>
     <string name="fmm_node_definition__discussion_topic__term">Discussion Topic</string>
-    <string name="fmm_node_definition__discussion_topic__definition">Discussion Topic</string>
+    <string name="fmm_node_definition__discussion_topic__definition">Discussion Topic is the top level of organization in a Notebook.  Discussion topics contain an arbitrary list of FMM nodes selected from other perspectives for purposes of further analysis and review.\n\nThe Discussion Topic story and notes should capture a general theme or special concern which serves to guide and inform the further analysis and/or review of the listed FMM nodes.\n\nDiscussion Topics are logically sequenced within a Notebook, as determined by the author(s) of the Notebook.</string>
     <string name="fmm_node_definition__discussion_topic_link_to_node_frag_audit_block__term">Discussion Topic Link To Item</string>
     <string name="fmm_node_definition__facilitator">Facilitator</string>
     <string name="fmm_node_definition__facilitation_issue__term">Facilitation Issue</string>
     <string name="fmm_node_definition__facilitation_issue__definition">Facilitation Issue</string>
     <string name="fmm_node_definition__facilitation_issue_link_to_work_task__term">Facilitation Issue Link To Work Task</string>
     <string name="fmm_node_definition__fiscal_year__term">Fiscal Year</string>
-    <string name="fmm_node_definition__fiscal_year__definition">
-        Fiscal Year is the root node of the Strategic Planning perspective and the Work Planning perspective.  It provides a 12 month "time box" within which to plan the activities of an organization and measure success.\n\nFiscal Years are always sorted by the year number, ascending.  Year number cannot be changed, and duplicates cannot be created.\n\nFiscal Years can only be created and deleted by the Facilitator of the FMM (Flywheel Management Model).\n\nIn the Strategic Planning perspective, Fiscal Year contains all of the organization\'s Strategic Milestones for that year.\n\nIn the Work Planning perspective, Fiscal Year contains the Cadences for that year.  These are a smaller time box (frequently 3 weeks) within which commitments are made to complete Work Packages.\n\nWhen a Fiscal Year is deleted, all of its Cadences and their content are also deleted.  At the option of the user, the Strategic Milestones for that year may be deleted, orphaned, or moved to another Fiscal Year.\n\nFiscal Years start in January by default.  The starting month is established when the FMM (Flywheel Management Model) is created, and cannot be changed (in the Community Edition).</string>
+    <string name="fmm_node_definition__fiscal_year__definition">Fiscal Year is the root node of the Strategic Planning perspective and the Work Planning perspective.  It provides a 12 month "time box" within which to plan the activities of an organization and measure success.\n\nFiscal Years are always sorted by the year number, ascending.  Year number cannot be changed, and duplicates cannot be created.\n\nFiscal Years should only be created and deleted by the Facilitator of the FMM (Flywheel Management Model).\n\nIn the Strategic Planning perspective, Fiscal Year contains all of the organization\'s Strategic Milestones for that year.\n\nIn the Work Planning perspective, Fiscal Year contains the Cadences for that year.  These are a smaller time box (frequently 3 weeks) within which commitments are made to complete Work Packages.\n\nWhen a Fiscal Year is deleted, all of its Cadences and their content are also deleted.  At the option of the user, the Strategic Milestones for that year may be deleted, orphaned, or moved to another Fiscal Year.\n\nFiscal Years start in January by default.  The starting month is established when the FMM (Flywheel Management Model) is created, and cannot be changed (in the Community Edition).</string>
     <string name="fmm_node_definition__fiscal_year_holiday_break__term">Fiscal Year Holiday Break</string>
     <string name="fmm_node_definition__flywheel_team__term">Flywheel Team</string>
     <string name="fmm_node_definition__flywheel_team__definition">Flywheel Team</string>
@@ -59,7 +57,7 @@
     <string name="fmm_node_definition__node_frag__tribkn_quality__term">TribKn Quality</string>
     <string name="fmm_node_definition__node_frag__work_task_budget__term">Work Task Budget</string>
     <string name="fmm_node_definition__notebook__term">Notebook</string>
-    <string name="fmm_node_definition__notebook__definition">Notebook</string>
+    <string name="fmm_node_definition__notebook__definition">Notebooks have a theme that is unique to their creator(s), usually for the purpose of analysis and/or facilitation.  Notebooks are an arbitrary collection of Discussion Topics created or selected by the Sponsor or Facilitator, which aid the author(s) in understanding or organizing FMM nodes from other perspectives.\n\nNotebooks are stored on a Bookshelf, automatically sequenced in an alpha sort of the notebook headline.\n\nNotebooks on a bookshelf may also appear on other bookshelves, and frequently do.</string>
     <string name="fmm_node_definition__notebook_link_to_discussion_topic__term">Notebook Link To Discussion Topic</string>
     <string name="fmm_node_definition__organization__term">Organization</string>
     <string name="fmm_node_definition__organization__definition">Organization</string>
@@ -68,14 +66,12 @@
     <string name="fmm_node_definition__organization_lock_config__term">Organization Lock Config</string>
     <string name="fmm_node_definition__organization_participation__term">Organization Participation</string>
     <string name="fmm_node_definition__portfolio__term">Portfolio</string>
-    <string name="fmm_node_definition__portfolio__definition">Portfolio</string>
+    <string name="fmm_node_definition__portfolio__definition">Portfolio is a collection of Projects.\n\nProjects in a Portfolio typically share a common Sponsor, Customer, or Facilitator.  Portfolios are usually created by their Sponsor or Facilitator.\n\nPortfolios have a life span that is independent of any Fiscal Year, and usually span multiple years.</string>
     <string name="fmm_node_definition__portfolio_linkto_project__term">Portfolio Link To Project</string>
     <string name="fmm_node_definition__project__term">Project</string>
-    <string name="fmm_node_definition__project__definition">Project is a collection of Strategic Assets and Project assets\nwhich should be treated as a cohesive package for purposes of:\n- governance and facilitation\n&#8226; budgeting\n&#8226; staffing\n&#8226; work breakdown\n&#8226; work planning\n&#8226; leveraging domain knowledge\n\nThe primary purpose of the Project is to complete Strategic Assets in support of one or (usually) more Strategic Milestones.\n\nProject Assets are identified, sequenced, and completed as needed to support the Strategic Assets.</string>
+    <string name="fmm_node_definition__project__definition">Project is a collection of Strategic Assets and Project Assets which should be treated as a cohesive package for purposes of:\n&#8226; governance and facilitation\n&#8226; budgeting\n&#8226; staffing\n&#8226; work breakdown\n&#8226; work planning\n&#8226; leveraging domain knowledge\n\nProjects are usually created by their Sponsor or Facilitator.\n\nThe primary purpose of the Project is to complete Strategic Assets in support of one or (usually) more Strategic Milestones.\n\nProject Assets are identified, sequenced, and completed as needed to support the Strategic Assets.\n\nProjects have a life span that is independent of any Fiscal Year.  Some organizations like to constrain them to Fiscal Years for accounting purposes.  A project rarely spans more than 2 Fiscal Years.</string>
     <string name="fmm_node_definition__project_asset__term">Project Asset</string>
-    <string name="fmm_node_definition__project_asset__definition">Project Assets are identified, sequenced, and completed, within the scope of a Project, as needed to support the Strategic Assets being delivered by that Project.\n\nIf the target Strategic Asset is not completed, any completed Project Assets represent meaningful current or future value to the organization which should be managed and leveraged.\n\nA Project Asset may also be subsequently identified as strategic, and promoted to Strategic Asset in a Strategic Milestone.</string>
-    <string name="fmm_node_definition__work_asset__term">Work Asset</string>
-    <string name="fmm_node_definition__work_asset__definition">Work Asset</string>
+    <string name="fmm_node_definition__project_asset__definition">Project Assets are identified, sequenced, and completed, within the scope of a Project, as needed to support completion of the Strategic Assets being delivered by that Project.\n\nProject Assets (and Strategic Assets) are the key components of a Project, that if completed successfully, assure the successful completion of that project.\n\nIf, for some reason, the target Strategic Asset is abandoned or not completed, any completed Project Assets represent meaningful current or future value to the organization which should be managed and leveraged.\n\nA Project Asset may also be subsequently identified as strategic, and promoted to Strategic Asset in a Strategic Milestone.</string>
     <string name="fmm_node_definition__project_asset_link_to_work_package__term">Project Asset Link To Work Package</string>
     <string name="fmm_node_definition__project_link_to_project_asset__term">Project Link To Project Asset</string>
     <string name="fmm_node_definition__fmm_configuration__term">FMM Configuration</string>
@@ -90,10 +86,10 @@
     <string name="fmm_node_definition__service_request_triage_log__term">Service Request Triage Log</string>
     <string name="fmm_node_definition__sponsor">Sponsor</string>
     <string name="fmm_node_definition__strategic_asset__term">Strategic Asset</string>
-    <string name="fmm_node_definition__strategic_asset__definition">Strategic Assets are just strategic Project Assets.  Strategic Assets are the stakeholder and/or customer "ask" during Strategic Planning.  They represent specific assets which are required to achieve a Strategic Milestone.\n\nA Strategic Asset can belong to only 1 Strategic Milestone.\n\nA Strategic Assets are always created from the context of a Strategic Milestone.  They can either be a brand new asset, or an existing Project Asset that is identified as critical to the success of the Milestone.\n\nWhen Strategic Assets are orphaned, they become Project Assets.</string>
+    <string name="fmm_node_definition__strategic_asset__definition">Strategic Assets are just strategic Project Assets.  Strategic Assets are the stakeholder and/or customer "ask" during Strategic Planning.  They represent specific assets which are required to achieve a Strategic Milestone.\n\nStrategic Assets are the key components of a Strategic Milestone, that if completed successfully, assure the successful completion of that milestone.\n\nA Strategic Asset can belong to only 1 Strategic Milestone.\n\nA Strategic Assets are always created from the context of a Strategic Milestone.  They can either be a brand new asset, or an existing Project Asset that is identified as critical to the success of the Milestone.\n\nWhen Strategic Assets are orphaned, they become Project Assets.</string>
     <string name="fmm_node_definition__strategic_commitment__term">Strategic Commitment</string>
     <string name="fmm_node_definition__strategic_milestone__term">Strategic Milestone</string>
-    <string name="fmm_node_definition__strategic_milestone__definition">Strategic Milestone</string>
+    <string name="fmm_node_definition__strategic_milestone__definition">Strategic Milestones are planned moments of achievement for the organization, to be facilitated by the executive team, completed by the Flywheel teams, and celebrated by the entire organization.  They are usually created by members of a Strategy Team.\n\nStrategic Milestones are organized within a Fiscal Year by delivery sequence.\n\nA Strategic Milestone cannot be orphaned from a Fiscal Year.  It can only be deleted or moved to another (usually subsequent) Fiscal Year.</string>
     <string name="fmm_node_definition__strategy_team__term">Strategy Team</string>
     <string name="fmm_node_definition__strategy_team__definition">Strategy Team</string>
     <string name="fmm_node_definition__strategy_team_community_member__term">Strategy Team Community Member</string>
@@ -101,13 +97,15 @@
     <string name="fmm_node_definition__tribkn_element__term">TribKn&#8482; Element</string>
     <string name="fmm_node_definition__tribkn_quality_enumeration__term">TribKn&#8482; Quality Enumeration</string>
     <string name="fmm_node_definition__tribkn_quality_normalized_description__term">TribKn&#8482; Quality Normalized Description</string>
+    <string name="fmm_node_definition__work_asset__term">Work Asset</string>
+    <string name="fmm_node_definition__work_asset__definition">Work Asset is a unit of Work Breakdown.  They are the basis for creation of Project Assets and Strategic Assets.\n\nWork Assets are assets that are not part of any Project or Strategic Milestone.  They become a Strategic Asset if adopted by a Strategic Milestone.  They become a Project Asset if sequenced by a Project in support of completing a Strategic Asset.</string>
     <string name="fmm_node_definition__work_package__term">Work Package</string>
-    <string name="fmm_node_definition__work_package__definition">Work Package</string>
+    <string name="fmm_node_definition__work_package__definition">Work Package is a unit of Work Breakdown.  Each Work Package is a collection of Work Tasks that should be analyzed, facilitated, and completed as a group.\n\nWork Packages are the components of a Work/Project/Strategic Asset which must be completed in order to complete the parent asset.\n\nWork Packages are typically comprised of 3 to 12 Work Tasks.  In any case, a Work Package can always be completed within the time box of a Cadence.\n\nWork package completion represents no value to the organization on its own.</string>
     <string name="fmm_node_definition__work_package_link_to_work_task__term">Work Package Link To Work Task</string>
     <string name="fmm_node_definition__work_plan__term">Work Plan</string>
-    <string name="fmm_node_definition__work_plan__definition">Work Plan</string>
+    <string name="fmm_node_definition__work_plan__definition">Work Plans are a weekly planning tool for a Flywheel team.  Empty work plans for the entire Fiscal Year are all created automatically when the FMM Facilitator creates the Cadences for that Fiscal Year.\n\nBefore the week begins, a Work Plan contains a list of the Work Tasks the Flywheel team intends to complete.  Work Tasks are listed in completion sequence.\n\nAs the week progresses, other work tasks may be added to the plan, as the need for them is discovered to support the original Work Task commitments.\n\nAt the conclusion of the week, any unfinished work tasks are moved out of the Work Plan (frequently to the next Work Plan) and the Work Plan is marked as complete.  The duration of a work plan is never modified.  It is a time box of one week that always ends on the same day of the week.</string>
     <string name="fmm_node_definition__work_task__term">Work Task</string>
-    <string name="fmm_node_definition__work_task__definition">Work Task</string>
+    <string name="fmm_node_definition__work_task__definition">Work Task is the smallest unit of work breakdown, and is where the actual work gets done.  They are organized and completed within the context of a Work Package.\n\nA Work Task is typically from 1 to 8 person-hours of work.  In any event, a Work Task should always be completable within a weekly Work Plan.</string>
     <string name="fmm_node_definition__work_task_assignment__term">Work Task Assignment</string>
 
     <string name="fmm_frame_definition__commitment">Commitment</string>
@@ -142,7 +140,7 @@
     <string name="fmm_perspective_definition__notes">Notes</string>
     <string name="fmm_perspective_definition__proposed_commitments">Proposed Commitments</string>
     <string name="fmm_perspective_definition__service_delivery">Service Delivery</string>
-    <string name="fmm_perspective_definition__strategic_planning">Strategic Planning</string>
+    <string name="fmm_perspective_definition__strategic_planning">Strategic planning is an organization\'s process of defining its strategy, or direction, for a Fiscal Year and making decisions on allocating its resources to pursue this strategy.\n\nIn Flywheel Management Science&#8482;, strategy teams are responsible for leading the strategic planning activity.</string>
     <string name="fmm_perspective_definition__strategy_teams">Strategy Teams</string>
     <string name="fmm_perspective_definition__story">Story is the 1st of 4 sections of a Flywheel Story Editor&#8482; (FSE) document.  Each FMM (Flywheel Management Model) headline node can have a Story, and most should.\n\nA Story captures the \'who\', \'what\' and \'why\' of an FMM node.  At a minimum, it should include what you (and the rest of the room) were thinking at the time you created the FMM node, supplementing the Headline of the node.\n\nThe story should always be of sufficient quality and completeness to share with the Sponsor or Customer in an ad-hoc meeting or during a chance hallway conversation.  It should always be the basis for answering questions from sponsors, customers or other stakeholders such as:\n
 &#8226; What is this FMM node?\n
@@ -158,8 +156,14 @@
     <string name="fmm_perspective_definition__suggested_commitments">Suggested Commitments</string>
     <string name="fmm_perspective_definition__tribkn">TribKn&#8482; - Tribal Knowledge</string>
     <string name="fmm_perspective_definition__withdrawn_commitments">Withdrawn Commitments</string>
-    <string name="fmm_perspective_definition__work_breakdown">Work Breakdown</string>
-    <string name="fmm_perspective_definition__work_planning">Work Planning</string>
+    <string name="fmm_perspective_definition__work_breakdown">Work breakdown is a project management technique which deconstructs a project with the intent to identify the work required to complete the project.\n\nThe elements of work breakdown in Flywheel Management Science&#8482; are:\n
+&#8226; Project\n
+&#8226; Project Asset\n
+&#8226; Strategic Asset\n
+&#8226; Work Package\n
+&#8226; Work Task\n
+\n\nWork Breakdown is the responsibility of Flywheel teams.  It is frequently valuable for a Flywheel team to limit the scope of each work breakdown session to a specific Strategic Asset, Project Asset, or Work Package.</string>
+    <string name="fmm_perspective_definition__work_planning">Work Planning in Flywheel Management Science&#8482; is the technique of leveraging good Work Breakdown to make the Work Package commitments in each Cadence that will successfully achieve the organization\'s Strategic Milestones.\n\nWork Package commitments for a Cadence drive the Work Task commitments in each weekly Work Plan.</string>
 
     <string name="governance_role__definition__sponsor">Many types of management nodes may have a sponsor.\n\nManagement nodes without a Sponsor have no political support within the organization. When a node has no Sponsor, the Facilitator\'s ability to meet completion commitments is greatly diminished.\n\nOrganizational Politics:\n
 &#8226; negotiate with other sponsors for sequence\n
