@@ -115,7 +115,7 @@ public class StrategicMilestone extends FmmCompletionNodeImpl implements Compara
 			setTargetMonthEnd(aJsonObject.getInt(StrategicMilestoneMetaData.column_TARGET_MONTH_END));
 			setTargetDate(aJsonObject.getLong(StrategicMilestoneMetaData.column_TARGET_DATE));
             setTargetIsReversePlanning(aJsonObject.getInt(StrategicMilestoneMetaData.column_TARGET_IS_REVERSE_PLANNING));
-			setStrategicAssetList(aJsonObject.getJSONArray(StrategicMilestoneMetaData.child_fractals_PROJECT_ASSET));
+			setStrategicAssetList(aJsonObject.getJSONArray(StrategicMilestoneMetaData.child_fractals_STRATEGIC_ASSET));
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -147,7 +147,7 @@ public class StrategicMilestone extends FmmCompletionNodeImpl implements Compara
             theJsonObject.put(StrategicMilestoneMetaData.column_TARGET_MONTH_END, getTargetMonthEnd());
             theJsonObject.put(StrategicMilestoneMetaData.column_TARGET_DATE, getTargetDateFormattedUtcLong());
             theJsonObject.put(StrategicMilestoneMetaData.column_TARGET_IS_REVERSE_PLANNING, targetIsReversePlanningAsInt());
-            theJsonObject.put(StrategicMilestoneMetaData.child_fractals_PROJECT_ASSET, getStrategicAssetNodeIdStringJsonArray());
+            theJsonObject.put(StrategicMilestoneMetaData.child_fractals_STRATEGIC_ASSET, getStrategicAssetNodeIdStringJsonArray());
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -194,7 +194,7 @@ public class StrategicMilestone extends FmmCompletionNodeImpl implements Compara
 	@Override
 	protected void initializeNodeCompletionSummaryMap() {
 		super.initializeNodeCompletionSummaryMap();
-        initializeNodeCompletionSummaryMap(FmmPerspective.STRATEGIC_PLANNING, FmmNodeDefinition.PROJECT_ASSET);
+        initializeNodeCompletionSummaryMap(FmmPerspective.STRATEGIC_PLANNING, FmmNodeDefinition.STRATEGIC_ASSET);
 	}
 
 	@Override

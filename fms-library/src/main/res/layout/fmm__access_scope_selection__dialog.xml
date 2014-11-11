@@ -54,22 +54,6 @@
                 android:text="@string/fmm__access_scope__private__explanation" />
 
             <RadioButton
-                android:id="@+id/repository_scope__shared"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/fmm_repository__scope__shared"
-                android:enabled="false"
-                android:text="@string/fmm_access__shared" />
-            
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
-                android:layout_marginBottom="10dp"
-                android:textColor="@color/x11__Gray"
-                android:text="@string/fmm__access_scope__shared__explanation" />
-
-            <RadioButton
                 android:id="@+id/repository_scope__team"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
