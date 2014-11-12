@@ -49,15 +49,15 @@ import com.flywheelms.gcongui.deckangl.glyph.DecKanGlDecoratorEnumeration;
 import com.flywheelms.gcongui.deckangl.glyph.DecKanGlTribKnQualityNormalizedDescription;
 import com.flywheelms.library.fmm.database.FmmDatabaseInitializer;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorCadenceCommitment;
-import com.flywheelms.library.fmm.deckangl.FmsDecoratorChildFractals;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorCompletion;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorFacilitationIssue;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorFacilitator;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorGovernance;
-import com.flywheelms.library.fmm.deckangl.FmsDecoratorParentFractals;
+import com.flywheelms.library.fmm.deckangl.FmsDecoratorProjectManagement;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorSequence;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorStory;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorStrategicCommitment;
+import com.flywheelms.library.fmm.deckangl.FmsDecoratorWorkBreakdown;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorWorkTaskBudget;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorWorkTeam;
 import com.flywheelms.library.fmm.node.impl.enumerator.AssignmentCommitmentType;
@@ -137,13 +137,13 @@ public class FmmDatabaseInitializerSqLite extends FmmDatabaseInitializer {
 
 	private static void initializeTribKnQualityEnumeration(SQLiteDatabase aSQLiteDatabase) {
 		ContentValues theContentValues = new ContentValues();
-		insertFmsDecoratorEnumeration(aSQLiteDatabase, theContentValues, FmsDecoratorChildFractals.values());
+		insertFmsDecoratorEnumeration(aSQLiteDatabase, theContentValues, FmsDecoratorWorkBreakdown.values());
 		insertFmsDecoratorEnumeration(aSQLiteDatabase, theContentValues, FmsDecoratorCompletion.values());
 		insertFmsDecoratorEnumeration(aSQLiteDatabase, theContentValues, FmsDecoratorFacilitationIssue.values());
 		insertFmsDecoratorEnumeration(aSQLiteDatabase, theContentValues, FmsDecoratorFacilitator.values());
 		insertFmsDecoratorEnumeration(aSQLiteDatabase, theContentValues, FmsDecoratorCadenceCommitment.values());
 		insertFmsDecoratorEnumeration(aSQLiteDatabase, theContentValues, FmsDecoratorGovernance.values());
-		insertFmsDecoratorEnumeration(aSQLiteDatabase, theContentValues, FmsDecoratorParentFractals.values());
+		insertFmsDecoratorEnumeration(aSQLiteDatabase, theContentValues, FmsDecoratorProjectManagement.values());
 		insertFmsDecoratorEnumeration(aSQLiteDatabase, theContentValues, FmsDecoratorSequence.values());
 		insertFmsDecoratorEnumeration(aSQLiteDatabase, theContentValues, FmsDecoratorStory.values());
 		insertFmsDecoratorEnumeration(aSQLiteDatabase, theContentValues, FmsDecoratorStrategicCommitment.values());

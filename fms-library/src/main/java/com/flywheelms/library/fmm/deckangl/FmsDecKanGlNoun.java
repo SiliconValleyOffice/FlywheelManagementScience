@@ -71,9 +71,9 @@ public interface FmsDecKanGlNoun extends DecKanGlApplicationNoun {
 
 	public FmsDecoratorCadenceCommitment getDecoratorFlywheelCommitment();
 	
-	public FmsDecoratorParentFractals getDecoratorParentFractals();
+	public FmsDecoratorProjectManagement getDecoratorParentFractals();
 
-	public FmsDecoratorChildFractals getDecoratorChildFractals();
+	public FmsDecoratorWorkBreakdown getDecoratorChildFractals();
 
 	public FmsDecoratorWorkTaskBudget getDecoratorWorkTaskBudget();
 

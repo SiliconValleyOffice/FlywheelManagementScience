@@ -60,86 +60,86 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class FmsDecoratorChildFractals extends DecKanGlDecoratorEnumeration {
+public class FmsDecoratorWorkBreakdown extends DecKanGlDecoratorEnumeration {
 	
-	protected static String qualityMetricName = GcgApplication.getAppResources().getString(R.string.tribkn_quality_metric__child_fractals);
-	protected static String qualityMetricDescription = GcgApplication.getAppResources().getString(R.string.tribkn_quality_metric__child_fractals__description);
+	protected static String qualityMetricName = GcgApplication.getAppResources().getString(R.string.tribkn_quality_metric__work_breakdown);
+	protected static String qualityMetricDescription = GcgApplication.getAppResources().getString(R.string.tribkn_quality_metric__work_breakdown__description);
 	protected static Drawable qualityMetricDrawable = GcgApplication.getAppResources().getDrawable(R.drawable.tribkn_quality_metric__child_fractals);
 	protected static DecKanGlDecoratorCanvasLocation decoratorCanvasLocation = DecKanGlDecoratorCanvasLocation.right_zone_TOP;
 	
 	@Override
 	public String getQualityMetricName() {
-		return FmsDecoratorChildFractals.qualityMetricName;
+		return FmsDecoratorWorkBreakdown.qualityMetricName;
 	}
 	
 	@Override
 	public String getQualityMetricDescription() {
-		return FmsDecoratorChildFractals.qualityMetricDescription;
+		return FmsDecoratorWorkBreakdown.qualityMetricDescription;
 	}
 	
 	@Override
 	public Drawable getQualityMetricDrawable() {
-		return FmsDecoratorChildFractals.qualityMetricDrawable;
+		return FmsDecoratorWorkBreakdown.qualityMetricDrawable;
 	}
 	
 	@Override
 	public DecKanGlDecoratorCanvasLocation getDecoratorCanvasLocation() {
-		return FmsDecoratorChildFractals.decoratorCanvasLocation;
+		return FmsDecoratorWorkBreakdown.decoratorCanvasLocation;
 	}
 	
-	protected static FmsDecoratorChildFractals staticInstance = new FmsDecoratorChildFractals();
+	protected static FmsDecoratorWorkBreakdown staticInstance = new FmsDecoratorWorkBreakdown();
 	
-	public static FmsDecoratorChildFractals NO_CHILD_FRACTALS = new FmsDecoratorChildFractals(
-			"No Child Fractals",
-			R.string.decorator__child_fractals__none,
+	public static FmsDecoratorWorkBreakdown NO_CHILD_FRACTALS = new FmsDecoratorWorkBreakdown(
+			"No Work Breakdown",
+			R.string.decorator__work_breakdown__none,
 			FmmTribKnQualityNormalizedDescription.NONE,
 			R.integer.fmm__decorator__child_fractals__none__quality_index,
 			DecKanGlDecoratorColor.RED );
-	public static FmsDecoratorChildFractals CHILD_FRACTALS_SWAG = new FmsDecoratorChildFractals(
-			"Child Fractals SWAG",
-			R.string.decorator__child_fractals__swag,
+	public static FmsDecoratorWorkBreakdown CHILD_FRACTALS_SWAG = new FmsDecoratorWorkBreakdown(
+			"Work Breakdown SWAG",
+			R.string.decorator__work_breakdown__swag,
 			FmmTribKnQualityNormalizedDescription.SWAG,
 			R.integer.fmm__decorator__child_fractals__swag__quality_index,
 			DecKanGlDecoratorColor.YELLOW );
-	public static FmsDecoratorChildFractals SUGGESTED_CHILD_FRACTALS = new FmsDecoratorChildFractals(
-			"Suggested Child Fractals",
-			R.string.decorator__child_fractals__suggested,
+	public static FmsDecoratorWorkBreakdown SUGGESTED_CHILD_FRACTALS = new FmsDecoratorWorkBreakdown(
+			"Suggested Work Breakdown",
+			R.string.decorator__work_breakdown__suggested,
 			FmmTribKnQualityNormalizedDescription.SUGGESTED,
 			R.integer.fmm__decorator__child_fractals__suggested__quality_index,
 			DecKanGlDecoratorColor.BLUE );
-	public static FmsDecoratorChildFractals PROPOSED_CHILD_FRACTALS = new FmsDecoratorChildFractals(
-			"Proposed Child Fractals",
-			R.string.decorator__child_fractals__proposed,
+	public static FmsDecoratorWorkBreakdown PROPOSED_CHILD_FRACTALS = new FmsDecoratorWorkBreakdown(
+			"Proposed Work Breakdown",
+			R.string.decorator__work_breakdown__proposed,
 			FmmTribKnQualityNormalizedDescription.PROPOSED,
 			R.integer.fmm__decorator__child_fractals__proposed__quality_index,
 			DecKanGlDecoratorColor.PINK );
-	public static FmsDecoratorChildFractals CONFIRMED_CHILD_FRACTALS = new FmsDecoratorChildFractals(
-			"Confirmed Child Fractals",
-			R.string.decorator__child_fractals__confirmed,
+	public static FmsDecoratorWorkBreakdown CONFIRMED_CHILD_FRACTALS = new FmsDecoratorWorkBreakdown(
+			"Confirmed Work Breakdown",
+			R.string.decorator__work_breakdown__confirmed,
 			FmmTribKnQualityNormalizedDescription.CONFIRMED,
 			R.integer.fmm__decorator__child_fractals__confirmed__quality_index,
 			DecKanGlDecoratorColor.TRANSPARENT );
-	public static FmsDecoratorChildFractals CONFIRMED_EXCESSIVE_CHILD_FRACTALS = new FmsDecoratorChildFractals(
-			"Complete Child Fractals",
-			R.string.decorator__child_fractals__excessive,
+	public static FmsDecoratorWorkBreakdown CONFIRMED_EXCESSIVE_CHILD_FRACTALS = new FmsDecoratorWorkBreakdown(
+			"Complete Work Breakdown",
+			R.string.decorator__work_breakdown__excessive,
 			FmmTribKnQualityNormalizedDescription.EXCESSIVE,
 			R.integer.fmm__decorator__child_fractals__excessive__quality_index,
 			DecKanGlDecoratorColor.ORANGE );
-	public static FmsDecoratorChildFractals UNKNOWN_CHILD_FRACTALS_QUALITY = new FmsDecoratorChildFractals(
-			"Unknown Child Fractal Quality",
-			R.string.decorator__child_fractals__unknown_quality,
+	public static FmsDecoratorWorkBreakdown UNKNOWN_CHILD_FRACTALS_QUALITY = new FmsDecoratorWorkBreakdown(
+			"Unknown Work Breakdown Quality",
+			R.string.decorator__work_breakdown__unknown_quality,
 			FmmTribKnQualityNormalizedDescription.UNKNOWN,
 			R.integer.fmm__decorator__child_fractals__unknown_quality__quality_index,
 			DecKanGlDecoratorColor.GRAY );
-	public static FmsDecoratorChildFractals CHILD_FRACTALS_QUALITY_NOT_APPLICABLE = new FmsDecoratorChildFractals(
-			"Child Fractals Not Applicable",
-			R.string.decorator__child_fractals__not_applicable,
+	public static FmsDecoratorWorkBreakdown CHILD_FRACTALS_QUALITY_NOT_APPLICABLE = new FmsDecoratorWorkBreakdown(
+			"Work Breakdown Not Applicable",
+			R.string.decorator__work_breakdown__not_applicable,
 			FmmTribKnQualityNormalizedDescription.UNKNOWN,
 			R.integer.fmm__decorator__child_fractals__not_applicable__quality_index,
 			DecKanGlDecoratorColor.TRANSPARENT );
-	public static FmsDecoratorChildFractals CHILD_FRACTAL_QUALITY_NOT_ENABLED = new FmsDecoratorChildFractals(
-			"Child Fractal Quality Not Enabled",
-			R.string.decorator__child_fractals__not_enabled,
+	public static FmsDecoratorWorkBreakdown CHILD_FRACTAL_QUALITY_NOT_ENABLED = new FmsDecoratorWorkBreakdown(
+			"Work Breakdown Quality Not Enabled",
+			R.string.decorator__work_breakdown__not_enabled,
 			FmmTribKnQualityNormalizedDescription.NOT_ENABLED,
 			R.integer.fmm__decorator__child_fractals__not_enabled__quality_index,
 			DecKanGlDecoratorColor.DISABLED );
@@ -147,42 +147,42 @@ public class FmsDecoratorChildFractals extends DecKanGlDecoratorEnumeration {
 	protected static ArrayList<DecKanGlDecoratorEnumeration> valuesList =
 			new ArrayList<DecKanGlDecoratorEnumeration>();
 	static {
-		FmsDecoratorChildFractals.valuesList.add(NO_CHILD_FRACTALS);
-		FmsDecoratorChildFractals.valuesList.add(CHILD_FRACTALS_SWAG);
-		FmsDecoratorChildFractals.valuesList.add(SUGGESTED_CHILD_FRACTALS);
-		FmsDecoratorChildFractals.valuesList.add(PROPOSED_CHILD_FRACTALS);
-		FmsDecoratorChildFractals.valuesList.add(CONFIRMED_CHILD_FRACTALS);
-		FmsDecoratorChildFractals.valuesList.add(CONFIRMED_EXCESSIVE_CHILD_FRACTALS);
-		FmsDecoratorChildFractals.valuesList.add(UNKNOWN_CHILD_FRACTALS_QUALITY);
-		FmsDecoratorChildFractals.valuesList.add(CHILD_FRACTALS_QUALITY_NOT_APPLICABLE);
-		FmsDecoratorChildFractals.valuesList.add(CHILD_FRACTAL_QUALITY_NOT_ENABLED);
+		FmsDecoratorWorkBreakdown.valuesList.add(NO_CHILD_FRACTALS);
+		FmsDecoratorWorkBreakdown.valuesList.add(CHILD_FRACTALS_SWAG);
+		FmsDecoratorWorkBreakdown.valuesList.add(SUGGESTED_CHILD_FRACTALS);
+		FmsDecoratorWorkBreakdown.valuesList.add(PROPOSED_CHILD_FRACTALS);
+		FmsDecoratorWorkBreakdown.valuesList.add(CONFIRMED_CHILD_FRACTALS);
+		FmsDecoratorWorkBreakdown.valuesList.add(CONFIRMED_EXCESSIVE_CHILD_FRACTALS);
+		FmsDecoratorWorkBreakdown.valuesList.add(UNKNOWN_CHILD_FRACTALS_QUALITY);
+		FmsDecoratorWorkBreakdown.valuesList.add(CHILD_FRACTALS_QUALITY_NOT_APPLICABLE);
+		FmsDecoratorWorkBreakdown.valuesList.add(CHILD_FRACTAL_QUALITY_NOT_ENABLED);
 	}
 	
-	protected static HashMap<String, FmsDecoratorChildFractals> nameMap = new HashMap<String, FmsDecoratorChildFractals>();
+	protected static HashMap<String, FmsDecoratorWorkBreakdown> nameMap = new HashMap<String, FmsDecoratorWorkBreakdown>();
 	static {
 		for(DecKanGlDecoratorEnumeration theDecKanGlDecoratorEnumeration : valuesList) {
-			FmsDecoratorChildFractals.nameMap.put(theDecKanGlDecoratorEnumeration.getName(), (FmsDecoratorChildFractals) theDecKanGlDecoratorEnumeration);
+			FmsDecoratorWorkBreakdown.nameMap.put(theDecKanGlDecoratorEnumeration.getName(), (FmsDecoratorWorkBreakdown) theDecKanGlDecoratorEnumeration);
 		}
 	}
 	
-	public static FmsDecoratorChildFractals getObjectForName(String aName) {
-		return FmsDecoratorChildFractals.nameMap.get(aName);
+	public static FmsDecoratorWorkBreakdown getObjectForName(String aName) {
+		return FmsDecoratorWorkBreakdown.nameMap.get(aName);
 	}
 	
-	private FmsDecoratorChildFractals() {
+	private FmsDecoratorWorkBreakdown() {
 		super();
 	}
 	
-	public static FmsDecoratorChildFractals getStaticInstance() {
+	public static FmsDecoratorWorkBreakdown getStaticInstance() {
 		return staticInstance;
 	}
 	
-	public FmsDecoratorChildFractals(
-			String aName,
-			int aDescriptionResourceId,
-			FmmTribKnQualityNormalizedDescription aNormalizedDescription,
-			int aTribKnQualityIndexResourceId,
-			DecKanGlDecoratorColor aDecKanGlDecoratorColor ) {
+	public FmsDecoratorWorkBreakdown(
+            String aName,
+            int aDescriptionResourceId,
+            FmmTribKnQualityNormalizedDescription aNormalizedDescription,
+            int aTribKnQualityIndexResourceId,
+            DecKanGlDecoratorColor aDecKanGlDecoratorColor) {
 		super(
 				aName,
 				GcgApplication.getAppResources().getString(aDescriptionResourceId),
@@ -197,7 +197,7 @@ public class FmsDecoratorChildFractals extends DecKanGlDecoratorEnumeration {
 
 	@Override
 	public String getLabelText() {
-		return GcgApplication.getContext().getResources().getString(R.string.tribkn_quality_metric__child_fractals);
+		return GcgApplication.getContext().getResources().getString(R.string.tribkn_quality_metric__work_breakdown);
 	}
 
 	@Override

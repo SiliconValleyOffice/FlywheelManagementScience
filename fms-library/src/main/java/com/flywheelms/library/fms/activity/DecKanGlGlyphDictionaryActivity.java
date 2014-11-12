@@ -77,15 +77,15 @@ import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.deckangl.FmmDecKanGlDictionary;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorCadenceCommitment;
-import com.flywheelms.library.fmm.deckangl.FmsDecoratorChildFractals;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorCompletion;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorFacilitationIssue;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorFacilitator;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorGovernance;
-import com.flywheelms.library.fmm.deckangl.FmsDecoratorParentFractals;
+import com.flywheelms.library.fmm.deckangl.FmsDecoratorProjectManagement;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorSequence;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorStory;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorStrategicCommitment;
+import com.flywheelms.library.fmm.deckangl.FmsDecoratorWorkBreakdown;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorWorkTaskBudget;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorWorkTeam;
 import com.flywheelms.library.fmm.node.impl.enumerator.CompletableWorkStatus;
@@ -311,9 +311,9 @@ public class DecKanGlGlyphDictionaryActivity extends Activity implements DecKanG
 				this,
 				R.id.tribkn_quality_metric__child_fractals__label,
 				R.id.tribkn_quality_metric__child_fractals__spinner,
-				FmsDecoratorChildFractals.getStaticInstance(),
-				FmsDecoratorChildFractals.values(),
-				FmsDecoratorChildFractals.CHILD_FRACTALS_SWAG );
+				FmsDecoratorWorkBreakdown.getStaticInstance(),
+				FmsDecoratorWorkBreakdown.values(),
+				FmsDecoratorWorkBreakdown.CHILD_FRACTALS_SWAG );
 		GcgSpinnerHelper.setOnItemSelectedListener(
 				this,
 				R.id.tribkn_quality_metric__child_fractals__spinner,
@@ -323,9 +323,9 @@ public class DecKanGlGlyphDictionaryActivity extends Activity implements DecKanG
 				this,
 				R.id.tribkn_quality_metric__parent_fractals__label,
 				R.id.tribkn_quality_metric__parent_fractals__spinner,
-				FmsDecoratorParentFractals.getStaticInstance(),
-				FmsDecoratorParentFractals.values(),
-				FmsDecoratorParentFractals.PARENT_FRACTALS_SWAG );
+				FmsDecoratorProjectManagement.getStaticInstance(),
+				FmsDecoratorProjectManagement.values(),
+				FmsDecoratorProjectManagement.PARENT_FRACTALS_SWAG );
 		GcgSpinnerHelper.setOnItemSelectedListener(
 				this,
 				R.id.tribkn_quality_metric__parent_fractals__spinner,
@@ -460,14 +460,14 @@ public class DecKanGlGlyphDictionaryActivity extends Activity implements DecKanG
 		return (FmsDecoratorFacilitator) theSpinner.getSelectedItem();
 	}
 	
-	private FmsDecoratorParentFractals getDecoratorParentFractals() {
+	private FmsDecoratorProjectManagement getDecoratorParentFractals() {
 		Spinner theSpinner = (Spinner) this.findViewById(R.id.tribkn_quality_metric__parent_fractals__spinner);
-		return (FmsDecoratorParentFractals) theSpinner.getSelectedItem();
+		return (FmsDecoratorProjectManagement) theSpinner.getSelectedItem();
 	}
 	
-	private FmsDecoratorChildFractals getDecoratorChildFractals() {
+	private FmsDecoratorWorkBreakdown getDecoratorChildFractals() {
 		Spinner theSpinner = (Spinner) this.findViewById(R.id.tribkn_quality_metric__child_fractals__spinner);
-		return (FmsDecoratorChildFractals) theSpinner.getSelectedItem();
+		return (FmsDecoratorWorkBreakdown) theSpinner.getSelectedItem();
 	}
 	
 	private FmsDecoratorStrategicCommitment getDecoratorStrategicCommitment() {

@@ -47,15 +47,15 @@ import com.flywheelms.gcongui.deckangl.enumerator.DecKanGlDecoratorCanvasLocatio
 import com.flywheelms.gcongui.deckangl.interfaces.DecKanGlDecorator;
 import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorCadenceCommitment;
-import com.flywheelms.library.fmm.deckangl.FmsDecoratorChildFractals;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorCompletion;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorFacilitationIssue;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorFacilitator;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorGovernance;
-import com.flywheelms.library.fmm.deckangl.FmsDecoratorParentFractals;
+import com.flywheelms.library.fmm.deckangl.FmsDecoratorProjectManagement;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorSequence;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorStory;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorStrategicCommitment;
+import com.flywheelms.library.fmm.deckangl.FmsDecoratorWorkBreakdown;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorWorkTaskBudget;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorWorkTeam;
 import com.flywheelms.library.fmm.meta_data.NodeFragTribKnQualityMetaData;
@@ -78,9 +78,9 @@ public class NodeFragTribKnQuality extends FmmNodeFragImpl implements FmmNodeQua
 	private Date facilitationIssueQualityTimestamp;
 	private FmsDecoratorFacilitator facilitatorQuality;
 	private Date facilitatorQualityTimestamp;
-	private FmsDecoratorParentFractals parentFractalsQuality;
+	private FmsDecoratorProjectManagement parentFractalsQuality;
 	private Date parentFractalsQualityTimestamp;
-	private FmsDecoratorChildFractals childFractalsQuality;
+	private FmsDecoratorWorkBreakdown childFractalsQuality;
 	private Date childFractalsQualityTimestamp;
 	private FmsDecoratorCadenceCommitment cadenceCommitmentQuality;
 	private Date cadenceCommitmentQualityTimestamp;
@@ -117,9 +117,9 @@ public class NodeFragTribKnQuality extends FmmNodeFragImpl implements FmmNodeQua
 			setFacilitationIssueQualityTimestamp(JsonHelper.getDate(aJsonObject, NodeFragTribKnQualityMetaData.column_FACILITATION_ISSUE_QUALITY_TIMESTAMP));
 			setFacilitatorQuality(FmsDecoratorFacilitator.getObjectForName(aJsonObject.getString(NodeFragTribKnQualityMetaData.column_FACILITATOR_QUALITY)));
 			setFacilitatorQualityTimestamp(JsonHelper.getDate(aJsonObject, NodeFragTribKnQualityMetaData.column_FACILITATOR_QUALITY_TIMESTAMP));
-			setParentFractalsQuality(FmsDecoratorParentFractals.getObjectForName(aJsonObject.getString(NodeFragTribKnQualityMetaData.column_PARENT_FRACTALS_QUALITY)));
+			setParentFractalsQuality(FmsDecoratorProjectManagement.getObjectForName(aJsonObject.getString(NodeFragTribKnQualityMetaData.column_PARENT_FRACTALS_QUALITY)));
 			setParentFractalsQualityTimestamp(JsonHelper.getDate(aJsonObject, NodeFragTribKnQualityMetaData.column_PARENT_FRACTALS_QUALITY_TIMESTAMP));
-			setChildFractalsQuality(FmsDecoratorChildFractals.getObjectForName(aJsonObject.getString(NodeFragTribKnQualityMetaData.column_CHILD_FRACTALS_QUALITY)));
+			setChildFractalsQuality(FmsDecoratorWorkBreakdown.getObjectForName(aJsonObject.getString(NodeFragTribKnQualityMetaData.column_CHILD_FRACTALS_QUALITY)));
 			setChildFractalsQualityTimestamp(JsonHelper.getDate(aJsonObject, NodeFragTribKnQualityMetaData.column_CHILD_FRACTALS_QUALITY_TIMESTAMP));
 			setCadenceCommitmentQuality(FmsDecoratorCadenceCommitment.getObjectForName(aJsonObject.getString(NodeFragTribKnQualityMetaData.column_CADENCE_COMMITMENT_QUALITY)));
 			setCadenceCommitmentQualityTimestamp(JsonHelper.getDate(aJsonObject, NodeFragTribKnQualityMetaData.column_CADENCE_COMMITMENT_QUALITY_TIMESTAMP));
@@ -151,9 +151,9 @@ public class NodeFragTribKnQuality extends FmmNodeFragImpl implements FmmNodeQua
 		setFacilitationIssueQualityTimestamp(theTimestamp);
 		setFacilitatorQuality((FmsDecoratorFacilitator) theDecoratorMap.get(FmsDecoratorFacilitator.getStaticInstance().getDecoratorCanvasLocation()));
 		setFacilitatorQualityTimestamp(theTimestamp);
-		setParentFractalsQuality((FmsDecoratorParentFractals) theDecoratorMap.get(FmsDecoratorParentFractals.getStaticInstance().getDecoratorCanvasLocation()));
+		setParentFractalsQuality((FmsDecoratorProjectManagement) theDecoratorMap.get(FmsDecoratorProjectManagement.getStaticInstance().getDecoratorCanvasLocation()));
 		setParentFractalsQualityTimestamp(theTimestamp);
-		setChildFractalsQuality((FmsDecoratorChildFractals) theDecoratorMap.get(FmsDecoratorChildFractals.getStaticInstance().getDecoratorCanvasLocation()));
+		setChildFractalsQuality((FmsDecoratorWorkBreakdown) theDecoratorMap.get(FmsDecoratorWorkBreakdown.getStaticInstance().getDecoratorCanvasLocation()));
 		setChildFractalsQualityTimestamp(theTimestamp);
 		setCadenceCommitmentQuality((FmsDecoratorCadenceCommitment) theDecoratorMap.get(FmsDecoratorCadenceCommitment.getStaticInstance().getDecoratorCanvasLocation()));
 		setCadenceCommitmentQualityTimestamp(theTimestamp);
@@ -300,12 +300,12 @@ public class NodeFragTribKnQuality extends FmmNodeFragImpl implements FmmNodeQua
 		this.facilitatorQualityTimestamp = facilitatorQualityTimestamp;
 	}
 
-	public FmsDecoratorParentFractals getParentFractalsQuality() {
+	public FmsDecoratorProjectManagement getParentFractalsQuality() {
 		return this.parentFractalsQuality;
 	}
 
 	public void setParentFractalsQuality(
-			FmsDecoratorParentFractals parentFractalsQuality) {
+			FmsDecoratorProjectManagement parentFractalsQuality) {
 		this.parentFractalsQuality = parentFractalsQuality;
 	}
 
@@ -318,12 +318,12 @@ public class NodeFragTribKnQuality extends FmmNodeFragImpl implements FmmNodeQua
 		this.parentFractalsQualityTimestamp = parentFractalsQualityTimestamp;
 	}
 
-	public FmsDecoratorChildFractals getChildFractalsQuality() {
+	public FmsDecoratorWorkBreakdown getChildFractalsQuality() {
 		return this.childFractalsQuality;
 	}
 
 	public void setChildFractalsQuality(
-			FmsDecoratorChildFractals childFractalsQuality) {
+			FmsDecoratorWorkBreakdown childFractalsQuality) {
 		this.childFractalsQuality = childFractalsQuality;
 	}
 

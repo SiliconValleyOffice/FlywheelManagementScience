@@ -59,7 +59,7 @@ public enum FmmTribKnElement implements FmmEnumNode {
 	FACILITATION_ISSUE (R.string.tribkn_quality_metric__facilitation_issue, R.string.tribkn_quality_metric__facilitation_issue__description, R.drawable.tribkn_quality_metric__facilitation_issue),
 	FACILITATOR (R.string.tribkn_quality_metric__facilitator, R.string.tribkn_quality_metric__facilitator__description, R.drawable.tribkn_quality_metric__facilitator),
 	PARENT_FRACTALS (R.string.tribkn_quality_metric__parent_fractals, R.string.tribkn_quality_metric__parent_fractals__description, R.drawable.tribkn_quality_metric__parent_fractals),
-	CHILD_FRACTALS (R.string.tribkn_quality_metric__child_fractals, R.string.tribkn_quality_metric__child_fractals__description, R.drawable.tribkn_quality_metric__child_fractals),
+	CHILD_FRACTALS (R.string.tribkn_quality_metric__work_breakdown, R.string.tribkn_quality_metric__work_breakdown__description, R.drawable.tribkn_quality_metric__child_fractals),
 	STRATEGIC_COMMITMENT (R.string.tribkn_quality_metric__strategic_commitment, R.string.tribkn_quality_metric__strategic_commitment__description, R.drawable.tribkn_quality_metric__strategic_commitment),
 	FLYWHEEL_COMMITMENT (R.string.tribkn_quality_metric__cadence_commitment, R.string.tribkn_quality_metric__cadence_commitment__description, R.drawable.tribkn_quality_metric__cadence_commitment),
 	WORK_TEAM (R.string.tribkn_quality_metric__work_team, R.string.tribkn_quality_metric__work_team__description, R.drawable.tribkn_quality_metric__work_team),

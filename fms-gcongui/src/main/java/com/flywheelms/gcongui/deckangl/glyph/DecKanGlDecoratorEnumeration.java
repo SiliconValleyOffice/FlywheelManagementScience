@@ -97,7 +97,7 @@ public abstract class DecKanGlDecoratorEnumeration implements DecKanGlDecorator 
 
 	@Override
 	public String toString() {
-		return getName() + "  << " + getNounQualityIndex() + " >>";
+		return getDescription() + "  << " + getNounQualityIndex() + " >>";
 	}
 	
 	@Override

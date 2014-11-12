@@ -155,8 +155,8 @@
     <string name="organization_participation__external">External Participant</string>
     <string name="organization_participation__external__description">Participant who does not have direct access to this organization\'s FlywheelMS activities.</string>
     
-    <string name="tribkn_quality_metric__child_fractals">Child Fractals</string>
-    <string name="tribkn_quality_metric__child_fractals__description">Quality of the child fractals.</string>
+    <string name="tribkn_quality_metric__work_breakdown">Work Breakdown</string>
+    <string name="tribkn_quality_metric__work_breakdown__description">Quality of the work breakdown.</string>
     <string name="tribkn_quality_metric__completion">Completion</string>
     <string name="tribkn_quality_metric__completion__description">Quality of the completion status.</string>
     <string name="tribkn_quality_metric__facilitation_issue">Facilitation Issue</string>
@@ -167,7 +167,7 @@
     <string name="tribkn_quality_metric__cadence_commitment__description">Quality of the Work Package Cadence commitments.</string>
     <string name="tribkn_quality_metric__governance">Governance</string>
     <string name="tribkn_quality_metric__governance__description">Quality of the governance.</string>
-    <string name="tribkn_quality_metric__parent_fractals">Parent Fractals</string>
+    <string name="tribkn_quality_metric__parent_fractals">Project Management</string>
     <string name="tribkn_quality_metric__parent_fractals__description">Quality of the parent fractals.</string>
     <string name="tribkn_quality_metric__sequence">Sequence</string>
     <string name="tribkn_quality_metric__sequence__description">Quality of the sequence.</string>
@@ -245,15 +245,15 @@
     <string name="decorator__facilitation_issue__not_applicable">Not Applicable</string>
     <string name="decorator__facilitation_issue__not_enabled">Not Enabled</string>
     
-    <string name="decorator__child_fractals__none">No Child Fractals</string>
-    <string name="decorator__child_fractals__swag">Child Fractals SWAG</string>
-    <string name="decorator__child_fractals__suggested">Suggested Child Fractals</string>
-    <string name="decorator__child_fractals__proposed">Proposed Child Fractals</string>
-    <string name="decorator__child_fractals__confirmed">Confirmed Child Fractals</string>
-    <string name="decorator__child_fractals__excessive">Confirmed Excessive Child Fractals</string>
-    <string name="decorator__child_fractals__unknown_quality">Unspecified Quality</string>
-    <string name="decorator__child_fractals__not_applicable">Not Applicable</string>
-    <string name="decorator__child_fractals__not_enabled">Not Enabled</string>
+    <string name="decorator__work_breakdown__none">No Work Breakdown</string>
+    <string name="decorator__work_breakdown__swag">Work Breakdown SWAG</string>
+    <string name="decorator__work_breakdown__suggested">Suggested Work Breakdown</string>
+    <string name="decorator__work_breakdown__proposed">Proposed Work Breakdown</string>
+    <string name="decorator__work_breakdown__confirmed">Confirmed Work Breakdown</string>
+    <string name="decorator__work_breakdown__excessive">Confirmed Excessive Work Breakdown</string>
+    <string name="decorator__work_breakdown__unknown_quality">Unspecified Quality</string>
+    <string name="decorator__work_breakdown__not_applicable">Not Applicable</string>
+    <string name="decorator__work_breakdown__not_enabled">Not Enabled</string>
     
     <string name="decorator__cadence_commitment__none">No Cadence Commitment</string>
     <string name="decorator__cadence_commitment__suggested">Suggested Cadence Commitment</string>
@@ -284,15 +284,15 @@
     <string name="decorator__governance__not_applicable">Not Applicable</string>
     <string name="decorator__governance__not_enabled">Not Enabled</string>
     
-    <string name="decorator__parent_fractals__none">No Parent Fractals</string>
-    <string name="decorator__parent_fractals__swag">Parent Fractals SWAG</string>
-    <string name="decorator__parent_fractals__suggested">Suggested Parent Fractals</string>
-    <string name="decorator__parent_fractals__proposed">Proposed Parent Fractals</string>
-    <string name="decorator__parent_fractals__one">One Confirmed Parent Fractal</string>
-    <string name="decorator__parent_fractals__multiple">Multiple Confirmed Parent Fractals</string>
-    <string name="decorator__parent_fractals__unknown_quality">Unspecified Quality</string>
-    <string name="decorator__parent_fractals__not_applicable">Not Applicable</string>
-    <string name="decorator__parent_fractals__not_enabled">Not Enabled</string>
+    <string name="decorator__project_management__none">No Project Management</string>
+    <string name="decorator__project_management__swag">Project Management SWAG</string>
+    <string name="decorator__project_management__suggested">Suggested Project Management</string>
+    <string name="decorator__project_management__proposed">Proposed Project Management</string>
+    <string name="decorator__project_management__confirmed">Confirmed Project Management</string>
+    <string name="decorator__project_management__multiple">Multiple Confirmed Project Management Links</string>
+    <string name="decorator__project_management__unknown_quality">Unspecified Quality</string>
+    <string name="decorator__project_management__not_applicable">Not Applicable</string>
+    <string name="decorator__project_management__not_enabled">Not Enabled</string>
     
     <string name="decorator__sequence__none">No Sequence</string>
     <string name="decorator__sequence__swag">Sequence SWAG</string>

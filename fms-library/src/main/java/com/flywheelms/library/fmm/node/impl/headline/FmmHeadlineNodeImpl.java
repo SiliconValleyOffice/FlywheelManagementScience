@@ -64,15 +64,15 @@ import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fmm.deckangl.FmmDecKanGlDictionary;
 import com.flywheelms.library.fmm.deckangl.FmsDecKanGlNoun;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorCadenceCommitment;
-import com.flywheelms.library.fmm.deckangl.FmsDecoratorChildFractals;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorCompletion;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorFacilitationIssue;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorFacilitator;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorGovernance;
-import com.flywheelms.library.fmm.deckangl.FmsDecoratorParentFractals;
+import com.flywheelms.library.fmm.deckangl.FmsDecoratorProjectManagement;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorSequence;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorStory;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorStrategicCommitment;
+import com.flywheelms.library.fmm.deckangl.FmsDecoratorWorkBreakdown;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorWorkTaskBudget;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorWorkTeam;
 import com.flywheelms.library.fmm.meta_data.HeadlineNodeMetaData;
@@ -373,13 +373,13 @@ public abstract class FmmHeadlineNodeImpl extends FmmHistoryNodeImpl
     }
 
     @Override
-    public FmsDecoratorParentFractals getDecoratorParentFractals() {
-        return FmsDecoratorParentFractals.PARENT_FRACTAL_QUALITY_NOT_ENABLED;
+    public FmsDecoratorProjectManagement getDecoratorParentFractals() {
+        return FmsDecoratorProjectManagement.PARENT_FRACTAL_QUALITY_NOT_ENABLED;
     }
 
     @Override
-    public FmsDecoratorChildFractals getDecoratorChildFractals() {
-        return FmsDecoratorChildFractals.CHILD_FRACTAL_QUALITY_NOT_ENABLED;
+    public FmsDecoratorWorkBreakdown getDecoratorChildFractals() {
+        return FmsDecoratorWorkBreakdown.CHILD_FRACTAL_QUALITY_NOT_ENABLED;
     }
 
     @Override

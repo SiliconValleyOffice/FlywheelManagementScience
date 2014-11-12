@@ -47,15 +47,15 @@ import com.flywheelms.gcongui.deckangl.enumerator.DecKanGlDecoratorCanvasLocatio
 import com.flywheelms.gcongui.deckangl.interfaces.DecKanGlDecorator;
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorCadenceCommitment;
-import com.flywheelms.library.fmm.deckangl.FmsDecoratorChildFractals;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorCompletion;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorFacilitationIssue;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorFacilitator;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorGovernance;
-import com.flywheelms.library.fmm.deckangl.FmsDecoratorParentFractals;
+import com.flywheelms.library.fmm.deckangl.FmsDecoratorProjectManagement;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorSequence;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorStory;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorStrategicCommitment;
+import com.flywheelms.library.fmm.deckangl.FmsDecoratorWorkBreakdown;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorWorkTaskBudget;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorWorkTeam;
 import com.flywheelms.library.fmm.node.NodeId;
@@ -127,11 +127,11 @@ public class ProjectAsset extends WorkAsset {
 				FmsDecoratorFacilitator.SUGGESTED_FACILITATOR.getDecoratorCanvasLocation(),
 				FmsDecoratorFacilitator.SUGGESTED_FACILITATOR );
 		theDecKanGlDecoratorMap.put(
-				FmsDecoratorParentFractals.ONE_CONFIRMED_PARENT_FRACTAL.getDecoratorCanvasLocation(),
-				FmsDecoratorParentFractals.ONE_CONFIRMED_PARENT_FRACTAL );
+				FmsDecoratorProjectManagement.ONE_CONFIRMED_PARENT_FRACTAL.getDecoratorCanvasLocation(),
+				FmsDecoratorProjectManagement.ONE_CONFIRMED_PARENT_FRACTAL );
 		theDecKanGlDecoratorMap.put(
-				FmsDecoratorChildFractals.SUGGESTED_CHILD_FRACTALS.getDecoratorCanvasLocation(),
-				FmsDecoratorChildFractals.SUGGESTED_CHILD_FRACTALS );
+				FmsDecoratorWorkBreakdown.SUGGESTED_CHILD_FRACTALS.getDecoratorCanvasLocation(),
+				FmsDecoratorWorkBreakdown.SUGGESTED_CHILD_FRACTALS );
 		theDecKanGlDecoratorMap.put(
 				FmsDecoratorStrategicCommitment.PROPOSED_STRATEGIC_COMMITMENT.getDecoratorCanvasLocation(),
 				FmsDecoratorStrategicCommitment.PROPOSED_STRATEGIC_COMMITMENT );

@@ -53,15 +53,15 @@ import com.flywheelms.gcongui.deckangl.glyph.DecKanGlGlyph;
 import com.flywheelms.gcongui.deckangl.interfaces.DecKanGlDecorator;
 import com.flywheelms.gcongui.gcg.interfaces.GcgPerspective;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorCadenceCommitment;
-import com.flywheelms.library.fmm.deckangl.FmsDecoratorChildFractals;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorCompletion;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorFacilitationIssue;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorFacilitator;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorGovernance;
-import com.flywheelms.library.fmm.deckangl.FmsDecoratorParentFractals;
+import com.flywheelms.library.fmm.deckangl.FmsDecoratorProjectManagement;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorSequence;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorStory;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorStrategicCommitment;
+import com.flywheelms.library.fmm.deckangl.FmsDecoratorWorkBreakdown;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorWorkTaskBudget;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorWorkTeam;
 import com.flywheelms.library.fmm.interfaces.FmmHistory;
@@ -130,9 +130,9 @@ public interface FmmHeadlineNode extends FmmNode, FmmNodeAudit, FmmHistory {
 
 	FmsDecoratorCadenceCommitment getDecoratorFlywheelCommitment();
 	
-	FmsDecoratorParentFractals getDecoratorParentFractals();
+	FmsDecoratorProjectManagement getDecoratorParentFractals();
 
-	FmsDecoratorChildFractals getDecoratorChildFractals();
+	FmsDecoratorWorkBreakdown getDecoratorChildFractals();
 
 	FmsDecoratorWorkTaskBudget getDecoratorWorkTaskBudget();
 
