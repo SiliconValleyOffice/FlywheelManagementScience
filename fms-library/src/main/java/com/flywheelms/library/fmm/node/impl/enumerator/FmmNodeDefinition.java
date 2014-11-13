@@ -129,6 +129,7 @@ import java.util.Hashtable;
 
 public enum FmmNodeDefinition implements FmmEnumNode {
 
+    //  ALERT !!!      ALERT !!!      ALERT !!!
 	// DO NOT CHANGE NodeIdCode values !!!  
 	// THIS IS PERSISTED DATA that is CRITICAL TO THE REFERENTIAL INTEGRITY OF THE MANAGEMENT MODEL !!!
     ASSIGNMENT_COMMITMENT_TYPE (
@@ -1484,6 +1485,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 		FmmNodeDefinition.PROJECT.getNounStateBitmapTableTiny().put(
 				DecKanGlNounStateColor.GRAY, (BitmapDrawable) GcgApplication.getAppResources().getDrawable(R.drawable.fmm_noun__project__gray__tiny) );
 		FmmNodeDefinition.PROJECT.getNounStateBitmapTableTiny().put(
+				DecKanGlNounStateColor.BLACK, (BitmapDrawable) GcgApplication.getAppResources().getDrawable(R.drawable.fmm_noun__project__black__tiny) );
+		FmmNodeDefinition.PROJECT.getNounStateBitmapTableTiny().put(
 				DecKanGlNounStateColor.YELLOW, (BitmapDrawable) GcgApplication.getAppResources().getDrawable(R.drawable.fmm_noun__project__yellow__tiny) );
 		FmmNodeDefinition.PROJECT.getNounStateBitmapTableTiny().put(
 				DecKanGlNounStateColor.ORANGE, (BitmapDrawable) GcgApplication.getAppResources().getDrawable(R.drawable.fmm_noun__project__orange__tiny) );
@@ -1494,6 +1497,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 
 		FmmNodeDefinition.PROJECT_ASSET.getNounStateBitmapTableTiny().put(
 				DecKanGlNounStateColor.GRAY, (BitmapDrawable) GcgApplication.getAppResources().getDrawable(R.drawable.fmm_noun__project_asset__gray__tiny) );
+		FmmNodeDefinition.PROJECT_ASSET.getNounStateBitmapTableTiny().put(
+				DecKanGlNounStateColor.BLACK, (BitmapDrawable) GcgApplication.getAppResources().getDrawable(R.drawable.fmm_noun__project_asset__black__tiny) );
 		FmmNodeDefinition.PROJECT_ASSET.getNounStateBitmapTableTiny().put(
 				DecKanGlNounStateColor.YELLOW, (BitmapDrawable) GcgApplication.getAppResources().getDrawable(R.drawable.fmm_noun__project_asset__yellow__tiny) );
 		FmmNodeDefinition.PROJECT_ASSET.getNounStateBitmapTableTiny().put(
@@ -1539,6 +1544,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
         FmmNodeDefinition.STRATEGIC_ASSET.getNounStateBitmapTableTiny().put(
                 DecKanGlNounStateColor.GRAY, (BitmapDrawable) GcgApplication.getAppResources().getDrawable(R.drawable.fmm_noun__strategic_asset__gray__tiny) );
         FmmNodeDefinition.STRATEGIC_ASSET.getNounStateBitmapTableTiny().put(
+                DecKanGlNounStateColor.BLACK, (BitmapDrawable) GcgApplication.getAppResources().getDrawable(R.drawable.fmm_noun__strategic_asset__black__tiny) );
+        FmmNodeDefinition.STRATEGIC_ASSET.getNounStateBitmapTableTiny().put(
                 DecKanGlNounStateColor.YELLOW, (BitmapDrawable) GcgApplication.getAppResources().getDrawable(R.drawable.fmm_noun__strategic_asset__yellow__tiny) );
         FmmNodeDefinition.STRATEGIC_ASSET.getNounStateBitmapTableTiny().put(
                 DecKanGlNounStateColor.ORANGE, (BitmapDrawable) GcgApplication.getAppResources().getDrawable(R.drawable.fmm_noun__strategic_asset__orange__tiny) );
@@ -1549,6 +1556,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 
 		FmmNodeDefinition.STRATEGIC_MILESTONE.getNounStateBitmapTableTiny().put(
 				DecKanGlNounStateColor.GRAY, (BitmapDrawable) GcgApplication.getAppResources().getDrawable(R.drawable.fmm_noun__strategic_milestone__gray__tiny) );
+		FmmNodeDefinition.STRATEGIC_MILESTONE.getNounStateBitmapTableTiny().put(
+				DecKanGlNounStateColor.BLACK, (BitmapDrawable) GcgApplication.getAppResources().getDrawable(R.drawable.fmm_noun__strategic_milestone__black__tiny) );
 		FmmNodeDefinition.STRATEGIC_MILESTONE.getNounStateBitmapTableTiny().put(
 				DecKanGlNounStateColor.YELLOW, (BitmapDrawable) GcgApplication.getAppResources().getDrawable(R.drawable.fmm_noun__strategic_milestone__yellow__tiny) );
 		FmmNodeDefinition.STRATEGIC_MILESTONE.getNounStateBitmapTableTiny().put(
@@ -1563,6 +1572,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 
 		FmmNodeDefinition.WORK_PACKAGE.getNounStateBitmapTableTiny().put(
 				DecKanGlNounStateColor.GRAY, (BitmapDrawable) GcgApplication.getAppResources().getDrawable(R.drawable.fmm_noun__work_package__gray__tiny) );
+		FmmNodeDefinition.WORK_PACKAGE.getNounStateBitmapTableTiny().put(
+				DecKanGlNounStateColor.BLACK, (BitmapDrawable) GcgApplication.getAppResources().getDrawable(R.drawable.fmm_noun__work_package__black__tiny) );
 		FmmNodeDefinition.WORK_PACKAGE.getNounStateBitmapTableTiny().put(
 				DecKanGlNounStateColor.YELLOW, (BitmapDrawable) GcgApplication.getAppResources().getDrawable(R.drawable.fmm_noun__work_package__yellow__tiny) );
 		FmmNodeDefinition.WORK_PACKAGE.getNounStateBitmapTableTiny().put(
@@ -1585,6 +1596,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 
 		FmmNodeDefinition.WORK_TASK.getNounStateBitmapTableTiny().put(
 				DecKanGlNounStateColor.GRAY, (BitmapDrawable) GcgApplication.getAppResources().getDrawable(R.drawable.fmm_noun__work_task__gray__tiny) );
+		FmmNodeDefinition.WORK_TASK.getNounStateBitmapTableTiny().put(
+				DecKanGlNounStateColor.BLACK, (BitmapDrawable) GcgApplication.getAppResources().getDrawable(R.drawable.fmm_noun__work_task__black__tiny) );
 		FmmNodeDefinition.WORK_TASK.getNounStateBitmapTableTiny().put(
 				DecKanGlNounStateColor.YELLOW, (BitmapDrawable) GcgApplication.getAppResources().getDrawable(R.drawable.fmm_noun__work_task__yellow__tiny) );
 		FmmNodeDefinition.WORK_TASK.getNounStateBitmapTableTiny().put(

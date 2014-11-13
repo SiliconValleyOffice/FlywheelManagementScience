@@ -50,12 +50,14 @@ package com.flywheelms.gcongui.deckangl.glyph;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 
+import com.flywheelms.gcongui.R;
 import com.flywheelms.gcongui.deckangl.enumerator.DecKanGlAnnotatedGlyphSize;
 import com.flywheelms.gcongui.deckangl.enumerator.DecKanGlDecoratedGlyphSize;
 import com.flywheelms.gcongui.deckangl.enumerator.DecKanGlDecoratorCanvasLocation;
 import com.flywheelms.gcongui.deckangl.enumerator.DecKanGlNounStateDrawableSize;
 import com.flywheelms.gcongui.deckangl.interfaces.DecKanGlApplicationNoun;
 import com.flywheelms.gcongui.deckangl.interfaces.DecKanGlDecorator;
+import com.flywheelms.gcongui.gcg.GcgApplication;
 
 import java.util.HashMap;
 import java.util.Hashtable;
@@ -128,8 +130,13 @@ public class DecKanGlGlyph {
 	}
 
 	public BitmapDrawable getNounStateDrawable(DecKanGlNounStateDrawableSize aDrawableSize) {
-		return this.elementNoun.getNounStateBitmapDrawable(aDrawableSize, this.elementNounState.getNounStateColor());
+        BitmapDrawable theBitmapDrawable = this.elementNoun.getNounStateBitmapDrawable(aDrawableSize, this.elementNounState.getNounStateColor());
+		return theBitmapDrawable == null ? getNullBitmapDrawable() : theBitmapDrawable;
 	}
+
+    public BitmapDrawable getNullBitmapDrawable() {
+        return (BitmapDrawable) GcgApplication.getAppResources().getDrawable(R.drawable.gcg__null_drawable_16);
+    }
 
 	public DecKanGlElementNoun getElementNoun() {
 		return this.elementNoun;

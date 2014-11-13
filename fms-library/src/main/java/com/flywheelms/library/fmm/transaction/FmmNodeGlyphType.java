@@ -75,6 +75,7 @@ public enum FmmNodeGlyphType {
 	QUESTION,
 	REMOVE,
 	RENAME,
-	YELLOW,;
+	YELLOW,
+    BLACK;
 
 }

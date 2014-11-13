@@ -74,6 +74,8 @@ public interface FmmCompletionNode extends FmmGovernableNode, FmmSequencedNode {
 	CompletionCommitmentType getCompletionCommitmentType();
 	
 	boolean isGreen();
+
+    boolean isBlack();
 	
 	boolean isPink();
 	
@@ -84,6 +86,8 @@ public interface FmmCompletionNode extends FmmGovernableNode, FmmSequencedNode {
 	boolean isGray();
 	
 	boolean isComplete();
+
+    boolean isBlocked();
 	
 	CompletableWorkStatus getCompletableWorkStatus();
 	

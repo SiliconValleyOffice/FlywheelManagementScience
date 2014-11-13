@@ -131,7 +131,7 @@ public class FmmDecKanGlDictionary extends DecKanGlDictionary {
 				CompletableWorkStatus.NOT_STARTED.getWorkStateColor() );
 		FmmDecKanGlDictionary.decKanGlNounStateMap.put(CompletableWorkStatus.NOT_STARTED.getWorkStatusCode(), theElementNounState);
 		FmmDecKanGlDictionary.fmmWorkStatusMap.put(theElementNounState, CompletableWorkStatus.NOT_STARTED);
-			//
+        //
 		theElementNounState = new DecKanGlElementNounState(
 				CompletableWorkStatus.STARTED.getWorkStatusCode(),
 				CompletableWorkStatus.STARTED.getWorkStateColor() );
@@ -144,6 +144,12 @@ public class FmmDecKanGlDictionary extends DecKanGlDictionary {
 		FmmDecKanGlDictionary.decKanGlNounStateMap.put(CompletableWorkStatus.ON_HOLD.getWorkStatusCode(), theElementNounState);
 		FmmDecKanGlDictionary.fmmWorkStatusMap.put(theElementNounState, CompletableWorkStatus.ON_HOLD);
 		//
+        theElementNounState = new DecKanGlElementNounState(
+                CompletableWorkStatus.BLOCKED.getWorkStatusCode(),
+                CompletableWorkStatus.BLOCKED.getWorkStateColor() );
+        FmmDecKanGlDictionary.decKanGlNounStateMap.put(CompletableWorkStatus.BLOCKED.getWorkStatusCode(), theElementNounState);
+        FmmDecKanGlDictionary.fmmWorkStatusMap.put(theElementNounState, CompletableWorkStatus.BLOCKED);
+        //
 		theElementNounState = new DecKanGlElementNounState(
 				CompletableWorkStatus.READY_FOR_REVIEW.getWorkStatusCode(),
 				CompletableWorkStatus.READY_FOR_REVIEW.getWorkStateColor() );

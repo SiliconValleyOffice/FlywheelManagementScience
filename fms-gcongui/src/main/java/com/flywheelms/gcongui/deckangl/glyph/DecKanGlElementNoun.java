@@ -179,7 +179,7 @@ public class DecKanGlElementNoun extends DecKanGlElement {
 			default:
 				theBitmapDrawable = this.nounStateBitmapTableTiny.get(aStateColor);  // we always have a complete set of tiny drawables for PDF
 		}
-		return theBitmapDrawable;
+        return theBitmapDrawable;
 	}
 
 	private BitmapDrawable getLargeNounStateBitmapDrawable(DecKanGlNounStateColor aStateColor) {

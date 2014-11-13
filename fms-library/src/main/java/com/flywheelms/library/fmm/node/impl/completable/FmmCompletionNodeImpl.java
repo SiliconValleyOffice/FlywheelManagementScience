@@ -158,6 +158,11 @@ public abstract class FmmCompletionNodeImpl extends FmmGovernableNodeImpl
 		return getCompletableWorkStatus().isGreen();
 	}
 
+    @Override
+    public boolean isBlack() {
+        return getCompletableWorkStatus().isBlack();
+    }
+
 	@Override
 	public boolean isPink() {
 		return getCompletableWorkStatus().isPink();
@@ -190,6 +195,8 @@ public abstract class FmmCompletionNodeImpl extends FmmGovernableNodeImpl
 				return DecKanGlNounStateColor.PINK;
 		} else if(isGreen()) {
 				return DecKanGlNounStateColor.GREEN;
+        } else if(isBlack()) {
+            return DecKanGlNounStateColor.BLACK;
 		}
 		return null;
 	}
@@ -198,6 +205,11 @@ public abstract class FmmCompletionNodeImpl extends FmmGovernableNodeImpl
 	public boolean isComplete() {
 		return getCompletableWorkStatus() == CompletableWorkStatus.COMPLETE;
 	}
+
+    @Override
+    public boolean isBlocked() {
+        return getCompletableWorkStatus() == CompletableWorkStatus.BLOCKED;
+    }
 
 	@Override
 	public DecKanGlElementNounState getDecKanGlElementNounState() {

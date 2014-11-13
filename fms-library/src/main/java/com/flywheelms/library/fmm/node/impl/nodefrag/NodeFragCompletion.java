@@ -361,16 +361,24 @@ public class NodeFragCompletion extends FmmNodeFragImpl implements Serializable 
 		return this.completableWorkStatus == CompletableWorkStatus.COMPLETE;
 	}
 
+    public boolean isBlocked() {
+        return this.completableWorkStatus == CompletableWorkStatus.BLOCKED;
+    }
+
 	public boolean isGreen() {
 		return this.completableWorkStatus == CompletableWorkStatus.COMPLETE;
 	}
 
 	public boolean isPink() {
-		return this.completableWorkStatus == CompletableWorkStatus.READY_FOR_REVIEW;
+		return this.completableWorkStatus == CompletableWorkStatus.BLOCKED;
 	}
 
+    public boolean isWhite() {
+        return this.completableWorkStatus == CompletableWorkStatus.ON_HOLD;
+    }
+
 	public boolean isOrange() {
-		return this.completableWorkStatus == CompletableWorkStatus.ON_HOLD;
+		return this.completableWorkStatus == CompletableWorkStatus.READY_FOR_REVIEW;
 	}
 
 	public boolean isYellow() {

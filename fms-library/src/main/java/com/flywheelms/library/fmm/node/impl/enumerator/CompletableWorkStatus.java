@@ -73,14 +73,20 @@ public enum CompletableWorkStatus implements FmmEnumNode {
 			R.string.work_status__started__description ),
 	ON_HOLD (
 			"On Hold",
-			DecKanGlNounStateColor.ORANGE,
-			FmmNodeGlyphType.ORANGE,
+			DecKanGlNounStateColor.BLACK,
+			FmmNodeGlyphType.BLACK,
 			R.string.work_status__on_hold,
 			R.string.work_status__on_hold__description ),
+    BLOCKED (
+            "Blocked",
+            DecKanGlNounStateColor.PINK,
+            FmmNodeGlyphType.PINK,
+            R.string.work_status__blocked,
+            R.string.work_status__blocked__description ),
 	READY_FOR_REVIEW (
 			"Ready For Review",
-			DecKanGlNounStateColor.PINK,
-			FmmNodeGlyphType.PINK,
+			DecKanGlNounStateColor.ORANGE,
+			FmmNodeGlyphType.ORANGE,
 			R.string.work_status__work_ready_for_review,
 			R.string.work_status__work_ready_for_review__description ),
 	COMPLETE (
@@ -265,6 +271,10 @@ public enum CompletableWorkStatus implements FmmEnumNode {
 	public boolean isGreen() {
 		return this.workStateColor == DecKanGlNounStateColor.GREEN;
 	}
+
+    public boolean isBlack() {
+        return this.workStateColor == DecKanGlNounStateColor.BLACK;
+    }
 
 	public boolean isPink() {
 		return this.workStateColor == DecKanGlNounStateColor.PINK;

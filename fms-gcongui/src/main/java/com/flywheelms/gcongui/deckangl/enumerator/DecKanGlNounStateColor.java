@@ -57,9 +57,10 @@ public enum DecKanGlNounStateColor {
 
     GRAY (R.string.deckangl__status_color__gray, R.drawable.deckangl__work_status__gray, 0),
     YELLOW (R.string.deckangl__status_color__yellow, R.drawable.deckangl__work_status__yellow, 1),
-    ORANGE (R.string.deckangl__status_color__orange, R.drawable.deckangl__work_status__orange, 2),
+    BLACK(R.string.deckangl__status_color__black, R.drawable.deckangl__work_status__black, 2),
     PINK (R.string.deckangl__status_color__pink, R.drawable.deckangl__work_status__pink, 3),
-    GREEN (R.string.deckangl__status_color__green, R.drawable.deckangl__work_status__green, 4);
+    ORANGE (R.string.deckangl__status_color__orange, R.drawable.deckangl__work_status__orange, 4),
+    GREEN (R.string.deckangl__status_color__green, R.drawable.deckangl__work_status__green, 5);
 
     private final int nameResourceId;
     private String name;
@@ -71,9 +72,10 @@ public enum DecKanGlNounStateColor {
     static {
     	DecKanGlNounStateColor.nameMap.put(GRAY.getName(), GRAY);
     	DecKanGlNounStateColor.nameMap.put(YELLOW.getName(), YELLOW);
-    	DecKanGlNounStateColor.nameMap.put(ORANGE.getName(), ORANGE);
-    	DecKanGlNounStateColor.nameMap.put(PINK.getName(), PINK);
-    	DecKanGlNounStateColor.nameMap.put(GREEN.getName(), GREEN);
+        DecKanGlNounStateColor.nameMap.put(BLACK.getName(), BLACK);
+        DecKanGlNounStateColor.nameMap.put(PINK.getName(), PINK);
+        DecKanGlNounStateColor.nameMap.put(ORANGE.getName(), ORANGE);
+        DecKanGlNounStateColor.nameMap.put(GREEN.getName(), GREEN);
     }
     
     public static DecKanGlNounStateColor getObjectForName(String aName) {
