@@ -127,8 +127,8 @@ public class StrategicAsset extends WorkAsset {
         HashMap<DecKanGlDecoratorCanvasLocation, DecKanGlDecorator> theDecKanGlDecoratorMap =
                 new HashMap<DecKanGlDecoratorCanvasLocation, DecKanGlDecorator>();
         theDecKanGlDecoratorMap.put(
-                FmsDecoratorGovernance.CONFIRMED_GOVERNANCE.getDecoratorCanvasLocation(),
-                FmsDecoratorGovernance.CONFIRMED_GOVERNANCE );
+                FmsDecoratorGovernance.NO_GOVERNANCE.getDecoratorCanvasLocation(),
+                FmsDecoratorGovernance.NO_GOVERNANCE );
         theDecKanGlDecoratorMap.put(
                 FmsDecoratorFacilitationIssue.NO_FACILITATION_ISSUE.getDecoratorCanvasLocation(),
                 FmsDecoratorFacilitationIssue.NO_FACILITATION_ISSUE );
@@ -162,7 +162,8 @@ public class StrategicAsset extends WorkAsset {
         theDecKanGlDecoratorMap.put(
                 FmsDecoratorCompletion.COMPLETION_NOT_SCHEDULED.getDecoratorCanvasLocation(),
                 FmsDecoratorCompletion.COMPLETION_NOT_SCHEDULED );
-        return theDecKanGlDecoratorMap;
+        this.decKanGlDecoratorMap = theDecKanGlDecoratorMap;
+        return this.decKanGlDecoratorMap;
     }
 
 

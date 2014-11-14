@@ -104,7 +104,7 @@ public abstract class FmmHeadlineNodeImpl extends FmmHistoryNodeImpl
     private transient NodeFragAuditBlock nodeFragAuditBlock;
     private transient NodeFragFseDocument nodeFragFseDocument;
     private transient NodeFragTribKnQuality nodeFragTribKnQuality;
-    private HashMap<DecKanGlDecoratorCanvasLocation, DecKanGlDecorator> decKanGlDecoratorMap;
+    protected HashMap<DecKanGlDecoratorCanvasLocation, DecKanGlDecorator> decKanGlDecoratorMap;
     protected String headline = "";
     protected HashMap<FmmPerspective, NodeCompletionSummary> nodeCompletionSummaryMap;
     public final ArrayList<FmmPerspective> perspectiveList = new ArrayList<FmmPerspective>();

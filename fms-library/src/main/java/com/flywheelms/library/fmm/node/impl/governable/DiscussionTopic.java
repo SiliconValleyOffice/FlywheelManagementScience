@@ -201,7 +201,8 @@ public class DiscussionTopic extends FmmCompletionNodeImpl {
         theDecKanGlDecoratorMap.put(
                 FmsDecoratorCompletion.NO_COMPLETION_ISSUES.getDecoratorCanvasLocation(),
                 FmsDecoratorCompletion.NO_COMPLETION_ISSUES );
-        return theDecKanGlDecoratorMap;
+        this.decKanGlDecoratorMap = theDecKanGlDecoratorMap;
+        return this.decKanGlDecoratorMap;
     }
 
     @Override

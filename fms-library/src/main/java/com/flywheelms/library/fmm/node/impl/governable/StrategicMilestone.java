@@ -282,7 +282,8 @@ public class StrategicMilestone extends FmmCompletionNodeImpl implements Compara
 		theDecKanGlDecoratorMap.put(
 				FmsDecoratorCompletion.COMPLETION_NOT_SCHEDULED.getDecoratorCanvasLocation(),
 				FmsDecoratorCompletion.COMPLETION_NOT_SCHEDULED );
-		return theDecKanGlDecoratorMap;
+        this.decKanGlDecoratorMap = theDecKanGlDecoratorMap;
+        return this.decKanGlDecoratorMap;
 	}
 	
 	public static void startNodeEditorActivity(GcgActivity anActivity, String aNodeListParentNodeId, ArrayList<FmmHeadlineNodeShallow> aHeadlineNodeShallowList, String anInitialNodeIdToDisplay) {

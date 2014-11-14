@@ -331,7 +331,8 @@ public class FiscalYear extends FmmCompletionNodeImpl implements Comparable<Fisc
 		theDecKanGlDecoratorMap.put(
 				FmsDecoratorCompletion.NO_COMPLETION_ISSUES.getDecoratorCanvasLocation(),
 				FmsDecoratorCompletion.NO_COMPLETION_ISSUES );
-		return theDecKanGlDecoratorMap;
+        this.decKanGlDecoratorMap = theDecKanGlDecoratorMap;
+        return this.decKanGlDecoratorMap;
 	}
 	
 	public static void startNodeEditorActivity(GcgActivity anActivity, String aNodeListParentNodeId, ArrayList<FmmHeadlineNodeShallow> aHeadlineNodeShallowList, String anInitialNodeIdToDisplay) {

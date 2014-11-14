@@ -301,8 +301,8 @@ public class WorkAsset extends FmmCompletionNodeImpl implements Comparable<WorkA
         HashMap<DecKanGlDecoratorCanvasLocation, DecKanGlDecorator> theDecKanGlDecoratorMap =
                 new HashMap<DecKanGlDecoratorCanvasLocation, DecKanGlDecorator>();
         theDecKanGlDecoratorMap.put(
-                FmsDecoratorGovernance.PROPOSED_GOVERNANCE.getDecoratorCanvasLocation(),
-                FmsDecoratorGovernance.PROPOSED_GOVERNANCE );
+                FmsDecoratorGovernance.NO_GOVERNANCE.getDecoratorCanvasLocation(),
+                FmsDecoratorGovernance.NO_GOVERNANCE );
         theDecKanGlDecoratorMap.put(
                 FmsDecoratorFacilitationIssue.NO_FACILITATION_ISSUE.getDecoratorCanvasLocation(),
                 FmsDecoratorFacilitationIssue.NO_FACILITATION_ISSUE );
@@ -336,7 +336,8 @@ public class WorkAsset extends FmmCompletionNodeImpl implements Comparable<WorkA
         theDecKanGlDecoratorMap.put(
                 FmsDecoratorCompletion.COMPLETION_NOT_SCHEDULED.getDecoratorCanvasLocation(),
                 FmsDecoratorCompletion.COMPLETION_NOT_SCHEDULED );
-        return theDecKanGlDecoratorMap;
+        this.decKanGlDecoratorMap = theDecKanGlDecoratorMap;
+        return this.decKanGlDecoratorMap;
     }
 
     public static void startNodeEditorActivity(GcgActivity anActivity, String aNodeListParentNodeId, ArrayList<FmmHeadlineNodeShallow> aHeadlineNodeShallowList, String anInitialNodeIdToDisplay) {
