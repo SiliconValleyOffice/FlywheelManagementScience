@@ -79,6 +79,7 @@ public abstract class GcgWidgetSpinner extends GcgWidget {
 	private boolean filterParameterRequirementWasSet = false;
 	public static final String filter_id__NO_FILTER = GcgApplication.getStringResource(R.string.gcg__filter_id__no_filter);
 	private String filterId;
+    private boolean inputRequired = true;
 
 	public GcgWidgetSpinner(Context aContext) {
 		super(aContext);
@@ -200,8 +201,13 @@ public abstract class GcgWidgetSpinner extends GcgWidget {
 	}
 
 	protected boolean isMinimumInput() {
-		return getListSize() > 0 && getSelectedItem() != null;
+		return this.inputRequired == false ? true : getListSize() > 0 && getSelectedItem() != null;
 	}
+
+    public void setInputRequired(boolean bRequired) {
+        this.inputRequired = bRequired;
+        manageBackgroundState();
+    }
 	
 	public ArrayList<String> getRowStringList() {
 		ArrayList<String> theRowStringList = new ArrayList<String>();

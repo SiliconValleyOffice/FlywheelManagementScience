@@ -2082,12 +2082,12 @@ public class FmmDatabaseMediator {
 
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //////  Node - FISCAL YEAR  ////////////////////////////////////////////////////////////////////////////////
+    //////  Node - FISCAL YEAR  /////////////////////////////////////////////////////////////////////////////////
 
     public FiscalYear retrieveFiscalYear(String aFiscalYearId) {
         return retrieveFmmNodeFromSimpleIdTable(FmmNodeDefinition.FISCAL_YEAR, aFiscalYearId);
     }
-    
+
     public ArrayList<FiscalYear> retrieveFiscalYearList(FmsOrganization anOrganization) {
         return retrieveFiscalYearList(anOrganization, null);
     }

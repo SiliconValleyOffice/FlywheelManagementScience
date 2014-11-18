@@ -144,6 +144,10 @@ public class FmsGovernanceComponent extends LinearLayout {
 		this.governanceTeamMemberWidgetSpinner.setGovernanceTeamMember(aGovernanceCandidateCommunityMember);
 	}
 
+    public void isRequired(boolean bRequired) {
+        this.governanceTeamMemberWidgetSpinner.setInputRequired(bRequired);
+    }
+
 	public AssignmentCommitmentType getAssignmentCommitmentType() {
 		return (AssignmentCommitmentType) this.assignmentCommitmentTypeWidgetSpinner.getSelectedItem();
 	}
@@ -161,4 +165,7 @@ public class FmsGovernanceComponent extends LinearLayout {
 		setAssignmentCommitmentType(theGovernanceTeamMember.getCommitmentType());
 	}
 
+    public void setGovernanceRequired(boolean bGovernanceRequired) {
+        this.governanceTeamMemberWidgetSpinner.setInputRequired(bGovernanceRequired);
+    }
 }

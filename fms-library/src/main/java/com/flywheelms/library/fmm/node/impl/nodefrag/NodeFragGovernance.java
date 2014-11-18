@@ -184,6 +184,14 @@ public class NodeFragGovernance extends FmmNodeFragLockableImpl {
 		return null;
 	}
 
+    public boolean mayHave(GovernanceRole aGovernanceRole) {
+        return getGovernanceTarget().mayHave(aGovernanceRole);
+    }
+
+    public boolean isRequired(GovernanceRole aGovernanceRole) {
+        return getGovernanceTarget().isRequired(aGovernanceRole);
+    }
+
 	public void setParticipationType(GovernanceRole aGovernanceRole, GovernanceParticipationType aParticipationType) {
 		if(isExistingGovernanceTeamRole(aGovernanceRole)) {
 			this.governanceTeam.get(aGovernanceRole).participationType = aParticipationType;

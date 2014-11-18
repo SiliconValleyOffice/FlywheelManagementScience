@@ -60,9 +60,9 @@ public enum GovernanceTarget implements FmmEnumNode {
 
 	BOOKSHELF (
 			FmmNodeDefinition.BOOKSHELF,
-			GovernanceParticipationType.REQUIRED,
-			GovernanceParticipationType.REQUIRED,
-			GovernanceParticipationType.NONE,
+			GovernanceParticipationType.OPTIONAL,
+            GovernanceParticipationType.REQUIRED,
+            GovernanceParticipationType.OPTIONAL,
 			GovernanceParticipationType.NONE,
 			false),
 	COMMUNITY_MEMBER (
@@ -74,9 +74,9 @@ public enum GovernanceTarget implements FmmEnumNode {
 			false),
 	DISCUSSION_TOPIC (
 			FmmNodeDefinition.DISCUSSION_TOPIC,
+            GovernanceParticipationType.REQUIRED,
+            GovernanceParticipationType.OPTIONAL,
 			GovernanceParticipationType.OPTIONAL,
-			GovernanceParticipationType.REQUIRED,
-			GovernanceParticipationType.NONE,
 			GovernanceParticipationType.NONE,
 			false),
 	FACILITATION_ISSUE (
@@ -91,16 +91,16 @@ public enum GovernanceTarget implements FmmEnumNode {
 			GovernanceParticipationType.REQUIRED,
 			GovernanceParticipationType.REQUIRED,
 			GovernanceParticipationType.NONE,
-			GovernanceParticipationType.REQUIRED,
+			GovernanceParticipationType.OPTIONAL,
 			false),
-	FLYWHEEL_COMMITMENT (
+	CADENCE_COMMITMENT(
 			FmmNodeDefinition.CADENCE_COMMITMENT,
 			GovernanceParticipationType.REQUIRED,
 			GovernanceParticipationType.REQUIRED,
 			GovernanceParticipationType.NONE,
 			GovernanceParticipationType.NONE,
 			false),
-	FLYWHEEL_CADENCE (
+	CADENCE(
 			FmmNodeDefinition.CADENCE,
 			GovernanceParticipationType.REQUIRED,
 			GovernanceParticipationType.REQUIRED,
@@ -123,8 +123,8 @@ public enum GovernanceTarget implements FmmEnumNode {
 			false),
 	FSE_DOCUMENT (
 			FmmNodeDefinition.FSE_DOCUMENT,
-			GovernanceParticipationType.NONE,
-			GovernanceParticipationType.REQUIRED,
+            GovernanceParticipationType.REQUIRED,
+            GovernanceParticipationType.NONE,
 			GovernanceParticipationType.OPTIONAL,
 			GovernanceParticipationType.NONE,
 			false),
@@ -137,9 +137,9 @@ public enum GovernanceTarget implements FmmEnumNode {
 			false),
 	NOTEBOOK (
 			FmmNodeDefinition.NOTEBOOK,
+			GovernanceParticipationType.OPTIONAL,
 			GovernanceParticipationType.REQUIRED,
-			GovernanceParticipationType.REQUIRED,
-			GovernanceParticipationType.NONE,
+			GovernanceParticipationType.OPTIONAL,
 			GovernanceParticipationType.NONE,
 			false),
 	ORGANIZATION (
@@ -153,21 +153,21 @@ public enum GovernanceTarget implements FmmEnumNode {
 			FmmNodeDefinition.PORTFOLIO,
 			GovernanceParticipationType.REQUIRED,
 			GovernanceParticipationType.REQUIRED,
-			GovernanceParticipationType.NONE,
-			GovernanceParticipationType.NONE,
+			GovernanceParticipationType.OPTIONAL,
+			GovernanceParticipationType.OPTIONAL,
 			false),
 	PROJECT (
 			FmmNodeDefinition.PROJECT,
 			GovernanceParticipationType.REQUIRED,
 			GovernanceParticipationType.REQUIRED,
-			GovernanceParticipationType.NONE,
-			GovernanceParticipationType.NONE,
+			GovernanceParticipationType.OPTIONAL,
+			GovernanceParticipationType.OPTIONAL,
 			false),
 	PROJECT_ASSET (
 			FmmNodeDefinition.PROJECT_ASSET,
 			GovernanceParticipationType.REQUIRED,
 			GovernanceParticipationType.REQUIRED,
-			GovernanceParticipationType.NONE,
+			GovernanceParticipationType.REQUIRED,
 			GovernanceParticipationType.NONE,
 			false),
   SERVICE_DELIVERY_COMMITMENT (
@@ -202,7 +202,7 @@ public enum GovernanceTarget implements FmmEnumNode {
             FmmNodeDefinition.STRATEGIC_ASSET,
             GovernanceParticipationType.REQUIRED,
             GovernanceParticipationType.REQUIRED,
-            GovernanceParticipationType.NONE,
+            GovernanceParticipationType.REQUIRED,
             GovernanceParticipationType.NONE,
             false),
 	STRATEGIC_COMMITMENT (
@@ -216,7 +216,7 @@ public enum GovernanceTarget implements FmmEnumNode {
 			FmmNodeDefinition.STRATEGIC_MILESTONE,
 			GovernanceParticipationType.REQUIRED,
 			GovernanceParticipationType.REQUIRED,
-			GovernanceParticipationType.NONE,
+			GovernanceParticipationType.OPTIONAL,
 			GovernanceParticipationType.NONE,
 			false),
 	STRATEGIC_TEAM (
@@ -229,15 +229,15 @@ public enum GovernanceTarget implements FmmEnumNode {
     WORK_ASSET (
             FmmNodeDefinition.WORK_ASSET,
             GovernanceParticipationType.REQUIRED,
-            GovernanceParticipationType.REQUIRED,
-            GovernanceParticipationType.NONE,
+            GovernanceParticipationType.OPTIONAL,
+            GovernanceParticipationType.OPTIONAL,
             GovernanceParticipationType.NONE,
             false),
 	WORK_PACKAGE (
 			FmmNodeDefinition.WORK_PACKAGE,
+            GovernanceParticipationType.REQUIRED,
+            GovernanceParticipationType.OPTIONAL,
 			GovernanceParticipationType.OPTIONAL,
-			GovernanceParticipationType.REQUIRED,
-			GovernanceParticipationType.NONE,
 			GovernanceParticipationType.NONE,
 			false),
 	WORK_PLAN (
@@ -249,9 +249,9 @@ public enum GovernanceTarget implements FmmEnumNode {
 			false),
 	WORK_TASK (
 			FmmNodeDefinition.WORK_TASK,
+            GovernanceParticipationType.REQUIRED,
+            GovernanceParticipationType.OPTIONAL,
 			GovernanceParticipationType.OPTIONAL,
-			GovernanceParticipationType.REQUIRED,
-			GovernanceParticipationType.NONE,
 			GovernanceParticipationType.NONE,
 			false);
 	
@@ -310,8 +310,8 @@ public enum GovernanceTarget implements FmmEnumNode {
 	
 	GovernanceTarget(
 			FmmNodeDefinition aTargetNodeDictionaryEntry,
-			GovernanceParticipationType aSponsorRequirement,
-			GovernanceParticipationType aFacilitatorRequirement,
+            GovernanceParticipationType aFacilitatorRequirement,
+            GovernanceParticipationType aSponsorRequirement,
 			GovernanceParticipationType aCustomerRequirement,
 			GovernanceParticipationType anAdministratorRequirement,
 			boolean bAutoCompletable ) {
@@ -389,6 +389,34 @@ public enum GovernanceTarget implements FmmEnumNode {
 	public boolean isCustomerRequired() {
 		return getCustomerRequirement() == GovernanceParticipationType.REQUIRED ? true : false;
 	}
+
+    public boolean isRequired(GovernanceRole aGovernanceRole) {
+        boolean isRequired = false;
+        if(aGovernanceRole == GovernanceRole.SPONSOR) {
+            isRequired = isSponsorRequired();
+        } else if(aGovernanceRole == GovernanceRole.CUSTOMER) {
+            isRequired = isCustomerRequired();
+        } else if(aGovernanceRole == GovernanceRole.ADMINISTRATOR) {
+            isRequired = isAdministratorRequired();
+        } else if(aGovernanceRole == GovernanceRole.FACILITATOR) {
+            isRequired = isFacilitatorRequired();
+        }
+        return isRequired;
+    }
+
+    public boolean mayHave(GovernanceRole aGovernanceRole) {
+        boolean isRequired = false;
+        if(aGovernanceRole == GovernanceRole.SPONSOR) {
+            isRequired = getSponsorRequirement() != GovernanceParticipationType.NONE;
+        } else if(aGovernanceRole == GovernanceRole.CUSTOMER) {
+            isRequired = getCustomerRequirement() != GovernanceParticipationType.NONE;
+        } else if(aGovernanceRole == GovernanceRole.ADMINISTRATOR) {
+            isRequired = getAdministratorRequirement() != GovernanceParticipationType.NONE;
+        } else if(aGovernanceRole == GovernanceRole.FACILITATOR) {
+            isRequired = getFacilitatorRequirement() != GovernanceParticipationType.NONE;
+        }
+        return isRequired;
+    }
 	
 	public GovernanceParticipationType getAdministratorRequirement() {
 		return this.administratorRequirement;

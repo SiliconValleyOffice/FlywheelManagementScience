@@ -45,14 +45,17 @@ package com.flywheelms.library.fms.perspective_flipper.perspective;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.View;
 
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.gcongui.gcg.interfaces.GcgPerspective;
 import com.flywheelms.gcongui.gcg.viewflipper.GcgViewFlipper;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.context.FmmPerspective;
+import com.flywheelms.library.fmm.node.impl.enumerator.GovernanceRole;
 import com.flywheelms.library.fmm.node.impl.enumerator.GovernanceTarget;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragGovernance;
+import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmGovernableNode;
 import com.flywheelms.library.fms.component.FmsGovernanceComponent;
 import com.flywheelms.library.fms.component.FmsGovernanceComponentParent;
 import com.flywheelms.library.fms.helper.FmsHelpIndex;
@@ -64,6 +67,8 @@ public class FmsGovernancePerspective extends FmsPerspectiveFlipperView implemen
 	private FmsGovernanceComponent customerComponent;
 	private FmsGovernanceComponent facilitatorComponent;
 	private FmsGovernanceComponent sponsorComponent;
+    private FmmGovernableNode fmmGovernableNode;
+    private NodeFragGovernance nodeFragGovernance;
 
 	@Override
 	public GcgPerspective getGcgPerspective() {
@@ -94,13 +99,17 @@ public class FmsGovernancePerspective extends FmsPerspectiveFlipperView implemen
 		super.initialize(anGcgActivity, aViewFlipper, aSpinnableMenuIndex, aPageNumber);
 		this.administratorComponent = (FmsGovernanceComponent) findViewById(R.id.governance_component__administrator);
 		this.administratorComponent.setParent(this);
+        this.administratorComponent.setVisibility(View.INVISIBLE);
 		this.customerComponent = (FmsGovernanceComponent) findViewById(R.id.governance_component__customer);
-		this.customerComponent.setParent(this);
-		this.facilitatorComponent = (FmsGovernanceComponent) findViewById(R.id.governance_component__facilitator);
-		this.facilitatorComponent.setParent(this);
-		this.sponsorComponent = (FmsGovernanceComponent) findViewById(R.id.governance_component__sponsor);
-		this.sponsorComponent.setParent(this);
-	}
+        this.customerComponent.setParent(this);
+        this.customerComponent.setVisibility(View.INVISIBLE);
+        this.facilitatorComponent = (FmsGovernanceComponent) findViewById(R.id.governance_component__facilitator);
+        this.facilitatorComponent.setParent(this);
+        this.facilitatorComponent.setVisibility(View.INVISIBLE);
+        this.sponsorComponent = (FmsGovernanceComponent) findViewById(R.id.governance_component__sponsor);
+        this.sponsorComponent.setParent(this);
+        this.sponsorComponent.setVisibility(View.INVISIBLE);
+    }
 
 	@Override
 	protected String getHelpContextUrlString() {
@@ -118,5 +127,30 @@ public class FmsGovernancePerspective extends FmsPerspectiveFlipperView implemen
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+    protected void activateView() {
+        viewData();
+        super.activateView();
+    }
+
+    public void viewData() {
+        this.nodeFragGovernance = ((FmmGovernableNode) getFmmHeadlineNode()).getNodeFragGovernance();
+        this.facilitatorComponent.setVisibility(
+                this.nodeFragGovernance.mayHave(GovernanceRole.FACILITATOR) ? View.VISIBLE : View.GONE);
+        this.facilitatorComponent.setGovernanceRequired(
+                this.nodeFragGovernance.isRequired(GovernanceRole.FACILITATOR));
+        this.sponsorComponent.setVisibility(
+                this.nodeFragGovernance.mayHave(GovernanceRole.SPONSOR) ? View.VISIBLE : View.GONE);
+        this.sponsorComponent.setGovernanceRequired(
+                this.nodeFragGovernance.isRequired(GovernanceRole.SPONSOR));
+        this.customerComponent.setVisibility(
+                this.nodeFragGovernance.mayHave(GovernanceRole.CUSTOMER) ? View.VISIBLE : View.GONE);
+        this.customerComponent.setGovernanceRequired(
+                this.nodeFragGovernance.isRequired(GovernanceRole.CUSTOMER));
+        this.administratorComponent.setVisibility(
+                this.nodeFragGovernance.mayHave(GovernanceRole.ADMINISTRATOR) ? View.VISIBLE : View.GONE);
+        this.administratorComponent.setGovernanceRequired(
+                this.nodeFragGovernance.isRequired(GovernanceRole.ADMINISTRATOR));
+    }
 
 }

@@ -86,7 +86,7 @@ import java.util.Date;
 
 public class FsePerspectiveFlipper extends FmsPerspectiveFlipper implements GcgSerialization, FmmNodeAudit {
 
-	protected String nodeFragNodeIdString;
+	protected String nodeFragFseDocumentId;
 	protected FseDocument displayedFseDocument;
 	protected FseDocumentSectionType activeDocumentSectionType;
 	private FrameLayout documentViewLayout;
@@ -129,7 +129,7 @@ public class FsePerspectiveFlipper extends FmsPerspectiveFlipper implements GcgS
 	
 	public void viewDocument(FseDocument anFseDocument, FseDocument aDocumentBaseline) {
 		FseDocument theDocumentClone = anFseDocument.getClone();
-		this.nodeFragNodeIdString = anFseDocument.getNodeFragNodeIdString();
+		this.nodeFragFseDocumentId = anFseDocument.getNodeFragNodeIdString();
 		this.baselineDocument = aDocumentBaseline;
 		this.documentId = theDocumentClone.getDocumentId();
 		setParentNodeIdString(theDocumentClone.getParentNodeIdString());
@@ -222,8 +222,8 @@ public class FsePerspectiveFlipper extends FmsPerspectiveFlipper implements GcgS
 		return this.documentId;
 	}
 	
-	public String getNodeFragNodeIdString() {
-		return this.nodeFragNodeIdString;
+	public String getNodeFragFseDocumentId() {
+		return this.nodeFragFseDocumentId;
 	}
 	
 	public boolean documentIsModified() {
@@ -290,7 +290,7 @@ public class FsePerspectiveFlipper extends FmsPerspectiveFlipper implements GcgS
 	 */
 	public FseDocument generateFseDocument() {
 		FseDocument theDocument = new FseDocument(this.documentId, getParentNodeIdString(), this.documentMarginLeft);
-		theDocument.setNodeFragNodeIdString(this.nodeFragNodeIdString);
+		theDocument.setNodeFragNodeIdString(this.nodeFragFseDocumentId);
 		theDocument.setForExport(this.forExport);
 		theDocument.setInitialDocumentSectionType(((FseDocumentSectionPerspective) getCurrentView()).getSectionType());
 		if(this.forExport) {
