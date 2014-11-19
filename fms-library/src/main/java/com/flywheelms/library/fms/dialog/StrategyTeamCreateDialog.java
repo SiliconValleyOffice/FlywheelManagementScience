@@ -1,4 +1,4 @@
-/* @(#)BookshelfCreateDialog.java
+/* @(#)StrategyTeamCreateDialog.java
 ** 
 ** Copyright (C) 2012 by Steven D. Stamps
 **
@@ -51,11 +51,11 @@ import com.flywheelms.library.fmm.node.impl.governable.Bookshelf;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.fms.treeview.filter.FmsTreeViewAdapter;
 
-public class BookshelfCreateDialog extends RootNodeCreateDialog {
+public class StrategyTeamCreateDialog extends RootNodeCreateDialog {
 
-    public BookshelfCreateDialog(GcgActivity aLibraryActivity, FmsTreeViewAdapter aTreeViewAdapter) {
-        super(aLibraryActivity, aTreeViewAdapter, FmmNodeDefinition.BOOKSHELF);
-    }
+	public StrategyTeamCreateDialog(GcgActivity aLibraryActivity, FmsTreeViewAdapter aTreeViewAdapter) {
+		super(aLibraryActivity, aTreeViewAdapter, FmmNodeDefinition.STRATEGY_TEAM);
+	}
 
     protected FmmHeadlineNode createRootNode() {
         Bookshelf theBookshelf =

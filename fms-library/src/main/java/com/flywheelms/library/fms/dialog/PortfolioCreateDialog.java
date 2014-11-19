@@ -43,97 +43,21 @@
 
 package com.flywheelms.library.fms.dialog;
 
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.view.View;
-import android.widget.CheckBox;
-
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.gcongui.gcg.helper.GcgHelper;
-import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.governable.Portfolio;
+import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.fms.treeview.filter.FmsTreeViewAdapter;
-import com.flywheelms.library.fms.widget.edit_text.HeadlineWidgetEditText;
-import com.flywheelms.library.fms.widget.text_view.FmmNodeTypeWidgetTextView;
 
-public class PortfolioCreateDialog extends FmsCancelOkApplyFdkDialog {
+public class PortfolioCreateDialog extends RootNodeCreateDialog {
 
-	FmsTreeViewAdapter treeViewAdapter;
-	protected FmmNodeTypeWidgetTextView fmmNodeTypeWidget;
-    protected HeadlineWidgetEditText headlineWidget;
-	protected CheckBox editNewPortfolio;
-
-	public PortfolioCreateDialog(GcgActivity aLibraryActivity, FmsTreeViewAdapter aTreeViewAdapter) {
-		super(aLibraryActivity, FmmNodeDefinition.PORTFOLIO);
-		this.treeViewAdapter = aTreeViewAdapter;
-        initializeDialogBodyLate();
-        initFdkHostSupport();
-        manageButtonState();
-	}
-
-	@Override
-	protected int getDialogTitleStringResourceId() {
-		return R.string.fms__create;
-	}
-
-    @Override
-    protected int getCustomDialogContentsResourceId() {
-        return R.layout.root_tree_node__create__dialog;
+    public PortfolioCreateDialog(GcgActivity aLibraryActivity, FmsTreeViewAdapter aTreeViewAdapter) {
+        super(aLibraryActivity, aTreeViewAdapter, FmmNodeDefinition.PORTFOLIO);
     }
 
-    @Override
-    protected void initializeDialogBody() {
-        return;
-    }
-
-    protected void initializeDialogBodyLate() {
-		super.initializeDialogBody();
-		this.fmmNodeTypeWidget = (FmmNodeTypeWidgetTextView) this.dialogBodyView.findViewById(R.id.fmm_node__type);
-		this.fmmNodeTypeWidget.setText(getFmmNodeDefinition().getLabelTextResourceId());
-        this.headlineWidget = (HeadlineWidgetEditText) this.dialogBodyView.findViewById(R.id.headline);
-        this.headlineWidget.addTextChangedListener(new TextWatcher() {
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                return;
-            }
-
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                return;
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                PortfolioCreateDialog.this.manageButtonState();
-            }
-        });
-		this.editNewPortfolio = (CheckBox) this.dialogBodyView.findViewById(R.id.edit_new_fmm_node);
-        this.editNewPortfolio.setText("Edit new " + getFmmNodeDefinition().getLabelText());
-	}
-
-	@Override
-	protected void manageButtonState() {
-        if(this.buttonApply == null) {  // to support late initialization
-            return;
-        }
-        this.buttonApply.setVisibility(isMinimumInput() ? View.VISIBLE : View.INVISIBLE);
-        this.buttonOk.setVisibility(isMinimumInput() ? View.VISIBLE : View.INVISIBLE);
-	}
-
-	protected boolean isMinimumInput() {
-        return this.headlineWidget.isMinimumInput();
-	}
-
-	@Override
-	protected void onClickButtonApply() {
-        createPortfolio();
-        this.headlineWidget.setText("");
-	}
-
-    private void createPortfolio() {
+    protected FmmHeadlineNode createRootNode() {
         Portfolio thePortfolio =
                 FmmDatabaseMediator.getActiveMediator().createPortfolio(this.headlineWidget.getData());
         if(thePortfolio != null) {
@@ -143,18 +67,6 @@ public class PortfolioCreateDialog extends FmsCancelOkApplyFdkDialog {
         } else {
             GcgHelper.makeToast("ERROR:  Unable to create " + this.fmmNodeTypeWidget.getText() + " " + this.headlineWidget.getData());
         }
-    }
-
-    @Override
-	protected void onClickButtonOk() {
-        createPortfolio();
-		this.gcgActivity.stopDialog();
-	}
-
-    @Override
-    public void initFdkDictationResultsConsumerMap() {
-        addFdkDictationResultsConsumer(this.headlineWidget);
-        this.currentFdkDictationResultsConsumer = this.headlineWidget;
-        fdkFocusConsumer(this.currentFdkDictationResultsConsumer);
+        return thePortfolio;
     }
 }

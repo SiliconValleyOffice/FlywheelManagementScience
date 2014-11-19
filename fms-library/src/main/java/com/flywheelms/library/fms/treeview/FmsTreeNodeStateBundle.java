@@ -53,6 +53,10 @@ public class FmsTreeNodeStateBundle extends GcgTreeNodeStateBundle {
     public static final GcgTreeNodeStateBundle FWB__CONTEXT__STRATEGIC_PLANNING = new FmsTreeNodeStateBundle("com.flywheelms.workbench.context.strategic_planning");
     public static final GcgTreeNodeStateBundle FWB__CONTEXT__WORK_BREAKDOWN = new FmsTreeNodeStateBundle("com.flywheelms.workbench.context.work_breakdown");
     public static final GcgTreeNodeStateBundle FWB__CONTEXT__WORK_PLANNING = new FmsTreeNodeStateBundle("com.flywheelms.workbench.context.work_planning");
+    public static final GcgTreeNodeStateBundle FWB__TEAMS_STRATEGY = new FmsTreeNodeStateBundle("com.flywheelms.workbench.teams.strategy");
+    public static final GcgTreeNodeStateBundle FWB__TEAMS_FLYWHEEL = new FmsTreeNodeStateBundle("com.flywheelms.workbench.teams.flywheel");
+    public static final GcgTreeNodeStateBundle FWB__TEAMS_FUNCTIONAL = new FmsTreeNodeStateBundle("com.flywheelms.workbench.teams.functional");
+    public static final GcgTreeNodeStateBundle FWB__TEAMS_GOVERNANCE = new FmsTreeNodeStateBundle("com.flywheelms.workbench.teams.governance");
 
     static {
         GcgTreeNodeStateBundle.VALUES.add(FWB__CONTEXT__NOTEBOOK);

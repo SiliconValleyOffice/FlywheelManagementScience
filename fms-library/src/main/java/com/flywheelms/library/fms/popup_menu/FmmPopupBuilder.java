@@ -104,6 +104,10 @@ public class FmmPopupBuilder {
 	public static final String menu_item__DELETE_STRATEGIC_MILESTONE = "Delete Strategic Milestone...";
 	public static final String menu_item__MOVE_STRATEGIC_MILESTONE = "Move Strategic Milestone...";
 
+    public static final String menu_item__CREATE_STRATEGY_TEAM = "Create Strategy Team...";
+    public static final String menu_item__EDIT_STRATEGY_TEAM = "Edit Strategy Team...";
+    public static final String menu_item__DELETE_STRATEGY_TEAM = "Delete Strategy Team...";
+
     public static final String menu_item__CREATE_STRATEGIC_ASSET = "Create Strategic Asset...";
     public static final String menu_item__EDIT_STRATEGIC_ASSETS = "Edit Strategic Assets...";
     public static final String menu_item__DELETE_STRATEGIC_ASSET = "Delete Strategic Asset...";

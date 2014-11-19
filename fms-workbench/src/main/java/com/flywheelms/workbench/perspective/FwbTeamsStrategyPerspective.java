@@ -45,13 +45,26 @@ package com.flywheelms.workbench.perspective;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.PopupMenu;
 
 import com.flywheelms.gcongui.gcg.interfaces.GcgPerspective;
+import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewAdapter;
+import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewMediator;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fms.helper.FmsHelpIndex;
+import com.flywheelms.library.fms.popup_menu.FmmPopupBuilder;
+import com.flywheelms.library.fms.preferences.GuiPreferencesBundle;
+import com.flywheelms.library.fms.tree_view_flipper.tree_view.FmsPerspectiveFlipperTreeView;
+import com.flywheelms.library.fms.treeview.FmsTreeNodeStateBundle;
+import com.flywheelms.library.fms.treeview.FmsTreeViewMediatorMemoryResident;
+import com.flywheelms.library.fms.treeview.filter.FmsTreeViewAdapter;
+import com.flywheelms.library.fms.treeview.filter.TeamsTreeFilter;
+import com.flywheelms.library.fwb.treeview.treebuilder.FmsTreeBuilder;
 
-public class FwbTeamsStrategyPerspective extends FwbNotImplementedPerspective {
+public class FwbTeamsStrategyPerspective extends FmsPerspectiveFlipperTreeView {
 	
 	@Override
 	public GcgPerspective getGcgPerspective() {
@@ -76,5 +89,118 @@ public class FwbTeamsStrategyPerspective extends FwbNotImplementedPerspective {
 	protected String getHelpContextUrlString() {
 		return FmsHelpIndex.PERSPECTIVE__TEAMS__STRATEGY;
 	}
+
+    ////////////////
+
+
+    @Override
+    protected int getRightMenuHeadingArrayResourceId() {
+        return R.array.teams__strategy__right_menu__heading_array;
+    }
+
+    @Override
+    protected int getRightMenuLayoutResourceId() {
+        return R.layout.context__strategic_planning__right_menu;
+    }
+
+    @Override
+    protected int[] getRightMenuBodyResourceIdArray() {
+        return new int[]{
+                R.id.show_menu__body,
+                R.id.governance__menu_body,
+                R.id.work_status__menu_body,
+                R.id.team__menu_body};
+    }
+
+    protected String getTreeNodePeristentStateBundleKey() {
+        return FmsTreeNodeStateBundle.FWB__CONTEXT__STRATEGIC_PLANNING.getKey();
+    }
+
+    @Override
+    protected GcgTreeViewMediator createGcgTreeViewMediator() {
+        GcgTreeViewMediator theGcgTreeViewMediator =
+                new FmsTreeViewMediatorMemoryResident(new TeamsTreeFilter(this));
+        final FmsTreeBuilder theTreeBuilder = new FmsTreeBuilder(theGcgTreeViewMediator);
+
+//        Collection<FiscalYear> theFiscalYearCollection = FmmDatabaseMediator.getActiveMediator().retrieveFiscalYearList(
+//                FmmDatabaseMediator.getActiveMediator().getFmmOwner());
+//        for(FiscalYear theFiscalYear : theFiscalYearCollection) {
+//            Collection<StrategicMilestone> theStrategicMilestoneCollection =
+//                    FmmDatabaseMediator.getActiveMediator().retrieveStrategicMilestoneList(theFiscalYear);
+//            GcgTreeNodeInfo theFiscalYearTreeNodeInfo = theTreeBuilder.addTopNode(
+//                    theFiscalYear, theStrategicMilestoneCollection.size()>0, FmmPerspective.STRATEGIC_PLANNING );
+//            for(StrategicMilestone theStrategicMilestone : theStrategicMilestoneCollection) {
+//                Collection<StrategicAsset> theStrategicAssetCollection =
+//                        FmmDatabaseMediator.getActiveMediator().retrieveStrategicAssetList(theStrategicMilestone);
+//                GcgTreeNodeInfo theStrategicMilestoneTreeNodeInfo = theTreeBuilder.addChildNode(
+//                        theStrategicMilestone, theStrategicAssetCollection.size()>0, theFiscalYearTreeNodeInfo, FmmPerspective.STRATEGIC_PLANNING);
+//                for(StrategicAsset theStrategicAsset : theStrategicAssetCollection) {
+//                    GcgTreeNodeInfo theTreeNodeInfo = theTreeBuilder.addLeafNode(
+//                            theStrategicAsset, theStrategicMilestoneTreeNodeInfo, FmmPerspective.STRATEGIC_PLANNING);
+//                    theTreeNodeInfo.setLeafNode(true);
+//                }
+//            }
+//        }
+        return theGcgTreeViewMediator;
+    }
+
+    @Override
+    protected PopupMenu getTreeViewBackgroundPopupMenu(View aView, final GcgTreeViewAdapter aTreeViewAdapter) {
+        PopupMenu thePopupMenu = new PopupMenu(getContext(), aView);
+        // TODO - conditional for API 19 and above
+//		PopupMenu thePopupMenu = new PopupMenu(getContext(), aView, Gravity.CENTER | Gravity,LEFT);  // target API 19
+        thePopupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+
+            @Override
+            public boolean onMenuItemClick(MenuItem aMenuItem) {
+                if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__CREATE_STRATEGY_TEAM)) {
+                    ((FmsTreeViewAdapter) aTreeViewAdapter).createStrategyTeam();
+                }
+                return true;
+            }
+        });
+        thePopupMenu.getMenu().add(FmmPopupBuilder.menu_item__CREATE_FISCAL_YEAR);
+        return thePopupMenu;
+    }
+
+    @Override
+    public boolean startButtonEnabled() {
+        return true;
+    }
+
+    @Override
+    protected int getStartButtonBackgroundResourceId() {
+        return R.drawable.fms__button_state_list__start__fiscal_year;
+    }
+
+    @Override
+    protected void initializeStartButtonListener() {
+        this.startButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View aView) {
+                ((FmsTreeViewAdapter) FwbTeamsStrategyPerspective.this.getGcgTreeViewAdapter()).createFiscalYear();
+            }
+        });
+    }
+
+    @Override
+    public String getPreferencesBundleNameShowMenu() {
+        return GuiPreferencesBundle.FWB__CONTEXT__STRATEGIC_PLANNING__SHOW.getKey();
+    }
+
+    @Override
+    public String getPreferencesBundleNameGovernanceMenu() {
+        return GuiPreferencesBundle.FWB__CONTEXT__STRATEGIC_PLANNING__GOVERNANCE.getKey();
+    }
+
+    @Override
+    public String getPreferencesBundleNameWorkStatusMenu() {
+        return GuiPreferencesBundle.FWB__CONTEXT__STRATEGIC_PLANNING__WORK_STATUS.getKey();
+    }
+
+    @Override
+    public String getPreferencesBundleNameTeamMenu() {
+        return GuiPreferencesBundle.FWB__CONTEXT__STRATEGIC_PLANNING__TEAM.getKey();
+    }
 
 }
