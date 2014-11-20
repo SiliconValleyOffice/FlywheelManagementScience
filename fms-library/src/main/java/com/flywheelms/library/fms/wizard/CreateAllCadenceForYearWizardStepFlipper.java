@@ -51,7 +51,7 @@ import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
 import com.flywheelms.gcongui.gcg.widget.date.GcgDayOfWeek;
 import com.flywheelms.gcongui.gcg.wizard.GcgWizardStepFlipper;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.impl.governable.Cadence;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
 import com.flywheelms.library.fmm.node.impl.governable.WorkPlan;
@@ -121,9 +121,9 @@ public class CreateAllCadenceForYearWizardStepFlipper extends GcgWizardStepFlipp
 		GcgHelper.makeToast("Creating all Cadence for Fiscal Year " + getFiscalYear().getHeadline() + "...");
         getFiscalYear().setCadenceDuration(getWizardStepView1().getCadenceDuration());
         getFiscalYear().setWorkPlanFirstDayOfWeek(getWizardStepView1().getWorkPlanFirstDayOfWeek().getDayOfWeekName());
-        FmmDatabaseMediator.getActiveMediator().updateFiscalYear(getFiscalYear(), true);
-        FmmDatabaseMediator.getActiveMediator().insertFiscalYearHolidayBreakList(getWizardStepView2().getFiscalYearHolidayBreakList(), true);
-        FmmDatabaseMediator.getActiveMediator().insertCadenceList(generateCadenceList(), true);
+        FmmDatabaseService.getActiveMediator().updateFiscalYear(getFiscalYear(), true);
+        FmmDatabaseService.getActiveMediator().insertFiscalYearHolidayBreakList(getWizardStepView2().getFiscalYearHolidayBreakList(), true);
+        FmmDatabaseService.getActiveMediator().insertCadenceList(generateCadenceList(), true);
 		getGcgActivity().finish(GcgActivity.REFRESH_DATA, GcgActivity.RESTORE_GUI_STATE);
 	}
 
@@ -264,7 +264,7 @@ public class CreateAllCadenceForYearWizardStepFlipper extends GcgWizardStepFlipp
     }
 
     private void adjustWorkPlanForHolidays(WorkPlan theWorkPlan, GregorianCalendar aPlanStartDate, GregorianCalendar aPlanEndDate) {
-        FiscalYearHolidayBreak theHolidayBreak = FmmDatabaseMediator.getActiveMediator().getFmsOrganization().includesFiscalYearHolidayBreak(getFiscalYear().getNodeIdString(), aPlanStartDate, aPlanEndDate);
+        FiscalYearHolidayBreak theHolidayBreak = FmmDatabaseService.getActiveMediator().getFmsOrganization().includesFiscalYearHolidayBreak(getFiscalYear().getNodeIdString(), aPlanStartDate, aPlanEndDate);
         if(theHolidayBreak != null) {
             aPlanEndDate.add(Calendar.DATE, 7);
             theWorkPlan.setScheduledEndDate(aPlanEndDate.getTime());

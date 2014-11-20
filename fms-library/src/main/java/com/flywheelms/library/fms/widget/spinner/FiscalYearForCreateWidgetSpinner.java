@@ -48,7 +48,7 @@ import android.util.AttributeSet;
 
 import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
 import com.flywheelms.gcongui.gcg.interfaces.GuiableString;
-import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
 
 import java.util.ArrayList;
@@ -63,7 +63,7 @@ public class FiscalYearForCreateWidgetSpinner extends FiscalYearWidgetSpinner {
 
 	@Override
 	protected ArrayList<? extends GcgGuiable> getDefaultGuiableList() {
-		Collection<FiscalYear> theFiscalYearCollection = FmmDatabaseMediator.getActiveMediator().retrieveFiscalYearList(FmmDatabaseMediator.getActiveMediator().getFmmOwner());
+		Collection<FiscalYear> theFiscalYearCollection = FmmDatabaseService.getActiveMediator().retrieveFiscalYearList(FmmDatabaseService.getActiveMediator().getFmmOwner());
 		ArrayList<String> theExistingYears = new ArrayList<String>();
 		for(FiscalYear theFiscalYear : theFiscalYearCollection) {
 			theExistingYears.add(theFiscalYear.getYearString());

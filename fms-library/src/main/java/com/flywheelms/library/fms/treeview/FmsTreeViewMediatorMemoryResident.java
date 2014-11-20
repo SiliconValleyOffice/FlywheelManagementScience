@@ -47,7 +47,7 @@ import com.flywheelms.gcongui.gcg.treeview.GcgTreeFilter;
 import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewMediatorMemoryResident;
 import com.flywheelms.gcongui.gcg.treeview.node.GcgTreeNodeInfo;
 import com.flywheelms.gcongui.gcg.treeview.node.GcgTreeNodeTargetObject;
-import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.context.FmmPerspective;
 
 public class FmsTreeViewMediatorMemoryResident extends GcgTreeViewMediatorMemoryResident {
@@ -56,7 +56,7 @@ public class FmsTreeViewMediatorMemoryResident extends GcgTreeViewMediatorMemory
 
     @Override
     protected GcgTreeNodeInfo createRootTreeNodeInfo() {
-        return new GcgTreeNodeInfo(FmmDatabaseMediator.getActiveMediator().getFmmOwner(), -1, true, FmmPerspective.STRATEGIC_PLANNING);
+        return new GcgTreeNodeInfo(FmmDatabaseService.getActiveMediator().getFmmOwner(), -1, true, FmmPerspective.STRATEGIC_PLANNING);
     }
 
     public FmsTreeViewMediatorMemoryResident(GcgTreeFilter aTreeFilter) {

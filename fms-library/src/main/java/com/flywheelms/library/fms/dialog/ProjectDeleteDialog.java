@@ -47,7 +47,7 @@ import android.widget.LinearLayout;
 
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.impl.governable.Portfolio;
 import com.flywheelms.library.fmm.node.impl.governable.Project;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
@@ -72,7 +72,7 @@ public class ProjectDeleteDialog extends HeadlineNodeDeleteDialog {
 
 	@Override
 	protected ArrayList<? extends FmmHeadlineNode> getPrimaryChildHeadlineNodeList() {
-		return FmmDatabaseMediator.getActiveMediator().retrieveProjectAssetList((Project) getFmmHeadlineNode());
+		return FmmDatabaseService.getActiveMediator().retrieveProjectAssetList((Project) getFmmHeadlineNode());
 	}
 
 	@Override
@@ -102,7 +102,7 @@ public class ProjectDeleteDialog extends HeadlineNodeDeleteDialog {
 	@Override
 	protected void updateTargetParentWidgetSpinner(final DeleteDisposition aDeleteDisposition) {
 		((PortfolioWidgetSpinner) aDeleteDisposition.getTargetParentWidgetSpinner()).updateSpinnerData(
-				FmmDatabaseMediator.getActiveMediator().getFmmOwner(),
+				FmmDatabaseService.getActiveMediator().getFmmOwner(),
 				(Portfolio) aDeleteDisposition.getTargetHeadlineNodeException() );
 	}
 
@@ -115,17 +115,17 @@ public class ProjectDeleteDialog extends HeadlineNodeDeleteDialog {
 
 	@Override
 	protected boolean deleteHeadlineNode() {
-		return FmmDatabaseMediator.getActiveMediator().deleteProject((Project) getFmmHeadlineNode(), false);
+		return FmmDatabaseService.getActiveMediator().deleteProject((Project) getFmmHeadlineNode(), false);
 	}
 
 	@Override
 	protected boolean orphanPrimaryChildren() {
-		return FmmDatabaseMediator.getActiveMediator().orphanAllProjectAssetsFromProject(getFmmHeadlineNode().getNodeIdString(), false);
+		return FmmDatabaseService.getActiveMediator().orphanAllProjectAssetsFromProject(getFmmHeadlineNode().getNodeIdString(), false);
 	}
 
 	@Override
 	protected boolean movePrimaryChildrenToNewParent() {
-		return FmmDatabaseMediator.getActiveMediator().moveAllProjectAssetsIntoProject(
+		return FmmDatabaseService.getActiveMediator().moveAllProjectAssetsIntoProject(
                 getFmmHeadlineNode().getNodeIdString(),
                 this.primaryChildDeleteDisposition.getTargetWidgetSpinner().getFmmNode().getNodeIdString(),
                 this.primaryChildDeleteDisposition.isSequencePositionSpinnerAtEnd(),

@@ -54,7 +54,7 @@ import com.flywheelms.gcongui.gcg.widget.date.GcgDayOfWeek;
 import com.flywheelms.gcongui.gcg.widget.date.GcgWidgetMonthTextView;
 import com.flywheelms.gcongui.gcg.wizard.step.GcgWizardStepView;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
 import com.flywheelms.library.fms.helper.FmsHelpIndex;
 import com.flywheelms.library.fms.widget.spinner.CadenceDurationWidgetSpinner;
@@ -92,7 +92,7 @@ public class CreateAllCadenceParametersWizardStepView extends GcgWizardStepView 
         this.fiscalYearWidgetTextView = (FiscalYearWidgetTextView) findViewById(R.id.fiscal_year__text_view);
         this.fiscalYearWidgetTextView.setFiscalYear(getFiscalYear());
         this.firstMonthOfFiscalYearTextView = (GcgWidgetMonthTextView) findViewById(R.id.first_month_of_fiscal_year__text_view);
-        this.firstMonthOfFiscalYearTextView.setMonth(FmmDatabaseMediator.getActiveMediator().getFmsOrganization().getFirstMonthOfFiscalYear());
+        this.firstMonthOfFiscalYearTextView.setMonth(FmmDatabaseService.getActiveMediator().getFmsOrganization().getFirstMonthOfFiscalYear());
         this.cadenceDurationSpinner = (CadenceDurationWidgetSpinner) findViewById(R.id.cadence_duration__spinner);
         this.workPlanFirstDayOfWeekWidgetSpinner = (WorkPlanFirstDayOfWeekWidgetSpinner) findViewById(R.id.work_plan__first_day_of_week__spinner);
 	}

@@ -50,7 +50,7 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewAdapter;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
 import com.flywheelms.library.fmm.node.impl.governable.Portfolio;
@@ -151,14 +151,14 @@ public class StrategicAssetMoveDialog extends HeadlineNodeMoveDialog {
 	protected boolean moveHeadlineNode() {
         boolean theMoveStatus = false;
         if(this.strataegicMilestoneParent) {
-            theMoveStatus = FmmDatabaseMediator.getActiveMediator().moveSingleStrategicAssetIntoStrategicMilestone(
+            theMoveStatus = FmmDatabaseService.getActiveMediator().moveSingleStrategicAssetIntoStrategicMilestone(
                     getFmmHeadlineNode().getNodeIdString(),
                     ((StrategicAsset) getFmmHeadlineNode()).getStrategicMilestoneNodeId(),
                     this.dispositionTargetWidgetSpinner.getFmmNode().getNodeIdString(),
                     this.sequencePositionSpinner.sequenceAtEnd(),
                     true);
         } else {
-            theMoveStatus = FmmDatabaseMediator.getActiveMediator().moveSingleStrategicAssetIntoProject(
+            theMoveStatus = FmmDatabaseService.getActiveMediator().moveSingleStrategicAssetIntoProject(
                     getFmmHeadlineNode().getNodeIdString(),
                     ((StrategicAsset) getFmmHeadlineNode()).getProjectNodeIdString(),
                     this.dispositionTargetWidgetSpinner.getFmmNode().getNodeIdString(),

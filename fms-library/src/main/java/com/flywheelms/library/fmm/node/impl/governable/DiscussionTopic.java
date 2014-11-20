@@ -45,7 +45,7 @@ package com.flywheelms.library.fmm.node.impl.governable;
 
 import com.flywheelms.gcongui.deckangl.enumerator.DecKanGlDecoratorCanvasLocation;
 import com.flywheelms.gcongui.deckangl.interfaces.DecKanGlDecorator;
-import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorCadenceCommitment;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorCompletion;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorFacilitationIssue;
@@ -136,14 +136,14 @@ public class DiscussionTopic extends FmmCompletionNodeImpl {
 
     public ArrayList<Notebook> getNotebookList() {
         if(this.notebookList == null) {
-            this.notebookList = FmmDatabaseMediator.getActiveMediator().retrieveNotebookList(this);
+            this.notebookList = FmmDatabaseService.getActiveMediator().retrieveNotebookList(this);
         }
         return this.notebookList;
     }
 
     public ArrayList<NodeFragAuditBlock> getNodeFragAuditBlockList() {
         if(this.nodeFragAuditBlockList == null) {
-            this.nodeFragAuditBlockList = FmmDatabaseMediator.getActiveMediator().retrieveNodeFragAuditBlockList(this);
+            this.nodeFragAuditBlockList = FmmDatabaseService.getActiveMediator().retrieveNodeFragAuditBlockList(this);
         }
         return this.nodeFragAuditBlockList;
     }

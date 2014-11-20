@@ -49,7 +49,7 @@ import android.graphics.drawable.Drawable;
 import com.flywheelms.gcongui.gcg.GcgApplication;
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.meta_data.CommunityMemberMetaData;
 import com.flywheelms.library.fmm.node.FmmHeadlineNodeShallow;
 import com.flywheelms.library.fmm.node.NodeId;
@@ -74,13 +74,13 @@ public class CommunityMember extends FmmGovernableNodeImpl implements FmmSupport
 
 	public static CommunityMember getNullValue() {
 		if(CommunityMember.NULL_COMMUNITY_MEMBER == null) {
-			CommunityMember.NULL_COMMUNITY_MEMBER = FmmDatabaseMediator.getActiveMediator().retrieveCommunityMember(null_COMMUNITY_MEMBER_NODE_ID_STRING);
+			CommunityMember.NULL_COMMUNITY_MEMBER = FmmDatabaseService.getActiveMediator().retrieveCommunityMember(null_COMMUNITY_MEMBER_NODE_ID_STRING);
 			if(CommunityMember.NULL_COMMUNITY_MEMBER == null) {
 				CommunityMember.NULL_COMMUNITY_MEMBER = new CommunityMember(null_COMMUNITY_MEMBER_NODE_ID_STRING);
 				CommunityMember.NULL_COMMUNITY_MEMBER.setFamilyName("");
 				CommunityMember.NULL_COMMUNITY_MEMBER.setGivenName("");
 				CommunityMember.NULL_COMMUNITY_MEMBER.setHeadline("");
-				FmmDatabaseMediator.getActiveMediator().insertCommunityMember(CommunityMember.NULL_COMMUNITY_MEMBER, true);
+				FmmDatabaseService.getActiveMediator().insertCommunityMember(CommunityMember.NULL_COMMUNITY_MEMBER, true);
 			}
 		}
 		return CommunityMember.NULL_COMMUNITY_MEMBER;
@@ -131,7 +131,7 @@ public class CommunityMember extends FmmGovernableNodeImpl implements FmmSupport
 	}
 	
 	public static CommunityMember getCommunityMember(Intent anIntent) {
-		return FmmDatabaseMediator.getActiveMediator().retrieveCommunityMember(NodeId.getNodeIdString(anIntent));
+		return FmmDatabaseService.getActiveMediator().retrieveCommunityMember(NodeId.getNodeIdString(anIntent));
 	}
 
 	public String getCommunityMemberStatusCode() {

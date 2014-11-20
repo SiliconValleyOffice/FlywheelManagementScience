@@ -46,7 +46,7 @@ import com.flywheelms.gcongui.deckangl.enumerator.DecKanGlDecoratorCanvasLocatio
 import com.flywheelms.gcongui.deckangl.enumerator.DecKanGlNounStateColor;
 import com.flywheelms.gcongui.deckangl.interfaces.DecKanGlDecorator;
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
-import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorCadenceCommitment;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorCompletion;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorFacilitationIssue;
@@ -152,7 +152,7 @@ public class Bookshelf extends FmmGovernableNodeImpl {
 
     public FmsOrganization getOrganization() {
         if(this.organization == null && this.organizationNodeIdString != null) {
-            this.organization = FmmDatabaseMediator.getActiveMediator().retrieveFmsOrganization(this.organizationNodeIdString);
+            this.organization = FmmDatabaseService.getActiveMediator().retrieveFmsOrganization(this.organizationNodeIdString);
         }
         return this.organization;
     }
@@ -168,7 +168,7 @@ public class Bookshelf extends FmmGovernableNodeImpl {
 
     public ArrayList<Notebook> getNotebookList() {
         if(this.notebookList == null) {
-            this.notebookList = FmmDatabaseMediator.getActiveMediator().retrieveNotebookList(this);
+            this.notebookList = FmmDatabaseService.getActiveMediator().retrieveNotebookList(this);
         }
         return this.notebookList;
     }
@@ -237,7 +237,7 @@ public class Bookshelf extends FmmGovernableNodeImpl {
         ArrayList<? extends FmmHeadlineNodeImpl> theList = null;
         switch(aChildNodeDefinition) {
             case NOTEBOOK:
-                theList = FmmDatabaseMediator.getActiveMediator().retrieveNotebookList(this);
+                theList = FmmDatabaseService.getActiveMediator().retrieveNotebookList(this);
                 break;
         }
         return theList;

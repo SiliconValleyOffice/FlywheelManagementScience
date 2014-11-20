@@ -42,7 +42,7 @@
 
 package com.flywheelms.library.fms.activity;
 
-import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.governable.Cadence;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmNode;
@@ -76,7 +76,7 @@ public class CadenceEditorActivity extends FmmNodeEditorActivity {
 	@Override
 	public void saveAllDataModifications() {
 		super.saveAllDataModifications();
-		FmmDatabaseMediator.getActiveMediator().updateCadence((Cadence) getDisplayedFmmHeadlineNode(), true);
+		FmmDatabaseService.getActiveMediator().updateCadence((Cadence) getDisplayedFmmHeadlineNode(), true);
 	}
 
 }

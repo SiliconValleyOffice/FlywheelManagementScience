@@ -43,7 +43,7 @@
 
 package com.flywheelms.library.fms.pdf.publication.section;
 
-import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fms.pdf.PdfColors;
 import com.flywheelms.library.fms.pdf.PdfFonts;
 import com.flywheelms.library.fms.pdf.PdfUtil;
@@ -88,7 +88,7 @@ public class PdfSectionTitlePage extends HeadlineNodePublicationSection
 	@SuppressWarnings("static-method")
 	private PdfPCell buildCellOrganizationName()
 	{
-		String organizationName = FmmDatabaseMediator.getActiveMediator().getFmmOwner().getName();
+		String organizationName = FmmDatabaseService.getActiveMediator().getFmmOwner().getName();
 		PdfPCell cell = PdfUtil.newCell(organizationName, PdfFonts.BOLD_24_WHITE);
 		cell.setPaddingLeft(4f);
 		cell.setPaddingBottom(8f);

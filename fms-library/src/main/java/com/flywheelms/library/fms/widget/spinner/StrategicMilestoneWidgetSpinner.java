@@ -47,7 +47,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 
 import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
-import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
 import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
@@ -74,7 +74,7 @@ public class StrategicMilestoneWidgetSpinner extends FmmHeadlineNodeWidgetSpinne
 	@Override
 	protected ArrayList<GcgGuiable> getPrimaryParentGuiableList() {
 		ArrayList<GcgGuiable> theGuiableList = new ArrayList<GcgGuiable>(
-			FmmDatabaseMediator.getActiveMediator().retrieveStrategicMilestoneList(
+			FmmDatabaseService.getActiveMediator().retrieveStrategicMilestoneList(
                     this.fiscalYear, this.strategicMilestoneException) );
 		return theGuiableList;
 	}
@@ -86,7 +86,7 @@ public class StrategicMilestoneWidgetSpinner extends FmmHeadlineNodeWidgetSpinne
 			theGuiableList = new ArrayList<GcgGuiable>(); 
 		} else {	
 			theGuiableList = new ArrayList<GcgGuiable>(
-				FmmDatabaseMediator.getActiveMediator().retrieveStrategicMilestoneListForProjectAssetMoveTarget(
+				FmmDatabaseService.getActiveMediator().retrieveStrategicMilestoneListForProjectAssetMoveTarget(
                         this.fiscalYear, this.strategicMilestoneException));
 		}
 		return theGuiableList;
@@ -98,7 +98,7 @@ public class StrategicMilestoneWidgetSpinner extends FmmHeadlineNodeWidgetSpinne
 		if(this.fiscalYear == null) {
 			theGuiableList = new ArrayList<GcgGuiable>(); 
 		} else {	
-			theGuiableList = new ArrayList<GcgGuiable>(FmmDatabaseMediator.getActiveMediator().retrieveStrategicMilestoneListForWorkPackageMoveTarget(
+			theGuiableList = new ArrayList<GcgGuiable>(FmmDatabaseService.getActiveMediator().retrieveStrategicMilestoneListForWorkPackageMoveTarget(
                     this.fiscalYear, this.projectAssetException));
 		}
 		return theGuiableList;

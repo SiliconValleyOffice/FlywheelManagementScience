@@ -44,7 +44,7 @@
 package com.flywheelms.library.fmm.node.impl.commitment;
 
 import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
-import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.FmmHistoryNodeImpl;
 import com.flywheelms.library.fmm.node.impl.enumerator.CompletionCommitmentType;
@@ -168,7 +168,7 @@ public abstract class FmmCommitmentNodeImpl extends FmmHistoryNodeImpl implement
 	@Override
 	public CommunityMember getSuggestedBy() {
 		if(this.suggestedBy == null && this.suggestedByNodeIdString != null) {
-			this.suggestedBy = FmmDatabaseMediator.getActiveMediator().retrieveCommunityMember(this.suggestedByNodeIdString);
+			this.suggestedBy = FmmDatabaseService.getActiveMediator().retrieveCommunityMember(this.suggestedByNodeIdString);
 		}
 		return this.suggestedBy;
 	}
@@ -208,7 +208,7 @@ public abstract class FmmCommitmentNodeImpl extends FmmHistoryNodeImpl implement
 	@Override
 	public CommunityMember getProposedBy() {
 		if(this.proposedBy == null && this.proposedByNodeIdString != null) {
-			this.proposedBy = FmmDatabaseMediator.getActiveMediator().retrieveCommunityMember(this.proposedByNodeIdString);
+			this.proposedBy = FmmDatabaseService.getActiveMediator().retrieveCommunityMember(this.proposedByNodeIdString);
 		}
 		return this.proposedBy;
 	}
@@ -248,7 +248,7 @@ public abstract class FmmCommitmentNodeImpl extends FmmHistoryNodeImpl implement
 	@Override
 	public CommunityMember getConfirmedBy() {
 		if(this.confirmedBy == null && this.confirmedByNodeId != null) {
-			this.confirmedBy = FmmDatabaseMediator.getActiveMediator().retrieveCommunityMember(this.confirmedByNodeId);
+			this.confirmedBy = FmmDatabaseService.getActiveMediator().retrieveCommunityMember(this.confirmedByNodeId);
 		}
 		return this.confirmedBy;
 	}
@@ -288,7 +288,7 @@ public abstract class FmmCommitmentNodeImpl extends FmmHistoryNodeImpl implement
 	@Override
 	public CommunityMember getDeclinedBy() {
 		if(this.declinedBy == null && this.decinedByNodeId != null) {
-			this.declinedBy = FmmDatabaseMediator.getActiveMediator().retrieveCommunityMember(this.decinedByNodeId);
+			this.declinedBy = FmmDatabaseService.getActiveMediator().retrieveCommunityMember(this.decinedByNodeId);
 		}
 		return this.declinedBy;
 	}
@@ -322,7 +322,7 @@ public abstract class FmmCommitmentNodeImpl extends FmmHistoryNodeImpl implement
 	@Override
 	public CommunityMember getCanceledBy() {
 		if(this.canceledBy == null && this.canceledByNodeId != null) {
-			this.canceledBy = FmmDatabaseMediator.getActiveMediator().retrieveCommunityMember(this.canceledByNodeId);
+			this.canceledBy = FmmDatabaseService.getActiveMediator().retrieveCommunityMember(this.canceledByNodeId);
 		}
 		return this.canceledBy;
 	}

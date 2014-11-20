@@ -62,7 +62,7 @@ import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
 import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewAdapter;
 import com.flywheelms.gcongui.gcg.widget.edit_text.GcgWidgetGenericEditText;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmCompletionNode;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
@@ -353,7 +353,7 @@ public abstract class HeadlineNodeAdoptOrphanDialog extends FmsCancelOkApplyFdkD
 //    }
 
     protected boolean adoptPrimaryOrphanIntoParent () {
-        return FmmDatabaseMediator.getActiveMediator().adoptPrimaryOrphanIntoParent(
+        return FmmDatabaseService.getActiveMediator().adoptPrimaryOrphanIntoParent(
                 (FmmCompletionNode) this.adoptionCandidateWidgetSpinner.getFmmNode(),
                 this.parentNode,
                 FmsTreeViewAdapter.isPeerLaunch(this.parentNode.getFmmNodeDefinition(), this.launchNode.getFmmNodeDefinition()) ? null : this.launchNode,
@@ -362,14 +362,14 @@ public abstract class HeadlineNodeAdoptOrphanDialog extends FmsCancelOkApplyFdkD
     }
 
     protected boolean adoptPrimaryOrphanIntoParentAlphaSort () {
-        return FmmDatabaseMediator.getActiveMediator().adoptPrimaryOrphanIntoParentAlphaSort(
+        return FmmDatabaseService.getActiveMediator().adoptPrimaryOrphanIntoParentAlphaSort(
                 (FmmCompletionNode) this.adoptionCandidateWidgetSpinner.getFmmNode(),
                 this.parentNode,
                 true);  // atomic transaction
     }
 
     protected boolean adoptPrimaryLinkOrphanIntoParent () {
-        return FmmDatabaseMediator.getActiveMediator().adoptPrimaryLinkOrphanIntoParent(
+        return FmmDatabaseService.getActiveMediator().adoptPrimaryLinkOrphanIntoParent(
                 (FmmCompletionNode) this.adoptionCandidateWidgetSpinner.getFmmNode(),
                 this.parentNode,
                 this.parentNode == this.launchNode ? null : this.launchNode,

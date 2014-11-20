@@ -50,7 +50,7 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewAdapter;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.impl.governable.Portfolio;
 import com.flywheelms.library.fmm.node.impl.governable.Project;
 import com.flywheelms.library.fms.widget.spinner.PortfolioWidgetSpinner;
@@ -113,7 +113,7 @@ public class ProjectMoveDialog extends HeadlineNodeMoveDialog {
 	
 	@Override
 	protected boolean moveHeadlineNode() {
-		boolean theMoveStatus = FmmDatabaseMediator.getActiveMediator().moveSingleProjectIntoPortfolio(
+		boolean theMoveStatus = FmmDatabaseService.getActiveMediator().moveSingleProjectIntoPortfolio(
                 getFmmHeadlineNode().getNodeIdString(),
                 this.dispositionTargetWidgetSpinner.getFmmNode().getNodeIdString(),
                 true);

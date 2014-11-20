@@ -58,14 +58,14 @@ public class FmmTableMediator<T extends FmmNode> extends HashMap<String, T> {
 	public static final int transaction__DELETE = 2;
 	public static final int transaction__HEADLINE = 3;
 	public static final int transaction__DECKANGL = 4;
-	private final FmmDatabaseMediator databaseMediator;
+	private final FmmDatabaseService databaseMediator;
 	@SuppressWarnings("unused")
 	private final FmmNodeDefinition nodeDictionaryEntry;  // TODO
 	private Date lastTableUpdateTimestamp = GcgDateHelper.getCurrentDateTime();
 	private HashSet<FmmTableListener> tableListenerHashSet = new HashSet<FmmTableListener>();
 	private HashSet<RowListener> rowListenerHashSet = new HashSet<RowListener>(); 
 	
-	public FmmTableMediator(FmmDatabaseMediator aDatabaseMediator, FmmNodeDefinition anFmmNodeDefinition) {
+	public FmmTableMediator(FmmDatabaseService aDatabaseMediator, FmmNodeDefinition anFmmNodeDefinition) {
 		super();
 		this.databaseMediator = aDatabaseMediator;
 		this.nodeDictionaryEntry = anFmmNodeDefinition;

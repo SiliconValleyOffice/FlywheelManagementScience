@@ -43,7 +43,7 @@
 
 package com.flywheelms.library.fmm.node.impl.governable;
 
-import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.NodeId;
 
 public class FlywheelTeam extends FmmGovernableNodeImpl {
@@ -79,7 +79,7 @@ public class FlywheelTeam extends FmmGovernableNodeImpl {
 
 	public FmsOrganization getOrganization() {
 		if(this.organization == null && this.organizationNodeIdString != null) {
-			this.organization = FmmDatabaseMediator.getActiveMediator().retrieveFmsOrganization(this.organizationNodeIdString);
+			this.organization = FmmDatabaseService.getActiveMediator().retrieveFmsOrganization(this.organizationNodeIdString);
 		}
 		return this.organization;
 	}

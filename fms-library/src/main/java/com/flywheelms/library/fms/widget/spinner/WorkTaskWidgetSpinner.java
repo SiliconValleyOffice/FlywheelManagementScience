@@ -47,7 +47,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 
 import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
-import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.governable.WorkPackage;
 import com.flywheelms.library.fmm.node.impl.governable.WorkPlan;
@@ -78,7 +78,7 @@ public class WorkTaskWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 			theGuiableList = new ArrayList<GcgGuiable>(); 
 		} else {	
 			theGuiableList = new ArrayList<GcgGuiable>(
-					FmmDatabaseMediator.getActiveMediator().retrieveWorkTaskList(this.workPackage, this.workTaskException) );
+					FmmDatabaseService.getActiveMediator().retrieveWorkTaskList(this.workPackage, this.workTaskException) );
 		}
 		return theGuiableList;
 	}
@@ -101,7 +101,7 @@ public class WorkTaskWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 			theGuiableList = new ArrayList<GcgGuiable>(); 
 		} else {	
 			theGuiableList = new ArrayList<GcgGuiable>(
-					FmmDatabaseMediator.getActiveMediator().retrieveWorkTaskList(this.workPlan, this.workTaskException) );
+					FmmDatabaseService.getActiveMediator().retrieveWorkTaskList(this.workPlan, this.workTaskException) );
 		}
 		return theGuiableList;
 	}
@@ -120,14 +120,14 @@ public class WorkTaskWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 	@Override
 	protected ArrayList<? extends GcgGuiable> getOrphanNodesPrimaryParentGuiableList() {
 		ArrayList<GcgGuiable> theGuiableList =
-				new ArrayList<GcgGuiable>(FmmDatabaseMediator.getActiveMediator().listWorkTaskOrphansFromWorkPackage());
+				new ArrayList<GcgGuiable>(FmmDatabaseService.getActiveMediator().listWorkTaskOrphansFromWorkPackage());
 		return theGuiableList;
 	}
 	
 	@Override
 	protected ArrayList<? extends GcgGuiable> getOrphanNodesSecondaryParentGuiableList() {
 		ArrayList<GcgGuiable> theGuiableList =
-				new ArrayList<GcgGuiable>(FmmDatabaseMediator.getActiveMediator().listWorkTaskOrphansFromWorkPlan());
+				new ArrayList<GcgGuiable>(FmmDatabaseService.getActiveMediator().listWorkTaskOrphansFromWorkPlan());
 		return theGuiableList;
 	}
 	

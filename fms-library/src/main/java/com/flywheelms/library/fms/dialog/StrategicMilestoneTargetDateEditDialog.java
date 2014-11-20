@@ -57,7 +57,7 @@ import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
 import com.flywheelms.gcongui.gcg.widget.date.GcgWidgetDatePicker;
 import com.flywheelms.gcongui.gcg.widget.date.GcgWidgetMonthSpinner;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.impl.governable.StrategicMilestone;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.fms.treeview.filter.FmsTreeViewAdapter;
@@ -230,7 +230,7 @@ public class StrategicMilestoneTargetDateEditDialog extends FmsCancelOkDialog {
 			this.strategicMilestone.setTargetDate(this.datePicker.getSelectedDate());
 		}
         this.strategicMilestone.setTargetIsReversePlanning(correctedReversePlanning());
-		if(FmmDatabaseMediator.getActiveMediator().updateTargetDate(this.strategicMilestone, true)) {
+		if(FmmDatabaseService.getActiveMediator().updateTargetDate(this.strategicMilestone, true)) {
 			if(getFmsTreeViewAdapter() != null) {
 				getFmsTreeViewAdapter().updateSecondaryHeadline(this.strategicMilestone.getTargetDateString());
 			} else {

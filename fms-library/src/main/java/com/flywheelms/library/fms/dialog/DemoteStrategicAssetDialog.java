@@ -49,7 +49,7 @@ import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.gcongui.gcg.helper.GcgGuiHelper;
 import com.flywheelms.gcongui.gcg.helper.GcgHelper;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.impl.governable.StrategicAsset;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.fms.treeview.filter.FmsTreeViewAdapter;
@@ -93,7 +93,7 @@ public class DemoteStrategicAssetDialog extends FmsCancelOkDialog {
 
 	@Override
 	protected void onClickButtonOk() {
-		boolean isTransactionSuccess = FmmDatabaseMediator.getActiveMediator().demoteStrategicAssetToProjectAsset((StrategicAsset) getFmmHeadlineNode(), true);
+		boolean isTransactionSuccess = FmmDatabaseService.getActiveMediator().demoteStrategicAssetToProjectAsset((StrategicAsset) getFmmHeadlineNode(), true);
         if(isTransactionSuccess) {
             this.treeViewAdapter.deleteHeadlineNode(getFmmHeadlineNode());
             GcgHelper.makeToast("Demoted " + this.fmmNodeTypeWidget.getText() + ":  " + this.headlineWidgetTextView.getText());

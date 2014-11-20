@@ -62,7 +62,7 @@ import com.flywheelms.gcongui.gcg.menu.GcgPerspectiveMenuButton;
 import com.flywheelms.gcongui.gcg.viewflipper.GcgPerspectiveFlipper;
 import com.flywheelms.gcongui.gcg.viewflipper.GcgViewFlipper;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.context.FmmFrame;
 import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fmm.enumerator.FmmNodeTransactionType;
@@ -545,6 +545,6 @@ public abstract class FmmNodeEditorActivity extends FmsHorizontalNodeNavigatorAc
     }
 
     public FmmHeadlineNode getNavigationParentHeadlineNode() {
-        return FmmDatabaseMediator.getActiveMediator().retrievetHeadlineNode(this.navigationParentNodeIdString);
+        return FmmDatabaseService.getActiveMediator().retrievetHeadlineNode(this.navigationParentNodeIdString);
     }
 }

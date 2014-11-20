@@ -47,7 +47,7 @@ import android.widget.LinearLayout;
 
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.fms.treeview.filter.FmsTreeViewAdapter;
@@ -74,7 +74,7 @@ public class FiscalYearDeleteDialog extends HeadlineNodeDeleteDialog {
 
 	@Override
 	protected ArrayList<? extends FmmHeadlineNode> getPrimaryChildHeadlineNodeList() {
-		return FmmDatabaseMediator.getActiveMediator().retrieveStrategicMilestoneListForFiscalYear(getFmmHeadlineNode().getNodeIdString(), null);
+		return FmmDatabaseService.getActiveMediator().retrieveStrategicMilestoneListForFiscalYear(getFmmHeadlineNode().getNodeIdString(), null);
 	}
 	
 	@Override
@@ -84,7 +84,7 @@ public class FiscalYearDeleteDialog extends HeadlineNodeDeleteDialog {
 
 	@Override
 	protected ArrayList<? extends FmmHeadlineNode> getSecondaryChildHeadlineNodeList() {
-		return FmmDatabaseMediator.getActiveMediator().retrieveCadenceListForFiscalYear(getFmmHeadlineNode().getNodeIdString());
+		return FmmDatabaseService.getActiveMediator().retrieveCadenceListForFiscalYear(getFmmHeadlineNode().getNodeIdString());
 	}
 
     protected boolean alwaysDeleteSecondaryChild() {
@@ -116,22 +116,22 @@ public class FiscalYearDeleteDialog extends HeadlineNodeDeleteDialog {
 
 	@Override
 	protected boolean deleteHeadlineNode() {
-		return FmmDatabaseMediator.getActiveMediator().deleteFiscalYear(getFiscalYear(), false);
+		return FmmDatabaseService.getActiveMediator().deleteFiscalYear(getFiscalYear(), false);
 	}
 
 	@Override
 	protected boolean deletePrimaryChildren() {
-		return FmmDatabaseMediator.getActiveMediator().deleteStrategicMilestones(getFiscalYear(), false);
+		return FmmDatabaseService.getActiveMediator().deleteStrategicMilestones(getFiscalYear(), false);
 	}
 
     @Override
     protected boolean deleteSecondaryChildren() {
-        return FmmDatabaseMediator.getActiveMediator().deleteAllCadences(getFiscalYear(), false);
+        return FmmDatabaseService.getActiveMediator().deleteAllCadences(getFiscalYear(), false);
     }
 
 	@Override
 	protected boolean movePrimaryChildrenToNewParent() {
-		return FmmDatabaseMediator.getActiveMediator().moveAllStrategicMilestonesIntoFiscalYear(
+		return FmmDatabaseService.getActiveMediator().moveAllStrategicMilestonesIntoFiscalYear(
                 getFmmHeadlineNode().getNodeIdString(),
                 this.primaryChildDeleteDisposition.getTargetWidgetSpinner().getFmmNode().getNodeIdString(),
                 this.primaryChildDeleteDisposition.isSequencePositionSpinnerAtEnd(),

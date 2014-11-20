@@ -42,6 +42,11 @@
 
 package com.flywheelms.library.fmm;
 
+import android.app.Service;
+import android.content.Intent;
+import android.os.Binder;
+import android.os.IBinder;
+
 import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
 import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
 import com.flywheelms.library.fmm.meta_data.BookshelfLinkToNotebookMetaData;
@@ -146,15 +151,15 @@ import java.util.HashMap;
 // and accurate to do this in 1 file).
 // Most of the code will be moved out into DAOs at the end of the "Science Project" phase.
 
-public class FmmDatabaseMediator {
+public class FmmDatabaseService extends Service {
 
     public static final String sort_spec__HEADLINE = " LOWER (" + HeadlineNodeMetaData.column_HEADLINE + ") ASC";
     public static final String sort_spec__SEARCHABLE_HEADLINE = " LOWER (" + NodeFragAuditBlockMetaData.column_SEARCHABLE_HEADLINE + ") ASC";
     public static final String sort_spec__SEQUENCE = CompletableNodeMetaData.column_SEQUENCE + " ASC";
     public static final String sort_spec__ROW_TIMESTAMP = IdNodeMetaData.column_ROW_TIMESTAMP + " ASC";
     public static final String sort_spec__SCHEDULED_END_DATE = CadenceMetaData.column_SCHEDULED_END_DATE + " ASC";
-	private static HashMap<String, FmmDatabaseMediator> fmmDatabaseMediatorMap = new HashMap<String, FmmDatabaseMediator>();  // mediator for each database server
-	private static FmmDatabaseMediator activeFmmDatabaseMediator;
+	private static HashMap<String, FmmDatabaseService> fmmDatabaseMediatorMap = new HashMap<String, FmmDatabaseService>();  // mediator for each database server
+	private static FmmDatabaseService activeFmmDatabaseMediator;
 	protected static FmmConfiguration requestedFmmConfiguration;  // for creating a new database
 	private PersistenceTechnologyDelegate persistenceTechnologyDelegate;
 	protected static FmmConfiguration activeFmmConfiguration;
@@ -163,9 +168,9 @@ public class FmmDatabaseMediator {
 	private Date fmmTimestamp = GcgDateHelper.getCurrentDateTime();
 	private boolean inTransaction = false;
 
-	protected FmmDatabaseMediator(FmmConfiguration anFmmConfiguration) {
+	protected FmmDatabaseService(FmmConfiguration anFmmConfiguration) {
 		initMetaData();
-		FmmDatabaseMediator.requestedFmmConfiguration = FmmDatabaseMediator.activeFmmConfiguration = this.fmmConfiguration = anFmmConfiguration;
+		FmmDatabaseService.requestedFmmConfiguration = FmmDatabaseService.activeFmmConfiguration = this.fmmConfiguration = anFmmConfiguration;
 		this.persistenceTechnologyDelegate = this.activeFmmConfiguration.getPersistenceTechnologyDelegate();
 		this.persistenceTechnologyDelegate.setActiveDatabase(this.activeFmmConfiguration);
 		synchronizeFmmConfigurationRowWithConfigFile(this.activeFmmConfiguration);
@@ -211,14 +216,14 @@ public class FmmDatabaseMediator {
 
 	public boolean startTransaction() {
 		this.inTransaction = true;
-		FmmDatabaseMediator.getActiveMediator().getPersistenceTechnologyDelegate().startTransaction();
+		FmmDatabaseService.getActiveMediator().getPersistenceTechnologyDelegate().startTransaction();
 		return true;
 	}
 
 	public void endTransaction(boolean bSuccess) {
 		this.inTransaction = false;
-		FmmDatabaseMediator.getActiveMediator().getPersistenceTechnologyDelegate().endTransaction(bSuccess);
-		FmmDatabaseMediator.getActiveMediator().notifyDatabaseListeners();
+		FmmDatabaseService.getActiveMediator().getPersistenceTechnologyDelegate().endTransaction(bSuccess);
+		FmmDatabaseService.getActiveMediator().notifyDatabaseListeners();
 	}
 
     public void notifyDatabaseListeners() {
@@ -961,58 +966,58 @@ public class FmmDatabaseMediator {
 	}
 
 	public static FmmConfiguration getRequestedFmmConfiguration() {
-		return FmmDatabaseMediator.requestedFmmConfiguration;
+		return FmmDatabaseService.requestedFmmConfiguration;
 	}
 
 	public static void setRequestedFmmConfigurataion(FmmConfiguration anFmmConfiguration) {
-		FmmDatabaseMediator.requestedFmmConfiguration = anFmmConfiguration;
+		FmmDatabaseService.requestedFmmConfiguration = anFmmConfiguration;
 	}
 
-	private static FmmDatabaseMediator getInstance(FmmConfiguration anFmmConfiguration) {
-		FmmDatabaseMediator.requestedFmmConfiguration = anFmmConfiguration;
-		FmmDatabaseMediator theFmmDatabaseMediator = FmmDatabaseMediator.fmmDatabaseMediatorMap.get(anFmmConfiguration.getHeadline());
+	private static FmmDatabaseService getInstance(FmmConfiguration anFmmConfiguration) {
+		FmmDatabaseService.requestedFmmConfiguration = anFmmConfiguration;
+		FmmDatabaseService theFmmDatabaseMediator = FmmDatabaseService.fmmDatabaseMediatorMap.get(anFmmConfiguration.getHeadline());
 		if(theFmmDatabaseMediator == null) {
-			theFmmDatabaseMediator = new FmmDatabaseMediator(anFmmConfiguration);
-			FmmDatabaseMediator.fmmDatabaseMediatorMap.put(anFmmConfiguration.getHeadline(),theFmmDatabaseMediator);
+			theFmmDatabaseMediator = new FmmDatabaseService(anFmmConfiguration);
+			FmmDatabaseService.fmmDatabaseMediatorMap.put(anFmmConfiguration.getHeadline(),theFmmDatabaseMediator);
 		}
 		// update FmmConfiguration object, FmmDatabaseMediator from FmmConfiguration row
-		return FmmDatabaseMediator.fmmDatabaseMediatorMap.get(anFmmConfiguration.getHeadline());
+		return FmmDatabaseService.fmmDatabaseMediatorMap.get(anFmmConfiguration.getHeadline());
 	}
 
-	public static FmmDatabaseMediator getInstanceAndSetActive(FmmConfiguration aFmmConfiguration) {
-		FmmDatabaseMediator.activeFmmDatabaseMediator = getInstance(aFmmConfiguration);
-		return FmmDatabaseMediator.activeFmmDatabaseMediator;
+	public static FmmDatabaseService getInstanceAndSetActive(FmmConfiguration aFmmConfiguration) {
+		FmmDatabaseService.activeFmmDatabaseMediator = getInstance(aFmmConfiguration);
+		return FmmDatabaseService.activeFmmDatabaseMediator;
 	}
 
 	public static void setActiveMediator(FmmConfiguration anFmmConfiguration) {
-		if(FmmDatabaseMediator.activeFmmDatabaseMediator != null) {
-			FmmDatabaseMediator.activeFmmDatabaseMediator.closeDatabase();
+		if(FmmDatabaseService.activeFmmDatabaseMediator != null) {
+			FmmDatabaseService.activeFmmDatabaseMediator.closeDatabase();
 		}
-        FmmDatabaseMediator theFmmDatabaseMediator = null;
-        if(FmmDatabaseMediator.fmmDatabaseMediatorMap != null) {
-            theFmmDatabaseMediator = FmmDatabaseMediator.fmmDatabaseMediatorMap.get(anFmmConfiguration.getHeadline());
+        FmmDatabaseService theFmmDatabaseMediator = null;
+        if(FmmDatabaseService.fmmDatabaseMediatorMap != null) {
+            theFmmDatabaseMediator = FmmDatabaseService.fmmDatabaseMediatorMap.get(anFmmConfiguration.getHeadline());
         }
 		if(theFmmDatabaseMediator != null) {
 			theFmmDatabaseMediator.getPersistenceTechnologyDelegate().setActiveDatabase(anFmmConfiguration);
-			FmmDatabaseMediator.activeFmmDatabaseMediator = theFmmDatabaseMediator;
+			FmmDatabaseService.activeFmmDatabaseMediator = theFmmDatabaseMediator;
 		} else {
-			FmmDatabaseMediator.activeFmmDatabaseMediator = getInstance(anFmmConfiguration);
+			FmmDatabaseService.activeFmmDatabaseMediator = getInstance(anFmmConfiguration);
 		}
 	}
 
-	public static FmmDatabaseMediator getActiveMediator() {
-		if(FmmDatabaseMediator.activeFmmDatabaseMediator == null) {
+	public static FmmDatabaseService getActiveMediator() {
+		if(FmmDatabaseService.activeFmmDatabaseMediator == null) {
 			setActiveMediator(getActiveFmmConfiguration());
 //			setActiveMediator(FmmHelper.getLocalFmmConfiguration());
 		}
-		return FmmDatabaseMediator.activeFmmDatabaseMediator;
+		return FmmDatabaseService.activeFmmDatabaseMediator;
 	}
 
 	public static void closeActiveFmm() {
-		if(FmmDatabaseMediator.activeFmmDatabaseMediator == null) {
+		if(FmmDatabaseService.activeFmmDatabaseMediator == null) {
 			return;
 		}
-		FmmDatabaseMediator.activeFmmDatabaseMediator.closeDatabase();
+		FmmDatabaseService.activeFmmDatabaseMediator.closeDatabase();
 		activeFmmDatabaseMediator = null;
 	}
 
@@ -1033,11 +1038,11 @@ public class FmmDatabaseMediator {
 	}
 
 	public static FmmConfiguration getActiveFmmConfiguration() {
-		return FmmDatabaseMediator.activeFmmConfiguration;
+		return FmmDatabaseService.activeFmmConfiguration;
 	}
 
     public static void setActiveFmmConfiguration(FmmConfiguration anFmmConfiguration) {
-        FmmDatabaseMediator.activeFmmConfiguration = anFmmConfiguration;
+        FmmDatabaseService.activeFmmConfiguration = anFmmConfiguration;
     }
 
 	public Date getFmmTimestamp() {
@@ -1169,7 +1174,7 @@ public class FmmDatabaseMediator {
         Bookshelf theBookshelf = new Bookshelf(
                 new NodeId(FmmNodeDefinition.BOOKSHELF),
                 aHeadline,
-                FmmDatabaseMediator.getActiveMediator().getFmsOrganization() );
+                FmmDatabaseService.getActiveMediator().getFmsOrganization() );
         boolean isSuccess = insertBookshelf(theBookshelf, true);
         return isSuccess ? theBookshelf : null;
     }
@@ -1553,7 +1558,7 @@ public class FmmDatabaseMediator {
         Portfolio theNewPortfolio = new Portfolio(
                 new NodeId(FmmNodeDefinition.PORTFOLIO),
                 aHeadline,
-                FmmDatabaseMediator.getActiveMediator().getFmsOrganization() );
+                FmmDatabaseService.getActiveMediator().getFmsOrganization() );
         boolean isSuccess = insertPortfolio(theNewPortfolio, true);
         return isSuccess ? theNewPortfolio : null;
     }
@@ -2104,7 +2109,7 @@ public class FmmDatabaseMediator {
     public FiscalYear createFiscalYear(String aYearString) {
         FiscalYear theFiscalYear = new FiscalYear(
                 new NodeId(FmmNodeDefinition.FISCAL_YEAR),
-                FmmDatabaseMediator.getActiveMediator().getFmmOwner(),
+                FmmDatabaseService.getActiveMediator().getFmmOwner(),
                 aYearString);
         boolean isSuccess = insertFiscalYear(theFiscalYear, true);
         return isSuccess ? theFiscalYear : null;
@@ -3567,4 +3572,22 @@ public class FmmDatabaseMediator {
 	public ArrayList<CommunityMember> getGovernanceCandidates(FmsOrganization anFmsOrganization, GovernanceTarget aGovernanceTarget, GovernanceRole aGovernanceRole) {
 		return getPersistenceTechnologyDelegate().getGovernanceCandidates(anFmsOrganization, aGovernanceTarget, aGovernanceRole);
 	}
+
+
+    //////////////////////////////////
+    //////  Service  /////////////////
+
+    private final IBinder mBinder = new LocalBinder();
+
+    public class LocalBinder extends Binder {
+        FmmDatabaseService getService() {
+            return getActiveMediator();
+        }
+    }
+
+
+    @Override
+    public IBinder onBind(Intent intent) {
+        return mBinder;
+    }
 }

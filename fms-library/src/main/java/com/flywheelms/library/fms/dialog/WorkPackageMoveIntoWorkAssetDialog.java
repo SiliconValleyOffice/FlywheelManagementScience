@@ -50,7 +50,7 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewAdapter;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.impl.governable.Portfolio;
 import com.flywheelms.library.fmm.node.impl.governable.Project;
 import com.flywheelms.library.fmm.node.impl.governable.WorkAsset;
@@ -144,7 +144,7 @@ public class WorkPackageMoveIntoWorkAssetDialog extends HeadlineNodeMoveDialog {
 	@Override
 	protected boolean moveHeadlineNode() {
         boolean theMoveStatus = false;
-        theMoveStatus = FmmDatabaseMediator.getActiveMediator().moveSingleWorkPackageIntoWorkAsset(
+        theMoveStatus = FmmDatabaseService.getActiveMediator().moveSingleWorkPackageIntoWorkAsset(
                 getFmmHeadlineNode().getNodeIdString(),
                 getFmmHeadlineNode().getNodeIdString(),
                 this.dispositionTargetWidgetSpinner.getFmmNode().getNodeIdString(),

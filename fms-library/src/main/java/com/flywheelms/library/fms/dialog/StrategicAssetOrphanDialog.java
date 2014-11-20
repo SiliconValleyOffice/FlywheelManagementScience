@@ -45,7 +45,7 @@ package com.flywheelms.library.fms.dialog;
 
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewAdapter;
-import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.impl.governable.StrategicAsset;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 
@@ -61,7 +61,7 @@ public class StrategicAssetOrphanDialog extends HeadlineNodeOrphanDialog {
 
 	@Override
 	protected boolean orphanHeadlineNode() {
-		return FmmDatabaseMediator.getActiveMediator().orphanSingleStrategicAssetFromProject(getFmmHeadlineNode().getNodeIdString(), this.parentNode.getNodeIdString(), true);
+		return FmmDatabaseService.getActiveMediator().orphanSingleStrategicAssetFromProject(getFmmHeadlineNode().getNodeIdString(), this.parentNode.getNodeIdString(), true);
     }
 
 }

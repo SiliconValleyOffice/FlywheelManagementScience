@@ -47,7 +47,7 @@ import android.widget.LinearLayout;
 
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
 import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
 import com.flywheelms.library.fmm.node.impl.governable.StrategicMilestone;
@@ -72,7 +72,7 @@ public class ProjectAssetDeleteDialog extends HeadlineNodeDeleteDialog {
 
 	@Override
 	protected ArrayList<? extends FmmHeadlineNode> getPrimaryChildHeadlineNodeList() {
-		return FmmDatabaseMediator.getActiveMediator().retrieveWorkPackageList(getProjectAsset());
+		return FmmDatabaseService.getActiveMediator().retrieveWorkPackageList(getProjectAsset());
 	}
 
 	@Override
@@ -121,17 +121,17 @@ public class ProjectAssetDeleteDialog extends HeadlineNodeDeleteDialog {
 
 	@Override
 	protected boolean deleteHeadlineNode() {
-		return FmmDatabaseMediator.getActiveMediator().deleteProjectAsset((ProjectAsset) getFmmHeadlineNode(), false);
+		return FmmDatabaseService.getActiveMediator().deleteProjectAsset((ProjectAsset) getFmmHeadlineNode(), false);
 	}
 
 	@Override
 	protected boolean orphanPrimaryChildren() {
-		return FmmDatabaseMediator.getActiveMediator().orphanAllWorkPackagesFromProjectAsset(getFmmHeadlineNode().getNodeIdString(), false);
+		return FmmDatabaseService.getActiveMediator().orphanAllWorkPackagesFromProjectAsset(getFmmHeadlineNode().getNodeIdString(), false);
 	}
 
 	@Override
 	protected boolean movePrimaryChildrenToNewParent() {
-		return FmmDatabaseMediator.getActiveMediator().moveAllWorkPackagesIntoProjectAsset(
+		return FmmDatabaseService.getActiveMediator().moveAllWorkPackagesIntoProjectAsset(
                 getFmmHeadlineNode().getNodeIdString(),
                 this.primaryChildDeleteDisposition.getTargetWidgetSpinner().getFmmNode().getNodeIdString(),
                 this.primaryChildDeleteDisposition.isSequencePositionSpinnerAtEnd(),

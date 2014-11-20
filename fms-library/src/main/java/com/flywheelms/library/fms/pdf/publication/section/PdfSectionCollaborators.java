@@ -44,7 +44,7 @@
 package com.flywheelms.library.fms.pdf.publication.section;
 
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragAuditBlock;
 import com.flywheelms.library.fms.pdf.PdfColors;
 import com.flywheelms.library.fms.pdf.PdfFonts;
@@ -187,7 +187,7 @@ public class PdfSectionCollaborators extends HeadlineNodePublicationSection {
 	@SuppressWarnings("static-method")
 	private void addTableRowCollaboratorSummary(PdfPTable table, FseCommunityMemberCollaborationSummary summary) {
 		table.getDefaultCell().setBorderWidth(1f);
-		table.addCell(PdfUtil.newParagraph(FmmDatabaseMediator.getActiveMediator().retrieveCommunityMember(summary.getCommunityMemberNodeIdString()).getName(), PdfFonts.PLAIN_8));
+		table.addCell(PdfUtil.newParagraph(FmmDatabaseService.getActiveMediator().retrieveCommunityMember(summary.getCommunityMemberNodeIdString()).getName(), PdfFonts.PLAIN_8));
 		table.addCell(PdfUtil.newParagraph(PdfUtil.DATE_FORMAT_GMT_TIMESTAMP_VERBOSE.format(summary.getFirstContributionTimestamp()), PdfFonts.PLAIN_8));
 		table.addCell(PdfUtil.newParagraph(PdfUtil.DATE_FORMAT_GMT_TIMESTAMP_VERBOSE.format(summary.getLastContributionTimestamp()), PdfFonts.PLAIN_8));
 

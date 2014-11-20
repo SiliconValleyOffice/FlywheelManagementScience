@@ -45,7 +45,7 @@ package com.flywheelms.library.fmm.node.impl.audit;
 
 import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
 import com.flywheelms.library.fca.FlywheelCommunityAuthentication;
-import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.enumerator.FmmLockStatus;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.FmmNodeImpl;
@@ -72,7 +72,7 @@ public abstract class FmmAuditNodeImpl extends FmmNodeImpl implements FmmNodeAud
 	@Override
 	public NodeFragAuditBlock getNodeFragAuditBlock() {
 		if(this.nodeFragAuditBlock == null) {
-			this.nodeFragAuditBlock = FmmDatabaseMediator.getActiveMediator().retrieveNodeFragAuditBlockForParent(getNodeIdString());
+			this.nodeFragAuditBlock = FmmDatabaseService.getActiveMediator().retrieveNodeFragAuditBlockForParent(getNodeIdString());
 		}
 		return this.nodeFragAuditBlock;
 	}

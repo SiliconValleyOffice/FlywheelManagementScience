@@ -45,7 +45,7 @@ import android.content.Context;
 import android.content.res.Resources;
 
 import com.flywheelms.gcongui.gcg.GcgApplication;
-import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.repository.FmmConfigurationPrivate;
 
 public class FmmHelper {
@@ -65,12 +65,12 @@ public class FmmHelper {
 		return FmmHelper.localFmmConfiguration;
 	}
 	
-	public static FmmDatabaseMediator getLocalFmmMediator() {
-		return FmmDatabaseMediator.getInstanceAndSetActive(getLocalFmmConfiguration());
+	public static FmmDatabaseService getLocalFmmMediator() {
+		return FmmDatabaseService.getInstanceAndSetActive(getLocalFmmConfiguration());
 	}
 	
-	public static FmmDatabaseMediator getActiveFmmMediator() {
-		return FmmDatabaseMediator.getActiveMediator();
+	public static FmmDatabaseService getActiveFmmMediator() {
+		return FmmDatabaseService.getActiveMediator();
 	}
 
 	public static Resources getResources() {

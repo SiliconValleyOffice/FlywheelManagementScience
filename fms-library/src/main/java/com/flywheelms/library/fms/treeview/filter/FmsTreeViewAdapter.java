@@ -58,7 +58,7 @@ import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewAdapter;
 import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewMediator;
 import com.flywheelms.gcongui.gcg.treeview.node.GcgTreeNodeInfo;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.context.FmmFrame;
 import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fmm.node.FmmHeadlineNodeShallow;
@@ -552,28 +552,28 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
 
     protected void sequenceDown(GcgTreeNodeInfo aLaunchTreeNodeInfo, FmmHeadlineNode aHeadlineNode, FmmHeadlineNode aParentHeadlineNode) {
 		getGcgActivity().startGreenActivityStatusAnimation();
-		FmmDatabaseMediator.getActiveMediator().swapSequence(aHeadlineNode, (FmmHeadlineNode) getNextPeerObject(aLaunchTreeNodeInfo), aParentHeadlineNode);
+		FmmDatabaseService.getActiveMediator().swapSequence(aHeadlineNode, (FmmHeadlineNode) getNextPeerObject(aLaunchTreeNodeInfo), aParentHeadlineNode);
 		rebuildTreeView();
 		getGcgActivity().stopActivityStatusAnimation();
 	}
 
 	protected void sequenceUp(GcgTreeNodeInfo aLaunchTreeNodeInfo, FmmHeadlineNode aHeadlineNode, FmmHeadlineNode aParentHeadlineNode) {
 		getGcgActivity().startGreenActivityStatusAnimation();
-		FmmDatabaseMediator.getActiveMediator().swapSequence(aHeadlineNode, (FmmHeadlineNode) getPreviousPeerObject(aLaunchTreeNodeInfo), aParentHeadlineNode);
+		FmmDatabaseService.getActiveMediator().swapSequence(aHeadlineNode, (FmmHeadlineNode) getPreviousPeerObject(aLaunchTreeNodeInfo), aParentHeadlineNode);
 		rebuildTreeView();
 		getGcgActivity().stopActivityStatusAnimation();
 	}
 
 	protected void sequenceFirst(GcgTreeNodeInfo aLaunchTreeNodeInfo, FmmHeadlineNode aHeadlineNode, FmmHeadlineNode aParentHeadlineNode) {
 		getGcgActivity().startGreenActivityStatusAnimation();
-		FmmDatabaseMediator.getActiveMediator().sequenceFirst(aHeadlineNode, aParentHeadlineNode);
+		FmmDatabaseService.getActiveMediator().sequenceFirst(aHeadlineNode, aParentHeadlineNode);
 		rebuildTreeView();
 		getGcgActivity().stopActivityStatusAnimation();
 	}
 
 	protected void sequenceLast(GcgTreeNodeInfo aLaunchTreeNodeInfo, FmmHeadlineNode aHeadlineNode, FmmHeadlineNode aParentHeadlineNode) {
 		getGcgActivity().startGreenActivityStatusAnimation();
-		FmmDatabaseMediator.getActiveMediator().sequenceLast(aHeadlineNode, aParentHeadlineNode);
+		FmmDatabaseService.getActiveMediator().sequenceLast(aHeadlineNode, aParentHeadlineNode);
 		rebuildTreeView();
 		getGcgActivity().stopActivityStatusAnimation();
 	}

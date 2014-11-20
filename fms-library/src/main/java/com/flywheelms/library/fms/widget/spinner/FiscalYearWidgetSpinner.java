@@ -47,7 +47,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 
 import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
-import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.governable.Cadence;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
@@ -85,16 +85,16 @@ public class FiscalYearWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 	@Override
 	//filter_id__PRIMARY_PARENT
 	protected ArrayList<? extends GcgGuiable> getPrimaryParentGuiableList() {
-		return FmmDatabaseMediator.getActiveMediator().retrieveFiscalYearList(
-                FmmDatabaseMediator.getActiveMediator().getFmmOwner(), this.fiscalYearException);
+		return FmmDatabaseService.getActiveMediator().retrieveFiscalYearList(
+                FmmDatabaseService.getActiveMediator().getFmmOwner(), this.fiscalYearException);
 	}
 	
 	
 	// filter_id__PRIMARY_PARENT__PRIMARY_CHILD__MOVE_TARGET
 	@Override
 	protected ArrayList<? extends GcgGuiable> getPrimaryParentPrimaryChildMoveTargetGuiableList() {  // StrategicMilestone move target
-		return FmmDatabaseMediator.getActiveMediator().retrieveFiscalYearList(
-                FmmDatabaseMediator.getActiveMediator().getFmmOwner(), this.fiscalYearException);
+		return FmmDatabaseService.getActiveMediator().retrieveFiscalYearList(
+                FmmDatabaseService.getActiveMediator().getFmmOwner(), this.fiscalYearException);
 	}
 
 	public void updateSpinnerData(StrategicMilestone aStrategicMilestoneException) {
@@ -105,8 +105,8 @@ public class FiscalYearWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 	// filter_id__PRIMARY_PARENT__PRIMARY_CHILD__PRIMARY_CHILD__MOVE_TARGET
 	@Override
 	protected ArrayList<? extends GcgGuiable> getPrimaryParentPrimaryChildPrimaryChildMoveTargetGuiableList() { // ProjectAsset move target
-		return FmmDatabaseMediator.getActiveMediator().retrieveFiscalYearListForProjectAssetMoveTarget(
-                FmmDatabaseMediator.getActiveMediator().getFmmOwner(), this.strategicMilestoneException);
+		return FmmDatabaseService.getActiveMediator().retrieveFiscalYearListForProjectAssetMoveTarget(
+                FmmDatabaseService.getActiveMediator().getFmmOwner(), this.strategicMilestoneException);
 	}
 	
 	// filter_id__PRIMARY_PARENT__PRIMARY_CHILD__PRIMARY_CHILD__PRIMARY_CHILD__MOVE_TARGET
@@ -118,15 +118,15 @@ public class FiscalYearWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 	// filter_id__PRIMARY_PARENT__PRIMARY_CHILD__PRIMARY_CHILD__PRIMARY_CHILD__MOVE_TARGET
 	@Override
 	protected ArrayList<? extends GcgGuiable> getPrimaryParentPrimaryChildPrimaryChildPrimaryChildMoveTargetGuiableList() { // WorkPackage move target
-		return FmmDatabaseMediator.getActiveMediator().retrieveFiscalYearListForWorkPackageMoveTarget(
-                FmmDatabaseMediator.getActiveMediator().getFmmOwner(), this.projectAssetException);
+		return FmmDatabaseService.getActiveMediator().retrieveFiscalYearListForWorkPackageMoveTarget(
+                FmmDatabaseService.getActiveMediator().getFmmOwner(), this.projectAssetException);
 	}
 	
 	// filter_id__PRIMARY_PARENT__SECONDARY_CHILD__MOVE_TARGET
 	@Override
 	protected ArrayList<? extends GcgGuiable> getPrimaryParentSecondaryChildMoveTargetGuiableList() { // Cadence move target
-		return FmmDatabaseMediator.getActiveMediator().retrieveFiscalYearList(
-                FmmDatabaseMediator.getActiveMediator().getFmmOwner(), this.fiscalYearException);
+		return FmmDatabaseService.getActiveMediator().retrieveFiscalYearList(
+                FmmDatabaseService.getActiveMediator().getFmmOwner(), this.fiscalYearException);
 	}
 
 	// filter_id__SECONDARY_PARENT__PRIMARY_CHILD__MOVE_TARGET

@@ -50,7 +50,7 @@ import android.util.AttributeSet;
 import android.widget.ArrayAdapter;
 
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.governable.CommunityMember;
 import com.flywheelms.library.fms.widget.FmsWidgetListView;
@@ -80,7 +80,7 @@ public class CommunityMemberWidgetListView extends FmsWidgetListView <CommunityM
 
 	@Override
 	protected void refreshObjectAfterEditorResult(Intent anIntent, CommunityMember anObject) {
-		FmmDatabaseMediator.getActiveMediator().retrieveCommunityMember(anObject.getNodeIdString());
+		FmmDatabaseService.getActiveMediator().retrieveCommunityMember(anObject.getNodeIdString());
 	}
 
 	@Override

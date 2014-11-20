@@ -45,7 +45,7 @@ package com.flywheelms.library.fmm.node.impl.nodefrag;
 
 import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
 import com.flywheelms.library.fca.FlywheelCommunityAuthentication;
-import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.governable.CommunityMember;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmCompletionNode;
@@ -146,7 +146,7 @@ public class HeadlineNodeTrash extends FmmNodeFragImpl {
 	}
 
 	public CommunityMember getDeletedByCommunityMember() {
-		return FmmDatabaseMediator.getActiveMediator().retrieveCommunityMember(this.deletedByNodeIdString);
+		return FmmDatabaseService.getActiveMediator().retrieveCommunityMember(this.deletedByNodeIdString);
 	}
 
 	public void setDeletedBy(CommunityMember aCommunityMember) {

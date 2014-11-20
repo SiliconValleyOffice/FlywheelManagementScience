@@ -47,7 +47,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 
 import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
-import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.governable.Project;
 import com.flywheelms.library.fmm.node.impl.governable.StrategicAsset;
@@ -80,7 +80,7 @@ public class StrategicAssetWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 			theGuiableList = new ArrayList<GcgGuiable>(); 
 		} else {	
 			theGuiableList = new ArrayList<GcgGuiable>(
-					FmmDatabaseMediator.getActiveMediator().retrieveProjectAssetList(this.project) );
+					FmmDatabaseService.getActiveMediator().retrieveProjectAssetList(this.project) );
 		}
 		return theGuiableList;
 	}
@@ -92,7 +92,7 @@ public class StrategicAssetWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 			theGuiableList = new ArrayList<GcgGuiable>(); 
 		} else {	
 			theGuiableList = new ArrayList<GcgGuiable>(
-					FmmDatabaseMediator.getActiveMediator().retrieveStrategicAssetList(this.strategicMilestone) );
+					FmmDatabaseService.getActiveMediator().retrieveStrategicAssetList(this.strategicMilestone) );
 		}
 		return theGuiableList;
 	}
@@ -103,7 +103,7 @@ public class StrategicAssetWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 		if(this.strategicMilestone == null) {
 			theGuiableList = new ArrayList<GcgGuiable>(); 
 		} else {	
-			theGuiableList = new ArrayList<GcgGuiable>(FmmDatabaseMediator.getActiveMediator().retrieveStrategicAssetListForWorkPackageMoveTarget(
+			theGuiableList = new ArrayList<GcgGuiable>(FmmDatabaseService.getActiveMediator().retrieveStrategicAssetListForWorkPackageMoveTarget(
                     this.strategicMilestone, this.strategicAssetException));
 		}
 		return theGuiableList;
@@ -112,14 +112,14 @@ public class StrategicAssetWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 	@Override
 	protected ArrayList<? extends GcgGuiable> getOrphanNodesPrimaryParentGuiableList() {
 		ArrayList<GcgGuiable> theGuiableList =
-				new ArrayList<GcgGuiable>(FmmDatabaseMediator.getActiveMediator().listStrategicAssetOrphansFromProject());
+				new ArrayList<GcgGuiable>(FmmDatabaseService.getActiveMediator().listStrategicAssetOrphansFromProject());
 		return theGuiableList;
 	}
 	
 	@Override
 	protected ArrayList<? extends GcgGuiable> getOrphanNodesSecondaryParentGuiableList() {
 		ArrayList<GcgGuiable> theGuiableList =
-				new ArrayList<GcgGuiable>(FmmDatabaseMediator.getActiveMediator().retrieveProjectAssetList());
+				new ArrayList<GcgGuiable>(FmmDatabaseService.getActiveMediator().retrieveProjectAssetList());
 		return theGuiableList;
 	}
 	

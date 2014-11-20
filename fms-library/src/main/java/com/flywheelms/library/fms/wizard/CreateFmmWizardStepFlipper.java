@@ -50,7 +50,7 @@ import com.flywheelms.gcongui.gcg.helper.GcgHelper;
 import com.flywheelms.gcongui.gcg.interfaces.GcgFileNameValidator;
 import com.flywheelms.gcongui.gcg.wizard.GcgWizardStepFlipper;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.database.FmmDatabaseHelper;
 import com.flywheelms.library.fmm.helper.FmmAssetsHelper;
 import com.flywheelms.library.fmm.node.impl.governable.FmsOrganization;
@@ -141,7 +141,7 @@ public class CreateFmmWizardStepFlipper extends GcgWizardStepFlipper implements 
 		Boolean theResults = false;
 		switch(this.fmmTemplateWizardStepView.getFmmTemplateSource()) {
 			case PRIVATE:
-				FmmDatabaseMediator.closeActiveFmm();  // can't copy an open database
+				FmmDatabaseService.closeActiveFmm();  // can't copy an open database
 				theSourceFile = FmsFileHelper.getDatabaseFile(this.fmmTemplateWizardStepView.getTemplateFileName());
 				theDestinationFile = FmsFileHelper.getDatabaseFile(this.fmmTemplateWizardStepView.getDbFileName());
 				theResults = FmsFileHelper.copyFile(theSourceFile, theDestinationFile);

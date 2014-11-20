@@ -46,7 +46,7 @@ package com.flywheelms.library.fmm.node.impl.governable;
 import com.flywheelms.gcongui.deckangl.enumerator.DecKanGlDecoratorCanvasLocation;
 import com.flywheelms.gcongui.deckangl.interfaces.DecKanGlDecorator;
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
-import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorCadenceCommitment;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorCompletion;
@@ -150,7 +150,7 @@ public class Portfolio extends FmmCompletionNodeImpl {
 
     public FmsOrganization getOrganization() {
         if(this.organization == null && this.organizationNodeIdString != null) {
-            this.organization = FmmDatabaseMediator.getActiveMediator().retrieveFmsOrganization(this.organizationNodeIdString);
+            this.organization = FmmDatabaseService.getActiveMediator().retrieveFmsOrganization(this.organizationNodeIdString);
         }
         return this.organization;
     }
@@ -174,7 +174,7 @@ public class Portfolio extends FmmCompletionNodeImpl {
 
     public ArrayList<Project> getProjectList() {
         if(this.projectList == null) {
-            this.projectList = FmmDatabaseMediator.getActiveMediator().retrieveProjectList(this);
+            this.projectList = FmmDatabaseService.getActiveMediator().retrieveProjectList(this);
         }
         return this.projectList;
     }
@@ -272,7 +272,7 @@ public class Portfolio extends FmmCompletionNodeImpl {
         ArrayList<? extends FmmHeadlineNodeImpl> theList = null;
         switch(aChildNodeDefinition) {
             case PROJECT:
-                theList = FmmDatabaseMediator.getActiveMediator().retrieveProjectList(this);
+                theList = FmmDatabaseService.getActiveMediator().retrieveProjectList(this);
                 break;
         }
         return theList;

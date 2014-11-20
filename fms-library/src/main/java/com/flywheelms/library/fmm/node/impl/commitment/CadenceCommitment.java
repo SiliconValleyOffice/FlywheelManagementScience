@@ -43,7 +43,7 @@
 
 package com.flywheelms.library.fmm.node.impl.commitment;
 
-import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.impl.governable.Cadence;
 import com.flywheelms.library.fmm.node.impl.governable.WorkPackage;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmNode;
@@ -94,7 +94,7 @@ public class CadenceCommitment extends FmmCommitmentNodeImpl {
 	public WorkPackage getWorkPackage() {
 		if(this.workPackage == null) {
 			this.workPackage =
-					FmmDatabaseMediator.getActiveMediator().retrieveWorkPackage(this.childNodeIdString);
+					FmmDatabaseService.getActiveMediator().retrieveWorkPackage(this.childNodeIdString);
 		}
 		return this.workPackage;
 	}

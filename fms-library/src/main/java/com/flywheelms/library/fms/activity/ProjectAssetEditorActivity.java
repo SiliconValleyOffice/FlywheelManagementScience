@@ -43,7 +43,7 @@
 
 package com.flywheelms.library.fms.activity;
 
-import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmNode;
@@ -78,7 +78,7 @@ public class ProjectAssetEditorActivity extends FmmNodeEditorActivity {
 	@Override
 	public void saveAllDataModifications() {
 		super.saveAllDataModifications();
-		FmmDatabaseMediator.getActiveMediator().updateProjectAsset((ProjectAsset) getDisplayedFmmHeadlineNode(), true);
+		FmmDatabaseService.getActiveMediator().updateProjectAsset((ProjectAsset) getDisplayedFmmHeadlineNode(), true);
 	}
 
 }

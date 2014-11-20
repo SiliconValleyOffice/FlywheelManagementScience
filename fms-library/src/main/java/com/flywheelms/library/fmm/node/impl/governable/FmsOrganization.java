@@ -47,7 +47,7 @@ import android.content.Intent;
 
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
-import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.enumerator.FmmHoliday;
 import com.flywheelms.library.fmm.meta_data.FmsOrganizationMetaData;
 import com.flywheelms.library.fmm.node.FmmHeadlineNodeShallow;
@@ -139,7 +139,7 @@ public class FmsOrganization extends FmmGovernableNodeImpl {
 	}
 	
 	public boolean ownsThisFmm() {
-		return FmmDatabaseMediator.getActiveMediator().ownsThisFmm(this);
+		return FmmDatabaseService.getActiveMediator().ownsThisFmm(this);
 	}
 	
 	public static void startNodeEditorActivity(GcgActivity anActivity, String aNodeListParentNodeId, ArrayList<FmmHeadlineNodeShallow> aHeadlineNodeShallowList, String anInitialNodeIdToDisplay) {
@@ -156,7 +156,7 @@ public class FmsOrganization extends FmmGovernableNodeImpl {
 	}
 	
 	public static FmsOrganization getFmmConfiguration(Intent anIntent) {
-		return FmmDatabaseMediator.getActiveMediator().retrieveFmsOrganization(NodeId.getNodeIdString(anIntent));
+		return FmmDatabaseService.getActiveMediator().retrieveFmsOrganization(NodeId.getNodeIdString(anIntent));
 	}
 
     public int getFirstMonthOfFiscalYear() {
@@ -173,7 +173,7 @@ public class FmsOrganization extends FmmGovernableNodeImpl {
 
     public ArrayList<FiscalYearHolidayBreak> getHolidayBreakList(String aFiscalYearId) {
         if(this.holidayBreakList == null) {
-            this.holidayBreakList = FmmDatabaseMediator.getActiveMediator().retrieveFiscalYearHolidayBreakListForFiscalYear(aFiscalYearId);
+            this.holidayBreakList = FmmDatabaseService.getActiveMediator().retrieveFiscalYearHolidayBreakListForFiscalYear(aFiscalYearId);
         }
         return this.holidayBreakList;
     }

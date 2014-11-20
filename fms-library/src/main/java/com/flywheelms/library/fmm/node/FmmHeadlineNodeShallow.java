@@ -55,7 +55,7 @@ import com.flywheelms.gcongui.deckangl.interfaces.DecKanGlDecorator;
 import com.flywheelms.gcongui.gcg.interfaces.GcgPerspective;
 import com.flywheelms.gcongui.gcg.treeview.node.GcgTreeNodeInfo;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorCadenceCommitment;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorCompletion;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorFacilitationIssue;
@@ -197,7 +197,7 @@ public class FmmHeadlineNodeShallow implements FmmHeadlineNode {
 	
 	public FmmHeadlineNode getFmmHeadlineNode() {
 		if(this.fmmHeadlineNode == null) {
-			this.fmmHeadlineNode = FmmDatabaseMediator.getActiveMediator().retrievetHeadlineNode(this.nodeIdString);
+			this.fmmHeadlineNode = FmmDatabaseService.getActiveMediator().retrievetHeadlineNode(this.nodeIdString);
 		}
 		return this.fmmHeadlineNode;
 	}

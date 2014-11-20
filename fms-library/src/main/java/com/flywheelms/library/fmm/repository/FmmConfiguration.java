@@ -46,7 +46,7 @@ package com.flywheelms.library.fmm.repository;
 import android.content.Intent;
 
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
-import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.meta_data.HeadlineNodeMetaData;
 import com.flywheelms.library.fmm.meta_data.IdNodeMetaData;
 import com.flywheelms.library.fmm.node.FmmHeadlineNodeShallow;
@@ -226,7 +226,7 @@ public abstract class FmmConfiguration extends FmmGovernableNodeImpl {
 	}
 	
 	public static FmmConfiguration getFmmConfiguration(Intent anIntent) {
-		return FmmDatabaseMediator.getActiveMediator().retrieveFmmConfiguration(NodeId.getNodeIdString(anIntent));
+		return FmmDatabaseService.getActiveMediator().retrieveFmmConfiguration(NodeId.getNodeIdString(anIntent));
 	}
 	
 	@Override

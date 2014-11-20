@@ -46,7 +46,7 @@ package com.flywheelms.library.fmm.node.impl.governable;
 import android.content.Intent;
 
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
-import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.meta_data.WorkTaskMetaData;
 import com.flywheelms.library.fmm.node.FmmHeadlineNodeShallow;
 import com.flywheelms.library.fmm.node.NodeId;
@@ -128,7 +128,7 @@ public class WorkTask extends FmmCompletionNodeImpl {
 	}
 	
 	public static WorkTask getWorkTask(Intent anIntent) {
-		return FmmDatabaseMediator.getActiveMediator().retrieveWorkTask(NodeId.getNodeIdString(anIntent));
+		return FmmDatabaseService.getActiveMediator().retrieveWorkTask(NodeId.getNodeIdString(anIntent));
 	}
 
     public String getWorkPackageNodeIdString() {
@@ -138,7 +138,7 @@ public class WorkTask extends FmmCompletionNodeImpl {
     public WorkPackage getWorkPackage() {
         if(this.workPackage == null && this.workPackageNodeIdString != null) {
             this.workPackage =
-                    FmmDatabaseMediator.getActiveMediator().retrieveWorkPackage(this.workPackageNodeIdString);
+                    FmmDatabaseService.getActiveMediator().retrieveWorkPackage(this.workPackageNodeIdString);
         }
         return this.workPackage;
     }
@@ -162,7 +162,7 @@ public class WorkTask extends FmmCompletionNodeImpl {
     public WorkPlan getWorkPlan() {
         if(this.workPlan == null && this.workPlanNodeIdString != null) {
             this.workPlan =
-                    FmmDatabaseMediator.getActiveMediator().retrieveWorkPlan(this.workPlanNodeIdString);
+                    FmmDatabaseService.getActiveMediator().retrieveWorkPlan(this.workPlanNodeIdString);
         }
         return this.workPlan;
     }
@@ -208,10 +208,10 @@ public class WorkTask extends FmmCompletionNodeImpl {
         ArrayList<WorkTask> theList;
         switch(aParentHeadlineNode.getFmmNodeDefinition()) {
             case WORK_PACKAGE:
-                theList = FmmDatabaseMediator.getActiveMediator().retrieveWorkTaskListForWorkPackage(aParentHeadlineNode.getNodeIdString(), null);
+                theList = FmmDatabaseService.getActiveMediator().retrieveWorkTaskListForWorkPackage(aParentHeadlineNode.getNodeIdString(), null);
                 break;
             case WORK_PLAN:
-                theList = FmmDatabaseMediator.getActiveMediator().retrieveWorkTaskListForWorkPlan(aParentHeadlineNode.getNodeIdString(), null);
+                theList = FmmDatabaseService.getActiveMediator().retrieveWorkTaskListForWorkPlan(aParentHeadlineNode.getNodeIdString(), null);
                 break;
             default:
                 theList = new ArrayList<WorkTask>();

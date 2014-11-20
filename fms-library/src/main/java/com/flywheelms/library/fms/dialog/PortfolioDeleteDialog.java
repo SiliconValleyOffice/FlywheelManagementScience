@@ -47,7 +47,7 @@ import android.widget.LinearLayout;
 
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.impl.governable.Portfolio;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.fms.treeview.filter.FmsTreeViewAdapter;
@@ -74,7 +74,7 @@ public class PortfolioDeleteDialog extends HeadlineNodeDeleteDialog {
 
     @Override
 	protected ArrayList<? extends FmmHeadlineNode> getPrimaryChildHeadlineNodeList() {
-		return FmmDatabaseMediator.getActiveMediator().retrieveProjectList((Portfolio) getFmmHeadlineNode());
+		return FmmDatabaseService.getActiveMediator().retrieveProjectList((Portfolio) getFmmHeadlineNode());
 	}
 	
 	@Override
@@ -82,7 +82,7 @@ public class PortfolioDeleteDialog extends HeadlineNodeDeleteDialog {
 		return true;
 	}
     protected boolean orphanPrimaryChildren() {
-        return FmmDatabaseMediator.getActiveMediator().orphanAllProjectsFromPortfolio(getFmmHeadlineNode().getNodeIdString(), true);
+        return FmmDatabaseService.getActiveMediator().orphanAllProjectsFromPortfolio(getFmmHeadlineNode().getNodeIdString(), true);
     }
 
 	@Override
@@ -94,17 +94,17 @@ public class PortfolioDeleteDialog extends HeadlineNodeDeleteDialog {
 
 	@Override
 	protected boolean deleteHeadlineNode() {
-		return FmmDatabaseMediator.getActiveMediator().deletePortfolio((Portfolio) getFmmHeadlineNode(), false);
+		return FmmDatabaseService.getActiveMediator().deletePortfolio((Portfolio) getFmmHeadlineNode(), false);
 	}
 
 	@Override
 	protected boolean deletePrimaryChildren() {
-		return FmmDatabaseMediator.getActiveMediator().deleteProjectsForPortfolio(getFmmHeadlineNode().getNodeIdString(), false);
+		return FmmDatabaseService.getActiveMediator().deleteProjectsForPortfolio(getFmmHeadlineNode().getNodeIdString(), false);
 	}
 
 	@Override
 	protected boolean movePrimaryChildrenToNewParent() {
-		return FmmDatabaseMediator.getActiveMediator().moveAllProjectsIntoPortfolio(
+		return FmmDatabaseService.getActiveMediator().moveAllProjectsIntoPortfolio(
                 getFmmHeadlineNode().getNodeIdString(),
                 this.primaryChildDeleteDisposition.getTargetWidgetSpinner().getFmmNode().getNodeIdString(),
                 false);

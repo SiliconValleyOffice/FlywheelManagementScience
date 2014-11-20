@@ -55,7 +55,7 @@ import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewAdapter;
 import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewMediator;
 import com.flywheelms.gcongui.gcg.treeview.node.GcgTreeNodeInfo;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
 import com.flywheelms.library.fmm.node.impl.governable.StrategicAsset;
@@ -121,16 +121,16 @@ public class FwbContextStrategicPlanningPerspective extends FmsPerspectiveFlippe
 		GcgTreeViewMediator theGcgTreeViewMediator =
 				new FmsTreeViewMediatorMemoryResident(new StrategicPlanningTreeFilter(this));
 		final FmsTreeBuilder theTreeBuilder = new FmsTreeBuilder(theGcgTreeViewMediator);
-		Collection<FiscalYear> theFiscalYearCollection = FmmDatabaseMediator.getActiveMediator().retrieveFiscalYearList(
-                FmmDatabaseMediator.getActiveMediator().getFmmOwner());
+		Collection<FiscalYear> theFiscalYearCollection = FmmDatabaseService.getActiveMediator().retrieveFiscalYearList(
+                FmmDatabaseService.getActiveMediator().getFmmOwner());
 		for(FiscalYear theFiscalYear : theFiscalYearCollection) {
 			Collection<StrategicMilestone> theStrategicMilestoneCollection =
-					FmmDatabaseMediator.getActiveMediator().retrieveStrategicMilestoneList(theFiscalYear);
+					FmmDatabaseService.getActiveMediator().retrieveStrategicMilestoneList(theFiscalYear);
 			GcgTreeNodeInfo theFiscalYearTreeNodeInfo = theTreeBuilder.addTopNode(
 					theFiscalYear, theStrategicMilestoneCollection.size()>0, FmmPerspective.STRATEGIC_PLANNING );
 			for(StrategicMilestone theStrategicMilestone : theStrategicMilestoneCollection) {
 				Collection<StrategicAsset> theStrategicAssetCollection =
-						FmmDatabaseMediator.getActiveMediator().retrieveStrategicAssetList(theStrategicMilestone);
+						FmmDatabaseService.getActiveMediator().retrieveStrategicAssetList(theStrategicMilestone);
 				GcgTreeNodeInfo theStrategicMilestoneTreeNodeInfo = theTreeBuilder.addChildNode(
 						theStrategicMilestone, theStrategicAssetCollection.size()>0, theFiscalYearTreeNodeInfo, FmmPerspective.STRATEGIC_PLANNING);
 				for(StrategicAsset theStrategicAsset : theStrategicAssetCollection) {

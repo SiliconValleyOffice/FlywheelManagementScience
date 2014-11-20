@@ -61,7 +61,7 @@ import com.flywheelms.gcongui.gcg.menu.GcgPerspectiveMenuButton;
 import com.flywheelms.gcongui.gcg.viewflipper.GcgPerspectiveFlipper;
 import com.flywheelms.gcongui.gcg.viewflipper.GcgViewFlipper;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.FmmDatabaseTemplate;
 import com.flywheelms.library.fmm.context.FmmFrame;
 import com.flywheelms.library.fmm.deckangl.FmmDecKanGlDictionary;
@@ -111,7 +111,7 @@ public class WorkbenchActivity extends FmsActivity implements FmsDecKanGlNavigat
 		if(aSavedInstanceState != null) {
 			this.mustSelectDataSource = aSavedInstanceState.getBoolean(FmsActivityHelper.bundle_key__MUST_SELECT_DATA_SOURCE);
             if(aSavedInstanceState.containsKey(FmsActivityHelper.bundle_key__FMM_CONFIGURATION)) {
-                FmmDatabaseMediator.setActiveFmmConfiguration(FmmConfiguration.rehydrate(aSavedInstanceState.getString(FmsActivityHelper.bundle_key__FMM_CONFIGURATION)));
+                FmmDatabaseService.setActiveFmmConfiguration(FmmConfiguration.rehydrate(aSavedInstanceState.getString(FmsActivityHelper.bundle_key__FMM_CONFIGURATION)));
                 this.mustSelectDataSource = false;
             }
         }
@@ -125,8 +125,8 @@ public class WorkbenchActivity extends FmsActivity implements FmsDecKanGlNavigat
 	public void onSaveInstanceState(Bundle theBundle) {
 		super.onSaveInstanceState(theBundle);
 		theBundle.putBoolean(FmsActivityHelper.bundle_key__MUST_SELECT_DATA_SOURCE, this.mustSelectDataSource);
-        if(FmmDatabaseMediator.getActiveFmmConfiguration() != null) {
-            theBundle.putString(FmsActivityHelper.bundle_key__FMM_CONFIGURATION, FmmDatabaseMediator.getActiveFmmConfiguration().getSerialized());
+        if(FmmDatabaseService.getActiveFmmConfiguration() != null) {
+            theBundle.putString(FmsActivityHelper.bundle_key__FMM_CONFIGURATION, FmmDatabaseService.getActiveFmmConfiguration().getSerialized());
         }
         if(this.closeFmm) {
             closeFmm();
@@ -143,7 +143,7 @@ public class WorkbenchActivity extends FmsActivity implements FmsDecKanGlNavigat
 	@Override
 	protected void initializeGcgApplicationContext() {
 		setGcgApplicationContext(new GcgApplicationContext(
-				R.drawable.fmm_noun__fmm_configuration, FmmDatabaseMediator.getActiveMediator().getActiveFmmConfiguration().getHeadline() ));
+				R.drawable.fmm_noun__fmm_configuration, FmmDatabaseService.getActiveMediator().getActiveFmmConfiguration().getHeadline() ));
 	}
 
 	@Override
@@ -156,7 +156,7 @@ public class WorkbenchActivity extends FmsActivity implements FmsDecKanGlNavigat
 	@Override
 	public void dataSourceSelected(Object aDataSourceObject) {
 		startOrangeActivityStatusAnimation();
-		FmmDatabaseMediator.setActiveMediator((FmmConfiguration) aDataSourceObject);
+		FmmDatabaseService.setActiveMediator((FmmConfiguration) aDataSourceObject);
 		super.dataSourceSelected(aDataSourceObject);
 		stopActivityStatusAnimation();
 	}
@@ -215,7 +215,7 @@ public class WorkbenchActivity extends FmsActivity implements FmsDecKanGlNavigat
 
 	private void closeFmm() {
         saveGuiState();
-		FmmDatabaseMediator.closeActiveFmm();
+		FmmDatabaseService.closeActiveFmm();
 		resetApplicationContext();
 		this.mustSelectDataSource = true;
         this.closeFmm = false;
@@ -223,7 +223,7 @@ public class WorkbenchActivity extends FmsActivity implements FmsDecKanGlNavigat
 
 	@Override
 	protected String getBreadcrumbHeadline() {
-		return FmmDatabaseMediator.getActiveMediator().getFmmOwner().getName();
+		return FmmDatabaseService.getActiveMediator().getFmmOwner().getName();
 	}
 
 
@@ -235,7 +235,7 @@ public class WorkbenchActivity extends FmsActivity implements FmsDecKanGlNavigat
 
 	@Override
 	protected String getBreadcrumbTargetNodeIdString() {
-		return FmmDatabaseMediator.getActiveMediator().getActiveFmmConfiguration().getNodeIdString();
+		return FmmDatabaseService.getActiveMediator().getActiveFmmConfiguration().getNodeIdString();
 	}
 
 	@Override
@@ -400,7 +400,7 @@ public class WorkbenchActivity extends FmsActivity implements FmsDecKanGlNavigat
 
 	@Override
 	public String getOrganizationName() {
-		return FmmDatabaseMediator.getActiveMediator().getFmmOwner() == null ? "Null FMM Owner" : FmmDatabaseMediator.getActiveMediator().getFmmOwner().getName();
+		return FmmDatabaseService.getActiveMediator().getFmmOwner() == null ? "Null FMM Owner" : FmmDatabaseService.getActiveMediator().getFmmOwner().getName();
 	}
 
 	@Override

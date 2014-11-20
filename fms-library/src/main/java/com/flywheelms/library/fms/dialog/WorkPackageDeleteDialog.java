@@ -47,7 +47,7 @@ import android.widget.LinearLayout;
 
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.impl.governable.Portfolio;
 import com.flywheelms.library.fmm.node.impl.governable.Project;
 import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
@@ -84,7 +84,7 @@ public class WorkPackageDeleteDialog extends HeadlineNodeDeleteDialog {
 
 	@Override
 	protected ArrayList<? extends FmmHeadlineNode> getPrimaryChildHeadlineNodeList() {
-		return FmmDatabaseMediator.getActiveMediator().retrieveWorkTaskList(getWorkPackage());
+		return FmmDatabaseService.getActiveMediator().retrieveWorkTaskList(getWorkPackage());
 	}
 
     @Override
@@ -155,17 +155,17 @@ public class WorkPackageDeleteDialog extends HeadlineNodeDeleteDialog {
 
 	@Override
 	protected boolean deleteHeadlineNode() {
-		return FmmDatabaseMediator.getActiveMediator().deleteWorkPackage((WorkPackage) getFmmHeadlineNode(), false);
+		return FmmDatabaseService.getActiveMediator().deleteWorkPackage((WorkPackage) getFmmHeadlineNode(), false);
 	}
 
 	@Override
 	protected boolean orphanPrimaryChildren() {
-		return FmmDatabaseMediator.getActiveMediator().orphanAllWorkTasksFromWorkPackage(getFmmHeadlineNode().getNodeIdString(), false);
+		return FmmDatabaseService.getActiveMediator().orphanAllWorkTasksFromWorkPackage(getFmmHeadlineNode().getNodeIdString(), false);
 	}
 
 	@Override
 	protected boolean movePrimaryChildrenToNewParent() {
-		return FmmDatabaseMediator.getActiveMediator().moveAllWorkTasksIntoWorkPackage(
+		return FmmDatabaseService.getActiveMediator().moveAllWorkTasksIntoWorkPackage(
                 getFmmHeadlineNode().getNodeIdString(),
                 this.primaryChildDeleteDisposition.getTargetWidgetSpinner().getFmmNode().getNodeIdString(),
                 this.primaryChildDeleteDisposition.isSequencePositionSpinnerAtEnd(),

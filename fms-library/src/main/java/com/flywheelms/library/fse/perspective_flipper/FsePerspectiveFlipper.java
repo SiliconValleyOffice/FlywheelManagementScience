@@ -56,7 +56,7 @@ import com.flywheelms.gcongui.gcg.menu.GcgSpinnableMenu;
 import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fca.FlywheelCommunityAuthentication;
-import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.enumerator.FmmLockStatus;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.governable.CommunityMember;
@@ -176,7 +176,7 @@ public class FsePerspectiveFlipper extends FmsPerspectiveFlipper implements GcgS
 		updateHistory(theTimestamp, theDocumentTransactionType, "");
 		updateAuditBlock(theTimestamp, theDocumentTransactionType);
 		updateCollaboratorSummary();
-		FmmDatabaseMediator.getActiveMediator().updateFseDocument(getFmmHeadelineNode(), generateFseDocument(), true);
+		FmmDatabaseService.getActiveMediator().updateFseDocument(getFmmHeadelineNode(), generateFseDocument(), true);
 		postPersistenceProcessing();
 		setDisplayedFseDocument(generateFseDocument());
 		setAsNewBaseline();
@@ -665,7 +665,7 @@ public class FsePerspectiveFlipper extends FmsPerspectiveFlipper implements GcgS
 	}
 	
 	public void setDisplayedFseDocumentForParentNode(String aNodeIdString) {
-		setDisplayedFseDocument(FmmDatabaseMediator.getActiveMediator().getFseDocumentForParent(aNodeIdString));
+		setDisplayedFseDocument(FmmDatabaseService.getActiveMediator().getFseDocumentForParent(aNodeIdString));
 	}
 
 	public void revertFseDocumentToTransaction(boolean bRevertStory, boolean bRevertNotes) {
@@ -693,7 +693,7 @@ public class FsePerspectiveFlipper extends FmsPerspectiveFlipper implements GcgS
 		updateHistory(theTimestamp, theTransactionType, theComment);
 		updateAuditBlock(theTimestamp, theTransactionType);
 		updateCollaboratorSummary();
-		FmmDatabaseMediator.getActiveMediator().updateFseDocument(getFmmHeadelineNode(), generateFseDocument(), true);
+		FmmDatabaseService.getActiveMediator().updateFseDocument(getFmmHeadelineNode(), generateFseDocument(), true);
 		getHistorySectionPerspective().refresh();
 		getCollaboratorsSectionPerspective().invalidate();
 	}
@@ -701,7 +701,7 @@ public class FsePerspectiveFlipper extends FmsPerspectiveFlipper implements GcgS
 	@Override
 	public void viewData() {
 		if(isStaleData()) {
-			this.displayedFseDocument = FmmDatabaseMediator.getActiveMediator().getFseDocumentForParent(getParentNodeIdString());
+			this.displayedFseDocument = FmmDatabaseService.getActiveMediator().getFseDocumentForParent(getParentNodeIdString());
 			setTargetNodeIdString(this.displayedFseDocument.getNodeFragNodeIdString());
 		}
 		viewDocument(this.displayedFseDocument);

@@ -46,7 +46,7 @@ package com.flywheelms.library.fmm.node.impl.governable;
 import com.flywheelms.gcongui.deckangl.enumerator.DecKanGlDecoratorCanvasLocation;
 import com.flywheelms.gcongui.deckangl.interfaces.DecKanGlDecorator;
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
-import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorCadenceCommitment;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorCompletion;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorFacilitationIssue;
@@ -138,7 +138,7 @@ public class Notebook extends FmmCompletionNodeImpl {
 
     public ArrayList<Bookshelf> getBookshelfList() {
         if(this.bookshelfList == null) {
-            this.bookshelfList = FmmDatabaseMediator.getActiveMediator().retrieveBookshelfList(this);
+            this.bookshelfList = FmmDatabaseService.getActiveMediator().retrieveBookshelfList(this);
         }
         return this.bookshelfList;
     }
@@ -149,7 +149,7 @@ public class Notebook extends FmmCompletionNodeImpl {
 
     public ArrayList<DiscussionTopic> getDiscussionTopicList() {
         if(this.discussionTopicList == null) {
-            this.discussionTopicList = FmmDatabaseMediator.getActiveMediator().retrieveDiscussionTopicList(this);
+            this.discussionTopicList = FmmDatabaseService.getActiveMediator().retrieveDiscussionTopicList(this);
         }
         return this.discussionTopicList;
     }
@@ -218,7 +218,7 @@ public class Notebook extends FmmCompletionNodeImpl {
         ArrayList<? extends FmmHeadlineNodeImpl> theList = null;
         switch(aChildNodeDefinition) {
             case DISCUSSION_TOPIC:
-                theList = FmmDatabaseMediator.getActiveMediator().retrieveDiscussionTopicList(this);
+                theList = FmmDatabaseService.getActiveMediator().retrieveDiscussionTopicList(this);
                 break;
         }
         return theList;
