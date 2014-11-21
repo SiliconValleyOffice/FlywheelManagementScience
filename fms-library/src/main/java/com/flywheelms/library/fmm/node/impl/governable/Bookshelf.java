@@ -46,7 +46,6 @@ import com.flywheelms.gcongui.deckangl.enumerator.DecKanGlDecoratorCanvasLocatio
 import com.flywheelms.gcongui.deckangl.enumerator.DecKanGlNounStateColor;
 import com.flywheelms.gcongui.deckangl.interfaces.DecKanGlDecorator;
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorCadenceCommitment;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorCompletion;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorFacilitationIssue;
@@ -65,6 +64,7 @@ import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
+import com.flywheelms.library.fms.activity.FmsActivity;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
 import com.flywheelms.library.util.JsonHelper;
 
@@ -152,7 +152,7 @@ public class Bookshelf extends FmmGovernableNodeImpl {
 
     public FmsOrganization getOrganization() {
         if(this.organization == null && this.organizationNodeIdString != null) {
-            this.organization = FmmDatabaseService.getActiveMediator().retrieveFmsOrganization(this.organizationNodeIdString);
+            this.organization = FmsActivity.getActiveDatabaseMediator().retrieveFmsOrganization(this.organizationNodeIdString);
         }
         return this.organization;
     }
@@ -168,7 +168,7 @@ public class Bookshelf extends FmmGovernableNodeImpl {
 
     public ArrayList<Notebook> getNotebookList() {
         if(this.notebookList == null) {
-            this.notebookList = FmmDatabaseService.getActiveMediator().retrieveNotebookList(this);
+            this.notebookList = FmsActivity.getActiveDatabaseMediator().retrieveNotebookList(this);
         }
         return this.notebookList;
     }
@@ -237,7 +237,7 @@ public class Bookshelf extends FmmGovernableNodeImpl {
         ArrayList<? extends FmmHeadlineNodeImpl> theList = null;
         switch(aChildNodeDefinition) {
             case NOTEBOOK:
-                theList = FmmDatabaseService.getActiveMediator().retrieveNotebookList(this);
+                theList = FmsActivity.getActiveDatabaseMediator().retrieveNotebookList(this);
                 break;
         }
         return theList;

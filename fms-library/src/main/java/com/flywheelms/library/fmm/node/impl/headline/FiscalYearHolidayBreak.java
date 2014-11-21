@@ -43,12 +43,12 @@
 package com.flywheelms.library.fmm.node.impl.headline;
 
 import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.enumerator.FmmHoliday;
 import com.flywheelms.library.fmm.meta_data.FiscalYearHolidayBreakMetaData;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
+import com.flywheelms.library.fms.activity.FmsActivity;
 import com.flywheelms.library.util.JsonHelper;
 
 import org.json.JSONException;
@@ -133,7 +133,7 @@ public class FiscalYearHolidayBreak extends FmmHeadlineNodeImpl {
     public FiscalYear getFiscalYear() {
         if(this.fiscalYear == null && this.fiscalYearId != null) {
             this.fiscalYear =
-                    FmmDatabaseService.getActiveMediator().retrieveFiscalYear(this.fiscalYearId);
+                    FmsActivity.getActiveDatabaseMediator().retrieveFiscalYear(this.fiscalYearId);
         }
         return this.fiscalYear;
     }

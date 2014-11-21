@@ -44,7 +44,6 @@
 package com.flywheelms.library.fmm.node.impl.governable;
 
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fmm.meta_data.ProjectMetaData;
 import com.flywheelms.library.fmm.node.FmmHeadlineNodeShallow;
@@ -54,6 +53,7 @@ import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.fmm.transaction.FmmNodeGlyphType;
+import com.flywheelms.library.fms.activity.FmsActivity;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
 import com.flywheelms.library.util.JsonHelper;
 
@@ -122,7 +122,7 @@ public class Project extends FmmCompletionNodeImpl {
     public Portfolio getPortfolio() {
         if(this.portfolio == null && this.portfolioNodeIdString != null) {
             this.portfolio =
-                    FmmDatabaseService.getActiveMediator().retrievePortfolio(this.portfolioNodeIdString);
+                    FmsActivity.getActiveDatabaseMediator().retrievePortfolio(this.portfolioNodeIdString);
         }
         return this.portfolio;
     }
@@ -145,7 +145,7 @@ public class Project extends FmmCompletionNodeImpl {
 
     public ArrayList<ProjectAsset> getProjectAssetList() {
         if(this.projectAssetList == null) {
-            this.projectAssetList = FmmDatabaseService.getActiveMediator().retrieveProjectAssetList(this);
+            this.projectAssetList = FmsActivity.getActiveDatabaseMediator().retrieveProjectAssetList(this);
         }
         return this.projectAssetList;
     }
@@ -202,13 +202,13 @@ public class Project extends FmmCompletionNodeImpl {
         ArrayList<? extends FmmHeadlineNode> theList = null;
         switch(aChildNodeDefinition) {
             case PROJECT_ASSET:
-                theList = FmmDatabaseService.getActiveMediator().retrieveProjectAssetList(this);
+                theList = FmsActivity.getActiveDatabaseMediator().retrieveProjectAssetList(this);
                 break;
             case WORK_ASSET:
-                theList = FmmDatabaseService.getActiveMediator().retrieveWorkAssetList(this);
+                theList = FmsActivity.getActiveDatabaseMediator().retrieveWorkAssetList(this);
                 break;
             case STRATEGIC_ASSET:
-                theList = FmmDatabaseService.getActiveMediator().retrieveStrategicAssetList(this);
+                theList = FmsActivity.getActiveDatabaseMediator().retrieveStrategicAssetList(this);
                 break;
         }
         return theList;

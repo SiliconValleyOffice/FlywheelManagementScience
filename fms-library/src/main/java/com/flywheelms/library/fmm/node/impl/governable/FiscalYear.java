@@ -46,7 +46,6 @@ package com.flywheelms.library.fmm.node.impl.governable;
 import com.flywheelms.gcongui.deckangl.enumerator.DecKanGlDecoratorCanvasLocation;
 import com.flywheelms.gcongui.deckangl.interfaces.DecKanGlDecorator;
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorCadenceCommitment;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorCompletion;
@@ -67,6 +66,7 @@ import com.flywheelms.library.fmm.node.impl.completable.FmmCompletionNodeImpl;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
+import com.flywheelms.library.fms.activity.FmsActivity;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
 import com.flywheelms.library.util.JsonHelper;
 
@@ -164,7 +164,7 @@ public class FiscalYear extends FmmCompletionNodeImpl implements Comparable<Fisc
 		this.strategicMilestoneList = new ArrayList<StrategicMilestone>();
 		for(int i=0; i < aJsonArray.length(); ++i) {
 			try {
-				this.strategicMilestoneList.add(FmmDatabaseService.getActiveMediator().retrieveStrategicMilestone(
+				this.strategicMilestoneList.add(FmsActivity.getActiveDatabaseMediator().retrieveStrategicMilestone(
                         aJsonArray.getString(i)));
 			} catch (JSONException e) {
 				// TODO Auto-generated catch block
@@ -183,7 +183,7 @@ public class FiscalYear extends FmmCompletionNodeImpl implements Comparable<Fisc
 	
 	public FmsOrganization getOrganization() {
 		if(this.organization == null && this.organizationNodeIdString != null) {
-			this.organization = FmmDatabaseService.getActiveMediator().retrieveFmsOrganization(this.organizationNodeIdString);
+			this.organization = FmsActivity.getActiveDatabaseMediator().retrieveFmsOrganization(this.organizationNodeIdString);
 		}
 		return this.organization;
 	}
@@ -253,7 +253,7 @@ public class FiscalYear extends FmmCompletionNodeImpl implements Comparable<Fisc
 
 	public ArrayList<StrategicMilestone> getStrategicMilestoneList() {
 		if(this.strategicMilestoneList == null) {
-			this.strategicMilestoneList = FmmDatabaseService.getActiveMediator().retrieveStrategicMilestoneList(this);
+			this.strategicMilestoneList = FmsActivity.getActiveDatabaseMediator().retrieveStrategicMilestoneList(this);
 		}
 		return this.strategicMilestoneList;
 	}
@@ -274,7 +274,7 @@ public class FiscalYear extends FmmCompletionNodeImpl implements Comparable<Fisc
 
     public ArrayList<Cadence> getCadenceList() {
         if(this.flywheelCadenceList == null) {
-            this.flywheelCadenceList = FmmDatabaseService.getActiveMediator().retrieveCadenceListForFiscalYear(getNodeIdString());
+            this.flywheelCadenceList = FmsActivity.getActiveDatabaseMediator().retrieveCadenceListForFiscalYear(getNodeIdString());
         }
         return this.flywheelCadenceList;
     }
@@ -369,10 +369,10 @@ public class FiscalYear extends FmmCompletionNodeImpl implements Comparable<Fisc
         ArrayList<? extends FmmHeadlineNodeImpl> theList = null;
         switch(aChildNodeDefinition) {
             case STRATEGIC_MILESTONE:
-                theList = FmmDatabaseService.getActiveMediator().retrieveStrategicMilestoneList(this);
+                theList = FmsActivity.getActiveDatabaseMediator().retrieveStrategicMilestoneList(this);
                 break;
             case CADENCE:
-                theList = FmmDatabaseService.getActiveMediator().retrieveCadenceList(this);
+                theList = FmsActivity.getActiveDatabaseMediator().retrieveCadenceList(this);
                 break;
         }
         return theList;

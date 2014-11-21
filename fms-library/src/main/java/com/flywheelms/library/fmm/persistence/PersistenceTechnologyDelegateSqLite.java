@@ -49,7 +49,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
 import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
-import com.flywheelms.library.fmm.FmmDatabaseService;
+import com.flywheelms.library.fmm.FmmDatabaseMediator;
 import com.flywheelms.library.fmm.database.sqlite.dao.BookshelfDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.BookshelfLinkToNotebookDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.CadenceCommitmentDaoSqLite;
@@ -435,7 +435,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
 	private boolean moveAllLinkNodes(FmmNodeDefinition anFmmNodeDefinition, String aParentIdColumnName, String anOldParentId, String anNewParentID, boolean bSequenceAtEnd) {
 		ArrayList<String> theMovingLinkNodeIdList = getFmmNodeIdList(
-                anFmmNodeDefinition, aParentIdColumnName, anOldParentId, FmmDatabaseService.sort_spec__SEQUENCE);
+                anFmmNodeDefinition, aParentIdColumnName, anOldParentId, FmmDatabaseMediator.sort_spec__SEQUENCE);
 		boolean isTransactionSuccess = true;
 		if(theMovingLinkNodeIdList.size() > 0){
 			if(bSequenceAtEnd) {
@@ -452,7 +452,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 				isTransactionSuccess &= theRowCount == theMovingLinkNodeIdList.size();
 			} else {
 				ArrayList<String> theExistingLinkNodeIdList = getFmmNodeIdList(
-						anFmmNodeDefinition, aParentIdColumnName, anNewParentID, FmmDatabaseService.sort_spec__SEQUENCE);
+						anFmmNodeDefinition, aParentIdColumnName, anNewParentID, FmmDatabaseMediator.sort_spec__SEQUENCE);
 				int theOffset = theMovingLinkNodeIdList.size();
 				int theRowCount = 0;
 				for(String theLinkNodeId : theExistingLinkNodeIdList) {
@@ -493,7 +493,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 			this.contentValues.put(SequencedLinkNodeMetaData.column_SEQUENCE, theNewSequence);
 		} else {
 			ArrayList<String> theExistingLinkNodeIdList = getFmmNodeIdList(
-					anFmmNodeDefinition, aParentIdColumnName, aNewParentID, FmmDatabaseService.sort_spec__SEQUENCE);
+					anFmmNodeDefinition, aParentIdColumnName, aNewParentID, FmmDatabaseMediator.sort_spec__SEQUENCE);
 			int theOffset = 1;
 			for(String theLinkNodeId : theExistingLinkNodeIdList) {
 				getSqLiteDatabase().execSQL(
@@ -526,7 +526,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 			this.contentValues.put(SequencedLinkNodeMetaData.column_SEQUENCE, theNewSequence);
 		} else {
 			ArrayList<String> theExistingLinkNodeIdList = getFmmNodeIdList(
-					anFmmNodeDefinition, aParentIdColumnName, aNewParentID, FmmDatabaseService.sort_spec__SEQUENCE);
+					anFmmNodeDefinition, aParentIdColumnName, aNewParentID, FmmDatabaseMediator.sort_spec__SEQUENCE);
 			int theOffset = 1;
 			for(String theLinkNodeId : theExistingLinkNodeIdList) {
 				getSqLiteDatabase().execSQL(

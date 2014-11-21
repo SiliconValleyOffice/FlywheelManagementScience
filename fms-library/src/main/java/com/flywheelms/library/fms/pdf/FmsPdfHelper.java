@@ -50,8 +50,8 @@ import android.net.Uri;
 import android.util.Log;
 
 import com.flywheelms.gcongui.gcg.helper.GcgHelper;
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
+import com.flywheelms.library.fms.activity.FmsActivity;
 import com.flywheelms.library.fms.helper.FmsFileHelper;
 import com.flywheelms.library.fms.pdf.publication.HeadlineNodePublication;
 import com.flywheelms.library.fms.wizard.step.FmsNodePublishingContentSelectionWizardStepView;
@@ -67,7 +67,7 @@ public class FmsPdfHelper {
 
 	public static File generatePdfFile(FmsNodePublishingContentSelectionWizardStepView aContentSelectionStepView, String anFmmNodeIdString, String anAbbreviatedNodeIdString) {
 		try {
-			FmmHeadlineNodeImpl headlineNode = FmmDatabaseService.getActiveMediator().retrievetHeadlineNode(anFmmNodeIdString);
+			FmmHeadlineNodeImpl headlineNode = FmsActivity.getActiveDatabaseMediator().retrievetHeadlineNode(anFmmNodeIdString);
 			ByteArrayOutputStream theDocumentStream = new HeadlineNodePublication(headlineNode, aContentSelectionStepView).buildPdf();
 			theDocumentStream.close();
 			return FmsFileHelper.writeFileToDownloadsDirectory(anAbbreviatedNodeIdString + ".pdf", theDocumentStream);

@@ -45,7 +45,6 @@ package com.flywheelms.library.fmm.node.impl.governable;
 
 import com.flywheelms.gcongui.deckangl.enumerator.DecKanGlDecoratorCanvasLocation;
 import com.flywheelms.gcongui.deckangl.interfaces.DecKanGlDecorator;
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorCadenceCommitment;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorCompletion;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorFacilitationIssue;
@@ -64,6 +63,7 @@ import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragAuditBlock;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
+import com.flywheelms.library.fms.activity.FmsActivity;
 import com.flywheelms.library.util.JsonHelper;
 
 import org.json.JSONArray;
@@ -136,14 +136,14 @@ public class DiscussionTopic extends FmmCompletionNodeImpl {
 
     public ArrayList<Notebook> getNotebookList() {
         if(this.notebookList == null) {
-            this.notebookList = FmmDatabaseService.getActiveMediator().retrieveNotebookList(this);
+            this.notebookList = FmsActivity.getActiveDatabaseMediator().retrieveNotebookList(this);
         }
         return this.notebookList;
     }
 
     public ArrayList<NodeFragAuditBlock> getNodeFragAuditBlockList() {
         if(this.nodeFragAuditBlockList == null) {
-            this.nodeFragAuditBlockList = FmmDatabaseService.getActiveMediator().retrieveNodeFragAuditBlockList(this);
+            this.nodeFragAuditBlockList = FmsActivity.getActiveDatabaseMediator().retrieveNodeFragAuditBlockList(this);
         }
         return this.nodeFragAuditBlockList;
     }

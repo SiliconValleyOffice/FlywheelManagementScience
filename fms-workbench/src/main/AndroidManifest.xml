@@ -23,6 +23,8 @@
         android:theme="@style/AppTheme"
         android:windowSoftInputMode="adjustNothing"
         android:allowBackup="true"  >
+
+        <service android:name="com.flywheelms.library.fmm.FmmDatabaseService" />
         
         <activity
             android:name="com.flywheelms.workbench.activity.WorkbenchActivity"

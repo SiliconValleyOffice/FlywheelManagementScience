@@ -70,7 +70,6 @@ import com.flywheelms.gcongui.fdk.enumerator.FdkKeyboardState;
 import com.flywheelms.gcongui.fdk.enumerator.FdkKeyboardStyle;
 import com.flywheelms.gcongui.fdk.widget.FdkKeyboard;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.FmmHeadlineNodeShallow;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
@@ -108,7 +107,7 @@ public abstract class FmsNodeSinglePickActivity extends FmsFdkActivity {
 	protected void onCreate(Bundle aSavedInstanceState) {
 		super.onCreate(aSavedInstanceState);
 		initializeListView();
-		this.initialHeadlineNodeList = new ArrayList<FmmHeadlineNode>(FmmDatabaseService.getActiveMediator().retrieveFmmHeadlineNodeList(this.nodeDictionaryEntry));
+		this.initialHeadlineNodeList = new ArrayList<FmmHeadlineNode>(FmsActivity.getActiveDatabaseMediator().retrieveFmmHeadlineNodeList(this.nodeDictionaryEntry));
 		applyNodeIdExclusionList();
 		this.searchResultsNodeList = new ArrayList<FmmHeadlineNode>(this.initialHeadlineNodeList);
 		this.listViewArrayAdapter = new ArrayAdapter<FmmHeadlineNode>(this, android.R.layout.simple_list_item_1, this.searchResultsNodeList);

@@ -44,7 +44,7 @@
 package com.flywheelms.library.fms.treeview;
 
 import com.flywheelms.gcongui.gcg.treeview.node.GcgTreeNodeStateBundle;
-import com.flywheelms.library.fmm.FmmDatabaseService;
+import com.flywheelms.library.fms.activity.FmsActivity;
 
 public class FmsTreeNodeStateBundle extends GcgTreeNodeStateBundle {
 
@@ -73,6 +73,6 @@ public class FmsTreeNodeStateBundle extends GcgTreeNodeStateBundle {
     }
 
     public String getKey() {
-        return this.key + FmmDatabaseService.getActiveMediator().getActiveFmmConfiguration().getFileName();
+        return this.key + FmsActivity.getActiveDatabaseMediator().getActiveFmmConfiguration().getFileName();
     }
 }

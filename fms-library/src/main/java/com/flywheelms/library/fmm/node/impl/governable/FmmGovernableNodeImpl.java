@@ -43,7 +43,6 @@
 
 package com.flywheelms.library.fmm.node.impl.governable;
 
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorFacilitationIssue;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorFacilitator;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorGovernance;
@@ -54,6 +53,7 @@ import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
 import com.flywheelms.library.fmm.node.impl.nodefrag.GovernanceTeamMember;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragGovernance;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmGovernableNode;
+import com.flywheelms.library.fms.activity.FmsActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -87,7 +87,7 @@ public abstract class FmmGovernableNodeImpl extends FmmHeadlineNodeImpl implemen
 	@Override
 	public NodeFragGovernance getNodeFragGovernance() {
 		if(this.nodeFragGovernance == null) {
-			this.nodeFragGovernance = FmmDatabaseService.getActiveMediator().retrieveNodeFragGovernance(this);
+			this.nodeFragGovernance = FmsActivity.getActiveDatabaseMediator().retrieveNodeFragGovernance(this);
 		}
 		return this.nodeFragGovernance;
 	}

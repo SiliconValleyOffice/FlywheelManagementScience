@@ -46,8 +46,8 @@ package com.flywheelms.library.fca;
 import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
 import com.flywheelms.library.fca.enumerator.FcaAuthority;
 import com.flywheelms.library.fca.util.FcaUserCredentials;
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.impl.governable.CommunityMember;
+import com.flywheelms.library.fms.activity.FmsActivity;
 
 public class FlywheelCommunityAuthentication {
 	
@@ -131,7 +131,7 @@ public class FlywheelCommunityAuthentication {
 		// get the CommunityyMember from the database mediator,
 		// else get it from the FSE document
 		// else "redact" the name from the document  ??
-		theCommunityMember = FmmDatabaseService.getActiveMediator().retrieveCommunityMember(aNodeIdString);
+		theCommunityMember = FmsActivity.getActiveDatabaseMediator().retrieveCommunityMember(aNodeIdString);
 //		if(theCommunityMember == null) {
 //			theCommunityMember = new CommunityMember(aNodeIdString);
 //			theCommunityMember.setGivenName("Redacted");

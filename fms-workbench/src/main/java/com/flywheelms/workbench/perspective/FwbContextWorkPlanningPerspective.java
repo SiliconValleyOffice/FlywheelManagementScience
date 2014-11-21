@@ -55,11 +55,11 @@ import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewAdapter;
 import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewMediator;
 import com.flywheelms.gcongui.gcg.treeview.node.GcgTreeNodeInfo;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fmm.node.impl.governable.Cadence;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
 import com.flywheelms.library.fmm.node.impl.governable.WorkPlan;
+import com.flywheelms.library.fms.activity.FmsActivity;
 import com.flywheelms.library.fms.helper.FmsHelpIndex;
 import com.flywheelms.library.fms.popup_menu.FmmPopupBuilder;
 import com.flywheelms.library.fms.preferences.GuiPreferencesBundle;
@@ -121,16 +121,16 @@ public class FwbContextWorkPlanningPerspective extends FmsPerspectiveFlipperTree
         GcgTreeViewMediator theGcgTreeViewMediator =
                 new FmsTreeViewMediatorMemoryResident(new StrategicPlanningTreeFilter(this));
         final FmsTreeBuilder theTreeBuilder = new FmsTreeBuilder(theGcgTreeViewMediator);
-        Collection<FiscalYear> theFiscalYearCollection = FmmDatabaseService.getActiveMediator().retrieveFiscalYearList(
-                FmmDatabaseService.getActiveMediator().getFmmOwner());
+        Collection<FiscalYear> theFiscalYearCollection = FmsActivity.getActiveDatabaseMediator().retrieveFiscalYearList(
+                FmsActivity.getActiveDatabaseMediator().getFmmOwner());
         for(FiscalYear theFiscalYear : theFiscalYearCollection) {
             Collection<Cadence> theCadenceCollection =
-                    FmmDatabaseService.getActiveMediator().retrieveCadenceList(theFiscalYear);
+                    FmsActivity.getActiveDatabaseMediator().retrieveCadenceList(theFiscalYear);
             GcgTreeNodeInfo theFiscalYearTreeNodeInfo = theTreeBuilder.addTopNode(
                     theFiscalYear, theCadenceCollection.size()>0, FmmPerspective.WORK_PLANNING );
             for(Cadence theCadence : theCadenceCollection) {
                 Collection<WorkPlan> theWorkPlanCollection =
-                        FmmDatabaseService.getActiveMediator().retrieveWorkPlanList(theCadence);
+                        FmsActivity.getActiveDatabaseMediator().retrieveWorkPlanList(theCadence);
                 GcgTreeNodeInfo theCadenceTreeNodeInfo = theTreeBuilder.addChildNode(
                         theCadence, theWorkPlanCollection.size()>0, theFiscalYearTreeNodeInfo, FmmPerspective.WORK_PLANNING);
                 for(WorkPlan theWorkPlan : theWorkPlanCollection) {

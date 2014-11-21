@@ -46,7 +46,6 @@ package com.flywheelms.library.fmm.node.impl.governable;
 import com.flywheelms.gcongui.deckangl.enumerator.DecKanGlDecoratorCanvasLocation;
 import com.flywheelms.gcongui.deckangl.interfaces.DecKanGlDecorator;
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorCadenceCommitment;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorCompletion;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorFacilitationIssue;
@@ -65,6 +64,7 @@ import com.flywheelms.library.fmm.node.impl.completable.FmmCompletionNodeImpl;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
+import com.flywheelms.library.fms.activity.FmsActivity;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
 import com.flywheelms.library.util.JsonHelper;
 
@@ -138,7 +138,7 @@ public class Notebook extends FmmCompletionNodeImpl {
 
     public ArrayList<Bookshelf> getBookshelfList() {
         if(this.bookshelfList == null) {
-            this.bookshelfList = FmmDatabaseService.getActiveMediator().retrieveBookshelfList(this);
+            this.bookshelfList = FmsActivity.getActiveDatabaseMediator().retrieveBookshelfList(this);
         }
         return this.bookshelfList;
     }
@@ -149,7 +149,7 @@ public class Notebook extends FmmCompletionNodeImpl {
 
     public ArrayList<DiscussionTopic> getDiscussionTopicList() {
         if(this.discussionTopicList == null) {
-            this.discussionTopicList = FmmDatabaseService.getActiveMediator().retrieveDiscussionTopicList(this);
+            this.discussionTopicList = FmsActivity.getActiveDatabaseMediator().retrieveDiscussionTopicList(this);
         }
         return this.discussionTopicList;
     }
@@ -218,7 +218,7 @@ public class Notebook extends FmmCompletionNodeImpl {
         ArrayList<? extends FmmHeadlineNodeImpl> theList = null;
         switch(aChildNodeDefinition) {
             case DISCUSSION_TOPIC:
-                theList = FmmDatabaseService.getActiveMediator().retrieveDiscussionTopicList(this);
+                theList = FmsActivity.getActiveDatabaseMediator().retrieveDiscussionTopicList(this);
                 break;
         }
         return theList;

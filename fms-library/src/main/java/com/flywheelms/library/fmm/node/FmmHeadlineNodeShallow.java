@@ -55,7 +55,6 @@ import com.flywheelms.gcongui.deckangl.interfaces.DecKanGlDecorator;
 import com.flywheelms.gcongui.gcg.interfaces.GcgPerspective;
 import com.flywheelms.gcongui.gcg.treeview.node.GcgTreeNodeInfo;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorCadenceCommitment;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorCompletion;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorFacilitationIssue;
@@ -79,6 +78,7 @@ import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragAuditBlock;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragFseDocument;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragTribKnQuality;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
+import com.flywheelms.library.fms.activity.FmsActivity;
 import com.flywheelms.library.fse.model.FseDocument;
 
 import org.json.JSONException;
@@ -197,7 +197,7 @@ public class FmmHeadlineNodeShallow implements FmmHeadlineNode {
 	
 	public FmmHeadlineNode getFmmHeadlineNode() {
 		if(this.fmmHeadlineNode == null) {
-			this.fmmHeadlineNode = FmmDatabaseService.getActiveMediator().retrievetHeadlineNode(this.nodeIdString);
+			this.fmmHeadlineNode = FmsActivity.getActiveDatabaseMediator().retrievetHeadlineNode(this.nodeIdString);
 		}
 		return this.fmmHeadlineNode;
 	}

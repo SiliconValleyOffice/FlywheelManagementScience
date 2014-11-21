@@ -47,12 +47,12 @@ import android.widget.LinearLayout;
 
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.impl.governable.Portfolio;
 import com.flywheelms.library.fmm.node.impl.governable.Project;
 import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
 import com.flywheelms.library.fmm.node.impl.governable.WorkPackage;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
+import com.flywheelms.library.fms.activity.FmsActivity;
 import com.flywheelms.library.fms.treeview.filter.FmsTreeViewAdapter;
 import com.flywheelms.library.fms.widget.spinner.PortfolioWidgetSpinner;
 import com.flywheelms.library.fms.widget.spinner.ProjectAssetWidgetSpinner;
@@ -84,7 +84,7 @@ public class WorkPackageDeleteDialog extends HeadlineNodeDeleteDialog {
 
 	@Override
 	protected ArrayList<? extends FmmHeadlineNode> getPrimaryChildHeadlineNodeList() {
-		return FmmDatabaseService.getActiveMediator().retrieveWorkTaskList(getWorkPackage());
+		return FmsActivity.getActiveDatabaseMediator().retrieveWorkTaskList(getWorkPackage());
 	}
 
     @Override
@@ -155,17 +155,17 @@ public class WorkPackageDeleteDialog extends HeadlineNodeDeleteDialog {
 
 	@Override
 	protected boolean deleteHeadlineNode() {
-		return FmmDatabaseService.getActiveMediator().deleteWorkPackage((WorkPackage) getFmmHeadlineNode(), false);
+		return FmsActivity.getActiveDatabaseMediator().deleteWorkPackage((WorkPackage) getFmmHeadlineNode(), false);
 	}
 
 	@Override
 	protected boolean orphanPrimaryChildren() {
-		return FmmDatabaseService.getActiveMediator().orphanAllWorkTasksFromWorkPackage(getFmmHeadlineNode().getNodeIdString(), false);
+		return FmsActivity.getActiveDatabaseMediator().orphanAllWorkTasksFromWorkPackage(getFmmHeadlineNode().getNodeIdString(), false);
 	}
 
 	@Override
 	protected boolean movePrimaryChildrenToNewParent() {
-		return FmmDatabaseService.getActiveMediator().moveAllWorkTasksIntoWorkPackage(
+		return FmsActivity.getActiveDatabaseMediator().moveAllWorkTasksIntoWorkPackage(
                 getFmmHeadlineNode().getNodeIdString(),
                 this.primaryChildDeleteDisposition.getTargetWidgetSpinner().getFmmNode().getNodeIdString(),
                 this.primaryChildDeleteDisposition.isSequencePositionSpinnerAtEnd(),

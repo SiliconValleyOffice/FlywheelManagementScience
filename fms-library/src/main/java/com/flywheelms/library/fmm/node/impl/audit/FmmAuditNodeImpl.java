@@ -45,13 +45,13 @@ package com.flywheelms.library.fmm.node.impl.audit;
 
 import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
 import com.flywheelms.library.fca.FlywheelCommunityAuthentication;
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.enumerator.FmmLockStatus;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.FmmNodeImpl;
 import com.flywheelms.library.fmm.node.impl.governable.CommunityMember;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragAuditBlock;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmNodeAudit;
+import com.flywheelms.library.fms.activity.FmsActivity;
 
 import org.json.JSONObject;
 
@@ -72,7 +72,7 @@ public abstract class FmmAuditNodeImpl extends FmmNodeImpl implements FmmNodeAud
 	@Override
 	public NodeFragAuditBlock getNodeFragAuditBlock() {
 		if(this.nodeFragAuditBlock == null) {
-			this.nodeFragAuditBlock = FmmDatabaseService.getActiveMediator().retrieveNodeFragAuditBlockForParent(getNodeIdString());
+			this.nodeFragAuditBlock = FmsActivity.getActiveDatabaseMediator().retrieveNodeFragAuditBlockForParent(getNodeIdString());
 		}
 		return this.nodeFragAuditBlock;
 	}

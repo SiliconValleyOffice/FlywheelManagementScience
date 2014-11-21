@@ -49,7 +49,6 @@ import android.graphics.drawable.Drawable;
 import com.flywheelms.gcongui.gcg.GcgApplication;
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.meta_data.CommunityMemberMetaData;
 import com.flywheelms.library.fmm.node.FmmHeadlineNodeShallow;
 import com.flywheelms.library.fmm.node.NodeId;
@@ -57,6 +56,7 @@ import com.flywheelms.library.fmm.node.impl.enumerator.CommunityMemberStatus;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
 import com.flywheelms.library.fmm.node.interfaces.FmmSupportingNode;
+import com.flywheelms.library.fms.activity.FmsActivity;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
 import com.flywheelms.library.util.JsonHelper;
 
@@ -74,13 +74,13 @@ public class CommunityMember extends FmmGovernableNodeImpl implements FmmSupport
 
 	public static CommunityMember getNullValue() {
 		if(CommunityMember.NULL_COMMUNITY_MEMBER == null) {
-			CommunityMember.NULL_COMMUNITY_MEMBER = FmmDatabaseService.getActiveMediator().retrieveCommunityMember(null_COMMUNITY_MEMBER_NODE_ID_STRING);
+			CommunityMember.NULL_COMMUNITY_MEMBER = FmsActivity.getActiveDatabaseMediator().retrieveCommunityMember(null_COMMUNITY_MEMBER_NODE_ID_STRING);
 			if(CommunityMember.NULL_COMMUNITY_MEMBER == null) {
 				CommunityMember.NULL_COMMUNITY_MEMBER = new CommunityMember(null_COMMUNITY_MEMBER_NODE_ID_STRING);
 				CommunityMember.NULL_COMMUNITY_MEMBER.setFamilyName("");
 				CommunityMember.NULL_COMMUNITY_MEMBER.setGivenName("");
 				CommunityMember.NULL_COMMUNITY_MEMBER.setHeadline("");
-				FmmDatabaseService.getActiveMediator().insertCommunityMember(CommunityMember.NULL_COMMUNITY_MEMBER, true);
+				FmsActivity.getActiveDatabaseMediator().insertCommunityMember(CommunityMember.NULL_COMMUNITY_MEMBER, true);
 			}
 		}
 		return CommunityMember.NULL_COMMUNITY_MEMBER;
@@ -131,7 +131,7 @@ public class CommunityMember extends FmmGovernableNodeImpl implements FmmSupport
 	}
 	
 	public static CommunityMember getCommunityMember(Intent anIntent) {
-		return FmmDatabaseService.getActiveMediator().retrieveCommunityMember(NodeId.getNodeIdString(anIntent));
+		return FmsActivity.getActiveDatabaseMediator().retrieveCommunityMember(NodeId.getNodeIdString(anIntent));
 	}
 
 	public String getCommunityMemberStatusCode() {

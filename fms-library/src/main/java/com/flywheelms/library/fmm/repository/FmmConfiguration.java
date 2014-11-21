@@ -46,7 +46,6 @@ package com.flywheelms.library.fmm.repository;
 import android.content.Intent;
 
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.meta_data.HeadlineNodeMetaData;
 import com.flywheelms.library.fmm.meta_data.IdNodeMetaData;
 import com.flywheelms.library.fmm.node.FmmHeadlineNodeShallow;
@@ -57,6 +56,7 @@ import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
 import com.flywheelms.library.fmm.persistence.PersistenceServiceProvider;
 import com.flywheelms.library.fmm.persistence.PersistenceTechnology;
 import com.flywheelms.library.fmm.persistence.PersistenceTechnologyDelegate;
+import com.flywheelms.library.fms.activity.FmsActivity;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
 
 import org.json.JSONException;
@@ -226,7 +226,7 @@ public abstract class FmmConfiguration extends FmmGovernableNodeImpl {
 	}
 	
 	public static FmmConfiguration getFmmConfiguration(Intent anIntent) {
-		return FmmDatabaseService.getActiveMediator().retrieveFmmConfiguration(NodeId.getNodeIdString(anIntent));
+		return FmsActivity.getActiveDatabaseMediator().retrieveFmmConfiguration(NodeId.getNodeIdString(anIntent));
 	}
 	
 	@Override

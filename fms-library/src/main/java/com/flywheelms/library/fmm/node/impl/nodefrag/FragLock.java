@@ -45,12 +45,12 @@ package com.flywheelms.library.fmm.node.impl.nodefrag;
 
 import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
 import com.flywheelms.library.fca.FlywheelCommunityAuthentication;
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.enumerator.FmmLockStatus;
 import com.flywheelms.library.fmm.meta_data.FragLockMetaData;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.governable.CommunityMember;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmNodeLocking;
+import com.flywheelms.library.fms.activity.FmsActivity;
 import com.flywheelms.library.util.JsonHelper;
 
 import org.json.JSONException;
@@ -185,7 +185,7 @@ public class FragLock extends FmmNodeFragImpl implements FmmNodeLocking {
 			if(this.lockedByNodeIdString == null || this.lockedByNodeIdString.length() == 0) {
 				setLockedBy(CommunityMember.getNullValue());
 			} else {
-				setLockedBy(FmmDatabaseService.getActiveMediator().retrieveCommunityMember(this.lockedByNodeIdString));
+				setLockedBy(FmsActivity.getActiveDatabaseMediator().retrieveCommunityMember(this.lockedByNodeIdString));
 			}
 		}
 		return this.lockedByCommunityMember;
@@ -220,7 +220,7 @@ public class FragLock extends FmmNodeFragImpl implements FmmNodeLocking {
 	@Override
 	public CommunityMember getUnlockedByCommunityMember() {
 		if(this.unlockedByCommunityMember == null) {
-			this.unlockedByCommunityMember = FmmDatabaseService.getActiveMediator().retrieveCommunityMember(this.unlockedByNodeIdString);
+			this.unlockedByCommunityMember = FmsActivity.getActiveDatabaseMediator().retrieveCommunityMember(this.unlockedByNodeIdString);
 		}
 		return this.unlockedByCommunityMember;
 	}

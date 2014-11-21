@@ -43,12 +43,18 @@
 
 package com.flywheelms.library.fms.activity;
 
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
+import android.content.ServiceConnection;
+import android.os.IBinder;
 import android.view.MenuItem;
 
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.gcongui.gcg.context.GcgNavigationTarget;
 import com.flywheelms.library.R;
+import com.flywheelms.library.fmm.FmmDatabaseMediator;
+import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.enumerator.FmmNodeTransactionType;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.transaction.FmmDataRefreshNotice;
@@ -60,12 +66,36 @@ import java.util.Hashtable;
 
 public abstract class FmsActivity extends GcgActivity{
 
-    protected ArrayList<FmmDataRefreshNotice> dataRefreshList;
-    protected ArrayList<FmmDataRefreshNotice> parentDataRefreshList;
-    protected Hashtable<String, FmmNodeTransactionType> modifiedFmmNodeIdList = new Hashtable<String, FmmNodeTransactionType>();
-    protected Hashtable<String, FmmNodeTransactionType> queuedChildModifiedFmmNodeIdTable;
-    protected boolean refreshAllData = false;
-    protected boolean parentRefreshAllData = false;
+    protected ArrayList<FmmDataRefreshNotice> mDataRefreshList;
+    protected ArrayList<FmmDataRefreshNotice> mParentDataRefreshList;
+    protected Hashtable<String, FmmNodeTransactionType> mModifiedFmmNodeIdList = new Hashtable<String, FmmNodeTransactionType>();
+    protected Hashtable<String, FmmNodeTransactionType> mQueuedChildModifiedFmmNodeIdTable;
+    protected boolean mRefreshAllData = false;
+    protected boolean mParentRefreshAllData = false;
+    protected static FmmDatabaseService mFmmDatabaseService;  //  Just 1 for the whole app.  Each activity tries to start/bind.
+    private ServiceConnection mFmmDatabaseServiceConnection = new ServiceConnection() {
+
+        public void onServiceConnected(ComponentName aClassName, IBinder aService) {
+            FmmDatabaseService.LocalBinder theLocalBinder = (FmmDatabaseService.LocalBinder) aService;
+            FmsActivity.mFmmDatabaseService = theLocalBinder.getService();
+        }
+
+        public void onServiceDisconnected(ComponentName className) {
+            FmsActivity.mFmmDatabaseService = null;
+        }
+    };
+
+    public static FmmDatabaseService getFmmDatabaseService() {
+        return FmsActivity.mFmmDatabaseService;
+    }
+
+    public static FmmDatabaseMediator getActiveDatabaseMediator() {
+        return FmsActivity.mFmmDatabaseService == null ? null : FmmDatabaseMediator.getActiveMediator();
+    }
+
+    public FmsActivity getFmsActivity() {
+        return this;
+    }
 
     public FmsActivity(String anInitialHelpContextUrlString) {
         super(anInitialHelpContextUrlString);
@@ -76,12 +106,23 @@ public abstract class FmsActivity extends GcgActivity{
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        bindFmmDatabaseService();
+    }
+
+    private void bindFmmDatabaseService() {
+        Intent theIntent = new Intent(this, FmmDatabaseService.class);
+        bindService(theIntent, mFmmDatabaseServiceConnection, Context.BIND_AUTO_CREATE);
+    }
+
+    @Override
     public void onPostResume() {
         super.onPostResume();
-        if(this.dataRefreshList != null || this.refreshAllData) {
+        if(this.mDataRefreshList != null || this.mRefreshAllData) {
             refreshDataDisplay();
-            this.dataRefreshList = null;
-            this.refreshAllData = false;
+            this.mDataRefreshList = null;
+            this.mRefreshAllData = false;
         }
     }
 
@@ -90,9 +131,9 @@ public abstract class FmsActivity extends GcgActivity{
         if(anIntent == null) {
             return;
         }
-        this.queuedChildModifiedFmmNodeIdTable = FmsActivityHelper.getModifiedNodeHashTable(anIntent);
+        this.mQueuedChildModifiedFmmNodeIdTable = FmsActivityHelper.getModifiedNodeHashTable(anIntent);
         if(aResultCode != GcgNavigationTarget.request_code__NAVIGATE) {
-            this.queuedChildModifiedFmmNodeIdTable.putAll(FmsActivityHelper.getModifiedNodeHashTable(anIntent));
+            this.mQueuedChildModifiedFmmNodeIdTable.putAll(FmsActivityHelper.getModifiedNodeHashTable(anIntent));
             updateDataRefreshInfo(anIntent);
             super.onActivityResult(aRequestCode, aResultCode, anIntent);
         } else {
@@ -102,82 +143,82 @@ public abstract class FmsActivity extends GcgActivity{
     }
 
     private void initializeDataRefreshNoticeList() {
-        this.dataRefreshList = new ArrayList<FmmDataRefreshNotice>();
+        this.mDataRefreshList = new ArrayList<FmmDataRefreshNotice>();
     }
 
     private void initializeParentDataRefreshNoticeList() {
-        this.parentDataRefreshList = new ArrayList<FmmDataRefreshNotice>();
+        this.mParentDataRefreshList = new ArrayList<FmmDataRefreshNotice>();
     }
 
     protected void updateDataModificationListForContextNavigation(Intent anIntent) {
         Intent theIntent = anIntent;
         if(anIntent == null) {
-            if(this.modifiedFmmNodeIdList.size() < 1) {
+            if(this.mModifiedFmmNodeIdList.size() < 1) {
                 return;
             }
             theIntent = new Intent();
         }
         Hashtable<String, FmmNodeTransactionType> theModifiedNodeIdTable = FmsActivityHelper.getModifiedNodeHashTable(theIntent);
         if(theModifiedNodeIdTable.size() > 0) {
-            this.modifiedFmmNodeIdList.putAll(theModifiedNodeIdTable);
-            theIntent.putExtra(FmsActivityHelper.bundle_key__MODIFIED_TREE_NODE__LIST, FmsActivityHelper.getSerializedModifiedNodeTable(this.modifiedFmmNodeIdList));
+            this.mModifiedFmmNodeIdList.putAll(theModifiedNodeIdTable);
+            theIntent.putExtra(FmsActivityHelper.bundle_key__MODIFIED_TREE_NODE__LIST, FmsActivityHelper.getSerializedModifiedNodeTable(this.mModifiedFmmNodeIdList));
         }
     }
 
     protected String getSerializedDataRefreshNoticeList() {
-        return FmsActivityHelper.getSerializedModifiedNodeTable(this.modifiedFmmNodeIdList);
+        return FmsActivityHelper.getSerializedModifiedNodeTable(this.mModifiedFmmNodeIdList);
     }
 
     protected boolean hasParentDataRefreshList() {
-        return this.parentDataRefreshList != null;
+        return this.mParentDataRefreshList != null;
     }
 
     protected boolean hasDataRefreshList() {
-        return this.modifiedFmmNodeIdList.size() > 0;
+        return this.mModifiedFmmNodeIdList.size() > 0;
     }
 
     protected String getSerializedParentDataRefreshNoticeList() {
-        return FmsActivityHelper.getSerializedModifiedNodeTable(this.modifiedFmmNodeIdList);
+        return FmsActivityHelper.getSerializedModifiedNodeTable(this.mModifiedFmmNodeIdList);
     }
 
     public Hashtable<String, FmmNodeTransactionType> getModifiedFmmNodeIdTable() {
-        return this.modifiedFmmNodeIdList;
+        return this.mModifiedFmmNodeIdList;
     }
 
     public void setModifiedFmmNodeIdTable(Hashtable<String, FmmNodeTransactionType> aLocallyModifiedFmmNodeIdTable) {
-        this.modifiedFmmNodeIdList = aLocallyModifiedFmmNodeIdTable;
+        this.mModifiedFmmNodeIdList = aLocallyModifiedFmmNodeIdTable;
     }
 
     public Hashtable<String, FmmNodeTransactionType> getQueuedChildModifiedFmmNodeIdTable() {
-        return this.queuedChildModifiedFmmNodeIdTable;
+        return this.mQueuedChildModifiedFmmNodeIdTable;
     }
 
     public void setQueuedChildModifiedFmmNodeIdTable(Hashtable<String, FmmNodeTransactionType> aChildModifiedFmmNodeIdTable) {
-        this.queuedChildModifiedFmmNodeIdTable = aChildModifiedFmmNodeIdTable;
+        this.mQueuedChildModifiedFmmNodeIdTable = aChildModifiedFmmNodeIdTable;
     }
 
     public ArrayList<FmmDataRefreshNotice> getDataRefreshList() {
-        return this.dataRefreshList;
+        return this.mDataRefreshList;
     }
 
     public void setDataRefreshList(ArrayList<FmmDataRefreshNotice> aDataRefreshList) {
-        this.dataRefreshList = aDataRefreshList;
+        this.mDataRefreshList = aDataRefreshList;
     }
 
-    public ArrayList<FmmDataRefreshNotice> getParentDataRefreshList() {
-        return this.parentDataRefreshList;
+    public ArrayList<FmmDataRefreshNotice> getmParentDataRefreshList() {
+        return this.mParentDataRefreshList;
     }
 
-    public void setParentDataRefreshList(ArrayList<FmmDataRefreshNotice> aDataRefreshList) {
-        this.parentDataRefreshList = aDataRefreshList;
+    public void setmParentDataRefreshList(ArrayList<FmmDataRefreshNotice> aDataRefreshList) {
+        this.mParentDataRefreshList = aDataRefreshList;
     }
 
     public void updateParentDataRefreshList(FmmDataRefreshNotice aDataRefreshNotice) {
         this.parentDataRefreshAll = true;  // TODO - HACK ALERT !!!
-        if(this.parentDataRefreshList == null) {
+        if(this.mParentDataRefreshList == null) {
             initializeParentDataRefreshNoticeList();
         }
-        this.parentDataRefreshList.add(aDataRefreshNotice);
+        this.mParentDataRefreshList.add(aDataRefreshNotice);
     }
 
     protected FmmNodeDefinition getDisplayedFmmNodeDefinition() {
@@ -195,19 +236,19 @@ public abstract class FmsActivity extends GcgActivity{
     }
 
     public boolean isRefreshAllData() {
-        return this.refreshAllData;
+        return this.mRefreshAllData;
     }
 
     public void setRefreshAllData(boolean refreshAllData) {
-        this.refreshAllData = refreshAllData;
+        this.mRefreshAllData = refreshAllData;
     }
 
     public boolean isParentRefreshAllData() {
-        return this.parentRefreshAllData;
+        return this.mParentRefreshAllData;
     }
 
     public void setParentRefreshAllData(boolean parentRefreshAllData) {
-        this.parentRefreshAllData = parentRefreshAllData;
+        this.mParentRefreshAllData = parentRefreshAllData;
     }
 
     protected int getActivityOptionsMenuResourceId() {

@@ -47,7 +47,6 @@ import android.content.Intent;
 
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.gcongui.gcg.interfaces.GcgPerspective;
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fmm.meta_data.WorkPackageMetaData;
 import com.flywheelms.library.fmm.node.FmmHeadlineNodeShallow;
@@ -58,6 +57,7 @@ import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.fmm.transaction.FmmNodeGlyphType;
+import com.flywheelms.library.fms.activity.FmsActivity;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
 import com.flywheelms.library.util.JsonHelper;
 
@@ -128,7 +128,7 @@ public class WorkPackage extends FmmCompletionNodeImpl implements Comparable<Wor
 	public CadenceCommitment getCadenceCommitment() {
 		if(this.cadenceCommitment == null) {
 			if(this.cadenceCommitmentId != null && this.cadenceCommitmentId.length() > 0) {
-				FmmDatabaseService.getActiveMediator().retrieveCadenceCommitment(this.cadenceCommitmentId);
+				FmsActivity.getActiveDatabaseMediator().retrieveCadenceCommitment(this.cadenceCommitmentId);
 			}
 		}
 		return this.cadenceCommitment;
@@ -146,7 +146,7 @@ public class WorkPackage extends FmmCompletionNodeImpl implements Comparable<Wor
     public WorkAsset getWorkAsset() {
         if(this.workAsset == null && this.workAssetId != null) {
             this.workAsset =
-                    FmmDatabaseService.getActiveMediator().retrieveWorkAsset(this.workAssetId);
+                    FmsActivity.getActiveDatabaseMediator().retrieveWorkAsset(this.workAssetId);
         }
         return this.workAsset;
     }
@@ -177,11 +177,11 @@ public class WorkPackage extends FmmCompletionNodeImpl implements Comparable<Wor
 	}
 	
 	public static WorkPackage getFmmConfiguration(Intent anIntent) {
-		return FmmDatabaseService.getActiveMediator().retrieveWorkPackage(NodeId.getNodeIdString(anIntent));
+		return FmsActivity.getActiveDatabaseMediator().retrieveWorkPackage(NodeId.getNodeIdString(anIntent));
 	}
 	
 	public ProjectAsset getProjectAsset() {
-		return FmmDatabaseService.getActiveMediator().retrieveProjectAsset(this.workAssetId);
+		return FmsActivity.getActiveDatabaseMediator().retrieveProjectAsset(this.workAssetId);
 	}
 
 	public boolean isWorkTaskMoveTarget() {
@@ -194,7 +194,7 @@ public class WorkPackage extends FmmCompletionNodeImpl implements Comparable<Wor
 
     public ArrayList<WorkTask> getWorkTaskList() {
         if(this.workTaskList == null) {
-            this.workTaskList = FmmDatabaseService.getActiveMediator().retrieveWorkTaskList(this);
+            this.workTaskList = FmsActivity.getActiveDatabaseMediator().retrieveWorkTaskList(this);
         }
         return this.workTaskList;
     }
@@ -238,10 +238,10 @@ public class WorkPackage extends FmmCompletionNodeImpl implements Comparable<Wor
         ArrayList<WorkPackage> theList;
         switch(aParentHeadlineNode.getFmmNodeDefinition()) {
             case PROJECT_ASSET:
-                theList = FmmDatabaseService.getActiveMediator().retrieveWorkPackageListForWorkAsset(aParentHeadlineNode.getNodeIdString(), null);
+                theList = FmsActivity.getActiveDatabaseMediator().retrieveWorkPackageListForWorkAsset(aParentHeadlineNode.getNodeIdString(), null);
                 break;
             case CADENCE:
-                theList = FmmDatabaseService.getActiveMediator().retrieveWorkPackageListForCadence(aParentHeadlineNode.getNodeIdString(), null);
+                theList = FmsActivity.getActiveDatabaseMediator().retrieveWorkPackageListForCadence(aParentHeadlineNode.getNodeIdString(), null);
                 break;
             default:
                 theList = new ArrayList<WorkPackage>();
@@ -260,7 +260,7 @@ public class WorkPackage extends FmmCompletionNodeImpl implements Comparable<Wor
         ArrayList<? extends FmmHeadlineNodeImpl> theList = null;
         switch(aChildNodeDefinition) {
             case WORK_TASK:
-                theList = FmmDatabaseService.getActiveMediator().retrieveWorkTaskList(this);
+                theList = FmsActivity.getActiveDatabaseMediator().retrieveWorkTaskList(this);
                 break;
         }
         return theList;

@@ -58,7 +58,6 @@ import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewAdapter;
 import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewMediator;
 import com.flywheelms.gcongui.gcg.treeview.node.GcgTreeNodeInfo;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.context.FmmFrame;
 import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fmm.node.FmmHeadlineNodeShallow;
@@ -71,6 +70,7 @@ import com.flywheelms.library.fmm.node.impl.governable.StrategicAsset;
 import com.flywheelms.library.fmm.node.impl.governable.WorkPackage;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmCompletionNode;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
+import com.flywheelms.library.fms.activity.FmsActivity;
 import com.flywheelms.library.fms.dialog.BookshelfCreateDialog;
 import com.flywheelms.library.fms.dialog.DemoteStrategicAssetDialog;
 import com.flywheelms.library.fms.dialog.FiscalYearCreateDialog;
@@ -552,28 +552,28 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
 
     protected void sequenceDown(GcgTreeNodeInfo aLaunchTreeNodeInfo, FmmHeadlineNode aHeadlineNode, FmmHeadlineNode aParentHeadlineNode) {
 		getGcgActivity().startGreenActivityStatusAnimation();
-		FmmDatabaseService.getActiveMediator().swapSequence(aHeadlineNode, (FmmHeadlineNode) getNextPeerObject(aLaunchTreeNodeInfo), aParentHeadlineNode);
+		FmsActivity.getActiveDatabaseMediator().swapSequence(aHeadlineNode, (FmmHeadlineNode) getNextPeerObject(aLaunchTreeNodeInfo), aParentHeadlineNode);
 		rebuildTreeView();
 		getGcgActivity().stopActivityStatusAnimation();
 	}
 
 	protected void sequenceUp(GcgTreeNodeInfo aLaunchTreeNodeInfo, FmmHeadlineNode aHeadlineNode, FmmHeadlineNode aParentHeadlineNode) {
 		getGcgActivity().startGreenActivityStatusAnimation();
-		FmmDatabaseService.getActiveMediator().swapSequence(aHeadlineNode, (FmmHeadlineNode) getPreviousPeerObject(aLaunchTreeNodeInfo), aParentHeadlineNode);
+		FmsActivity.getActiveDatabaseMediator().swapSequence(aHeadlineNode, (FmmHeadlineNode) getPreviousPeerObject(aLaunchTreeNodeInfo), aParentHeadlineNode);
 		rebuildTreeView();
 		getGcgActivity().stopActivityStatusAnimation();
 	}
 
 	protected void sequenceFirst(GcgTreeNodeInfo aLaunchTreeNodeInfo, FmmHeadlineNode aHeadlineNode, FmmHeadlineNode aParentHeadlineNode) {
 		getGcgActivity().startGreenActivityStatusAnimation();
-		FmmDatabaseService.getActiveMediator().sequenceFirst(aHeadlineNode, aParentHeadlineNode);
+		FmsActivity.getActiveDatabaseMediator().sequenceFirst(aHeadlineNode, aParentHeadlineNode);
 		rebuildTreeView();
 		getGcgActivity().stopActivityStatusAnimation();
 	}
 
 	protected void sequenceLast(GcgTreeNodeInfo aLaunchTreeNodeInfo, FmmHeadlineNode aHeadlineNode, FmmHeadlineNode aParentHeadlineNode) {
 		getGcgActivity().startGreenActivityStatusAnimation();
-		FmmDatabaseService.getActiveMediator().sequenceLast(aHeadlineNode, aParentHeadlineNode);
+		FmsActivity.getActiveDatabaseMediator().sequenceLast(aHeadlineNode, aParentHeadlineNode);
 		rebuildTreeView();
 		getGcgActivity().stopActivityStatusAnimation();
 	}

@@ -50,7 +50,6 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewAdapter;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
 import com.flywheelms.library.fmm.node.impl.governable.Portfolio;
@@ -58,6 +57,7 @@ import com.flywheelms.library.fmm.node.impl.governable.Project;
 import com.flywheelms.library.fmm.node.impl.governable.StrategicAsset;
 import com.flywheelms.library.fmm.node.impl.governable.StrategicMilestone;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
+import com.flywheelms.library.fms.activity.FmsActivity;
 import com.flywheelms.library.fms.widget.spinner.FiscalYearWidgetSpinner;
 import com.flywheelms.library.fms.widget.spinner.PortfolioWidgetSpinner;
 import com.flywheelms.library.fms.widget.spinner.ProjectWidgetSpinner;
@@ -151,14 +151,14 @@ public class StrategicAssetMoveDialog extends HeadlineNodeMoveDialog {
 	protected boolean moveHeadlineNode() {
         boolean theMoveStatus = false;
         if(this.strataegicMilestoneParent) {
-            theMoveStatus = FmmDatabaseService.getActiveMediator().moveSingleStrategicAssetIntoStrategicMilestone(
+            theMoveStatus = FmsActivity.getActiveDatabaseMediator().moveSingleStrategicAssetIntoStrategicMilestone(
                     getFmmHeadlineNode().getNodeIdString(),
                     ((StrategicAsset) getFmmHeadlineNode()).getStrategicMilestoneNodeId(),
                     this.dispositionTargetWidgetSpinner.getFmmNode().getNodeIdString(),
                     this.sequencePositionSpinner.sequenceAtEnd(),
                     true);
         } else {
-            theMoveStatus = FmmDatabaseService.getActiveMediator().moveSingleStrategicAssetIntoProject(
+            theMoveStatus = FmsActivity.getActiveDatabaseMediator().moveSingleStrategicAssetIntoProject(
                     getFmmHeadlineNode().getNodeIdString(),
                     ((StrategicAsset) getFmmHeadlineNode()).getProjectNodeIdString(),
                     this.dispositionTargetWidgetSpinner.getFmmNode().getNodeIdString(),

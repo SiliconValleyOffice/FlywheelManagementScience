@@ -47,12 +47,12 @@ import android.content.Context;
 import android.util.AttributeSet;
 
 import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.governable.Cadence;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
 import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
 import com.flywheelms.library.fmm.node.impl.governable.StrategicMilestone;
+import com.flywheelms.library.fms.activity.FmsActivity;
 import com.flywheelms.library.fms.widget.FmmHeadlineNodeWidgetSpinner;
 
 import java.util.ArrayList;
@@ -85,16 +85,16 @@ public class FiscalYearWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 	@Override
 	//filter_id__PRIMARY_PARENT
 	protected ArrayList<? extends GcgGuiable> getPrimaryParentGuiableList() {
-		return FmmDatabaseService.getActiveMediator().retrieveFiscalYearList(
-                FmmDatabaseService.getActiveMediator().getFmmOwner(), this.fiscalYearException);
+		return FmsActivity.getActiveDatabaseMediator().retrieveFiscalYearList(
+                FmsActivity.getActiveDatabaseMediator().getFmmOwner(), this.fiscalYearException);
 	}
 	
 	
 	// filter_id__PRIMARY_PARENT__PRIMARY_CHILD__MOVE_TARGET
 	@Override
 	protected ArrayList<? extends GcgGuiable> getPrimaryParentPrimaryChildMoveTargetGuiableList() {  // StrategicMilestone move target
-		return FmmDatabaseService.getActiveMediator().retrieveFiscalYearList(
-                FmmDatabaseService.getActiveMediator().getFmmOwner(), this.fiscalYearException);
+		return FmsActivity.getActiveDatabaseMediator().retrieveFiscalYearList(
+                FmsActivity.getActiveDatabaseMediator().getFmmOwner(), this.fiscalYearException);
 	}
 
 	public void updateSpinnerData(StrategicMilestone aStrategicMilestoneException) {
@@ -105,8 +105,8 @@ public class FiscalYearWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 	// filter_id__PRIMARY_PARENT__PRIMARY_CHILD__PRIMARY_CHILD__MOVE_TARGET
 	@Override
 	protected ArrayList<? extends GcgGuiable> getPrimaryParentPrimaryChildPrimaryChildMoveTargetGuiableList() { // ProjectAsset move target
-		return FmmDatabaseService.getActiveMediator().retrieveFiscalYearListForProjectAssetMoveTarget(
-                FmmDatabaseService.getActiveMediator().getFmmOwner(), this.strategicMilestoneException);
+		return FmsActivity.getActiveDatabaseMediator().retrieveFiscalYearListForProjectAssetMoveTarget(
+                FmsActivity.getActiveDatabaseMediator().getFmmOwner(), this.strategicMilestoneException);
 	}
 	
 	// filter_id__PRIMARY_PARENT__PRIMARY_CHILD__PRIMARY_CHILD__PRIMARY_CHILD__MOVE_TARGET
@@ -118,15 +118,15 @@ public class FiscalYearWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 	// filter_id__PRIMARY_PARENT__PRIMARY_CHILD__PRIMARY_CHILD__PRIMARY_CHILD__MOVE_TARGET
 	@Override
 	protected ArrayList<? extends GcgGuiable> getPrimaryParentPrimaryChildPrimaryChildPrimaryChildMoveTargetGuiableList() { // WorkPackage move target
-		return FmmDatabaseService.getActiveMediator().retrieveFiscalYearListForWorkPackageMoveTarget(
-                FmmDatabaseService.getActiveMediator().getFmmOwner(), this.projectAssetException);
+		return FmsActivity.getActiveDatabaseMediator().retrieveFiscalYearListForWorkPackageMoveTarget(
+                FmsActivity.getActiveDatabaseMediator().getFmmOwner(), this.projectAssetException);
 	}
 	
 	// filter_id__PRIMARY_PARENT__SECONDARY_CHILD__MOVE_TARGET
 	@Override
 	protected ArrayList<? extends GcgGuiable> getPrimaryParentSecondaryChildMoveTargetGuiableList() { // Cadence move target
-		return FmmDatabaseService.getActiveMediator().retrieveFiscalYearList(
-                FmmDatabaseService.getActiveMediator().getFmmOwner(), this.fiscalYearException);
+		return FmsActivity.getActiveDatabaseMediator().retrieveFiscalYearList(
+                FmsActivity.getActiveDatabaseMediator().getFmmOwner(), this.fiscalYearException);
 	}
 
 	// filter_id__SECONDARY_PARENT__PRIMARY_CHILD__MOVE_TARGET

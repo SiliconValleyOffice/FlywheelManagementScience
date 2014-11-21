@@ -45,8 +45,8 @@ package com.flywheelms.library.fms.pdf.publication;
 
 import android.util.Log;
 
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
+import com.flywheelms.library.fms.activity.FmsActivity;
 import com.flywheelms.library.fms.pdf.PdfColors;
 import com.flywheelms.library.fms.pdf.PdfFonts;
 import com.flywheelms.library.fms.pdf.PdfUtil;
@@ -131,7 +131,7 @@ public class HeadlineNodePdfPageEventHandler extends PdfPageEventHelper
 
 	protected PdfPCell buildCellCompany()
 	{
-		String companyName = FmmDatabaseService.getActiveMediator().getFmmOwner().getName();
+		String companyName = FmsActivity.getActiveDatabaseMediator().getFmmOwner().getName();
 		PdfPCell cell = PdfUtil.newCell(companyName, PdfFonts.BOLD_12_WHITE);
 		cell.setBackgroundColor(PdfColors.DARK_BLUE);
 		cell.setPaddingLeft(6f);

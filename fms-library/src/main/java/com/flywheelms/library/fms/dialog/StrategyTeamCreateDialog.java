@@ -45,10 +45,10 @@ package com.flywheelms.library.fms.dialog;
 
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.gcongui.gcg.helper.GcgHelper;
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.governable.Bookshelf;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
+import com.flywheelms.library.fms.activity.FmsActivity;
 import com.flywheelms.library.fms.treeview.filter.FmsTreeViewAdapter;
 
 public class StrategyTeamCreateDialog extends RootNodeCreateDialog {
@@ -59,7 +59,7 @@ public class StrategyTeamCreateDialog extends RootNodeCreateDialog {
 
     protected FmmHeadlineNode createRootNode() {
         Bookshelf theBookshelf =
-                FmmDatabaseService.getActiveMediator().createBookshelf(this.headlineWidget.getData());
+                FmsActivity.getActiveDatabaseMediator().createBookshelf(this.headlineWidget.getData());
         if(theBookshelf != null) {
             this.treeViewAdapter.addNewHeadlineNode(theBookshelf);
             GcgHelper.makeToast(this.fmmNodeTypeWidget.getText() + " created: " + this.headlineWidget.getData());

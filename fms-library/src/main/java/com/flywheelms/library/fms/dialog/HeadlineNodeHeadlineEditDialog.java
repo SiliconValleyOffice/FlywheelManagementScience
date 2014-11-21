@@ -51,9 +51,9 @@ import android.view.View.OnClickListener;
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.gcongui.gcg.helper.GcgHelper;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.fms.activity.FmmNodeEditorActivity;
+import com.flywheelms.library.fms.activity.FmsActivity;
 import com.flywheelms.library.fms.treeview.filter.FmsTreeViewAdapter;
 import com.flywheelms.library.fms.widget.edit_text.HeadlineWidgetEditText;
 import com.flywheelms.library.fms.widget.text_view.FmmNodeIdWidgetTextView;
@@ -165,7 +165,7 @@ public class HeadlineNodeHeadlineEditDialog extends FmsCancelOkFdkDialog {
 
 	private void updateHeadlineNode() {
 		getFmmHeadlineNode().setHeadline(this.newHeadlineWidget.getText().toString());
-		if(FmmDatabaseService.getActiveMediator().fractalUpdateNodeHeadline(getFmmHeadlineNode())) {
+		if(FmsActivity.getActiveDatabaseMediator().fractalUpdateNodeHeadline(getFmmHeadlineNode())) {
 			if(getFmsTreeViewAdapter() != null) {
 				getFmsTreeViewAdapter().updateHeadlineNodeHeadline(getFmmHeadlineNode());
 			} else {

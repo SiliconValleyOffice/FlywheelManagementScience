@@ -43,12 +43,12 @@
 
 package com.flywheelms.library.fmm.node.impl.commitment;
 
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
 import com.flywheelms.library.fmm.node.impl.governable.StrategicAsset;
 import com.flywheelms.library.fmm.node.impl.governable.StrategicMilestone;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmNode;
+import com.flywheelms.library.fms.activity.FmsActivity;
 
 import java.util.Date;
 
@@ -78,7 +78,7 @@ public class StrategicCommitment extends FmmCommitmentNodeImpl implements Compar
 	public StrategicMilestone getStrategicMilestone() {
 		if(this.strategicMilestone == null && this.parentNodeIdString != null) {
 			this.strategicMilestone =
-					FmmDatabaseService.getActiveMediator().retrieveStrategicMilestone(this.parentNodeIdString);
+					FmsActivity.getActiveDatabaseMediator().retrieveStrategicMilestone(this.parentNodeIdString);
 		}
 		return this.strategicMilestone;
 	}
@@ -100,7 +100,7 @@ public class StrategicCommitment extends FmmCommitmentNodeImpl implements Compar
 	public StrategicAsset getStrategicAsset() {
 		if(this.strategicAsset == null) {
 			this.strategicAsset =
-					FmmDatabaseService.getActiveMediator().retrieveStrategicAsset(this.childNodeIdString);
+					FmsActivity.getActiveDatabaseMediator().retrieveStrategicAsset(this.childNodeIdString);
 		}
 		return this.strategicAsset;
 	}

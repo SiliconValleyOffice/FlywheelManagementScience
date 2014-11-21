@@ -47,10 +47,10 @@ import android.widget.LinearLayout;
 
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
 import com.flywheelms.library.fmm.node.impl.governable.StrategicMilestone;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
+import com.flywheelms.library.fms.activity.FmsActivity;
 import com.flywheelms.library.fms.treeview.filter.FmsTreeViewAdapter;
 import com.flywheelms.library.fms.widget.spinner.FiscalYearWidgetSpinner;
 import com.flywheelms.library.fms.widget.spinner.StrategicMilestoneWidgetSpinner;
@@ -70,7 +70,7 @@ public class StrategicMilestoneDeleteDialog extends HeadlineNodeDeleteDialog {
 
 	@Override
 	protected ArrayList<? extends FmmHeadlineNode> getPrimaryLinkHeadlineNodeList() {
-		return FmmDatabaseService.getActiveMediator().retrieveStrategicAssetList((StrategicMilestone) getFmmHeadlineNode());
+		return FmsActivity.getActiveDatabaseMediator().retrieveStrategicAssetList((StrategicMilestone) getFmmHeadlineNode());
 	}
 
 	@Override
@@ -103,22 +103,22 @@ public class StrategicMilestoneDeleteDialog extends HeadlineNodeDeleteDialog {
 
 	@Override
 	protected boolean deleteHeadlineNode() {
-		return FmmDatabaseService.getActiveMediator().deleteStrategicMilestone((StrategicMilestone) getFmmHeadlineNode(), false);
+		return FmsActivity.getActiveDatabaseMediator().deleteStrategicMilestone((StrategicMilestone) getFmmHeadlineNode(), false);
 	}
 
 	@Override
 	protected boolean deletePrimaryLinkNodes() {
-		return FmmDatabaseService.getActiveMediator().orphanAllProjectAssetsFromStrategicMilestone(getFmmHeadlineNode().getNodeIdString(), false);
+		return FmsActivity.getActiveDatabaseMediator().orphanAllProjectAssetsFromStrategicMilestone(getFmmHeadlineNode().getNodeIdString(), false);
 	}
 
 	@Override
 	protected boolean orphanPrimaryLinkNodes() {
-		return FmmDatabaseService.getActiveMediator().orphanAllProjectAssetsFromStrategicMilestone(getFmmHeadlineNode().getNodeIdString(), false);
+		return FmsActivity.getActiveDatabaseMediator().orphanAllProjectAssetsFromStrategicMilestone(getFmmHeadlineNode().getNodeIdString(), false);
 	}
 
 	@Override
 	protected boolean movePrimaryLinkNodes() {
-		return FmmDatabaseService.getActiveMediator().moveAllStrategicAssetsIntoStrategicMilestone(
+		return FmsActivity.getActiveDatabaseMediator().moveAllStrategicAssetsIntoStrategicMilestone(
                 getFmmHeadlineNode().getNodeIdString(),
                 this.primaryLinkDeleteDisposition.getTargetWidgetSpinner().getFmmNode().getNodeIdString(),
                 this.primaryLinkDeleteDisposition.isSequencePositionSpinnerAtEnd(),

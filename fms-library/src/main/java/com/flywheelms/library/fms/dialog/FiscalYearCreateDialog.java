@@ -49,9 +49,9 @@ import android.widget.CheckBox;
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.gcongui.gcg.helper.GcgHelper;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
+import com.flywheelms.library.fms.activity.FmsActivity;
 import com.flywheelms.library.fms.treeview.filter.FmsTreeViewAdapter;
 import com.flywheelms.library.fms.widget.spinner.FiscalYearForCreateWidgetSpinner;
 import com.flywheelms.library.fms.widget.text_view.FmmNodeTypeWidgetTextView;
@@ -100,7 +100,7 @@ public class FiscalYearCreateDialog extends FmsCancelOkApplyDialog {
 	@Override
 	protected void onClickButtonApply() {
 		FiscalYear theFiscalYear =
-				FmmDatabaseService.getActiveMediator().createFiscalYear(this.fiscalYearWidget.getData().getDataText());
+				FmsActivity.getActiveDatabaseMediator().createFiscalYear(this.fiscalYearWidget.getData().getDataText());
 		if(theFiscalYear != null) {
 			this.treeViewAdapter.addNewHeadlineNode(theFiscalYear);
 			GcgHelper.makeToast(this.fmmNodeTypeWidget.getText() + " created: " + this.fiscalYearWidget.getData().getDataText());
@@ -114,7 +114,7 @@ public class FiscalYearCreateDialog extends FmsCancelOkApplyDialog {
 	@Override
 	protected void onClickButtonOk() {
 		FiscalYear theFiscalYear =
-				FmmDatabaseService.getActiveMediator().createFiscalYear(this.fiscalYearWidget.getData().getDataText());
+				FmsActivity.getActiveDatabaseMediator().createFiscalYear(this.fiscalYearWidget.getData().getDataText());
 		if(theFiscalYear != null) {
 			this.treeViewAdapter = this.treeViewAdapter.addNewHeadlineNode(theFiscalYear);
 			GcgHelper.makeToast(this.fmmNodeTypeWidget.getText() + " created: " + this.fiscalYearWidget.getData().getDataText());

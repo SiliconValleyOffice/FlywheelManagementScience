@@ -43,7 +43,6 @@
 
 package com.flywheelms.library.fms.activity;
 
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.governable.Bookshelf;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmNode;
@@ -78,7 +77,7 @@ public class BookshelfEditorActivity extends FmmNodeEditorActivity {
 	@Override
 	public void saveAllDataModifications() {
 		super.saveAllDataModifications();
-		FmmDatabaseService.getActiveMediator().updateBookshelf((Bookshelf) getDisplayedFmmHeadlineNode(), true);
+		FmsActivity.getActiveDatabaseMediator().updateBookshelf((Bookshelf) getDisplayedFmmHeadlineNode(), true);
 	}
 
 }

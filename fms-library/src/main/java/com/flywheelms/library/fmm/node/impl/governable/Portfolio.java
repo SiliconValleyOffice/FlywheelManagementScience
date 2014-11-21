@@ -46,7 +46,6 @@ package com.flywheelms.library.fmm.node.impl.governable;
 import com.flywheelms.gcongui.deckangl.enumerator.DecKanGlDecoratorCanvasLocation;
 import com.flywheelms.gcongui.deckangl.interfaces.DecKanGlDecorator;
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorCadenceCommitment;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorCompletion;
@@ -67,6 +66,7 @@ import com.flywheelms.library.fmm.node.impl.completable.FmmCompletionNodeImpl;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
+import com.flywheelms.library.fms.activity.FmsActivity;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
 import com.flywheelms.library.util.JsonHelper;
 
@@ -150,7 +150,7 @@ public class Portfolio extends FmmCompletionNodeImpl {
 
     public FmsOrganization getOrganization() {
         if(this.organization == null && this.organizationNodeIdString != null) {
-            this.organization = FmmDatabaseService.getActiveMediator().retrieveFmsOrganization(this.organizationNodeIdString);
+            this.organization = FmsActivity.getActiveDatabaseMediator().retrieveFmsOrganization(this.organizationNodeIdString);
         }
         return this.organization;
     }
@@ -174,7 +174,7 @@ public class Portfolio extends FmmCompletionNodeImpl {
 
     public ArrayList<Project> getProjectList() {
         if(this.projectList == null) {
-            this.projectList = FmmDatabaseService.getActiveMediator().retrieveProjectList(this);
+            this.projectList = FmsActivity.getActiveDatabaseMediator().retrieveProjectList(this);
         }
         return this.projectList;
     }
@@ -272,7 +272,7 @@ public class Portfolio extends FmmCompletionNodeImpl {
         ArrayList<? extends FmmHeadlineNodeImpl> theList = null;
         switch(aChildNodeDefinition) {
             case PROJECT:
-                theList = FmmDatabaseService.getActiveMediator().retrieveProjectList(this);
+                theList = FmsActivity.getActiveDatabaseMediator().retrieveProjectList(this);
                 break;
         }
         return theList;

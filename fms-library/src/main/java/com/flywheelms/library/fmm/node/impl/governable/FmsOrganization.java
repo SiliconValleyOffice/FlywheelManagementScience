@@ -47,7 +47,6 @@ import android.content.Intent;
 
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.enumerator.FmmHoliday;
 import com.flywheelms.library.fmm.meta_data.FmsOrganizationMetaData;
 import com.flywheelms.library.fmm.node.FmmHeadlineNodeShallow;
@@ -55,6 +54,7 @@ import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.headline.FiscalYearHolidayBreak;
 import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
+import com.flywheelms.library.fms.activity.FmsActivity;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
 import com.flywheelms.library.util.JsonHelper;
 
@@ -139,7 +139,7 @@ public class FmsOrganization extends FmmGovernableNodeImpl {
 	}
 	
 	public boolean ownsThisFmm() {
-		return FmmDatabaseService.getActiveMediator().ownsThisFmm(this);
+		return FmsActivity.getActiveDatabaseMediator().ownsThisFmm(this);
 	}
 	
 	public static void startNodeEditorActivity(GcgActivity anActivity, String aNodeListParentNodeId, ArrayList<FmmHeadlineNodeShallow> aHeadlineNodeShallowList, String anInitialNodeIdToDisplay) {
@@ -156,7 +156,7 @@ public class FmsOrganization extends FmmGovernableNodeImpl {
 	}
 	
 	public static FmsOrganization getFmmConfiguration(Intent anIntent) {
-		return FmmDatabaseService.getActiveMediator().retrieveFmsOrganization(NodeId.getNodeIdString(anIntent));
+		return FmsActivity.getActiveDatabaseMediator().retrieveFmsOrganization(NodeId.getNodeIdString(anIntent));
 	}
 
     public int getFirstMonthOfFiscalYear() {
@@ -173,7 +173,7 @@ public class FmsOrganization extends FmmGovernableNodeImpl {
 
     public ArrayList<FiscalYearHolidayBreak> getHolidayBreakList(String aFiscalYearId) {
         if(this.holidayBreakList == null) {
-            this.holidayBreakList = FmmDatabaseService.getActiveMediator().retrieveFiscalYearHolidayBreakListForFiscalYear(aFiscalYearId);
+            this.holidayBreakList = FmsActivity.getActiveDatabaseMediator().retrieveFiscalYearHolidayBreakListForFiscalYear(aFiscalYearId);
         }
         return this.holidayBreakList;
     }

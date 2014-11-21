@@ -47,11 +47,11 @@ import android.content.Context;
 import android.util.AttributeSet;
 
 import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
 import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
 import com.flywheelms.library.fmm.node.impl.governable.StrategicMilestone;
+import com.flywheelms.library.fms.activity.FmsActivity;
 import com.flywheelms.library.fms.widget.FmmHeadlineNodeWidgetSpinner;
 
 import java.util.ArrayList;
@@ -74,7 +74,7 @@ public class StrategicMilestoneWidgetSpinner extends FmmHeadlineNodeWidgetSpinne
 	@Override
 	protected ArrayList<GcgGuiable> getPrimaryParentGuiableList() {
 		ArrayList<GcgGuiable> theGuiableList = new ArrayList<GcgGuiable>(
-			FmmDatabaseService.getActiveMediator().retrieveStrategicMilestoneList(
+			FmsActivity.getActiveDatabaseMediator().retrieveStrategicMilestoneList(
                     this.fiscalYear, this.strategicMilestoneException) );
 		return theGuiableList;
 	}
@@ -86,7 +86,7 @@ public class StrategicMilestoneWidgetSpinner extends FmmHeadlineNodeWidgetSpinne
 			theGuiableList = new ArrayList<GcgGuiable>(); 
 		} else {	
 			theGuiableList = new ArrayList<GcgGuiable>(
-				FmmDatabaseService.getActiveMediator().retrieveStrategicMilestoneListForProjectAssetMoveTarget(
+				FmsActivity.getActiveDatabaseMediator().retrieveStrategicMilestoneListForProjectAssetMoveTarget(
                         this.fiscalYear, this.strategicMilestoneException));
 		}
 		return theGuiableList;
@@ -98,7 +98,7 @@ public class StrategicMilestoneWidgetSpinner extends FmmHeadlineNodeWidgetSpinne
 		if(this.fiscalYear == null) {
 			theGuiableList = new ArrayList<GcgGuiable>(); 
 		} else {	
-			theGuiableList = new ArrayList<GcgGuiable>(FmmDatabaseService.getActiveMediator().retrieveStrategicMilestoneListForWorkPackageMoveTarget(
+			theGuiableList = new ArrayList<GcgGuiable>(FmsActivity.getActiveDatabaseMediator().retrieveStrategicMilestoneListForWorkPackageMoveTarget(
                     this.fiscalYear, this.projectAssetException));
 		}
 		return theGuiableList;

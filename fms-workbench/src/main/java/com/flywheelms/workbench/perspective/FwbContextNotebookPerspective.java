@@ -55,11 +55,11 @@ import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewAdapter;
 import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewMediator;
 import com.flywheelms.gcongui.gcg.treeview.node.GcgTreeNodeInfo;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fmm.node.impl.governable.Bookshelf;
 import com.flywheelms.library.fmm.node.impl.governable.DiscussionTopic;
 import com.flywheelms.library.fmm.node.impl.governable.Notebook;
+import com.flywheelms.library.fms.activity.FmsActivity;
 import com.flywheelms.library.fms.helper.FmsHelpIndex;
 import com.flywheelms.library.fms.popup_menu.FmmPopupBuilder;
 import com.flywheelms.library.fms.preferences.GuiPreferencesBundle;
@@ -121,16 +121,16 @@ public class FwbContextNotebookPerspective extends FmsPerspectiveFlipperTreeView
         GcgTreeViewMediator theGcgTreeViewMediator =
                 new FmsTreeViewMediatorMemoryResident(new NotebookTreeFilter(this));
         final FmsTreeBuilder theTreeBuilder = new FmsTreeBuilder(theGcgTreeViewMediator);
-        Collection<Bookshelf> theBookshelfCollection = FmmDatabaseService.getActiveMediator().retrieveBookshelfList(
-                FmmDatabaseService.getActiveMediator().getFmsOrganization());
+        Collection<Bookshelf> theBookshelfCollection = FmsActivity.getActiveDatabaseMediator().retrieveBookshelfList(
+                FmsActivity.getActiveDatabaseMediator().getFmsOrganization());
         for (Bookshelf theBookshelf : theBookshelfCollection) {
             Collection<Notebook> theNotebookCollection =
-                    FmmDatabaseService.getActiveMediator().retrieveNotebookList(theBookshelf);
+                    FmsActivity.getActiveDatabaseMediator().retrieveNotebookList(theBookshelf);
             GcgTreeNodeInfo theBookshelfTreeNodeInfo = theTreeBuilder.addTopNode(
                     theBookshelf, theNotebookCollection.size() > 0, FmmPerspective.NOTEBOOK);
             for (Notebook theNotebook : theNotebookCollection) {
                 Collection<DiscussionTopic> theDiscussionTopicCollection =
-                        FmmDatabaseService.getActiveMediator().retrieveDiscussionTopicList(theNotebook);
+                        FmsActivity.getActiveDatabaseMediator().retrieveDiscussionTopicList(theNotebook);
                 GcgTreeNodeInfo theNotebookTreeNodeInfo = theTreeBuilder.addChildNode(
                         theNotebook, theDiscussionTopicCollection.size() > 0, theBookshelfTreeNodeInfo, FmmPerspective.NOTEBOOK);
                 for (DiscussionTopic theDiscussionTopic : theDiscussionTopicCollection) {

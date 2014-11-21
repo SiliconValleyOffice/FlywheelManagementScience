@@ -50,12 +50,12 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewAdapter;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.impl.governable.Portfolio;
 import com.flywheelms.library.fmm.node.impl.governable.Project;
 import com.flywheelms.library.fmm.node.impl.governable.WorkAsset;
 import com.flywheelms.library.fmm.node.impl.governable.WorkPackage;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
+import com.flywheelms.library.fms.activity.FmsActivity;
 import com.flywheelms.library.fms.widget.spinner.PortfolioWidgetSpinner;
 import com.flywheelms.library.fms.widget.spinner.ProjectWidgetSpinner;
 import com.flywheelms.library.fms.widget.spinner.WorkAssetWidgetSpinner;
@@ -144,7 +144,7 @@ public class WorkPackageMoveIntoWorkAssetDialog extends HeadlineNodeMoveDialog {
 	@Override
 	protected boolean moveHeadlineNode() {
         boolean theMoveStatus = false;
-        theMoveStatus = FmmDatabaseService.getActiveMediator().moveSingleWorkPackageIntoWorkAsset(
+        theMoveStatus = FmsActivity.getActiveDatabaseMediator().moveSingleWorkPackageIntoWorkAsset(
                 getFmmHeadlineNode().getNodeIdString(),
                 getFmmHeadlineNode().getNodeIdString(),
                 this.dispositionTargetWidgetSpinner.getFmmNode().getNodeIdString(),

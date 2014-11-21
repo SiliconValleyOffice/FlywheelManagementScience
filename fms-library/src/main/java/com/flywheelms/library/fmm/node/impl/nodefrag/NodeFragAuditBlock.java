@@ -47,12 +47,12 @@ import android.widget.TableRow;
 
 import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
 import com.flywheelms.library.fca.FlywheelCommunityAuthentication;
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.meta_data.NodeFragAuditBlockMetaData;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.governable.CommunityMember;
 import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
+import com.flywheelms.library.fms.activity.FmsActivity;
 import com.flywheelms.library.util.JsonHelper;
 
 import org.json.JSONArray;
@@ -182,7 +182,7 @@ public class NodeFragAuditBlock extends FmmNodeFragLockableImpl {
 
 	public CommunityMember getCreatedByCommunityMember() {
 		if(this.createdByCommunityMember == null && this.createdByNodeIdString != null && this.createdByNodeIdString.length() > 0) {
-			this.createdByCommunityMember = FmmDatabaseService.getActiveMediator().retrieveCommunityMember(this.createdByNodeIdString);
+			this.createdByCommunityMember = FmsActivity.getActiveDatabaseMediator().retrieveCommunityMember(this.createdByNodeIdString);
 		}
 		return this.createdByCommunityMember;
 	}
@@ -213,7 +213,7 @@ public class NodeFragAuditBlock extends FmmNodeFragLockableImpl {
 
 	public CommunityMember getLastUpdatedByCommunityMember() {
 		if(this.lastUpdatedByCommunityMember == null && this.lastUpdatedByNodeIdString != null && this.lastUpdatedByNodeIdString.length() > 0) {
-			this.lastUpdatedByCommunityMember = FmmDatabaseService.getActiveMediator().retrieveCommunityMember(this.lastUpdatedByNodeIdString);
+			this.lastUpdatedByCommunityMember = FmsActivity.getActiveDatabaseMediator().retrieveCommunityMember(this.lastUpdatedByNodeIdString);
 		}
 		if(this.lastUpdatedByCommunityMember == null) {
 			setLastUpdatedBy(CommunityMember.getNullValue());

@@ -57,9 +57,9 @@ import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
 import com.flywheelms.gcongui.gcg.widget.date.GcgWidgetDatePicker;
 import com.flywheelms.gcongui.gcg.widget.date.GcgWidgetMonthSpinner;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.impl.governable.StrategicMilestone;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
+import com.flywheelms.library.fms.activity.FmsActivity;
 import com.flywheelms.library.fms.treeview.filter.FmsTreeViewAdapter;
 import com.flywheelms.library.fms.widget.text_view.FmmNodeTypeWidgetTextView;
 import com.flywheelms.library.fms.widget.text_view.HeadlineWidgetTextView;
@@ -230,7 +230,7 @@ public class StrategicMilestoneTargetDateEditDialog extends FmsCancelOkDialog {
 			this.strategicMilestone.setTargetDate(this.datePicker.getSelectedDate());
 		}
         this.strategicMilestone.setTargetIsReversePlanning(correctedReversePlanning());
-		if(FmmDatabaseService.getActiveMediator().updateTargetDate(this.strategicMilestone, true)) {
+		if(FmsActivity.getActiveDatabaseMediator().updateTargetDate(this.strategicMilestone, true)) {
 			if(getFmsTreeViewAdapter() != null) {
 				getFmsTreeViewAdapter().updateSecondaryHeadline(this.strategicMilestone.getTargetDateString());
 			} else {

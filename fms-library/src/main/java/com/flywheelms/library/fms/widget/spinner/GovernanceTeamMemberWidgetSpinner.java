@@ -51,11 +51,11 @@ import com.flywheelms.gcongui.gcg.GcgApplication;
 import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
 import com.flywheelms.gcongui.gcg.widget.GcgWidgetSpinner;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.impl.enumerator.GovernanceRole;
 import com.flywheelms.library.fmm.node.impl.enumerator.GovernanceTarget;
 import com.flywheelms.library.fmm.node.impl.governable.CommunityMember;
 import com.flywheelms.library.fmm.node.impl.governable.FmsOrganization;
+import com.flywheelms.library.fms.activity.FmsActivity;
 
 import java.util.ArrayList;
 
@@ -97,7 +97,7 @@ public class GovernanceTeamMemberWidgetSpinner extends GcgWidgetSpinner {
 		if(this.fmsOrganization == null || this.governanceTarget == null || this.governanceRole == null) {
 			this.communityMemberCollection = new ArrayList<GcgGuiable>();
 		} else {
-			this.communityMemberCollection = new ArrayList<GcgGuiable>(FmmDatabaseService.getActiveMediator().getGovernanceCandidates(
+			this.communityMemberCollection = new ArrayList<GcgGuiable>(FmsActivity.getActiveDatabaseMediator().getGovernanceCandidates(
 					this.fmsOrganization, this.governanceTarget, this.governanceRole));
 		}
 		return this.communityMemberCollection;

@@ -50,10 +50,10 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewAdapter;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
 import com.flywheelms.library.fmm.node.impl.governable.StrategicMilestone;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
+import com.flywheelms.library.fms.activity.FmsActivity;
 import com.flywheelms.library.fms.widget.spinner.FiscalYearWidgetSpinner;
 
 public class StrategicMilestoneMoveDialog extends HeadlineNodeMoveDialog {
@@ -108,7 +108,7 @@ public class StrategicMilestoneMoveDialog extends HeadlineNodeMoveDialog {
 	
 	@Override
 	protected boolean moveHeadlineNode() {
-		boolean theMoveStatus = FmmDatabaseService.getActiveMediator().moveSingleStrategicMilestoneIntoFiscalYear(
+		boolean theMoveStatus = FmsActivity.getActiveDatabaseMediator().moveSingleStrategicMilestoneIntoFiscalYear(
                 getFmmHeadlineNode().getNodeIdString(),
                 ((StrategicMilestone) getFmmHeadlineNode()).getFiscalYearNodeIdString(),
                 this.dispositionTargetWidgetSpinner.getFmmNode().getNodeIdString(),

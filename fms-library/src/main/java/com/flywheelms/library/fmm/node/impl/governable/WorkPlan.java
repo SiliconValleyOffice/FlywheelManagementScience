@@ -45,7 +45,6 @@ package com.flywheelms.library.fmm.node.impl.governable;
 
 import com.flywheelms.gcongui.gcg.interfaces.GcgPerspective;
 import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fmm.enumerator.FmmHoliday;
 import com.flywheelms.library.fmm.meta_data.SequencedLinkNodeMetaData;
@@ -55,6 +54,7 @@ import com.flywheelms.library.fmm.node.impl.completable.FmmCompletionNodeImpl;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
+import com.flywheelms.library.fms.activity.FmsActivity;
 import com.flywheelms.library.util.JsonHelper;
 
 import org.json.JSONArray;
@@ -114,7 +114,7 @@ public class WorkPlan extends FmmCompletionNodeImpl {
         this.workTaskList = new ArrayList<WorkTask>();
         for(int i=0; i < aJsonArray.length(); ++i) {
             try {
-                this.workTaskList.add(FmmDatabaseService.getActiveMediator().retrieveWorkTask(
+                this.workTaskList.add(FmsActivity.getActiveDatabaseMediator().retrieveWorkTask(
                         aJsonArray.getString(i)));
             } catch (JSONException e) {
                 // TODO Auto-generated catch block
@@ -161,7 +161,7 @@ public class WorkPlan extends FmmCompletionNodeImpl {
     public Cadence getCadence() {
         if(this.flywheelCadence == null && this.flywheelCadenceId != null) {
             this.flywheelCadence =
-                    FmmDatabaseService.getActiveMediator().retrieveCadence(this.flywheelCadenceId);
+                    FmsActivity.getActiveDatabaseMediator().retrieveCadence(this.flywheelCadenceId);
         }
         return this.flywheelCadence;
     }
@@ -267,13 +267,13 @@ public class WorkPlan extends FmmCompletionNodeImpl {
     }
 
     private Collection<WorkTask> getWorkTaskCollection() {
-        return FmmDatabaseService.getActiveMediator().retrieveWorkTaskList(this);
+        return FmsActivity.getActiveDatabaseMediator().retrieveWorkTaskList(this);
     }
 
     public ArrayList<WorkTask> getWorkTaskList() {
         if(this.workTaskList == null) {
             this.workTaskList = new ArrayList<WorkTask>(
-                    FmmDatabaseService.getActiveMediator().retrieveWorkTaskList(this) );
+                    FmsActivity.getActiveDatabaseMediator().retrieveWorkTaskList(this) );
         }
         return this.workTaskList;
     }
@@ -298,7 +298,7 @@ public class WorkPlan extends FmmCompletionNodeImpl {
         ArrayList<? extends FmmHeadlineNodeImpl> theList = null;
         switch(aChildNodeDefinition) {
             case WORK_TASK:
-                theList = FmmDatabaseService.getActiveMediator().retrieveWorkTaskList(this);
+                theList = FmsActivity.getActiveDatabaseMediator().retrieveWorkTaskList(this);
                 break;
         }
         return theList;

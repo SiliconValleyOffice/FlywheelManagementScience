@@ -56,12 +56,12 @@ import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewMediator;
 import com.flywheelms.gcongui.gcg.treeview.node.GcgTreeNodeInfo;
 import com.flywheelms.gcongui.gcg.treeview.node.GcgTreeNodeTargetObject;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fmm.node.impl.governable.Portfolio;
 import com.flywheelms.library.fmm.node.impl.governable.Project;
 import com.flywheelms.library.fmm.node.impl.governable.WorkAsset;
 import com.flywheelms.library.fmm.node.impl.governable.WorkPackage;
+import com.flywheelms.library.fms.activity.FmsActivity;
 import com.flywheelms.library.fms.helper.FmsHelpIndex;
 import com.flywheelms.library.fms.popup_menu.FmmPopupBuilder;
 import com.flywheelms.library.fms.preferences.GuiPreferencesBundle;
@@ -123,21 +123,21 @@ public class FwbContextWorkBreakdownPerspective extends FmsPerspectiveFlipperTre
         GcgTreeViewMediator theGcgTreeViewMediator =
                 new FmsTreeViewMediatorMemoryResident(new WorkBreakdownTreeFilter(this));
         final FmsTreeBuilder theTreeBuilder = new FmsTreeBuilder(theGcgTreeViewMediator);
-        Collection<Portfolio> thePortfolioCollection = FmmDatabaseService.getActiveMediator().retrievePortfolioList(
-                FmmDatabaseService.getActiveMediator().getFmmOwner());
+        Collection<Portfolio> thePortfolioCollection = FmsActivity.getActiveDatabaseMediator().retrievePortfolioList(
+                FmsActivity.getActiveDatabaseMediator().getFmmOwner());
         for(Portfolio thePortfolio : thePortfolioCollection) {
             Collection<Project> theProjectCollection =
-                    FmmDatabaseService.getActiveMediator().retrieveProjectList(thePortfolio);
+                    FmsActivity.getActiveDatabaseMediator().retrieveProjectList(thePortfolio);
             GcgTreeNodeInfo thePortfolioTreeNodeInfo = theTreeBuilder.addTopNode(
                     thePortfolio, theProjectCollection.size()>0, FmmPerspective.WORK_BREAKDOWN );
             for(Project theProject : theProjectCollection) {
                 Collection<WorkAsset> theWorkAssetCollection =
-                        FmmDatabaseService.getActiveMediator().retrieveWorkAssetList(theProject);
+                        FmsActivity.getActiveDatabaseMediator().retrieveWorkAssetList(theProject);
                 GcgTreeNodeInfo theProjectTreeNodeInfo = theTreeBuilder.addChildNode(
                         theProject, theWorkAssetCollection.size()>0, thePortfolioTreeNodeInfo, FmmPerspective.WORK_BREAKDOWN);
                 for(WorkAsset theWorkAsset : theWorkAssetCollection) {
                     Collection<WorkPackage> theWorkPackageCollection =
-                            FmmDatabaseService.getActiveMediator().retrieveWorkPackageList(theWorkAsset);
+                            FmsActivity.getActiveDatabaseMediator().retrieveWorkPackageList(theWorkAsset);
                     GcgTreeNodeInfo theProjectAssetTreeNodeInfo = theTreeBuilder.addChildNode(
                             (GcgTreeNodeTargetObject) theWorkAsset, theWorkPackageCollection.size()>0, theProjectTreeNodeInfo, FmmPerspective.WORK_BREAKDOWN);
                     for(WorkPackage theWorkPackage : theWorkPackageCollection) {

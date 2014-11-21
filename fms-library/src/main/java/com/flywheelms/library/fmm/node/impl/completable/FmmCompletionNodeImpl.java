@@ -46,7 +46,6 @@ package com.flywheelms.library.fmm.node.impl.completable;
 import com.flywheelms.gcongui.deckangl.enumerator.DecKanGlNounStateColor;
 import com.flywheelms.gcongui.deckangl.glyph.DecKanGlDictionary;
 import com.flywheelms.gcongui.deckangl.glyph.DecKanGlElementNounState;
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fmm.node.FmmNodeInfo;
 import com.flywheelms.library.fmm.node.NodeId;
@@ -59,6 +58,7 @@ import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragCompletion;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragWorkTaskBudget;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmCompletionNode;
 import com.flywheelms.library.fmm.transaction.FmmNodeGlyphType;
+import com.flywheelms.library.fms.activity.FmsActivity;
 
 import org.json.JSONObject;
 
@@ -374,7 +374,7 @@ public abstract class FmmCompletionNodeImpl extends FmmGovernableNodeImpl
 	@Override
 	public NodeFragWorkTaskBudget getNodeFragWorkTaskBudget() {
 		if(this.nodeFragWorkTaskBudget == null) {
-			this.nodeFragWorkTaskBudget = FmmDatabaseService.getActiveMediator().retrieveNodeFragWorkTaskBudget(this);
+			this.nodeFragWorkTaskBudget = FmsActivity.getActiveDatabaseMediator().retrieveNodeFragWorkTaskBudget(this);
 		}
 		return this.nodeFragWorkTaskBudget;
 	}
@@ -394,7 +394,7 @@ public abstract class FmmCompletionNodeImpl extends FmmGovernableNodeImpl
 	@Override
 	public NodeFragCompletion getNodeFragCompletion() {
 		if(this.nodeFragCompletion == null) {
-			this.nodeFragCompletion = FmmDatabaseService.getActiveMediator().retrieveNodeFragCompletion(this);
+			this.nodeFragCompletion = FmsActivity.getActiveDatabaseMediator().retrieveNodeFragCompletion(this);
 		}
 		return this.nodeFragCompletion;
 	}

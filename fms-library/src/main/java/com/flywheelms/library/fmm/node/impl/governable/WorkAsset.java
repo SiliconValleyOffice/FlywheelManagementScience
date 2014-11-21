@@ -49,7 +49,6 @@ import com.flywheelms.gcongui.deckangl.enumerator.DecKanGlDecoratorCanvasLocatio
 import com.flywheelms.gcongui.deckangl.interfaces.DecKanGlDecorator;
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.gcongui.gcg.interfaces.GcgPerspective;
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorCadenceCommitment;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorCompletion;
@@ -74,6 +73,7 @@ import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
 import com.flywheelms.library.fmm.node.interfaces.FmmSequencedNode;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
+import com.flywheelms.library.fms.activity.FmsActivity;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
 import com.flywheelms.library.util.JsonHelper;
 
@@ -158,7 +158,7 @@ public class WorkAsset extends FmmCompletionNodeImpl implements Comparable<WorkA
             return null;
         }
         if(this.flywheelTeam == null) {
-            this.flywheelTeam = FmmDatabaseService.getActiveMediator().getFlywheelTeam(this.flywheelTeamNodeIdString);
+            this.flywheelTeam = FmsActivity.getActiveDatabaseMediator().getFlywheelTeam(this.flywheelTeamNodeIdString);
         }
         return this.flywheelTeam;
     }
@@ -174,14 +174,14 @@ public class WorkAsset extends FmmCompletionNodeImpl implements Comparable<WorkA
     }
 
     public StrategicCommitment getStrategicCommitment() {
-        return FmmDatabaseService.getActiveMediator().retrieveStrategicCommitmentForStrategicAsset(getNodeIdString());
+        return FmsActivity.getActiveDatabaseMediator().retrieveStrategicCommitmentForStrategicAsset(getNodeIdString());
     }
 
     ////////////////////////////////////////////////
 
     public Project getProject() {
         if(this.project == null) {
-            this.project = FmmDatabaseService.getActiveMediator().retrieveProject(getNodeIdString());
+            this.project = FmsActivity.getActiveDatabaseMediator().retrieveProject(getNodeIdString());
         }
         return this.project;
     }
@@ -264,7 +264,7 @@ public class WorkAsset extends FmmCompletionNodeImpl implements Comparable<WorkA
         this.workPackageList = new ArrayList<WorkPackage>();
         for(int i=0; i < aJsonArray.length(); ++i) {
             try {
-                this.workPackageList.add(FmmDatabaseService.getActiveMediator().retrieveWorkPackage(
+                this.workPackageList.add(FmsActivity.getActiveDatabaseMediator().retrieveWorkPackage(
                         aJsonArray.getString(i)));
             } catch (JSONException e) {
                 // TODO Auto-generated catch block
@@ -279,7 +279,7 @@ public class WorkAsset extends FmmCompletionNodeImpl implements Comparable<WorkA
 
     public ArrayList<WorkPackage> getWorkPackageList() {
         if(this.workPackageList == null) {
-            this.workPackageList = FmmDatabaseService.getActiveMediator().retrieveWorkPackageList(this);
+            this.workPackageList = FmsActivity.getActiveDatabaseMediator().retrieveWorkPackageList(this);
         }
         return this.workPackageList;
     }
@@ -354,19 +354,19 @@ public class WorkAsset extends FmmCompletionNodeImpl implements Comparable<WorkA
     }
 
     public static WorkAsset getFmmConfiguration(Intent anIntent) {
-        return FmmDatabaseService.getActiveMediator().retrieveWorkAsset(NodeId.getNodeIdString(anIntent));
+        return FmsActivity.getActiveDatabaseMediator().retrieveWorkAsset(NodeId.getNodeIdString(anIntent));
     }
 
     @Override
     public int getSequence(FmmNodeDefinition anFmmNodeDefinition) {
         FmmSequencedNode theSequencedNode = anFmmNodeDefinition == FmmNodeDefinition.STRATEGIC_MILESTONE ?
-                FmmDatabaseService.getActiveMediator().retrieveStrategicCommitmentForStrategicAsset(getNodeIdString()) :
+                FmsActivity.getActiveDatabaseMediator().retrieveStrategicCommitmentForStrategicAsset(getNodeIdString()) :
                 this;  // within Project
         return theSequencedNode.getSequence();
     }
 
     public boolean hasMoveTargetWorkPackages(WorkPackage aWorkPackageException) {
-        return FmmDatabaseService.getActiveMediator().getMoveTargetWorkPackageCount(this, aWorkPackageException) > 0;
+        return FmsActivity.getActiveDatabaseMediator().getMoveTargetWorkPackageCount(this, aWorkPackageException) > 0;
     }
 
     public boolean isWorkPackageMoveTarget() {
@@ -396,7 +396,7 @@ public class WorkAsset extends FmmCompletionNodeImpl implements Comparable<WorkA
         ArrayList<? extends FmmHeadlineNodeImpl> theList = null;
         switch(aChildNodeDefinition) {
             case WORK_PACKAGE:
-                theList = FmmDatabaseService.getActiveMediator().retrieveWorkPackageList(this);
+                theList = FmsActivity.getActiveDatabaseMediator().retrieveWorkPackageList(this);
                 break;
         }
         return theList;

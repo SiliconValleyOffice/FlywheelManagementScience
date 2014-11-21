@@ -49,8 +49,8 @@ import android.net.Uri;
 
 import com.flywheelms.gcongui.gcg.GcgApplication;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
+import com.flywheelms.library.fms.activity.FmsActivity;
 
 import java.io.File;
 
@@ -82,7 +82,7 @@ public class FmsEmailHelper {
 	public static String getStandardMessageBodyPreamble(FmmHeadlineNodeImpl anFmmHeadlineNode) {
 		StringBuilder theStringBuilder = new StringBuilder();
 		theStringBuilder.append("Organization:  " + FmsTextHelper.NEW_LINE + FmsTextHelper.INDENT +
-				FmmDatabaseService.getActiveMediator().getFmmOwner().getName() + FmsTextHelper.NEW_LINE );
+				FmsActivity.getActiveDatabaseMediator().getFmmOwner().getName() + FmsTextHelper.NEW_LINE );
 		theStringBuilder.append(
 				anFmmHeadlineNode.getNodeTypeName() + FmsTextHelper.NEW_LINE + FmsTextHelper.INDENT +
 				anFmmHeadlineNode.getHeadline() + FmsTextHelper.NEW_LINE + FmsTextHelper.INDENT +

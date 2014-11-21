@@ -51,12 +51,12 @@ import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
 import com.flywheelms.gcongui.gcg.widget.date.GcgDayOfWeek;
 import com.flywheelms.gcongui.gcg.wizard.GcgWizardStepFlipper;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.impl.governable.Cadence;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
 import com.flywheelms.library.fmm.node.impl.governable.WorkPlan;
 import com.flywheelms.library.fmm.node.impl.headline.FiscalYearHolidayBreak;
 import com.flywheelms.library.fms.activity.CreateAllCadenceForYearWizard;
+import com.flywheelms.library.fms.activity.FmsActivity;
 import com.flywheelms.library.fms.wizard.step.CreateAllCadenceDoItNowWizardStepView;
 import com.flywheelms.library.fms.wizard.step.CreateAllCadenceHolidaysWizardStepView;
 import com.flywheelms.library.fms.wizard.step.CreateAllCadenceParametersWizardStepView;
@@ -121,9 +121,9 @@ public class CreateAllCadenceForYearWizardStepFlipper extends GcgWizardStepFlipp
 		GcgHelper.makeToast("Creating all Cadence for Fiscal Year " + getFiscalYear().getHeadline() + "...");
         getFiscalYear().setCadenceDuration(getWizardStepView1().getCadenceDuration());
         getFiscalYear().setWorkPlanFirstDayOfWeek(getWizardStepView1().getWorkPlanFirstDayOfWeek().getDayOfWeekName());
-        FmmDatabaseService.getActiveMediator().updateFiscalYear(getFiscalYear(), true);
-        FmmDatabaseService.getActiveMediator().insertFiscalYearHolidayBreakList(getWizardStepView2().getFiscalYearHolidayBreakList(), true);
-        FmmDatabaseService.getActiveMediator().insertCadenceList(generateCadenceList(), true);
+        FmsActivity.getActiveDatabaseMediator().updateFiscalYear(getFiscalYear(), true);
+        FmsActivity.getActiveDatabaseMediator().insertFiscalYearHolidayBreakList(getWizardStepView2().getFiscalYearHolidayBreakList(), true);
+        FmsActivity.getActiveDatabaseMediator().insertCadenceList(generateCadenceList(), true);
 		getGcgActivity().finish(GcgActivity.REFRESH_DATA, GcgActivity.RESTORE_GUI_STATE);
 	}
 
@@ -264,7 +264,7 @@ public class CreateAllCadenceForYearWizardStepFlipper extends GcgWizardStepFlipp
     }
 
     private void adjustWorkPlanForHolidays(WorkPlan theWorkPlan, GregorianCalendar aPlanStartDate, GregorianCalendar aPlanEndDate) {
-        FiscalYearHolidayBreak theHolidayBreak = FmmDatabaseService.getActiveMediator().getFmsOrganization().includesFiscalYearHolidayBreak(getFiscalYear().getNodeIdString(), aPlanStartDate, aPlanEndDate);
+        FiscalYearHolidayBreak theHolidayBreak = FmsActivity.getActiveDatabaseMediator().getFmsOrganization().includesFiscalYearHolidayBreak(getFiscalYear().getNodeIdString(), aPlanStartDate, aPlanEndDate);
         if(theHolidayBreak != null) {
             aPlanEndDate.add(Calendar.DATE, 7);
             theWorkPlan.setScheduledEndDate(aPlanEndDate.getTime());

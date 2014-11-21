@@ -50,7 +50,6 @@ import com.flywheelms.gcongui.deckangl.interfaces.DecKanGlDecorator;
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
 import com.flywheelms.gcongui.gcg.widget.date.GcgMonth;
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorCadenceCommitment;
 import com.flywheelms.library.fmm.deckangl.FmsDecoratorCompletion;
@@ -72,6 +71,7 @@ import com.flywheelms.library.fmm.node.impl.completable.FmmCompletionNodeImpl;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
+import com.flywheelms.library.fms.activity.FmsActivity;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
 import com.flywheelms.library.util.JsonHelper;
 
@@ -126,7 +126,7 @@ public class StrategicMilestone extends FmmCompletionNodeImpl implements Compara
 		this.strategicAssetList = new ArrayList<StrategicAsset>();
 		for(int i=0; i < aJsonArray.length(); ++i) {
 			try {
-				this.strategicAssetList.add(FmmDatabaseService.getActiveMediator().retrieveStrategicAsset(
+				this.strategicAssetList.add(FmsActivity.getActiveDatabaseMediator().retrieveStrategicAsset(
                         aJsonArray.getString(i)));
 			} catch (JSONException e) {
 				// TODO Auto-generated catch block
@@ -174,7 +174,7 @@ public class StrategicMilestone extends FmmCompletionNodeImpl implements Compara
 	public FiscalYear getFiscalYear() {
 			if(this.fiscalYear == null && this.fiscalYearNodeIdString != null) {
 				this.fiscalYear =
-						FmmDatabaseService.getActiveMediator().retrieveFiscalYear(this.fiscalYearNodeIdString);
+						FmsActivity.getActiveDatabaseMediator().retrieveFiscalYear(this.fiscalYearNodeIdString);
 			}
 			return this.fiscalYear;
 		}
@@ -218,13 +218,13 @@ public class StrategicMilestone extends FmmCompletionNodeImpl implements Compara
 	}
 
 	private Collection<StrategicAsset> getStrategicAssetCollection() {
-		return FmmDatabaseService.getActiveMediator().retrieveStrategicAssetList(this);
+		return FmsActivity.getActiveDatabaseMediator().retrieveStrategicAssetList(this);
 	}
 
 	public ArrayList<StrategicAsset> getStrategicAssetList() {
 		if(this.strategicAssetList == null) {
 			this.strategicAssetList = new ArrayList<StrategicAsset>(
-					FmmDatabaseService.getActiveMediator().retrieveStrategicAssetList(this) );
+					FmsActivity.getActiveDatabaseMediator().retrieveStrategicAssetList(this) );
 		}
 		return this.strategicAssetList;
 	}
@@ -300,7 +300,7 @@ public class StrategicMilestone extends FmmCompletionNodeImpl implements Compara
 	}
 	
 	public static StrategicMilestone getFmmConfiguration(Intent anIntent) {
-		return FmmDatabaseService.getActiveMediator().retrieveStrategicMilestone(NodeId.getNodeIdString(anIntent));
+		return FmsActivity.getActiveDatabaseMediator().retrieveStrategicMilestone(NodeId.getNodeIdString(anIntent));
 	}
 
 	public int getTargetMonthEnd() {
@@ -380,7 +380,7 @@ public class StrategicMilestone extends FmmCompletionNodeImpl implements Compara
         ArrayList<? extends FmmHeadlineNodeImpl> theList = null;
         switch(aChildNodeDefinition) {
             case STRATEGIC_ASSET:
-                theList = FmmDatabaseService.getActiveMediator().retrieveStrategicAssetList(this);
+                theList = FmsActivity.getActiveDatabaseMediator().retrieveStrategicAssetList(this);
                 break;
         }
         return theList;

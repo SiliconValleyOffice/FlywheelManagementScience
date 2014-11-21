@@ -56,7 +56,6 @@ import com.flywheelms.gcongui.fdk.widget.FdkKeyboard;
 import com.flywheelms.gcongui.gcg.helper.GcgButtonMenu;
 import com.flywheelms.gcongui.gcg.helper.GcgHelper;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fms.activity.FmsActivity;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
@@ -135,7 +134,7 @@ public class FseDocumentHistoryBrowserActivity extends FmsActivity
 	protected void processExtras() {
 		super.processExtras();
 		this.fseDocumentNodeIdString = getIntent().getExtras().getString(FmsActivityHelper.bundle_key__FSE_DOCUMENT_NODE_ID);
-		this.fseDocument = FmmDatabaseService.getActiveMediator().getFseDocument(this.fseDocumentNodeIdString);
+		this.fseDocument = FmsActivity.getActiveDatabaseMediator().getFseDocument(this.fseDocumentNodeIdString);
 		ArrayList<FseDocumentTransaction> theReversedList = new ArrayList<FseDocumentTransaction>(this.fseDocument.getTransactionList());
 		Collections.reverse(theReversedList);
 		this.transactionList = theReversedList;

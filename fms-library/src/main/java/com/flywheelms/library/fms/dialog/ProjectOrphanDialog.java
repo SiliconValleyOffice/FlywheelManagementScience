@@ -45,9 +45,9 @@ package com.flywheelms.library.fms.dialog;
 
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewAdapter;
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.impl.governable.Portfolio;
 import com.flywheelms.library.fmm.node.impl.governable.Project;
+import com.flywheelms.library.fms.activity.FmsActivity;
 
 public class ProjectOrphanDialog extends HeadlineNodeOrphanDialog {
 
@@ -61,7 +61,7 @@ public class ProjectOrphanDialog extends HeadlineNodeOrphanDialog {
 
 	@Override
 	protected boolean orphanHeadlineNode() {
-		return FmmDatabaseService.getActiveMediator().orphanSingleProjectFromPortfolio(getFmmHeadlineNode().getNodeIdString(), this.portfolio.getNodeIdString(), true);
+		return FmsActivity.getActiveDatabaseMediator().orphanSingleProjectFromPortfolio(getFmmHeadlineNode().getNodeIdString(), this.portfolio.getNodeIdString(), true);
 	}
 
 }

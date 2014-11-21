@@ -45,10 +45,10 @@ package com.flywheelms.library.fms.dialog;
 
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewAdapter;
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.governable.WorkPackage;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
+import com.flywheelms.library.fms.activity.FmsActivity;
 
 public class WorkPackageOrphanDialog extends HeadlineNodeOrphanDialog {
 
@@ -63,8 +63,8 @@ public class WorkPackageOrphanDialog extends HeadlineNodeOrphanDialog {
 	@Override
 	protected boolean orphanHeadlineNode() {
         return this.parentHeadlineNode.getFmmNodeDefinition() == FmmNodeDefinition.PROJECT_ASSET || this.parentHeadlineNode.getFmmNodeDefinition() == FmmNodeDefinition.STRATEGIC_ASSET ?
-            FmmDatabaseService.getActiveMediator().orphanSingleWorkPackageFromProjectAsset(getFmmHeadlineNode().getNodeIdString(), this.parentHeadlineNode.getNodeIdString(), true) :
-            FmmDatabaseService.getActiveMediator().orphanSingleWorkPackageFromCadence(getFmmHeadlineNode().getNodeIdString(), this.parentHeadlineNode.getNodeIdString(), true);
+            FmsActivity.getActiveDatabaseMediator().orphanSingleWorkPackageFromProjectAsset(getFmmHeadlineNode().getNodeIdString(), this.parentHeadlineNode.getNodeIdString(), true) :
+            FmsActivity.getActiveDatabaseMediator().orphanSingleWorkPackageFromCadence(getFmmHeadlineNode().getNodeIdString(), this.parentHeadlineNode.getNodeIdString(), true);
 	}
 
 }

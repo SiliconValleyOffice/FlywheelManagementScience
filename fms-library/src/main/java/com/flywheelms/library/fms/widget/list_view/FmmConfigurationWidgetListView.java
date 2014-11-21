@@ -54,9 +54,9 @@ import android.widget.PopupMenu;
 
 import com.flywheelms.gcongui.gcg.GcgApplication;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.repository.FmmAccessScope;
 import com.flywheelms.library.fmm.repository.FmmConfiguration;
+import com.flywheelms.library.fms.activity.FmsActivity;
 import com.flywheelms.library.fms.dialog.ConfirmFmmDestruction;
 import com.flywheelms.library.fms.helper.FmmConfigurationHelper;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
@@ -120,7 +120,7 @@ public class FmmConfigurationWidgetListView extends FmsWidgetListView <FmmConfig
 
 	@Override
 	protected void refreshObjectAfterEditorResult(Intent anIntent, FmmConfiguration anObject) {
-		FmmDatabaseService.getActiveMediator().retrieveFmmConfiguration(anObject.getNodeIdString());
+		FmsActivity.getActiveDatabaseMediator().retrieveFmmConfiguration(anObject.getNodeIdString());
 	}
 
 	@Override

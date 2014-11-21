@@ -43,10 +43,10 @@
 
 package com.flywheelms.library.fmm.node.impl.commitment;
 
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.impl.governable.Cadence;
 import com.flywheelms.library.fmm.node.impl.governable.WorkPackage;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmNode;
+import com.flywheelms.library.fms.activity.FmsActivity;
 
 import java.util.Date;
 
@@ -94,7 +94,7 @@ public class CadenceCommitment extends FmmCommitmentNodeImpl {
 	public WorkPackage getWorkPackage() {
 		if(this.workPackage == null) {
 			this.workPackage =
-					FmmDatabaseService.getActiveMediator().retrieveWorkPackage(this.childNodeIdString);
+					FmsActivity.getActiveDatabaseMediator().retrieveWorkPackage(this.childNodeIdString);
 		}
 		return this.workPackage;
 	}

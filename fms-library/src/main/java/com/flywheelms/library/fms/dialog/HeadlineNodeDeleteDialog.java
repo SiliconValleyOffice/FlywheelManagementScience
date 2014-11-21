@@ -60,9 +60,9 @@ import com.flywheelms.gcongui.gcg.helper.GcgGuiHelper;
 import com.flywheelms.gcongui.gcg.helper.GcgHelper;
 import com.flywheelms.gcongui.gcg.widget.GcgWidgetZoomableHeading;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
+import com.flywheelms.library.fms.activity.FmsActivity;
 import com.flywheelms.library.fms.treeview.filter.FmsTreeViewAdapter;
 import com.flywheelms.library.fms.widget.FmmHeadlineNodeWidgetSpinner;
 import com.flywheelms.library.fms.widget.spinner.SequencePositionWidgetSpinner;
@@ -484,7 +484,7 @@ public abstract class HeadlineNodeDeleteDialog extends FmsCancelOkDialog impleme
 
 	@Override
 	protected void onClickButtonOk() {
-		FmmDatabaseService.getActiveMediator().startTransaction();
+		FmsActivity.getActiveDatabaseMediator().startTransaction();
 		boolean isTransactionSuccess = true;
 		if(this.primaryChildDeleteDisposition.getCount() > 0) {
 			isTransactionSuccess = disposeOfPrimaryChildren();
@@ -504,7 +504,7 @@ public abstract class HeadlineNodeDeleteDialog extends FmsCancelOkDialog impleme
 		} else {
 			GcgHelper.makeToast("Faral Error:  Failed to delete " + this.fmmNodeTypeWidget.getText() + ":  " + this.headlineWidgetTextView.getText());
 		}
-		FmmDatabaseService.getActiveMediator().endTransaction(isTransactionSuccess);
+		FmsActivity.getActiveDatabaseMediator().endTransaction(isTransactionSuccess);
 		this.gcgActivity.stopDialog();
 	}
 	

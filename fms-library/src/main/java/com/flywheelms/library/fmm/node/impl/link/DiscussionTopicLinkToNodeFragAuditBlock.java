@@ -43,11 +43,11 @@
 
 package com.flywheelms.library.fmm.node.impl.link;
 
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.governable.DiscussionTopic;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragAuditBlock;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmNode;
+import com.flywheelms.library.fms.activity.FmsActivity;
 
 /*
  * a wonky class to enable the Discussion Topic to link to anything
@@ -98,7 +98,7 @@ public class DiscussionTopicLinkToNodeFragAuditBlock extends FmmSequencedLinkNod
     public DiscussionTopic getDiscussionTopic() {
         if(this.discussionTopic == null && getParentNodeIdString() != null) {
             this.discussionTopic =
-                    FmmDatabaseService.getActiveMediator().retrieveDiscussionTopic(getParentNodeIdString());
+                    FmsActivity.getActiveDatabaseMediator().retrieveDiscussionTopic(getParentNodeIdString());
         }
         return this.discussionTopic;
     }
@@ -120,7 +120,7 @@ public class DiscussionTopicLinkToNodeFragAuditBlock extends FmmSequencedLinkNod
     public NodeFragAuditBlock getNodeFragAuditBlock() {
         if(this.nodeFragAuditBlock == null && getChildNodeIdString() != null) {
             this.nodeFragAuditBlock =
-                    FmmDatabaseService.getActiveMediator().retrieveNodeFragAuditBlock(getChildNodeIdString());
+                    FmsActivity.getActiveDatabaseMediator().retrieveNodeFragAuditBlock(getChildNodeIdString());
         }
         return this.nodeFragAuditBlock;
     }

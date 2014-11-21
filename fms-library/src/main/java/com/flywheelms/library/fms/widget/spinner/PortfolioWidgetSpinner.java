@@ -47,13 +47,13 @@ import android.content.Context;
 import android.util.AttributeSet;
 
 import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.governable.FmsOrganization;
 import com.flywheelms.library.fmm.node.impl.governable.Portfolio;
 import com.flywheelms.library.fmm.node.impl.governable.Project;
 import com.flywheelms.library.fmm.node.impl.governable.WorkAsset;
 import com.flywheelms.library.fmm.node.impl.governable.WorkPackage;
+import com.flywheelms.library.fms.activity.FmsActivity;
 import com.flywheelms.library.fms.widget.FmmHeadlineNodeWidgetSpinner;
 
 import java.util.ArrayList;
@@ -95,16 +95,16 @@ public class PortfolioWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 	@Override
 	//filter_id__PRIMARY_PARENT
     protected ArrayList<? extends GcgGuiable> getPrimaryParentGuiableList() {
-		return FmmDatabaseService.getActiveMediator().retrievePortfolioList(
-                FmmDatabaseService.getActiveMediator().getFmmOwner(), this.portfolioException);
+		return FmsActivity.getActiveDatabaseMediator().retrievePortfolioList(
+                FmsActivity.getActiveDatabaseMediator().getFmmOwner(), this.portfolioException);
 	}
 	
 	
 	// filter_id__PRIMARY_PARENT__PRIMARY_CHILD__MOVE_TARGET
 	@Override
 	protected ArrayList<? extends GcgGuiable> getPrimaryParentPrimaryChildMoveTargetGuiableList() {  // Project move target
-		return FmmDatabaseService.getActiveMediator().retrievePortfolioList(
-                FmmDatabaseService.getActiveMediator().getFmmOwner(), this.portfolioException);
+		return FmsActivity.getActiveDatabaseMediator().retrievePortfolioList(
+                FmsActivity.getActiveDatabaseMediator().getFmmOwner(), this.portfolioException);
 	}
 
     //////  START  /////////////////////
@@ -112,8 +112,8 @@ public class PortfolioWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 
     @Override
     protected ArrayList<? extends GcgGuiable> getPrimaryParentPrimaryChildPrimaryChildMoveTargetGuiableList() { // WorkAsset move target
-        return FmmDatabaseService.getActiveMediator().retrievePortfolioListForWorkAssetMoveTarget(
-                FmmDatabaseService.getActiveMediator().getFmmOwner(), this.projectException);
+        return FmsActivity.getActiveDatabaseMediator().retrievePortfolioListForWorkAssetMoveTarget(
+                FmsActivity.getActiveDatabaseMediator().getFmmOwner(), this.projectException);
     }
 
 	public void updateSpinnerData(Project aProjectException) {
@@ -126,8 +126,8 @@ public class PortfolioWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 
 	@Override
 	protected ArrayList<? extends GcgGuiable> getPrimaryParentPrimaryChildPrimaryChildPrimaryChildMoveTargetGuiableList() { // WorkPackage move target
-		return FmmDatabaseService.getActiveMediator().retrievePortfolioListForWorkPackageMoveTarget(
-                FmmDatabaseService.getActiveMediator().getFmmOwner(), this.projectAssetException);
+		return FmsActivity.getActiveDatabaseMediator().retrievePortfolioListForWorkPackageMoveTarget(
+                FmsActivity.getActiveDatabaseMediator().getFmmOwner(), this.projectAssetException);
 	}
 
     public void updateSpinnerData(WorkAsset aWorkAssetException) {
@@ -141,8 +141,8 @@ public class PortfolioWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 
     @Override
     protected ArrayList<? extends GcgGuiable> getPrimaryParentPrimaryChildPrimaryChildPrimaryChildPrimaryChildMoveTargetGuiableList() { // WorkTask move target
-        return FmmDatabaseService.getActiveMediator().retrievePortfolioListForWorkTaskMoveTarget(
-                FmmDatabaseService.getActiveMediator().getFmmOwner(), this.workPackageException);
+        return FmsActivity.getActiveDatabaseMediator().retrievePortfolioListForWorkTaskMoveTarget(
+                FmsActivity.getActiveDatabaseMediator().getFmmOwner(), this.workPackageException);
     }
 
     public void updateSpinnerData(WorkPackage aWorkPackageException) {

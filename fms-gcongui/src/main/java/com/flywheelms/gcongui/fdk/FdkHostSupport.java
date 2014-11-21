@@ -225,7 +225,9 @@ public class FdkHostSupport implements FdkHost {
 		if(! SpeechRecognizer.isRecognitionAvailable(this.fdkHost.getContext())) {
 			this.speechRecognitionSupported = false;
 			return;
-		}
+		} else {
+            this.speechRecognitionSupported = true;
+        }
         createServices();
 		this.dictationListener = new FdkDictationListener(this.fdkHost);
 		this.speechRecognizer.setRecognitionListener(this.dictationListener);
@@ -236,7 +238,6 @@ public class FdkHostSupport implements FdkHost {
 				this.fdkHost.getContext().getPackageName());
 		this.speechRecognizerIntent.putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, 20);
 		//		this.speechRecognizerIntent.putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_COMPLETE_SILENCE_LENGTH_MILLIS, 100000);
-		this.speechRecognitionSupported = true;
 		this.useBluetoothHeadset = isBluetoothHeadsetConnected();
 		if(this.useBluetoothHeadset) {
 			this.useWiredHeadset = false;
@@ -484,8 +485,8 @@ public class FdkHostSupport implements FdkHost {
 
 	@Override
 	public void setFdkKeyboard(FdkKeyboard aKeyboard) {
-		if(this.speechRecognitionSupported) {
-			this.fdkKeyboard = aKeyboard;
+        this.fdkKeyboard = aKeyboard;
+        if(this.speechRecognitionSupported) {
 			if(this.fdkKeyboardMenuItem != null) {
 				if(this.fdkKeyboard != null) {
 					this.fdkKeyboardMenuItem.setIcon(this.fdkKeyboard.getKeyboardState().getDrawable());

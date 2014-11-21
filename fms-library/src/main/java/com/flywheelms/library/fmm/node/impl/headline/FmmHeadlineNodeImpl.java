@@ -58,7 +58,6 @@ import com.flywheelms.gcongui.deckangl.interfaces.DecKanGlDecorator;
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.gcongui.gcg.interfaces.GcgPerspective;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.context.FmmFrame;
 import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fmm.deckangl.FmmDecKanGlDictionary;
@@ -86,6 +85,7 @@ import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragFseDocument;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragTribKnQuality;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmTreeNodeTargetObject;
+import com.flywheelms.library.fms.activity.FmsActivity;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
 import com.flywheelms.library.fse.model.FseDocument;
 
@@ -211,12 +211,12 @@ public abstract class FmmHeadlineNodeImpl extends FmmHistoryNodeImpl
 
     @Override
     public FseDocument getFseDocument() {
-        return FmmDatabaseService.getActiveMediator().getFseDocumentForParent(getNodeIdString());
+        return FmsActivity.getActiveDatabaseMediator().getFseDocumentForParent(getNodeIdString());
     }
 
     @Override
     public FseDocument getFseDocumentForPublication() {
-        return FmmDatabaseService.getActiveMediator().getFseDocumentForParent(getNodeIdString(), false).getLastTransactionWithMarkup();
+        return FmsActivity.getActiveDatabaseMediator().getFseDocumentForParent(getNodeIdString(), false).getLastTransactionWithMarkup();
     }
 
     @Override
@@ -269,7 +269,7 @@ public abstract class FmmHeadlineNodeImpl extends FmmHistoryNodeImpl
     @Override
     public HashMap<DecKanGlDecoratorCanvasLocation, DecKanGlDecorator> getDecKanGlDecoratorMap() {
         if (this.decKanGlDecoratorMap == null) {
-            this.decKanGlDecoratorMap = FmmDatabaseService.getActiveMediator().retrieveNodeFragTribKnQuality(this).getDecoratorMap();
+            this.decKanGlDecoratorMap = FmsActivity.getActiveDatabaseMediator().retrieveNodeFragTribKnQuality(this).getDecoratorMap();
         }
         return this.decKanGlDecoratorMap;
     }
@@ -661,7 +661,7 @@ public abstract class FmmHeadlineNodeImpl extends FmmHistoryNodeImpl
     @Override
     public NodeFragAuditBlock getNodeFragAuditBlock() {
         if (this.nodeFragAuditBlock == null) {
-            this.nodeFragAuditBlock = FmmDatabaseService.getActiveMediator().retrieveNodeFragAuditBlock(this);
+            this.nodeFragAuditBlock = FmsActivity.getActiveDatabaseMediator().retrieveNodeFragAuditBlock(this);
         }
         return this.nodeFragAuditBlock;
     }
@@ -673,7 +673,7 @@ public abstract class FmmHeadlineNodeImpl extends FmmHistoryNodeImpl
 
     public NodeFragFseDocument getNodeFragFseDocument() {
         if(this.nodeFragFseDocument == null) {
-            this.nodeFragFseDocument = FmmDatabaseService.getActiveMediator().retrieveNodeFragFseDocument(this);
+            this.nodeFragFseDocument = FmsActivity.getActiveDatabaseMediator().retrieveNodeFragFseDocument(this);
         }
         return this.nodeFragFseDocument;
     }
@@ -694,7 +694,7 @@ public abstract class FmmHeadlineNodeImpl extends FmmHistoryNodeImpl
     @Override
     public NodeFragTribKnQuality getNodeFragTribKnQuality() {
         if(this.nodeFragTribKnQuality == null) {
-            this.nodeFragTribKnQuality = FmmDatabaseService.getActiveMediator().retrieveNodeFragTribKnQuality(this);
+            this.nodeFragTribKnQuality = FmsActivity.getActiveDatabaseMediator().retrieveNodeFragTribKnQuality(this);
         }
         return this.nodeFragTribKnQuality;
     }

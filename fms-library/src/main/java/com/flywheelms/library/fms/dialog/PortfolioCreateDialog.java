@@ -45,10 +45,10 @@ package com.flywheelms.library.fms.dialog;
 
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.gcongui.gcg.helper.GcgHelper;
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.governable.Portfolio;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
+import com.flywheelms.library.fms.activity.FmsActivity;
 import com.flywheelms.library.fms.treeview.filter.FmsTreeViewAdapter;
 
 public class PortfolioCreateDialog extends RootNodeCreateDialog {
@@ -59,7 +59,7 @@ public class PortfolioCreateDialog extends RootNodeCreateDialog {
 
     protected FmmHeadlineNode createRootNode() {
         Portfolio thePortfolio =
-                FmmDatabaseService.getActiveMediator().createPortfolio(this.headlineWidget.getData());
+                FmsActivity.getActiveDatabaseMediator().createPortfolio(this.headlineWidget.getData());
         if(thePortfolio != null) {
             this.treeViewAdapter.addNewHeadlineNode(thePortfolio);
             GcgHelper.makeToast(this.fmmNodeTypeWidget.getText() + " created: " + this.headlineWidget.getData());

@@ -43,11 +43,11 @@
 
 package com.flywheelms.library.fmm.node.impl.nodefrag;
 
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.enumerator.FmmLockStatus;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.governable.CommunityMember;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmNodeLocking;
+import com.flywheelms.library.fms.activity.FmsActivity;
 
 import org.json.JSONObject;
 
@@ -94,7 +94,7 @@ public class FmmNodeFragLockableImpl extends FmmNodeFragImpl implements FmmNodeL
 
 	public FragLock getFragLock() {
 		if(this.fragLock == null) {
-			this.fragLock = FmmDatabaseService.getActiveMediator().retrieveFragLockForParent(getNodeIdString());
+			this.fragLock = FmsActivity.getActiveDatabaseMediator().retrieveFragLockForParent(getNodeIdString());
 		}
 		return this.fragLock;
 	}

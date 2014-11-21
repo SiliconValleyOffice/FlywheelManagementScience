@@ -43,11 +43,11 @@
 
 package com.flywheelms.library.fmm.node.impl.link;
 
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.governable.DiscussionTopic;
 import com.flywheelms.library.fmm.node.impl.governable.Notebook;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmNode;
+import com.flywheelms.library.fms.activity.FmsActivity;
 
 public class NotebookLinkToDiscussionTopic extends FmmSequencedLinkNodeImpl {
     
@@ -95,7 +95,7 @@ public class NotebookLinkToDiscussionTopic extends FmmSequencedLinkNodeImpl {
     public Notebook getNotebook() {
         if(this.notebook == null && getParentNodeIdString() != null) {
             this.notebook =
-                    FmmDatabaseService.getActiveMediator().retrieveNotebook(getParentNodeIdString());
+                    FmsActivity.getActiveDatabaseMediator().retrieveNotebook(getParentNodeIdString());
         }
         return this.notebook;
     }
@@ -117,7 +117,7 @@ public class NotebookLinkToDiscussionTopic extends FmmSequencedLinkNodeImpl {
     public DiscussionTopic getDiscussionTopic() {
         if(this.discussionTopic == null && getChildNodeIdString() != null) {
             this.discussionTopic =
-                    FmmDatabaseService.getActiveMediator().retrieveDiscussionTopic(getChildNodeIdString());
+                    FmsActivity.getActiveDatabaseMediator().retrieveDiscussionTopic(getChildNodeIdString());
         }
         return this.discussionTopic;
     }

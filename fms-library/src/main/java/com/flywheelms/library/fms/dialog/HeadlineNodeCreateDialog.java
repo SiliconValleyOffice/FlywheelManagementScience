@@ -53,10 +53,10 @@ import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear;
 import com.flywheelms.gcongui.gcg.helper.GcgHelper;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.fms.activity.FmmNodeEditorActivity;
+import com.flywheelms.library.fms.activity.FmsActivity;
 import com.flywheelms.library.fms.treeview.filter.FmsTreeViewAdapter;
 import com.flywheelms.library.fms.widget.edit_text.HeadlineWidgetEditText;
 import com.flywheelms.library.fms.widget.text_view.FmmNodeTypeWidgetTextView;
@@ -113,7 +113,7 @@ public class HeadlineNodeCreateDialog extends FmsCancelOkApplyFdkDialog {
         this.parentNodeEditorActivity = (FmmNodeEditorActivity) aLibraryActivity;
         this.treeViewAdapter = aTreeViewAdapter;
         this.launchHeadlineNode = aLaunchHeadlineNode;
-        this.fmsDialogExtension.parentHeadlineNode = FmmDatabaseService.getActiveMediator().retrievetHeadlineNode(aParentHeadlineNodeId);
+        this.fmsDialogExtension.parentHeadlineNode = FmsActivity.getActiveDatabaseMediator().retrievetHeadlineNode(aParentHeadlineNodeId);
         this.logicalParentHeadlineNode = getLogicalParentHeadlineNode();
         this.launchNodeSequence = aLaunchNodeSequence;
         this.launchNodeChildCount = aLaunchNodeChildCount;
@@ -229,7 +229,7 @@ public class HeadlineNodeCreateDialog extends FmsCancelOkApplyFdkDialog {
 	}
 
 	private void createHeadlineNode(boolean bOkButtonEvent) {
-		FmmHeadlineNode theNewHeadlineNode = FmmDatabaseService.getActiveMediator().newChildHeadlineNode(
+		FmmHeadlineNode theNewHeadlineNode = FmsActivity.getActiveDatabaseMediator().newChildHeadlineNode(
 			getFmmNodeDefinition(),  // type to create
 			this.headlineWidget.getText().toString(),
 			this.logicalParentHeadlineNode,  // link to this parent node

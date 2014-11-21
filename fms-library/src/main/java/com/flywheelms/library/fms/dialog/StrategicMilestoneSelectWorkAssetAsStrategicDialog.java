@@ -50,10 +50,10 @@ import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear;
 import com.flywheelms.gcongui.gcg.treeview.GcgTreeViewAdapter;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmCompletionNode;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
+import com.flywheelms.library.fms.activity.FmsActivity;
 import com.flywheelms.library.fms.widget.spinner.WorkAssetWidgetSpinner;
 
 public class StrategicMilestoneSelectWorkAssetAsStrategicDialog extends HeadlineNodeAdoptOrphanDialog {
@@ -91,7 +91,7 @@ public class StrategicMilestoneSelectWorkAssetAsStrategicDialog extends Headline
     }
 
     protected boolean adoptOrphanHeadlineNode() {
-        return FmmDatabaseService.getActiveMediator().promoteWorkAssetToStrategicAsset(
+        return FmsActivity.getActiveDatabaseMediator().promoteWorkAssetToStrategicAsset(
                 (FmmCompletionNode) this.adoptionCandidateWidgetSpinner.getFmmNode(),
                 this.parentNode,
                 this.parentNode == this.launchNode ? null : this.launchNode,

@@ -46,7 +46,6 @@ package com.flywheelms.library.fms.activity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.headline.FmmHeadlineNodeImpl;
@@ -80,7 +79,7 @@ public abstract class FmsNodeWizardActivity extends FmsWizardActivity {
 
 	public FmmHeadlineNodeImpl getFmmHeadlineNode() {
 		if(this.fmmHeadlineNode == null) {
-			this.fmmHeadlineNode = FmmDatabaseService.getActiveMediator().retrievetHeadlineNode(this.fmmNodeIdString);
+			this.fmmHeadlineNode = FmsActivity.getActiveDatabaseMediator().retrievetHeadlineNode(this.fmmNodeIdString);
 		}
 		return this.fmmHeadlineNode;
 	}

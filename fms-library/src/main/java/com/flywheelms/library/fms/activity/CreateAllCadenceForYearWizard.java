@@ -46,7 +46,6 @@ import android.os.Bundle;
 
 import com.flywheelms.gcongui.gcg.wizard.GcgWizardActivity;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
 import com.flywheelms.library.fms.helper.FmsActivityHelper;
 import com.flywheelms.library.fms.helper.FmsHelpIndex;
@@ -72,7 +71,7 @@ public class CreateAllCadenceForYearWizard extends GcgWizardActivity {
 	@Override
 	protected void processExtras() {
 		super.processExtras();
-        this.fiscalYear = FmmDatabaseService.getActiveMediator().retrieveFiscalYear(getIntent().getExtras().getString(FmsActivityHelper.bundle_key__FMM_NODE__ID_STRING));
+        this.fiscalYear = FmsActivity.getActiveDatabaseMediator().retrieveFiscalYear(getIntent().getExtras().getString(FmsActivityHelper.bundle_key__FMM_NODE__ID_STRING));
 	}
 
 	@Override

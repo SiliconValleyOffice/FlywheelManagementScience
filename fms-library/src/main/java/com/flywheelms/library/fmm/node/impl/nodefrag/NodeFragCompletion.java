@@ -43,12 +43,12 @@
 
 package com.flywheelms.library.fmm.node.impl.nodefrag;
 
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.meta_data.NodeFragCompletionMetaData;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.enumerator.CompletableWorkStatus;
 import com.flywheelms.library.fmm.node.impl.governable.CommunityMember;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmCompletionNode;
+import com.flywheelms.library.fms.activity.FmsActivity;
 import com.flywheelms.library.util.JsonHelper;
 
 import org.json.JSONException;
@@ -173,7 +173,7 @@ public class NodeFragCompletion extends FmmNodeFragImpl implements Serializable 
 	public CommunityMember getYellowByCommunityMember() {
 		if(this.yellowByCommunityMember == null) {
 			if(this.yellowByNodeIdString != null &&  ! this.yellowByNodeIdString.equals("")) {
-				this.yellowByCommunityMember = FmmDatabaseService.getActiveMediator().retrieveCommunityMember(this.yellowByNodeIdString);
+				this.yellowByCommunityMember = FmsActivity.getActiveDatabaseMediator().retrieveCommunityMember(this.yellowByNodeIdString);
 
 			} else {
 				this.yellowByCommunityMember = CommunityMember.getNullValue();
@@ -210,7 +210,7 @@ public class NodeFragCompletion extends FmmNodeFragImpl implements Serializable 
 	public CommunityMember getOrangeByCommunityMember() {
 		if(this.orangeByCommunityMember == null) {
 			if(this.orangeByNodeIdString != null &&  ! this.orangeByNodeIdString.equals("")) {
-				this.orangeByCommunityMember = FmmDatabaseService.getActiveMediator().retrieveCommunityMember(this.orangeByNodeIdString);
+				this.orangeByCommunityMember = FmsActivity.getActiveDatabaseMediator().retrieveCommunityMember(this.orangeByNodeIdString);
 
 			} else {
 				this.orangeByCommunityMember = CommunityMember.getNullValue();
@@ -247,7 +247,7 @@ public class NodeFragCompletion extends FmmNodeFragImpl implements Serializable 
 	public CommunityMember getPinkByCommunityMember() {
 		if(this.pinkByCommunityMember == null) {
 			if(this.pinkByNodeIdString != null &&  ! this.pinkByNodeIdString.equals("")) {
-				this.pinkByCommunityMember = FmmDatabaseService.getActiveMediator().retrieveCommunityMember(this.pinkByNodeIdString);
+				this.pinkByCommunityMember = FmsActivity.getActiveDatabaseMediator().retrieveCommunityMember(this.pinkByNodeIdString);
 
 			} else {
 				this.pinkByCommunityMember = CommunityMember.getNullValue();
@@ -284,7 +284,7 @@ public class NodeFragCompletion extends FmmNodeFragImpl implements Serializable 
 	public CommunityMember getGreenByCommunityMember() {
 		if(this.greenByCommunityMember == null) {
 			if(this.greenByNodeIdString != null &&  ! this.greenByNodeIdString.equals("")) {
-				this.greenByCommunityMember = FmmDatabaseService.getActiveMediator().retrieveCommunityMember(this.greenByNodeIdString);
+				this.greenByCommunityMember = FmsActivity.getActiveDatabaseMediator().retrieveCommunityMember(this.greenByNodeIdString);
 
 			} else {
 				this.greenByCommunityMember = CommunityMember.getNullValue();
@@ -321,7 +321,7 @@ public class NodeFragCompletion extends FmmNodeFragImpl implements Serializable 
 	public CommunityMember getCompletionConfirmedByCommunityMember() {
 		if(this.completionConfirmedByCommunityMember == null) {
 			if(this.completionConfirmedByNodeIdString != null &&  ! this.completionConfirmedByNodeIdString.equals("")) {
-				this.completionConfirmedByCommunityMember = FmmDatabaseService.getActiveMediator().retrieveCommunityMember(this.completionConfirmedByNodeIdString);
+				this.completionConfirmedByCommunityMember = FmsActivity.getActiveDatabaseMediator().retrieveCommunityMember(this.completionConfirmedByNodeIdString);
 
 			} else {
 				this.completionConfirmedByCommunityMember = CommunityMember.getNullValue();

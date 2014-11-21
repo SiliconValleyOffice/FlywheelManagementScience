@@ -47,12 +47,12 @@ import android.graphics.drawable.Drawable;
 
 import com.flywheelms.gcongui.gcg.interfaces.GcgSerialization;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.FmmDatabaseService;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.FmmNodeImpl;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.governable.CommunityMember;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmNode;
+import com.flywheelms.library.fms.activity.FmsActivity;
 import com.flywheelms.library.fse.FseDocumentSectionType;
 import com.flywheelms.library.fse.util.FseDocumentSerialization;
 import com.flywheelms.library.util.JsonHelper;
@@ -301,7 +301,7 @@ public class FseDocumentTransaction implements FmmNode, GcgSerialization {
 	
 	public CommunityMember getCommunityMember() {
 		if(this.communityMember == null) {
-			this.communityMember = FmmDatabaseService.getActiveMediator().retrieveCommunityMember(this.communityMemberNodeIdString);
+			this.communityMember = FmsActivity.getActiveDatabaseMediator().retrieveCommunityMember(this.communityMemberNodeIdString);
 		}
 		return this.communityMember;
 	}
