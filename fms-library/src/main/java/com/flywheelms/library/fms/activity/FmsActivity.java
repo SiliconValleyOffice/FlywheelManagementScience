@@ -90,7 +90,7 @@ public abstract class FmsActivity extends GcgActivity{
     }
 
     public static FmmDatabaseMediator getActiveDatabaseMediator() {
-        return FmsActivity.mFmmDatabaseService == null ? null : FmmDatabaseMediator.getActiveMediator();
+        return FmsActivity.mFmmDatabaseService == null ? null : FmsActivity.mFmmDatabaseService.getActiveMediator();
     }
 
     public FmsActivity getFmsActivity() {
