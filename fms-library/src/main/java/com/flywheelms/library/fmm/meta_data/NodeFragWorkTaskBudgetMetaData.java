@@ -59,6 +59,8 @@ public class NodeFragWorkTaskBudgetMetaData extends NodeFragMetaData {
 	public static final String column_BUDGET_PROPOSED_TIMESTAMP = "budget_proposed_timestamp";
 	public static final String column_BUDGET_CONFIRMED_BY = "budget_confirmed_by";
 	public static final String column_BUDGET_CONFIRMED_TIMESTAMP = "budget_confirmed_timestamp";
+	public static final String column_WORK_BREAKDOWN_ESTIMATED_TOTAL_TASK_COUNT = "work_breakdown_estimated_total_task_count";
+	public static final String column_WORK_BREAKDOWN_ESTIMATED_AVERAGE_HOURS_PER_TASK = "work_breakdown_estimated_average_hours_per_task";
 	public static final String column_WORK_BREAKDOWN_TOTAL_TASK_COUNT = "work_breakdown_total_task_count";
 	public static final String column_WORK_BREAKDOWN_AVERAGE_HOURS_PER_TASK = "work_breakdown_average_hours_per_task";
 	public static final String column_TASK_COUNT_AFTER_COMPLETION = "task_count_after_completion";
