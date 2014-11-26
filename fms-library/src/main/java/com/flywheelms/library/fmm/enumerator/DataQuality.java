@@ -51,10 +51,10 @@ import com.flywheelms.library.R;
 public enum DataQuality implements GcgGuiable {
 
     NONE (R.string.data_quality__none, R.drawable.data_quality__none),
-    SUGGESTED (R.string.data_quality__none, R.drawable.data_quality__none),
-    SWAG (R.string.data_quality__none, R.drawable.data_quality__none),
-    PROPOSED (R.string.data_quality__none, R.drawable.data_quality__none),
-    CONFIRMED (R.string.data_quality__none, R.drawable.data_quality__none);
+    SUGGESTED (R.string.data_quality__suggested, R.drawable.data_quality__suggested),
+    SWAG (R.string.data_quality__swag, R.drawable.data_quality__swag),
+    PROPOSED (R.string.data_quality__proposed, R.drawable.data_quality__proposed),
+    CONFIRMED (R.string.data_quality__confirmed, R.drawable.data_quality__confirmed);
 
     public static DataQuality getObjectForName(String aName) {
         for(DataQuality aDataQuality : values()) {
