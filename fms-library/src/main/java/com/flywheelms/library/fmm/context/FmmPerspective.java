@@ -53,7 +53,7 @@ public class FmmPerspective extends GcgPerspective {
     public static FmmPerspective BUDGETING = new FmmPerspective(
             R.string.fmm_perspective__budgeting,
             R.string.fmm_perspective_definition__budgeting,
-            R.drawable.perspective__budgeting,
+            R.drawable.perspective__work_task_budget,
 //			R.id.perspective_button__analysis,
             0,
                     3,
@@ -176,13 +176,7 @@ public class FmmPerspective extends GcgPerspective {
                     true,
                     true,
                     false,
-                    new ArrayList<FmmNodeDefinition>(Arrays.asList(
-                        FmmNodeDefinition.FMS_ORGANIZATION,
-                        FmmNodeDefinition.STRATEGY_TEAM,
-                        FmmNodeDefinition.FLYWHEEL_TEAM,
-                        FmmNodeDefinition.FUNCTIONAL_TEAM,
-                        FmmNodeDefinition.COMMUNITY_MEMBER)
-
+                    new ArrayList<FmmNodeDefinition>(
     ));
 
     public static FmmPerspective FACILITATION_ISSUES = new FmmPerspective(
@@ -474,7 +468,7 @@ public class FmmPerspective extends GcgPerspective {
             R.drawable.fmm_noun__flywheel_cadence__yellow,
 //		R.id.perspective_button__work_planning,
             0,
-                    2,
+                    3,
                     true,
                     true,
                     false,
@@ -485,6 +479,19 @@ public class FmmPerspective extends GcgPerspective {
                         FmmNodeDefinition.WORK_PACKAGE)
 
     ));
+
+    public static FmmPerspective WORK_TASK_BUDGET = new FmmPerspective(
+            R.string.fmm_perspective__work_task_budget,
+            R.string.fmm_perspective_definition__work_task_budget,
+            R.drawable.perspective__work_task_budget,
+//			R.id.perspective_button__community,
+            0,
+            6,
+            true,
+            true,
+            false,
+            new ArrayList<FmmNodeDefinition>(
+            ));
 
     static {
         GcgPerspective.VALUES.add(NOTEBOOK);

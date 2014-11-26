@@ -54,17 +54,20 @@ import com.flywheelms.library.fms.perspective_flipper.perspective.FmsCommunityPe
 import com.flywheelms.library.fms.perspective_flipper.perspective.FmsDecKanGlPerspective;
 import com.flywheelms.library.fms.perspective_flipper.perspective.FmsGovernancePerspective;
 import com.flywheelms.library.fms.perspective_flipper.perspective.FmsPerspectiveFlipper;
+import com.flywheelms.library.fms.perspective_flipper.perspective.FmsWorkTaskBudgetPerspective;
 
 public class TribKnPerspectiveFlipper extends FmsPerspectiveFlipper {
 
 	public static final int menu_position__DECKANGL = 0; 
 	public static final int menu_position__GOVERNANCE = 1; 
-	public static final int menu_position__COMMITMENTS = 2; 
-	public static final int menu_position__COMMUNITY = 3; 
-	private FmsDecKanGlPerspective fmsDecKanGlPerspective;
-	private FmsGovernancePerspective fmsGovernancePerspective;
-	private FmsCommitmentsPerspective fmsCommitmentsPerspective;
-	private FmsCommunityPerspective fmsCommunityPerspective;
+	public static final int menu_position__WORK_TASK_BUDGET = 2;
+	public static final int menu_position__COMMITMENTS = 3;
+	public static final int menu_position__COMMUNITY = 4;
+	private FmsDecKanGlPerspective mFmsDecKanGlPerspective;
+	private FmsGovernancePerspective mFmsGovernancePerspective;
+    private FmsWorkTaskBudgetPerspective mFmsWorkTaskBudgetPerspective;
+	private FmsCommitmentsPerspective mFmsCommitmentsPerspective;
+	private FmsCommunityPerspective mFmsCommunityPerspective;
 
 	public TribKnPerspectiveFlipper(Context aContext, AttributeSet anAttributeSet) {
 		super(aContext, anAttributeSet);
@@ -72,14 +75,16 @@ public class TribKnPerspectiveFlipper extends FmsPerspectiveFlipper {
 
 	@Override
 	public void initializeViewFlipperViews() {
-		this.fmsDecKanGlPerspective = (FmsDecKanGlPerspective) getGcgActivity().findViewById(R.id.tribkn_frame__deckangl);
-		this.fmsDecKanGlPerspective.initialize(getGcgActivity(), this, this.spinnnableMenuIndex, menu_position__DECKANGL);
-		this.fmsGovernancePerspective = (FmsGovernancePerspective) getGcgActivity().findViewById(R.id.tribkn_frame__governance);
-		this.fmsGovernancePerspective.initialize(getGcgActivity(), this, this.spinnnableMenuIndex, menu_position__GOVERNANCE);
-		this.fmsCommitmentsPerspective = (FmsCommitmentsPerspective) getGcgActivity().findViewById(R.id.tribkn_frame__commitments);
-		this.fmsCommitmentsPerspective.initialize(getGcgActivity(), this, this.spinnnableMenuIndex, menu_position__COMMITMENTS);
-		this.fmsCommunityPerspective = (FmsCommunityPerspective) getGcgActivity().findViewById(R.id.tribkn_frame__community);
-		this.fmsCommunityPerspective.initialize(getGcgActivity(), this, this.spinnnableMenuIndex, menu_position__COMMUNITY);
+		this.mFmsDecKanGlPerspective = (FmsDecKanGlPerspective) getGcgActivity().findViewById(R.id.tribkn_frame__deckangl);
+		this.mFmsDecKanGlPerspective.initialize(getGcgActivity(), this, this.spinnnableMenuIndex, menu_position__DECKANGL);
+		this.mFmsGovernancePerspective = (FmsGovernancePerspective) getGcgActivity().findViewById(R.id.tribkn_frame__governance);
+		this.mFmsGovernancePerspective.initialize(getGcgActivity(), this, this.spinnnableMenuIndex, menu_position__GOVERNANCE);
+		this.mFmsWorkTaskBudgetPerspective = (FmsWorkTaskBudgetPerspective) getGcgActivity().findViewById(R.id.tribkn_frame__work_task_budget);
+		this.mFmsWorkTaskBudgetPerspective.initialize(getGcgActivity(), this, this.spinnnableMenuIndex, menu_position__WORK_TASK_BUDGET);
+		this.mFmsCommitmentsPerspective = (FmsCommitmentsPerspective) getGcgActivity().findViewById(R.id.tribkn_frame__commitments);
+		this.mFmsCommitmentsPerspective.initialize(getGcgActivity(), this, this.spinnnableMenuIndex, menu_position__COMMITMENTS);
+		this.mFmsCommunityPerspective = (FmsCommunityPerspective) getGcgActivity().findViewById(R.id.tribkn_frame__community);
+		this.mFmsCommunityPerspective.initialize(getGcgActivity(), this, this.spinnnableMenuIndex, menu_position__COMMUNITY);
 		super.initializeViewFlipperViews();
 	}
 
@@ -88,19 +93,23 @@ public class TribKnPerspectiveFlipper extends FmsPerspectiveFlipper {
 	}
 
 	public FmsDecKanGlPerspective getFmsDecKanGlPerspective() {
-		return this.fmsDecKanGlPerspective;
+		return this.mFmsDecKanGlPerspective;
 	}
 
 	public FmsGovernancePerspective getFmsGovernancePerspective() {
-		return this.fmsGovernancePerspective;
+		return this.mFmsGovernancePerspective;
 	}
 
+    public FmsWorkTaskBudgetPerspective getFmsWorkTaskBudgetPerspective() {
+        return this.mFmsWorkTaskBudgetPerspective;
+    }
+
 	public FmsCommitmentsPerspective getFmsCommitmentsPerspective() {
-		return this.fmsCommitmentsPerspective;
+		return this.mFmsCommitmentsPerspective;
 	}
 
 	public FmsCommunityPerspective getFmsCommunityPerspective() {
-		return this.fmsCommunityPerspective;
+		return this.mFmsCommunityPerspective;
 	}
 
 	@Override
@@ -116,7 +125,7 @@ public class TribKnPerspectiveFlipper extends FmsPerspectiveFlipper {
 
 	@Override
 	public void viewData() {
-		this.fmsDecKanGlPerspective.viewData();
+		this.mFmsDecKanGlPerspective.viewData();
 	}
 
 }

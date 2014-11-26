@@ -111,6 +111,10 @@ public class GcgPerspective implements GcgGuiable {
         return this.name;
     }
 
+    public int getNameStringResourceId() {
+        return this.nameStringResourceId;
+    }
+
     public int getIconDrawableResourceId() {
         return this.iconDrawableResourceId;
     }

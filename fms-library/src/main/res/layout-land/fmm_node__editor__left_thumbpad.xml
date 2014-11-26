@@ -120,7 +120,6 @@
                                 android:layout_alignParentTop="true"
                                 android:layout_gravity="center_horizontal"
                                 android:layout_marginBottom="@dimen/gcg__menu_button__bottom_margin"
-                                android:layout_marginTop="22dp"
                                 android:drawableStart="@drawable/button_state_list__perspective__deckangl"
                                 gcg:frameNumber="1"
                                 gcg:perspectiveNumber="0" />
@@ -133,23 +132,33 @@
                                 android:layout_below="@id/tribkn_button__deckangl"
                                 android:layout_gravity="center_horizontal"
                                 android:layout_marginBottom="@dimen/gcg__menu_button__bottom_margin"
-                                android:layout_marginTop="9dp"
                                 android:drawableStart="@drawable/button_state_list__tribkn__governance"
                                 gcg:frameNumber="1"
                                 gcg:perspectiveNumber="1" />
 
                             <com.flywheelms.gcongui.gcg.menu.GcgPerspectiveMenuButton
-                                android:id="@+id/tribkn_button__commitments"
+                                android:id="@+id/tribkn_button__work_task_budget"
                                 style="?android:attr/borderlessButtonStyle"
                                 android:layout_width="65dp"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@id/tribkn_button__governance"
                                 android:layout_gravity="center_horizontal"
                                 android:layout_marginBottom="@dimen/gcg__menu_button__bottom_margin"
-                                android:layout_marginTop="9dp"
-                                android:drawableStart="@drawable/button_state_list__tribkn__commitments"
+                                android:drawableStart="@drawable/button_state_list__tribkn__work_task_budget"
                                 gcg:frameNumber="1"
                                 gcg:perspectiveNumber="2" />
+
+                            <com.flywheelms.gcongui.gcg.menu.GcgPerspectiveMenuButton
+                                android:id="@+id/tribkn_button__commitments"
+                                style="?android:attr/borderlessButtonStyle"
+                                android:layout_width="65dp"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/tribkn_button__work_task_budget"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginBottom="@dimen/gcg__menu_button__bottom_margin"
+                                android:drawableStart="@drawable/button_state_list__tribkn__commitments"
+                                gcg:frameNumber="1"
+                                gcg:perspectiveNumber="3" />
 
                             <com.flywheelms.gcongui.gcg.menu.GcgPerspectiveMenuButton
                                 android:id="@+id/tribkn_button__community"
@@ -159,10 +168,9 @@
                                 android:layout_below="@id/tribkn_button__commitments"
                                 android:layout_gravity="center_horizontal"
                                 android:layout_marginBottom="@dimen/gcg__menu_button__bottom_margin"
-                                android:layout_marginTop="9dp"
                                 android:drawableStart="@drawable/button_state_list__perspective__community"
                                 gcg:frameNumber="1"
-                                gcg:perspectiveNumber="3" />
+                                gcg:perspectiveNumber="4" />
                         </RelativeLayout>
 
                         <RelativeLayout
@@ -225,7 +233,8 @@
                     <com.flywheelms.library.fse.widget.FseMultiShiftButton
                         android:id="@+id/multi_shift__left_button"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:visibility="invisible"/>
                 </LinearLayout>
 
                 <RelativeLayout

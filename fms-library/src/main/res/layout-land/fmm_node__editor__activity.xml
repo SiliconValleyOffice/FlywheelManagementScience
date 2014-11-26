@@ -92,6 +92,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
 
+                <com.flywheelms.library.fms.perspective_flipper.perspective.FmsWorkTaskBudgetPerspective
+                    android:id="@+id/tribkn_frame__work_task_budget"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
                 <com.flywheelms.library.fms.perspective_flipper.perspective.FmsGovernancePerspective
                     android:id="@+id/tribkn_frame__governance"
                     android:layout_width="match_parent"

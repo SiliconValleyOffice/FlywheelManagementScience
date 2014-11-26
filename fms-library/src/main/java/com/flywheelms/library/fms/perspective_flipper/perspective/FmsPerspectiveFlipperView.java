@@ -45,11 +45,15 @@ package com.flywheelms.library.fms.perspective_flipper.perspective;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.flywheelms.gcongui.deckangl.glyph.DecKanGlGlyph;
 import com.flywheelms.gcongui.gcg.viewflipper.GcgPerspectiveFlipperChildView;
+import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
+import com.flywheelms.library.fse.widget.FseMultiShiftButton;
 
 public abstract class FmsPerspectiveFlipperView extends GcgPerspectiveFlipperChildView {
 
@@ -72,5 +76,19 @@ public abstract class FmsPerspectiveFlipperView extends GcgPerspectiveFlipperChi
 	public FmsPerspectiveFlipper getFmsPerspectiveFlipper() {
 		return (FmsPerspectiveFlipper) getGcgViewFlipper();
 	}
+
+    public void enableMultiShiftControls() {
+        if(this.multiShiftButtonList == null) {
+            ViewGroup theLeftKeypadPeerView = getGcgActivity().getFdkKeypadPeerViewLeft();
+            if (theLeftKeypadPeerView != null) {
+                FseMultiShiftButton theLeftTouchShiftButton = (FseMultiShiftButton) theLeftKeypadPeerView.findViewById(R.id.multi_shift__left_button);
+                if (theLeftTouchShiftButton != null) {
+                    theLeftTouchShiftButton.setVisibility(View.INVISIBLE);
+                }
+            }
+        } else {
+            super.enableMultiShiftControls();
+        }
+    }
 
 }

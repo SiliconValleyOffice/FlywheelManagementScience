@@ -101,7 +101,8 @@ public class FmsHelpIndex {
 	public static final String PERSPECTIVE__STRATEGIC_PLANNING = "http://code.google.com/p/flywheel-management-science/wiki/PerspectiveStrategicPlanning";
 	public static final String PERSPECTIVE__WORK_BREAKDOWN = "http://code.google.com/p/flywheel-management-science/wiki/PerspectiveWorkBreakdown";
 	public static final String PERSPECTIVE__WORK_PLANNING = "http://code.google.com/p/flywheel-management-science/wiki/PerspectiveWorkPlanning";
-	
+	public static final String PERSPECTIVE__WORK_TASK_BUDGET = "http://code.google.com/p/flywheel-management-science/wiki/WorkTaskBudget";
+
 	public static final String PERSPECTIVE__CONFIRMED_COMMITMENTS = "http://code.google.com/p/flywheel-management-science/wiki/PerspectiveConfirmedCommitments";
 	public static final String PERSPECTIVE__DECLINED_COMMITMENTS = "http://code.google.com/p/flywheel-management-science/wiki/PerspectiveDeclinedCommitments";
 	public static final String PERSPECTIVE__PROPOSED_COMMITMENTS = "http://code.google.com/p/flywheel-management-science/wiki/PerspectiveProposedCommitments";
