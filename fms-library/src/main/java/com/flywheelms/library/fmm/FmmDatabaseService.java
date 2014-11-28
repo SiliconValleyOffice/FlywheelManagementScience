@@ -54,6 +54,14 @@ public class FmmDatabaseService extends Service {
 
     private static FmmDatabaseService mFmmDatabaseService = null;
 
+    public static FmmDatabaseService getInstance() {
+        return FmmDatabaseService.mFmmDatabaseService;
+    }
+
+    public static FmmDatabaseMediator getActiveDatabaseMediator() {
+        return FmmDatabaseService.mFmmDatabaseService.getActiveMediator();
+    }
+
     private final IBinder mLocalBinder = new LocalBinder();
 
     public class LocalBinder extends Binder {

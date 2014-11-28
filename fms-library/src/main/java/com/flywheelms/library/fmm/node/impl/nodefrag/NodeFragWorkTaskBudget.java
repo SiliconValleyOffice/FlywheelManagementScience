@@ -44,6 +44,8 @@
 package com.flywheelms.library.fmm.node.impl.nodefrag;
 
 import com.flywheelms.gcongui.gcg.widget.date.GcgDateHelper;
+import com.flywheelms.library.fmm.FmmDatabaseService;
+import com.flywheelms.library.fmm.enumerator.FmmDataQuality;
 import com.flywheelms.library.fmm.meta_data.NodeFragWorkTaskBudgetMetaData;
 import com.flywheelms.library.fmm.node.NodeId;
 import com.flywheelms.library.fmm.node.impl.governable.CommunityMember;
@@ -60,26 +62,28 @@ public class NodeFragWorkTaskBudget extends FmmNodeFragLockableImpl implements F
 	
 	private int estimatedTotalTaskCount = 0;
 	private float estimatedAverageHoursPerTask = 1.5f;
-	private String swagByNodeIdString;
-	private CommunityMember swagByCommunityMember;
-	private Date swagTimestamp = GcgDateHelper.NULL_DATE;
-	private String estimateConfirmedByNodeIdString;
-	private CommunityMember estimateConfirmedByCommunityMember;
-	private Date estimateConfirmedTimestamp = GcgDateHelper.NULL_DATE;
+	private String estimateByCommunityMemberId;
+	private CommunityMember estimateByCommunityMember;
+	private Date estimateTimestamp = GcgDateHelper.NULL_DATE;
+    private FmmDataQuality estimateFmmDataQuality = FmmDataQuality.NONE;
+
 	private int budgetedTotalTaskCount;
 	private float budgetedAverageHoursPerTask = 1.5f;
-	private String budgetProposedByNodeIdString;
-	private CommunityMember budgetProposedByCommunityMember;
-	private Date budgetProposedTimestamp = GcgDateHelper.NULL_DATE;
-	private String budgetConfirmedByNodeIdString;
-	private CommunityMember budgetConfirmedByCommunityMember;
-	private Date budgetConfirmedTimestamp = GcgDateHelper.NULL_DATE;
+	private String budgetByCommunityMemberId;
+	private CommunityMember budgetByCommunityMember;
+	private Date budgetTimestamp = GcgDateHelper.NULL_DATE;
+    private FmmDataQuality budgetFmmDataQuality = FmmDataQuality.NONE;
+
 	private int workBreakdownEstimatedTotalTaskCount;
 	private float workBreakdownEstimatedAverageHoursPerTask = 0.0f;
-	private int workBreakdownTotalTaskCount;
-	private float workBreakdownAverageHoursPerTask = 0.0f;
-	private int taskCountAfterCompletion;
-	private float averageHoursPerTaskAfterCompletion = 0.0f;
+
+	private int workBreakdownBudgetedTotalTaskCount;
+	private float workBreakdownBudgetedAverageHoursPerTask = 0.0f;
+
+	private int completedTotalTaskCount;
+	private float completedAverageHoursPerTask = 0.0f;
+
+    private String serialized_history;
 
     public NodeFragWorkTaskBudget(FmmCompletionNode anFmmCompletionNode) {
         super(NodeFragWorkTaskBudget.class, anFmmCompletionNode.getNodeIdString());
@@ -100,22 +104,21 @@ public class NodeFragWorkTaskBudget extends FmmNodeFragLockableImpl implements F
 		try {
 			setEstimatedTotalTaskCount(aJsonObject.getInt(NodeFragWorkTaskBudgetMetaData.column_ESTIMATED_TOTAL_TASK_COUNT));
 			setEstimatedAverageHoursPerTask(aJsonObject.getDouble(NodeFragWorkTaskBudgetMetaData.column_ESTIMATED_AVERAGE_HOURS_PER_TASK));
-			setSwagBy(JsonHelper.getString(aJsonObject, NodeFragWorkTaskBudgetMetaData.column_SWAG_BY));
-			setSwagTimestamp(JsonHelper.getDate(aJsonObject, NodeFragWorkTaskBudgetMetaData.column_SWAG_TIMESTAMP));
-			setEstimateConfirmedBy(JsonHelper.getString(aJsonObject, NodeFragWorkTaskBudgetMetaData.column_ESTIMATE_CONFIRMED_BY));
-			setEstimateConfirmedTimestamp(JsonHelper.getDate(aJsonObject, NodeFragWorkTaskBudgetMetaData.column_ESTIMATE_CONFIRMED_TIMESTAMP));
+			setEstimateByCommunityMemberId(JsonHelper.getString(aJsonObject, NodeFragWorkTaskBudgetMetaData.column_ESTIMATE_BY));
+			setEstimateTimestamp(JsonHelper.getDate(aJsonObject, NodeFragWorkTaskBudgetMetaData.column_ESTIMATE_TIMESTAMP));
+			setEstimateFmmDataQuality(JsonHelper.getString(aJsonObject, NodeFragWorkTaskBudgetMetaData.column_ESTIMATE_DATA_QUALITY));
 			setBudgetedTotalTaskCount(aJsonObject.getInt(NodeFragWorkTaskBudgetMetaData.column_BUDGETED_TOTAL_TASK_COUNT));
 			setBudgetedAverageHoursPerTask(aJsonObject.getDouble(NodeFragWorkTaskBudgetMetaData.column_BUDGETED_AVERAGE_HOURS_PER_TASK));
-			setBudgetProposedBy(JsonHelper.getString(aJsonObject, NodeFragWorkTaskBudgetMetaData.column_BUDGET_PROPOSED_BY));
-			setBudgetProposedTimestamp(JsonHelper.getDate(aJsonObject, NodeFragWorkTaskBudgetMetaData.column_BUDGET_PROPOSED_TIMESTAMP));
-			setBudgetConfirmedBy(JsonHelper.getString(aJsonObject, NodeFragWorkTaskBudgetMetaData.column_BUDGET_CONFIRMED_BY));
-			setBudgetConfirmedTimestamp(JsonHelper.getDate(aJsonObject, NodeFragWorkTaskBudgetMetaData.column_BUDGET_CONFIRMED_TIMESTAMP));
+			setBudgetByCommunityMemberId(JsonHelper.getString(aJsonObject, NodeFragWorkTaskBudgetMetaData.column_BUDGET_BY));
+			setBudgetTimestamp(JsonHelper.getDate(aJsonObject, NodeFragWorkTaskBudgetMetaData.column_BUDGET_TIMESTAMP));
+            setBudgetFmmDataQuality(JsonHelper.getString(aJsonObject, NodeFragWorkTaskBudgetMetaData.column_BUDGET_DATA_QUALITY));
 			setWorkBreakdownEstimatedTotalTaskCount(aJsonObject.getInt(NodeFragWorkTaskBudgetMetaData.column_WORK_BREAKDOWN_ESTIMATED_TOTAL_TASK_COUNT));
 			setWorkBreakdownEstimatedAverageHoursPerTask(aJsonObject.getDouble(NodeFragWorkTaskBudgetMetaData.column_WORK_BREAKDOWN_ESTIMATED_AVERAGE_HOURS_PER_TASK));
-			setWorkBreakdownTotalTaskCount(aJsonObject.getInt(NodeFragWorkTaskBudgetMetaData.column_WORK_BREAKDOWN_TOTAL_TASK_COUNT));
-			setWorkBreakdownAverageHoursPerTask(aJsonObject.getDouble(NodeFragWorkTaskBudgetMetaData.column_WORK_BREAKDOWN_AVERAGE_HOURS_PER_TASK));
-			setTaskCountAfterCompletion(aJsonObject.getInt(NodeFragWorkTaskBudgetMetaData.column_TASK_COUNT_AFTER_COMPLETION));
-			setAverageHoursPerTaskAfterCompletion(aJsonObject.getDouble(NodeFragWorkTaskBudgetMetaData.column_AVERAGE_HOURS_PER_TASK_AFTER_COMPLETION));
+            setWorkBreakdownBudgetedTotalTaskCount(aJsonObject.getInt(NodeFragWorkTaskBudgetMetaData.column_WORK_BREAKDOWN_BUDGETED_TOTAL_TASK_COUNT));
+            setWorkBreakdownBudgetedAverageHoursPerTask(aJsonObject.getDouble(NodeFragWorkTaskBudgetMetaData.column_WORK_BREAKDOWN_BUDGETED_AVERAGE_HOURS_PER_TASK));
+			setCompletedTotalTaskCount(aJsonObject.getInt(NodeFragWorkTaskBudgetMetaData.column_COMPLETED_TOTAL_TASK_COUNT));
+			setCompletedAverageHoursPerTask(aJsonObject.getDouble(NodeFragWorkTaskBudgetMetaData.column_COMPLETED_AVERAGE_HOURS_PER_TASK));
+			setSerialized_history(aJsonObject.getString(NodeFragWorkTaskBudgetMetaData.column_SERIALIZED_HISTORY));
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -128,22 +131,21 @@ public class NodeFragWorkTaskBudget extends FmmNodeFragLockableImpl implements F
 		try {
 			theJsonObject.put(NodeFragWorkTaskBudgetMetaData.column_ESTIMATED_TOTAL_TASK_COUNT, getEstimatedTotalTaskCount());
 			theJsonObject.put(NodeFragWorkTaskBudgetMetaData.column_ESTIMATED_AVERAGE_HOURS_PER_TASK, getEstimatedAverageHoursPerTask());
-			theJsonObject.put(NodeFragWorkTaskBudgetMetaData.column_SWAG_BY, getSwagByNodeIdString());
-			JsonHelper.putDate(theJsonObject, NodeFragWorkTaskBudgetMetaData.column_SWAG_TIMESTAMP, getSwagTimestamp());
-			theJsonObject.put(NodeFragWorkTaskBudgetMetaData.column_ESTIMATE_CONFIRMED_BY, getEstimateConfirmedByNodeIdString());
-			JsonHelper.putDate(theJsonObject, NodeFragWorkTaskBudgetMetaData.column_ESTIMATE_CONFIRMED_TIMESTAMP, getEstimateConfirmedTimestamp());
+			theJsonObject.put(NodeFragWorkTaskBudgetMetaData.column_ESTIMATE_BY, getEstimateByCommunityMemberId());
+			JsonHelper.putDate(theJsonObject, NodeFragWorkTaskBudgetMetaData.column_ESTIMATE_TIMESTAMP, getEstimateTimestamp());
+            theJsonObject.put(NodeFragWorkTaskBudgetMetaData.column_ESTIMATE_DATA_QUALITY, getEstimateFmmDataQuality().getName());
 			theJsonObject.put(NodeFragWorkTaskBudgetMetaData.column_BUDGETED_TOTAL_TASK_COUNT, getBudgetedTotalTaskCount());
 			theJsonObject.put(NodeFragWorkTaskBudgetMetaData.column_BUDGETED_AVERAGE_HOURS_PER_TASK, getBudgetedAverageHoursPerTask());
-			theJsonObject.put(NodeFragWorkTaskBudgetMetaData.column_BUDGET_PROPOSED_BY, getBudgetProposedByNodeIdString());
-			JsonHelper.putDate(theJsonObject, NodeFragWorkTaskBudgetMetaData.column_BUDGET_PROPOSED_TIMESTAMP, getBudgetProposedTimestamp());
-			theJsonObject.put(NodeFragWorkTaskBudgetMetaData.column_BUDGET_CONFIRMED_BY, getBudgetConfirmedByNodeIdString());
-			JsonHelper.putDate(theJsonObject, NodeFragWorkTaskBudgetMetaData.column_BUDGET_CONFIRMED_TIMESTAMP, getBudgetConfirmedTimestamp());
+			theJsonObject.put(NodeFragWorkTaskBudgetMetaData.column_BUDGET_BY, getBudgetByCommunityMemberId());
+			JsonHelper.putDate(theJsonObject, NodeFragWorkTaskBudgetMetaData.column_BUDGET_TIMESTAMP, getBudgetTimestamp());
+            theJsonObject.put(NodeFragWorkTaskBudgetMetaData.column_BUDGET_DATA_QUALITY, getBudgetFmmDataQuality().getName());
 			theJsonObject.put(NodeFragWorkTaskBudgetMetaData.column_WORK_BREAKDOWN_ESTIMATED_TOTAL_TASK_COUNT, getWorkBreakdownEstimatedTotalTaskCount());
 			theJsonObject.put(NodeFragWorkTaskBudgetMetaData.column_WORK_BREAKDOWN_ESTIMATED_AVERAGE_HOURS_PER_TASK, getWorkBreakdownEstimatedAverageHoursPerTask());
-			theJsonObject.put(NodeFragWorkTaskBudgetMetaData.column_WORK_BREAKDOWN_TOTAL_TASK_COUNT, getWorkBreakdownTotalTaskCount());
-			theJsonObject.put(NodeFragWorkTaskBudgetMetaData.column_WORK_BREAKDOWN_AVERAGE_HOURS_PER_TASK, getWorkBreakdownAverageHoursPerTask());
-			theJsonObject.put(NodeFragWorkTaskBudgetMetaData.column_TASK_COUNT_AFTER_COMPLETION, getTaskCountAfterCompletion());
-			theJsonObject.put(NodeFragWorkTaskBudgetMetaData.column_AVERAGE_HOURS_PER_TASK_AFTER_COMPLETION, getAverageHoursPerTaskAfterCompletion());
+            theJsonObject.put(NodeFragWorkTaskBudgetMetaData.column_WORK_BREAKDOWN_BUDGETED_TOTAL_TASK_COUNT, getWorkBreakdownBudgetedTotalTaskCount());
+            theJsonObject.put(NodeFragWorkTaskBudgetMetaData.column_WORK_BREAKDOWN_BUDGETED_AVERAGE_HOURS_PER_TASK, getWorkBreakdownBudgetedAverageHoursPerTask());
+			theJsonObject.put(NodeFragWorkTaskBudgetMetaData.column_COMPLETED_TOTAL_TASK_COUNT, getCompletedTotalTaskCount());
+			theJsonObject.put(NodeFragWorkTaskBudgetMetaData.column_COMPLETED_AVERAGE_HOURS_PER_TASK, getCompletedAverageHoursPerTask());
+			theJsonObject.put(NodeFragWorkTaskBudgetMetaData.column_SERIALIZED_HISTORY, getSerialized_history());
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -154,6 +156,8 @@ public class NodeFragWorkTaskBudget extends FmmNodeFragLockableImpl implements F
     public NodeFragWorkTaskBudget getClone() {
         return new NodeFragWorkTaskBudget(getJsonObject());
     }
+
+    //-->
 
 	public int getEstimatedTotalTaskCount() {
 		return this.estimatedTotalTaskCount;
@@ -175,53 +179,48 @@ public class NodeFragWorkTaskBudget extends FmmNodeFragLockableImpl implements F
 		setEstimatedAverageHoursPerTask((float) aDouble);
 	}
 
-	public String getSwagByNodeIdString() {
-		return this.swagByNodeIdString;
+	public String getEstimateByCommunityMemberId() {
+		return this.estimateByCommunityMemberId;
 	}
 
-	public void setSwagBy(String aNodeIdString) {
-		this.swagByNodeIdString = aNodeIdString;
+	public void setEstimateByCommunityMemberId(String aNodeIdString) {
+		this.estimateByCommunityMemberId = aNodeIdString;
+        this.estimateByCommunityMember = null;
 	}
 
-	public CommunityMember getSwagByCommunityMember() {
-		return this.swagByCommunityMember;
+	public CommunityMember getEstimateByCommunityMember() {
+        if(this.estimateByCommunityMember == null && this.estimateByCommunityMemberId != null) {
+            this.estimateByCommunityMember = FmmDatabaseService.getActiveDatabaseMediator().retrieveCommunityMember(this.estimateByCommunityMemberId);
+        }
+		return this.estimateByCommunityMember;
 	}
 
-	public void setSwagBy(CommunityMember aCommunityMember) {
-		this.swagByCommunityMember = aCommunityMember;
+	public void setEstimateByCommunityMember(CommunityMember aCommunityMember) {
+		this.estimateByCommunityMember = aCommunityMember;
+        this.estimateByCommunityMemberId = aCommunityMember.getNodeIdString();
 	}
 
-	public Date getSwagTimestamp() {
-		return this.swagTimestamp;
+	public Date getEstimateTimestamp() {
+		return this.estimateTimestamp;
 	}
 
-	public void setSwagTimestamp(Date aTmestamp) {
-		this.swagTimestamp = aTmestamp;
+	public void setEstimateTimestamp(Date aTimestamp) {
+		this.estimateTimestamp = aTimestamp;
 	}
 
-	public String getEstimateConfirmedByNodeIdString() {
-		return this.estimateConfirmedByNodeIdString;
-	}
+    public FmmDataQuality getEstimateFmmDataQuality() {
+        return estimateFmmDataQuality;
+    }
 
-	public void setEstimateConfirmedBy(String aNodeIdString) {
-		this.estimateConfirmedByNodeIdString = aNodeIdString;
-	}
+    public void setEstimateFmmDataQuality(FmmDataQuality anFmmDataQuality) {
+        this.estimateFmmDataQuality = anFmmDataQuality;
+    }
 
-	public CommunityMember getEstimateConfirmedByCommunityMember() {
-		return this.estimateConfirmedByCommunityMember;
-	}
+    public void setEstimateFmmDataQuality(String aDataQualityName) {
+        this.estimateFmmDataQuality = FmmDataQuality.getObjectForName(aDataQualityName);
+    }
 
-	public void setEstimateConfirmedBy(CommunityMember aCommunityMember) {
-		this.estimateConfirmedByCommunityMember = aCommunityMember;
-	}
-
-	public Date getEstimateConfirmedTimestamp() {
-		return this.estimateConfirmedTimestamp;
-	}
-
-	public void setEstimateConfirmedTimestamp(Date aTimestamp) {
-		this.estimateConfirmedTimestamp = aTimestamp;
-	}
+    //-->
 
 	public int getBudgetedTotalTaskCount() {
 		return this.budgetedTotalTaskCount;
@@ -243,53 +242,47 @@ public class NodeFragWorkTaskBudget extends FmmNodeFragLockableImpl implements F
 		setBudgetedAverageHoursPerTask((float) aDouble);
 	}
 
-	public String getBudgetProposedByNodeIdString() {
-		return this.budgetProposedByNodeIdString;
+	public String getBudgetByCommunityMemberId() {
+		return this.budgetByCommunityMemberId;
 	}
 
-	public void setBudgetProposedBy(String aNodeIdString) {
-		this.budgetProposedByNodeIdString = aNodeIdString;
+	public void setBudgetByCommunityMemberId(String aNodeIdString) {
+		this.budgetByCommunityMemberId = aNodeIdString;
 	}
 
-	public CommunityMember getBudgetProposedByCommunityMember() {
-		return this.budgetProposedByCommunityMember;
+	public CommunityMember getBudgetByCommunityMember() {
+        if(this.budgetByCommunityMember == null && this.budgetByCommunityMemberId != null) {
+            this.budgetByCommunityMember = FmmDatabaseService.getActiveDatabaseMediator().retrieveCommunityMember(this.budgetByCommunityMemberId);
+        }
+		return this.budgetByCommunityMember;
 	}
 
-	public void setBudgetProposedBy(CommunityMember aCommunityMember) {
-		this.budgetProposedByCommunityMember = aCommunityMember;
+	public void setBudgetByCommunityMember(CommunityMember aCommunityMember) {
+		this.budgetByCommunityMember = aCommunityMember;
+        this.budgetByCommunityMemberId = aCommunityMember.getNodeIdString();
 	}
 
-	public Date getBudgetProposedTimestamp() {
-		return this.budgetProposedTimestamp;
+	public Date getBudgetTimestamp() {
+		return this.budgetTimestamp;
 	}
 
-	public void setBudgetProposedTimestamp(Date aTimestamp) {
-		this.budgetProposedTimestamp = aTimestamp;
+	public void setBudgetTimestamp(Date aTimestamp) {
+		this.budgetTimestamp = aTimestamp;
 	}
 
-	public String getBudgetConfirmedByNodeIdString() {
-		return this.budgetConfirmedByNodeIdString;
-	}
+    public FmmDataQuality getBudgetFmmDataQuality() {
+        return budgetFmmDataQuality;
+    }
 
-	public void setBudgetConfirmedBy(String aNodeIdString) {
-		this.budgetConfirmedByNodeIdString = aNodeIdString;
-	}
+    public void setBudgetFmmDataQuality(FmmDataQuality budgetFmmDataQuality) {
+        this.budgetFmmDataQuality = budgetFmmDataQuality;
+    }
 
-	public CommunityMember getBudgetConfirmedByCommunityMember() {
-		return this.budgetConfirmedByCommunityMember;
-	}
+    public void setBudgetFmmDataQuality(String aDataQualityName) {
+        this.budgetFmmDataQuality = FmmDataQuality.getObjectForName(aDataQualityName);
+    }
 
-	public void setBudgetConfirmedBy(CommunityMember aCommunityMember) {
-		this.budgetConfirmedByCommunityMember = aCommunityMember;
-	}
-
-	public Date getBudgetConfirmedTimestamp() {
-		return this.budgetConfirmedTimestamp;
-	}
-
-	public void setBudgetConfirmedTimestamp(Date aTimestamp) {
-		this.budgetConfirmedTimestamp = aTimestamp;
-	}
+    //-->
 
     public int getWorkBreakdownEstimatedTotalTaskCount() {
         return this.workBreakdownEstimatedTotalTaskCount;
@@ -311,48 +304,62 @@ public class NodeFragWorkTaskBudget extends FmmNodeFragLockableImpl implements F
         setWorkBreakdownEstimatedAverageHoursPerTask((float) aDouble);
     }
 
-	public int getWorkBreakdownTotalTaskCount() {
-		return this.workBreakdownTotalTaskCount;
+    //-->
+
+	public int getWorkBreakdownBudgetedTotalTaskCount() {
+		return this.workBreakdownBudgetedTotalTaskCount;
 	}
 
-	public void setWorkBreakdownTotalTaskCount(int aWorkBreakdownTotalTaskCount) {
-		this.workBreakdownTotalTaskCount = aWorkBreakdownTotalTaskCount;
+	public void setWorkBreakdownBudgetedTotalTaskCount(int aWorkBreakdownTotalTaskCount) {
+		this.workBreakdownBudgetedTotalTaskCount = aWorkBreakdownTotalTaskCount;
 	}
 
-	public float getWorkBreakdownAverageHoursPerTask() {
-		return this.workBreakdownAverageHoursPerTask;
+	public float getWorkBreakdownBudgetedAverageHoursPerTask() {
+		return this.workBreakdownBudgetedAverageHoursPerTask;
 	}
 
-	public void setWorkBreakdownAverageHoursPerTask(float aWorkBreakdownAverageHoursPerTask) {
-		this.workBreakdownAverageHoursPerTask = aWorkBreakdownAverageHoursPerTask;
+	public void setWorkBreakdownBudgetedAverageHoursPerTask(float aWorkBreakdownAverageHoursPerTask) {
+		this.workBreakdownBudgetedAverageHoursPerTask = aWorkBreakdownAverageHoursPerTask;
 	}
 
-	private void setWorkBreakdownAverageHoursPerTask(double aDouble) {
-		setWorkBreakdownAverageHoursPerTask((float) aDouble);
+	private void setWorkBreakdownBudgetedAverageHoursPerTask(double aDouble) {
+		setWorkBreakdownBudgetedAverageHoursPerTask((float) aDouble);
 	}
 
-	public int getTaskCountAfterCompletion() {
-		return this.taskCountAfterCompletion;
+    //-->
+
+	public int getCompletedTotalTaskCount() {
+		return this.completedTotalTaskCount;
 	}
 
-	public void setTaskCountAfterCompletion(int aTaskCountAfterCompletion) {
-		this.taskCountAfterCompletion = aTaskCountAfterCompletion;
+	public void setCompletedTotalTaskCount(int aTaskCountAfterCompletion) {
+		this.completedTotalTaskCount = aTaskCountAfterCompletion;
 	}
 
-	public float getAverageHoursPerTaskAfterCompletion() {
-		return this.averageHoursPerTaskAfterCompletion;
+	public float getCompletedAverageHoursPerTask() {
+		return this.completedAverageHoursPerTask;
 	}
 
-	public void setAverageHoursPerTaskAfterCompletion(float anAverageHoursPerTaskAfterCompletion) {
-		this.averageHoursPerTaskAfterCompletion = anAverageHoursPerTaskAfterCompletion;
+	public void setCompletedAverageHoursPerTask(float anAverageHoursPerTaskAfterCompletion) {
+		this.completedAverageHoursPerTask = anAverageHoursPerTaskAfterCompletion;
 	}
 
-	private void setAverageHoursPerTaskAfterCompletion(double aDouble) {
-		setAverageHoursPerTaskAfterCompletion((float) aDouble);
+	private void setCompletedAverageHoursPerTask(double aDouble) {
+		setCompletedAverageHoursPerTask((float) aDouble);
 	}
+
+    //-->
 
     public int getPhantomTasks() {
-        int theCount = this.estimatedTotalTaskCount - this.workBreakdownTotalTaskCount;
+        int theCount = this.estimatedTotalTaskCount - this.workBreakdownBudgetedTotalTaskCount;
         return theCount < 0 ? 0 : theCount;
+    }
+
+    public String getSerialized_history() {
+        return serialized_history;
+    }
+
+    public void setSerialized_history(String serialized_history) {
+        this.serialized_history = serialized_history;
     }
 }

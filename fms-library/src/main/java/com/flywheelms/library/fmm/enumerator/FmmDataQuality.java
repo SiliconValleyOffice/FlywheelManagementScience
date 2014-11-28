@@ -48,7 +48,7 @@ import com.flywheelms.gcongui.gcg.GcgApplication;
 import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
 import com.flywheelms.library.R;
 
-public enum DataQuality implements GcgGuiable {
+public enum FmmDataQuality implements GcgGuiable {
 
     NONE (R.string.data_quality__none, R.drawable.data_quality__none),
     SUGGESTED (R.string.data_quality__suggested, R.drawable.data_quality__suggested),
@@ -56,10 +56,10 @@ public enum DataQuality implements GcgGuiable {
     PROPOSED (R.string.data_quality__proposed, R.drawable.data_quality__proposed),
     CONFIRMED (R.string.data_quality__confirmed, R.drawable.data_quality__confirmed);
 
-    public static DataQuality getObjectForName(String aName) {
-        for(DataQuality aDataQuality : values()) {
-            if(aDataQuality.getName().equals(aName)) {
-                return aDataQuality;
+    public static FmmDataQuality getObjectForName(String aName) {
+        for(FmmDataQuality anFmmDataQuality : values()) {
+            if(anFmmDataQuality.getName().equals(aName)) {
+                return anFmmDataQuality;
             }
         }
         return null;
@@ -69,7 +69,7 @@ public enum DataQuality implements GcgGuiable {
     private String name;
     private int drawableResourceId;
 
-    private DataQuality(int aNameResourceId, int aDrawableResourceId) {
+    private FmmDataQuality(int aNameResourceId, int aDrawableResourceId) {
         this.nameResourceId = aNameResourceId;
         this.name = GcgApplication.getAppResources().getString(this.nameResourceId);
         this.drawableResourceId = aDrawableResourceId;

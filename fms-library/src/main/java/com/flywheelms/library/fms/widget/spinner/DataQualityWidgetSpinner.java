@@ -48,7 +48,7 @@ import android.util.AttributeSet;
 
 import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
 import com.flywheelms.gcongui.gcg.widget.GcgWidgetSpinner;
-import com.flywheelms.library.fmm.enumerator.DataQuality;
+import com.flywheelms.library.fmm.enumerator.FmmDataQuality;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -61,22 +61,22 @@ public class DataQualityWidgetSpinner extends GcgWidgetSpinner {
 
 	@Override
 	protected String getLabelText() {
-		return DataQuality.NONE.getLabelText();
+		return FmmDataQuality.NONE.getLabelText();
 	}
 
 	@Override
 	public void setInitialValue() {
-		setOriginalValue(DataQuality.NONE);
-		setSelection(DataQuality.NONE);
+		setOriginalValue(FmmDataQuality.NONE);
+		setSelection(FmmDataQuality.NONE);
 	}
 
 	@Override
 	protected ArrayList<GcgGuiable> updateGuiableList() {
-		return new ArrayList<GcgGuiable>(Arrays.asList(DataQuality.values()));
+		return new ArrayList<GcgGuiable>(Arrays.asList(FmmDataQuality.values()));
 	}
 
-	public void setDataQuality(DataQuality aDataQuality) {
-		setSelection(aDataQuality);
+	public void setDataQuality(FmmDataQuality anFmmDataQuality) {
+		setSelection(anFmmDataQuality);
 	}
 
 }
