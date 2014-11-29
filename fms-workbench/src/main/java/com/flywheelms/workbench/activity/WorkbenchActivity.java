@@ -180,7 +180,7 @@ public class WorkbenchActivity extends FmsActivity implements FmsDecKanGlNavigat
 	@Override
 	public boolean onOptionsItemSelected(MenuItem aMenuItem) {
 		switch (aMenuItem.getItemId()) {
-			case com.flywheelms.workbench.R.id.action__recalc_fmm:
+			case com.flywheelms.workbench.R.id.action__reread_fmm:
 //				buildContentViewForDataSource();
 				refreshDataDisplay();
 				break;

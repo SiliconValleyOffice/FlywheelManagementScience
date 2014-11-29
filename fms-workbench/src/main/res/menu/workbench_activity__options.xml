@@ -10,9 +10,9 @@
         android:orderInCategory="70"
         android:title="@string/fmm_repository__switch" />
     
-    <item android:id="@+id/action__recalc_fmm"
+    <item android:id="@+id/action__reread_fmm"
         android:orderInCategory="200"
-        android:title="@string/recalc_fmm" />
+        android:title="@string/reread_fmm" />
     
     <item android:id="@+id/action__deckangl__glyph_dictionary"
         android:orderInCategory="300"
