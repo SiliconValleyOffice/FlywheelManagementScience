@@ -25,6 +25,14 @@
             gcg:borderStyle="3"
             gcg:headingText="Estimate">
 
+            <com.flywheelms.library.fms.widget.edit_integer.TaskCountEditInteger
+                android:id="@+id/estimate__task_points"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                gcg:labelWidth="100"
+                gcg:fdkCursorEnabled="true" />
+
         </com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear>
 
         <com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear
@@ -38,6 +46,14 @@
             android:paddingBottom="10dp"
             gcg:borderStyle="3"
             gcg:headingText="Budget">
+
+            <com.flywheelms.library.fms.widget.edit_integer.TaskCountEditInteger
+                android:id="@+id/budget__task_points"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                gcg:labelWidth="100"
+                gcg:fdkCursorEnabled="true" />
 
         </com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear>
 
@@ -54,6 +70,14 @@
             gcg:borderStyle="3"
             gcg:headingText="Work Breakdown Summary">
 
+            <com.flywheelms.library.fms.widget.edit_integer.TaskCountEditInteger
+                android:id="@+id/work_breakdown__summary__task_points"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                gcg:labelWidth="100"
+                gcg:fdkCursorEnabled="true" />
+
         </com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear>
 
         <com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear
@@ -68,6 +92,14 @@
             android:paddingBottom="10dp"
             gcg:borderStyle="3"
             gcg:headingText="Completion Summary">
+
+            <com.flywheelms.library.fms.widget.edit_integer.TaskCountEditInteger
+                android:id="@+id/completion__summary__task_points"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                gcg:labelWidth="100"
+                gcg:fdkCursorEnabled="true" />
 
         </com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear>
 

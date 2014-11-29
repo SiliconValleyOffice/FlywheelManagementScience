@@ -137,6 +137,7 @@ public abstract class GcgWidgetEditText extends GcgWidget {
 
 			@Override
 			public void afterTextChanged(Editable s) {
+                GcgWidgetEditText.this.manageEmptyContents();
 				GcgWidgetEditText.this.manageBackgroundState();
 			}
 		});
@@ -144,10 +145,15 @@ public abstract class GcgWidgetEditText extends GcgWidget {
 			this.editText.setEnabled(false);
 		}
 		setInitialValue();
+        manageEmptyContents();
 		manageBackgroundState();
 	}
-	
-	@Override
+
+    protected void manageEmptyContents() {
+        return;
+    }
+
+    @Override
 	public void setGcgActivity(GcgActivity aLibraryActivity) {
 		super.setGcgActivity(aLibraryActivity);
 		this.editText.setGcgWidgetEditText(this);
