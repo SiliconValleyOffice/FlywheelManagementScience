@@ -47,25 +47,25 @@ public class NodeFragWorkTaskBudgetMetaData extends NodeFragMetaData {
 
 	public static final String key__NODE_FRAG_WORK_TASK_BUDGET = "NodeFragWorkTaskBudget";
 	
-	public static final String column_ESTIMATED_TOTAL_TASK_COUNT = "estimated_total_task_count";
+	public static final String column_ESTIMATED_TASK_COUNT = "estimated_task_count";
 	public static final String column_ESTIMATED_AVERAGE_HOURS_PER_TASK = "estimated_average_hours_per_task";
 	public static final String column_ESTIMATE_BY = "estimate_by";
 	public static final String column_ESTIMATE_TIMESTAMP = "estimate_timestamp";
 	public static final String column_ESTIMATE_DATA_QUALITY = "estimate_data_quality";
 
-	public static final String column_BUDGETED_TOTAL_TASK_COUNT = "budgeted_total_task_count";
+	public static final String column_BUDGETED_TASK_COUNT = "budgeted_task_count";
 	public static final String column_BUDGETED_AVERAGE_HOURS_PER_TASK = "budgeted_average_hours_per_task";
 	public static final String column_BUDGET_BY = "budget_by";
 	public static final String column_BUDGET_TIMESTAMP = "budget_timestamp";
 	public static final String column_BUDGET_DATA_QUALITY = "budget_data_quality";
 
-	public static final String column_WORK_BREAKDOWN_ESTIMATED_TOTAL_TASK_COUNT = "work_breakdown_estimated_total_task_count";
+	public static final String column_WORK_BREAKDOWN_ESTIMATED_TASK_COUNT = "work_breakdown_estimated_task_count";
 	public static final String column_WORK_BREAKDOWN_ESTIMATED_AVERAGE_HOURS_PER_TASK = "work_breakdown_estimated_average_hours_per_task";
 
-    public static final String column_WORK_BREAKDOWN_BUDGETED_TOTAL_TASK_COUNT = "work_breakdown_budgeted_total_task_count";
+    public static final String column_WORK_BREAKDOWN_BUDGETED_TASK_COUNT = "work_breakdown_budgeted_task_count";
     public static final String column_WORK_BREAKDOWN_BUDGETED_AVERAGE_HOURS_PER_TASK = "work_breakdown_budgeted_average_hours_per_task";
 
-	public static final String column_COMPLETED_TOTAL_TASK_COUNT = "completed_total_task_count";
+	public static final String column_COMPLETED_TASK_COUNT = "completed_task_count";
 	public static final String column_COMPLETED_AVERAGE_HOURS_PER_TASK = "completed_average_hours_per_task";
 
 	public static final String column_SERIALIZED_HISTORY = "serialized_history";

@@ -16,8 +16,8 @@
 
         <com.flywheelms.library.fms.component.FmsGovernanceComponent
             android:id="@+id/governance_component__facilitator"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="400dp"
+            android:layout_height="200dp"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:layout_marginBottom="10dp"
@@ -29,8 +29,8 @@
 
         <com.flywheelms.library.fms.component.FmsGovernanceComponent
             android:id="@+id/governance_component__customer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="400dp"
+            android:layout_height="200dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginBottom="10dp"
@@ -48,8 +48,8 @@
 
         <com.flywheelms.library.fms.component.FmsGovernanceComponent
             android:id="@+id/governance_component__sponsor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="400dp"
+            android:layout_height="200dp"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:layout_marginBottom="10dp"
@@ -61,8 +61,8 @@
 
         <com.flywheelms.library.fms.component.FmsGovernanceComponent
             android:id="@+id/governance_component__administrator"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="400dp"
+            android:layout_height="200dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginBottom="10dp"

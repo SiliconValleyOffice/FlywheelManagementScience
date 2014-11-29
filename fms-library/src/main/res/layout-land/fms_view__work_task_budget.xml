@@ -1,10 +1,76 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:gcg="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/gcg__perspective__background"
     android:orientation="vertical">
 
     <include
         android:id="@+id/gcg_view_flipper__title_bar__include"
         layout="@layout/gcg__view_flipper__title_bar" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear
+            android:id="@+id/group_box__estimate"
+            android:layout_width="405dp"
+            android:layout_height="160dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_margin="15dp"
+            android:orientation="vertical"
+            android:paddingBottom="10dp"
+            gcg:borderStyle="3"
+            gcg:headingText="Estimate">
+
+        </com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear>
+
+        <com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear
+            android:id="@+id/group_box__budget"
+            android:layout_width="405dp"
+            android:layout_height="160dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_margin="15dp"
+            android:orientation="vertical"
+            android:paddingBottom="10dp"
+            gcg:borderStyle="3"
+            gcg:headingText="Budget">
+
+        </com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear>
+
+        <com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear
+            android:id="@+id/group_box__work_breakdown__summary"
+            android:layout_width="405dp"
+            android:layout_height="160dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_margin="15dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="vertical"
+            android:paddingBottom="10dp"
+            gcg:borderStyle="3"
+            gcg:headingText="Work Breakdown Summary">
+
+        </com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear>
+
+        <com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear
+            android:id="@+id/group_box__completion__summary"
+            android:layout_width="405dp"
+            android:layout_height="160dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_margin="15dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="vertical"
+            android:paddingBottom="10dp"
+            gcg:borderStyle="3"
+            gcg:headingText="Completion Summary">
+
+        </com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear>
+
+    </RelativeLayout>
 
 </LinearLayout>

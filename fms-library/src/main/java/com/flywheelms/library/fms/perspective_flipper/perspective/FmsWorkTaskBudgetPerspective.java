@@ -72,8 +72,13 @@ public class FmsWorkTaskBudgetPerspective extends FmsPerspectiveFlipperView {
 
 	@Override
 	protected int getViewLayoutResourceId() {
-		return R.layout.fms_view__community;
+		return R.layout.fms_view__work_task_budget;
 	}
+
+    @Override
+    public int getFrameMenuSpacerBackgroundResourceId() {
+        return R.color.gcg__perspective__background;
+    }
 
 	@Override
 	protected String getHelpContextUrlString() {

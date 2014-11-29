@@ -74,21 +74,21 @@ public class NodeFragWorkTaskBudgetDaoSqLite extends NodeFragDaoSqLite<NodeFragW
 	@Override
 	protected void buildColumnIndexMap(Cursor aCursor) {
 		super.buildColumnIndexMap(aCursor);
-		putColumnIndexMapEntry(this.columnIndexMap, aCursor, NodeFragWorkTaskBudgetMetaData.column_ESTIMATED_TOTAL_TASK_COUNT);
+		putColumnIndexMapEntry(this.columnIndexMap, aCursor, NodeFragWorkTaskBudgetMetaData.column_ESTIMATED_TASK_COUNT);
 		putColumnIndexMapEntry(this.columnIndexMap, aCursor, NodeFragWorkTaskBudgetMetaData.column_ESTIMATED_AVERAGE_HOURS_PER_TASK);
 		putColumnIndexMapEntry(this.columnIndexMap, aCursor, NodeFragWorkTaskBudgetMetaData.column_ESTIMATE_BY);
 		putColumnIndexMapEntry(this.columnIndexMap, aCursor, NodeFragWorkTaskBudgetMetaData.column_ESTIMATE_TIMESTAMP);
 		putColumnIndexMapEntry(this.columnIndexMap, aCursor, NodeFragWorkTaskBudgetMetaData.column_ESTIMATE_DATA_QUALITY);
-		putColumnIndexMapEntry(this.columnIndexMap, aCursor, NodeFragWorkTaskBudgetMetaData.column_BUDGETED_TOTAL_TASK_COUNT);
+		putColumnIndexMapEntry(this.columnIndexMap, aCursor, NodeFragWorkTaskBudgetMetaData.column_BUDGETED_TASK_COUNT);
 		putColumnIndexMapEntry(this.columnIndexMap, aCursor, NodeFragWorkTaskBudgetMetaData.column_BUDGETED_AVERAGE_HOURS_PER_TASK);
 		putColumnIndexMapEntry(this.columnIndexMap, aCursor, NodeFragWorkTaskBudgetMetaData.column_BUDGET_BY);
 		putColumnIndexMapEntry(this.columnIndexMap, aCursor, NodeFragWorkTaskBudgetMetaData.column_BUDGET_TIMESTAMP);
 		putColumnIndexMapEntry(this.columnIndexMap, aCursor, NodeFragWorkTaskBudgetMetaData.column_BUDGET_DATA_QUALITY);
-		putColumnIndexMapEntry(this.columnIndexMap, aCursor, NodeFragWorkTaskBudgetMetaData.column_WORK_BREAKDOWN_ESTIMATED_TOTAL_TASK_COUNT);
+		putColumnIndexMapEntry(this.columnIndexMap, aCursor, NodeFragWorkTaskBudgetMetaData.column_WORK_BREAKDOWN_ESTIMATED_TASK_COUNT);
 		putColumnIndexMapEntry(this.columnIndexMap, aCursor, NodeFragWorkTaskBudgetMetaData.column_WORK_BREAKDOWN_ESTIMATED_AVERAGE_HOURS_PER_TASK);
-        putColumnIndexMapEntry(this.columnIndexMap, aCursor, NodeFragWorkTaskBudgetMetaData.column_WORK_BREAKDOWN_BUDGETED_TOTAL_TASK_COUNT);
+        putColumnIndexMapEntry(this.columnIndexMap, aCursor, NodeFragWorkTaskBudgetMetaData.column_WORK_BREAKDOWN_BUDGETED_TASK_COUNT);
         putColumnIndexMapEntry(this.columnIndexMap, aCursor, NodeFragWorkTaskBudgetMetaData.column_WORK_BREAKDOWN_BUDGETED_AVERAGE_HOURS_PER_TASK);
-		putColumnIndexMapEntry(this.columnIndexMap, aCursor, NodeFragWorkTaskBudgetMetaData.column_COMPLETED_TOTAL_TASK_COUNT);
+		putColumnIndexMapEntry(this.columnIndexMap, aCursor, NodeFragWorkTaskBudgetMetaData.column_COMPLETED_TASK_COUNT);
 		putColumnIndexMapEntry(this.columnIndexMap, aCursor, NodeFragWorkTaskBudgetMetaData.column_COMPLETED_AVERAGE_HOURS_PER_TASK);
 		putColumnIndexMapEntry(this.columnIndexMap, aCursor, NodeFragWorkTaskBudgetMetaData.column_SERIALIZED_HISTORY);
 	}
@@ -96,21 +96,21 @@ public class NodeFragWorkTaskBudgetDaoSqLite extends NodeFragDaoSqLite<NodeFragW
 	@Override
 	protected void getColumnValues(HashMap<String, Integer> aHashMap, Cursor aCursor, NodeFragWorkTaskBudget aNodeFragWorkTaskBudget) {
 		// we don't call super because the node is constructed with the NodeId
-		aNodeFragWorkTaskBudget.setEstimatedTotalTaskCount(aCursor.getInt(aHashMap.get(NodeFragWorkTaskBudgetMetaData.column_ESTIMATED_TOTAL_TASK_COUNT)));
+		aNodeFragWorkTaskBudget.setEstimatedTaskCount(aCursor.getInt(aHashMap.get(NodeFragWorkTaskBudgetMetaData.column_ESTIMATED_TASK_COUNT)));
 		aNodeFragWorkTaskBudget.setEstimatedAverageHoursPerTask(aCursor.getFloat(aHashMap.get(NodeFragWorkTaskBudgetMetaData.column_ESTIMATED_AVERAGE_HOURS_PER_TASK)));
 		aNodeFragWorkTaskBudget.setEstimateByCommunityMemberId(aCursor.getString(aHashMap.get(NodeFragWorkTaskBudgetMetaData.column_ESTIMATE_BY)));
 		aNodeFragWorkTaskBudget.setEstimateTimestamp(GcgDateHelper.getDateFromIso8601DateString(aCursor.getString(aHashMap.get(NodeFragWorkTaskBudgetMetaData.column_ESTIMATE_TIMESTAMP))));
 		aNodeFragWorkTaskBudget.setEstimateFmmDataQuality(aCursor.getString(aHashMap.get(NodeFragWorkTaskBudgetMetaData.column_ESTIMATE_DATA_QUALITY)));
-		aNodeFragWorkTaskBudget.setBudgetedTotalTaskCount(aCursor.getInt(aHashMap.get(NodeFragWorkTaskBudgetMetaData.column_BUDGETED_TOTAL_TASK_COUNT)));
+		aNodeFragWorkTaskBudget.setBudgetedTaskCount(aCursor.getInt(aHashMap.get(NodeFragWorkTaskBudgetMetaData.column_BUDGETED_TASK_COUNT)));
 		aNodeFragWorkTaskBudget.setBudgetedAverageHoursPerTask(aCursor.getFloat(aHashMap.get(NodeFragWorkTaskBudgetMetaData.column_BUDGETED_AVERAGE_HOURS_PER_TASK)));
 		aNodeFragWorkTaskBudget.setBudgetByCommunityMemberId(aCursor.getString(aHashMap.get(NodeFragWorkTaskBudgetMetaData.column_BUDGET_BY)));
 		aNodeFragWorkTaskBudget.setBudgetTimestamp(GcgDateHelper.getDateFromIso8601DateString(aCursor.getString(aHashMap.get(NodeFragWorkTaskBudgetMetaData.column_BUDGET_TIMESTAMP))));
 		aNodeFragWorkTaskBudget.setBudgetFmmDataQuality(aCursor.getString(aHashMap.get(NodeFragWorkTaskBudgetMetaData.column_BUDGET_DATA_QUALITY)));
-		aNodeFragWorkTaskBudget.setWorkBreakdownEstimatedTotalTaskCount(aCursor.getInt(aHashMap.get(NodeFragWorkTaskBudgetMetaData.column_WORK_BREAKDOWN_ESTIMATED_TOTAL_TASK_COUNT)));
+		aNodeFragWorkTaskBudget.setWorkBreakdownEstimatedTaskCount(aCursor.getInt(aHashMap.get(NodeFragWorkTaskBudgetMetaData.column_WORK_BREAKDOWN_ESTIMATED_TASK_COUNT)));
 		aNodeFragWorkTaskBudget.setWorkBreakdownEstimatedAverageHoursPerTask(aCursor.getFloat(aHashMap.get(NodeFragWorkTaskBudgetMetaData.column_WORK_BREAKDOWN_ESTIMATED_AVERAGE_HOURS_PER_TASK)));
-		aNodeFragWorkTaskBudget.setWorkBreakdownBudgetedTotalTaskCount(aCursor.getInt(aHashMap.get(NodeFragWorkTaskBudgetMetaData.column_WORK_BREAKDOWN_BUDGETED_TOTAL_TASK_COUNT)));
+		aNodeFragWorkTaskBudget.setWorkBreakdownBudgetedTaskCount(aCursor.getInt(aHashMap.get(NodeFragWorkTaskBudgetMetaData.column_WORK_BREAKDOWN_BUDGETED_TASK_COUNT)));
 		aNodeFragWorkTaskBudget.setWorkBreakdownBudgetedAverageHoursPerTask(aCursor.getFloat(aHashMap.get(NodeFragWorkTaskBudgetMetaData.column_WORK_BREAKDOWN_BUDGETED_AVERAGE_HOURS_PER_TASK)));
-		aNodeFragWorkTaskBudget.setCompletedTotalTaskCount(aCursor.getInt(aHashMap.get(NodeFragWorkTaskBudgetMetaData.column_COMPLETED_TOTAL_TASK_COUNT)));
+		aNodeFragWorkTaskBudget.setCompletedTaskCount(aCursor.getInt(aHashMap.get(NodeFragWorkTaskBudgetMetaData.column_COMPLETED_TASK_COUNT)));
 		aNodeFragWorkTaskBudget.setCompletedAverageHoursPerTask(aCursor.getFloat(aHashMap.get(NodeFragWorkTaskBudgetMetaData.column_COMPLETED_AVERAGE_HOURS_PER_TASK)));
 		aNodeFragWorkTaskBudget.setSerialized_history(aCursor.getString(aHashMap.get(NodeFragWorkTaskBudgetMetaData.column_SERIALIZED_HISTORY)));
 	}
@@ -128,25 +128,25 @@ public class NodeFragWorkTaskBudgetDaoSqLite extends NodeFragDaoSqLite<NodeFragW
 	@Override
 	public ContentValues buildContentValues(NodeFragWorkTaskBudget aNodeFragWorkTaskBudget) {
 		ContentValues theContentValues = super.buildContentValues(aNodeFragWorkTaskBudget);
-		theContentValues.put(NodeFragWorkTaskBudgetMetaData.column_ESTIMATED_TOTAL_TASK_COUNT, aNodeFragWorkTaskBudget.getEstimatedTotalTaskCount());
+		theContentValues.put(NodeFragWorkTaskBudgetMetaData.column_ESTIMATED_TASK_COUNT, aNodeFragWorkTaskBudget.getEstimatedTaskCount());
 		theContentValues.put(NodeFragWorkTaskBudgetMetaData.column_ESTIMATED_AVERAGE_HOURS_PER_TASK, aNodeFragWorkTaskBudget.getEstimatedAverageHoursPerTask());
 		theContentValues.put(NodeFragWorkTaskBudgetMetaData.column_ESTIMATE_BY, aNodeFragWorkTaskBudget.getEstimateByCommunityMemberId());
 		GcgDateHelper.setIso8601DateContentValue(theContentValues, NodeFragWorkTaskBudgetMetaData.column_ESTIMATE_TIMESTAMP, aNodeFragWorkTaskBudget.getEstimateTimestamp());
 		theContentValues.put(NodeFragWorkTaskBudgetMetaData.column_ESTIMATE_DATA_QUALITY, aNodeFragWorkTaskBudget.getEstimateFmmDataQuality().getName());
 
-		theContentValues.put(NodeFragWorkTaskBudgetMetaData.column_BUDGETED_TOTAL_TASK_COUNT, aNodeFragWorkTaskBudget.getBudgetedTotalTaskCount());
+		theContentValues.put(NodeFragWorkTaskBudgetMetaData.column_BUDGETED_TASK_COUNT, aNodeFragWorkTaskBudget.getBudgetedTaskCount());
 		theContentValues.put(NodeFragWorkTaskBudgetMetaData.column_BUDGETED_AVERAGE_HOURS_PER_TASK, aNodeFragWorkTaskBudget.getBudgetedAverageHoursPerTask());
 		theContentValues.put(NodeFragWorkTaskBudgetMetaData.column_BUDGET_BY, aNodeFragWorkTaskBudget.getBudgetByCommunityMemberId());
 		GcgDateHelper.setIso8601DateContentValue(theContentValues, NodeFragWorkTaskBudgetMetaData.column_BUDGET_TIMESTAMP, aNodeFragWorkTaskBudget.getBudgetTimestamp());
 		theContentValues.put(NodeFragWorkTaskBudgetMetaData.column_BUDGET_DATA_QUALITY, aNodeFragWorkTaskBudget.getBudgetFmmDataQuality().getName());
 
-		theContentValues.put(NodeFragWorkTaskBudgetMetaData.column_WORK_BREAKDOWN_ESTIMATED_TOTAL_TASK_COUNT, aNodeFragWorkTaskBudget.getWorkBreakdownEstimatedTotalTaskCount());
+		theContentValues.put(NodeFragWorkTaskBudgetMetaData.column_WORK_BREAKDOWN_ESTIMATED_TASK_COUNT, aNodeFragWorkTaskBudget.getWorkBreakdownEstimatedTaskCount());
 		theContentValues.put(NodeFragWorkTaskBudgetMetaData.column_WORK_BREAKDOWN_ESTIMATED_AVERAGE_HOURS_PER_TASK, aNodeFragWorkTaskBudget.getWorkBreakdownEstimatedAverageHoursPerTask());
 
-		theContentValues.put(NodeFragWorkTaskBudgetMetaData.column_WORK_BREAKDOWN_BUDGETED_TOTAL_TASK_COUNT, aNodeFragWorkTaskBudget.getWorkBreakdownBudgetedTotalTaskCount());
+		theContentValues.put(NodeFragWorkTaskBudgetMetaData.column_WORK_BREAKDOWN_BUDGETED_TASK_COUNT, aNodeFragWorkTaskBudget.getWorkBreakdownBudgetedTaskCount());
 		theContentValues.put(NodeFragWorkTaskBudgetMetaData.column_WORK_BREAKDOWN_BUDGETED_AVERAGE_HOURS_PER_TASK, aNodeFragWorkTaskBudget.getWorkBreakdownBudgetedAverageHoursPerTask());
 
-		theContentValues.put(NodeFragWorkTaskBudgetMetaData.column_COMPLETED_TOTAL_TASK_COUNT, aNodeFragWorkTaskBudget.getCompletedTotalTaskCount());
+		theContentValues.put(NodeFragWorkTaskBudgetMetaData.column_COMPLETED_TASK_COUNT, aNodeFragWorkTaskBudget.getCompletedTaskCount());
 		theContentValues.put(NodeFragWorkTaskBudgetMetaData.column_COMPLETED_AVERAGE_HOURS_PER_TASK, aNodeFragWorkTaskBudget.getCompletedAverageHoursPerTask());
 
 		theContentValues.put(NodeFragWorkTaskBudgetMetaData.column_SERIALIZED_HISTORY, aNodeFragWorkTaskBudget.getSerialized_history());
