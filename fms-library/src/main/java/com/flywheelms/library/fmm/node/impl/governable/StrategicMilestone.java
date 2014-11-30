@@ -268,8 +268,8 @@ public class StrategicMilestone extends FmmCompletionNodeImpl implements Compara
 				FmsDecoratorCadenceCommitment.PROPOSED_CADENCE_COMMITMENT.getDecoratorCanvasLocation(),
 				FmsDecoratorCadenceCommitment.PROPOSED_CADENCE_COMMITMENT);
 		theDecKanGlDecoratorMap.put(
-				FmsDecoratorWorkTaskBudget.PROPOSED_TASK_BUDGET.getDecoratorCanvasLocation(),
-				FmsDecoratorWorkTaskBudget.PROPOSED_TASK_BUDGET );
+				FmsDecoratorWorkTaskBudget.PROPOSED_TASK_POINTS_BUDGET.getDecoratorCanvasLocation(),
+				FmsDecoratorWorkTaskBudget.PROPOSED_TASK_POINTS_BUDGET);
 		theDecKanGlDecoratorMap.put(
 				FmsDecoratorWorkTeam.PROPOSED_TEAM.getDecoratorCanvasLocation(),
 				FmsDecoratorWorkTeam.PROPOSED_TEAM );

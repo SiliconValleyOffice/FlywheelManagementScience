@@ -384,7 +384,7 @@ public abstract class FmmHeadlineNodeImpl extends FmmHistoryNodeImpl
 
     @Override
     public FmsDecoratorWorkTaskBudget getDecoratorWorkTaskBudget() {
-        return FmsDecoratorWorkTaskBudget.BUDGET_QUALITY_NOT_ENABLED;
+        return FmsDecoratorWorkTaskBudget.TASK_POINTS_BUDGET_QUALITY_NOT_ENABLED;
     }
 
     @Override

@@ -139,8 +139,8 @@ public class ProjectAsset extends WorkAsset {
 				FmsDecoratorCadenceCommitment.SUGGESTED_CADENCE_COMMITMENT.getDecoratorCanvasLocation(),
 				FmsDecoratorCadenceCommitment.SUGGESTED_CADENCE_COMMITMENT);
 		theDecKanGlDecoratorMap.put(
-				FmsDecoratorWorkTaskBudget.SUGGESTED_TASK_BUDGET.getDecoratorCanvasLocation(),
-				FmsDecoratorWorkTaskBudget.SUGGESTED_TASK_BUDGET );
+				FmsDecoratorWorkTaskBudget.SUGGESTED_TASK_POINTS_BUDGET.getDecoratorCanvasLocation(),
+				FmsDecoratorWorkTaskBudget.SUGGESTED_TASK_POINTS_BUDGET);
 		theDecKanGlDecoratorMap.put(
 				FmsDecoratorWorkTeam.SUGGESTED_TEAM.getDecoratorCanvasLocation(),
 				FmsDecoratorWorkTeam.SUGGESTED_TEAM );

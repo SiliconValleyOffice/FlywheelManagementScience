@@ -63,7 +63,7 @@ public enum FmmTribKnElement implements FmmEnumNode {
 	STRATEGIC_COMMITMENT (R.string.tribkn_quality_metric__strategic_commitment, R.string.tribkn_quality_metric__strategic_commitment__description, R.drawable.tribkn_quality_metric__strategic_commitment),
 	FLYWHEEL_COMMITMENT (R.string.tribkn_quality_metric__cadence_commitment, R.string.tribkn_quality_metric__cadence_commitment__description, R.drawable.tribkn_quality_metric__cadence_commitment),
 	WORK_TEAM (R.string.tribkn_quality_metric__work_team, R.string.tribkn_quality_metric__work_team__description, R.drawable.tribkn_quality_metric__work_team),
-	WORK_TASK_BUDGET (R.string.tribkn_quality_metric__work_task_budget, R.string.tribkn_quality_metric__work_task_budget__description, R.drawable.tribkn_quality_metric__work_task_budget),
+	WORK_TASK_BUDGET (R.string.tribkn_quality_metric__task_points_budget, R.string.tribkn_quality_metric__task_points_budget__description, R.drawable.tribkn_quality_metric__work_task_budget),
 	STORY (R.string.tribkn_quality_metric__story, R.string.tribkn_quality_metric__story__description, R.drawable.tribkn_quality_metric__story),
 	COMPLETION (R.string.tribkn_quality_metric__completion, R.string.tribkn_quality_metric__completion__description, R.drawable.tribkn_quality_metric__completion);
 	
