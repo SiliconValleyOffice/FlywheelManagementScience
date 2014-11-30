@@ -84,8 +84,8 @@ public class NodeFragTribKnQuality extends FmmNodeFragImpl implements FmmNodeQua
 	private Date childFractalsQualityTimestamp;
 	private FmsDecoratorCadenceCommitment cadenceCommitmentQuality;
 	private Date cadenceCommitmentQualityTimestamp;
-	private FmsDecoratorWorkTaskBudget taskPointsBudgetQuality;
-	private Date taskPointsBudgetQualityTimestamp;
+	private FmsDecoratorWorkTaskBudget taskPointBudgetQuality;
+	private Date taskPointBudgetQualityTimestamp;
 	private FmsDecoratorWorkTeam workTeamQuality;
 	private Date workTeamQualityTimestamp;
 	private FmsDecoratorStrategicCommitment strategicCommitmentQuality;
@@ -123,8 +123,8 @@ public class NodeFragTribKnQuality extends FmmNodeFragImpl implements FmmNodeQua
 			setChildFractalsQualityTimestamp(JsonHelper.getDate(aJsonObject, NodeFragTribKnQualityMetaData.column_CHILD_FRACTALS_QUALITY_TIMESTAMP));
 			setCadenceCommitmentQuality(FmsDecoratorCadenceCommitment.getObjectForName(aJsonObject.getString(NodeFragTribKnQualityMetaData.column_CADENCE_COMMITMENT_QUALITY)));
 			setCadenceCommitmentQualityTimestamp(JsonHelper.getDate(aJsonObject, NodeFragTribKnQualityMetaData.column_CADENCE_COMMITMENT_QUALITY_TIMESTAMP));
-			setTaskPointsBudgetQuality(FmsDecoratorWorkTaskBudget.getObjectForName(aJsonObject.getString(NodeFragTribKnQualityMetaData.column_TASK_POINTS_BUDGET_QUALITY)));
-			setTaskPointsBudgetQualityTimestamp(JsonHelper.getDate(aJsonObject, NodeFragTribKnQualityMetaData.column_TASK_POINTS_BUDGET_QUALITY_TIMESTAMP));
+			setTaskPointBudgetQuality(FmsDecoratorWorkTaskBudget.getObjectForName(aJsonObject.getString(NodeFragTribKnQualityMetaData.column_TASK_POINT_BUDGET_QUALITY)));
+			setTaskPointBudgetQualityTimestamp(JsonHelper.getDate(aJsonObject, NodeFragTribKnQualityMetaData.column_TASK_POINT_BUDGET_QUALITY_TIMESTAMP));
 			setWorkTeamQuality(FmsDecoratorWorkTeam.getObjectForName(aJsonObject.getString(NodeFragTribKnQualityMetaData.column_WORK_TEAM_QUALITY)));
 			setWorkTeamQualityTimestamp(JsonHelper.getDate(aJsonObject, NodeFragTribKnQualityMetaData.column_WORK_TEAM_QUALITY_TIMESTAMP));
 			setStrategicCommitmentQuality(FmsDecoratorStrategicCommitment.getObjectForName(aJsonObject.getString(NodeFragTribKnQualityMetaData.column_STRATEGIC_COMMITMENT_QUALITY)));
@@ -157,8 +157,8 @@ public class NodeFragTribKnQuality extends FmmNodeFragImpl implements FmmNodeQua
 		setChildFractalsQualityTimestamp(theTimestamp);
 		setCadenceCommitmentQuality((FmsDecoratorCadenceCommitment) theDecoratorMap.get(FmsDecoratorCadenceCommitment.getStaticInstance().getDecoratorCanvasLocation()));
 		setCadenceCommitmentQualityTimestamp(theTimestamp);
-		setTaskPointsBudgetQuality((FmsDecoratorWorkTaskBudget) theDecoratorMap.get(FmsDecoratorWorkTaskBudget.getStaticInstance().getDecoratorCanvasLocation()));
-		setTaskPointsBudgetQualityTimestamp(theTimestamp);
+		setTaskPointBudgetQuality((FmsDecoratorWorkTaskBudget) theDecoratorMap.get(FmsDecoratorWorkTaskBudget.getStaticInstance().getDecoratorCanvasLocation()));
+		setTaskPointBudgetQualityTimestamp(theTimestamp);
 		setWorkTeamQuality((FmsDecoratorWorkTeam) theDecoratorMap.get(FmsDecoratorWorkTeam.getStaticInstance().getDecoratorCanvasLocation()));
 		setWorkTeamQualityTimestamp(theTimestamp);
 		setStrategicCommitmentQuality((FmsDecoratorStrategicCommitment) theDecoratorMap.get(FmsDecoratorStrategicCommitment.getStaticInstance().getDecoratorCanvasLocation()));
@@ -187,8 +187,8 @@ public class NodeFragTribKnQuality extends FmmNodeFragImpl implements FmmNodeQua
 			JsonHelper.putDate(theJsonObject, NodeFragTribKnQualityMetaData.column_CHILD_FRACTALS_QUALITY_TIMESTAMP, getChildFractalsQualityTimestamp());
 			theJsonObject.put(NodeFragTribKnQualityMetaData.column_CADENCE_COMMITMENT_QUALITY, getCadenceCommitmentQuality().getName());
 			JsonHelper.putDate(theJsonObject, NodeFragTribKnQualityMetaData.column_CADENCE_COMMITMENT_QUALITY_TIMESTAMP, getCadenceCommitmentQualityTimestamp());
-			theJsonObject.put(NodeFragTribKnQualityMetaData.column_TASK_POINTS_BUDGET_QUALITY, getTaskPointsBudgetQuality().getName());
-			JsonHelper.putDate(theJsonObject, NodeFragTribKnQualityMetaData.column_TASK_POINTS_BUDGET_QUALITY_TIMESTAMP, getTaskPointsBudgetQualityTimestamp());
+			theJsonObject.put(NodeFragTribKnQualityMetaData.column_TASK_POINT_BUDGET_QUALITY, getTaskPointBudgetQuality().getName());
+			JsonHelper.putDate(theJsonObject, NodeFragTribKnQualityMetaData.column_TASK_POINT_BUDGET_QUALITY_TIMESTAMP, getTaskPointBudgetQualityTimestamp());
 			theJsonObject.put(NodeFragTribKnQualityMetaData.column_WORK_TEAM_QUALITY, getWorkTeamQuality().getName());
 			JsonHelper.putDate(theJsonObject, NodeFragTribKnQualityMetaData.column_WORK_TEAM_QUALITY_TIMESTAMP, getWorkTeamQualityTimestamp());
 			theJsonObject.put(NodeFragTribKnQualityMetaData.column_STRATEGIC_COMMITMENT_QUALITY, getStrategicCommitmentQuality().getName());
@@ -231,8 +231,8 @@ public class NodeFragTribKnQuality extends FmmNodeFragImpl implements FmmNodeQua
 				getCadenceCommitmentQuality().getDecoratorCanvasLocation(),
 				getCadenceCommitmentQuality() );
 		theDecKanGlDecoratorMap.put(
-				getTaskPointsBudgetQuality().getDecoratorCanvasLocation(),
-				getTaskPointsBudgetQuality() );
+				getTaskPointBudgetQuality().getDecoratorCanvasLocation(),
+				getTaskPointBudgetQuality() );
 		theDecKanGlDecoratorMap.put(
 				getWorkTeamQuality().getDecoratorCanvasLocation(),
 				getWorkTeamQuality() );
@@ -352,22 +352,21 @@ public class NodeFragTribKnQuality extends FmmNodeFragImpl implements FmmNodeQua
 		this.cadenceCommitmentQualityTimestamp = flywheelCommitmentQualityTimestamp;
 	}
 
-	public FmsDecoratorWorkTaskBudget getTaskPointsBudgetQuality() {
-		return this.taskPointsBudgetQuality;
+	public FmsDecoratorWorkTaskBudget getTaskPointBudgetQuality() {
+		return this.taskPointBudgetQuality;
 	}
 
-	public void setTaskPointsBudgetQuality(
-            FmsDecoratorWorkTaskBudget taskPointsBudgetQuality) {
-		this.taskPointsBudgetQuality = taskPointsBudgetQuality;
+	public void setTaskPointBudgetQuality(FmsDecoratorWorkTaskBudget taskPointBudgetQuality) {
+		this.taskPointBudgetQuality = taskPointBudgetQuality;
 	}
 
-	public Date getTaskPointsBudgetQualityTimestamp() {
-		return this.taskPointsBudgetQualityTimestamp;
+	public Date getTaskPointBudgetQualityTimestamp() {
+		return this.taskPointBudgetQualityTimestamp;
 	}
 
-	public void setTaskPointsBudgetQualityTimestamp(
-            Date taskPointsBudgetQualityTimestamp) {
-		this.taskPointsBudgetQualityTimestamp = taskPointsBudgetQualityTimestamp;
+	public void setTaskPointBudgetQualityTimestamp(
+            Date taskPointBudgetQualityTimestamp) {
+		this.taskPointBudgetQualityTimestamp = taskPointBudgetQualityTimestamp;
 	}
 
 	public FmsDecoratorWorkTeam getWorkTeamQuality() {

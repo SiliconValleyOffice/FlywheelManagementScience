@@ -59,8 +59,8 @@ public class NodeFragTribKnQualityMetaData extends NodeFragMetaData {
 	public static final String column_CHILD_FRACTALS_QUALITY_TIMESTAMP = "child_fractals_quality_timestamp";
 	public static final String column_CADENCE_COMMITMENT_QUALITY = "cadence_commitment_quality";
 	public static final String column_CADENCE_COMMITMENT_QUALITY_TIMESTAMP = "cadence_commitment_quality_timestamp";
-	public static final String column_TASK_POINTS_BUDGET_QUALITY = "task_points_budget_quality";
-	public static final String column_TASK_POINTS_BUDGET_QUALITY_TIMESTAMP = "task_points_budget_quality_timestamp";
+	public static final String column_TASK_POINT_BUDGET_QUALITY = "task_point_budget_quality";
+	public static final String column_TASK_POINT_BUDGET_QUALITY_TIMESTAMP = "task_point_budget_quality_timestamp";
 	public static final String column_WORK_TEAM_QUALITY = "work_team_quality";
 	public static final String column_WORK_TEAM_QUALITY_TIMESTAMP = "work_team_quality_timestamp";
 	public static final String column_STRATEGIC_COMMITMENT_QUALITY = "strategic_commitment_quality";

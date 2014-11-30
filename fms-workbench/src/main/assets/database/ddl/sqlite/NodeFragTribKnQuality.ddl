@@ -15,8 +15,8 @@ CREATE TABLE `NodeFragTribKnQuality` (
   `child_fractals_quality_timestamp` BIGINT(14) NOT NULL,
   `cadence_commitment_quality` INT(11) NOT NULL,
   `cadence_commitment_quality_timestamp` BIGINT(14) NOT NULL,
-  `task_points_budget_quality` INT(11) NOT NULL,
-  `task_points_budget_quality_timestamp` BIGINT(14) NOT NULL,
+  `task_point_budget_quality` INT(11) NOT NULL,
+  `task_point_budget_quality_timestamp` BIGINT(14) NOT NULL,
   `work_team_quality` INT(11) NOT NULL,
   `work_team_quality_timestamp` BIGINT(14) NOT NULL,
   `strategic_commitment_quality` INT(11) NOT NULL,
@@ -53,7 +53,7 @@ CREATE TABLE `NodeFragTribKnQuality` (
     FOREIGN KEY (`completion_quality`)
     REFERENCES `TribKnQualityEnumeration` (`quality_enumeration`) ,
   CONSTRAINT `fk_NodeQuality_NodeQualityDecorator9`
-    FOREIGN KEY (`task_points_budget_quality`)
+    FOREIGN KEY (`task_point_budget_quality`)
     REFERENCES `TribKnQualityEnumeration` (`quality_enumeration`) ,
   CONSTRAINT `fk_NodeFragTribKnQuality_TribKnQualityEnumeration1`
     FOREIGN KEY (`cadence_commitment_quality`)

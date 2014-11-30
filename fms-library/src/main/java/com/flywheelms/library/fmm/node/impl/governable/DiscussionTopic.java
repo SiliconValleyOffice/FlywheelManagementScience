@@ -187,8 +187,8 @@ public class DiscussionTopic extends FmmCompletionNodeImpl {
                 FmsDecoratorCadenceCommitment.PROPOSED_CADENCE_COMMITMENT.getDecoratorCanvasLocation(),
                 FmsDecoratorCadenceCommitment.PROPOSED_CADENCE_COMMITMENT);
         theDecKanGlDecoratorMap.put(
-                FmsDecoratorWorkTaskBudget.CONFIRMED_TASK_POINTS_BUDGET.getDecoratorCanvasLocation(),
-                FmsDecoratorWorkTaskBudget.CONFIRMED_TASK_POINTS_BUDGET);
+                FmsDecoratorWorkTaskBudget.CONFIRMED_TASK_POINT_BUDGET.getDecoratorCanvasLocation(),
+                FmsDecoratorWorkTaskBudget.CONFIRMED_TASK_POINT_BUDGET);
         theDecKanGlDecoratorMap.put(
                 FmsDecoratorWorkTeam.CONFIRMED_TEAM.getDecoratorCanvasLocation(),
                 FmsDecoratorWorkTeam.CONFIRMED_TEAM );

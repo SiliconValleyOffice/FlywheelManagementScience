@@ -361,7 +361,7 @@ public class DecKanGlGlyphDictionaryActivity extends Activity implements DecKanG
 				R.id.tribkn_quality_metric__work_task_budget__spinner,
 				FmsDecoratorWorkTaskBudget.getStaticInstance(),
 				FmsDecoratorWorkTaskBudget.values(),
-				FmsDecoratorWorkTaskBudget.TASK_POINTS_BUDGET_SWAG);
+				FmsDecoratorWorkTaskBudget.TASK_POINT_BUDGET_SWAG);
 		GcgSpinnerHelper.setOnItemSelectedListener(
 				this,
 				R.id.tribkn_quality_metric__work_task_budget__spinner,
