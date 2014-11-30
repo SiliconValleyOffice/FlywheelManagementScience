@@ -1,4 +1,4 @@
-/* @(#)NodeFragWorkTaskBudgetMetaData.java
+/* @(#)NodeFragTaskPointBudgetMetaData.java
 ** 
 ** Copyright (C) 2012 by Steven D. Stamps
 **
@@ -43,30 +43,30 @@
 
 package com.flywheelms.library.fmm.meta_data;
 
-public class NodeFragWorkTaskBudgetMetaData extends NodeFragMetaData {
+public class NodeFragTaskPointBudgetMetaData extends NodeFragMetaData {
 
-	public static final String key__NODE_FRAG_WORK_TASK_BUDGET = "NodeFragWorkTaskBudget";
+	public static final String key__NODE_FRAG_WORK_TASK_BUDGET = "NodeFragTaskPointBudget";
 	
-	public static final String column_ESTIMATED_TASK_COUNT = "estimated_task_count";
-	public static final String column_ESTIMATED_AVERAGE_HOURS_PER_TASK = "estimated_average_hours_per_task";
+	public static final String column_ESTIMATED_TASK_POINTS = "estimated_task_points";
+	public static final String column_ESTIMATED_AVERAGE_HOURS_PER_TASK_POINT = "estimated_average_hours_per_task_point";
 	public static final String column_ESTIMATE_BY = "estimate_by";
 	public static final String column_ESTIMATE_TIMESTAMP = "estimate_timestamp";
 	public static final String column_ESTIMATE_DATA_QUALITY = "estimate_data_quality";
 
-	public static final String column_BUDGETED_TASK_COUNT = "budgeted_task_count";
-	public static final String column_BUDGETED_AVERAGE_HOURS_PER_TASK = "budgeted_average_hours_per_task";
+	public static final String column_BUDGETED_TASK_POINTS = "budgeted_task_points";
+	public static final String column_BUDGETED_AVERAGE_HOURS_PER_TASK_POINT = "budgeted_average_hours_per_task_point";
 	public static final String column_BUDGET_BY = "budget_by";
 	public static final String column_BUDGET_TIMESTAMP = "budget_timestamp";
 	public static final String column_BUDGET_DATA_QUALITY = "budget_data_quality";
 
-	public static final String column_WORK_BREAKDOWN_ESTIMATED_TASK_COUNT = "work_breakdown_estimated_task_count";
-	public static final String column_WORK_BREAKDOWN_ESTIMATED_AVERAGE_HOURS_PER_TASK = "work_breakdown_estimated_average_hours_per_task";
+	public static final String column_WORK_BREAKDOWN_ESTIMATED_TASK_POINTS = "work_breakdown_estimated_task_points";
+	public static final String column_WORK_BREAKDOWN_ESTIMATED_AVERAGE_HOURS_PER_TASK_POINT = "work_breakdown_estimated_average_hours_per_task_point";
 
-    public static final String column_WORK_BREAKDOWN_BUDGETED_TASK_COUNT = "work_breakdown_budgeted_task_count";
-    public static final String column_WORK_BREAKDOWN_BUDGETED_AVERAGE_HOURS_PER_TASK = "work_breakdown_budgeted_average_hours_per_task";
+    public static final String column_WORK_BREAKDOWN_BUDGETED_TASK_POINTS = "work_breakdown_budgeted_task_points";
+    public static final String column_WORK_BREAKDOWN_BUDGETED_AVERAGE_HOURS_PER_TASK_POINT = "work_breakdown_budgeted_average_hours_per_task_point";
 
-	public static final String column_COMPLETED_TASK_COUNT = "completed_task_count";
-	public static final String column_COMPLETED_AVERAGE_HOURS_PER_TASK = "completed_average_hours_per_task";
+	public static final String column_COMPLETED_TASK_POINTS = "completed_task_points";
+	public static final String column_COMPLETED_AVERAGE_HOURS_PER_TASK_POINT = "completed_average_hours_per_task_point";
 
 	public static final String column_SERIALIZED_HISTORY = "serialized_history";
 	

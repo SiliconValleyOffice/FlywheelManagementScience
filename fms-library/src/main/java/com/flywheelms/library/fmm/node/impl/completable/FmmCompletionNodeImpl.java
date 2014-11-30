@@ -55,7 +55,7 @@ import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.governable.CommunityMember;
 import com.flywheelms.library.fmm.node.impl.governable.FmmGovernableNodeImpl;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragCompletion;
-import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragWorkTaskBudget;
+import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragTaskPointBudget;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmCompletionNode;
 import com.flywheelms.library.fmm.transaction.FmmNodeGlyphType;
 import com.flywheelms.library.fms.activity.FmsActivity;
@@ -69,7 +69,7 @@ public abstract class FmmCompletionNodeImpl extends FmmGovernableNodeImpl
 	
 	private static final long serialVersionUID = 7670030679294983810L;
 	private int sequence;
-	private NodeFragWorkTaskBudget nodeFragWorkTaskBudget;
+	private NodeFragTaskPointBudget nodeFragWorkTaskBudget;
 	private NodeFragCompletion nodeFragCompletion;
 
 	public FmmCompletionNodeImpl(NodeId aNodeId) {
@@ -372,23 +372,23 @@ public abstract class FmmCompletionNodeImpl extends FmmGovernableNodeImpl
 	}
 	
 	@Override
-	public NodeFragWorkTaskBudget getNodeFragWorkTaskBudget() {
+	public NodeFragTaskPointBudget getNodeFragTaskPointBudget() {
 		if(this.nodeFragWorkTaskBudget == null) {
-			this.nodeFragWorkTaskBudget = FmsActivity.getActiveDatabaseMediator().retrieveNodeFragWorkTaskBudget(this);
+			this.nodeFragWorkTaskBudget = FmsActivity.getActiveDatabaseMediator().retrieveNodeFragTaskPointBudget(this);
 		}
 		return this.nodeFragWorkTaskBudget;
 	}
 
     @Override
-    public NodeFragWorkTaskBudget getUpdatedNodeFragWorkTaskBudget() {
-        NodeFragWorkTaskBudget theNodeFragWorkTaskBudget = getNodeFragWorkTaskBudget();
+    public NodeFragTaskPointBudget getUpdatedNodeFragTaskPointBudget() {
+        NodeFragTaskPointBudget theNodeFragTaskPointBudget = getNodeFragTaskPointBudget();
         // TODO - update attributes
-        return theNodeFragWorkTaskBudget;
+        return theNodeFragTaskPointBudget;
     }
 	
 	@Override
-	public void setNodeFragWorkTaskBudget(NodeFragWorkTaskBudget aNodeFragWorkTaskBudget) {
-		this.nodeFragWorkTaskBudget = aNodeFragWorkTaskBudget;
+	public void setNodeFragTaskPointBudget(NodeFragTaskPointBudget aNodeFragTaskPointBudget) {
+		this.nodeFragWorkTaskBudget = aNodeFragTaskPointBudget;
 	}
 	
 	@Override

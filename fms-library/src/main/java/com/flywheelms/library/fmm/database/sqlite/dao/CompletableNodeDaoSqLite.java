@@ -68,7 +68,7 @@ public abstract class CompletableNodeDaoSqLite<T extends FmmCompletionNode> exte
 	@Override
 	protected void getColumnValues(HashMap<String, Integer> aHashMap, Cursor aCursor, T anFmmCompletableNode) {
 		super.getColumnValues(aHashMap, aCursor, anFmmCompletableNode);
-//		anFmmCompletableNode.setNodeFragWorkTaskBudgetNodeIdString(aCursor.getString(aHashMap.get(column_NODE_FRAG_WORK_TASK_BUDGET_ID)));
+//		anFmmCompletableNode.setNodeFragTaskPointBudgetNodeIdString(aCursor.getString(aHashMap.get(column_NODE_FRAG_WORK_TASK_BUDGET_ID)));
 //		anFmmCompletableNode.setNodeFragCompletionNodeIdString(aCursor.getString(aHashMap.get(column_NODE_FRAG_COMPLETION_ID)));
 	}
 

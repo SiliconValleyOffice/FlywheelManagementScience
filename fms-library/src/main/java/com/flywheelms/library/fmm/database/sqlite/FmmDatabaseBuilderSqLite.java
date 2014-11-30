@@ -107,8 +107,8 @@ import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragAuditBlock;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragCompletion;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragFseDocument;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragGovernance;
+import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragTaskPointBudget;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragTribKnQuality;
-import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragWorkTaskBudget;
 import com.flywheelms.library.fmm.node.impl.supporting.ServiceRequestTriageLog;
 import com.flywheelms.library.fmm.node.impl.supporting.TribKnQualityEnumeration;
 import com.flywheelms.library.fmm.node.impl.wonky.CommunityMemberOrganizationGovernanceAuthority;
@@ -202,7 +202,7 @@ public class FmmDatabaseBuilderSqLite implements FmmDatabaseBuilder {
 		createTable(aSqLiteDatabase, NodeFragGovernance.class);
 		createTable(aSqLiteDatabase, HeadlineNodeTrash.class);
 		createTable(aSqLiteDatabase, NodeFragFseDocument.class);
-		createTable(aSqLiteDatabase, NodeFragWorkTaskBudget.class);
+		createTable(aSqLiteDatabase, NodeFragTaskPointBudget.class);
 	}
 
 	private static void createTransactionTables(SQLiteDatabase aSqLiteDatabase) {

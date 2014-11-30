@@ -23,8 +23,8 @@ import com.flywheelms.library.fmm.meta_data.NodeFragCompletionMetaData;
 import com.flywheelms.library.fmm.meta_data.NodeFragFseDocumentMetaData;
 import com.flywheelms.library.fmm.meta_data.NodeFragGovernanceMetaData;
 import com.flywheelms.library.fmm.meta_data.NodeFragMetaData;
+import com.flywheelms.library.fmm.meta_data.NodeFragTaskPointBudgetMetaData;
 import com.flywheelms.library.fmm.meta_data.NodeFragTribKnQualityMetaData;
-import com.flywheelms.library.fmm.meta_data.NodeFragWorkTaskBudgetMetaData;
 import com.flywheelms.library.fmm.meta_data.NotebookLinkToDiscussionTopicMetaData;
 import com.flywheelms.library.fmm.meta_data.OrganizationCommunityMemberMetaData;
 import com.flywheelms.library.fmm.meta_data.PdfPublicationMetaData;
@@ -76,8 +76,8 @@ import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragAuditBlock;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragCompletion;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragFseDocument;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragGovernance;
+import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragTaskPointBudget;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragTribKnQuality;
-import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragWorkTaskBudget;
 import com.flywheelms.library.fmm.node.interfaces.FmmSequencedNode;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmCompletionNode;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmGovernableNode;
@@ -157,7 +157,7 @@ public class FmmDatabaseMediator {
         NodeFragGovernanceMetaData.init();
         NodeFragMetaData.init();
         NodeFragTribKnQualityMetaData.init();
-        NodeFragWorkTaskBudgetMetaData.init();
+        NodeFragTaskPointBudgetMetaData.init();
         PdfPublicationMetaData.init();
         ProjectAssetMetaData.init();
         ProjectMetaData.init();
@@ -730,7 +730,7 @@ public class FmmDatabaseMediator {
         }
         boolean isSuccess = fractalInsertFmmGovernableNode(anFmmCompletionNode, false, false);
         isSuccess &= createNodeFragCompletion(anFmmCompletionNode);
-        isSuccess &= createNodeFragWorkTaskBudget(anFmmCompletionNode);
+        isSuccess &= createNodeFragTaskPointBudget(anFmmCompletionNode);
         isSuccess &= createNodeFragTribKnQuality(anFmmCompletionNode);  // needs to be after all other Node Frags are updated
         if(bAtomicTransaction) {
             endTransaction(isSuccess);
@@ -802,7 +802,7 @@ public class FmmDatabaseMediator {
         }
         boolean isSuccess = fractalUpdateFmmHeadlineNode(anFmmCompletionNode, aNewRowTimestamp, false);
         isSuccess &= conditionalUpdateSimpleIdTableRow(aNewRowTimestamp, anFmmCompletionNode.getUpdatedNodeFragCompletion(), false);
-        isSuccess &= conditionalUpdateSimpleIdTableRow(aNewRowTimestamp, anFmmCompletionNode.getUpdatedNodeFragWorkTaskBudget(), false);
+        isSuccess &= conditionalUpdateSimpleIdTableRow(aNewRowTimestamp, anFmmCompletionNode.getUpdatedNodeFragTaskPointBudget(), false);
         if(bAtomicTransaction) {
             isSuccess &= conditionalUpdateSimpleIdTableRow(aNewRowTimestamp, anFmmCompletionNode.getUpdatedNodeFragTribKnQuality(), false);
             endTransaction(isSuccess);
@@ -865,7 +865,7 @@ public class FmmDatabaseMediator {
         }
         boolean isSuccess = fractalDeleteFmmGovernableNode(anFmmCompletionNode, false, false);
         isSuccess &= deleteNodeFragCompletion(anFmmCompletionNode, false);
-        isSuccess &= deleteNodeFragWorkTaskBudget(anFmmCompletionNode, false);
+        isSuccess &= deleteNodeFragTaskPointBudget(anFmmCompletionNode, false);
         isSuccess &= deleteSimpleIdTableRow(anFmmCompletionNode, false);  // delete last for referential integrity
         isSuccess &= insertSimpleIdTableRow(this.headlineNodeTrash, false);
         if(bAtomicTransaction) {
@@ -2805,46 +2805,46 @@ public class FmmDatabaseMediator {
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////  Node - NODE FRAG WORK TASK BUDGET  //////////////////////////////////////////////////////////////////
 
-    public NodeFragWorkTaskBudget retrieveNodeFragWorkTaskBudget(String aNodeFragId) {
-        return retrieveFmmNodeFromSimpleIdTable(FmmNodeDefinition.NODE_FRAG__WORK_TASK_BUDGET, aNodeFragId);
+    public NodeFragTaskPointBudget retrieveNodeFragTaskPointBudget(String aNodeFragId) {
+        return retrieveFmmNodeFromSimpleIdTable(FmmNodeDefinition.NODE_FRAG__TASK_POINT_BUDGET, aNodeFragId);
     }
-    public NodeFragWorkTaskBudget retrieveNodeFragWorkTaskBudget(FmmCompletionNode anFmmCompletionNode) {
-        return retrieveNodeFragWorkTaskBudgetForParent(anFmmCompletionNode.getNodeIdString());
-    }
-
-    public NodeFragWorkTaskBudget retrieveNodeFragWorkTaskBudgetForParent(String aParentId) {
-        return retrieveFmmNodeFromSimpleIdTable(FmmNodeDefinition.NODE_FRAG__WORK_TASK_BUDGET, NodeFragGovernanceMetaData.column_PARENT_ID, aParentId);
+    public NodeFragTaskPointBudget retrieveNodeFragTaskPointBudget(FmmCompletionNode anFmmCompletionNode) {
+        return retrieveNodeFragTaskPointBudgetForParent(anFmmCompletionNode.getNodeIdString());
     }
 
-    public ArrayList<NodeFragWorkTaskBudget> retrieveNodeFragWorkTaskBudgetList() {
-        return retrieveFmmNodeListFromSimpleIdTable(FmmNodeDefinition.NODE_FRAG__WORK_TASK_BUDGET);
+    public NodeFragTaskPointBudget retrieveNodeFragTaskPointBudgetForParent(String aParentId) {
+        return retrieveFmmNodeFromSimpleIdTable(FmmNodeDefinition.NODE_FRAG__TASK_POINT_BUDGET, NodeFragGovernanceMetaData.column_PARENT_ID, aParentId);
     }
 
-    private boolean createNodeFragWorkTaskBudget(FmmCompletionNode anFmmCompletionNode) {
-        NodeFragWorkTaskBudget theNodeFragWorkTaskBudget = new NodeFragWorkTaskBudget(anFmmCompletionNode);
-        boolean isSuccess = insertNodeFragWorkTaskBudget(theNodeFragWorkTaskBudget, false);  // always part of a transaction
-        isSuccess &= createFragLock(theNodeFragWorkTaskBudget);
+    public ArrayList<NodeFragTaskPointBudget> retrieveNodeFragTaskPointBudgetList() {
+        return retrieveFmmNodeListFromSimpleIdTable(FmmNodeDefinition.NODE_FRAG__TASK_POINT_BUDGET);
+    }
+
+    private boolean createNodeFragTaskPointBudget(FmmCompletionNode anFmmCompletionNode) {
+        NodeFragTaskPointBudget theNodeFragTaskPointBudget = new NodeFragTaskPointBudget(anFmmCompletionNode);
+        boolean isSuccess = insertNodeFragTaskPointBudget(theNodeFragTaskPointBudget, false);  // always part of a transaction
+        isSuccess &= createFragLock(theNodeFragTaskPointBudget);
         if(isSuccess) {
-            anFmmCompletionNode.setNodeFragWorkTaskBudget(theNodeFragWorkTaskBudget);
+            anFmmCompletionNode.setNodeFragTaskPointBudget(theNodeFragTaskPointBudget);
         }
         return isSuccess;
     }
 
-    public boolean insertNodeFragWorkTaskBudget(NodeFragWorkTaskBudget aNodeFragWorkTaskBudget, boolean bAtomicTransaction) {
-        return insertSimpleIdTableRow(aNodeFragWorkTaskBudget, bAtomicTransaction);
+    public boolean insertNodeFragTaskPointBudget(NodeFragTaskPointBudget aNodeFragTaskPointBudget, boolean bAtomicTransaction) {
+        return insertSimpleIdTableRow(aNodeFragTaskPointBudget, bAtomicTransaction);
     }
 
-    public boolean updateNodeFragWorkTaskBudget(FmmCompletionNode anFmmCompletionNode, boolean bAtomicTransaction) {
-        NodeFragWorkTaskBudget theNodeFragWorkTaskBudget = anFmmCompletionNode.getUpdatedNodeFragWorkTaskBudget();
-        return updateSimpleIdTableRow(theNodeFragWorkTaskBudget, bAtomicTransaction);
+    public boolean updateNodeFragTaskPointBudget(FmmCompletionNode anFmmCompletionNode, boolean bAtomicTransaction) {
+        NodeFragTaskPointBudget theNodeFragTaskPointBudget = anFmmCompletionNode.getUpdatedNodeFragTaskPointBudget();
+        return updateSimpleIdTableRow(theNodeFragTaskPointBudget, bAtomicTransaction);
     }
 
-    public boolean existsNodeFragWorkTaskBudget(String aNodeFragId) {
-        return existsSimpleIdTable(FmmNodeDefinition.NODE_FRAG__WORK_TASK_BUDGET, aNodeFragId);
+    public boolean existsNodeFragTaskPointBudget(String aNodeFragId) {
+        return existsSimpleIdTable(FmmNodeDefinition.NODE_FRAG__TASK_POINT_BUDGET, aNodeFragId);
     }
 
-    private boolean deleteNodeFragWorkTaskBudget(FmmCompletionNode aCompletionNode, boolean bAtomicTransaction) {
-        return deleteSimpleIdTableRow(FmmNodeDefinition.NODE_FRAG__WORK_TASK_BUDGET, NodeFragMetaData.column_PARENT_ID, aCompletionNode.getNodeIdString(), bAtomicTransaction);
+    private boolean deleteNodeFragTaskPointBudget(FmmCompletionNode aCompletionNode, boolean bAtomicTransaction) {
+        return deleteSimpleIdTableRow(FmmNodeDefinition.NODE_FRAG__TASK_POINT_BUDGET, NodeFragMetaData.column_PARENT_ID, aCompletionNode.getNodeIdString(), bAtomicTransaction);
     }
 
 

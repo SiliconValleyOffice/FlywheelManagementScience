@@ -110,7 +110,7 @@ public class HeadlineNodeTrash extends FmmNodeFragImpl {
         this.serializedFseDocument = anFmmCompletionNode.getFseDocument().getSerialized();
         this.serializedGovernance = anFmmCompletionNode.getNodeFragGovernance().getSerialized();
         this.serializedTribKnQuality = anFmmCompletionNode.getNodeFragTribKnQuality().getSerialized();
-        this.serializedWorkTaskBudget = anFmmCompletionNode.getNodeFragWorkTaskBudget().getSerialized();
+        this.serializedWorkTaskBudget = anFmmCompletionNode.getNodeFragTaskPointBudget().getSerialized();
     }
 
 	// rehydrate from database

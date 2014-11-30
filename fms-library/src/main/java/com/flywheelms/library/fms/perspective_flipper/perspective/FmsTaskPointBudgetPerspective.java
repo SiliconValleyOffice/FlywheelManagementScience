@@ -1,5 +1,5 @@
-/* @(#)TaskCountEditInteger.java
- **
+/* @(#)FmsTaskPointBudgetPerspective.java
+ ** 
  ** Copyright (C) 2012 by Steven D. Stamps
  **
  **             Trademarks & Copyrights
@@ -41,33 +41,48 @@
  ** <http://www.gnu.org/licenses/gpl-3.0.html>.
  */
 
-package com.flywheelms.library.fms.widget.edit_integer;
+package com.flywheelms.library.fms.perspective_flipper.perspective;
 
 import android.content.Context;
 import android.util.AttributeSet;
 
-import com.flywheelms.gcongui.gcg.GcgApplication;
-import com.flywheelms.gcongui.gcg.widget.GcgWidgetEditInteger;
+import com.flywheelms.gcongui.gcg.interfaces.GcgPerspective;
 import com.flywheelms.library.R;
+import com.flywheelms.library.fmm.context.FmmPerspective;
+import com.flywheelms.library.fms.helper.FmsHelpIndex;
 
-// com.flywheelms.library.fms.widget.edit_integer.TaskCountEditInteger
-public class TaskCountEditInteger extends GcgWidgetEditInteger {
 
-    public TaskCountEditInteger(Context aContext) {
-        super(aContext);
+public class FmsTaskPointBudgetPerspective extends FmsPerspectiveFlipperView {
+
+	private GcgPerspective gcgPerspective = FmmPerspective.TASK_POINT_BUDGET;
+
+	@Override
+	public GcgPerspective getGcgPerspective() {
+		return this.gcgPerspective;
+	}
+
+	public FmsTaskPointBudgetPerspective(Context context, AttributeSet attrs) {
+        super(context, attrs);
     }
 
-    public TaskCountEditInteger(Context aContext, AttributeSet anAttributeSet) {
-        super(aContext, anAttributeSet);
-    }
+	@Override
+	protected int getPageTitleResourceId() {
+		return this.gcgPerspective.getNameStringResourceId();
+	}
 
-    public TaskCountEditInteger(Context aContext, AttributeSet anAttributeSet, int aStyleDefinition) {
-        super(aContext, anAttributeSet, aStyleDefinition);
-    }
+	@Override
+	protected int getViewLayoutResourceId() {
+		return R.layout.fms_view__task_point_budget;
+	}
 
     @Override
-    protected String getLabelText() {
-        return GcgApplication.getAppResources().getString(R.string.task_points);
+    public int getFrameMenuSpacerBackgroundResourceId() {
+        return R.color.gcg__perspective__background;
     }
+
+	@Override
+	protected String getHelpContextUrlString() {
+		return FmsHelpIndex.PERSPECTIVE__WORK_TASK_BUDGET;
+	}
 
 }

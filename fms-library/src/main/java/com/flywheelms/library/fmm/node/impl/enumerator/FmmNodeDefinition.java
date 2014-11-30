@@ -107,8 +107,8 @@ import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragAuditBlock;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragCompletion;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragFseDocument;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragGovernance;
+import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragTaskPointBudget;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragTribKnQuality;
-import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragWorkTaskBudget;
 import com.flywheelms.library.fmm.node.impl.supporting.ServiceRequestTriageLog;
 import com.flywheelms.library.fmm.node.impl.supporting.TribKnQualityEnumeration;
 import com.flywheelms.library.fmm.node.impl.wonky.CommunityMemberOrganizationGovernanceAuthority;
@@ -732,12 +732,12 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // medium drawables
     		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // large drawables
     		10039 ),
-    NODE_FRAG__WORK_TASK_BUDGET (
-    		NodeFragWorkTaskBudget.class,
+    NODE_FRAG__TASK_POINT_BUDGET(
+    		NodeFragTaskPointBudget.class,
     		"NFB",
-    		R.string.fmm_node_definition__node_frag__work_task_budget__term,
-    		R.string.fmm_node_definition__node_frag__work_task_budget__term,
-    		R.drawable.work_task_budget__gray,
+    		R.string.fmm_node_definition__node_frag__task_point_budget__term,
+    		R.string.fmm_node_definition__node_frag__task_point_budget__definition,
+    		R.drawable.task_point_budget__gray,
     		0,
     		R.drawable.gcg__unspecified_glyph,
     		R.drawable.gcg__unspecified_glyph,

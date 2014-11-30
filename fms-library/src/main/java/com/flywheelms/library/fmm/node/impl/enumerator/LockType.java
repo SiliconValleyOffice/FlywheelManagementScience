@@ -55,7 +55,7 @@ import java.util.Date;
 
 public enum LockType implements FmmEnumNode {
 	
-	BUDGET (R.string.lock_type__budget, R.string.lock_type__budget__description, R.drawable.work_task_budget__gray, false, false),
+	BUDGET (R.string.lock_type__budget, R.string.lock_type__budget__description, R.drawable.task_point_budget__gray, false, false),
 	NODE (R.string.lock_type__node, R.string.lock_type__node__description, R.drawable.fmm_noun__lock_type, false, false),
 	STORY (R.string.lock_type__story, R.string.lock_type__story__description, R.drawable.fse__story__gray, false, false),
 	NOTES (R.string.lock_type__notes, R.string.lock_type__notes__description, R.drawable.fse__notes__gray, false, false),

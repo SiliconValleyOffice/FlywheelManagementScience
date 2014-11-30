@@ -46,18 +46,18 @@ import com.flywheelms.library.fmm.node.impl.enumerator.CompletableWorkStatus;
 import com.flywheelms.library.fmm.node.impl.enumerator.CompletionCommitmentType;
 import com.flywheelms.library.fmm.node.impl.governable.CommunityMember;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragCompletion;
-import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragWorkTaskBudget;
+import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragTaskPointBudget;
 import com.flywheelms.library.fmm.node.interfaces.FmmSequencedNode;
 
 import java.util.Date;
 
 public interface FmmCompletionNode extends FmmGovernableNode, FmmSequencedNode {
 	
-	NodeFragWorkTaskBudget getNodeFragWorkTaskBudget();
+	NodeFragTaskPointBudget getNodeFragTaskPointBudget();
 
-    NodeFragWorkTaskBudget getUpdatedNodeFragWorkTaskBudget();
+    NodeFragTaskPointBudget getUpdatedNodeFragTaskPointBudget();
 	
-	void setNodeFragWorkTaskBudget(NodeFragWorkTaskBudget aNodeFragWorkTaskBudget);
+	void setNodeFragTaskPointBudget(NodeFragTaskPointBudget aNodeFragTaskPointBudget);
 	
 	NodeFragCompletion getNodeFragCompletion();
 	

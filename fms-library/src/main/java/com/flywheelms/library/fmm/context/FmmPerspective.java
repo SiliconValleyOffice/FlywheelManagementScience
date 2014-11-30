@@ -53,7 +53,7 @@ public class FmmPerspective extends GcgPerspective {
     public static FmmPerspective BUDGETING = new FmmPerspective(
             R.string.fmm_perspective__budgeting,
             R.string.fmm_perspective_definition__budgeting,
-            R.drawable.perspective__work_task_budget,
+            R.drawable.perspective__task_point_budget,
 //			R.id.perspective_button__analysis,
             0,
                     3,
@@ -413,6 +413,19 @@ public class FmmPerspective extends GcgPerspective {
 
     ));
 
+    public static FmmPerspective TASK_POINT_BUDGET = new FmmPerspective(
+            R.string.fmm_perspective__task_point_budget,
+            R.string.fmm_perspective_definition__task_point_budget,
+            R.drawable.perspective__task_point_budget,
+//			R.id.perspective_button__community,
+            0,
+            6,
+            true,
+            true,
+            false,
+            new ArrayList<FmmNodeDefinition>(
+            ));
+
     public static FmmPerspective TRIBKN = new FmmPerspective(
             R.string.fmm_perspective__tribkn,
             R.string.fmm_perspective_definition__tribkn,
@@ -480,21 +493,7 @@ public class FmmPerspective extends GcgPerspective {
 
     ));
 
-    public static FmmPerspective WORK_TASK_BUDGET = new FmmPerspective(
-            R.string.fmm_perspective__work_task_budget,
-            R.string.fmm_perspective_definition__work_task_budget,
-            R.drawable.perspective__work_task_budget,
-//			R.id.perspective_button__community,
-            0,
-            6,
-            true,
-            true,
-            false,
-            new ArrayList<FmmNodeDefinition>(
-            ));
-
     static {
-        GcgPerspective.VALUES.add(NOTEBOOK);
         GcgPerspective.VALUES.add(BUDGETING);
         GcgPerspective.VALUES.add(COMMITMENTS);
         GcgPerspective.VALUES.add(COMMUNITY);
@@ -508,13 +507,15 @@ public class FmmPerspective extends GcgPerspective {
         GcgPerspective.VALUES.add(GOVERNANCE);
         GcgPerspective.VALUES.add(GOVERNANCE_TEAMS);
         GcgPerspective.VALUES.add(HISTORY);
+        GcgPerspective.VALUES.add(NOTEBOOK);
         GcgPerspective.VALUES.add(NOTES);
         GcgPerspective.VALUES.add(PROPOSED_COMMITMENTS);
         GcgPerspective.VALUES.add(SERVICE_DELIVERY);
+        GcgPerspective.VALUES.add(STORY);
         GcgPerspective.VALUES.add(STRATEGIC_PLANNING);
         GcgPerspective.VALUES.add(STRATEGY_TEAMS);
-        GcgPerspective.VALUES.add(STORY);
         GcgPerspective.VALUES.add(SUGGESTED_COMMITMENTS);
+        GcgPerspective.VALUES.add(TASK_POINT_BUDGET);
         GcgPerspective.VALUES.add(TRIBKN);
         GcgPerspective.VALUES.add(WITHDRAWN_COMMITMENTS);
         GcgPerspective.VALUES.add(WORK_BREAKDOWN);

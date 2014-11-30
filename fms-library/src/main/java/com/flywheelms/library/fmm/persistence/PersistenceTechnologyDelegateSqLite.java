@@ -70,8 +70,8 @@ import com.flywheelms.library.fmm.database.sqlite.dao.NodeFragAuditBlockDaoSqLit
 import com.flywheelms.library.fmm.database.sqlite.dao.NodeFragCompletionDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.NodeFragFseDocumentDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.NodeFragGovernanceDaoSqLite;
+import com.flywheelms.library.fmm.database.sqlite.dao.NodeFragTaskPointBudgetDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.NodeFragTribKnQualityDaoSqLite;
-import com.flywheelms.library.fmm.database.sqlite.dao.NodeFragWorkTaskBudgetDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.NotebookDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.NotebookLinkToDiscussionTopicDaoSqLite;
 import com.flywheelms.library.fmm.database.sqlite.dao.OrganizationCommunityMemberDaoSqLite;
@@ -164,7 +164,7 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
             this.daoMap.put(FmmNodeDefinition.NODE_FRAG__FSE_DOCUMENT, NodeFragFseDocumentDaoSqLite.getInstance());
             this.daoMap.put(FmmNodeDefinition.NODE_FRAG__GOVERNANCE, NodeFragGovernanceDaoSqLite.getInstance());
             this.daoMap.put(FmmNodeDefinition.NODE_FRAG__TRIBKN_QUALITY, NodeFragTribKnQualityDaoSqLite.getInstance());
-            this.daoMap.put(FmmNodeDefinition.NODE_FRAG__WORK_TASK_BUDGET, NodeFragWorkTaskBudgetDaoSqLite.getInstance());
+            this.daoMap.put(FmmNodeDefinition.NODE_FRAG__TASK_POINT_BUDGET, NodeFragTaskPointBudgetDaoSqLite.getInstance());
             this.daoMap.put(FmmNodeDefinition.NOTEBOOK, NotebookDaoSqLite.getInstance());
             this.daoMap.put(FmmNodeDefinition.NOTEBOOK_LINK_TO_DISCUSSION_TOPIC, NotebookLinkToDiscussionTopicDaoSqLite.getInstance());
             this.daoMap.put(FmmNodeDefinition.ORGANIZATION_COMMUNITY_MEMBER, OrganizationCommunityMemberDaoSqLite.getInstance());

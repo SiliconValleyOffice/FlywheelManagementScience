@@ -1,5 +1,5 @@
-/* @(#)FmsCommunityPerspective.java
- ** 
+/* @(#)TaskCountEditInteger.java
+ **
  ** Copyright (C) 2012 by Steven D. Stamps
  **
  **             Trademarks & Copyrights
@@ -41,48 +41,33 @@
  ** <http://www.gnu.org/licenses/gpl-3.0.html>.
  */
 
-package com.flywheelms.library.fms.perspective_flipper.perspective;
+package com.flywheelms.library.fms.widget.edit_integer;
 
 import android.content.Context;
 import android.util.AttributeSet;
 
-import com.flywheelms.gcongui.gcg.interfaces.GcgPerspective;
+import com.flywheelms.gcongui.gcg.GcgApplication;
+import com.flywheelms.gcongui.gcg.widget.GcgWidgetEditInteger;
 import com.flywheelms.library.R;
-import com.flywheelms.library.fmm.context.FmmPerspective;
-import com.flywheelms.library.fms.helper.FmsHelpIndex;
 
+// com.flywheelms.library.fms.widget.edit_integer.TaskPointsEditInteger
+public class TaskPointsEditInteger extends GcgWidgetEditInteger {
 
-public class FmsWorkTaskBudgetPerspective extends FmsPerspectiveFlipperView {
-
-	private GcgPerspective gcgPerspective = FmmPerspective.WORK_TASK_BUDGET;
-
-	@Override
-	public GcgPerspective getGcgPerspective() {
-		return this.gcgPerspective;
-	}
-
-	public FmsWorkTaskBudgetPerspective(Context context, AttributeSet attrs) {
-        super(context, attrs);
+    public TaskPointsEditInteger(Context aContext) {
+        super(aContext);
     }
 
-	@Override
-	protected int getPageTitleResourceId() {
-		return this.gcgPerspective.getNameStringResourceId();
-	}
+    public TaskPointsEditInteger(Context aContext, AttributeSet anAttributeSet) {
+        super(aContext, anAttributeSet);
+    }
 
-	@Override
-	protected int getViewLayoutResourceId() {
-		return R.layout.fms_view__work_task_budget;
-	}
+    public TaskPointsEditInteger(Context aContext, AttributeSet anAttributeSet, int aStyleDefinition) {
+        super(aContext, anAttributeSet, aStyleDefinition);
+    }
 
     @Override
-    public int getFrameMenuSpacerBackgroundResourceId() {
-        return R.color.gcg__perspective__background;
+    protected String getLabelText() {
+        return GcgApplication.getAppResources().getString(R.string.task_points);
     }
-
-	@Override
-	protected String getHelpContextUrlString() {
-		return FmsHelpIndex.PERSPECTIVE__WORK_TASK_BUDGET;
-	}
 
 }
