@@ -44,7 +44,9 @@
 package com.flywheelms.gcongui.gcg.widget;
 
 import android.content.Context;
+import android.text.InputFilter;
 import android.text.InputType;
+import android.text.Spanned;
 import android.util.AttributeSet;
 
 public abstract class GcgWidgetEditInteger extends GcgWidgetEditText {
@@ -65,6 +67,23 @@ public abstract class GcgWidgetEditInteger extends GcgWidgetEditText {
 	public int getInputType() {
 		return InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL;
 	}
+
+    protected void setup() {
+        super.setup();
+        InputFilter theInputFilter = new InputFilter() {
+
+            public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+                for (int theIndex = start; theIndex < end; theIndex++) {
+                    Character theCharacter = source.charAt(theIndex);
+                    if (!Character.isDigit(theCharacter)) {
+                        return "";
+                    }
+                }
+                return null;
+            }
+        };
+        this.editText.setFilters(new InputFilter[]{theInputFilter});
+    }
 
     public void setInitialValue() {
         setBaselineValue("0");
