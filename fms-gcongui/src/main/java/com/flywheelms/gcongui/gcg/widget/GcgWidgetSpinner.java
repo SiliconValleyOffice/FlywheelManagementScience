@@ -184,7 +184,7 @@ public abstract class GcgWidgetSpinner extends GcgWidget {
 				this.spinner.setBackgroundResource(R.color.gcg__widget_data__background_color__disabled);
 			}
 			setInitialValue();
-			manageBackgroundState();
+			manageWidgetGuiState();
 		}
 	}
 
@@ -206,7 +206,7 @@ public abstract class GcgWidgetSpinner extends GcgWidget {
 
     public void setInputRequired(boolean bRequired) {
         this.inputRequired = bRequired;
-        manageBackgroundState();
+        manageWidgetGuiState();
     }
 	
 	public ArrayList<String> getRowStringList() {
@@ -221,7 +221,9 @@ public abstract class GcgWidgetSpinner extends GcgWidget {
 		return false;
 	}
 
-	protected void manageBackgroundState() {
+	@Override
+    protected void manageWidgetGuiState() {
+        super.manageWidgetGuiState();
 		setDataStatus(isMinimumInput());
 	}
 
@@ -244,7 +246,7 @@ public abstract class GcgWidgetSpinner extends GcgWidget {
 		this.arrayAdapter = new GcgGuiableSpinnerArrayAdapter(getContext(), new ArrayList<GcgGuiable>(this.gcgGuiableList), isDisplayOnlyDrawable());
 		this.spinner.setAdapter(this.arrayAdapter);
 		setInitialSelection(thePosition);
-		manageBackgroundState();
+		manageWidgetGuiState();
 	}
 
 	public void updateSpinnerData() {
@@ -256,15 +258,21 @@ public abstract class GcgWidgetSpinner extends GcgWidget {
 		this.arrayAdapter = new GcgGuiableSpinnerArrayAdapter(getContext(), new ArrayList<GcgGuiable>(this.gcgGuiableList), isDisplayOnlyDrawable());
 		this.spinner.setAdapter(this.arrayAdapter);
 		setInitialSelection();
-		manageBackgroundState();
+		manageWidgetGuiState();
 	}
 
 	protected void setInitialSelection() {
+        if(this.spinner.getCount() == 0) {
+            this.baselineValue = null;
+            return;
+        }
 		this.spinner.setSelection(0);
+        this.baselineValue = (GcgGuiable) this.spinner.getSelectedItem();
 	}
 
 	protected void setInitialSelection(int aSelection) {
 		if(this.spinner.getCount() == 0) {
+            this.baselineValue = null;
 			return;
 		}
 		if(aSelection < this.spinner.getCount()) {
@@ -272,6 +280,7 @@ public abstract class GcgWidgetSpinner extends GcgWidget {
 		} else {
 			this.spinner.setSelection(this.spinner.getCount() - 1);
 		}
+        this.baselineValue = (GcgGuiable) this.spinner.getSelectedItem();
 	}
 
 	@Override
@@ -290,7 +299,9 @@ public abstract class GcgWidgetSpinner extends GcgWidget {
 	}
 
 	public void setSelection(GcgGuiable aGuiable) {
-		this.spinner.setSelection(this.arrayAdapter.getPosition(aGuiable));
+        if(aGuiable != null) {
+            this.spinner.setSelection(this.arrayAdapter.getPosition(aGuiable));
+        }
 	}
 
 	public void setSelection(int aPosition) {
@@ -338,14 +349,16 @@ public abstract class GcgWidgetSpinner extends GcgWidget {
 
 	@Override
 	public void setInitialValue() {
-		setSelection(0);
-		setOriginalValue(getSelectedItem());
+		if(gcgGuiableList == null || gcgGuiableList.size() == 0) {
+            this.baselineValue = null;
+            return;
+        }
+		setBaselineValue(gcgGuiableList.get(0));
 	}
 
 	@Override
 	public void setInitialValue(Object anObject) {
-		setOriginalValue(anObject);
-		setSelection((GcgGuiable) anObject);
+		setBaselineValue((GcgGuiable) anObject);
 	}
 	
 	@Override
@@ -445,5 +458,19 @@ public abstract class GcgWidgetSpinner extends GcgWidget {
 		}
 		this.spinner.setEnabled(bEnabled);
 	}
+
+    public void setBaselineValue(GcgGuiable aGcgGuiable) {
+        this.baselineValue = aGcgGuiable;
+        setSelection(aGcgGuiable);
+        manageWidgetGuiState();
+    }
+
+    public GcgGuiable getBaselineValue() {
+        return (GcgGuiable) this.baselineValue;
+    }
+
+    public boolean isModified() {
+        return ! getBaselineValue().equals(getData());
+    }
 
 }

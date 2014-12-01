@@ -66,7 +66,7 @@ public class CompletableWorkStatusWidgetSpinner extends GcgWidgetSpinner {
 
 	@Override
 	public void setInitialValue() {
-		setOriginalValue(CompletableWorkStatus.STARTED);
+		setBaselineValue(CompletableWorkStatus.STARTED);
 		setSelection(CompletableWorkStatus.STARTED);
 	}
 

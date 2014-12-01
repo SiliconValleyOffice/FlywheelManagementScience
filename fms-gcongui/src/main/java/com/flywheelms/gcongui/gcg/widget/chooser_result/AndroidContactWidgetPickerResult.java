@@ -118,7 +118,7 @@ public class AndroidContactWidgetPickerResult extends GcgWidgetTextView {
 				return true;
 			}
 		});
-		manageBackgroundState();
+		manageWidgetGuiState();
 	}
 
 	private void onPopupMenu(MenuItem aSelectedMenuItem) {
@@ -153,7 +153,7 @@ public class AndroidContactWidgetPickerResult extends GcgWidgetTextView {
 		if(anIntent.getData() != null) {
 			this.androidContact = new AndroidContact(this.gcgActivity, anIntent);
 			this.textView.setText(this.androidContact.getDisplayName());
-			manageBackgroundState();
+			manageWidgetGuiState();
 		}
 	}
 
@@ -161,7 +161,8 @@ public class AndroidContactWidgetPickerResult extends GcgWidgetTextView {
 		onPickerResult(anIntent);
 	}
 
-    protected void manageBackgroundState() {
+    @Override
+    protected void manageWidgetGuiState() {
         this.textView.setBackgroundResource(isMinimumInput() ?
                 R.drawable.gcg__background_state_list__edit_text :
                 R.drawable.gcg__background_state_list__edit_text__invalid );

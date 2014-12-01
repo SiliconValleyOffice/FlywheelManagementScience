@@ -76,7 +76,7 @@ public abstract class GcgWidgetTextView extends GcgWidget {
 			setTransparentBackground();
 		}
 		setInitialValue();
-		manageBackgroundState();
+		manageWidgetGuiState();
 	}
 
     protected boolean isTransparentBackground() {
@@ -114,7 +114,8 @@ public abstract class GcgWidgetTextView extends GcgWidget {
 		this.textView.setText(((GcgGuiable) anObject).toString());
 	}
 
-	protected void manageBackgroundState() {
+	@Override
+    protected void manageWidgetGuiState() {
 		this.textView.setBackgroundResource(isMinimumInput() ?
 				isTransparentBackground() ? R.color.gcg__transparent : R.drawable.gcg__edit_text :
 				R.drawable.gcg__edit_text__invalid);
@@ -126,7 +127,7 @@ public abstract class GcgWidgetTextView extends GcgWidget {
 
 	protected void clearInput() {
 		this.textView.setText("");
-		manageBackgroundState();
+		manageWidgetGuiState();
 	}
 	
 	protected boolean isMinimumLength() {
@@ -166,7 +167,7 @@ public abstract class GcgWidgetTextView extends GcgWidget {
 
 	@Override
 	public void setInitialValue(Object anObject) {
-		setOriginalValue(anObject);
+		setBaselineValue(anObject);
 		setData(anObject);
 	}
 

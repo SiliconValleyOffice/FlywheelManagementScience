@@ -66,7 +66,7 @@ public class AssignmentCommitmentTypeWidgetSpinner extends GcgWidgetSpinner {
 
 	@Override
 	public void setInitialValue() {
-		setOriginalValue(AssignmentCommitmentType.NONE);
+		setBaselineValue(AssignmentCommitmentType.NONE);
 		setSelection(AssignmentCommitmentType.NONE);
 	}
 

@@ -138,7 +138,7 @@ public class HeadlineNodeHeadlineEditDialog extends FmsCancelOkFdkDialog {
 
 			@Override
 			public void afterTextChanged(Editable s) {
-				HeadlineNodeHeadlineEditDialog.this.newHeadlineWidget.manageBackgroundState();
+				HeadlineNodeHeadlineEditDialog.this.newHeadlineWidget.manageWidgetGuiState();
 				HeadlineNodeHeadlineEditDialog.this.manageButtonState();
 			}
 		});

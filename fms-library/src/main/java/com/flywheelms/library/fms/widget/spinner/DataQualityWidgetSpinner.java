@@ -66,7 +66,7 @@ public class DataQualityWidgetSpinner extends GcgWidgetSpinner {
 
 	@Override
 	public void setInitialValue() {
-		setOriginalValue(FmmDataQuality.NONE);
+		setBaselineValue(FmmDataQuality.NONE);
 		setSelection(FmmDataQuality.NONE);
 	}
 

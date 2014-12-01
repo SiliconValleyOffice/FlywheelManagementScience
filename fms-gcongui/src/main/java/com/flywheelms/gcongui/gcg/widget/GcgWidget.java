@@ -58,6 +58,7 @@ import android.widget.TextView;
 import com.flywheelms.gcongui.R;
 import com.flywheelms.gcongui.fdk.interfaces.FdkDictationResultsConsumer;
 import com.flywheelms.gcongui.fdk.interfaces.FdkListener;
+import com.flywheelms.gcongui.gcg.GcgApplication;
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.gcongui.gcg.button.multi_shift.GcgMultiShiftState;
 import com.flywheelms.gcongui.gcg.dialog.GcgDialog;
@@ -103,7 +104,7 @@ public abstract class GcgWidget extends RelativeLayout implements FdkDictationRe
 	protected RelativeLayout labelContainer;
 	protected TextView labelTextView;
 	protected String labelTextString;
-	protected Object originalValue;
+	protected Object baselineValue;
 	protected String labelPrefix = "";
 	protected String labelSuffix = "";
 	protected String labelHint = "";
@@ -118,6 +119,7 @@ public abstract class GcgWidget extends RelativeLayout implements FdkDictationRe
 	protected boolean isFiltered = false;
 	protected boolean noLabel = false;
     protected int dataFormat = 1;
+    protected boolean manageLabelGuiState = false;
 
 	public int getInputType() {
 		return InputType.TYPE_NULL;
@@ -158,7 +160,29 @@ public abstract class GcgWidget extends RelativeLayout implements FdkDictationRe
 		return this.inputRequired;
 	}
 
-	@SuppressWarnings("incomplete-switch")
+    protected void manageWidgetGuiState() {
+        manageLabelGuiState();
+    }
+
+    protected void setManageLabelGuiState(boolean aBoolean) {
+        this.manageLabelGuiState = aBoolean;
+        manageLabelGuiState();
+    }
+
+    protected void manageLabelGuiState() {
+        if(this.labelTextView == null) {
+            return;
+        }
+        if(this.manageLabelGuiState) {
+            this.labelTextView.setTextColor(isModified() ?
+                    GcgApplication.getAppResources().getColor(R.color.gcg__widget_label__text_color__modified) :
+                    GcgApplication.getAppResources().getColor(R.color.gcg__widget_label__text_color__unchanged) );
+        } else {
+            this.labelTextView.setTextColor(GcgApplication.getAppResources().getColor(R.color.gcg__widget_label__text_color__unchanged));
+        }
+    }
+
+    @SuppressWarnings("incomplete-switch")
 	protected void processCustomAttributes(Context aContext, AttributeSet anAttributeSet) {
 		processGcgLabelAttributes(aContext, anAttributeSet);
 		TypedArray aTypedArray = aContext.obtainStyledAttributes(anAttributeSet, R.styleable.GcgWidget);
@@ -384,12 +408,12 @@ public abstract class GcgWidget extends RelativeLayout implements FdkDictationRe
 	
 	public abstract void setData(Object anObject);
 	
-	public Object getOriginalValue() {
-		return this.originalValue;
+	public Object getBaselineValue() {
+		return this.baselineValue;
 	}
 	
-	public void setOriginalValue(Object anObject) {
-		this.originalValue = anObject;
+	public void setBaselineValue(Object anObject) {
+		this.baselineValue = anObject;
 	}
 	
 	public void setContainerWidth(int aContainerWidthInDp) {
@@ -507,5 +531,7 @@ public abstract class GcgWidget extends RelativeLayout implements FdkDictationRe
     		theOnSetTextListener.onSetText(this, aString);
     	}
     }
+
+    public boolean isModified() { return false; }
 
 }

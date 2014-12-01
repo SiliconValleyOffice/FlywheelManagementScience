@@ -67,7 +67,7 @@ public abstract class GcgWidgetEditInteger extends GcgWidgetEditText {
 	}
 
     public void setInitialValue() {
-        this.editText.setText("0");
+        setBaselineValue("0");
     }
 
     protected void manageEmptyContents() {

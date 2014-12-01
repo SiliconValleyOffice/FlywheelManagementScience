@@ -138,7 +138,7 @@ public abstract class GcgWidgetEditText extends GcgWidget {
 			@Override
 			public void afterTextChanged(Editable s) {
                 GcgWidgetEditText.this.manageEmptyContents();
-				GcgWidgetEditText.this.manageBackgroundState();
+				GcgWidgetEditText.this.manageWidgetGuiState();
 			}
 		});
 		if(! this.inputEnabled) {
@@ -146,8 +146,23 @@ public abstract class GcgWidgetEditText extends GcgWidget {
 		}
 		setInitialValue();
         manageEmptyContents();
-		manageBackgroundState();
+		manageWidgetGuiState();
 	}
+
+    public void setBaselineValue(String aBaselineValue) {
+        this.baselineValue = aBaselineValue;
+        this.editText.setText(aBaselineValue);
+        manageEmptyContents();
+        manageWidgetGuiState();
+    }
+
+    public String getBaselineValue() {
+        return (String) this.baselineValue;
+    }
+
+    public boolean isModified() {
+        return ! getBaselineValue().equals(getData());
+    }
 
     protected void manageEmptyContents() {
         return;
@@ -159,7 +174,9 @@ public abstract class GcgWidgetEditText extends GcgWidget {
 		this.editText.setGcgWidgetEditText(this);
 	}
 
-	public void manageBackgroundState() {
+	@Override
+    public void manageWidgetGuiState() {
+        super.manageWidgetGuiState();
 		setDataStatus(isMinimumInput());
 	}
 

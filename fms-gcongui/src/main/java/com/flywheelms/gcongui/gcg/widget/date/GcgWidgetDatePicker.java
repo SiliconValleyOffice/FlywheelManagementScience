@@ -143,7 +143,7 @@ public class GcgWidgetDatePicker extends GcgWidgetTextView {
 	protected void setSelectedDate(int aYear, int aMonth, int aDay) {
 		this.gregorianCalendar.set(aYear, aMonth, aDay);
 		setText(getDateString());
-		manageBackgroundState();
+		manageWidgetGuiState();
 	}
 
     private String getDateString() {
@@ -197,7 +197,7 @@ public class GcgWidgetDatePicker extends GcgWidgetTextView {
 		this.enabled = bEnabled;
 		this.textView.setEnabled(bEnabled);
 		this.textView.setClickable(bEnabled);
-		manageBackgroundState();
+		manageWidgetGuiState();
 	}
 	
 	public boolean enabled() {
@@ -205,7 +205,7 @@ public class GcgWidgetDatePicker extends GcgWidgetTextView {
 	}
 
 	@Override
-	protected void manageBackgroundState() {
+	protected void manageWidgetGuiState() {
 		this.textView.setBackgroundResource(enabled() ? isMinimumInput() ?
 					R.drawable.gcg__date_picker__background : R.drawable.gcg__button_state_list__date_picker__background__invalid : R.color.w3c__silver);
 	}

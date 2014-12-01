@@ -70,4 +70,10 @@ public class TaskPointsEditInteger extends GcgWidgetEditInteger {
         return GcgApplication.getAppResources().getString(R.string.task_points);
     }
 
+    @Override
+    protected void setup() {
+        setManageLabelGuiState(true);
+        super.setup();
+    }
+
 }

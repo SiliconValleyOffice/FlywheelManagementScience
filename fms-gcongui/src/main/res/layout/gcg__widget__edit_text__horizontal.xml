@@ -16,7 +16,7 @@
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:visibility="gone"
-        android:background="@color/x11__Orange" />
+        android:background="@color/fdk__cursor" />
 
     <com.flywheelms.gcongui.gcg.widget.GcgEditText
         android:id="@+id/widget_data"

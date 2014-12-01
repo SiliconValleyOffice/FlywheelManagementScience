@@ -19,7 +19,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginBottom="15dp"
         android:checked="true"
-        android:textColor="@color/gcg__widget_label__text_color"
+        android:textColor="@color/gcg__widget_label__text_color__unchanged"
         android:text="@string/fse__document_section__story" />
     
     <CheckBox 
@@ -29,7 +29,7 @@
     	android:layout_marginLeft="30dp"
         android:layout_marginBottom="30dp"
         android:checked="true"
-        android:textColor="@color/gcg__widget_label__text_color"
+        android:textColor="@color/gcg__widget_label__text_color__unchanged"
         android:text="@string/fse__document_section__notes" />
         
 </LinearLayout>

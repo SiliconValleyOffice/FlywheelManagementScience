@@ -56,7 +56,7 @@ public class HeadlineWidgetEditText extends GcgWidgetEditText {
 		setInitialMultiShiftState(GcgMultiShiftState.CAMEL_CASE);
 		resetMultiShiftStateAfterDictation(true);
 		this.minimumDataLength = 3;
-		manageBackgroundState();
+		manageWidgetGuiState();
 	} 
 	
 	@Override
