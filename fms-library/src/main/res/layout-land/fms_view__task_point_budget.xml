@@ -15,7 +15,7 @@
 
         <com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear
             android:id="@+id/group_box__estimate"
-            android:layout_width="405dp"
+            android:layout_width="320dp"
             android:layout_height="160dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
@@ -30,14 +30,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
-                gcg:labelWidth="100"
+                gcg:labelWidth="225"
+                gcg:fdkCursorEnabled="true" />
+
+            <com.flywheelms.library.fms.widget.edit_float.AverageHoursPerTaskPointEditFloat
+                android:id="@+id/estimate__average_hours_per_task_point"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                gcg:labelWidth="225"
                 gcg:fdkCursorEnabled="true" />
 
         </com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear>
 
         <com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear
             android:id="@+id/group_box__budget"
-            android:layout_width="405dp"
+            android:layout_width="320dp"
             android:layout_height="160dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
@@ -52,7 +60,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
-                gcg:labelWidth="100"
+                gcg:labelWidth="225"
+                gcg:fdkCursorEnabled="true" />
+
+            <com.flywheelms.library.fms.widget.edit_float.AverageHoursPerTaskPointEditFloat
+                android:id="@+id/budget__average_hours_per_task_point"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                gcg:labelWidth="225"
                 gcg:fdkCursorEnabled="true" />
 
         </com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear>
