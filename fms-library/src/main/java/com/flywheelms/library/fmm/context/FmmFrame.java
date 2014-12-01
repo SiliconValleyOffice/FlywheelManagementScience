@@ -90,10 +90,11 @@ public class FmmFrame extends GcgFrame {
             FmmPerspective.GOVERNANCE_TEAMS }); // 4
     
     public static FmmFrame TRIBKN = new FmmFrame(R.string.fmm_frame__tribkn, R.string.fmm_frame_definition__tribkn, new FmmPerspective[] {  // SWAG
-			FmmPerspective.DECKANGL,      // 1
-            FmmPerspective.GOVERNANCE,    // 2
-            FmmPerspective.COMMITMENTS,   // 3
-            FmmPerspective.COMMUNITY });  // 4
+			FmmPerspective.DECKANGL,          // 1
+            FmmPerspective.GOVERNANCE,        // 2
+            FmmPerspective.TASK_POINT_BUDGET, // 3
+            FmmPerspective.COMMITMENTS,       // 4
+            FmmPerspective.COMMUNITY });      // 5
     
     public static FmmFrame VELOCITY = new FmmFrame(R.string.fmm_frame__velocity, R.string.fmm_frame_definition__velocity, new FmmPerspective[] {
 			FmmPerspective.DECKANGL,    // 1

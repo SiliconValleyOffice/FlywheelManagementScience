@@ -137,7 +137,7 @@
                                 gcg:perspectiveNumber="1" />
 
                             <com.flywheelms.gcongui.gcg.menu.GcgPerspectiveMenuButton
-                                android:id="@+id/tribkn_button__work_task_budget"
+                                android:id="@+id/tribkn_button__task_point_budget"
                                 style="?android:attr/borderlessButtonStyle"
                                 android:layout_width="65dp"
                                 android:layout_height="wrap_content"
@@ -153,7 +153,7 @@
                                 style="?android:attr/borderlessButtonStyle"
                                 android:layout_width="65dp"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@id/tribkn_button__work_task_budget"
+                                android:layout_below="@id/tribkn_button__task_point_budget"
                                 android:layout_gravity="center_horizontal"
                                 android:layout_marginBottom="@dimen/gcg__menu_button__bottom_margin"
                                 android:drawableStart="@drawable/button_state_list__tribkn__commitments"

@@ -84,6 +84,8 @@ public class FmsDecKanGlNavigationComponent extends DecKanGlNavigationComponent 
 			thePerspective = FmmPerspective.GOVERNANCE;
 			break;
 		case bottom_zone_LEFT:
+            theFrame = FmmFrame.FSE;
+            thePerspective = FmmPerspective.STORY;
 			break;
 		case bottom_zone_MIDDLE:
 			break;
@@ -96,6 +98,8 @@ public class FmsDecKanGlNavigationComponent extends DecKanGlNavigationComponent 
 			thePerspective = FmmPerspective.COMMITMENTS;
 			break;
 		case left_zone_BOTTOM:
+            theFrame = FmmFrame.TRIBKN;
+            thePerspective = FmmPerspective.TASK_POINT_BUDGET;
 			break;
 		case right_zone_TOP:
 			theFrame = FmmFrame.CONTEXT_FOR_NODE;

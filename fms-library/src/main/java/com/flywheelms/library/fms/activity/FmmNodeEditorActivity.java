@@ -292,7 +292,7 @@ public abstract class FmmNodeEditorActivity extends FmsHorizontalNodeNavigatorAc
 		ArrayList<Button> thePerspectiveButtonList = new ArrayList<Button>();
 		thePerspectiveButtonList.add((GcgPerspectiveMenuButton) getFdkKeypadPeerViewLeft().findViewById(R.id.tribkn_button__deckangl));
 		thePerspectiveButtonList.add((GcgPerspectiveMenuButton) getFdkKeypadPeerViewLeft().findViewById(R.id.tribkn_button__governance));
-		thePerspectiveButtonList.add((GcgPerspectiveMenuButton) getFdkKeypadPeerViewLeft().findViewById(R.id.tribkn_button__work_task_budget));
+		thePerspectiveButtonList.add((GcgPerspectiveMenuButton) getFdkKeypadPeerViewLeft().findViewById(R.id.tribkn_button__task_point_budget));
 		thePerspectiveButtonList.add((GcgPerspectiveMenuButton) getFdkKeypadPeerViewLeft().findViewById(R.id.tribkn_button__commitments));
 		thePerspectiveButtonList.add((GcgPerspectiveMenuButton) getFdkKeypadPeerViewLeft().findViewById(R.id.tribkn_button__community));
 		TextView theMenuSpacer = (TextView) getFdkKeypadPeerViewLeft().findViewById(R.id.left_menu__filler);
