@@ -47,23 +47,61 @@ import android.content.Context;
 import android.util.AttributeSet;
 
 import com.flywheelms.gcongui.gcg.interfaces.GcgPerspective;
+import com.flywheelms.gcongui.gcg.widget.text_view.GcgWidgetGenericTextView;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.context.FmmPerspective;
 import com.flywheelms.library.fms.helper.FmsHelpIndex;
+import com.flywheelms.library.fms.widget.edit_float.AverageHoursPerTaskPointWidgetEditFloat;
+import com.flywheelms.library.fms.widget.edit_integer.TaskPointsWidgetEditInteger;
+import com.flywheelms.library.fms.widget.spinner.FmmDataQualityWidgetSpinner;
+import com.flywheelms.library.fms.widget.text_view.ByCommunityMemberWidgetTextView;
+import com.flywheelms.library.fms.widget.text_view.TimestampWidgetTextView;
 
 
 public class FmsTaskPointBudgetPerspective extends FmsPerspectiveFlipperView {
 
-	private GcgPerspective gcgPerspective = FmmPerspective.TASK_POINT_BUDGET;
+    private GcgPerspective gcgPerspective = FmmPerspective.TASK_POINT_BUDGET;
+    
+    private TaskPointsWidgetEditInteger estimateTaskPointsWidget;
+    private AverageHoursPerTaskPointWidgetEditFloat estimateAverageHoursPerTaskPointWidget;
+    private ByCommunityMemberWidgetTextView estimateByCommunityMemberWidget;
+    private TimestampWidgetTextView estimateTimestampWidget;
+    private FmmDataQualityWidgetSpinner estimateDataQualityWidget;
+    private TaskPointsWidgetEditInteger budgetTaskPointsWidget;
+    private AverageHoursPerTaskPointWidgetEditFloat budgetAverageHoursPerTaskPointWidget;
+    private ByCommunityMemberWidgetTextView budgetByCommunityMemberWidget;
+    private TimestampWidgetTextView budgetTimestampWidget;
+    private FmmDataQualityWidgetSpinner budgetDataQualityWidget;
+    private GcgWidgetGenericTextView workBreakdownEstimateTaskPoints;
+    private GcgWidgetGenericTextView workBreakdownEstimateAverageHoursPerTaskPoint;
+    private GcgWidgetGenericTextView workBreakdownBudgetTaskPoints;
+    private GcgWidgetGenericTextView workBreakdownBudgetAverageHoursPerTaskPoint;
+    private GcgWidgetGenericTextView completionTaskPoints;
+    private GcgWidgetGenericTextView completionAverageHoursPerTaskPoint;
 
-	@Override
+    public FmsTaskPointBudgetPerspective(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        setup();
+    }
+
+    private void setup() {
+        this.estimateTaskPointsWidget = (TaskPointsWidgetEditInteger) findViewById(R.id.estimate__task_points);
+        this.estimateAverageHoursPerTaskPointWidget = (AverageHoursPerTaskPointWidgetEditFloat) findViewById(R.id.estimate__average_hours_per_task_point);
+        this.estimateByCommunityMemberWidget = (ByCommunityMemberWidgetTextView) findViewById(R.id.estimate__by_community_member);
+        this.estimateTimestampWidget = (TimestampWidgetTextView) findViewById(R.id.estimate__timestamp);
+        this.estimateDataQualityWidget= (FmmDataQualityWidgetSpinner) findViewById(R.id.estimate__data_quality);
+
+        this.budgetTaskPointsWidget = (TaskPointsWidgetEditInteger) findViewById(R.id.budget__task_points);
+        this.budgetAverageHoursPerTaskPointWidget = (AverageHoursPerTaskPointWidgetEditFloat) findViewById(R.id.budget__average_hours_per_task_point);
+        this.budgetByCommunityMemberWidget = (ByCommunityMemberWidgetTextView) findViewById(R.id.budget__by_community_member);
+        this.budgetTimestampWidget = (TimestampWidgetTextView) findViewById(R.id.budget__timestamp);
+        this.budgetDataQualityWidget= (FmmDataQualityWidgetSpinner) findViewById(R.id.budget__data_quality);
+    }
+
+    @Override
 	public GcgPerspective getGcgPerspective() {
 		return this.gcgPerspective;
 	}
-
-	public FmsTaskPointBudgetPerspective(Context context, AttributeSet attrs) {
-        super(context, attrs);
-    }
 
 	@Override
 	protected int getPageTitleResourceId() {
@@ -84,5 +122,7 @@ public class FmsTaskPointBudgetPerspective extends FmsPerspectiveFlipperView {
 	protected String getHelpContextUrlString() {
 		return FmsHelpIndex.PERSPECTIVE__WORK_TASK_BUDGET;
 	}
+    
+    
 
 }

@@ -1,4 +1,4 @@
-/* @(#)AssignmentCommitmentTypeWidgetSpinner.java
+/* @(#)FmmDataQualityWidgetSpinner.java
  ** 
  ** Copyright (C) 2012 by Steven D. Stamps
  **
@@ -46,22 +46,25 @@ package com.flywheelms.library.fms.widget.spinner;
 import android.content.Context;
 import android.util.AttributeSet;
 
+import com.flywheelms.gcongui.gcg.GcgApplication;
 import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
 import com.flywheelms.gcongui.gcg.widget.GcgWidgetSpinner;
+import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.enumerator.FmmDataQuality;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class DataQualityWidgetSpinner extends GcgWidgetSpinner {
+// com.flywheelms.library.fms.widget.spinner.FmmDataQualityWidgetSpinner
+public class FmmDataQualityWidgetSpinner extends GcgWidgetSpinner {
 
-	public DataQualityWidgetSpinner(Context aContext, AttributeSet anAttributeSet) {
+	public FmmDataQualityWidgetSpinner(Context aContext, AttributeSet anAttributeSet) {
 		super(aContext, anAttributeSet);
 	}
 
 	@Override
 	protected String getLabelText() {
-		return FmmDataQuality.NONE.getLabelText();
+		return GcgApplication.getAppResources().getString(R.string.data_quality);
 	}
 
 	@Override
@@ -75,7 +78,7 @@ public class DataQualityWidgetSpinner extends GcgWidgetSpinner {
 		return new ArrayList<GcgGuiable>(Arrays.asList(FmmDataQuality.values()));
 	}
 
-	public void setDataQuality(FmmDataQuality anFmmDataQuality) {
+	public void setAssignmentCommitmentType(FmmDataQuality anFmmDataQuality) {
 		setSelection(anFmmDataQuality);
 	}
 

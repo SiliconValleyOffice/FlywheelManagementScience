@@ -25,7 +25,8 @@
             android:id="@+id/widget__label"
             style="@style/GcgWidgetLabelHorizontalContainer"
             android:layout_centerVertical="true"
-            android:layout_toRightOf="@id/copy_button" />
+            android:layout_toRightOf="@id/copy_button"
+            android:layout_marginRight="3dp" />
     </RelativeLayout>
 
     <TextView
