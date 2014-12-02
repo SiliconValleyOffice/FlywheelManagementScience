@@ -41,12 +41,9 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="app: com.flywheelms.workbench" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c0b3b16b-24dc-4ad0-83f8-e1821de85d20" name="Default" comment="iteration - new InputFilter for GcgWidgetEditInteger">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/widget/edit_float/AverageHoursPerTaskPointEditFloat.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/widget/GcgWidgetEditFloat.java" />
+    <list default="true" id="c0b3b16b-24dc-4ad0-83f8-e1821de85d20" name="Default" comment="new GcgWidget collaborator - GcgWidgetEditFloat">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/widget/GcgWidget.java" afterPath="$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/widget/GcgWidget.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/values/fmm__strings.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/values/fmm__strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fms-library/src/main/res/layout-land/fms_view__task_point_budget.xml" afterPath="$PROJECT_DIR$/fms-library/src/main/res/layout-land/fms_view__task_point_budget.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="flywheelms-hd.iws" />
@@ -70,12 +67,30 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="GcgWidgetEditFloat.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="GcgWidgetEditFloat.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/widget/GcgWidgetEditFloat.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.1598579" vertical-offset="0" max-vertical-offset="1260">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1260">
               <caret line="51" column="40" selection-start-line="51" selection-start-column="22" selection-end-line="51" selection-end-column="40" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GcgWidget.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/widget/GcgWidget.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.1598579" vertical-offset="0" max-vertical-offset="6420">
+              <caret line="69" column="31" selection-start-line="69" selection-start-column="22" selection-end-line="69" selection-end-column="31" />
+              <folding>
+                <element signature="e#3390#3412#0" expanded="true" />
+                <element signature="e#7812#7850#0" expanded="true" />
+                <element signature="e#10851#10889#0" expanded="true" />
+                <element signature="e#13144#13311#0" expanded="true" />
+                <element signature="e#13305#13306#0" expanded="true" />
+                <element signature="e#15550#15577#1" expanded="true" />
+                <element signature="e#15637#15664#1" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -2788,7 +2803,6 @@
         <option value="$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/widget/GcgWidgetEditText.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/widget/edit_integer/TaskPointsEditInteger.java" />
         <option value="$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/widget/GcgWidgetSpinner.java" />
-        <option value="$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/widget/GcgWidget.java" />
         <option value="$PROJECT_DIR$/fms-gcongui/src/main/res/values/gcg__colors.xml" />
         <option value="$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/widget/GcgWidgetEditInteger.java" />
         <option value="$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/widget/GcgWidgetEditReal.java" />
@@ -2796,6 +2810,7 @@
         <option value="$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/widget/edit_float/AverageHoursPerTaskPointEditFloat.java" />
         <option value="$PROJECT_DIR$/fms-library/src/main/res/layout-land/fms_view__task_point_budget.xml" />
         <option value="$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/widget/GcgWidgetEditFloat.java" />
+        <option value="$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/widget/GcgWidget.java" />
       </list>
     </option>
   </component>
@@ -4337,7 +4352,11 @@
       <created>1417462107406</created>
       <updated>1417462107407</updated>
     </task>
-    <option name="localTasksCounter" value="304" />
+    <task id="LOCAL-00304" summary="new GcgWidget collaborator - GcgWidgetEditFloat">
+      <created>1417469231001</created>
+      <updated>1417469231001</updated>
+    </task>
+    <option name="localTasksCounter" value="305" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -4422,7 +4441,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="new feature - add Governance tab to FmsDictionaryDialog" />
     <MESSAGE value="incremental - massive refactor of FmmDatabaseMediator and collaborators" />
     <MESSAGE value="incremental - convert interface WorkAsset to a class and make it the super for ProjectAsset and StrategicAsset" />
     <MESSAGE value="GUI tweak - GUI Preferences dialog" />
@@ -4447,7 +4465,8 @@
     <MESSAGE value="iteration - GcgWidget framework - isModified()" />
     <MESSAGE value="GUI Tweak - modified data, label text color" />
     <MESSAGE value="iteration - new InputFilter for GcgWidgetEditInteger" />
-    <option name="LAST_COMMIT_MESSAGE" value="iteration - new InputFilter for GcgWidgetEditInteger" />
+    <MESSAGE value="new GcgWidget collaborator - GcgWidgetEditFloat" />
+    <option name="LAST_COMMIT_MESSAGE" value="new GcgWidget collaborator - GcgWidgetEditFloat" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -4836,19 +4855,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/widget/GcgWidget.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1425" max-vertical-offset="6330">
-          <caret line="170" column="0" selection-start-line="170" selection-start-column="0" selection-end-line="170" selection-end-column="0" />
-          <folding>
-            <element signature="e#6587#6588#0" expanded="true" />
-            <element signature="e#6624#6625#0" expanded="true" />
-            <element signature="e#15404#15405#0" expanded="true" />
-            <element signature="e#15417#15418#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fms-library/src/main/java/com/flywheelms/library/fms/perspective_flipper/perspective/FmsTaskPointBudgetPerspective.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="10" max-vertical-offset="585">
@@ -4909,10 +4915,10 @@
         <state vertical-scroll-proportion="-3.017857" vertical-offset="26" max-vertical-offset="675">
           <caret line="54" column="60" selection-start-line="54" selection-start-column="60" selection-end-line="54" selection-end-column="60" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2770#2771#0" expanded="true" />
-            <element signature="e#2801#2802#0" expanded="true" />
-            <element signature="e#3195#3276#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#2707#2708#0" expanded="true" />
+            <element signature="e#2738#2739#0" expanded="true" />
+            <element signature="e#3132#3213#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -4927,9 +4933,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/widget/GcgWidgetEditFloat.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1598579" vertical-offset="0" max-vertical-offset="1260">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1260">
           <caret line="51" column="40" selection-start-line="51" selection-start-column="22" selection-end-line="51" selection-end-column="40" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fms-gcongui/src/main/java/com/flywheelms/gcongui/gcg/widget/GcgWidget.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1598579" vertical-offset="0" max-vertical-offset="6420">
+          <caret line="69" column="31" selection-start-line="69" selection-start-column="22" selection-end-line="69" selection-end-column="31" />
+          <folding>
+            <element signature="e#3390#3412#0" expanded="true" />
+            <element signature="e#7812#7850#0" expanded="true" />
+            <element signature="e#10851#10889#0" expanded="true" />
+            <element signature="e#13144#13311#0" expanded="true" />
+            <element signature="e#13305#13306#0" expanded="true" />
+            <element signature="e#15550#15577#1" expanded="true" />
+            <element signature="e#15637#15664#1" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

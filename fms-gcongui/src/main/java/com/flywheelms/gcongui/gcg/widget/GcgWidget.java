@@ -120,6 +120,7 @@ public abstract class GcgWidget extends RelativeLayout implements FdkDictationRe
 	protected boolean noLabel = false;
     protected int dataFormat = 1;
     protected boolean manageLabelGuiState = false;
+    protected String modifiedLabelDecorator = "> ";
 
 	public int getInputType() {
 		return InputType.TYPE_NULL;
@@ -170,15 +171,20 @@ public abstract class GcgWidget extends RelativeLayout implements FdkDictationRe
     }
 
     protected void manageLabelGuiState() {
-        if(this.labelTextView == null) {
-            return;
-        }
-        if(this.manageLabelGuiState) {
-            this.labelTextView.setTextColor(isModified() ?
-                    GcgApplication.getAppResources().getColor(R.color.gcg__widget_label__text_color__modified) :
-                    GcgApplication.getAppResources().getColor(R.color.gcg__widget_label__text_color__unchanged) );
-        } else {
-            this.labelTextView.setTextColor(GcgApplication.getAppResources().getColor(R.color.gcg__widget_label__text_color__unchanged));
+        if(this.labelTextView != null && this.manageLabelGuiState) {
+            boolean hasDecorator = this.labelTextView.getText().subSequence(0,this.modifiedLabelDecorator.length()).equals(this.modifiedLabelDecorator);
+            if(isModified()) {
+                this.labelTextView.setTextColor(GcgApplication.getAppResources().getColor(R.color.gcg__widget_label__text_color__modified));
+                if(!hasDecorator) {
+                    this.labelTextView.setText(this.modifiedLabelDecorator + this.labelTextView.getText());
+                }
+
+            } else {
+                this.labelTextView.setTextColor(GcgApplication.getAppResources().getColor(R.color.gcg__widget_label__text_color__unchanged));
+                if(hasDecorator) {
+                    this.labelTextView.setText(this.labelTextView.getText().toString().substring(this.modifiedLabelDecorator.length()));
+                }
+            }
         }
     }
 
