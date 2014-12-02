@@ -1,4 +1,4 @@
-/* @(#)TaskCountEditInteger.java
+/* @(#)TaskPointsWidgetEditInteger.java
  **
  ** Copyright (C) 2012 by Steven D. Stamps
  **
@@ -51,17 +51,17 @@ import com.flywheelms.gcongui.gcg.widget.GcgWidgetEditInteger;
 import com.flywheelms.library.R;
 
 // com.flywheelms.library.fms.widget.edit_integer.TaskPointsEditInteger
-public class TaskPointsEditInteger extends GcgWidgetEditInteger {
+public class TaskPointsWidgetEditInteger extends GcgWidgetEditInteger {
 
-    public TaskPointsEditInteger(Context aContext) {
+    public TaskPointsWidgetEditInteger(Context aContext) {
         super(aContext);
     }
 
-    public TaskPointsEditInteger(Context aContext, AttributeSet anAttributeSet) {
+    public TaskPointsWidgetEditInteger(Context aContext, AttributeSet anAttributeSet) {
         super(aContext, anAttributeSet);
     }
 
-    public TaskPointsEditInteger(Context aContext, AttributeSet anAttributeSet, int aStyleDefinition) {
+    public TaskPointsWidgetEditInteger(Context aContext, AttributeSet anAttributeSet, int aStyleDefinition) {
         super(aContext, anAttributeSet, aStyleDefinition);
     }
 

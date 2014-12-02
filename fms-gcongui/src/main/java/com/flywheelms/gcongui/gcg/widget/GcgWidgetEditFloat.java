@@ -48,6 +48,7 @@ import android.text.InputFilter;
 import android.text.InputType;
 import android.text.Spanned;
 import android.util.AttributeSet;
+import android.view.Gravity;
 
 public abstract class GcgWidgetEditFloat extends GcgWidgetEditText {
 
@@ -70,6 +71,7 @@ public abstract class GcgWidgetEditFloat extends GcgWidgetEditText {
 
     protected void setup() {
         super.setup();
+        this.editText.setGravity(Gravity.RIGHT);
         InputFilter theInputFilter = new InputFilter() {
 
             public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {

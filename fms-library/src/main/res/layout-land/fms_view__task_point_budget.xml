@@ -15,8 +15,8 @@
 
         <com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear
             android:id="@+id/group_box__estimate"
-            android:layout_width="320dp"
-            android:layout_height="160dp"
+            android:layout_width="410dp"
+            android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_margin="15dp"
@@ -25,17 +25,33 @@
             gcg:borderStyle="3"
             gcg:headingText="Estimate">
 
-            <com.flywheelms.library.fms.widget.edit_integer.TaskPointsEditInteger
+            <com.flywheelms.library.fms.widget.edit_integer.TaskPointsWidgetEditInteger
                 android:id="@+id/estimate__task_points"
-                android:layout_width="wrap_content"
+                android:layout_width="315dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 gcg:labelWidth="225"
                 gcg:fdkCursorEnabled="true" />
 
-            <com.flywheelms.library.fms.widget.edit_float.AverageHoursPerTaskPointEditFloat
+            <com.flywheelms.library.fms.widget.edit_float.AverageHoursPerTaskPointWidgetEditFloat
                 android:id="@+id/estimate__average_hours_per_task_point"
-                android:layout_width="wrap_content"
+                android:layout_width="315dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                gcg:labelWidth="225"
+                gcg:fdkCursorEnabled="true" />
+
+            <com.flywheelms.library.fms.widget.text_view.ByCommunityMemberWidgetTextView
+                android:id="@+id/estimate__by_community_member"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                gcg:labelWidth="225"
+                gcg:fdkCursorEnabled="true" />
+
+            <com.flywheelms.library.fms.widget.text_view.TimestampWidgetTextView
+                android:id="@+id/estimate__timestamp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 gcg:labelWidth="225"
@@ -45,8 +61,8 @@
 
         <com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear
             android:id="@+id/group_box__budget"
-            android:layout_width="320dp"
-            android:layout_height="160dp"
+            android:layout_width="410dp"
+            android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
             android:layout_margin="15dp"
@@ -55,17 +71,33 @@
             gcg:borderStyle="3"
             gcg:headingText="Budget">
 
-            <com.flywheelms.library.fms.widget.edit_integer.TaskPointsEditInteger
+            <com.flywheelms.library.fms.widget.edit_integer.TaskPointsWidgetEditInteger
                 android:id="@+id/budget__task_points"
-                android:layout_width="wrap_content"
+                android:layout_width="315dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 gcg:labelWidth="225"
                 gcg:fdkCursorEnabled="true" />
 
-            <com.flywheelms.library.fms.widget.edit_float.AverageHoursPerTaskPointEditFloat
+            <com.flywheelms.library.fms.widget.edit_float.AverageHoursPerTaskPointWidgetEditFloat
                 android:id="@+id/budget__average_hours_per_task_point"
-                android:layout_width="wrap_content"
+                android:layout_width="315dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                gcg:labelWidth="225"
+                gcg:fdkCursorEnabled="true" />
+
+            <com.flywheelms.library.fms.widget.text_view.ByCommunityMemberWidgetTextView
+                android:id="@+id/budget__by_community_member"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                gcg:labelWidth="225"
+                gcg:fdkCursorEnabled="true" />
+
+            <com.flywheelms.library.fms.widget.text_view.TimestampWidgetTextView
+                android:id="@+id/budget__timestamp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 gcg:labelWidth="225"
@@ -76,7 +108,7 @@
         <com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear
             android:id="@+id/group_box__work_breakdown__summary"
             android:layout_width="405dp"
-            android:layout_height="160dp"
+            android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
             android:layout_margin="15dp"
@@ -86,7 +118,7 @@
             gcg:borderStyle="3"
             gcg:headingText="Work Breakdown Summary">
 
-            <com.flywheelms.library.fms.widget.edit_integer.TaskPointsEditInteger
+            <com.flywheelms.library.fms.widget.edit_integer.TaskPointsWidgetEditInteger
                 android:id="@+id/work_breakdown__summary__task_points"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -99,7 +131,7 @@
         <com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear
             android:id="@+id/group_box__completion__summary"
             android:layout_width="405dp"
-            android:layout_height="160dp"
+            android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
             android:layout_margin="15dp"
@@ -109,7 +141,7 @@
             gcg:borderStyle="3"
             gcg:headingText="Completion Summary">
 
-            <com.flywheelms.library.fms.widget.edit_integer.TaskPointsEditInteger
+            <com.flywheelms.library.fms.widget.edit_integer.TaskPointsWidgetEditInteger
                 android:id="@+id/completion__summary__task_points"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

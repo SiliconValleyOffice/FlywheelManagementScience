@@ -1,4 +1,4 @@
-/* @(#)AverageHoursPerTaskPointEditFloat.java
+/* @(#)AverageHoursPerTaskPointWidgetEditFloat.java
  **
  ** Copyright (C) 2012 by Steven D. Stamps
  **
@@ -51,17 +51,17 @@ import com.flywheelms.gcongui.gcg.widget.GcgWidgetEditFloat;
 import com.flywheelms.library.R;
 
 // com.flywheelms.library.fms.widget.edit_float.AverageHoursPerTaskPointEditFloat
-public class AverageHoursPerTaskPointEditFloat extends GcgWidgetEditFloat {
+public class AverageHoursPerTaskPointWidgetEditFloat extends GcgWidgetEditFloat {
 
-    public AverageHoursPerTaskPointEditFloat(Context aContext) {
+    public AverageHoursPerTaskPointWidgetEditFloat(Context aContext) {
         super(aContext);
     }
 
-    public AverageHoursPerTaskPointEditFloat(Context aContext, AttributeSet anAttributeSet) {
+    public AverageHoursPerTaskPointWidgetEditFloat(Context aContext, AttributeSet anAttributeSet) {
         super(aContext, anAttributeSet);
     }
 
-    public AverageHoursPerTaskPointEditFloat(Context aContext, AttributeSet anAttributeSet, int aStyleDefinition) {
+    public AverageHoursPerTaskPointWidgetEditFloat(Context aContext, AttributeSet anAttributeSet, int aStyleDefinition) {
         super(aContext, anAttributeSet, aStyleDefinition);
     }
 
