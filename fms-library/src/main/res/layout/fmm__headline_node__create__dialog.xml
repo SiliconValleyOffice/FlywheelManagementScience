@@ -19,18 +19,19 @@
             android:id="@+id/fmm_node__type"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp" />
+            android:layout_marginTop="5dp"
+            gcg:labelWidth="130" />
 
         <com.flywheelms.library.fms.widget.edit_text.HeadlineWidgetEditText
             android:id="@+id/headline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
-            android:layout_marginLeft="54dp" />
+            gcg:labelWidth="130" />
 
         <com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear
             android:id="@+id/group_box__parent_node"
-            android:layout_width="345dp"
+            android:layout_width="350dp"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="5dp"
@@ -44,15 +45,14 @@
                 android:id="@+id/fmm_node__type__parent_node"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp" />
+                gcg:labelWidth="130" />
 
             <com.flywheelms.library.fms.widget.text_view.HeadlineWidgetTextView
                 android:id="@+id/headline__parent_node"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:layout_marginLeft="69dp"
-                gcg:headingText="For Parent" />
+                gcg:labelWidth="130" /> />
         </com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear>
 
         <com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear
