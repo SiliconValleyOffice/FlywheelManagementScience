@@ -465,6 +465,10 @@ public abstract class GcgWidgetSpinner extends GcgWidget {
         manageWidgetGuiState();
     }
 
+    public void setBaselineValue() {
+        setBaselineValue(this.spinner.getSelectedItem());
+    }
+
     public GcgGuiable getBaselineValue() {
         return (GcgGuiable) this.baselineValue;
     }

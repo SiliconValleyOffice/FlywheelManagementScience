@@ -97,6 +97,7 @@ import com.flywheelms.library.fms.dialog.StrategicMilestoneSelectWorkAssetAsStra
 import com.flywheelms.library.fms.dialog.StrategicMilestoneTargetDateEditDialog;
 import com.flywheelms.library.fms.dialog.StrategyTeamCreateDialog;
 import com.flywheelms.library.fms.dialog.WorkAssetAdoptOrphanWorkPackageDialog;
+import com.flywheelms.library.fms.dialog.WorkAssetCreateDialog;
 import com.flywheelms.library.fms.dialog.WorkPackageAdoptOrphanWorkTaskDialog;
 import com.flywheelms.library.fms.dialog.WorkPackageDeleteDialog;
 import com.flywheelms.library.fms.dialog.WorkPackageMoveIntoWorkAssetDialog;
@@ -458,7 +459,7 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
         } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__MOVE_PROJECT)) {
             moveProject(aLaunchHeadlineNode, aParentHeadlineNode);
         } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__CREATE_STRATEGIC_ASSET)) {
-            createFmmHeadlineNode(
+            createWorkAsset(
                     FmmNodeDefinition.STRATEGIC_ASSET,
                     aLaunchHeadlineNode,
                     aParentHeadlineNode,
@@ -479,7 +480,7 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
         } else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__DEMOTE_STRATEGIC_ASSET)) {
             demoteStrategicAsset(aLaunchHeadlineNode);
 		} else if(aMenuItem.getTitle().equals(FmmPopupBuilder.menu_item__CREATE_PROJECT_ASSET)) {
-			createFmmHeadlineNode(
+			createWorkAsset(
                     FmmNodeDefinition.PROJECT_ASSET,
                     aLaunchHeadlineNode,
                     aParentHeadlineNode,
@@ -619,6 +620,22 @@ public class FmsTreeViewAdapter extends GcgTreeViewAdapter implements FmmHeadlin
 			int aLaunchHeadlineNodeSequence,
 			int aLaunchHeadlineNodeChildNodeCount ) {
 		this.getGcgActivity().startDialog(new HeadlineNodeCreateDialog(
+				getGcgActivity(),
+				this,
+				anFmmNodeDefinition,
+				aLaunchHeadlineNode,
+				aParentHeadlineNode,
+				aLaunchHeadlineNodeSequence,
+				aLaunchHeadlineNodeChildNodeCount ));
+	}
+
+	private void createWorkAsset(
+			FmmNodeDefinition anFmmNodeDefinition,
+			FmmHeadlineNode aLaunchHeadlineNode,
+			FmmHeadlineNode aParentHeadlineNode,
+			int aLaunchHeadlineNodeSequence,
+			int aLaunchHeadlineNodeChildNodeCount ) {
+		this.getGcgActivity().startDialog(new WorkAssetCreateDialog(
 				getGcgActivity(),
 				this,
 				anFmmNodeDefinition,

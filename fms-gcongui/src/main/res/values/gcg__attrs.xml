@@ -77,6 +77,10 @@
         <attr name="uri" format="string" />
     </declare-styleable>
 
+    <declare-styleable name="GcgCheckbox">
+        <attr name="isChecked" format="boolean" />
+    </declare-styleable>
+
     <declare-styleable name="GcgTreeViewList">
         <attr name="collapsible" format="boolean" />
         <attr name="indent_width" format="dimension" />

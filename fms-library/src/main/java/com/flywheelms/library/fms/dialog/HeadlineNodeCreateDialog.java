@@ -109,18 +109,14 @@ public class HeadlineNodeCreateDialog extends FmsCancelOkApplyFdkDialog {
             String aParentHeadlineNodeId,
             int aLaunchNodeSequence,
             int aLaunchNodeChildCount ) {
-        super(aLibraryActivity, anFmmNodeDefinition);
-        this.parentNodeEditorActivity = (FmmNodeEditorActivity) aLibraryActivity;
-        this.treeViewAdapter = aTreeViewAdapter;
-        this.launchHeadlineNode = aLaunchHeadlineNode;
-        this.fmsDialogExtension.parentHeadlineNode = FmsActivity.getActiveDatabaseMediator().retrievetHeadlineNode(aParentHeadlineNodeId);
-        this.logicalParentHeadlineNode = getLogicalParentHeadlineNode();
-        this.launchNodeSequence = aLaunchNodeSequence;
-        this.launchNodeChildCount = aLaunchNodeChildCount;
-        this.addingHorizontalNavigationNode = true;
-        initializeDialogBodyLate();
-        initFdkHostSupport();
-        manageButtonState();
+        this(
+                aLibraryActivity,
+                aTreeViewAdapter,
+                anFmmNodeDefinition,
+                aLaunchHeadlineNode,
+                FmsActivity.getActiveDatabaseMediator().retrievetHeadlineNode(aParentHeadlineNodeId),
+                aLaunchNodeSequence,
+                aLaunchNodeChildCount );
     }
 
     @Override

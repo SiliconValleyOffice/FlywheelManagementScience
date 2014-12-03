@@ -156,6 +156,10 @@ public abstract class GcgWidgetEditText extends GcgWidget {
         manageWidgetGuiState();
     }
 
+    public void setBaselineValue() {
+        setBaselineValue(this.editText.getText().toString());
+    }
+
     public String getBaselineValue() {
         return (String) this.baselineValue;
     }

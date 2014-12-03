@@ -188,7 +188,6 @@ public abstract class GcgWidget extends RelativeLayout implements FdkDictationRe
         }
     }
 
-    @SuppressWarnings("incomplete-switch")
 	protected void processCustomAttributes(Context aContext, AttributeSet anAttributeSet) {
 		processGcgLabelAttributes(aContext, anAttributeSet);
 		TypedArray aTypedArray = aContext.obtainStyledAttributes(anAttributeSet, R.styleable.GcgWidget);
@@ -421,6 +420,10 @@ public abstract class GcgWidget extends RelativeLayout implements FdkDictationRe
 	public void setBaselineValue(Object anObject) {
 		this.baselineValue = anObject;
 	}
+
+    public void setBaselineValue() {
+        // copy from data view into this.baselineValue;
+    }
 	
 	public void setContainerWidth(int aContainerWidthInDp) {
 		LayoutParams theLayoutParams = (LayoutParams) this.widgetContainer.getLayoutParams();

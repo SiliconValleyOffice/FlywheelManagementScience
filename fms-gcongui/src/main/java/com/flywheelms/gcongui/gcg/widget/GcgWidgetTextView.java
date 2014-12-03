@@ -171,6 +171,10 @@ public abstract class GcgWidgetTextView extends GcgWidget {
 		setData(anObject);
 	}
 
+    public void setBaselineValue() {
+        setBaselineValue(this.textView.getText().toString());
+    }
+
 	@Override
 	protected void setTransparentBackground() {
 		this.textView.setBackgroundResource(R.color.gcg__transparent);

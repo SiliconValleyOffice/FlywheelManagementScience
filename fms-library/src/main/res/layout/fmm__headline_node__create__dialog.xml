@@ -31,10 +31,9 @@
 
         <com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear
             android:id="@+id/group_box__parent_node"
-            android:layout_width="350dp"
+            android:layout_width="420dp"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="5dp"
             android:gravity="left|top"
             android:orientation="vertical"
             gcg:borderStyle="3"
@@ -43,13 +42,13 @@
 
             <com.flywheelms.library.fms.widget.text_view.FmmNodeTypeWidgetTextView
                 android:id="@+id/fmm_node__type__parent_node"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 gcg:labelWidth="130" />
 
             <com.flywheelms.library.fms.widget.text_view.HeadlineWidgetTextView
                 android:id="@+id/headline__parent_node"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 gcg:labelWidth="130" /> />
@@ -57,7 +56,7 @@
 
         <com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear
             android:id="@+id/group_box__sequence"
-            android:layout_width="345dp"
+            android:layout_width="420dp"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="5dp"
@@ -77,8 +76,8 @@
                     android:id="@+id/first__radio_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginTop="10dp" />
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp" />
 
                 <RadioButton
                     android:id="@+id/last__radio_button"
@@ -89,21 +88,38 @@
 
             <com.flywheelms.library.fms.widget.text_view.HeadlineWidgetTextView
                 android:id="@+id/headline__launch_node"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:layout_marginLeft="35dp"
-                gcg:headingText="For Launch Node" />
+                gcg:headingText="For Launch Node"
+                gcg:labelWidth="150" />
         </com.flywheelms.gcongui.gcg.container.GcgContainerGroupBoxLinear>
 
-        <CheckBox
-            android:id="@+id/edit_new_headline_node"
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:layout_marginLeft="50dp"
-            android:checked="true"
-            android:text="@string/edit_new_headline_node" />
+            android:layout_marginBottom="5dp">
+
+            <CheckBox
+                android:id="@+id/edit_new_headline_node"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="40dp"
+                android:gravity="center_vertical"
+                android:checked="true"
+                android:text="@string/edit_new_headline_node" />
+
+            <com.flywheelms.gcongui.gcg.widget.GcgWidgetCheckboxThumbpadRight
+                android:id="@+id/create_investigation_work_package"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="40dp"
+                gcg:isChecked="true"
+                gcg:labelText="@string/create_investigation_work_package"/>
+        </RelativeLayout>
     </LinearLayout>
 
 </LinearLayout>
