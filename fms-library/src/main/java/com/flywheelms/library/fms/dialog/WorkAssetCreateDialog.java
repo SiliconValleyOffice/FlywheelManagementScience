@@ -45,6 +45,7 @@ package com.flywheelms.library.fms.dialog;
 
 import android.view.View;
 
+import com.flywheelms.gcongui.gcg.GcgApplication;
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.gcongui.gcg.helper.GcgHelper;
 import com.flywheelms.gcongui.gcg.widget.GcgWidgetCheckboxThumbpadRight;
@@ -104,7 +105,7 @@ public class WorkAssetCreateDialog extends HeadlineNodeCreateDialog {
     protected void createChildNodes(FmmHeadlineNode anFmmHeadlineNode) {
         if(this.createInvestigationCheckboxWidget.isChecked()) {
             WorkPackage theWorkPackage = new WorkPackage(
-                    "Asset Investigation - " + anFmmHeadlineNode.getHeadline(),
+                    GcgApplication.getAppResources().getString(R.string.asset_investigation) + ": " + anFmmHeadlineNode.getHeadline(),
                     (WorkAsset) anFmmHeadlineNode );
             if(FmsActivity.getActiveDatabaseMediator().insertWorkPackage(theWorkPackage, true)) {
                 GcgHelper.makeToast(this.fmmNodeTypeWidget.getText() + " created for Asset Investigation");

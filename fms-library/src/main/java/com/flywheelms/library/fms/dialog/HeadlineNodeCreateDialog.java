@@ -232,14 +232,14 @@ public class HeadlineNodeCreateDialog extends FmsCancelOkApplyFdkDialog {
 			getPeerNode(),
 			this.lastRadioButton == null ? false : this.lastRadioButton.isChecked() );  // bSequenceBeforeFlag
 		if(theNewHeadlineNode != null) {
+			GcgHelper.makeToast(this.fmmNodeTypeWidget.getText() + " created.");
+            createChildNodes(theNewHeadlineNode);
             if(this.treeViewAdapter != null) {
                 this.treeViewAdapter.addNewHeadlineNode(theNewHeadlineNode);
             }
             if(this.parentNodeEditorActivity != null) {
                 this.parentNodeEditorActivity.newHeadlineNodeWasCreated(theNewHeadlineNode);
             }
-			GcgHelper.makeToast(this.fmmNodeTypeWidget.getText() + " created.");
-            createChildNodes(theNewHeadlineNode);
 			if(bOkButtonEvent && this.editNewHeadlineNode.isChecked()) {
                 if(this.treeViewAdapter != null) {
                     this.treeViewAdapter.editFmmHeadlineNode(theNewHeadlineNode, this.launchHeadlineNode);
