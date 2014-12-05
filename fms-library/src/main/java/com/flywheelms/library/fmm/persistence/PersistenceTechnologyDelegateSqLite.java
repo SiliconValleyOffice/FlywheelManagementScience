@@ -1182,6 +1182,30 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 		return FiscalYearDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
 	}
 
+	@SuppressWarnings("resource")
+	@Override
+	public ArrayList<FiscalYear> retrieveFiscalYearListForWorkPackageMoveTarget(FmsOrganization anOrganization, WorkAsset aWorkAssetException) {
+		String theRawQuery =
+                "SELECT * FROM " + FmmNodeDefinition.FISCAL_YEAR.getTableName() +
+				" WHERE " + FiscalYearMetaData.column_ORGANIZATION_ID + " = '" + anOrganization.getNodeIdString() + "'" +
+                " AND " + IdNodeMetaData.column_ID +
+                " IN (" +
+                    " SELECT " + StrategicMilestoneMetaData.column_FISCAL_YEAR_ID +
+                    " FROM " + FmmNodeDefinition.STRATEGIC_MILESTONE.getTableName() +
+                    " WHERE " + IdNodeMetaData.column_ID +
+                    " IN (" +
+                        " SELECT " + StrategicCommitmentMetaData.column_STRATEGIC_MILESTONE_ID +
+                        " FROM " + FmmNodeDefinition.STRATEGIC_COMMITMENT.getTableName();
+                        if(aWorkAssetException != null) {
+                            theRawQuery += " WHERE " + StrategicCommitmentMetaData.column_STRATEGIC_ASSET_ID + " != '" + aWorkAssetException.getNodeIdString() + "'";
+                        }
+                    theRawQuery += ") " +
+                ") ";
+		theRawQuery += " ORDER BY " + FiscalYearMetaData.column_YEAR_NUMBER;
+		Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
+		return FiscalYearDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
+	}
+
 	@Override
 	public int countFiscalYearForProjectAssetMoveTarget(FmsOrganization anOrganization, StrategicMilestone aStrategicMilestonException) {
 		String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.FISCAL_YEAR.getTableName() +
@@ -1230,25 +1254,25 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 		return countRows(theRawQuery);
 	}
 	
-	@SuppressWarnings("resource")
-	@Override
-	public ArrayList<FiscalYear> retrieveFiscalYearListForWorkPackageMoveTarget(FmsOrganization anOrganization, ProjectAsset aProjectAssetException) {
-		String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.FISCAL_YEAR.getTableName() +
-				" WHERE " + IdNodeMetaData.column_ID +
-				" IN (" +
-					" SELECT " + StrategicMilestoneMetaData.column_FISCAL_YEAR_ID + " FROM " + FmmNodeDefinition.STRATEGIC_MILESTONE.getTableName() +
-					" WHERE " + IdNodeMetaData.column_ID + 
-					" IN (" +
-						" SELECT " + StrategicCommitmentMetaData.column_STRATEGIC_MILESTONE_ID + " FROM " + FmmNodeDefinition.STRATEGIC_COMMITMENT.getTableName();
-						if(aProjectAssetException != null) {
-							theRawQuery += " WHERE " + StrategicCommitmentMetaData.column_STRATEGIC_ASSET_ID + " != '" + aProjectAssetException.getNodeIdString() + "'";
-						}
-						theRawQuery += ") " +
-				") ";
-			theRawQuery += " ORDER BY " + FiscalYearMetaData.column_YEAR_NUMBER;
-			Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
-			return FiscalYearDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
-	}
+//	@SuppressWarnings("resource")
+//	@Override
+//	public ArrayList<FiscalYear> retrieveFiscalYearListForWorkPackageMoveTarget(FmsOrganization anOrganization, StrategicAsset aStrategicAssetException) {
+//		String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.FISCAL_YEAR.getTableName() +
+//				" WHERE " + IdNodeMetaData.column_ID +
+//				" IN (" +
+//					" SELECT " + StrategicMilestoneMetaData.column_FISCAL_YEAR_ID + " FROM " + FmmNodeDefinition.STRATEGIC_MILESTONE.getTableName() +
+//					" WHERE " + IdNodeMetaData.column_ID +
+//					" IN (" +
+//						" SELECT " + StrategicCommitmentMetaData.column_STRATEGIC_MILESTONE_ID + " FROM " + FmmNodeDefinition.STRATEGIC_COMMITMENT.getTableName();
+//						if(aStrategicAssetException != null) {
+//							theRawQuery += " WHERE " + StrategicCommitmentMetaData.column_STRATEGIC_ASSET_ID + " != '" + aStrategicAssetException.getNodeIdString() + "'";
+//						}
+//						theRawQuery += ") " +
+//				") ";
+//			theRawQuery += " ORDER BY " + FiscalYearMetaData.column_YEAR_NUMBER;
+//			Cursor theCursor = getSqLiteDatabase().rawQuery(theRawQuery, null);
+//			return FiscalYearDaoSqLite.getInstance().getObjectListFromCursor(theCursor);
+//	}
 
 	// TODO - should use MOVE_TARGET view and not include confirmed or proposed completions
 	@Override
@@ -1626,14 +1650,14 @@ public class PersistenceTechnologyDelegateSqLite extends PersistenceTechnologyDe
 
 	@SuppressWarnings("resource")
 	@Override
-	public ArrayList<StrategicMilestone> retrieveStrategicMilestoneListForWorkPackageMoveTarget(FiscalYear aFiscalYear, ProjectAsset aProjectAssetException) {
+	public ArrayList<StrategicMilestone> retrieveStrategicMilestoneListForWorkPackageMoveTarget(FiscalYear aFiscalYear, WorkAsset aWorkAssetException) {
 		String theRawQuery = "SELECT * FROM " + FmmNodeDefinition.STRATEGIC_MILESTONE.getTableName() +
 				" WHERE " + StrategicMilestoneMetaData.column_FISCAL_YEAR_ID + " = '" + aFiscalYear.getNodeIdString() + "'" +
 				" AND " + IdNodeMetaData.column_ID + 
 				" IN (" +
 					" SELECT " + StrategicCommitmentMetaData.column_STRATEGIC_MILESTONE_ID + " FROM " + FmmNodeDefinition.STRATEGIC_COMMITMENT.getTableName();
-					if(aProjectAssetException != null) {
-						theRawQuery += " WHERE " + StrategicCommitmentMetaData.column_STRATEGIC_ASSET_ID + " != '" + aProjectAssetException.getNodeIdString() + "'";
+					if(aWorkAssetException != null) {
+						theRawQuery += " WHERE " + StrategicCommitmentMetaData.column_STRATEGIC_ASSET_ID + " != '" + aWorkAssetException.getNodeIdString() + "'";
 					}
 		theRawQuery += ") " +
 			" ORDER BY " + CompletableNodeMetaData.column_SEQUENCE + " ASC";

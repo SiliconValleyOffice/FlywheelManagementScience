@@ -49,7 +49,9 @@ import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
 import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
+import com.flywheelms.library.fmm.node.impl.governable.StrategicAsset;
 import com.flywheelms.library.fmm.node.impl.governable.StrategicMilestone;
+import com.flywheelms.library.fmm.node.impl.governable.WorkAsset;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.fms.activity.FmsActivity;
 import com.flywheelms.library.fms.treeview.filter.FmsTreeViewAdapter;
@@ -102,21 +104,21 @@ public class ProjectAssetDeleteDialog extends HeadlineNodeDeleteDialog {
 	@Override
 	protected void setInitialTargetGrandparentSpinnerData(DeleteDisposition aDeleteDisposition) {
 		((FiscalYearWidgetSpinner) aDeleteDisposition.getTargetGrandparentWidgetSpinner()).updateSpinnerData(
-				(ProjectAsset) aDeleteDisposition.getTargetHeadlineNodeException());
+				(WorkAsset) aDeleteDisposition.getTargetHeadlineNodeException());
 	}
 
 	@Override
 	protected void updateTargetParentWidgetSpinner(final DeleteDisposition aDeleteDisposition) {
 		((StrategicMilestoneWidgetSpinner) aDeleteDisposition.getTargetParentWidgetSpinner()).updateSpinnerData(
 				(FiscalYear) aDeleteDisposition.getTargetGrandparentWidgetSpinner().getFmmNode(),
-				(ProjectAsset) aDeleteDisposition.getTargetHeadlineNodeException() );
+				(WorkAsset) aDeleteDisposition.getTargetHeadlineNodeException() );
 	}
 
 	@Override
 	protected void updateTargetWidgetSpinner(final DeleteDisposition aDeleteDisposition) {
 		((ProjectAssetWidgetSpinner) aDeleteDisposition.getTargetWidgetSpinner()).updateSpinnerData(
 				(StrategicMilestone) aDeleteDisposition.getTargetParentWidgetSpinner().getSelectedItem(),
-				(ProjectAsset) aDeleteDisposition.getTargetHeadlineNodeException() );
+				(StrategicAsset) aDeleteDisposition.getTargetHeadlineNodeException() );
 	}
 
 	@Override

@@ -49,8 +49,8 @@ import android.util.AttributeSet;
 import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
-import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
 import com.flywheelms.library.fmm.node.impl.governable.StrategicMilestone;
+import com.flywheelms.library.fmm.node.impl.governable.WorkAsset;
 import com.flywheelms.library.fms.activity.FmsActivity;
 import com.flywheelms.library.fms.widget.FmmHeadlineNodeWidgetSpinner;
 
@@ -60,7 +60,7 @@ public class StrategicMilestoneWidgetSpinner extends FmmHeadlineNodeWidgetSpinne
 	
 	private FiscalYear fiscalYear;  // primary parent
 	private StrategicMilestone strategicMilestoneException;  // peer exception
-    private ProjectAsset projectAssetException;  // primary child exception
+    private WorkAsset workAssetException;  // primary child exception
 
 	public StrategicMilestoneWidgetSpinner(Context aContext, AttributeSet anAttributeSet) {
 		super(aContext, anAttributeSet);
@@ -99,7 +99,7 @@ public class StrategicMilestoneWidgetSpinner extends FmmHeadlineNodeWidgetSpinne
 			theGuiableList = new ArrayList<GcgGuiable>(); 
 		} else {	
 			theGuiableList = new ArrayList<GcgGuiable>(FmsActivity.getActiveDatabaseMediator().retrieveStrategicMilestoneListForWorkPackageMoveTarget(
-                    this.fiscalYear, this.projectAssetException));
+                    this.fiscalYear, this.workAssetException));
 		}
 		return theGuiableList;
 	}
@@ -115,9 +115,9 @@ public class StrategicMilestoneWidgetSpinner extends FmmHeadlineNodeWidgetSpinne
 		super.updateSpinnerData();
 	}
 
-	public void updateSpinnerData(FiscalYear aFiscalYear, ProjectAsset aProjectAssetException) {
+	public void updateSpinnerData(FiscalYear aFiscalYear, WorkAsset aWorkAssetException) {
 		this.fiscalYear = aFiscalYear;
-		this.projectAssetException = aProjectAssetException;
+		this.workAssetException = aWorkAssetException;
 		super.updateSpinnerData();
 	}
 	

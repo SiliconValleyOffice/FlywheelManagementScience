@@ -43,10 +43,17 @@
 
 package com.flywheelms.library.fms.dialog;
 
+import android.view.View;
+
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
+import com.flywheelms.gcongui.gcg.helper.GcgHelper;
 import com.flywheelms.gcongui.gcg.widget.GcgWidgetCheckboxThumbpadRight;
+import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
+import com.flywheelms.library.fmm.node.impl.governable.WorkAsset;
+import com.flywheelms.library.fmm.node.impl.governable.WorkPackage;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
+import com.flywheelms.library.fms.activity.FmsActivity;
 import com.flywheelms.library.fms.treeview.filter.FmsTreeViewAdapter;
 
 public class WorkAssetCreateDialog extends HeadlineNodeCreateDialog {
@@ -90,8 +97,21 @@ public class WorkAssetCreateDialog extends HeadlineNodeCreateDialog {
 
     protected void initializeDialogBodyLate() {
         super.initializeDialogBodyLate();
-//        this.createInvestigationCheckboxWidget = (GcgWidgetCheckboxThumbpadRight) this.dialogBodyView.findViewById(R.id.create_investigation_work_package);
-//        this.createInvestigationCheckboxWidget.setVisibility(View.VISIBLE);
+        this.createInvestigationCheckboxWidget = (GcgWidgetCheckboxThumbpadRight) this.dialogBodyView.findViewById(R.id.create_investigation_work_package);
+        this.createInvestigationCheckboxWidget.setVisibility(View.VISIBLE);
+    }
+
+    protected void createChildNodes(FmmHeadlineNode anFmmHeadlineNode) {
+        if(this.createInvestigationCheckboxWidget.isChecked()) {
+            WorkPackage theWorkPackage = new WorkPackage(
+                    "Asset Investigation - " + anFmmHeadlineNode.getHeadline(),
+                    (WorkAsset) anFmmHeadlineNode );
+            if(FmsActivity.getActiveDatabaseMediator().insertWorkPackage(theWorkPackage, true)) {
+                GcgHelper.makeToast(this.fmmNodeTypeWidget.getText() + " created for Asset Investigation");
+            } else {
+                GcgHelper.makeToast("ERROR:  Unable to create " + this.fmmNodeTypeWidget.getText() + " for Asset Investigation");
+            }
+        }
     }
 
 }

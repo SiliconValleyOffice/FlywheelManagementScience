@@ -50,8 +50,8 @@ import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.governable.Cadence;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
-import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
 import com.flywheelms.library.fmm.node.impl.governable.StrategicMilestone;
+import com.flywheelms.library.fmm.node.impl.governable.WorkAsset;
 import com.flywheelms.library.fms.activity.FmsActivity;
 import com.flywheelms.library.fms.widget.FmmHeadlineNodeWidgetSpinner;
 
@@ -61,7 +61,7 @@ public class FiscalYearWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 	
 	// primary parent is FmsOrganization, obtained using FmmDatabaseMediator.getActiveMediator().getFmmOwner()
 	private StrategicMilestone strategicMilestoneException;  // primary child
-	private ProjectAsset projectAssetException; // primary child, primary grandchild
+	private WorkAsset workAssetException; // primary child, primary grandchild
 	private Cadence CadenceException;  // secondary child
 	private FiscalYear fiscalYearException;
 	
@@ -110,8 +110,8 @@ public class FiscalYearWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 	}
 	
 	// filter_id__PRIMARY_PARENT__PRIMARY_CHILD__PRIMARY_CHILD__PRIMARY_CHILD__MOVE_TARGET
-	public void updateSpinnerData(ProjectAsset aProjectAssetException) {
-		this.projectAssetException = aProjectAssetException;
+	public void updateSpinnerData(WorkAsset aWorkAssetException) {
+		this.workAssetException = aWorkAssetException;
 		super.updateSpinnerData();
 	}
 	
@@ -119,7 +119,7 @@ public class FiscalYearWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 	@Override
 	protected ArrayList<? extends GcgGuiable> getPrimaryParentPrimaryChildPrimaryChildPrimaryChildMoveTargetGuiableList() { // WorkPackage move target
 		return FmsActivity.getActiveDatabaseMediator().retrieveFiscalYearListForWorkPackageMoveTarget(
-                FmsActivity.getActiveDatabaseMediator().getFmmOwner(), this.projectAssetException);
+                FmsActivity.getActiveDatabaseMediator().getFmmOwner(), this.workAssetException);
 	}
 	
 	// filter_id__PRIMARY_PARENT__SECONDARY_CHILD__MOVE_TARGET

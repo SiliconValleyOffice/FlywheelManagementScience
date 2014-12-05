@@ -1748,8 +1748,8 @@ public class FmmDatabaseMediator {
         return retrieveProjectAssetList(aProject, null);
     }
 
-    public ArrayList<ProjectAsset> retrieveProjectAssetList(Project aProject, ProjectAsset aProjectAssetException) {
-        return retrieveProjectAssetListForProject(aProject.getNodeIdString(), aProjectAssetException == null ? null : aProjectAssetException.getNodeIdString());
+    public ArrayList<ProjectAsset> retrieveProjectAssetList(Project aProject, WorkAsset aWorkAssetException) {
+        return retrieveProjectAssetListForProject(aProject.getNodeIdString(), aWorkAssetException == null ? null : aWorkAssetException.getNodeIdString());
     }
 
     public ArrayList<ProjectAsset> retrieveProjectAssetListForProject(String aProjectId, String aProjectAssetExceptionId) {
@@ -2119,8 +2119,8 @@ public class FmmDatabaseMediator {
     }
 
     // TODO - create generalized routine
-    public ArrayList<FiscalYear> retrieveFiscalYearListForWorkPackageMoveTarget(FmsOrganization anFmsOrganization, ProjectAsset aProjectAssetException) {
-        return getPersistenceTechnologyDelegate().retrieveFiscalYearListForWorkPackageMoveTarget(anFmsOrganization, aProjectAssetException);
+    public ArrayList<FiscalYear> retrieveFiscalYearListForWorkPackageMoveTarget(FmsOrganization anFmsOrganization, WorkAsset aWorkAssetException) {
+        return getPersistenceTechnologyDelegate().retrieveFiscalYearListForWorkPackageMoveTarget(anFmsOrganization, aWorkAssetException);
     }
 
     // TODO - create generalized routine
@@ -3270,8 +3270,8 @@ public class FmmDatabaseMediator {
 
     // TODO - create generalized routine
     public ArrayList<StrategicMilestone> retrieveStrategicMilestoneListForWorkPackageMoveTarget(
-            FiscalYear aFiscalYear, ProjectAsset aProjectAssetException) {
-        return getPersistenceTechnologyDelegate().retrieveStrategicMilestoneListForWorkPackageMoveTarget(aFiscalYear, aProjectAssetException);
+            FiscalYear aFiscalYear, WorkAsset aWorkAssetException) {
+        return getPersistenceTechnologyDelegate().retrieveStrategicMilestoneListForWorkPackageMoveTarget(aFiscalYear, aWorkAssetException);
     }
 
     // TODO - create generalized routine

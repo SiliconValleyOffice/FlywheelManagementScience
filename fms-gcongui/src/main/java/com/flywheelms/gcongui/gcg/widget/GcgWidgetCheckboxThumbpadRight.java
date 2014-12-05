@@ -181,4 +181,7 @@ public class GcgWidgetCheckboxThumbpadRight extends GcgWidget {
         this.checkBox.setEnabled(bEnable);
     }
 
+    public boolean isChecked() {
+        return this.checkBox.isChecked();
+    }
 }

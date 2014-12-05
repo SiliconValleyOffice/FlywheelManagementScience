@@ -239,6 +239,7 @@ public class HeadlineNodeCreateDialog extends FmsCancelOkApplyFdkDialog {
                 this.parentNodeEditorActivity.newHeadlineNodeWasCreated(theNewHeadlineNode);
             }
 			GcgHelper.makeToast(this.fmmNodeTypeWidget.getText() + " created.");
+            createChildNodes(theNewHeadlineNode);
 			if(bOkButtonEvent && this.editNewHeadlineNode.isChecked()) {
                 if(this.treeViewAdapter != null) {
                     this.treeViewAdapter.editFmmHeadlineNode(theNewHeadlineNode, this.launchHeadlineNode);
@@ -249,7 +250,9 @@ public class HeadlineNodeCreateDialog extends FmsCancelOkApplyFdkDialog {
 		}
 	}
 
-	private FmmHeadlineNode getPeerNode() {
+    protected void createChildNodes(FmmHeadlineNode anFmmHeadlineNode) { }
+
+    private FmmHeadlineNode getPeerNode() {
 		if(isPeerLaunch()) {
 			return this.launchHeadlineNode;
 		}

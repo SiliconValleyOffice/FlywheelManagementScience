@@ -1,4 +1,4 @@
-/* @(#)ProjectAssetDeleteDialog.java
+/* @(#)StrategicAssetDeleteDialog.java
 ** 
 ** Copyright (C) 2012 by Steven D. Stamps
 **
@@ -48,7 +48,6 @@ import android.widget.LinearLayout;
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.library.R;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
-import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
 import com.flywheelms.library.fmm.node.impl.governable.StrategicAsset;
 import com.flywheelms.library.fmm.node.impl.governable.StrategicMilestone;
 import com.flywheelms.library.fmm.node.impl.governable.WorkAsset;
@@ -56,7 +55,7 @@ import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmHeadlineNode;
 import com.flywheelms.library.fms.activity.FmsActivity;
 import com.flywheelms.library.fms.treeview.filter.FmsTreeViewAdapter;
 import com.flywheelms.library.fms.widget.spinner.FiscalYearWidgetSpinner;
-import com.flywheelms.library.fms.widget.spinner.ProjectAssetWidgetSpinner;
+import com.flywheelms.library.fms.widget.spinner.StrategicAssetWidgetSpinner;
 import com.flywheelms.library.fms.widget.spinner.StrategicMilestoneWidgetSpinner;
 
 import java.util.ArrayList;
@@ -69,7 +68,7 @@ public class StrategicAssetDeleteDialog extends HeadlineNodeDeleteDialog {
 
 	@Override
 	protected int getPrimaryChildrenDispositionLayoutResourceId() {
-		return R.layout.project_asset__work_package__disposition;
+		return R.layout.strategic_asset__work_package__disposition;
 	}
 
 	@Override
@@ -94,9 +93,9 @@ public class StrategicAssetDeleteDialog extends HeadlineNodeDeleteDialog {
 	}
 
 	@Override
-	protected ProjectAssetWidgetSpinner findTargetWidgetSpinner(LinearLayout aLinearLayout) {
-		ProjectAssetWidgetSpinner theWidgetSpinner =
-				(ProjectAssetWidgetSpinner) aLinearLayout.findViewById(R.id.disposition_target__spinner);
+	protected StrategicAssetWidgetSpinner findTargetWidgetSpinner(LinearLayout aLinearLayout) {
+        StrategicAssetWidgetSpinner theWidgetSpinner =
+				(StrategicAssetWidgetSpinner) aLinearLayout.findViewById(R.id.disposition_target__spinner);
 		theWidgetSpinner.setGcgActivity(this.gcgActivity);
 		return theWidgetSpinner;
 	}
@@ -104,21 +103,21 @@ public class StrategicAssetDeleteDialog extends HeadlineNodeDeleteDialog {
 	@Override
 	protected void setInitialTargetGrandparentSpinnerData(DeleteDisposition aDeleteDisposition) {
 		((FiscalYearWidgetSpinner) aDeleteDisposition.getTargetGrandparentWidgetSpinner()).updateSpinnerData(
-				(ProjectAsset) aDeleteDisposition.getTargetHeadlineNodeException());
+				(StrategicAsset) aDeleteDisposition.getTargetHeadlineNodeException());
 	}
 
 	@Override
 	protected void updateTargetParentWidgetSpinner(final DeleteDisposition aDeleteDisposition) {
 		((StrategicMilestoneWidgetSpinner) aDeleteDisposition.getTargetParentWidgetSpinner()).updateSpinnerData(
 				(FiscalYear) aDeleteDisposition.getTargetGrandparentWidgetSpinner().getFmmNode(),
-				(ProjectAsset) aDeleteDisposition.getTargetHeadlineNodeException() );
+				(StrategicAsset) aDeleteDisposition.getTargetHeadlineNodeException() );
 	}
 
 	@Override
 	protected void updateTargetWidgetSpinner(final DeleteDisposition aDeleteDisposition) {
-		((ProjectAssetWidgetSpinner) aDeleteDisposition.getTargetWidgetSpinner()).updateSpinnerData(
+		((StrategicAssetWidgetSpinner) aDeleteDisposition.getTargetWidgetSpinner()).updateSpinnerData(
 				(StrategicMilestone) aDeleteDisposition.getTargetParentWidgetSpinner().getSelectedItem(),
-				(ProjectAsset) aDeleteDisposition.getTargetHeadlineNodeException() );
+				(StrategicAsset) aDeleteDisposition.getTargetHeadlineNodeException() );
 	}
 
 	@Override

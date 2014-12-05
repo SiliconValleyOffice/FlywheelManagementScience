@@ -50,7 +50,9 @@ import com.flywheelms.gcongui.gcg.interfaces.GcgGuiable;
 import com.flywheelms.library.fmm.node.impl.enumerator.FmmNodeDefinition;
 import com.flywheelms.library.fmm.node.impl.governable.Project;
 import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
+import com.flywheelms.library.fmm.node.impl.governable.StrategicAsset;
 import com.flywheelms.library.fmm.node.impl.governable.StrategicMilestone;
+import com.flywheelms.library.fmm.node.impl.governable.WorkAsset;
 import com.flywheelms.library.fmm.node.impl.governable.WorkPackage;
 import com.flywheelms.library.fms.activity.FmsActivity;
 import com.flywheelms.library.fms.widget.FmmHeadlineNodeWidgetSpinner;
@@ -63,7 +65,7 @@ public class ProjectAssetWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 	private Project project; // primary parent
 	private StrategicMilestone strategicMilestone; // secondary parent
 	private WorkPackage workPackageException;  // TODO - primary child that should be ignored
-	private ProjectAsset projectAssetException;  // a peer that should be ignored
+	private WorkAsset workAssetException;  // a peer that should be ignored
 	
 	public ProjectAssetWidgetSpinner(Context aContext) {
 		super(aContext);
@@ -97,7 +99,7 @@ public class ProjectAssetWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 			theGuiableList = new ArrayList<GcgGuiable>(); 
 		} else {	
 			theGuiableList = new ArrayList<GcgGuiable>(FmsActivity.getActiveDatabaseMediator().retrieveProjectAssetList(
-                    this.project, this.projectAssetException));
+                    this.project, this.workAssetException));
 		}
 		return theGuiableList;
 	}
@@ -148,13 +150,13 @@ public class ProjectAssetWidgetSpinner extends FmmHeadlineNodeWidgetSpinner {
 
 	public void updateSpinnerData(Project aProject, ProjectAsset aProjectAssetException) {
 		this.project = aProject;
-		this.projectAssetException = aProjectAssetException;
+		this.workAssetException = aProjectAssetException;
 		super.updateSpinnerData();
 	}
 
-	public void updateSpinnerData(StrategicMilestone aStrategicMilestone, ProjectAsset aProjectAssetException) {
+	public void updateSpinnerData(StrategicMilestone aStrategicMilestone, StrategicAsset aStrategicAssetException) {
 		this.strategicMilestone = aStrategicMilestone;
-		this.projectAssetException = aProjectAssetException;
+		this.workAssetException = aStrategicAssetException;
 		super.updateSpinnerData();
 	}
 	

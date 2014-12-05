@@ -196,7 +196,7 @@ public abstract class PersistenceTechnologyDelegate {
 
 	public abstract int countFiscalYearForWorkPackageMoveTarget(FmsOrganization anOrganization, ProjectAsset aProjectAssetException);
 
-	public abstract ArrayList<FiscalYear> retrieveFiscalYearListForWorkPackageMoveTarget(FmsOrganization anOrganization, ProjectAsset aProjectAssetException);
+	public abstract ArrayList<FiscalYear> retrieveFiscalYearListForWorkPackageMoveTarget(FmsOrganization anOrganization, WorkAsset aStrategicAssetException);
 
 	public abstract int countFiscalYearForCadenceMoveTarget(FmsOrganization anOrganization, FiscalYear aFiscalYearException);
 
@@ -280,7 +280,7 @@ public abstract class PersistenceTechnologyDelegate {
 
     public abstract int countStrategicMilestoneForWorkPackageMoveTarget(FiscalYear aFiscalYear, ProjectAsset aProjectAssetException);
 
-    public abstract ArrayList<StrategicMilestone> retrieveStrategicMilestoneListForWorkPackageMoveTarget(FiscalYear aFiscalYear, ProjectAsset aProjectAssetException);
+    public abstract ArrayList<StrategicMilestone> retrieveStrategicMilestoneListForWorkPackageMoveTarget(FiscalYear aFiscalYear, WorkAsset aStrategicAssetException);
 
     public abstract int moveAllStrategicMilestonesIntoFiscalYear(
             String aCurrentFiscalYearId,

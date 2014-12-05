@@ -2130,6 +2130,7 @@ public enum FmmNodeDefinition implements FmmEnumNode {
 		STRATEGIC_MILESTONE.setPrimaryParentNodeDefinition(FmmNodeDefinition.FISCAL_YEAR);
         STRATEGIC_MILESTONE.setPrimaryParentIdColumnName(StrategicMilestoneMetaData.column_FISCAL_YEAR_ID);
 		STRATEGIC_MILESTONE.setPrimaryLinkNodeDefinition(FmmNodeDefinition.STRATEGIC_ASSET);
+		STRATEGIC_ASSET.setPrimaryChildNodeDefinition(FmmNodeDefinition.WORK_PACKAGE);
 		STRATEGIC_ASSET.setPrimaryParentNodeDefinition(FmmNodeDefinition.PROJECT);
 		STRATEGIC_ASSET.setPrimaryParentIdColumnName(StrategicAssetMetaData.column_PROJECT_ID);
         STRATEGIC_ASSET.setSecondaryParentNodeDefinition(FmmNodeDefinition.STRATEGIC_MILESTONE);
