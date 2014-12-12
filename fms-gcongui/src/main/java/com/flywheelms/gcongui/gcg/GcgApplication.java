@@ -99,6 +99,10 @@ public abstract class GcgApplication extends Application {
     	return GcgApplication.instance.getResources().getInteger(aResourceId);
     }
 
+    public static int getColorResource(int aResourceId) {
+        return GcgApplication.instance.getResources().getColor(aResourceId);
+    }
+
 	public static String getStringResource(int aResourceId) {
 		return GcgApplication.instance.getResources().getString(aResourceId);
 	}
