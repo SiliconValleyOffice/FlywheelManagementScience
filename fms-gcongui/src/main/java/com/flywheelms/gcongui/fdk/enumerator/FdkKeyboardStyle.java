@@ -59,13 +59,17 @@ public enum FdkKeyboardStyle {
 			GcgMultiShiftState.ALL_CAPS,
 			GcgMultiShiftState.CANCEL_CASE )), GcgMultiShiftState.CANCEL_CASE),
 	EXTENDED (R.layout.fdk__left_keypad__extended, R.layout.fdk__right_keypad__extended, new ArrayList<GcgMultiShiftState>(Arrays.asList(
-			GcgMultiShiftState.OFF,
-			GcgMultiShiftState.CTL,
-			GcgMultiShiftState.SHIFT,
-			GcgMultiShiftState.ALT,
-//			GcgMultiShiftState.ALT_SHIFT,
-//			GcgMultiShiftState.CTL_SHIFT,
-			GcgMultiShiftState.CANCEL_SHIFT )), GcgMultiShiftState.CANCEL_SHIFT),
+            GcgMultiShiftState.OFF,
+            GcgMultiShiftState.CTL,
+            GcgMultiShiftState.SHIFT,
+            GcgMultiShiftState.ALT,
+            GcgMultiShiftState.CANCEL_SHIFT )), GcgMultiShiftState.CANCEL_SHIFT),
+    INSTANT_DICTATION (0, 0, new ArrayList<GcgMultiShiftState>(Arrays.asList(
+            GcgMultiShiftState.OFF,
+            GcgMultiShiftState.CTL,
+            GcgMultiShiftState.SHIFT,
+            GcgMultiShiftState.ALT,
+            GcgMultiShiftState.CANCEL_SHIFT )), GcgMultiShiftState.CANCEL_SHIFT),
 	widget_input__SEARCH (R.layout.fdk__left_keypad__widget_input__search, R.layout.fdk__right_keypad__widget_input__search, new ArrayList<GcgMultiShiftState>(), null),
 	widget_input__SPINNER (R.layout.fdk__left_keypad__widget_input__spinner, R.layout.fdk__right_keypad__widget_input__spinner, new ArrayList<GcgMultiShiftState>(), null),
 	widget_input__EDIT_TEXT (R.layout.fdk__left_keypad__widget_input__edit_text, R.layout.fdk__right_keypad__widget_input__edit_text, new ArrayList<GcgMultiShiftState>(Arrays.asList(
@@ -80,7 +84,7 @@ public enum FdkKeyboardStyle {
 			GcgMultiShiftState.CAMEL_CASE,
 			GcgMultiShiftState.ALL_CAPS,
 			GcgMultiShiftState.CANCEL_CASE )), GcgMultiShiftState.CANCEL_CASE);
-	
+
 	private final int leftKeypadResourceId;
 	private final int rightKeypadResourceId;
 	private final ArrayList<GcgMultiShiftState> supportedMultiShiftStateList;
