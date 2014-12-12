@@ -64,7 +64,7 @@ public enum FdkKeyboardStyle {
             GcgMultiShiftState.SHIFT,
             GcgMultiShiftState.ALT,
             GcgMultiShiftState.CANCEL_SHIFT )), GcgMultiShiftState.CANCEL_SHIFT),
-    INSTANT_DICTATION (0, 0, new ArrayList<GcgMultiShiftState>(Arrays.asList(
+    widget_input__INSTANT_DICTATION (0, 0, new ArrayList<GcgMultiShiftState>(Arrays.asList(
             GcgMultiShiftState.OFF,
             GcgMultiShiftState.CTL,
             GcgMultiShiftState.SHIFT,
