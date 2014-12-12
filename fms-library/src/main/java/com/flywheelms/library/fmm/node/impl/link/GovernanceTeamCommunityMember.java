@@ -1,4 +1,4 @@
-/* @(#)StrategicTeamLinkToCommunityMember.java
+/* @(#)GovernanceTeamCommunityMember.java
 ** 
 ** Copyright (C) 2012 by Steven D. Stamps
 **
@@ -44,23 +44,22 @@
 package com.flywheelms.library.fmm.node.impl.link;
 
 import com.flywheelms.library.fmm.node.impl.governable.CommunityMember;
-import com.flywheelms.library.fmm.node.impl.governable.StrategyTeam;
+import com.flywheelms.library.fmm.node.impl.governable.FunctionalTeam;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmNode;
 
-public class StrategicTeamCommunityMember extends FmmLinkNodeImpl {
+public class GovernanceTeamCommunityMember extends FmmLinkNodeImpl {
 
-	public StrategicTeamCommunityMember(
-			String aParentNodeId,
-			String aChildNodeId ) {
+	public GovernanceTeamCommunityMember(
+            String aParentNodeId, String aChildNodeId) {
 		super(
-				StrategicTeamCommunityMember.class,
+				GovernanceTeamCommunityMember.class,
 				aParentNodeId,
 				aChildNodeId );
 	}
 
 	@Override
 	public Class<? extends FmmNode> getParentClass() {
-		return StrategyTeam.class;
+		return FunctionalTeam.class;
 	}
 
 	@Override

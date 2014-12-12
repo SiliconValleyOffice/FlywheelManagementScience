@@ -76,6 +76,7 @@ import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
 import com.flywheelms.library.fmm.node.impl.governable.FlywheelTeam;
 import com.flywheelms.library.fmm.node.impl.governable.FmsOrganization;
 import com.flywheelms.library.fmm.node.impl.governable.FunctionalTeam;
+import com.flywheelms.library.fmm.node.impl.governable.GovernanceTeam;
 import com.flywheelms.library.fmm.node.impl.governable.Notebook;
 import com.flywheelms.library.fmm.node.impl.governable.Portfolio;
 import com.flywheelms.library.fmm.node.impl.governable.Project;
@@ -95,12 +96,13 @@ import com.flywheelms.library.fmm.node.impl.link.DiscussionTopicLinkToNodeFragAu
 import com.flywheelms.library.fmm.node.impl.link.FacilitationIssueNodeTarget;
 import com.flywheelms.library.fmm.node.impl.link.FlywheelTeamCommunityMember;
 import com.flywheelms.library.fmm.node.impl.link.FunctionalTeamCommunityMember;
+import com.flywheelms.library.fmm.node.impl.link.GovernanceTeamCommunityMember;
 import com.flywheelms.library.fmm.node.impl.link.NotebookLinkToDiscussionTopic;
 import com.flywheelms.library.fmm.node.impl.link.OrganizationCommunityMember;
 import com.flywheelms.library.fmm.node.impl.link.OrganizationGovernanceTarget;
 import com.flywheelms.library.fmm.node.impl.link.OrganizationLockConfig;
 import com.flywheelms.library.fmm.node.impl.link.ServiceRequestLinkToWorkTask;
-import com.flywheelms.library.fmm.node.impl.link.StrategicTeamCommunityMember;
+import com.flywheelms.library.fmm.node.impl.link.StrategyTeamCommunityMember;
 import com.flywheelms.library.fmm.node.impl.nodefrag.FragLock;
 import com.flywheelms.library.fmm.node.impl.nodefrag.HeadlineNodeTrash;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragAuditBlock;
@@ -167,7 +169,13 @@ public class FmmDatabaseBuilderSqLite implements FmmDatabaseBuilder {
 		createTable(aSqLiteDatabase, FacilitationIssue.class);
 		createTable(aSqLiteDatabase, FiscalYear.class);
 		createTable(aSqLiteDatabase, FlywheelTeam.class);
+		createTable(aSqLiteDatabase, FlywheelTeamCommunityMember.class);
 		createTable(aSqLiteDatabase, FunctionalTeam.class);
+		createTable(aSqLiteDatabase, FunctionalTeamCommunityMember.class);
+		createTable(aSqLiteDatabase, GovernanceTeam.class);
+		createTable(aSqLiteDatabase, GovernanceTeamCommunityMember.class);
+		createTable(aSqLiteDatabase, StrategyTeam.class);
+		createTable(aSqLiteDatabase, StrategyTeamCommunityMember.class);
 		createTable(aSqLiteDatabase, Notebook.class);
 		createTable(aSqLiteDatabase, FmsOrganization.class);
 		createTable(aSqLiteDatabase, Portfolio.class);
@@ -227,7 +235,7 @@ public class FmmDatabaseBuilderSqLite implements FmmDatabaseBuilder {
 		createTable(aSqLiteDatabase, OrganizationLockConfig.class);
 //		createTable(aSqLiteDatabase, PortfolioLinkToProject.class);
 		createTable(aSqLiteDatabase, ServiceRequestLinkToWorkTask.class);
-		createTable(aSqLiteDatabase, StrategicTeamCommunityMember.class);
+		createTable(aSqLiteDatabase, StrategyTeamCommunityMember.class);
 		createTable(aSqLiteDatabase, WorkTaskAssignment.class);
 	}
 

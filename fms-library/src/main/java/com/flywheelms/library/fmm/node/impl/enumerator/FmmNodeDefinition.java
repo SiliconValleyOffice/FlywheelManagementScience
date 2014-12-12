@@ -74,6 +74,7 @@ import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
 import com.flywheelms.library.fmm.node.impl.governable.FlywheelTeam;
 import com.flywheelms.library.fmm.node.impl.governable.FmsOrganization;
 import com.flywheelms.library.fmm.node.impl.governable.FunctionalTeam;
+import com.flywheelms.library.fmm.node.impl.governable.GovernanceTeam;
 import com.flywheelms.library.fmm.node.impl.governable.Notebook;
 import com.flywheelms.library.fmm.node.impl.governable.Portfolio;
 import com.flywheelms.library.fmm.node.impl.governable.Project;
@@ -95,12 +96,13 @@ import com.flywheelms.library.fmm.node.impl.link.DiscussionTopicLinkToNodeFragAu
 import com.flywheelms.library.fmm.node.impl.link.FacilitationIssueNodeTarget;
 import com.flywheelms.library.fmm.node.impl.link.FlywheelTeamCommunityMember;
 import com.flywheelms.library.fmm.node.impl.link.FunctionalTeamCommunityMember;
+import com.flywheelms.library.fmm.node.impl.link.GovernanceTeamCommunityMember;
 import com.flywheelms.library.fmm.node.impl.link.NotebookLinkToDiscussionTopic;
 import com.flywheelms.library.fmm.node.impl.link.OrganizationCommunityMember;
 import com.flywheelms.library.fmm.node.impl.link.OrganizationGovernanceTarget;
 import com.flywheelms.library.fmm.node.impl.link.OrganizationLockConfig;
 import com.flywheelms.library.fmm.node.impl.link.ServiceRequestLinkToWorkTask;
-import com.flywheelms.library.fmm.node.impl.link.StrategicTeamCommunityMember;
+import com.flywheelms.library.fmm.node.impl.link.StrategyTeamCommunityMember;
 import com.flywheelms.library.fmm.node.impl.nodefrag.FragLock;
 import com.flywheelms.library.fmm.node.impl.nodefrag.HeadlineNodeTrash;
 import com.flywheelms.library.fmm.node.impl.nodefrag.NodeFragAuditBlock;
@@ -394,8 +396,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     		R.string.fmm_node_definition__flywheel_team__definition,
     		R.drawable.fmm_noun__flywheel_team,
     		0,
-    		R.drawable.gcg__unspecified_glyph,
-    		R.drawable.gcg__unspecified_glyph,
+    		R.drawable.fms_activity__flywheel_team,
+    		R.drawable.fms_dialog__flywheel_team,
     		new HashMap<FmmNodeGlyphType, Integer>(),
     		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // tiny drawables
     		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // small drawables
@@ -514,8 +516,8 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     		R.string.fmm_node_definition__functional_team__definition,
     		R.drawable.fmm_noun__functional_team,
     		0,
-    		R.drawable.gcg__unspecified_glyph,
-    		R.drawable.gcg__unspecified_glyph,
+    		R.drawable.fms_activity__functional_team,
+    		R.drawable.fms_dialog__functional_team,
     		new HashMap<FmmNodeGlyphType, Integer>(),
     		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // tiny drawables
     		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // small drawables
@@ -537,6 +539,36 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // medium drawables
     		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // large drawables
     		10027 ),
+    GOVERNANCE_TEAM (
+            GovernanceTeam.class,
+            "UTE",
+            R.string.fmm_node_definition__governance_team__term,
+            R.string.fmm_node_definition__governance_team__definition,
+            R.drawable.fmm_noun__governance_team,
+            0,
+            R.drawable.fms_activity__governance_team,
+            R.drawable.fms_dialog__governance_team,
+            new HashMap<FmmNodeGlyphType, Integer>(),
+            new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // tiny drawables
+            new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // small drawables
+            new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // medium drawables
+            new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // large drawables
+            10101 ),
+    GOVERNANCE_TEAM_COMMUNITY_MEMBER (
+            GovernanceTeamCommunityMember.class,
+            "UTM",
+            R.string.fmm_node_definition__governance_team_community_member__term,
+            R.string.fmm_node_definition__governance_team_community_member__term,
+            R.drawable.gcg__null_drawable,
+            0,
+            R.drawable.gcg__unspecified_glyph,
+            R.drawable.gcg__unspecified_glyph,
+            new HashMap<FmmNodeGlyphType, Integer>(),
+            new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // tiny drawables
+            new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // small drawables
+            new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // medium drawables
+            new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // large drawables
+            10102 ),
     GOVERNANCE_PARTICIPATION_TYPE (
     		GovernanceParticipationType.class,
     		"GPT",
@@ -1055,16 +1087,16 @@ public enum FmmNodeDefinition implements FmmEnumNode {
     		R.string.fmm_node_definition__strategy_team__definition,
     		R.drawable.fmm_noun__strategy_team,
     		0,
-    		R.drawable.gcg__unspecified_glyph,
-    		R.drawable.gcg__unspecified_glyph,
+    		R.drawable.fms_activity__strategy_team,
+    		R.drawable.fms_dialog__strategy_team,
     		new HashMap<FmmNodeGlyphType, Integer>(),
     		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // tiny drawables
     		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // small drawables
     		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // medium drawables
     		new Hashtable<DecKanGlNounStateColor, BitmapDrawable>(),  // large drawables
     		10062 ),
-    STRATEGIC_TEAM_COMMUNITY_MEMBER (
-    		StrategicTeamCommunityMember.class,
+    STRATEGY_TEAM_COMMUNITY_MEMBER(
+    		StrategyTeamCommunityMember.class,
     		"STM",
     		R.string.fmm_node_definition__strategy_team_community_member__term,
     		R.string.fmm_node_definition__strategy_team_community_member__term,
