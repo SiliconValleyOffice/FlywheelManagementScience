@@ -42,17 +42,21 @@
  */
 package com.flywheelms.gcongui.gcg.helper;
 
+import android.content.ComponentName;
 import android.content.ContentUris;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.provider.ContactsContract;
 
+import com.flywheelms.gcongui.gcg.GcgApplication;
 import com.flywheelms.gcongui.gcg.activity.GcgActivity;
 import com.flywheelms.gcongui.gcg.dialog.GcgKeyboardShortcutsDialog;
 import com.flywheelms.gcongui.gcg.enumerator.GcgPhysicalKeyboardShortcutProfile;
 
 import java.io.File;
+import java.util.List;
 
 public class GcgActivityHelper {
 
@@ -128,5 +132,21 @@ public class GcgActivityHelper {
 
     public static void startGcgKeyboardShortcutsActivity(GcgActivity aGcgActivity, GcgPhysicalKeyboardShortcutProfile aKeyboardShortcutProfile) {
         aGcgActivity.startDialog(new GcgKeyboardShortcutsDialog(aGcgActivity, aKeyboardShortcutProfile));
+    }
+
+    public static List<ResolveInfo> getResolveInfoList(String anAction, String aCategory) {
+        Intent theIntent = new Intent(anAction, null);
+        theIntent.addCategory(aCategory);
+        return GcgApplication.getAppPackageManager().queryIntentActivities(theIntent,0);
+    }
+
+    public static Intent getIntentForResolveInfo(ResolveInfo aResolveInfo) {
+        ActivityInfo theActivityInfo = aResolveInfo.activityInfo;
+        ComponentName theComponentName = new ComponentName(theActivityInfo.applicationInfo.packageName, theActivityInfo.name);
+        Intent theIntent = new Intent(Intent.ACTION_MAIN);
+        theIntent.addCategory(Intent.CATEGORY_LAUNCHER);
+        theIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
+        theIntent.setComponent(theComponentName);
+        return theIntent;
     }
 }
