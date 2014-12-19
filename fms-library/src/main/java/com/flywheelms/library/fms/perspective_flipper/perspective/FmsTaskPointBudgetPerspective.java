@@ -96,6 +96,19 @@ public class FmsTaskPointBudgetPerspective extends FmsPerspectiveFlipperView {
         this.budgetByCommunityMemberWidget = (ByCommunityMemberWidgetTextView) findViewById(R.id.budget__by_community_member);
         this.budgetTimestampWidget = (TimestampWidgetTextView) findViewById(R.id.budget__timestamp);
         this.budgetDataQualityWidget= (FmmDataQualityWidgetSpinner) findViewById(R.id.budget__data_quality);
+
+        this.workBreakdownEstimateTaskPoints = (GcgWidgetGenericTextView) findViewById(R.id.work_breakdown__estimate__task_points);
+        this.workBreakdownEstimateTaskPoints.setText("0");
+        this.workBreakdownEstimateAverageHoursPerTaskPoint = (GcgWidgetGenericTextView) findViewById(R.id.work_breakdown__estimate__average_hours_per_task_point);
+        this.workBreakdownEstimateAverageHoursPerTaskPoint.setText("0.0");
+        this.workBreakdownBudgetTaskPoints = (GcgWidgetGenericTextView) findViewById(R.id.work_breakdown__budget__task_points);
+        this.workBreakdownBudgetTaskPoints.setText("0");
+        this.workBreakdownBudgetAverageHoursPerTaskPoint = (GcgWidgetGenericTextView) findViewById(R.id.work_breakdown__budget__average_hours_per_task_point);
+        this.workBreakdownBudgetAverageHoursPerTaskPoint.setText("0.0");
+        this.completionTaskPoints = (GcgWidgetGenericTextView) findViewById(R.id.completion__summary__task_points);
+        this.completionTaskPoints.setText("0");
+        this.completionAverageHoursPerTaskPoint = (GcgWidgetGenericTextView) findViewById(R.id.completion__average_hours_per_task_point);
+        this.completionAverageHoursPerTaskPoint.setText("0.0");
     }
 
     @Override
