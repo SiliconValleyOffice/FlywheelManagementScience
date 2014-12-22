@@ -47,7 +47,9 @@ import com.flywheelms.library.fmm.node.impl.governable.CommunityMember;
 import com.flywheelms.library.fmm.node.impl.governable.FiscalYear;
 import com.flywheelms.library.fmm.node.impl.governable.Project;
 import com.flywheelms.library.fmm.node.impl.governable.ProjectAsset;
+import com.flywheelms.library.fmm.node.impl.governable.StrategicAsset;
 import com.flywheelms.library.fmm.node.impl.governable.StrategicMilestone;
+import com.flywheelms.library.fmm.node.impl.governable.WorkAsset;
 import com.flywheelms.library.fmm.node.impl.governable.WorkPackage;
 import com.flywheelms.library.fmm.node.impl.governable.WorkTask;
 import com.flywheelms.library.fmm.node.interfaces.horizontal.FmmNode;
@@ -161,8 +163,63 @@ public enum FseStoryTemplate {
 			new FseTemplateParagraph(FseParagraphStyle.HEADING_2, FseParagraphNumberingStyle.DEFAULT, false, "1st benefit"),
 			new FseTemplateParagraph(FseParagraphStyle.BODY_2, FseParagraphNumberingStyle.DEFAULT, false, "Describe and explain the 1st benefit."),
 			new FseTemplateParagraph(FseParagraphStyle.HEADING_2, FseParagraphNumberingStyle.DEFAULT, false, "2nd tactical Challenge"),
-			new FseTemplateParagraph(FseParagraphStyle.BODY_2, FseParagraphNumberingStyle.DEFAULT, false, "Describe and explain the 2nd benefit.")
+			new FseTemplateParagraph(FseParagraphStyle.BODY_2, FseParagraphNumberingStyle.DEFAULT, false, "Describe and explain the 2nd benefit."),
+
+            new FseTemplateParagraph(FseParagraphStyle.HEADING_1, FseParagraphNumberingStyle.DEFAULT, true, "I-N-V-E-S-T"),
+            new FseTemplateParagraph(FseParagraphStyle.BODY_1, FseParagraphNumberingStyle.DEFAULT, false, "The INVEST mnemonic is a reminder of the key components for a good User Story in SCRUM or XP.  Strategic Assets are roughly equivalent to a User Story in traditional agile approaches."),
+            new FseTemplateParagraph(FseParagraphStyle.HEADING_2, FseParagraphNumberingStyle.DEFAULT, false, "I - Independent"),
+            new FseTemplateParagraph(FseParagraphStyle.BODY_2, FseParagraphNumberingStyle.DEFAULT, false, "What makes this independent?"),
+            new FseTemplateParagraph(FseParagraphStyle.HEADING_2, FseParagraphNumberingStyle.DEFAULT, false, "N - Negotiable"),
+            new FseTemplateParagraph(FseParagraphStyle.BODY_2, FseParagraphNumberingStyle.DEFAULT, false, "What aspects are negotiable?"),
+            new FseTemplateParagraph(FseParagraphStyle.HEADING_2, FseParagraphNumberingStyle.DEFAULT, false, "V - Valuable"),
+            new FseTemplateParagraph(FseParagraphStyle.BODY_2, FseParagraphNumberingStyle.DEFAULT, false, "What makes this valuable?"),
+            new FseTemplateParagraph(FseParagraphStyle.HEADING_2, FseParagraphNumberingStyle.DEFAULT, false, "E - Estimable"),
+            new FseTemplateParagraph(FseParagraphStyle.BODY_2, FseParagraphNumberingStyle.DEFAULT, false, "Can we do accurate Work Breakdown with meaningful Task Point estimates for each component?"),
+            new FseTemplateParagraph(FseParagraphStyle.HEADING_2, FseParagraphNumberingStyle.DEFAULT, false, "S - Scalable (sizing)"),
+            new FseTemplateParagraph(FseParagraphStyle.BODY_2, FseParagraphNumberingStyle.DEFAULT, false, "Can this be completed within 1 or 2 Cadences?"),
+            new FseTemplateParagraph(FseParagraphStyle.HEADING_2, FseParagraphNumberingStyle.DEFAULT, false, "T - Testable"),
+            new FseTemplateParagraph(FseParagraphStyle.BODY_2, FseParagraphNumberingStyle.DEFAULT, false, "Can we verify that user expectations have been met?")
 	} ),
+    STRATEGIC_ASSET (1, 0, new FseTemplateParagraph[] {
+            new FseTemplateParagraph(FseParagraphStyle.HEADING_1, FseParagraphNumberingStyle.DEFAULT, true, "Overview"),
+            new FseTemplateParagraph(FseParagraphStyle.BODY_1, FseParagraphNumberingStyle.DEFAULT, false, "Describe and explain the project asset."),
+
+            new FseTemplateParagraph(FseParagraphStyle.HEADING_1, FseParagraphNumberingStyle.DEFAULT, true, "Features"),
+            new FseTemplateParagraph(FseParagraphStyle.BODY_1, FseParagraphNumberingStyle.DEFAULT, false, "Brief overview of the features."),
+            new FseTemplateParagraph(FseParagraphStyle.HEADING_2, FseParagraphNumberingStyle.DEFAULT, false, "1st feature"),
+            new FseTemplateParagraph(FseParagraphStyle.BODY_2, FseParagraphNumberingStyle.DEFAULT, false, "Describe and explain the 1st feature."),
+            new FseTemplateParagraph(FseParagraphStyle.HEADING_2, FseParagraphNumberingStyle.DEFAULT, false, "2nd feature"),
+            new FseTemplateParagraph(FseParagraphStyle.BODY_2, FseParagraphNumberingStyle.DEFAULT, false, "Describe and explain the 2nd feature."),
+
+            new FseTemplateParagraph(FseParagraphStyle.HEADING_1, FseParagraphNumberingStyle.DEFAULT, true, "Benefits"),
+            new FseTemplateParagraph(FseParagraphStyle.BODY_1, FseParagraphNumberingStyle.DEFAULT, false, "Brief overview of the benefits."),
+            new FseTemplateParagraph(FseParagraphStyle.HEADING_2, FseParagraphNumberingStyle.DEFAULT, false, "1st benefit"),
+            new FseTemplateParagraph(FseParagraphStyle.BODY_2, FseParagraphNumberingStyle.DEFAULT, false, "Describe and explain the 1st benefit."),
+            new FseTemplateParagraph(FseParagraphStyle.HEADING_2, FseParagraphNumberingStyle.DEFAULT, false, "2nd tactical Challenge"),
+            new FseTemplateParagraph(FseParagraphStyle.BODY_2, FseParagraphNumberingStyle.DEFAULT, false, "Describe and explain the 2nd benefit."),
+
+            new FseTemplateParagraph(FseParagraphStyle.HEADING_1, FseParagraphNumberingStyle.DEFAULT, true, "Impact"),
+            new FseTemplateParagraph(FseParagraphStyle.BODY_1, FseParagraphNumberingStyle.DEFAULT, false, "Summary of the impact on the project; unit of measure, quantity, and description."),
+            new FseTemplateParagraph(FseParagraphStyle.HEADING_2, FseParagraphNumberingStyle.DEFAULT, false, "Source of Impact Metrics"),
+            new FseTemplateParagraph(FseParagraphStyle.BODY_2, FseParagraphNumberingStyle.DEFAULT, false, "Describe who provided the quantity for this Strategic Asset."),
+            new FseTemplateParagraph(FseParagraphStyle.HEADING_2, FseParagraphNumberingStyle.DEFAULT, false, "Impact Measurement Methodology"),
+            new FseTemplateParagraph(FseParagraphStyle.BODY_2, FseParagraphNumberingStyle.DEFAULT, false, "How did we come up with the quantity?"),
+
+            new FseTemplateParagraph(FseParagraphStyle.HEADING_1, FseParagraphNumberingStyle.DEFAULT, true, "I-N-V-E-S-T"),
+            new FseTemplateParagraph(FseParagraphStyle.BODY_1, FseParagraphNumberingStyle.DEFAULT, false, "The INVEST mnemonic is a reminder of the key components for a good User Story in SCRUM or XP.  Strategic Assets are roughly equivalent to a User Story in traditional agile approaches."),
+            new FseTemplateParagraph(FseParagraphStyle.HEADING_2, FseParagraphNumberingStyle.DEFAULT, false, "I - Independent"),
+            new FseTemplateParagraph(FseParagraphStyle.BODY_2, FseParagraphNumberingStyle.DEFAULT, false, "What makes this independent?"),
+            new FseTemplateParagraph(FseParagraphStyle.HEADING_2, FseParagraphNumberingStyle.DEFAULT, false, "N - Negotiable"),
+            new FseTemplateParagraph(FseParagraphStyle.BODY_2, FseParagraphNumberingStyle.DEFAULT, false, "What aspects are negotiable?"),
+            new FseTemplateParagraph(FseParagraphStyle.HEADING_2, FseParagraphNumberingStyle.DEFAULT, false, "V - Valuable"),
+            new FseTemplateParagraph(FseParagraphStyle.BODY_2, FseParagraphNumberingStyle.DEFAULT, false, "What makes this valuable?"),
+            new FseTemplateParagraph(FseParagraphStyle.HEADING_2, FseParagraphNumberingStyle.DEFAULT, false, "E - Estimable"),
+            new FseTemplateParagraph(FseParagraphStyle.BODY_2, FseParagraphNumberingStyle.DEFAULT, false, "Can we do accurate Work Breakdown with meaningful Task Point estimates for each component?"),
+            new FseTemplateParagraph(FseParagraphStyle.HEADING_2, FseParagraphNumberingStyle.DEFAULT, false, "S - Scalable (sizing)"),
+            new FseTemplateParagraph(FseParagraphStyle.BODY_2, FseParagraphNumberingStyle.DEFAULT, false, "Can this be completed within 1 or 2 Cadences?"),
+            new FseTemplateParagraph(FseParagraphStyle.HEADING_2, FseParagraphNumberingStyle.DEFAULT, false, "T - Testable"),
+            new FseTemplateParagraph(FseParagraphStyle.BODY_2, FseParagraphNumberingStyle.DEFAULT, false, "Can we verify that user expectations have been met?")
+    } ),
 	WORK_PACKAGE (1, 0, new FseTemplateParagraph[] {
 			new FseTemplateParagraph(FseParagraphStyle.HEADING_1, FseParagraphNumberingStyle.DEFAULT, true, "Overview"),
 			new FseTemplateParagraph(FseParagraphStyle.BODY_1, FseParagraphNumberingStyle.DEFAULT, false, "Overview of any new processes or technology that must be invented to complete this work package."),
@@ -223,7 +280,14 @@ public enum FseStoryTemplate {
 			new FseTemplateParagraph(FseParagraphStyle.HEADING_2, FseParagraphNumberingStyle.DEFAULT, false, "1st benefit"),
 			new FseTemplateParagraph(FseParagraphStyle.BODY_2, FseParagraphNumberingStyle.DEFAULT, false, "Describe and explain the 1st benefit."),
 			new FseTemplateParagraph(FseParagraphStyle.HEADING_2, FseParagraphNumberingStyle.DEFAULT, false, "2nd tactical Challenge"),
-			new FseTemplateParagraph(FseParagraphStyle.BODY_2, FseParagraphNumberingStyle.DEFAULT, false, "Describe and explain the 2nd benefit.")
+			new FseTemplateParagraph(FseParagraphStyle.BODY_2, FseParagraphNumberingStyle.DEFAULT, false, "Describe and explain the 2nd benefit."),
+
+            new FseTemplateParagraph(FseParagraphStyle.HEADING_1, FseParagraphNumberingStyle.DEFAULT, true, "Impact"),
+            new FseTemplateParagraph(FseParagraphStyle.BODY_1, FseParagraphNumberingStyle.DEFAULT, false, "Description of the impact; unit of measure, quantity, and description."),
+            new FseTemplateParagraph(FseParagraphStyle.HEADING_2, FseParagraphNumberingStyle.DEFAULT, false, "Source of Impact Metrics"),
+            new FseTemplateParagraph(FseParagraphStyle.BODY_2, FseParagraphNumberingStyle.DEFAULT, false, "Describe who provided the metric and quantity."),
+            new FseTemplateParagraph(FseParagraphStyle.HEADING_2, FseParagraphNumberingStyle.DEFAULT, false, "Impact Measurement Methodology"),
+            new FseTemplateParagraph(FseParagraphStyle.BODY_2, FseParagraphNumberingStyle.DEFAULT, false, "How did we come up with the quantity?")
 	} );
 	
 	private static final Hashtable<Class<? extends FmmNode>, FseStoryTemplate> fmmNodeMap = new Hashtable<Class<? extends FmmNode>, FseStoryTemplate>();
@@ -233,6 +297,8 @@ public enum FseStoryTemplate {
 		FseStoryTemplate.fmmNodeMap.put(FiscalYear.class, FISCAL_YEAR);
 		FseStoryTemplate.fmmNodeMap.put(Project.class, PROJECT);
 		FseStoryTemplate.fmmNodeMap.put(ProjectAsset.class, PROJECT_ASSET);
+		FseStoryTemplate.fmmNodeMap.put(StrategicAsset.class, STRATEGIC_ASSET);
+		FseStoryTemplate.fmmNodeMap.put(WorkAsset.class, STRATEGIC_ASSET);
 		FseStoryTemplate.fmmNodeMap.put(StrategicMilestone.class, STRATEGIC_MILESTONE);
 		FseStoryTemplate.fmmNodeMap.put(WorkPackage.class, WORK_PACKAGE);
 		FseStoryTemplate.fmmNodeMap.put(WorkTask.class, WORK_TASK);
