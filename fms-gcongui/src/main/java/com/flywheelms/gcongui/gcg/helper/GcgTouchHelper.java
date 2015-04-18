@@ -46,9 +46,6 @@ package com.flywheelms.gcongui.gcg.helper;
 import android.graphics.Rect;
 import android.view.View;
 
-/**
- * Created by sstamps on 1/4/15.
- */
 public class GcgTouchHelper {
 
     public static boolean inViewBounds(View aView, int anX, int aY){
