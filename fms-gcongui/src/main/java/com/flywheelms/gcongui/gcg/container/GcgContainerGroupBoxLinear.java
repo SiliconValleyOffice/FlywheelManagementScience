@@ -74,18 +74,17 @@ public class GcgContainerGroupBoxLinear extends LinearLayout {
 		int theArraySize = aTypedArray.getIndexCount();
 		for (int theIndex = 0; theIndex < theArraySize; ++theIndex) {
 			int theAttributeIndex = aTypedArray.getIndex(theIndex);
-			switch (theAttributeIndex) {
-				case R.styleable.GcgGroupBox_borderStyle:
-					this.borderStyle = aTypedArray.getInt(theAttributeIndex, 2);
-					setBackgroundResourceId();
-					break;
-				case R.styleable.GcgGroupBox_headingText:
-					this.headingText = aTypedArray.getString(theAttributeIndex);
-					break;
-				case R.styleable.GcgGroupBox_headingGravity:
-					this.headingGravity = aTypedArray.getString(theAttributeIndex);
-					break;
-				default:
+			if (theAttributeIndex == R.styleable.GcgGroupBox_borderStyle) {
+				this.borderStyle = aTypedArray.getInt(theAttributeIndex, 2);
+				setBackgroundResourceId();
+
+			} else if (theAttributeIndex == R.styleable.GcgGroupBox_headingText) {
+				this.headingText = aTypedArray.getString(theAttributeIndex);
+
+			} else if (theAttributeIndex == R.styleable.GcgGroupBox_headingGravity) {
+				this.headingGravity = aTypedArray.getString(theAttributeIndex);
+
+			} else {
 			}
 		}
 		aTypedArray.recycle();

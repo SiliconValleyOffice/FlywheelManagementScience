@@ -78,8 +78,7 @@ public class GovernanceTeamMemberWidgetSpinner extends GcgWidgetSpinner {
 		final int theArraySize = aTypedArray.getIndexCount();
 		for (int theIndex = 0; theIndex < theArraySize; ++theIndex) {
 			int theAttributeIndex = aTypedArray.getIndex(theIndex);
-			switch (theAttributeIndex) {
-				case R.styleable.FmsGovernance_governanceRole:
+			if(theAttributeIndex == R.styleable.FmsGovernance_governanceRole) {
 					this.governanceRole = GovernanceRole.getObjectForName(aTypedArray.getString(theAttributeIndex));
 					break;
 			}

@@ -98,20 +98,19 @@ public class GcgContainerTabbedLayout extends GcgContainer {
 		final int theArraySize = aTypedArray.getIndexCount();
 		for (int theIndex = 0; theIndex < theArraySize; ++theIndex) {
 			int theAttributeIndex = aTypedArray.getIndex(theIndex);
-			switch (theAttributeIndex) {
-				case R.styleable.GcgTabContainer_tabAlignment:
-					if(aTypedArray.getString(theAttributeIndex).equals("left")) {
-						this.leftTabAlignment = true;
-					} else {
-						this.leftTabAlignment = false;
-					}
-					break;
-				case R.styleable.GcgTabContainer_customTabbedLayout:
-					this.customTabbedLayoutResourceId = aTypedArray.getInteger(theAttributeIndex, 0);
-					break;
-				case R.styleable.GcgTabContainer_initialTabSelection:
-					this.initialTabSelection = aTypedArray.getInteger(theAttributeIndex, 0);
-					break;
+			if (theAttributeIndex == R.styleable.GcgTabContainer_tabAlignment) {
+				if (aTypedArray.getString(theAttributeIndex).equals("left")) {
+					this.leftTabAlignment = true;
+				} else {
+					this.leftTabAlignment = false;
+				}
+
+			} else if (theAttributeIndex == R.styleable.GcgTabContainer_customTabbedLayout) {
+				this.customTabbedLayoutResourceId = aTypedArray.getInteger(theAttributeIndex, 0);
+
+			} else if (theAttributeIndex == R.styleable.GcgTabContainer_initialTabSelection) {
+				this.initialTabSelection = aTypedArray.getInteger(theAttributeIndex, 0);
+
 			}
 		}
 		aTypedArray.recycle();

@@ -104,8 +104,7 @@ public class FmsGovernanceComponent extends LinearLayout {
 		int theArraySize = aTypedArray.getIndexCount();
 		for (int theIndex = 0; theIndex < theArraySize; ++theIndex) {
 			int theAttributeIndex = aTypedArray.getIndex(theIndex);
-			switch (theAttributeIndex) {
-				case R.styleable.FmsGovernance_governanceRole:
+			if(theAttributeIndex == R.styleable.FmsGovernance_governanceRole) {
 					this.governanceRole = GovernanceRole.getObjectForName(aTypedArray.getString(theAttributeIndex));
 					break;
 			}
@@ -115,8 +114,7 @@ public class FmsGovernanceComponent extends LinearLayout {
 		theArraySize = aTypedArray.getIndexCount();
 		for (int theIndex = 0; theIndex < theArraySize; ++theIndex) {
 			int theAttributeIndex = aTypedArray.getIndex(theIndex);
-			switch (theAttributeIndex) {
-				case R.styleable.GcgComponent_thumbPad:
+			if(theAttributeIndex == R.styleable.GcgComponent_thumbPad) {
 					this.isThumbPadRight = aTypedArray.getString(theAttributeIndex).equals("right");
 					break;
 			}

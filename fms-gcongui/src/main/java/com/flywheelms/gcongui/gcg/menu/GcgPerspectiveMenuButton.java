@@ -82,13 +82,12 @@ public class GcgPerspectiveMenuButton extends Button {
 		final int theArraySize = aTypedArray.getIndexCount();
 		for (int theIndex = 0; theIndex < theArraySize; ++theIndex) {
 			int theAttributeIndex = aTypedArray.getIndex(theIndex);
-			switch (theAttributeIndex) {
-				case R.styleable.GcgPerspectiveMenuButton_frameNumber:
-					this.frameNumber = aTypedArray.getInt(theAttributeIndex, 0);
-					break;
-				case R.styleable.GcgPerspectiveMenuButton_perspectiveNumber:
-					this.perspectiveNumber = aTypedArray.getInt(theAttributeIndex, 0);
-					break;
+			if (theAttributeIndex == R.styleable.GcgPerspectiveMenuButton_frameNumber) {
+				this.frameNumber = aTypedArray.getInt(theAttributeIndex, 0);
+
+			} else if (theAttributeIndex == R.styleable.GcgPerspectiveMenuButton_perspectiveNumber) {
+				this.perspectiveNumber = aTypedArray.getInt(theAttributeIndex, 0);
+
 			}
 		}
 		aTypedArray.recycle();

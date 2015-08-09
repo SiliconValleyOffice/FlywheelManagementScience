@@ -113,16 +113,15 @@ public abstract class GcgWidgetListView <T> extends LinearLayout {
 		final int theArraySize = aTypedArray.getIndexCount();
 		for (int theIndex = 0; theIndex < theArraySize; ++theIndex) {
 			int theAttributeIndex = aTypedArray.getIndex(theIndex);
-			switch (theAttributeIndex) {
-				case R.styleable.GcgWidget_containerLayout:
-					this.containerLayout = aTypedArray.getString(theAttributeIndex);
-					break;
-				case R.styleable.GcgWidget_requestCode:
-					this.requestCode = aTypedArray.getInt(theAttributeIndex, 0);
-					break;
-				case R.styleable.GcgWidget_requestCode2:
-					this.requestCode2 = aTypedArray.getInt(theAttributeIndex, 0);
-					break;
+			if (theAttributeIndex == R.styleable.GcgWidget_containerLayout) {
+				this.containerLayout = aTypedArray.getString(theAttributeIndex);
+
+			} else if (theAttributeIndex == R.styleable.GcgWidget_requestCode) {
+				this.requestCode = aTypedArray.getInt(theAttributeIndex, 0);
+
+			} else if (theAttributeIndex == R.styleable.GcgWidget_requestCode2) {
+				this.requestCode2 = aTypedArray.getInt(theAttributeIndex, 0);
+
 			}
 		}
 		aTypedArray.recycle();
@@ -134,19 +133,18 @@ public abstract class GcgWidgetListView <T> extends LinearLayout {
 		final int theArraySize = aTypedArray.getIndexCount();
 		for (int theIndex = 0; theIndex < theArraySize; ++theIndex) {
 			int theAttributeIndex = aTypedArray.getIndex(theIndex);
-			switch (theAttributeIndex) {
-				case R.styleable.GcgLabel_labelWidth:
-					this.labelWidth = aTypedArray.getInteger(theAttributeIndex, 0);
-					break;
-				case R.styleable.GcgLabel_labelPrefix:
-					this.labelPrefix = aTypedArray.getString(theAttributeIndex);
-					break;
-				case R.styleable.GcgLabel_labelSuffix:
-					this.labelSuffix= aTypedArray.getString(theAttributeIndex);
-					break;
-				case R.styleable.GcgLabel_labelHint:
-					this.labelHint= aTypedArray.getString(theAttributeIndex);
-					break;
+			if (theAttributeIndex == R.styleable.GcgLabel_labelWidth) {
+				this.labelWidth = aTypedArray.getInteger(theAttributeIndex, 0);
+
+			} else if (theAttributeIndex == R.styleable.GcgLabel_labelPrefix) {
+				this.labelPrefix = aTypedArray.getString(theAttributeIndex);
+
+			} else if (theAttributeIndex == R.styleable.GcgLabel_labelSuffix) {
+				this.labelSuffix = aTypedArray.getString(theAttributeIndex);
+
+			} else if (theAttributeIndex == R.styleable.GcgLabel_labelHint) {
+				this.labelHint = aTypedArray.getString(theAttributeIndex);
+
 			}
 		}
 		aTypedArray.recycle();

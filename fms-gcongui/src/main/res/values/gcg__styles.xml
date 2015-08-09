@@ -52,7 +52,7 @@
         <item name="android:textSize">16.0dp</item>
     </style>
     
-    <style name="GcgDataWithDrawable" parent="@GcgData">
+    <style name="GcgDataWithDrawable" parent="GcgData">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:drawablePadding">@dimen/gcg__widget__label__padding_right</item>
     </style>

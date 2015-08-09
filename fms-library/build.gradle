@@ -1,12 +1,12 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 19
-    buildToolsVersion "20.0.0"
+    compileSdkVersion 22
+    buildToolsVersion "22.0.1"
 
     defaultConfig {
         minSdkVersion 17
-        targetSdkVersion 19
+        targetSdkVersion 22
     }
 
     buildTypes {
@@ -22,7 +22,7 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:support-v4:20.0.0'
+    compile 'com.android.support:support-v4:22+'
     compile files('libs/sc-light-jdk15on-1.47.0.3.jar')
     compile files('libs/scprov-jdk15on-1.47.0.3.jar')
     compile files('libs/scpkix-jdk15on-1.47.0.3.jar')

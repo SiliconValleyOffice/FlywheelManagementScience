@@ -110,17 +110,16 @@ public abstract class GcgWidgetSpinner extends GcgWidget {
 		final int theArraySize = aTypedArray.getIndexCount();
 		for (int theIndex = 0; theIndex < theArraySize; ++theIndex) {
 			int theAttributeIndex = aTypedArray.getIndex(theIndex);
-			switch (theAttributeIndex) {
-				case R.styleable.GcgSpinnner_filterParameterRequired:
-					setFilterParameterRequired(aTypedArray.getBoolean(theAttributeIndex, false));
-					this.filterParameterRequirementWasSet = true;
-					break;
-				case R.styleable.GcgSpinnner_filterId:
-					setFilterId(aTypedArray.getString(theAttributeIndex));
-					if(! this.filterParameterRequirementWasSet && ! getFilterId().equals(filter_id__NO_FILTER)) {
-						this.filterParameterRequired = true;
-					}
-					break;
+			if (theAttributeIndex == R.styleable.GcgSpinnner_filterParameterRequired) {
+				setFilterParameterRequired(aTypedArray.getBoolean(theAttributeIndex, false));
+				this.filterParameterRequirementWasSet = true;
+
+			} else if (theAttributeIndex == R.styleable.GcgSpinnner_filterId) {
+				setFilterId(aTypedArray.getString(theAttributeIndex));
+				if (!this.filterParameterRequirementWasSet && !getFilterId().equals(filter_id__NO_FILTER)) {
+					this.filterParameterRequired = true;
+				}
+
 			}
 		}
 		aTypedArray.recycle();

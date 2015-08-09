@@ -124,25 +124,24 @@ public abstract class GcgContainer extends LinearLayout {
 		final int theArraySize = aTypedArray.getIndexCount();
 		for (int theIndex = 0; theIndex < theArraySize; ++theIndex) {
 			int theAttributeIndex = aTypedArray.getIndex(theIndex);
-			switch (theAttributeIndex) {
-				case R.styleable.GcgWidget_containerLayout:
-					this.containerLayout = aTypedArray.getString(theAttributeIndex);
-					break;
-				case R.styleable.GcgWidget_scrollableContent:
-					this.scrollableContent = aTypedArray.getBoolean(theAttributeIndex, false);
-					break;
-				case R.styleable.GcgWidget_onClick:
-					this.onClick = aTypedArray.getString(theAttributeIndex);
-					break;
-				case R.styleable.GcgWidget_onLongClick:
-					this.onClick = aTypedArray.getString(theAttributeIndex);
-					break;
-				case R.styleable.GcgWidget_transparentBackground:
-					this.isTransparentBackground = aTypedArray.getBoolean(theAttributeIndex, false);
-					break;
-				case R.styleable.GcgWidget_inputEnabled:
-					this.inputEnabled = aTypedArray.getBoolean(theAttributeIndex, true);
-					break;
+			if (theAttributeIndex == R.styleable.GcgWidget_containerLayout) {
+				this.containerLayout = aTypedArray.getString(theAttributeIndex);
+
+			} else if (theAttributeIndex == R.styleable.GcgWidget_scrollableContent) {
+				this.scrollableContent = aTypedArray.getBoolean(theAttributeIndex, false);
+
+			} else if (theAttributeIndex == R.styleable.GcgWidget_onClick) {
+				this.onClick = aTypedArray.getString(theAttributeIndex);
+
+			} else if (theAttributeIndex == R.styleable.GcgWidget_onLongClick) {
+				this.onClick = aTypedArray.getString(theAttributeIndex);
+
+			} else if (theAttributeIndex == R.styleable.GcgWidget_transparentBackground) {
+				this.isTransparentBackground = aTypedArray.getBoolean(theAttributeIndex, false);
+
+			} else if (theAttributeIndex == R.styleable.GcgWidget_inputEnabled) {
+				this.inputEnabled = aTypedArray.getBoolean(theAttributeIndex, true);
+
 			}
 		}
 		aTypedArray.recycle();
@@ -154,19 +153,18 @@ public abstract class GcgContainer extends LinearLayout {
 		final int theArraySize = aTypedArray.getIndexCount();
 		for (int theIndex = 0; theIndex < theArraySize; ++theIndex) {
 			int theAttributeIndex = aTypedArray.getIndex(theIndex);
-			switch (theAttributeIndex) {
-				case R.styleable.GcgLabel_labelWidth:
-					this.labelWidth = aTypedArray.getInteger(theAttributeIndex, 0);
-					break;
-				case R.styleable.GcgLabel_labelText:
-					this.labelTextString = aTypedArray.getString(theAttributeIndex);
-					break;
-				case R.styleable.GcgLabel_labelPrefix:
-					this.labelPrefix = aTypedArray.getString(theAttributeIndex);
-					break;
-				case R.styleable.GcgLabel_labelSuffix:
-					this.labelSuffix= aTypedArray.getString(theAttributeIndex);
-					break;
+			if (theAttributeIndex == R.styleable.GcgLabel_labelWidth) {
+				this.labelWidth = aTypedArray.getInteger(theAttributeIndex, 0);
+
+			} else if (theAttributeIndex == R.styleable.GcgLabel_labelText) {
+				this.labelTextString = aTypedArray.getString(theAttributeIndex);
+
+			} else if (theAttributeIndex == R.styleable.GcgLabel_labelPrefix) {
+				this.labelPrefix = aTypedArray.getString(theAttributeIndex);
+
+			} else if (theAttributeIndex == R.styleable.GcgLabel_labelSuffix) {
+				this.labelSuffix = aTypedArray.getString(theAttributeIndex);
+
 			}
 		}
 		aTypedArray.recycle();

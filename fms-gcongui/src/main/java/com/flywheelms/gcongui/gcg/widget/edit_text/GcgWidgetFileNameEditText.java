@@ -82,13 +82,12 @@ public class GcgWidgetFileNameEditText extends GcgWidgetEditText {
 		final int theArraySize = aTypedArray.getIndexCount();
 		for (int theIndex = 0; theIndex < theArraySize; ++theIndex) {
 			int theAttributeIndex = aTypedArray.getIndex(theIndex);
-			switch (theAttributeIndex) {
-				case R.styleable.GcgFile_fileNameExtension:
-					this.fileNameExtension = aTypedArray.getString(theAttributeIndex);
-					break;
-				case R.styleable.GcgFile_minimumBaseFileNameLength:
-					this.minimumBaseFileNameLength = aTypedArray.getInteger(theAttributeIndex, 3);
-					break;
+			if (theAttributeIndex == R.styleable.GcgFile_fileNameExtension) {
+				this.fileNameExtension = aTypedArray.getString(theAttributeIndex);
+
+			} else if (theAttributeIndex == R.styleable.GcgFile_minimumBaseFileNameLength) {
+				this.minimumBaseFileNameLength = aTypedArray.getInteger(theAttributeIndex, 3);
+
 			}
 		}
 		aTypedArray.recycle();
