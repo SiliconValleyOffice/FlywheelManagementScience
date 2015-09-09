@@ -50,6 +50,7 @@ import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.flywheelms.gcongui.R;
 import com.flywheelms.gcongui.fdk.FdkHostSupport;
